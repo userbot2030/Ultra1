@@ -1,4 +1,4 @@
-name: CyberXGithub
+name: TOMI
  
 on: [push, pull_request]
  
@@ -28,9 +28,9 @@ jobs:
           black .
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: '`Automatic Correction`'
+          commit_message: '`something`'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: CyberXGithub
-          commit_user_email: 96681219+CyberXGithub@users.noreply.github.com
-          commit_author: CyberXGithub <96681219+CyberXGithub@users.noreply.github.com>
+          commit_user_name: XtomiSN
+          commit_user_email: 90341045+XtomiSN@users.noreply.github.com
+          commit_author: XtomiSN <90341045+XtomiSN@users.noreply.github.com>
