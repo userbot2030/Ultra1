@@ -23,7 +23,7 @@ getLogger("").addHandler(console)
 
 
 bot = Client(
-    name=BOT_TOKEN.split(":", 1)[0],
+    name=int(random.randrange(999999)),
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
@@ -71,7 +71,7 @@ class Ubot(Client):
 
 
 ubot = Ubot(
-    name=random.randrange(999999),
+    name=int(random.randrange(999999)),
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
