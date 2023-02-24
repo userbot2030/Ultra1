@@ -15,7 +15,6 @@ requests
 rich==3.2.0
 unidecode
 attrify
-pyromod==1.1.0
 pySmartDL
 html2text
 removebg
