@@ -1,10 +1,9 @@
+import random
 from logging import *
-from typing import Callable
-import random 
+
 from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
-from pyromod import listen
 from rich.logging import RichHandler
 
 from .config import *
