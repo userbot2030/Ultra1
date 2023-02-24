@@ -1,5 +1,5 @@
 from PyroUbot.config import OWNER_ID
-from PyroUbot.core.database.premium import add_prem, add_seles, get_prem, get_seles
+from PyroUbot.core.database import add_prem, add_seles, get_prem, get_seles
 
 
 async def premium():
