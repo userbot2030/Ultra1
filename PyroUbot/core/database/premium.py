@@ -6,7 +6,7 @@ user = mongodb.premium
 
 async def get_prem():
     prem = await user.find_one({"prem": "prem"})
-    if not sudoers:
+    if not prem:
         return []
     return prem["prem"]
 
