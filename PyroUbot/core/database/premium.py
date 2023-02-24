@@ -8,7 +8,7 @@ async def get_prem():
     prem = await user.find_one({"prem": "prem"})
     if not prem:
         return []
-    return prem["prem"]
+    return prem["list"]
 
 
 async def add_prem(user_id):
