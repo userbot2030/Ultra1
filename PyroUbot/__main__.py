@@ -6,7 +6,7 @@ from pyrogram.methods.utilities.idle import idle
 from PyroUbot import bot, ubot
 from PyroUbot.core.functions.plugins import loadPlugins
 from PyroUbot.misc import premium
-from PyroUbot.core.database.userbot import get_userbots, remove_ubot
+from PyroUbot.core.database import get_userbots, remove_ubot
 
 
 async def main():
