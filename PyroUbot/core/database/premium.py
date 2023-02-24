@@ -1,29 +1,29 @@
 from PyroUbot.core.database import mongodb 
 
 
-prem = mongodb.premium
+user = mongodb.premium
 
 
 async def get_prem():
-    sudoers = await sudoersdb.find_one({"sudo": "sudo"})
+    prem = await user.find_one({"prem": "prem"})
     if not sudoers:
         return []
-    return sudoers["sudoers"]
+    return prem["prem"]
 
 
 async def add_prem(user_id):
-    sudoers = await get_prem()
-    sudoers.append(user_id)
-    await sudoersdb.update_one(
-        {"sudo": "sudo"}, {"$set": {"sudoers": sudoers}}, upsert=True
+    list = await get_prem()
+    list.append(user_id)
+    await user.update_one(
+        {"prem": "prem"}, {"$set": {"list": list}}, upsert=True
     )
     return True
 
 
 async def remove_prem(user_id):
-    sudoers = await get_prem()
-    sudoers.remove(user_id)
-    await sudoersdb.update_one(
-        {"sudo": "sudo"}, {"$set": {"sudoers": sudoers}}, upsert=True
+    list = await get_prem()
+    list.remove(user_id)
+    await user.update_one(
+        {"prem": "prem"}, {"$set": {"list": list}}, upsert=True
     )
     return True
