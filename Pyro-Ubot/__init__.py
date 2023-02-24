@@ -5,7 +5,6 @@ from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
-from pytgcalls import PyTgCalls
 from rich.logging import RichHandler
 
 from .config import *
@@ -37,7 +36,6 @@ class Ubot(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
-        self.call_py = PyTgCalls(self)
 
     def on_message(self, filters=None, group=0):
         def decorator(func):
@@ -47,25 +45,8 @@ class Ubot(Client):
 
         return decorator
 
-    def pytgcalls_decorator(self):
-        def decorator(func):
-            for ub in self._ubot:
-                try:
-                    if func.__name__ != "stream_end":
-                        ub.call_py.on_kicked()(func)
-                        ub.call_py.on_closed_voice_chat()(func)
-                        ub.call_py.on_left()(func)
-                    else:
-                        ub.call_py.on_stream_end()(func)
-                except:
-                    pass
-            return func
-
-        return decorator
-
     async def start(self):
         await super().start()
-        await self.call_py.start()
         if self not in self._ubot:
             self._ubot.append(self)
 
