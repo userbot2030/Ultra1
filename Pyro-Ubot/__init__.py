@@ -6,7 +6,7 @@ from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from rich.logging import RichHandler
 
-from .config import *
+from Pyro-Ubot.config import API_ID, API_HASH, BOT_TOKEN, SESSION_STRING
 
 basicConfig(
     level=INFO,
