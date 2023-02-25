@@ -4,8 +4,7 @@ from PyroUbot.core.database import mongodb
 chatsdb = mongodb.chats
 
 
-
-async def get_chat):
+async def get_chat():
     chat = await chatsdb.find_one({"music": "music"})
     if not chat:
         return []
