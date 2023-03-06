@@ -27,6 +27,6 @@ jobs:
           commit_message: 'auto fixes'
           commit_options: '--no-verify'
           repository: .
-          commit_user_name: CyberXGithub
-          commit_user_email: 96681219+CyberXGithub@users.noreply.github.com
-          commit_author: CyberXGithub <96681219+CyberXGithub@users.noreply.github.com>
+          commit_user_name: XtomiX
+          commit_user_email: 96681219+XtomiX@users.noreply.github.com
+          commit_author: XtomiX <96681219+XtomiX@users.noreply.github.com>
