@@ -2,7 +2,7 @@
   "name": "Pyro-Ubott",
   "version": "1.0.0",
   "scripts": {
-  "fix": "eslint --fix \"src/**/*.js\""
+  "fix": "eslint --fix \"src/**/*.py\""
 },
   "dependencies": {
     "eslint": "^7.10.0"
