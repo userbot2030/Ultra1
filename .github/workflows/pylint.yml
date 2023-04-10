@@ -28,3 +28,12 @@ jobs:
         run: |
           black .
           isort .
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'auto fixes'
+          commit_options: '--no-verify'
+          repository: .
+          commit_user_name: XtomiX
+          commit_user_email: 96681219+XtomiX@users.noreply.github.com
+          commit_author: XtomiX <96681219+XtomiX@users.noreply.github.com>
+
