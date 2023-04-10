@@ -6,6 +6,7 @@ from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
 
+
 async def main():
     await bot.start()
     print(f"INFO: Started Bot {bot.me.first_name} | {bot.me.id}")
