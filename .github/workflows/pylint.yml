@@ -46,7 +46,7 @@ jobs:
       with:
         commit_message: 'Auto-format code and remove unused imports/variables'
         commit_options: '--no-verify'
-        repository: .
+        repository: https://github.com/XtomiX/Pyro-Ubott
         commit_user_name: XtomiX
         commit_user_email: 96681219+XtomiX@users.noreply.github.com
         commit_author: XtomiX <96681219+XtomiX@users.noreply.github.com>
