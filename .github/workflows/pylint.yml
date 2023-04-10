@@ -2,51 +2,46 @@ name: PyLint
 on:
   push:
   pull_request:
-  
+
 jobs:
-  lint:
+  PEP8:
     runs-on: ubuntu-latest
-    
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.10]
+        python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install Python lint libraries
-      run: |
-        pip install pylint autopep8 autoflake isort black
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install autopep8 autoflake isort black
 
-    - name: Check for PEP8 compliance
-      run: |
-        pylint --exit-zero --max-line-length=120 *.py
+      - name: Check for showstoppers
+        run: |
+          autopep8 --verbose --in-place --recursive --aggressive --aggressive --ignore=W605 **/*.py
 
-    - name: Format code with autopep8 and black
-      run: |
-        autopep8 --in-place --recursive --aggressive --aggressive --ignore=W605 .
-        black .
+      - name: Remove unused imports and variables
+        run: |
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
 
-    - name: Remove unused imports and variables
-      run: |
-        autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
+      - name: Lint with isort and black
+        run: |
+          isort .
+          black .
 
-    - name: Sort imports with isort
-      run: |
-        isort .
-
-    - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: 'Auto-format code and remove unused imports/variables'
-        commit_options: '--no-verify'
-        repository: https://github.com/XtomiX/Pyro-Ubott
-        commit_user_name: XtomiX
-        commit_user_email: 96681219+XtomiX@users.noreply.github.com
-        commit_author: XtomiX <96681219+XtomiX@users.noreply.github.com>
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto fix PEP8 issues"
+          commit_options: "--no-verify"
+          commit_user_name: "XtomiX"
+          commit_user_email: "96681219+XtomiX@users.noreply.github.com"
+          commit_author: "XtomiX <96681219+XtomiX@users.noreply.github.com>"
