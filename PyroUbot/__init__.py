@@ -56,7 +56,7 @@ class Ubot(Client):
 ubot = Ubot(
     name="PyroUbot",
     api_id=API_ID,
-    api_hash="APi_HASH",
+    api_hash=APi_HASH,
     session_string=SESSION_STRING,
 )
 
