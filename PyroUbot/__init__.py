@@ -24,7 +24,7 @@ logging.getLogger("").addHandler(console)
 
 
 bot = Client(
-    name="bot",
+    name="PyroBot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
