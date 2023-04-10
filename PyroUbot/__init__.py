@@ -1,27 +1,30 @@
-import random
-from logging import *
+import logging
+from typing import Callable
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
+from pyromod import listen
 from rich.logging import RichHandler
 
 from .config import *
 
-basicConfig(
-    level=INFO,
+logging.basicConfig(
+    level=logging.INFO,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[RichHandler()],
 )
-console = StreamHandler()
-console.setLevel(ERROR)
-console.setFormatter(Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s"))
-getLogger("").addHandler(console)
+console = logging.StreamHandler()
+console.setLevel(logging.ERROR)
+console.setFormatter(
+    logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
+)
+logging.getLogger("").addHandler(console)
 
 
 bot = Client(
-    name=int(random.randrange(999999)),
+    name="bot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
@@ -51,10 +54,14 @@ class Ubot(Client):
 
 
 ubot = Ubot(
-    name=int(random.randrange(999999)),
+    name="PyroUbot",
     api_id=API_ID,
-    api_hash=API_HASH,
+    api_hash="APi_HASH",
     session_string=SESSION_STRING,
 )
 
+
 get_my_id = []
+get_my_peer = {}
+
+from .core import *
