@@ -1,7 +1,13 @@
-from pyrogram.types import InlineKeyboardButton, WebAppInfo
+from pyrogram.errors import MessageNotModified
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+)
+from PyroUbot import *
 
 
-class Button:
+class BUTTON:
     def admin():
         menu_button = [
             [
@@ -16,6 +22,27 @@ class Button:
             [InlineKeyboardButton("• KEMBALI •", callback_data="menu_help admin_back")]
         ]
         return [menu_button, back_button]
+
+    def download(message, query):
+        button = [
+            [
+                InlineKeyboardButton(
+                    text="🔈 Audio ",
+                    callback_data=f"ytdl_{query}_Audio {message.from_user.id}",
+                ),
+                InlineKeyboardButton(
+                    text="Video 🎥",
+                    callback_data=f"ytdl_{query}_Video {message.from_user.id}",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="🗑 Tutup 🗑",
+                    callback_data=f"1_cls {message.id} {message.from_user.id}",
+                ),
+            ],
+        ]
+        return button
 
     def sticker():
         menu_button = [
@@ -49,10 +76,7 @@ class Button:
         button = [
             [InlineKeyboardButton("🔥 BUAT USERBOT 🔥", callback_data="add_ubot")],
             [
-                InlineKeyboardButton(
-                    text="🎁 DONATE",
-                    web_app=WebAppInfo(url="https://graph.org/DONATE-02-10-2"),
-                ),
+                InlineKeyboardButton("💬 BANTUAN", callback_data="help_back"),
                 InlineKeyboardButton("SUPPORT 💬", callback_data="support"),
             ],
         ]
@@ -61,11 +85,53 @@ class Button:
     def translate():
         button = [
             [
-                InlineKeyboardButton("• KEMBALI", callback_data="help_back"),
                 InlineKeyboardButton(
-                    "LANG_CODE •",
-                    url="https://graph.org/LANG-CODE-11-26",
-                ),
-            ]
+                    "• LANG_CODE •", url="https://graph.org/LANG-CODE-11-26"
+                )
+            ],
+            [
+                InlineKeyboardButton("• KEMBALI •", callback_data="help_back"),
+            ],
         ]
         return button
+
+
+class INLINE:
+    def QUERY(func):
+        async def wrapper(client, inline_query):
+            users = get_my_id
+            if inline_query.from_user.id not in users:
+                await client.answer_inline_query(
+                    inline_query.id,
+                    cache_time=1,
+                    results=[
+                        (
+                            InlineQueryResultArticle(
+                                title=f"Anda belum order @{bot.me.username}",
+                                input_message_content=InputTextMessageContent(
+                                    f"Silahkan Order Di @{bot.me.username} Dulu Biar Bisa Menggunakan Inline Ini"
+                                ),
+                            )
+                        )
+                    ],
+                )
+            else:
+                await func(client, inline_query)
+
+        return wrapper
+
+    def DATA(func):
+        async def wrapper(client, callback_query):
+            users = get_my_id
+            if callback_query.from_user.id not in users:
+                await callback_query.answer(
+                    f"Makanya Order Userbot @{bot.me.username} Dulu Biar Bisa Klik Tombol Ini",
+                    True,
+                )
+            else:
+                try:
+                    await func(client, callback_query)
+                except MessageNotModified:
+                    await callback_query.answer("❌ ERROR")
+
+        return wrapper
