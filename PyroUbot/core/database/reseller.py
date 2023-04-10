@@ -1,5 +1,4 @@
-from PyroUbot.core.database import mongodb 
-
+from PyroUbot.core.database import mongodb
 
 resell = mongodb.seles
 
@@ -27,4 +26,3 @@ async def remove_seles(user_id):
         {"seles": "seles"}, {"$set": {"reseller": reseller}}, upsert=True
     )
     return True
-

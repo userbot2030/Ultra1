@@ -1,7 +1,8 @@
 import os
+
+import autopep8
 import git
 from pylint import epylint as lint
-import autopep8
 
 # Clone repository
 repo_url = "https://github.com/XtomiX/Pyro-Ubott.git"
@@ -13,17 +14,18 @@ os.chdir(repo_dir)
 
 # Run pylint on Python files in the repository
 pylint_options = ["--output-format", "json"]
-pylint_stdout, pylint_stderr = lint.py_run("*.py", return_std=True, 
-                                            arguments=pylint_options)
+pylint_stdout, pylint_stderr = lint.py_run(
+    "*.py", return_std=True, arguments=pylint_options
+)
 
 # Iterate through pylint output and automatically fix issues with autopep8
-for line in pylint_stdout.getvalue().split('\n'):
+for line in pylint_stdout.getvalue().split("\n"):
     if "path" in line:
         file_path = line.split(":")[0]
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             original_code = file.read()
         fixed_code = autopep8.fix_code(original_code)
-        with open(file_path, 'w') as file:
+        with open(file_path, "w") as file:
             file.write(fixed_code)
 
 # Commit changes to the repository and push to remote

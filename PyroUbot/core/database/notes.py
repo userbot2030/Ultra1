@@ -1,6 +1,5 @@
 from PytoUbot.core.database import mongo_client
 
-
 collection = mongo_client["PyroUbot"]["notes"]
 
 
@@ -28,6 +27,3 @@ async def all_notes():
         return key_list
     except:
         return None
-
-
-

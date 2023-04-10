@@ -1,6 +1,5 @@
 from PyroUbot.core.database import mongodb
 
-
 ubotdb = mongodb.ubot
 
 

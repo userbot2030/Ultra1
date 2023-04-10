@@ -4,8 +4,6 @@ from PyroUbot import ubot
 from PyroUbot.config import OWNER_ID
 
 
-
-
 class PY:
     def DEVS(command, prefix):
         def wrapper(func):
