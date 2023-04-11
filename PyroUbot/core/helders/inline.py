@@ -1,6 +1,9 @@
 from pyrogram.errors import MessageNotModified
-from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+)
 
 from PyroUbot import *
 
