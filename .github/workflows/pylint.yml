@@ -14,6 +14,12 @@ jobs:
         pip install black
     - name: Auto Fix
       run: python -m black .
+    - name: Update requirements.txt
+        run: |
+          pip freeze > requirements.txt
+          git add requirements.txt
+          git commit -m "Updated requirements.txt"
+          git push
     - name: Commit Changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
