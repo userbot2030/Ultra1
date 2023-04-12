@@ -16,7 +16,9 @@ async def get_note(user_id, note_name):
 
 
 async def rm_note(user_id, note_name):
-    await collection.update_one({"_id": user_id}, {"$unset": {f"notes.{note_name}": ""}})
+    await collection.update_one(
+        {"_id": user_id}, {"$unset": {f"notes.{note_name}": ""}}
+    )
 
 
 async def all_notes(user_id):
