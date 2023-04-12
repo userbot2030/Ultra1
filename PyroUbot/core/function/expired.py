@@ -22,6 +22,3 @@ async def premium():
                 )
         except:
             pass
-
-        
-        
