@@ -3,7 +3,7 @@ from yt_dlp import YoutubeDL
 from tomimusic.utils import run_sync
 
 
-async def youtube_download(url, as_video=False):
+async def YoutubeDownload(url, as_video=False):
     if as_video:
         ydl_opts = {
             "quiet": True,
