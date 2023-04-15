@@ -11,9 +11,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        pip install black
+        pip install black && pip install isort
+
     - name: Auto Fix
-      run: python -m black .
+      run: |
+        black .
+        isort .
+
     - name: Code Analysis
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
