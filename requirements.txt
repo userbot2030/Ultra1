@@ -25,4 +25,3 @@ telegraph
 heroku3
 openai
 youtube-search-python==1.4.9
-pytube
