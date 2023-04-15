@@ -2,24 +2,25 @@ import asyncio
 from yt_dlp import YoutubeDL
 from tomimusic.utils import run_sync
 
+
 async def youtube_download(url, as_video=False):
     if as_video:
         ydl_opts = {
-                "quiet": True,
-                "no_warnings": True,
-                "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
-                "outtmpl": "downloads/%(id)s.%(ext)s",
-                "nocheckcertificate": True,
-                "geo_bypass": True,
+            "quiet": True,
+            "no_warnings": True,
+            "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
+            "outtmpl": "downloads/%(id)s.%(ext)s",
+            "nocheckcertificate": True,
+            "geo_bypass": True,
         }
     else:
         ydl_opts = {
-                "quiet": True,
-                "no_warnings": True,
-                "format": "bestaudio[ext=m4a]",
-                "outtmpl": "downloads/%(id)s.%(ext)s",
-                "nocheckcertificate": True,
-                "geo_bypass": True,
+            "quiet": True,
+            "no_warnings": True,
+            "format": "bestaudio[ext=m4a]",
+            "outtmpl": "downloads/%(id)s.%(ext)s",
+            "nocheckcertificate": True,
+            "geo_bypass": True,
         }
     ydl = YoutubeDL(ydl_opts)
     ytdl_data = await run_sync(ydl.extract_info, url, download=True)
