@@ -2,6 +2,7 @@ from time import time as waktunya
 
 start_time = waktunya()
 
+
 async def get_time(seconds):
     count = 0
     up_time = ""
