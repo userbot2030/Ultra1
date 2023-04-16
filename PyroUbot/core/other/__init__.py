@@ -1,1 +1,1 @@
-from ..core.other.misc import *
+from ..core.other.decorators import *
