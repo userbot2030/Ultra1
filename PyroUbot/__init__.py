@@ -51,6 +51,7 @@ class Ubot(Client):
         if self not in self._ubot:
             self._ubot.append(self)
 
+
 ubot = Ubot(
     name="PyroUbot",
     api_id=API_ID,
