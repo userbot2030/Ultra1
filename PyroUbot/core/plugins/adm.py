@@ -5,6 +5,7 @@ from pyrogram.types import ChatPermissions
 
 from .. import *
 
+
 async def admin_bannen(client, message):
     if message.command[0] == "kick":
         user_id, reason = await extract_user_and_reason(message)
@@ -182,4 +183,3 @@ async def global_banned(client, message):
                 (user.last_name or ""),
             )
         )
-
