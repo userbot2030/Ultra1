@@ -7,7 +7,7 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 from rich.logging import RichHandler
 
-from ..config import *
+from .config import *
 
 logging.basicConfig(
     level=logging.INFO,
@@ -64,7 +64,7 @@ ubot = Ubot(
 get_my_id = []
 get_my_peer = {}
 
-from ..core.database import *
-from ..core.function import *
-from ..core.helders import *
-from ..core.other import *
+from .core.database import *
+from .core.function import *
+from .core.helders import *
+from .core.other import *
