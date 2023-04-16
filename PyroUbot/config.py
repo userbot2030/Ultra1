@@ -17,7 +17,10 @@ BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT").split()))
 
 RMBG_API = os.getenv("RMBG_API", "a6qxsmMJ3CsNo7HyxuKGsP1o")
 
-OPENAI_KEY = os.getenv("OPENAI_KEY", "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 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").split()
+OPENAI_KEY = os.getenv(
+    "OPENAI_KEY",
+    "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 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",
+).split()
 
 MONGO_URL = os.getenv("MONGO_URL")
 
