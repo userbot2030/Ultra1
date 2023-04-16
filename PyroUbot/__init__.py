@@ -22,7 +22,6 @@ console.setFormatter(
 )
 logging.getLogger("").addHandler(console)
 
-
 bot = Client(
     name="PyroBot",
     api_id=API_ID,
@@ -52,19 +51,17 @@ class Ubot(Client):
         if self not in self._ubot:
             self._ubot.append(self)
 
-
 ubot = Ubot(
     name="PyroUbot",
     api_id=API_ID,
-    api_hash=APi_HASH,
+    api_hash=API_HASH,
     session_string=SESSION_STRING,
 )
-
 
 get_my_id = []
 get_my_peer = {}
 
 from .core.database import *
 from .core.function import *
-from .core.helders import *
+from .core.helpers import *
 from .core.other import *
