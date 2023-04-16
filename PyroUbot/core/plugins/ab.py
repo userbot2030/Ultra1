@@ -220,9 +220,6 @@ async def cek_ubot(client, message):
     else:
         await message.reply(f"<b>{user}</b>")
 
-        
-        
-        
 
 async def hapus_ubot(client, callback_query):
     user_id = callback_query.from_user.id
