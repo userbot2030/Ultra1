@@ -22,6 +22,6 @@ aiohttp
 gpytranslate
 gtts
 telegraph
-heroku3
+pyromod==1.1.0
 openai
 youtube-search-python==1.4.9
