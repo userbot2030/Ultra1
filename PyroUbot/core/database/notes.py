@@ -29,7 +29,7 @@ async def all_notes(user_id):
         return key_list
     except:
         return None
-   
+
 
 async def rm_all(user_id):
     await collection.update_one({"_id": user_id}, {"$unset": {"notes": ""}})
