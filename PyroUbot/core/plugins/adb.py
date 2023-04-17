@@ -147,7 +147,7 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     for mod in loadModule():
-        importlib.reload(importlib.import_module(f"tomimusic.modules.{mod}"))
+        importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} Berhasil Diaktifkan Di Akun: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot.send_message(
         user_id,
@@ -237,11 +237,13 @@ async def hapus_ubot(client, callback_query):
             await remove_ubot(get_id)
             ubot._ubot.remove(X)
             get_my_id.remove(get_id)
+            await rm_all(get_id)
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} Berhasil Dihapus Dari Database</b>"
             )
-            await bot.send_message(get_id, "<b>💬 MASA AKTIF ANDA TELAH BERAKHIR")
-            return await rem_expired_date(get_id)
+            await rem_expired_date(get_id)
+            return await bot.send_message(get_id, "<b>💬 MASA AKTIF ANDA TELAH BERAKHIR")
+            
 
 
 async def is_cancel(callback_query, text):
