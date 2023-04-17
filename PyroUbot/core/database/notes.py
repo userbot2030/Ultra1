@@ -5,10 +5,10 @@ collection = mongo_client["PyroUbot"]["notes"]
 
 async def save_note(user_id, note_name, message):
     doc = {"_id": user_id, "notes": {note_name: message}}
-    result = await collection.find_one({"_id": 1})
+    result = await collection.find_one({"_id": user_id})
     if result:
         await collection.update_one(
-            {"_id": 1}, {"$set": {f"notes.{note_name}": note_id}}
+            {"_id": user_id}, {"$set": {f"notes.{note_name}": message}}
         )
     else:
         await collection.insert_one(doc)
