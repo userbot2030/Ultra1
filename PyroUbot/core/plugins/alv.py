@@ -9,7 +9,6 @@ from pyrogram.types import *
 from .. import *
 
 
-
 async def alive_cmd(client, message):
     try:
         x = await client.get_inline_bot_results(
@@ -18,7 +17,6 @@ async def alive_cmd(client, message):
         await message.reply_inline_bot_result(x.query_id, x.results[0].id)
     except Exception as error:
         await message.reply(error)
-
 
 
 async def alive_query(client, inline_query):
@@ -68,8 +66,7 @@ async def alive_query(client, inline_query):
                     )
                 ],
             )
-            
-            
+
 
 async def stats_alive(client, callback_query):
     if not callback_query.from_user.id == OWNER_ID:
@@ -93,10 +90,6 @@ MODULES: {len(HELP_COMMANDS) + len(HelpText)}
 """
     await callback_query.answer(stats, True)
 
-    
-    
-    
-    
 
 async def alive_close(cln, cq):
     get_id = cq.data.split()
