@@ -8,7 +8,7 @@ from pyrogram.types import (
 from PyroUbot import *
 
 
-class BUTTON:
+class Button:
     def admin():
         menu_button = [
             [
@@ -97,7 +97,7 @@ class BUTTON:
         return button
 
 
-class INLINE:
+class Inline:
     def QUERY(func):
         async def wrapper(client, inline_query):
             users = get_my_id
