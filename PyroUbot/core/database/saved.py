@@ -4,7 +4,7 @@ chatsdb = mongodb.chats
 
 
 async def get_chat():
-    chat = await chatsdb.find_one({"music": "music"})
+    chat = await chatsdb.find_one({"chat": "chat"})
     if not chat:
         return []
     return chat["list"]
