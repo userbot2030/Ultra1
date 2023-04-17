@@ -243,7 +243,6 @@ async def hapus_ubot(client, callback_query):
             )
             await rem_expired_date(get_id)
             return await bot.send_message(get_id, "<b>💬 MASA AKTIF ANDA TELAH BERAKHIR")
-            
 
 
 async def is_cancel(callback_query, text):
