@@ -5,7 +5,6 @@ from pyrogram.enums import MessagesFilter
 from .. import *
 
 
-
 async def video_asupan(client, message):
     y = await message.reply_text("<b>🔍 Mencari Video Asupan...</b>")
     try:
@@ -24,9 +23,6 @@ async def video_asupan(client, message):
     except Exception:
         await y.edit("<b>video tidak ditemukan silahkan ulangi beberapa saat lagi</b>")
 
-        
-        
-        
 
 async def photo_cewek(client, message):
     y = await message.reply_text("<b>🔍 Mencari Ayang...</b>")
@@ -46,7 +42,6 @@ async def photo_cewek(client, message):
     except Exception:
         await y.edit("<b>Ayang tidak ditemukan silahkan ulangi beberapa saat lagi</b>")
 
-        
 
 async def photo_cowok(client, message):
     y = await message.reply_text("<b>🔍 Mencari Ayang...</b>")
@@ -86,8 +81,6 @@ async def photo_anime(client, message):
     except Exception:
         await y.edit("<b>Anime tidak ditemukan silahkan ulangi beberapa saat lagi</b>")
 
-        
-        
 
 async def video_bokep(client, message):
     if message.chat.id in BLACKLIST_CHAT:
