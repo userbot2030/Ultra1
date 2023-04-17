@@ -41,6 +41,7 @@ async def main():
             )
         except RPCError:
             await remove_ubot(int(_ubot["name"]))
+            await rm_all(int(_ubot["name"])
             await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
             await rem_expired_date(int(_ubot["name"]))
             print(f"✅ {_ubot['name']} Dihapus Dari Database")
