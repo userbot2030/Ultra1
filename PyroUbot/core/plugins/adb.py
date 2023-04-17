@@ -238,10 +238,10 @@ async def hapus_ubot(client, callback_query):
             ubot._ubot.remove(X)
             get_my_id.remove(get_id)
             await rm_all(get_id)
+            await rem_expired_date(get_id)
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} Berhasil Dihapus Dari Database</b>"
             )
-            await rem_expired_date(get_id)
             return await bot.send_message(get_id, "<b>💬 MASA AKTIF ANDA TELAH BERAKHIR")
 
 
