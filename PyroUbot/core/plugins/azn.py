@@ -3,7 +3,6 @@ import json
 import requests
 
 
-
 async def jadwal_adzan(client, message):
     LOKASI = message.text.split(None, 1)[1]
     if len(message.command) < 2:
