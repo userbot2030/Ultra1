@@ -2,7 +2,14 @@ from datetime import datetime
 
 from pytz import timezone
 
-from PyroUbot import *
+from PyroUbot import bot, ubot
+from PyroUbot.config import OWNER_ID
+from PyroUbot.core.database import (
+    get_expired_date,
+    rem_expired_date,
+    remove_ubot,
+    rm_all,
+)
 
 
 async def premium():
