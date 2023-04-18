@@ -92,6 +92,9 @@ async def bikin_ubot(client, callback_query):
     await new_client.connect()
     try:
         code = await new_client.send_code(phone_number.strip())
+    except ApiIdInvalid as AID:
+        await get_otp.delete()
+        return await bot.send_message(user_id, AID)
     except PhoneNumberInvalid as PNI:
         await get_otp.delete()
         return await bot.send_message(user_id, PNI)
