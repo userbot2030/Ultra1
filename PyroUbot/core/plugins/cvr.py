@@ -9,8 +9,6 @@ from pyrogram.types import InputMediaPhoto
 from .. import *
 
 
-
-
 async def dl_pic(client, download):
     path = await client.download_media(download)
     with open(path, "rb") as f:
@@ -19,7 +17,6 @@ async def dl_pic(client, download):
     get_photo = BytesIO(content)
     return get_photo
 
-  
 
 async def convert_anime(client, message):
     Tm = await message.reply("<b>Tunggu sebentar...</b>")
