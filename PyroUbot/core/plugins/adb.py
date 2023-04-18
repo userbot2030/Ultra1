@@ -47,7 +47,10 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         api = await bot.ask(
             user_id,
-            "<b>Silahkan Masukkan API_HASH</b",
+            (
+                "<b>Silahkan Masukkan API_ID</b>\n"
+                "\n<b>Gunakan /cancel untuk Membatalkan Proses Membuat Userbot</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -59,7 +62,10 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         hash = await bot.ask(
             user_id,
-            "<b>Silahkan Masukkan API_HASH</b",
+            (
+                "<b>Silahkan Masukkan API_HASH</b>\n"
+                "\n<b>Gunakan /cancel untuk Membatalkan Proses Membuat Userbot</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
