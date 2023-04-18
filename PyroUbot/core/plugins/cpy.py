@@ -13,7 +13,6 @@ from pyrogram.types import (
 from .. import *
 
 
-
 async def copy_bot_msg(client, message):
     msg = message.reply_to_message or message
     Tm = await message.reply("Tunggu sebentar")
@@ -107,7 +106,7 @@ async def copy_inline_msg(client, inline_query):
             )
         ],
     )
-    
+
 
 async def copy_callback_msg(client, callback_query):
     try:
