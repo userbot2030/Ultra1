@@ -53,7 +53,7 @@ async def bikin_ubot(client, callback_query):
     except asyncio.TimeoutError:
         return await bot.send_message(user_id, "waktu Telah Habis")
     if await is_cancel(callback_query, api.text):
-        return 
+        return
     api_ids = api.text
     try:
         await callback_query.message.delete()
@@ -65,7 +65,7 @@ async def bikin_ubot(client, callback_query):
     except asyncio.TimeoutError:
         return await bot.send_message(user_id, "waktu Telah Habis")
     if await is_cancel(callback_query, hash.text):
-        return 
+        return
     api_hashs = hash.text
     try:
         await callback_query.message.delete()
