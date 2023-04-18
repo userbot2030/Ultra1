@@ -17,7 +17,7 @@ async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
     ID_SELES = await get_seles()
-    if len(ubot._ubot) == MAX_UBOT:
+    if len(ubot._ubot) == MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ Tutup 🗑️", callback_data="0_cls")],
         ]
