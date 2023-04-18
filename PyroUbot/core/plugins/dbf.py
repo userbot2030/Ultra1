@@ -5,11 +5,9 @@ from pytz import timezone
 from .. import *
 
 
-
 # ========================== #
-    # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℙℝ𝔼𝕄𝕀𝕌𝕄 #
+# 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℙℝ𝔼𝕄𝕀𝕌𝕄 #
 # ========================== #
-
 
 
 async def prem_user(client, message):
@@ -42,7 +40,6 @@ async def prem_user(client, message):
         await Tm.delete()
         await message.reply_text("Terjadi kesalahan, periksa log.")
 
-        
 
 async def unprem_user(client, message):
     user_id = await extract_user(message)
@@ -81,12 +78,13 @@ async def get_prem_user(cliebt, message):
         await message.reply_text("Tidak Ada Pengguna Yang Ditemukan")
     else:
         await message.reply_text(text)
-        
-        
+
+
 # ========================== #
-    # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℝ𝔼𝕊𝔼𝕃𝕃𝔼ℝ #
+# 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℝ𝔼𝕊𝔼𝕃𝕃𝔼ℝ #
 # ========================== #
-        
+
+
 async def seles_user(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("<b>Processing . . .</b>")
@@ -149,8 +147,9 @@ async def get_seles_user(cliebt, message):
     else:
         await message.reply_text(text)
 
+
 # ========================== #
-     # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 𝔼𝕏ℙ𝕀ℝ𝔼 #
+# 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 𝔼𝕏ℙ𝕀ℝ𝔼 #
 # ========================== #
 
 
@@ -176,4 +175,3 @@ async def expired_cek(client, message):
         await message.reply(
             f"User {user_id} aktif hingga {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. Sisa waktu aktif {remaining_days} hari."
         )
-
