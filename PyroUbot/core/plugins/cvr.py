@@ -89,8 +89,6 @@ async def convert_anime(client, message):
         )
         return await client.invoke(DeleteHistory(peer=info, max_id=0, revoke=True))
 
-    
-    
 
 async def convert_photo(client, message):
     try:
@@ -112,8 +110,7 @@ async def convert_photo(client, message):
             f"INFO: {e}",
             reply_to_message_id=message.id,
         )
-    
-    
+
 
 async def convert_sticker(client, message):
     try:
@@ -148,7 +145,6 @@ async def convert_gif(client, message):
         await TM.edit(error)
 
 
-
 async def convert_audio(client, message):
     replied = message.reply_to_message
     Tm = await message.reply("<b>Tunggu sebentar</b>")
@@ -177,7 +173,6 @@ async def convert_audio(client, message):
             await Tm.edit(error)
     else:
         return await Tm.edit("<b>Mohon Balas Ke Video</b>")
-
 
 
 async def convert_efek(client, message):
