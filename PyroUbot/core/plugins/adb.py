@@ -45,6 +45,30 @@ async def bikin_ubot(client, callback_query):
         )
     try:
         await callback_query.message.delete()
+        api = await bot.ask(
+            user_id,
+            "<b>Silahkan Masukkan API_HASH</b",
+            timeout=300,
+        )
+    except asyncio.TimeoutError:
+        return await bot.send_message(user_id, "waktu Telah Habis")
+    if await is_cancel(callback_query, api.text):
+        return 
+    api_ids = api.text
+    try:
+        await callback_query.message.delete()
+        hash = await bot.ask(
+            user_id,
+            "<b>Silahkan Masukkan API_HASH</b",
+            timeout=300,
+        )
+    except asyncio.TimeoutError:
+        return await bot.send_message(user_id, "waktu Telah Habis")
+    if await is_cancel(callback_query, hash.text):
+        return 
+    api_hashs = hash.text
+    try:
+        await callback_query.message.delete()
         phone = await bot.ask(
             user_id,
             (
@@ -60,8 +84,8 @@ async def bikin_ubot(client, callback_query):
     phone_number = phone.text
     new_client = Ubot(
         name=str(callback_query.id),
-        api_id=API_ID,
-        api_hash=API_HASH,
+        api_id=api_ids,
+        api_hash=api_hashs,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>Mengirim Kode OTP...</b>")
@@ -142,8 +166,8 @@ async def bikin_ubot(client, callback_query):
     await new_client.start()
     await add_ubot(
         user_id=int(new_client.me.id),
-        api_id=API_ID,
-        api_hash=API_HASH,
+        api_id=api_ids,
+        api_hash=api_hashs,
         session_string=session_string,
     )
     for mod in loadModule():
