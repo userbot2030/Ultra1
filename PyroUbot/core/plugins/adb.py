@@ -59,7 +59,6 @@ async def bikin_ubot(client, callback_query):
         return
     api_ids = api.text
     try:
-        await callback_query.message.delete()
         hash = await bot.ask(
             user_id,
             (
@@ -74,7 +73,6 @@ async def bikin_ubot(client, callback_query):
         return
     api_hashs = hash.text
     try:
-        await callback_query.message.delete()
         phone = await bot.ask(
             user_id,
             (
