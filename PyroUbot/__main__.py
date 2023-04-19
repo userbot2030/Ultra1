@@ -9,7 +9,6 @@ from PyroUbot import *
 
 async def main():
     await bot.start()
-    print(f"INFO: Started Bot {bot.me.first_name} | {bot.me.id}")
     await ubot.start()
     get_my_id.append(ubot.me.id)
     users = 0
@@ -20,9 +19,6 @@ async def main():
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group += 1
     get_my_peer[ubot.me.id] = {"group": group, "users": users}
-    print(
-        f"INFO: Started Selt {ubot.me.first_name} {ubot.me.last_name or ''} | {ubot.me.id}"
-    )
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
@@ -36,9 +32,6 @@ async def main():
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             get_my_peer[ubot_.me.id] = {"group": group, "users": users}
-            print(
-                f"INFO: Started Ubot {ubot_.me.first_name} {ubot_.me.last_name or ''} | {ubot_.me.id}"
-            )
         except RPCError:
             await remove_ubot(int(_ubot["name"]))
             await rm_all(int(_ubot["name"]))
