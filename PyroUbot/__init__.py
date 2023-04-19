@@ -7,6 +7,7 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 from rich.logging import RichHandler
 
+from pyrogram.enums import ChatType
 from .config import *
 
 logging.basicConfig(
@@ -30,6 +31,9 @@ bot = Client(
     parse_mode=ParseMode.HTML,
 )
 
+get_my_id = []
+get_my_peer = {}
+
 
 class Ubot(Client):
     __module__ = "pyrogram.client"
@@ -48,6 +52,15 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        get_my_id.append(ubot.me.id)
+        users = 0
+        group = 0
+        async for dialog in self.get_dialogs():
+            if dialog.chat.type == ChatType.PRIVATE:
+                users += 1
+            elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+                group += 1
+        get_my_peer[ubot.me.id] = {"group": group, "users": users}
         print(
             f"INFO: Started Ubot {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
         )
@@ -61,9 +74,6 @@ ubot = Ubot(
     api_hash=API_HASH,
     session_string=SESSION_STRING,
 )
-
-get_my_id = []
-get_my_peer = {}
 
 from .core.database import *
 from .core.function import *
