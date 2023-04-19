@@ -1,4 +1,3 @@
-import asyncio
 
 from tomimusic.utils import run_sync
 from yt_dlp import YoutubeDL

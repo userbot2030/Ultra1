@@ -3,12 +3,8 @@ from gc import get_objects
 
 from pyrogram.enums import MessagesFilter
 from pyrogram.errors import FloodWait
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
-)
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
+                            InlineQueryResultArticle, InputTextMessageContent)
 
 from .. import *
 
