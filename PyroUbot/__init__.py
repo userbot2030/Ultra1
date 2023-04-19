@@ -48,6 +48,9 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        print(
+            f"INFO: Started Ubot {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
+        )
         if self not in self._ubot:
             self._ubot.append(self)
 
