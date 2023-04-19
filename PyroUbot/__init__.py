@@ -2,12 +2,10 @@ import logging
 from typing import Callable
 
 from pyrogram import Client
-from pyrogram.enums import ParseMode
+from pyrogram.enums import ParseMode, ChatType
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 from rich.logging import RichHandler
-
-from pyrogram.enums import ChatType
 
 from .config import *
 
