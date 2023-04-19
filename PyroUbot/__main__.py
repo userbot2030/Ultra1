@@ -1,6 +1,5 @@
 from asyncio import get_event_loop_policy
 
-from pyrogram.enums import ChatType
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
