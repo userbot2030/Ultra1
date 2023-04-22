@@ -35,7 +35,6 @@ get_my_peer = {}
 
 
 class Ubot(Client):
-    __module__ = "pyrogram.client"
     _ubot = []
 
     def __init__(self, **kwargs):
@@ -51,7 +50,7 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        get_my_id.append(ubot.me.id)
+        get_my_id.append(self.me.id)
         users = 0
         group = 0
         async for dialog in self.get_dialogs():
@@ -59,7 +58,7 @@ class Ubot(Client):
                 users += 1
             elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group += 1
-        get_my_peer[ubot.me.id] = {"group": group, "users": users}
+        get_my_peer[self.me.id] = {"group": group, "users": users}
         print(
             f"INFO: Started Ubot {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
         )
@@ -67,12 +66,7 @@ class Ubot(Client):
             self._ubot.append(self)
 
 
-ubot = Ubot(
-    name="PyroUbot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    session_string=SESSION_STRING,
-)
+ubot = Ubot()
 
 from .core.database import *
 from .core.function import *
