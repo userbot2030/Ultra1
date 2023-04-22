@@ -59,9 +59,7 @@ class Ubot(Client):
             elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group += 1
         get_my_peer[self.me.id] = {"group": group, "users": users}
-        print(
-            f"INFO: Started Ubot {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
-        )
+        print(f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
         if self not in self._ubot:
             self._ubot.append(self)
 
