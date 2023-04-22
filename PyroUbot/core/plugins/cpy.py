@@ -26,11 +26,6 @@ async def copy_bot_msg(client, message):
         try:
             get = await client.get_messages(chat, msg_id)
             await get.copy(message.chat.id, reply_to_message_id=msg.id)
-            if not message.from_user.id == OWNER_ID:
-                await client.send_message(
-                    OWNER_ID,
-                    f"<code>{message.from_user.id}</code> {message.text.split()[1]}",
-                )
             await Tm.delete()
         except Exception as error:
             await Tm.edit(error)
