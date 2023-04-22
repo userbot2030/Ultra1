@@ -36,7 +36,7 @@ get_my_peer = {}
 
 class Ubot(Client):
     _ubot = []
-
+            
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
@@ -50,18 +50,18 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        get_my_id.append(self.me.id)
-        users = 0
-        group = 0
-        async for dialog in self.get_dialogs():
-            if dialog.chat.type == ChatType.PRIVATE:
-                users += 1
-            elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-                group += 1
-        get_my_peer[self.me.id] = {"group": group, "users": users}
-        print(f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
         if self not in self._ubot:
             self._ubot.append(self)
+            get_my_id.append(self.me.id)
+            users = 0
+            group = 0
+            async for dialog in self.get_dialogs():
+                if dialog.chat.type == ChatType.PRIVATE:
+                    users += 1
+                elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+                    group += 1
+            get_my_peer[self.me.id] = {"group": group, "users": users}
+            print(f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
 
 
 ubot = Ubot()
