@@ -163,5 +163,5 @@ async def take_msg_cmd(client, message):
             await asyncio.sleep(flood.value)
     await TM.delete()
     return await message.reply(
-        f"✅ {done}/{message.command[3]} {message.command[2]} telah berhasil diambil"
+        f"✅ {done} {message.command[2]} telah berhasil diambil"
     )
