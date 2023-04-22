@@ -3,12 +3,11 @@ from asyncio import get_event_loop_policy
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
-from PyroUbot import *
+from .. import *
 
 
 async def main():
     await bot.start()
-    await ubot.start()
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
