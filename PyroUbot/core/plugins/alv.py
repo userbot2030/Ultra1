@@ -30,13 +30,13 @@ async def alive_query(client, inline_query):
                 expired = ""
             else:
                 exp = get_exp.strftime("%d-%m-%Y")
-                expired = f"\n      <b>expired:</b> <code>{exp}</code>"
+                expired = f"\n      <b>expired_on:</b> <code>{exp}</code>"
             if my.me.id == OWNER_ID:
-                status = "founder"
+                status = "<b>premium<</b> <code>[founder]</code>"
             elif my.me.id in await get_seles():
-                status = "admin"
+                status = "<b>premium<</b> <code>[admin]</code>"
             else:
-                status = "member"
+                status = "<b>premium<</b> <code>[member]</code>"
             if int(get_id[2]) == OWNER_ID:
                 button = Button.alive(get_id)[0]
             else:
@@ -46,13 +46,13 @@ async def alive_query(client, inline_query):
             ping = (datetime.now() - start).microseconds / 1000
             uptime = await get_time((time() - start_time))
             msg = f"""
-<b>{bot.me.username}</b>
-   <b>status:</b> <code>[{status}]</code> {expired} 
+<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
+   <b>status:</b> {status} {expired} 
       <b>dc_id:</b> <code>{my.me.dc_id}
       <b>ping_dc:</b> <code>{ping} ms</code>
       <b>peer_users:</b> <code>{peer['users']} users</code>
       <b>peer_group:</b> <code>{peer['group']} group</code>
-      <b>{bot.me.first_name.split()[0]}_uptime:</b> <code>{uptime}</code>
+      <b>start_uptime:</b> <code>{uptime}</code>
 """
             await client.answer_inline_query(
                 inline_query.id,
