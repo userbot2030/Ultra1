@@ -31,12 +31,13 @@ bot = Client(
 )
 
 get_my_id = []
-get_my_peer = {}
+
 
 
 class Ubot(Client):
     _ubot = []
-            
+    _get_my_peer = {}
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
@@ -60,7 +61,7 @@ class Ubot(Client):
                     users += 1
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
-            get_my_peer[self.me.id] = {"group": group, "users": users}
+            self._get_my_peer[self.me.id] = {"group": group, "users": users}
             print(f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
 
 
