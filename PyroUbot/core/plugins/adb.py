@@ -3,7 +3,7 @@ import importlib
 from datetime import datetime, timedelta
 from io import BytesIO
 
-from pyrogram.enums import ChatType, SentCodeType
+from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
 from pyrogram.types import *
 from pytz import timezone
