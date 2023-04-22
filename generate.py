@@ -9,7 +9,6 @@ print("\n\n Enter Phone number when asked.\n\n")
 
 i = c(name="pyrogram", api_id=API_ID, api_hash=API_HASH, in_memory=True)
 
-_gh = "huy"
 
 
 async def main():
