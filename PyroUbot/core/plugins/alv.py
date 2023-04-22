@@ -24,7 +24,7 @@ async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
         if int(get_id[2]) == my.me.id:
-            peer = get_my_peer[my.me.id]
+            peer = my.get_my_peer[my.me.id]
             get_exp = await get_expired_date(my.me.id)
             if get_exp is None:
                 expired = ""
