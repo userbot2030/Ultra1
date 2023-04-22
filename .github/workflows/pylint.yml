@@ -6,9 +6,6 @@ on:
 jobs:
   auto_fix_by_tomi_setiawan:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.9, 3.10]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
