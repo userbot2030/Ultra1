@@ -1,5 +1,8 @@
 name: Auto Fix
-on: [push]
+on:
+  push:
+    branches:
+      - main 
 jobs:
   auto_fix_by_tomi_setiawan:
     runs-on: ubuntu-latest
