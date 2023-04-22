@@ -4,7 +4,8 @@ from time import time
 
 import psutil
 from pyrogram.raw.functions import Ping
-from pyrogram.types import InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
+from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
+                            InputTextMessageContent)
 
 from .. import *
 
