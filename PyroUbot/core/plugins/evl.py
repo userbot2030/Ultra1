@@ -50,7 +50,8 @@ async def evalator_cmd(client, message):
     old_stdout = sys.stdout
     redirected_output = sys.stdout = StringIO()
     redirected_error = sys.stderr = StringIO()
-    stdout, stderr, exc = None, None, None
+    stdout, stderr, exc = None, None, None 
+    fiuy = []
     try:
         await aexec(cmd, client, message)
     except Exception:
