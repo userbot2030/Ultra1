@@ -209,15 +209,6 @@ async def bikin_ubot(client, callback_query):
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
-    get_my_id.append(new_client.me.id)
-    users = 0
-    group = 0
-    async for dialog in new_client.get_dialogs():
-        if dialog.chat.type == ChatType.PRIVATE:
-            users += 1
-        elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-            group += 1
-    get_my_peer[new_client.me.id] = {"group": group, "users": users}
     try:
         await new_client.join_chat("SaikiSupport")
     except UserAlreadyParticipant:
