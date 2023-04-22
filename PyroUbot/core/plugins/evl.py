@@ -42,7 +42,6 @@ async def shell_cmd(client, message):
         await msg.edit(error)
 
 
-
 async def evalator_cmd(client, message):
     TM = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
