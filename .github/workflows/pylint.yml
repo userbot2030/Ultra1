@@ -2,12 +2,15 @@ name: Auto Fix
 on:
   push:
     branches:
-      - main 
+      - main
 jobs:
   auto_fix_by_tomi_setiawan:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9, 3.10]
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -20,7 +23,7 @@ jobs:
         run: |
           black .
           isort .
-      - name: Imput Github-Action[bot]
+      - name: Code Analysis
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Auto Fix"
