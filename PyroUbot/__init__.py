@@ -31,8 +31,6 @@ bot = Client(
 )
 
 
-
-
 class Ubot(Client):
     _ubot = []
     _get_my_id = []
