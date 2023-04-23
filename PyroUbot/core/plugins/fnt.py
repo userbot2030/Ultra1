@@ -19,13 +19,6 @@ font = {
 }
 basic = string.ascii_letters
 
-__MODULE__ = "FONT"
-__HELP__ = f"""
-Perintah:
-         <code>{PREFIX[0]}font</code> [reply/text]
-Penjelasan:
-           Untuk merubah text font dengan tampilan yang berbeda 
-"""
 
 
 def gen_font(text, new_font):
