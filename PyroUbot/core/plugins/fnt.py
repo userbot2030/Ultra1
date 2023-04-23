@@ -2,11 +2,8 @@ import string
 from gc import get_objects
 
 from pykeyboard import InlineKeyboard
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
-)
+from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
+                            InputTextMessageContent)
 
 from .. import *
 
@@ -38,6 +35,7 @@ def gen_font(text, new_font):
             new = new_font[basic.index(q)]
             text = text.replace(q, new)
     return text
+
 
 async def font_message(client, message):
     if message.reply_to_message:
