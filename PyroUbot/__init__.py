@@ -10,13 +10,13 @@ from rich.logging import RichHandler
 from .config import *
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.WARNING,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[RichHandler()],
 )
 console = logging.StreamHandler()
-console.setLevel(logging.WARNING)
+console.setLevel(logging.ERROR)
 console.setFormatter(
     logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
 )
