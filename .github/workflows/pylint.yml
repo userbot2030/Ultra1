@@ -19,6 +19,6 @@ jobs:
           black .
           isort .
       - name: Code Analysis
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto Fix"
