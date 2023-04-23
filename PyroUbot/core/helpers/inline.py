@@ -94,10 +94,10 @@ class Button:
         return button
 
 
-class Inline:
+class INLINE:
     def QUERY(func):
         async def wrapper(client, inline_query):
-            users = get_my_id
+            users = client._get_my_id
             if inline_query.from_user.id not in users:
                 await client.answer_inline_query(
                     inline_query.id,
@@ -120,7 +120,7 @@ class Inline:
 
     def DATA(func):
         async def wrapper(client, callback_query):
-            users = get_my_id
+            users = client._get_my_id
             if callback_query.from_user.id not in users:
                 await callback_query.answer(
                     f"Makanya Order Userbot @{bot.me.username} Dulu Biar Bisa Klik Tombol Ini",
