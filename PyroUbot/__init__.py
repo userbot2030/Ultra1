@@ -1,7 +1,7 @@
 import logging
 from typing import Callable
 
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
@@ -40,10 +40,10 @@ class Ubot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
-    def on_message(self, filters=None, group=0):
+    def on_message(self, filters: filters.Filter):
         def decorator(func):
             for ub in self._ubot:
-                ub.add_handler(MessageHandler(func, filters), group)
+                ub.add_handler(MessageHandler(func, filters), -1)
             return func
 
         return decorator
