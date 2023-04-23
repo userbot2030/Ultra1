@@ -71,4 +71,3 @@ ubot = Ubot()
 from .core.database import *
 from .core.function import *
 from .core.helpers import *
-from .core.other import *
