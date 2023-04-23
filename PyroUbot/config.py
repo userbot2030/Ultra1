@@ -26,8 +26,6 @@ OPENAI_KEY = os.getenv(
 
 MONGO_URL = os.getenv("MONGO_URL")
 
-SESSION_STRING = os.getenv("SESSION_STRING")
-
 TEXT_PAYMENT = os.getenv(
     "TEXT_PAYMENT",
     """
