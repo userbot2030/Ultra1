@@ -20,6 +20,7 @@ def get_file_id(msg):
                 setattr(obj, "message_type", message_type)
                 return obj
 
+
 def qr_gen(content):
     return {
         "data": content,
