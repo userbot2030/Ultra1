@@ -16,10 +16,8 @@ logging.basicConfig(
     handlers=[RichHandler()],
 )
 console = logging.StreamHandler()
-console.setLevel(logging.ERROR)
-console.setFormatter(
-    logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
-)
+console.setLevel(logging.WARNING)
+console.setFormatter(logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s"))
 logging.getLogger("").addHandler(console)
 
 bot = Client(
