@@ -30,11 +30,12 @@ bot = Client(
     parse_mode=ParseMode.HTML,
 )
 
-get_my_id = []
+
 
 
 class Ubot(Client):
     _ubot = []
+    _get_my_id = []
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
@@ -52,7 +53,7 @@ class Ubot(Client):
         await super().start()
         if self not in self._ubot:
             self._ubot.append(self)
-            get_my_id.append(self.me.id)
+            self.get_my_id.append(self.me.id)
             users = 0
             group = 0
             async for dialog in self.get_dialogs():
