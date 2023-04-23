@@ -20,7 +20,6 @@ font = {
 basic = string.ascii_letters
 
 
-
 def gen_font(text, new_font):
     new_font = " ".join(new_font).split()
     for q in text:
