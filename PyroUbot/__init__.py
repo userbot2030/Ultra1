@@ -24,8 +24,6 @@ logging.getLogger("").addHandler(console)
 
 
 class Bot(Client):
-    _bot = []
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
@@ -39,8 +37,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        if self not in self._bot:
-            self._bot.append(self)
+        print(f"STARTED BOT {self.me.first_name} | {self.me.id}")
 
 
 class Ubot(Client):
@@ -73,7 +70,7 @@ class Ubot(Client):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
             print(
-                f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
+                f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
             )
 
 
