@@ -13,7 +13,7 @@ logging.basicConfig(
     level=logging.WARNING,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[RichHandler()],
+    handlers=[RichHandler(), logging.FileHandler(filename="logs.txt")],
 )
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
