@@ -22,13 +22,26 @@ console.setFormatter(
 )
 logging.getLogger("").addHandler(console)
 
-bot = Client(
-    name="PyroBot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN,
-    parse_mode=ParseMode.HTML,
-)
+
+class Bot(Client):
+    _bot = []
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
+
+    def on_message(self, filters: filters.Filter):
+        def decorator(func):
+            for b in self._bot:
+                b.add_handler(MessageHandler(func, filters), -1)
+            return func
+
+        return decorator
+
+    async def start(self):
+        await super().start()
+        if self not in self._bot:
+            self._bot.append(self)
+
 
 
 class Ubot(Client):
@@ -64,6 +77,13 @@ class Ubot(Client):
                 f"STARTED {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
             )
 
+
+bot = Bot(
+    name="PyroBot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN,
+)
 
 ubot = Ubot()
 
