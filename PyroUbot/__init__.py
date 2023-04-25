@@ -1,5 +1,4 @@
 import logging
-from typing import Callable
 
 from pyrogram import Client, filters
 from pyrogram.enums import ChatType, ParseMode
@@ -8,20 +7,12 @@ from pyromod import listen
 
 from .config import *
 
-log_format = logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
-
-file_handler = logging.FileHandler(filename="logs.txt")
-file_handler.setLevel(logging.WARNING)
-file_handler.setFormatter(log_format)
-
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.ERROR)
-console_handler.setFormatter(log_format)
-
-root_logger = logging.getLogger()
-root_logger.addHandler(file_handler)
-root_logger.addHandler(console_handler)
-
+logging.basicConfig(
+    level=logging.ERROR,
+    format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
+    datefmt="%m-%d %H:%M",
+    handlers=[logging.StreamHandler()],
+)
 
 class Bot(Client):
     def __init__(self, **kwargs):
