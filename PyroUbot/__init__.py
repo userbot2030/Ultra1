@@ -8,7 +8,6 @@ from pyromod import listen
 
 from .config import *
 
-
 log_format = logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
 
 file_handler = logging.FileHandler(filename="logs.txt")
