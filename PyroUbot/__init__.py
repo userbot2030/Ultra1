@@ -29,8 +29,7 @@ class Bot(Client):
 
     def on_message(self, filters: filters.Filter):
         def decorator(func):
-            for b in self._bot:
-                b.add_handler(MessageHandler(func, filters), -1)
+            self.add_handler(MessageHandler(func, filters), -1)
             return func
 
         return decorator
