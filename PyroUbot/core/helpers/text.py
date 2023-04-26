@@ -26,7 +26,7 @@ help_admin = [
 <b>• Penjelasan:</b> Untuk melepas pemblokiran anggota dari grup 
 
 <b>• Perintah:</b> <code>{PREFIX[0]}unmute</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk melepas pembisuan anggota dari grup</b>
+<b>• Penjelasan:</b> Untuk melepas pembisuan anggota dari grup
 """,
 ]
 
@@ -41,25 +41,25 @@ help_sticker = [
 <b>『 Bantuan Untuk Sticker Memify 』</b>
 
 <b>• Perintah:</b> <code>{PREFIX[0]}mmf</code> [text]
-<b>• Penjelasan:</b> Balas Ke Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.</b>
+<b>• Penjelasan:</b> Balas Ke Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan
 """,
     f"""
 <b>『 Bantuan Untuk Sticker Memes 』</b>
 
 <b>• Perintah:</b> <code>{PREFIX[0]}memes</code> [text]
-<b>• Penjelasan:</b> Untuk membuat stiker memes random</b>
+<b>• Penjelasan:</b> Untuk membuat stiker memes random
 """,
     f"""
 <b>『 Bantuan Untuk Sticker Quotly 』</b>
 
 <b>• Perintah:</b> <code>{PREFIX[0]}q</code> [text/reply to text/media]
-<b>• Penjelasan:</b> Untuk merubah text menjadi sticker</b>
+<b>• Penjelasan:</b> Untuk merubah text menjadi sticker
 """,
     f"""
 <b>『 Bantuan Untuk Sticker Tiny 』</b>
 
 <b>• Perintah:</b> <code>{PREFIX[0]}tiny</code> [reply to sticker]
-<b>• Penjelasan:</b> Untuk merubah sticker menjadi kecil</b>
+<b>• Penjelasan:</b> Untuk merubah sticker menjadi kecil
 """,
 ]
 
