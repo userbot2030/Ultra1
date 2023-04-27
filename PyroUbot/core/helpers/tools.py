@@ -1,8 +1,7 @@
 import asyncio
 import os
 import shlex
-import textwrap 
-
+import textwrap
 from io import BytesIO
 
 from PIL import Image, ImageDraw, ImageFont
@@ -211,7 +210,6 @@ async def run_cmd(cmd):
     )
 
 
-
 async def dl_pic(client, download):
     path = await client.download_media(download)
     with open(path, "rb") as f:
@@ -219,4 +217,3 @@ async def dl_pic(client, download):
     os.remove(path)
     get_photo = BytesIO(content)
     return get_photo
-
