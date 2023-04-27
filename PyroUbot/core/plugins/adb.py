@@ -274,10 +274,11 @@ async def hapus_ubot(client, callback_query):
         get_mention = f"<a href=tg://user?id={get_id}>Userbot</a>"
     for X in ubot._ubot:
         if get_id == X.me.id:
-            await remove_ubot(get_id)
             ubot._ubot.remove(X)
             get_my_id.remove(get_id)
+            await X.log_out()
             await rm_all(get_id)
+            await remove_ubot(get_id)
             await rem_expired_date(get_id)
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} Berhasil Dihapus Dari Database</b>"
