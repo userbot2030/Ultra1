@@ -2,7 +2,7 @@ from datetime import datetime
 
 from pytz import timezone
 
-from PyroUbot import bot, ubot, get_my_id
+from PyroUbot import bot, get_my_id, ubot
 from PyroUbot.config import OWNER_ID
 from PyroUbot.core.database import (get_expired_date, rem_expired_date,
                                     remove_ubot, rm_all)
@@ -14,7 +14,7 @@ async def premium():
         try:
             exp = (await get_expired_date(X.me.id)).strftime("%d-%m-%Y")
             if time == exp:
-                await X.log_out() 
+                await X.log_out()
                 ubot._ubot.remove(X)
                 await rm_all(X.me.id)
                 get_my_id.remove(X.me.id)
