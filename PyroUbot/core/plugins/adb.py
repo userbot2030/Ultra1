@@ -26,7 +26,7 @@ async def need_api(client, callback_query):
     • <code>API_HASH</code>: Dapatkan Dari my.telegram.org
     • <code>PHONE_NUMBER</code>: Nomer Hp Akun Telegram
 
-✔️ Jika Sudah Tersedia Silahkan Klik Tomboi Dibawah</b>
+☑️ Jika Sudah Tersedia Silahkan Klik Tomboi Dibawah</b>
 """,
     )
 
