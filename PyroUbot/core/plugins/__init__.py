@@ -14,3 +14,4 @@ from ..core.plugins.img import *
 from ..core.plugins.ivt import *
 from ..core.plugins.lgo import *
 from ..core.plugins.lmt import *
+from ..core.plugins.nts import *
