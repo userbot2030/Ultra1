@@ -5,7 +5,6 @@ from pyrogram.raw.functions.messages import DeleteHistory
 from .. import *
 
 
-
 async def logo_cmd(client, message):
     Tm = await message.reply("<code>Tunggu sebentar...</code>")
     await client.unblock_user("@Yone_Robot")
