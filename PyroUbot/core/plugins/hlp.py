@@ -54,13 +54,13 @@ async def menu_callback(client, callback_query):
         module = (mod_match.group(1)).replace(" ", "_")
         text = f"<b>『 Bantuan Untuk {HELP_COMMANDS[module].__MODULE__} 』</b>\n{HELP_COMMANDS[module].__HELP__}"
         button = [[InlineKeyboardButton("• KEMBALI •", callback_data="help_back")]]
-        if "ADMIN" in text:
+        if "Admin" in text:
             text = top_text
             button = Button.admin()[0]
-        if "STICKER" in text:
+        if "Sticker" in text:
             text = top_text
             button = Button.sticker()[0]
-        if "TRANSLATE" in text:
+        if "Translate" in text:
             button = Button.translate()
         await callback_query.edit_message_text(
             text=text,
