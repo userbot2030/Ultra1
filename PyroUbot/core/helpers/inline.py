@@ -9,62 +9,41 @@ class Button:
     def admin():
         menu_button = [
             [
-                InlineKeyboardButton("GLOBAL", callback_data="menu_help admin_gban"),
+                InlineKeyboardButton("Global", callback_data="menu_help admin_gban"),
                 InlineKeyboardButton(
-                    "RESTRICT", callback_data="menu_help admin_restrict"
+                    "Restrict", callback_data="menu_help admin_restrict"
                 ),
             ],
-            [InlineKeyboardButton("• KEMBALI •", callback_data="help_back")],
+            [InlineKeyboardButton("• Kembali •", callback_data="help_back")],
         ]
         back_button = [
-            [InlineKeyboardButton("• KEMBALI •", callback_data="menu_help admin_back")]
+            [InlineKeyboardButton("• Kembali •", callback_data="menu_help admin_back")]
         ]
         return [menu_button, back_button]
-
-    def download(message, query):
-        button = [
-            [
-                InlineKeyboardButton(
-                    text="🔈 Audio ",
-                    callback_data=f"ytdl_{query}_Audio {message.from_user.id}",
-                ),
-                InlineKeyboardButton(
-                    text="Video 🎥",
-                    callback_data=f"ytdl_{query}_Video {message.from_user.id}",
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="🗑 Tutup 🗑",
-                    callback_data=f"1_cls {message.id} {message.from_user.id}",
-                ),
-            ],
-        ]
-        return button
 
     def sticker():
         menu_button = [
             [
-                InlineKeyboardButton("KANG", callback_data="menu_help sticker_kang"),
+                InlineKeyboardButton("Kang", callback_data="menu_help sticker_kang"),
                 InlineKeyboardButton(
-                    "MEMIFY", callback_data="menu_help sticker_memify"
+                    "Memify", callback_data="menu_help sticker_memify"
                 ),
             ],
             [
-                InlineKeyboardButton("MAMES", callback_data="menu_help sticker_memes"),
+                InlineKeyboardButton("Memes", callback_data="menu_help sticker_memes"),
                 InlineKeyboardButton(
-                    "QUOTLY", callback_data="menu_help sticker_quotly"
+                    "Quotly", callback_data="menu_help sticker_quotly"
                 ),
             ],
             [
-                InlineKeyboardButton("TINY", callback_data="menu_help sticker_tiny"),
+                InlineKeyboardButton("Tiny", callback_data="menu_help sticker_tiny"),
             ],
-            [InlineKeyboardButton("• KEMBALI •", callback_data="help_back")],
+            [InlineKeyboardButton("• Kembali •", callback_data="help_back")],
         ]
         back_button = [
             [
                 InlineKeyboardButton(
-                    "• KEMBALI •", callback_data="menu_help sticker_back"
+                    "• Kembali •", callback_data="menu_help sticker_back"
                 )
             ]
         ]
