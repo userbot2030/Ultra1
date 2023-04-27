@@ -9,7 +9,6 @@ from pyrogram import raw
 from .. import *
 
 
-
 async def ReTrieveFile(input_file_name):
     headers = {
         "X-API-Key": RMBG_API,
