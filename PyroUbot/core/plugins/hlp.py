@@ -49,16 +49,16 @@ async def menu_callback(client, callback_query):
     prev_match = re.match(r"help_prev\((.+?)\)", callback_query.data)
     next_match = re.match(r"help_next\((.+?)\)", callback_query.data)
     back_match = re.match(r"help_back", callback_query.data)
-    top_text = f"<b>✣ Menu Inline <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n★ Modules: {len(HelpText) + len(HELP_COMMANDS)}</b>"
+    top_text = f"<b>✣ Menu Inline <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► Modules: {len(HelpText) + len(HELP_COMMANDS)}</b>"
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
-        text = f"<b>HELP {HELP_COMMANDS[module].__MODULE__}\n{HELP_COMMANDS[module].__HELP__}</b>\n"
+        text = f"<b>『 Bantuan Untuk {HELP_COMMANDS[module].__MODULE__} 』</b>\n{HELP_COMMANDS[module].__HELP__}"
         button = [[InlineKeyboardButton("• KEMBALI •", callback_data="help_back")]]
         if "ADMIN" in text:
-            text = f"<b>HELP MENU OPEN\nPREFIXES: <code>{COMMAND}</code></b>"
+            text = top_text
             button = Button.admin()[0]
         if "STICKER" in text:
-            text = f"<b>HELP MENU OPEN\nPREFIXES: <code>{COMMAND}</code></b>"
+            text = top_text
             button = Button.sticker()[0]
         if "TRANSLATE" in text:
             button = Button.translate()
@@ -97,7 +97,7 @@ async def menu_callback(client, callback_query):
 
 async def help_callback(client, callback_query):
     data = callback_query.data.split()[1]
-    menu = f"<b>✣ Menu Inline <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n★ Modules: {len(HelpText) + len(HELP_COMMANDS)}</b>"
+    menu = f"<b>✣ Menu Inline <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► Modules: {len(HelpText) + len(HELP_COMMANDS)}</b>"
     if data == "admin_gban":
         msg = HelpText["global"]
         button = Button.admin()[1]
