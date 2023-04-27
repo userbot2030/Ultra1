@@ -9,3 +9,4 @@ from ..core.plugins.cvr import *
 from ..core.plugins.dbf import *
 from ..core.plugins.evl import *
 from ..core.plugins.fnt import *
+from ..core.plugins.hlp import *
