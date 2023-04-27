@@ -8,7 +8,7 @@ from ..core.plugins.cpy import *
 from ..core.plugins.cvr import *
 from ..core.plugins.dbf import *
 from ..core.plugins.evl import *
-from ..core.plugins.ivt import *
 from ..core.plugins.fnt import *
 from ..core.plugins.hlp import *
 from ..core.plugins.img import *
+from ..core.plugins.ivt import *
