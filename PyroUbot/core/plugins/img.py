@@ -1,4 +1,6 @@
-import asyncio, io, os
+import asyncio
+import io
+import os
 
 import cv2
 import requests
