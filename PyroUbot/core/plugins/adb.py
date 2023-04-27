@@ -229,10 +229,6 @@ async def bikin_ubot(client, callback_query):
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
-    try:
-        await new_client.join_chat("SaikiSupport")
-    except UserAlreadyParticipant:
-        pass
     if callback_query.from_user.id in ID_SELES:
         return
     else:
@@ -274,10 +270,10 @@ async def hapus_ubot(client, callback_query):
         get_mention = f"<a href=tg://user?id={get_id}>Userbot</a>"
     for X in ubot._ubot:
         if get_id == X.me.id:
-            ubot._ubot.remove(X)
-            get_my_id.remove(get_id)
             await X.log_out()
+            ubot._ubot.remove(X)
             await rm_all(get_id)
+            get_my_id.remove(get_id)
             await remove_ubot(get_id)
             await rem_expired_date(get_id)
             await bot.send_message(
