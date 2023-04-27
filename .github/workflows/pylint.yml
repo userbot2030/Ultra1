@@ -18,6 +18,3 @@ jobs:
           isort .
       - name: Code Analysis
         uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Auto Fix"
-          commit_options: "--no-verify"
