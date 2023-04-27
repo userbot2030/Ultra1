@@ -11,12 +11,11 @@ from pytz import timezone
 from .. import *
 
 
-
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     buttons = [
-            [InlineKeyboardButton("➡️ Lanjutkan", callback_data="add_ubot")],
-        ]
+        [InlineKeyboardButton("➡️ Lanjutkan", callback_data="add_ubot")],
+    ]
     await callback_query.message.delete()
     return await bot.send_message(
         user_id,
@@ -28,10 +27,9 @@ async def need_api(client, callback_query):
     • <code>PHONE_NUMBER</code>: Nomer Hp Akun Telegram
 
 ✔️ Jika Sudah Tersedia Silahkan Klik Tomboi Dibawah</b>
-""")
-        
-        
-        
+""",
+    )
+
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
