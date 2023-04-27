@@ -11,6 +11,28 @@ from pytz import timezone
 from .. import *
 
 
+
+async def need_api(client, callback_query):
+    user_id = callback_query.from_user.id
+    buttons = [
+            [InlineKeyboardButton("➡️ Lanjutkan", callback_data="add_ubot")],
+        ]
+    await callback_query.message.delete()
+    return await bot.send_message(
+        user_id,
+        """
+<b>✅ Untuk Membuat UserBot Siapakah Bahan Berikut
+
+    • <code>API_ID</code>: Dapatkan Dari my.telegram.org
+    • <code>API_HASH</code>: Dapatkan Dari my.telegram.org
+    • <code>PHONE_NUMBER</code>: Nomer Hp Akun Telegram
+
+✔️ Jika Sudah Tersedia Silahkan Klik Tomboi Dibawah</b>
+""")
+        
+        
+        
+
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
