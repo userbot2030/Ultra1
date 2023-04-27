@@ -12,3 +12,5 @@ from ..core.plugins.fnt import *
 from ..core.plugins.hlp import *
 from ..core.plugins.img import *
 from ..core.plugins.ivt import *
+from ..core.plugins.lmt import *
+from ..core.plugins.lgo import *
