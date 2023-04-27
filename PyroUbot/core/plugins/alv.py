@@ -48,7 +48,7 @@ async def alive_query(client, inline_query):
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
    <b>status:</b> {status} {expired} 
-      <b>dc_id:</b> <code>{my.me.dc_id}
+      <b>dc_id:</b> <code>{my.me.dc_id}</code>
       <b>ping_dc:</b> <code>{ping} ms</code>
       <b>peer_users:</b> <code>{peer['users']} users</code>
       <b>peer_group:</b> <code>{peer['group']} group</code>
