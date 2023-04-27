@@ -105,7 +105,7 @@ async def help_callback(client, callback_query):
         msg = HelpText["restrict"]
         button = Button.admin()[1]
     if data == "admin_back":
-        msg = menu 
+        msg = menu
         button = Button.admin()[0]
     if data == "sticker_kang":
         msg = HelpText["kang"]
@@ -123,7 +123,7 @@ async def help_callback(client, callback_query):
         msg = HelpText["tiny"]
         button = Button.sticker()[1]
     if data == "sticker_back":
-        msg = menu 
+        msg = menu
         button = Button.sticker()[0]
     await callback_query.edit_message_text(
         msg, reply_markup=InlineKeyboardMarkup(button)
