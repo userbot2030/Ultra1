@@ -51,10 +51,10 @@ class Button:
 
     def start():
         button = [
-            [InlineKeyboardButton("🔥 BUAT USERBOT 🔥", callback_data="bahan")],
+            [InlineKeyboardButton("🔥 Buat Userbot 🔥", callback_data="bahan")],
             [
-                InlineKeyboardButton("💬 BANTUAN", callback_data="help_back"),
-                InlineKeyboardButton("SUPPORT 💬", callback_data="support"),
+                InlineKeyboardButton("💬 Bantuan", callback_data="help_back"),
+                InlineKeyboardButton("Support 💬", callback_data="support"),
             ],
         ]
         return button
@@ -63,11 +63,11 @@ class Button:
         button = [
             [
                 InlineKeyboardButton(
-                    "• LANG_CODE •", url="https://graph.org/LANG-CODE-11-26"
+                    "• Lang_Code •", url="https://graph.org/LANG-CODE-11-26"
                 )
             ],
             [
-                InlineKeyboardButton("• KEMBALI •", callback_data="help_back"),
+                InlineKeyboardButton("• Kembali •", callback_data="help_back"),
             ],
         ]
         return button
