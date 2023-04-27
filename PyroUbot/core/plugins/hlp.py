@@ -14,9 +14,7 @@ async def help_cmd(client, message):
             return await message.reply(error)
     else:
         if message.command[1] in HELP_COMMANDS:
-            return await message.reply(
-                f"<b>HELP {HELP_COMMANDS[message.command[1]].__MODULE__}\n{HELP_COMMANDS[message.command[1]].__HELP__}</b>"
-            )
+            return await message.reply(HELP_COMMANDS[message.command[1]].__HELP__)
         elif message.command[1] in HelpText:
             return await message.reply(HelpText[message.command[1]])
         else:
@@ -52,7 +50,7 @@ async def menu_callback(client, callback_query):
     top_text = f"<b>✣ Menu Inline <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► Modules: {len(HelpText) + len(HELP_COMMANDS)}</b>"
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
-        text = f"<b>『 Bantuan Untuk {HELP_COMMANDS[module].__MODULE__} 』</b>\n{HELP_COMMANDS[module].__HELP__}"
+        text = HELP_COMMANDS[module].__HELP__
         button = [[InlineKeyboardButton("• KEMBALI •", callback_data="help_back")]]
         if "Admin" in text:
             text = top_text
