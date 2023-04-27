@@ -5,7 +5,6 @@ from pyrogram.enums import UserStatus
 from .. import *
 
 
-
 async def invite_cmd(client, message):
     mg = await message.reply("<b>Menambahkan Pengguna!</b>")
     if len(message.command) < 2:
