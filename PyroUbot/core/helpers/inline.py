@@ -72,7 +72,7 @@ class Button:
 
     def start():
         button = [
-            [InlineKeyboardButton("🔥 BUAT USERBOT 🔥", callback_data="add_ubot")],
+            [InlineKeyboardButton("🔥 BUAT USERBOT 🔥", callback_data="bahan")],
             [
                 InlineKeyboardButton("💬 BANTUAN", callback_data="help_back"),
                 InlineKeyboardButton("SUPPORT 💬", callback_data="support"),
