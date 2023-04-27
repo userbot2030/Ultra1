@@ -5,8 +5,6 @@ from pyrogram.raw.functions.messages import DeleteHistory, StartBot
 from .. import *
 
 
-
-
 async def limit_cmd(client, message):
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
