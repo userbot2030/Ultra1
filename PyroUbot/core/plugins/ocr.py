@@ -8,7 +8,7 @@ from .. import *
 
 async def read_cmd(client, message):
     reply = message.reply_to_message
-    if not reply or not reply.photo and not reply.sticker:
+    if not reply.animation or not reply.photo and not reply.sticker:
         return await message.reply_text(f"{message.text} reply media")
     msg = await message.reply("Membaca pesan media....")
     try:
