@@ -3,6 +3,7 @@ import os
 
 from .. import *
 
+
 async def ai_cmd(client, message):
     Tm = await message.reply("<code>Memproses...</code>")
     if len(message.command) < 2:
