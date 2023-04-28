@@ -72,5 +72,3 @@ HelpText = {
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
 }
-
-
