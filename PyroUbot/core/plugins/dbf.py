@@ -62,7 +62,7 @@ async def unprem_user(client, message):
         await message.reply_text("Terjadi kesalahan, periksa log.")
 
 
-async def get_prem_user(cliebt, message):
+async def get_prem_user(client, message):
     text = ""
     count = 0
     for user_id in await get_prem():
@@ -88,7 +88,7 @@ async def get_prem_user(cliebt, message):
 async def add_blaclist(client, message):
     Tm = await message.reply("<b>Processing . . .</b>")
     chat_id = message.chat.id
-    blacklist ÷ await get_chat()
+    blacklist = await get_chat()
     if chat_id in blacklist:
         return await Tm.edit("group ini sudah ada dalam blacklist")
     add_blacklist = await add_chat(chat_id)
