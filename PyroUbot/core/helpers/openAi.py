@@ -2,7 +2,7 @@ import random
 
 import openai
 
-from PyroUbot import *
+from PyroUbot import OPENAI_KEY
 
 
 class OpenAi:
