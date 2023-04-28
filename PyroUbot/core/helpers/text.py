@@ -2,64 +2,64 @@ from PyroUbot.config import PREFIX
 
 help_admin = [
     f"""
-<b>『 Bantuan Untuk Admin Global 』</b>
+<b>『 Bantuan Admin Global 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}gban</code> [user_id/username/reply to user]
-<b>• Penjelasan:</b> Untuk banned user dari semua group chat 
+    <b>• Perintah-:</b> <code>{PREFIX[0]}gban</code> [user_id/username/reply to user]
+    <b>• Penjelasan:</b> Untuk banned user dari semua group chat 
 
-<b>• Perintah:</b> <code>{PREFIX[0]}ungban</code> [user_id/username/reply to user]
-<b>• Penjelasan:</b> Untuk unbanned user dari semua group chat
+    <b>• Perintah:</b> <code>{PREFIX[0]}ungban</code> [user_id/username/reply to user]
+    <b>• Penjelasan:</b> Untuk unbanned user dari semua group chat
 """,
     f"""
-<b>『 Bantuan Untuk Admin Restrict 』</b>
+<b>『 Bantuan Admin Restrict 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}kick</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk menendang anggota dari grup 
+    <b>• Perintah:</b> <code>{PREFIX[0]}kick</code> [user_id/username/reply user]
+    <b>• Penjelasan:</b> Untuk menendang anggota dari grup 
 
-<b>• Perintah:</b> <code>{PREFIX[0]}ban</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk memblokir anggota dari grup 
+    <b>• Perintah:</b> <code>{PREFIX[0]}ban</code> [user_id/username/reply user]
+    <b>• Penjelasan:</b> Untuk memblokir anggota dari grup 
 
-<b>• Perintah:</b> <code>{PREFIX[0]}mute</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk membisukan anggota dari grup 
+    <b>• Perintah:</b> <code>{PREFIX[0]}mute</code> [user_id/username/reply user]
+    <b>• Penjelasan:</b> Untuk membisukan anggota dari grup 
 
-<b>• Perintah:</b> <code>{PREFIX[0]}unban</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk melepas pemblokiran anggota dari grup 
+    <b>• Perintah:</b> <code>{PREFIX[0]}unban</code> [user_id/username/reply user]
+    <b>• Penjelasan:</b> Untuk melepas pemblokiran anggota dari grup 
 
-<b>• Perintah:</b> <code>{PREFIX[0]}unmute</code> [user_id/username/reply user]
-<b>• Penjelasan:</b> Untuk melepas pembisuan anggota dari grup
+    <b>• Perintah:</b> <code>{PREFIX[0]}unmute</code> [user_id/username/reply user]
+    <b>• Penjelasan:</b> Untuk melepas pembisuan anggota dari grup
 """,
 ]
 
 help_sticker = [
     f"""
-<b>『 Bantuan Untuk Sticker Kang 』</b>
+<b>『 Bantuan Sticker Kang 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}kang</code> [reply to image/sticker]
-<b>• Penjelasan:</b> Untuk Menambahkan dan costum emoji sticker Ke Sticker Pack
+    <b>• Perintah:</b> <code>{PREFIX[0]}kang</code> [reply to image/sticker]
+    <b>• Penjelasan:</b> Untuk Menambahkan dan costum emoji sticker Ke Sticker Pack
 """,
     f"""
-<b>『 Bantuan Untuk Sticker Memify 』</b>
+<b>『 Bantuan Sticker Memify 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}mmf</code> [text]
-<b>• Penjelasan:</b> Balas Ke Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan
+    <b>• Perintah:</b> <code>{PREFIX[0]}mmf</code> [text]
+    <b>• Penjelasan:</b> Balas Ke Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan
 """,
     f"""
-<b>『 Bantuan Untuk Sticker Memes 』</b>
+<b>『 Bantuan Sticker Memes 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}memes</code> [text]
-<b>• Penjelasan:</b> Untuk membuat stiker memes random
+    <b>• Perintah:</b> <code>{PREFIX[0]}memes</code> [text]
+    <b>• Penjelasan:</b> Untuk membuat stiker memes random
 """,
     f"""
-<b>『 Bantuan Untuk Sticker Quotly 』</b>
+<b>『 Bantuan Sticker Quotly 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}q</code> [text/reply to text/media]
-<b>• Penjelasan:</b> Untuk merubah text menjadi sticker
+    <b>• Perintah:</b> <code>{PREFIX[0]}q</code> [text/reply to text/media]
+    <b>• Penjelasan:</b> Untuk merubah text menjadi sticker
 """,
     f"""
-<b>『 Bantuan Untuk Sticker Tiny 』</b>
+<b>『 Bantuan Sticker Tiny 』</b>
 
-<b>• Perintah:</b> <code>{PREFIX[0]}tiny</code> [reply to sticker]
-<b>• Penjelasan:</b> Untuk merubah sticker menjadi kecil
+    <b>• Perintah:</b> <code>{PREFIX[0]}tiny</code> [reply to sticker]
+    <b>• Penjelasan:</b> Untuk merubah sticker menjadi kecil
 """,
 ]
 
@@ -72,3 +72,5 @@ HelpText = {
     "quotly": help_sticker[3],
     "tiny": help_sticker[4],
 }
+
+
