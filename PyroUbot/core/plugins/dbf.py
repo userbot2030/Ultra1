@@ -79,6 +79,48 @@ async def get_prem_user(cliebt, message):
         await message.reply_text(text)
 
 
+
+# ========================== #
+# 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 𝔹𝕃𝔸ℂ𝕂𝕃𝕀𝕊𝕋 #
+# ========================== #
+
+
+async def add_blaclist(client, message):
+    Tm = await message.reply("<b>Processing . . .</b>")
+    chat_id = message.chat.id
+    blacklist ÷ await get_chat()
+    if chat_id in blacklist:
+        return await Tm.edit("group ini sudah ada dalam blacklist")
+    add_blacklist = await add_chat(chat_id)
+    if add_blacklist:
+        await Tm.edit(f"{message.chat.title} berhasil di ditambahkan ke daftar hitam")
+    else:
+        await Tm.edit("terjadi kesalahan yang tidak diketahui")
+
+
+async def del_blacklist(client, message):
+    Tm = await message.reply("<b>Processing . . .</b>")
+    chat_id = message.chat.id
+    blacklist = await get_chat()
+    if chat_id not in blacklist:
+        return await Tm.edit(f"{message.chat.title} tidak ada dalam daftar hitam")
+    del_blacklist = await remove_chat(chat_id)
+    if del_blacklist:
+        await Tm.edit(f"{message.chat.title} berhasil dihapus dari daftar hitam")
+    else:
+        await Tm.edit("terjadi kesalahan yang tidak diketahui")
+
+
+
+async def get_blacklist(client, message):
+    Tm = await message.reply("<b>Processing . . .</b>")
+    msg = f"<b>Total blacklist {len(await get_chat())}</b>\n\n"
+    for X in await get_chat():
+        msg += f"<code>{X}</code>\n"
+     await Tm.delete()
+     await message.reply(msg)
+        
+
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℝ𝔼𝕊𝔼𝕃𝕃𝔼ℝ #
 # ========================== #
