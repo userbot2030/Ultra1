@@ -20,7 +20,7 @@ async def broadcast_group_cmd(client, message):
                 else:
                     send = message.text.split(None, 1)[1]
             chat_id = dialog.chat.id
-            if chat_id not in BLACKLIST_CHAT:
+            if chat_id not in await get_chat():
                 try:
                     if message.reply_to_message:
                         await send.copy(chat_id)
