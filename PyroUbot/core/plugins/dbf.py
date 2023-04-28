@@ -79,7 +79,6 @@ async def get_prem_user(client, message):
         await message.reply_text(text)
 
 
-
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 𝔹𝕃𝔸ℂ𝕂𝕃𝕀𝕊𝕋 #
 # ========================== #
@@ -111,7 +110,6 @@ async def del_blacklist(client, message):
         await Tm.edit("terjadi kesalahan yang tidak diketahui")
 
 
-
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>Processing . . .</b>")
     msg = f"<b>Total blacklist {len(await get_chat())}</b>\n\n"
@@ -119,7 +117,7 @@ async def get_blacklist(client, message):
         msg += f"<code>{X}</code>\n"
     await Tm.delete()
     await message.reply(msg)
-        
+
 
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℝ𝔼𝕊𝔼𝕃𝕃𝔼ℝ #
