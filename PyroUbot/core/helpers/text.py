@@ -2,64 +2,64 @@ from PyroUbot.config import PREFIX
 
 help_admin = [
     f"""
-<b>『 Bantuan Admin Global 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ɢʟᴏʙᴀʟ 』</b>
 
-    <b>• Perintah-:</b> <code>{PREFIX[0]}gban</code> [user_id/username/reply to user]
-    <b>• Penjelasan:</b> Untuk banned user dari semua group chat 
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]} gban</ᴄᴏᴅᴇ> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ 
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}ungban</code> [user_id/username/reply to user]
-    <b>• Penjelasan:</b> Untuk unbanned user dari semua group chat
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ungban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴜɴʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ
 """,
     f"""
-<b>『 Bantuan Admin Restrict 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ʀᴇsᴛʀɪᴄᴛ 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}kick</code> [user_id/username/reply user]
-    <b>• Penjelasan:</b> Untuk menendang anggota dari grup 
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}kick</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ 
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}ban</code> [user_id/username/reply user]
-    <b>• Penjelasan:</b> Untuk memblokir anggota dari grup 
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍʙʟᴏᴋɪʀ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ 
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}mute</code> [user_id/username/reply user]
-    <b>• Penjelasan:</b> Untuk membisukan anggota dari grup 
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}mute</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ 
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}unban</code> [user_id/username/reply user]
-    <b>• Penjelasan:</b> Untuk melepas pemblokiran anggota dari grup 
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}unmute</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴇᴘᴀs ᴘᴇᴍʙʟᴏᴋɪʀᴀɴ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ 
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}unmute</code> [user_id/username/reply user]
-    <b>• Penjelasan:</b> Untuk melepas pembisuan anggota dari grup
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}unban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴇᴘᴀs ᴘᴇᴍʙɪsᴜᴀɴ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ
 """,
 ]
 
 help_sticker = [
     f"""
-<b>『 Bantuan Sticker Kang 』</b>
+<ʙ>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴋᴀɴɢ 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}kang</code> [reply to image/sticker]
-    <b>• Penjelasan:</b> Untuk Menambahkan dan costum emoji sticker Ke Sticker Pack
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ᴋᴀɴɢ</code> [ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ/sᴛɪᴄᴋᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ᴅᴀɴ ᴄᴏsᴛᴜᴍ ᴇᴍᴏᴊɪ sᴛɪᴄᴋᴇʀ ᴋᴇ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ
 """,
     f"""
-<b>『 Bantuan Sticker Memify 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴍᴇᴍɪꜰʏ 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}mmf</code> [text]
-    <b>• Penjelasan:</b> Balas Ke Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ᴍᴍꜰ</code> [ᴛᴇxᴛ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ʙᴀʟᴀs ᴋᴇ sᴛɪᴄᴋᴇʀ ᴀᴛᴀᴜ ꜰᴏᴛᴏ ᴀᴋᴀɴ ᴅɪ ᴜʙᴀʜ ᴍᴇɴᴊᴀᴅɪ sᴛɪᴄᴋᴇʀ ᴛᴇᴋs ᴍᴇᴍᴇ ʏᴀɴɢ ᴅɪ ᴛᴇɴᴛᴜᴋᴀɴ
 """,
     f"""
-<b>『 Bantuan Sticker Memes 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴍᴇᴍᴇs 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}memes</code> [text]
-    <b>• Penjelasan:</b> Untuk membuat stiker memes random
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ᴍᴇᴍᴇs</code> [ᴛᴇxᴛ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴋᴇʀ ᴍᴇᴍᴇs ʀᴀɴᴅᴏᴍ
 """,
     f"""
-<b>『 Bantuan Sticker Quotly 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ǫᴜᴏᴛʟʏ 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}q</code> [text/reply to text/media]
-    <b>• Penjelasan:</b> Untuk merubah text menjadi sticker
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}q</code> [ᴛᴇxᴛ/ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴇxᴛ ᴍᴇɴᴊᴀᴅɪ sᴛɪᴄᴋᴇʀ
 """,
     f"""
-<b>『 Bantuan Sticker Tiny 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴛɪɴʏ 』</b>
 
-    <b>• Perintah:</b> <code>{PREFIX[0]}tiny</code> [reply to sticker]
-    <b>• Penjelasan:</b> Untuk merubah sticker menjadi kecil
+    <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}tiny</code> [ʀᴇᴘʟʏ ᴛᴏ sᴛɪᴄᴋᴇʀ]
+    <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ sᴛɪᴄᴋᴇʀ ᴍᴇɴᴊᴀᴅɪ ᴋᴇᴄɪʟ
 """,
 ]
 
