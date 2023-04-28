@@ -18,6 +18,7 @@ async def main():
             await rem_expired_date(int(_ubot["name"]))
             await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
             print(f"✅ {_ubot['name']} Dihapus Dari Database")
+    await install_user_id()
     await loadPlugins()
     await premium()
     await idle()
