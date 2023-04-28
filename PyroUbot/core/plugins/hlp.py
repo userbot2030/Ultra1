@@ -19,7 +19,7 @@ async def help_cmd(client, message):
             return await message.reply(HelpText[message.command[1]])
         else:
             return await message.reply(
-                f"<b>❌ Modules {message.command[1]} Tidak Ditemukan</b>"
+                f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
             )
 
 
