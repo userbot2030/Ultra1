@@ -22,15 +22,15 @@ async def loadPlugins():
                 HELP_COMMANDS[
                     imported_module.__MODULE__.replace(" ", "_").lower()
                 ] = imported_module
-    print(f"[🤖 @{bot.me.username} 🤖] [🔥 BERHASIL DIAKTIFKAN! 🔥]")
+    print(f"[🤖 @{bot.me.username} 🤖] [🔥 ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ! 🔥]")
     await bot.send_message(
         LOGS_MAKER_UBOT,
         f"""
-<b>🤖 {bot.me.mention} BERHASIL DIAKTIFKAN</b>
-<b>📁 MODULES: {len(HELP_COMMANDS) + len(HelpText)}</b>
-<b>📘 PYTHON: {python_version()}</b>
-<b>📙 PYROGRAM: {__version__}</b>
-<b>👤 USERBOT: {len(ubot._ubot)}</b>
+<b>🤖 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ</b>
+<b>📁 ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS) + len(HelpText)}</b>
+<b>📘 ᴘʏᴛʜᴏɴ: {python_version()}</b>
+<b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
+<b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
 """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🗑 TUTUP 🗑", callback_data="0_cls")]],
