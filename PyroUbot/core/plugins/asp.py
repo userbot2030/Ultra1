@@ -14,10 +14,7 @@ async def video_asupan(client, message):
         ):
             asupannya.append(asupan)
         video = random.choice(asupannya)
-        await video.copy(
-            message.chat.id,
-            reply_to_message_id=message.id
-        )
+        await video.copy(message.chat.id, reply_to_message_id=message.id)
         await y.delete()
     except Exception as error:
         await y.edit(error)
@@ -32,10 +29,7 @@ async def photo_cewek(client, message):
         ):
             ayangnya.append(ayang)
         photo = random.choice(ayangnya)
-        await photo.copy(
-            message.chat.id,
-            reply_to_message_id=message.id
-        )
+        await photo.copy(message.chat.id, reply_to_message_id=message.id)
         await y.delete()
     except Exception as error:
         await y.edit(error)
@@ -50,10 +44,7 @@ async def photo_cowok(client, message):
         ):
             ayang2nya.append(ayang2)
         photo = random.choice(ayang2nya)
-        await photo.copy(
-            message.chat.id,
-            reply_to_message_id=message.id
-        )
+        await photo.copy(message.chat.id, reply_to_message_id=message.id)
         await y.delete()
     except Exception as error:
         await y.edit(error)
@@ -69,10 +60,7 @@ async def photo_anime(client, message):
         ):
             animenya.append(anime)
         photo = random.choice(animenya)
-        await photo.copy(
-            message.chat.id,
-            reply_to_message_id=message.id
-        )
+        await photo.copy(message.chat.id, reply_to_message_id=message.id)
         await y.delete()
     except Exception as error:
         await y.edit(error)
@@ -91,10 +79,7 @@ async def video_bokep(client, message):
         ):
             bokepnya.append(bokep)
         video = random.choice(bokepnya)
-        await video.copy(
-            message.chat.id,
-            reply_to_message_id=message.id
-        )
+        await video.copy(message.chat.id, reply_to_message_id=message.id)
         await y.delete()
     except Exception as error:
         await y.edit(error)
