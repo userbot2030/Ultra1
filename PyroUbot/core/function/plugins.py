@@ -22,11 +22,10 @@ async def loadPlugins():
                 HELP_COMMANDS[
                     imported_module.__MODULE__.replace(" ", "_").lower()
                 ] = imported_module
-    print(f"[🤖 @{bot.me.username} 🤖] [🔥 ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ! 🔥]")
+    print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     await bot.send_message(
         LOGS_MAKER_UBOT,
         f"""
-<b>🤖 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ</b>
 <b>📁 ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS) + len(HelpText)}</b>
 <b>📘 ᴘʏᴛʜᴏɴ: {python_version()}</b>
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
