@@ -33,10 +33,7 @@ async def alive_query(client, inline_query):
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴍᴇᴍʙᴇʀ]</code>"
-            if int(get_id[2]) == OWNER_ID:
-                button = Button.alive(get_id)[0]
-            else:
-                button = Button.alive(get_id)[1]
+            button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
             ping = (datetime.now() - start).microseconds / 1000
@@ -64,29 +61,6 @@ async def alive_query(client, inline_query):
                     )
                 ],
             )
-
-
-async def stats_alive(client, callback_query):
-    if not callback_query.from_user.id == OWNER_ID:
-        return await callback_query.answer(
-            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
-            True,
-        )
-    uptime = await get_time((time() - start_time))
-    cpu = psutil.cpu_percent()
-    mem = psutil.virtual_memory().percent
-    disk = psutil.disk_usage("/").percent
-    process = psutil.Process(os.getpid())
-    stats = f"""
-UPTIME: {uptime}
-BOT: {round(process.memory_info()[0] / 1024 ** 2)} MB
-CPU: {cpu}%
-RAM: {mem}%
-DISK: {disk}%
-UBOT: {len(ubot._ubot)}
-MODULES: {len(HELP_COMMANDS) + len(HelpText)}
-"""
-    await callback_query.answer(stats, True)
 
 
 async def alive_close(cln, cq):
