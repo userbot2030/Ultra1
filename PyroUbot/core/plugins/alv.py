@@ -28,11 +28,11 @@ async def alive_query(client, inline_query):
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
-                status = "<b>premium<</b> <code>[founder]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ꜰᴏᴜɴᴅᴇʀ]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>premium<</b> <code>[admin]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
-                status = "<b>premium<</b> <code>[member]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴍᴇᴍʙᴇʀ]</code>"
             if int(get_id[2]) == OWNER_ID:
                 button = Button.alive(get_id)[0]
             else:
@@ -43,13 +43,13 @@ async def alive_query(client, inline_query):
             uptime = await get_time((time() - start_time))
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
-    <b>status:</b> {status} 
-        <b>expired_on:</b> <code>{exp}</code> 
-        <b>dc_id:</b> <code>{my.me.dc_id}</code>
-        <b>ping_dc:</b> <code>{ping} ms</code>
-        <b>peer_users:</b> <code>{peer['users']} users</code>
-        <b>peer_group:</b> <code>{peer['group']} group</code>
-        <b>start_uptime:</b> <code>{uptime}</code>
+    <b>sᴛᴀᴛᴜs:</b> {status} 
+        <b>ᴇxᴘɪʀᴇᴅ_ᴏɴ:</b> <code>{exp}</code> 
+        <b>ᴅᴄ_ɪᴅ:</b> <code>{my.me.dc_id}</code>
+        <b>ᴘɪɴɢ_ᴅᴄ:</b> <code>{ping} ms</code>
+        <b>ᴘᴇᴇʀ_ᴜsᴇʀs:</b> <code>{peer['users']} users</code>
+        <b>ᴘᴇᴇʀ_ɢʀᴏᴜᴘ:</b> <code>{peer['group']} group</code>
+        <b>sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
             await client.answer_inline_query(
                 inline_query.id,
@@ -69,7 +69,7 @@ async def alive_query(client, inline_query):
 async def stats_alive(client, callback_query):
     if not callback_query.from_user.id == OWNER_ID:
         return await callback_query.answer(
-            f"❌ TOMBOL INI BUKAN UNTUK MU {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
     uptime = await get_time((time() - start_time))
@@ -93,7 +93,7 @@ async def alive_close(cln, cq):
     get_id = cq.data.split()
     if not cq.from_user.id == int(get_id[2]):
         return await cq.answer(
-            f"❌ TOMBOL INI BUKAN UNTUK MU {cq.from_user.first_name} {cq.from_user.last_name or ''}",
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {cq.from_user.first_name} {cq.from_user.last_name or ''}",
             True,
         )
     unPacked = unpackInlineMessage(cq.inline_message_id)
