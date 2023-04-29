@@ -22,7 +22,7 @@ async def premium():
                 await rem_expired_date(X.me.id)
                 await bot.send_message(
                     OWNER_ID,
-                    f"<b>{X.me.first_name} {X.me.last_name or ''} | <code>{X.me.id}</code> berhasil dihapus</b>",
+                    f"<b>{X.me.first_name} {X.me.last_name or ''} | <code>{X.me.id}</code> ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>",
                 )
         except:
             pass
