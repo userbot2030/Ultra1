@@ -76,7 +76,7 @@ async def admin_bannen(client, message):
         if user_id in (await list_admins(message)):
             return await message.reply_text(
                 "sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ."
-           )
+            )
         try:
             mention = (await client.get_users(user_id)).mention
         except Exception as error:
