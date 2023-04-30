@@ -17,7 +17,7 @@ async def need_api(client, callback_query):
         [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
     ]
     await callback_query.message.delete()
-    return await bot.send_message(user_id, MSG.Need_Api())
+    return await bot.send_message(user_id, MSG.NEED_API())
 
 
 async def bikin_ubot(client, callback_query):
@@ -31,7 +31,7 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
-            MSG.Need_Api(MAX_UBOT),
+            MSG.LIMIT_UBOT(MAX_UBOT),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -48,7 +48,7 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         api = await bot.ask(
             user_id,
-            MSG.Api_Id(),
+            MSG.API_ID(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -59,7 +59,7 @@ async def bikin_ubot(client, callback_query):
     try:
         hash = await bot.ask(
             user_id,
-            MSG.Api_Hash(),
+            MSG.API_hASH(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -70,7 +70,7 @@ async def bikin_ubot(client, callback_query):
     try:
         phone = await bot.ask(
             user_id,
-            MSG.Phone_Number(),
+            MSG.PHONE_number(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -118,7 +118,7 @@ async def bikin_ubot(client, callback_query):
         await get_otp.delete()
         otp = await bot.ask(
             user_id,
-            MSG.Otp(send_code, code.type),
+            MSG.OTP(send_code, code.type),
             timeout=300,
         )
     except asyncio.TimeoutError:
