@@ -72,7 +72,7 @@ async def bikin_ubot(client, callback_query):
     try:
         phone = await bot.ask(
             user_id,
-            ,
+            Get_Msg["adb_phone_number"],
             timeout=300,
         )
     except asyncio.TimeoutError:
