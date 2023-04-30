@@ -74,8 +74,8 @@ HelpText = {
     "kang": HELP.KANG(),
     "memify": HELP.MEMIFY(),
     "memes": HELP.MEMES(),
-    "quotly": HELP.QUOTLY()
-    "tiny": HELP.TINY,,
+    "quotly": HELP.QUOTLY(),
+    "tiny": HELP.TINY(),
 }
 
 
