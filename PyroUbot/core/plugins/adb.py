@@ -142,7 +142,7 @@ async def bikin_ubot(client, callback_query):
         try:
             two_step_code = await bot.ask(
                 user_id,
-                MSG.PASSWOARD()
+                MSG.PASSWOARD(),
                 timeout=300,
             )
         except asyncio.TimeoutError:
@@ -205,7 +205,7 @@ async def cek_ubot(client, message):
     user = ""
     for X in ubot._ubot:
         count += 1
-        user += MSG.LIST_UBOT(count, x)
+        user += MSG.LIST_UBOT(count, X)
     if int(len(str(user))) > 4096:
         with BytesIO(str.encode(str(user))) as out_file:
             out_file.name = "userbot.txt"
