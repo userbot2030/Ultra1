@@ -142,19 +142,19 @@ nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏ
         
 ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>
 """
+
     def ACTIVE(bot, new_client):
         return f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b>"
-    
+
     def DATE(date, exp):
         return f"""
 <b>🗓️ ᴍᴜʟᴀɪ: {date}</b>
 <b>🗓️ ᴀᴋʜɪʀ: {exp}</b>
 """
-    
+
     def LIST_UBOT(count, X):
         return f"""
 ❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ {count}
  ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
  ╰ ɪᴅ: <code>{X.me.id}</code>
 """
-        
