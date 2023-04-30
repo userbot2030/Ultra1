@@ -6,23 +6,37 @@ import requests
 async def jadwal_adzan(client, message):
     LOKASI = message.text.split(None, 1)[1]
     if len(message.command) < 2:
-        return await message.reply("<b>Silahkan Masukkan Nama Kota Anda</b>")
+        return await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ɴᴀᴍᴀ ᴋᴏᴛᴀ ᴀɴᴅᴀ</b>")
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
-    if request.status_code != 200:
-        await message.reply(f"<b>Maaf Tidak Menemukan Kota <code>{LOKASI}</code>")
+    if request.status_code != 20:
+        await message.reply(f"<b>ᴍᴀᴀꜰ ᴛɪᴅᴀᴋ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴋᴏᴛᴀ</b> <code>{LOKASI}</code>")
     result = json.loads(request.text)
-    catresult = f"""
-Jadwal Shalat Hari Ini
+    catresult = """
+<b>ᴊᴀᴅᴡᴀʟ sʜᴀʟᴀᴛ ʜᴀʀɪ ɪɴɪ</b>
 
-<b>Tanggal</b> <code>{result['items'][0]['date_for']}</code>
-<b>Kota</b> <code>{result['query']} | {result['country']}</code>
+<b>ᴛᴀɴɢɢᴀʟ</b> <code>{}</code>
+<b>ᴋᴏᴛᴀ</b> <code>{} | {}</code>
 
-<b>Terbit:</b> <code>{result['items'][0]['shurooq']}</code>
-<b>Subuh:</b> <code>{result['items'][0]['fajr']}</code>
-<b>Zuhur:</b> <code>{result['items'][0]['dhuhr']}</code>
-<b>Ashar:</b> <code>{result['items'][0]['asr']}</code>
-<b>Maghrib:</b> <code>{result['items'][0]['maghrib']}</code>
-<b>Isya:</b> <code>{result['items'][0]['isha']}</code>
+<b>ᴛᴇʀʙɪᴛ:</b> <code>{}</code>
+<b>sᴜʙᴜʜ:</b> <code>{}</code>
+<b>ᴢᴜʜᴜʀ:</b> <code>{}</code>
+<b>ᴀsʜᴀʀ:</b> <code>{}</code>
+<b>ᴍᴀɢʜʀɪʙ:</b> <code>{}</code>
+<b>ɪsʏᴀ:</b> <code>{}</code>
 """
-    await message.reply(catresult)
+    await message.reply(
+        catresult.format(
+            result['items'][0]['date_for'],
+            result['query'],
+            result['country'],
+            result['items'][0]['shurooq'],
+            result['items'][0]['fajr'],
+            result['items'][0]['dhuhr'],
+            result['items'][0]['asr'],
+            result['items'][0]['maghrib'],
+            result['items'][0]['isha']
+            
+            
+            
+            
