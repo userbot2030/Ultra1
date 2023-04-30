@@ -124,4 +124,3 @@ async def copy_callback_msg(client, callback_query):
                 await get.delete()
     except Exception as error:
         await callback_query.edit_message_text(f"<code>{error}</code>")
-
