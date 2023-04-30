@@ -17,7 +17,7 @@ async def need_api(client, callback_query):
         [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
     ]
     await callback_query.message.delete()
-    return await bot.send_message(user_id, Get_Msg["adb_need_api"])
+    return await bot.send_message(user_id, MSG.Need_Api())
 
 
 async def bikin_ubot(client, callback_query):
@@ -31,7 +31,7 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
-            Get_Msg["adb_limit_ubot"].format(MAX_UBOT),
+            MSG.Need_Api(MAX_UBOT),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -48,7 +48,7 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         api = await bot.ask(
             user_id,
-            Get_Msg["adb_api_id"],
+            MSG.Api_Id(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -59,7 +59,7 @@ async def bikin_ubot(client, callback_query):
     try:
         hash = await bot.ask(
             user_id,
-            Get_Msg["adb_api_hash"],
+            MSG.Api_Hash(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -70,7 +70,7 @@ async def bikin_ubot(client, callback_query):
     try:
         phone = await bot.ask(
             user_id,
-            Get_Msg["adb_phone_number"],
+            MSG.Phone_Number(),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -118,11 +118,7 @@ async def bikin_ubot(client, callback_query):
         await get_otp.delete()
         otp = await bot.ask(
             user_id,
-            (
-                f"<b>sɪʟᴀᴋᴀɴ ᴘᴇʀɪᴋsᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴅᴀʀɪ {send_code[code.type]}. ᴋɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ ᴋᴇ sɪɴɪ sᴇᴛᴇʟᴀʜ ᴍᴇᴍʙᴀᴄᴀ ꜰᴏʀᴍᴀᴛ ᴅɪ ʙᴀᴡᴀʜ ɪɴɪ.</b>\n"
-                "\nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏᴅᴇ> ᴛᴏʟᴏɴɢ <b>[ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴘᴀsɪ ]</b> ᴋɪʀɪᴍᴋᴀɴ sᴇᴘᴇʀᴛɪ ɪɴɪ <code>1 2 3 4 5</code>\ɴ"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
+            MSG.Otp(send_code, code.type),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -257,3 +253,5 @@ async def is_cancel(callback_query, text):
         )
         return True
     return False
+
+
