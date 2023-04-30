@@ -142,7 +142,7 @@ async def bikin_ubot(client, callback_query):
         try:
             two_step_code = await bot.ask(
                 user_id,
-                "<b>ᴀᴋᴜɴ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴍᴇɴɢᴀᴋᴛɪꜰᴋᴀɴ ᴠᴇʀɪꜰɪᴋᴀsɪ ᴅᴜᴀ ʟᴀɴɢᴋᴀʜ. sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍᴋᴀɴ ᴘᴀssᴡᴏʀᴅɴʏᴀ.\n\nɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>",
+                MSG.PASSWOARD()
                 timeout=300,
             )
         except asyncio.TimeoutError:
@@ -167,10 +167,9 @@ async def bikin_ubot(client, callback_query):
     )
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot.send_message(
         user_id,
-        text_done,
+        MSG.ACTIVE(bot, new_client),
         disable_web_page_preview=True,
     )
     now = datetime.now(timezone("Asia/Jakarta"))
@@ -189,7 +188,7 @@ async def bikin_ubot(client, callback_query):
     ]
     await bot.send_message(
         LOGS_MAKER_UBOT,
-        f"{text_done}\n<b>🗓️ ᴍᴜʟᴀɪ: {date}</b>\n<b>🗓️ ᴀᴋʜɪʀ: {exp}</b>",
+        f"{MSG.ACTIVE(bot, new_client)} {MSG.DATE(date, exp)},
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
@@ -206,11 +205,7 @@ async def cek_ubot(client, message):
     user = ""
     for X in ubot._ubot:
         count += 1
-        user += f"""
-❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ {count}
- ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
- ╰ ɪᴅ: <code>{X.me.id}</code>
-"""
+        user += MSG.LIST_UBOT(count, x)
     if int(len(str(user))) > 4096:
         with BytesIO(str.encode(str(user))) as out_file:
             out_file.name = "userbot.txt"
