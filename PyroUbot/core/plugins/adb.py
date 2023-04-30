@@ -188,7 +188,7 @@ async def bikin_ubot(client, callback_query):
     ]
     await bot.send_message(
         LOGS_MAKER_UBOT,
-        f"{MSG.ACTIVE(bot, new_client)} {MSG.DATE(date, exp)},
+        f"{MSG.ACTIVE(bot, new_client)} {MSG.DATE(date, exp)}",
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
