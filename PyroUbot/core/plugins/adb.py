@@ -17,7 +17,18 @@ async def need_api(client, callback_query):
         [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
     ]
     await callback_query.message.delete()
-    return await bot.send_message(user_id, MSG.NEED_API())
+    return await bot.send_message(
+        user_id,
+        """
+<b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴀᴋᴀʜ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
+
+    • <code>ᴀᴘɪ_ɪᴅ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
+    • <code>ᴀᴘɪ_ʜᴀsʜ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
+    • <code>ᴘʜᴏɴᴇ_ɴᴜᴍʙᴇʀ</code>: ɴᴏᴍᴇʀ ʜᴘ ᴀᴋᴜɴ ᴛᴇʟᴇɢʀᴀᴍ
+
+☑️ ᴊɪᴋᴀ sᴜᴅᴀʜ ᴛᴇʀsᴇᴅɪᴀ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏɪ ᴅɪʙᴀᴡᴀʜ</b>
+""",
+    )
 
 
 async def bikin_ubot(client, callback_query):
@@ -31,7 +42,13 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
-            MSG.LIMIT_UBOT(MAX_UBOT),
+            f"""
+<b>❌ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ!</b>
+
+<b>📚 ᴋᴀʀᴇɴᴀ ᴍᴀᴋsɪᴍᴀʟ ᴜsᴇʀʙᴏᴛ ᴀᴅᴀʟᴀʜ {MAX_UBOT} ᴛᴇʟᴀʜ ᴛᴇʀᴄᴀᴘᴀɪ</b>
+
+<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/T0M1_X>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
+""",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -48,7 +65,10 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         api = await bot.ask(
             user_id,
-            MSG.API_ID(),
+            (
+                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -59,7 +79,10 @@ async def bikin_ubot(client, callback_query):
     try:
         hash = await bot.ask(
             user_id,
-            MSG.API_hASH(),
+            (
+                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -70,7 +93,10 @@ async def bikin_ubot(client, callback_query):
     try:
         phone = await bot.ask(
             user_id,
-            MSG.PHONE_number(),
+            (
+                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ɴᴏᴍᴏʀ ᴛᴇʟᴇᴘᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅᴇɴɢᴀɴ ꜰᴏʀᴍᴀᴛ ᴋᴏᴅᴇ ɴᴇɢᴀʀᴀ.\ɴᴄᴏɴᴛᴏʜ: +628xxxxxxx</ʙ>\n"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -118,7 +144,11 @@ async def bikin_ubot(client, callback_query):
         await get_otp.delete()
         otp = await bot.ask(
             user_id,
-            MSG.OTP(send_code, code.type),
+            (
+                f"<b>sɪʟᴀᴋᴀɴ ᴘᴇʀɪᴋsᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴅᴀʀɪ {send_code[code.type]}. ᴋɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ ᴋᴇ sɪɴɪ sᴇᴛᴇʟᴀʜ ᴍᴇᴍʙᴀᴄᴀ ꜰᴏʀᴍᴀᴛ ᴅɪ ʙᴀᴡᴀʜ ɪɴɪ.</b>\n"
+                "\nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏᴅᴇ> ᴛᴏʟᴏɴɢ <b>[ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴘᴀsɪ ]</b> ᴋɪʀɪᴍᴋᴀɴ sᴇᴘᴇʀᴛɪ ɪɴɪ <code>1 2 3 4 5</code>\ɴ"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -142,7 +172,7 @@ async def bikin_ubot(client, callback_query):
         try:
             two_step_code = await bot.ask(
                 user_id,
-                MSG.PASSWOARD(),
+                "<b>ᴀᴋᴜɴ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴍᴇɴɢᴀᴋᴛɪꜰᴋᴀɴ ᴠᴇʀɪꜰɪᴋᴀsɪ ᴅᴜᴀ ʟᴀɴɢᴋᴀʜ. sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍᴋᴀɴ ᴘᴀssᴡᴏʀᴅɴʏᴀ.\n\nɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>",
                 timeout=300,
             )
         except asyncio.TimeoutError:
@@ -167,9 +197,10 @@ async def bikin_ubot(client, callback_query):
     )
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
+    text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot.send_message(
         user_id,
-        MSG.ACTIVE(bot, new_client),
+        text_done,
         disable_web_page_preview=True,
     )
     now = datetime.now(timezone("Asia/Jakarta"))
@@ -188,7 +219,7 @@ async def bikin_ubot(client, callback_query):
     ]
     await bot.send_message(
         LOGS_MAKER_UBOT,
-        f"{MSG.ACTIVE(bot, new_client)} {MSG.DATE(date, exp)}",
+        f"{text_done}\n<b>🗓️ ᴍᴜʟᴀɪ: {date}</b>\n<b>🗓️ ᴀᴋʜɪʀ: {exp}</b>",
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
@@ -205,7 +236,11 @@ async def cek_ubot(client, message):
     user = ""
     for X in ubot._ubot:
         count += 1
-        user += MSG.LIST_UBOT(count, X)
+        user += f"""
+❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ {count}
+ ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
+ ╰ ɪᴅ: <code>{X.me.id}</code>
+"""
     if int(len(str(user))) > 4096:
         with BytesIO(str.encode(str(user))) as out_file:
             out_file.name = "userbot.txt"
