@@ -11,11 +11,11 @@ from .. import *
 
 async def copy_bot_msg(client, message):
     msg = message.reply_to_message or message
-    Tm = await message.reply("Tunggu sebentar")
+    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀ")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
-            f"<b><code>{message.text}</code> [link_konten_telegram]</b>"
+            f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>"
         )
     if link.startswith(("https", "t.me")):
         msg_id = int(link.split("/")[-1])
@@ -30,16 +30,16 @@ async def copy_bot_msg(client, message):
         except Exception as error:
             await Tm.edit(error)
     else:
-        await Tm.edit("masukkin link yang valid")
+        await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
 
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
-    Tm = await message.reply("Tunggu sebentar")
+    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀ")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
-            f"<b><code>{message.text}</code> [link_konten_telegram]</b>"
+            f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>"
         )
     if link.startswith(("https", "t.me")):
         msg_id = int(link.split("/")[-1])
@@ -64,12 +64,12 @@ async def copy_ubot_msg(client, message):
             except Exception:
                 await client.send_message(
                     message.chat.id,
-                    f"<b>🔒 Konten Yang Mau Diambil Bersifat Restricted\n\n👉🏻 <a href=https://t.me/{bot.me.username}?start=copyMsg_{id(message)}>Klik Disini</a> Untuk Membuka Konten Restricted</b>",
+                    f"<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅd\n\n👉🏻 <a href=https://t.me/{bot.me.username}?start=copyMsg_{id(message)}>ᴋʟɪᴋ ᴅɪsɪɴɪ</a> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>",
                     reply_to_message_id=msg.id,
                 )
             await Tm.delete()
     else:
-        await Tm.edit("masukkin link yang valid")
+        await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
 
 async def copy_inline_msg(client, inline_query):
@@ -84,14 +84,14 @@ async def copy_inline_msg(client, inline_query):
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="🔐 Buka Konten Restricted 🔐",
+                                    text="🔐 ʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ 🔐",
                                     callback_data=f"copymsg_{int(inline_query.query.split()[1])}",
                                 )
                             ],
                         ]
                     ),
                     input_message_content=InputTextMessageContent(
-                        "<b>🔒 Konten Yang Mau Diambil Bersifat Restricted\n\n✅ Klik Tombol Dibawah Untuk Membuka Konten Restricted</b>"
+                        "<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅ\n\n✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>"
                     ),
                 )
             )
@@ -105,12 +105,12 @@ async def copy_callback_msg(client, callback_query):
         m = [obj for obj in get_objects() if id(obj) == q][0]
         if not callback_query.from_user.id == m.from_user.id:
             return await callback_query.answer(
-                f"❌ TOMBOL INI BUKAN UNTUK MU {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
+                f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
                 True,
             )
         else:
             await m._client.unblock_user(bot.me.username)
-            await callback_query.edit_message_text("<b>Tunggu sebentar")
+            await callback_query.edit_message_text("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
             copy = await m._client.send_message(
                 bot.me.username, f"/copy {m.text.split()[1]}"
             )
@@ -119,42 +119,9 @@ async def copy_callback_msg(client, callback_query):
             async for get in m._client.search_messages(bot.me.username, limit=1):
                 await m._client.copy_message(m.chat.id, bot.me.username, get.id)
                 await callback_query.edit_message_text(
-                    "<b>✅ Copy Message Berhasil Dilakukan"
+                    "<b>✅ ᴄᴏᴘʏ ᴍᴇssᴀɢᴇ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ"
                 )
                 await get.delete()
     except Exception as error:
-        await callback_query.edit_message_text(f"<b>❌ ERROR:</b> <code>{error}</code>")
+        await callback_query.edit_message_text(f"<code>{error}</code>")
 
-
-async def take_msg_cmd(client, message):
-    results = {
-        "photo": MessagesFilter.PHOTO,
-        "audio": MessagesFilter.AUDIO,
-        "video": MessagesFilter.VIDEO,
-        "dokumen": MessagesFilter.DOCUMENT,
-    }
-    TM = await message.reply("Tunggu Sebentar")
-    if len(message.command) < 5:
-        return await TM.edit(
-            f"<code><b>{message.text} from_chat msg_filter msg_limit to_chat</code></b>"
-        )
-    else:
-        if message.command[2] in results:
-            msg_ = results[message.command[2]]
-        else:
-            return await TM.edit(
-                f"❌ msg_filter {message.command[2]} tidak bisa diproses\n\n✅ msg_filter yang tersedia adalah: <code>dokumen</code> <code>photo</code> <code>audio</code> <code>video</code>"
-            )
-    await TM.edit("Sedang Memproses")
-    done = 0
-    async for msg in client.search_messages(
-        message.command[1], filter=msg_, limit=int(message.command[3])
-    ):
-        try:
-            await msg.copy(message.command[4])
-            done += 1
-            await asyncio.sleep(0.3)
-        except FloodWait as flood:
-            await asyncio.sleep(flood.value)
-    await TM.delete()
-    return await message.reply(f"✅ {done} {message.command[2]} telah berhasil diambil")
