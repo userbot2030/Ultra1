@@ -35,7 +35,7 @@ async def jadwal_adzan(client, message):
             result['items'][0]['dhuhr'],
             result['items'][0]['asr'],
             result['items'][0]['maghrib'],
-            result['items'][0]['isha']
+            result['items'][0]['isha']))
             
             
             
