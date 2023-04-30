@@ -108,7 +108,7 @@ adb = ["""
 
 Get_Msg = {
     "adb_need_api": adb[0],
-    "adb_limit_ubot": adb[1},
+    "adb_limit_ubot": adb[1],
     "adb_api_id": adb[2],
     "adb_api_hash": adb[3],
     "adb_phone_number": adb[4],
