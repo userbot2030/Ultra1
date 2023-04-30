@@ -27,16 +27,14 @@ async def jadwal_adzan(client, message):
 """
     await message.reply(
         catresult.format(
-            result['items'][0]['date_for'],
-            result['query'],
-            result['country'],
-            result['items'][0]['shurooq'],
-            result['items'][0]['fajr'],
-            result['items'][0]['dhuhr'],
-            result['items'][0]['asr'],
-            result['items'][0]['maghrib'],
-            result['items'][0]['isha']))
-            
-            
-            
-            
+            result["items"][0]["date_for"],
+            result["query"],
+            result["country"],
+            result["items"][0]["shurooq"],
+            result["items"][0]["fajr"],
+            result["items"][0]["dhuhr"],
+            result["items"][0]["asr"],
+            result["items"][0]["maghrib"],
+            result["items"][0]["isha"],
+        )
+    )
