@@ -151,7 +151,7 @@ nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏ
 <b>🗓️ ᴀᴋʜɪʀ: {exp}</b>
 """
     
-    def LIST_UBOT(count, x)
+    def LIST_UBOT(count, X):
         return f"""
 ❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ {count}
  ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
