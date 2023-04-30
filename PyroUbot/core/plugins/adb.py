@@ -253,5 +253,3 @@ async def is_cancel(callback_query, text):
         )
         return True
     return False
-
-
