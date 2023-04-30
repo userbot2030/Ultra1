@@ -1,7 +1,9 @@
 from PyroUbot.config import PREFIX
 
-help_admin = [
-    f"""
+
+class HELP:
+    def GBAN():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ɢʟᴏʙᴀʟ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}gban</ᴄᴏᴅᴇ> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
@@ -9,8 +11,9 @@ help_admin = [
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ungban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴜɴʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ
-""",
-    f"""
+"""
+    def RESTRICT():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ ʀᴇsᴛʀɪᴄᴛ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}kick</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
@@ -27,50 +30,52 @@ help_admin = [
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}unban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜsᴇʀ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴇᴘᴀs ᴘᴇᴍʙɪsᴜᴀɴ ᴀɴɢɢᴏᴛᴀ ᴅᴀʀɪ ɢʀᴜᴘ
-""",
-]
-
-help_sticker = [
-    f"""
+"""
+    def KANG():
+        return f"""
 <ʙ>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴋᴀɴɢ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}kang</code> [ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ/sᴛɪᴄᴋᴇʀ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ᴅᴀɴ ᴄᴏsᴛᴜᴍ ᴇᴍᴏᴊɪ sᴛɪᴄᴋᴇʀ ᴋᴇ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ
-""",
-    f"""
+"""
+    def MEMIFY():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴍᴇᴍɪꜰʏ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}mmf</code> [ᴛᴇxᴛ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ʙᴀʟᴀs ᴋᴇ sᴛɪᴄᴋᴇʀ ᴀᴛᴀᴜ ꜰᴏᴛᴏ ᴀᴋᴀɴ ᴅɪ ᴜʙᴀʜ ᴍᴇɴᴊᴀᴅɪ sᴛɪᴄᴋᴇʀ ᴛᴇᴋs ᴍᴇᴍᴇ ʏᴀɴɢ ᴅɪ ᴛᴇɴᴛᴜᴋᴀɴ
-""",
-    f"""
+"""
+    def MEMES():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴍᴇᴍᴇs 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}memes</code> [ᴛᴇxᴛ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴋᴇʀ ᴍᴇᴍᴇs ʀᴀɴᴅᴏᴍ
-""",
-    f"""
+"""
+    def QUOTLY():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ǫᴜᴏᴛʟʏ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}q</code> [ᴛᴇxᴛ/ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴇxᴛ ᴍᴇɴᴊᴀᴅɪ sᴛɪᴄᴋᴇʀ
-""",
-    f"""
+"""
+    def TINY():
+        return f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴛɪᴄᴋᴇʀ ᴛɪɴʏ 』</b>
 
     <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}tiny</code> [ʀᴇᴘʟʏ ᴛᴏ sᴛɪᴄᴋᴇʀ]
     <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ sᴛɪᴄᴋᴇʀ ᴍᴇɴᴊᴀᴅɪ ᴋᴇᴄɪʟ
-""",
-]
+"""
+
 
 HelpText = {
-    "global": help_admin[0],
-    "restrict": help_admin[1],
-    "kang": help_sticker[0],
-    "memify": help_sticker[1],
-    "memes": help_sticker[2],
-    "quotly": help_sticker[3],
-    "tiny": help_sticker[4],
+    "global": HELP.GBAN(),
+    "restrict": HELP.RESTRICT(),
+    "kang": HELP.KANG(),
+    "memify": HELP.MEMIFY(),
+    "memes": HELP.MEMES(),
+    "quotly": HELP.QUOTLY()
+    "tiny": HELP.TINY+),
 }
 
 
