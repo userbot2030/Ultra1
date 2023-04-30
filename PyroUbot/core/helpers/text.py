@@ -115,6 +115,5 @@ Get_Msg = {
     "adb_limit_ubot": limit_ubot,
     "adb_api_id": adb_api_id,
     "adb_api_hash": adb_api_hash,
-    "adb_phone_number": adb_phone_number
+    "adb_phone_number": adb_phone_number,
 }
-

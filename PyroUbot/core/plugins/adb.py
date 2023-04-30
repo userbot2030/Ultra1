@@ -17,9 +17,7 @@ async def need_api(client, callback_query):
         [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
     ]
     await callback_query.message.delete()
-    return await bot.send_message(
-        user_id,
-        Get_Msg["adb_need_api"])
+    return await bot.send_message(user_id, Get_Msg["adb_need_api"])
 
 
 async def bikin_ubot(client, callback_query):
