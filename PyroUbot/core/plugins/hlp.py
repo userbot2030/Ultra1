@@ -58,8 +58,6 @@ async def menu_callback(client, callback_query):
         if "sᴛɪᴄᴋᴇʀ" in text:
             text = top_text
             button = Button.sticker()[0]
-        if "ᴛʀᴀɴsʟᴀᴛᴇ" in text:
-            button = Button.translate()
         await callback_query.edit_message_text(
             text=text,
             reply_markup=InlineKeyboardMarkup(button),
