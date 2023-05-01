@@ -1,4 +1,4 @@
-from PyroUbot.config import bot, PREFIX
+from PyroUbot.config import PREFIX, bot
 
 
 class HELP:
