@@ -15,6 +15,8 @@ logging.basicConfig(
 )
 
 
+
+
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
@@ -35,6 +37,7 @@ class Ubot(Client):
     _ubot = []
     _get_my_id = []
     _get_my_peer = {}
+    _language_translate = {}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
@@ -60,6 +63,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
+            self._language_translate[self.me.id] = {"negara": "id"}
             print(f"STARTED UBOT {self.me.first_name} | {self.me.id}")
 
 
