@@ -13,11 +13,11 @@ async def confirm_callback(client, callback_query):
     get = await bot.get_users(user_id)
     CONFIRM_PAYMENT.append(get.id)
     try:
-        button = [[InlineKeyboardButton("❌ BATALKAN", callback_data=f"home {user_id}")]]
+        button = [[InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")]]
         await callback_query.message.delete()
         pesan = await bot.ask(
             user_id,
-            f"<b>💬 SILAHKAN KIRIMKAN SCREENSHOT BUKTI PEMBAYARAN ANDA: {full_name}</b>",
+            f"<b>💬 sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍᴋᴀɴ ʙᴜᴋᴛɪ sᴄʀᴇᴇɴsʜᴏᴛ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
             reply_markup=InlineKeyboardMarkup(button),
             timeout=300,
         )
@@ -40,23 +40,23 @@ async def confirm_callback(client, callback_query):
             return await bot.send_message(
                 user_id,
                 """
-<b>❌ TIDAK DAPAT DIPROSES</b>
+<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴘʀᴏsᴇs</b>
 
-<b>💬 HARAP KIRIMKAN SCREENSHOT BUKTI PEMBAYARAN ANDA YANG VALID</b>
+<b>💬 ʜᴀʀᴀᴘ ᴋɪʀɪᴍᴋᴀɴ sᴄʀᴇᴇɴsʜᴏᴛ ʙᴜᴋᴛɪ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ ʏᴀɴɢ ᴠᴀʟɪᴅ</b>
 
-<b>✅ SILAHKAN KONFIRMASI ULANG PEMBAYARAN ANDA</b>
+<b>✅ sɪʟᴀʜᴋᴀɴ ᴋᴏɴꜰɪʀᴍᴀsɪ ᴜʟᴀɴɢ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ</b>
 """,
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         elif pesan.photo:
             buttons = [
                 [
-                    InlineKeyboardButton("✅ YES ", callback_data=f"success {user_id}"),
-                    InlineKeyboardButton("NOT ❌", callback_data=f"failed {user_id}"),
+                    InlineKeyboardButton("✅ ʏᴇs ", callback_data=f"success {user_id}"),
+                    InlineKeyboardButton("ɴᴏᴛ ❌", callback_data=f"failed {user_id}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👤 DAPATKAN PROFIL 👤", callback_data=f"profil {user_id}"
+                        "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"
                     )
                 ],
             ]
@@ -66,14 +66,14 @@ async def confirm_callback(client, callback_query):
             )
             CONFIRM_PAYMENT.remove(get.id)
             await pesan.request.edit(
-                f"<b>💬 SILAHKAN KIRIMKAN SCREENSHOT BUKTI PEMBAYARAN ANDA: {full_name}</b>",
+                f"<b>💬 sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍᴋᴀɴ ʙᴜᴋᴛɪ sᴄʀᴇᴇɴsʜᴏᴛ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
             )
             return await bot.send_message(
                 user_id,
                 f"""
-<b>💬 BAIK {full_name} SILAHKAN DITUNGGU DAN JANGAN SPAM YA</b>
+<b>💬 ʙᴀɪᴋ {full_name} sɪʟᴀʜᴋᴀɴ ᴅɪᴛᴜɴɢɢᴜ ᴅᴀɴ ᴊᴀɴɢᴀɴ sᴘᴀᴍ ʏᴀ</b>
 
-<b>🏦 PEMBAYARAN ANDA AKAN DIKONFIRMASI SETELAH 1-12 JAM KERJA</b>
+<b>🏦 ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴅɪᴋᴏɴꜰɪʀᴍᴀsɪ sᴇᴛᴇʟᴀʜ 1-12 ᴊᴀᴍ ᴋᴇʀᴊᴀ</b>
 """,
             )
 
@@ -89,16 +89,16 @@ async def success_failed_home_callback(client, callback_query):
         await bot.send_message(
             get_user.id,
             """
-<b>✅ PEMBAYARAN ANDA BERHASIL DIKONFIRMASI</b>
+<b>✅ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ ʙᴇʀʜᴀsɪʟ ᴅɪᴋᴏɴꜰɪʀᴍᴀsɪ</b>
 
-<b>💬 SEKARANG ANDA BISA MEMBUAT USERBOT</b>
+<b>💬 sᴇᴋᴀʀᴀɴɢ ᴀɴᴅᴀ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         buttons_success = [
             [
                 InlineKeyboardButton(
-                    "👤 DAPATKAN PROFIL 👤", callback_data=f"profil {get_user.id}"
+                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
                 )
             ],
         ]
@@ -106,34 +106,34 @@ async def success_failed_home_callback(client, callback_query):
         return await bot.send_message(
             OWNER_ID,
             f"""
-<b>✅ {get_user.first_name} {get_user.last_name or ''} DITAMBAHKAN KE ANGGOTA PREMIUM</b>
+<b>✅ {get_user.first_name} {get_user.last_name or ''} ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴀɴɢɢᴏᴛᴀ ᴘʀᴇᴍɪᴜᴍ</b>
 """,
             reply_markup=InlineKeyboardMarkup(buttons_success),
         )
     if query[0] == "failed":
         buttons = [
-            [InlineKeyboardButton("💳 LAKUKAN PEMBAYARAN 💳", callback_data="add_ubot")],
+            [InlineKeyboardButton("💳 ʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ 💳", callback_data="add_ubot")],
         ]
         await bot.send_message(
             get_user.id,
             """
-<b>❌ PEMBAYARAN ANDA TIDAK BISA DIKONFIRMASI</b>
+<b>❌ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪᴋᴏɴꜰɪʀᴍᴀsɪ</b>
 
-<b>💬 SILAHKAN LAKUKAN PEMBAYARAN DENGAN BENAR</b>
+<b>💬 sɪʟᴀʜᴋᴀɴ ʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴅᴇɴɢᴀɴ ʙᴇɴᴀʀ</b>
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         buttons_failed = [
             [
                 InlineKeyboardButton(
-                    "👤 DAPATKAN PROFIL 👤", callback_data=f"profil {get_user.id}"
+                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
                 )
             ],
         ]
         return await bot.send_message(
             OWNER_ID,
             f"""
-<b>❌ {get_user.first_name} {get_user.last_name or ''} TIDAK DITAMBAHKAN KE ANGGOTA PREMIUM</b>
+<b>❌ {get_user.first_name} {get_user.last_name or ''} ᴛɪᴅᴀᴋ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴀɴɢɢᴏᴛᴀ ᴘʀᴇᴍɪᴜᴍ</b>
 """,
             reply_markup=InlineKeyboardMarkup(buttons_failed),
         )
@@ -143,12 +143,6 @@ async def success_failed_home_callback(client, callback_query):
             buttons_home = Button.start()
             return await bot.send_message(
                 get_user.id,
-                f"""
-<b>👋🏻 HALO <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>!
-
-💬 @{bot.me.username} ADALAH BOT YANG DAPAT MEMBUAT USERBOT DENGAN MUDAH
-
-👉🏻 KLIK TOMBOL DIBAWAH UNTUK MEMBUAT USERBOT 
-""",
+                HELP.START(callback_query),
                 reply_markup=InlineKeyboardMarkup(buttons_home),
             )
