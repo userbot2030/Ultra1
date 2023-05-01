@@ -8,7 +8,7 @@ from .. import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
-    msg = await message.reply("Sedang Memproses")
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs")
     async for dialog in client.get_dialogs():
         if dialog.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
             if message.reply_to_message:
@@ -16,7 +16,7 @@ async def broadcast_group_cmd(client, message):
             else:
                 if len(message.command) < 2:
                     await msg.delete()
-                    return await message.reply("mohon balas sesuatu atau ketik sesuatu")
+                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
             chat_id = dialog.chat.id
@@ -33,14 +33,14 @@ async def broadcast_group_cmd(client, message):
                     await asyncio.sleep(0.1)
     await msg.delete()
     return await message.reply(
-        f"💬 Mengirim Pesan Selesai\n\n✅ Berhasil Terkirim: {sent} \n❌ Gagal Terkirim: {failed}"
+        f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {send} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
     )
 
 
 async def broadcast_users_cmd(client, message):
     sent = 0
     failed = 0
-    msg = await message.reply("Sedang Memproses")
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs")
     async for dialog in client.get_dialogs():
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
@@ -48,7 +48,7 @@ async def broadcast_users_cmd(client, message):
             else:
                 if len(message.command) < 2:
                     await msg.delete()
-                    return await message.reply("mohon balas sesuatu atau ketik sesuatu")
+                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
             chat_id = dialog.chat.id
@@ -65,7 +65,7 @@ async def broadcast_users_cmd(client, message):
                     await asyncio.sleep(0.1)
     await msg.delete()
     return await message.reply(
-        f"💬 Mengirim Pesan Selesai\n\n✅ Berhasil Terkirim: {sent} \n❌ Gagal Terkirim: {failed}"
+        f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {send} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
     )
 
 
@@ -77,7 +77,7 @@ async def send_msg_cmd(client, message):
             chat_id = message.text.split()[1]
         try:
             await message.reply_to_message.copy(chat_id, protect_content=True)
-            tm = await message.reply(f"✅ Pesan Berhasil Dikirim Ke {chat_id}")
+            tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
             await asyncio.sleep(3)
             await message.delete()
             await tm.delete()
@@ -85,12 +85,12 @@ async def send_msg_cmd(client, message):
             return await message.reply(f"{t}")
     else:
         if len(message.command) < 3:
-            return await message.reply("ketik yang bener")
+            return await message.reply("ᴋᴇᴛɪᴋ ʏᴀɴɢ ʙᴇɴᴇʀ")
         chat_id = message.text.split(None, 2)[1]
         chat_text = message.text.split(None, 2)[2]
         try:
             await client.send_message(chat_id, chat_text, protect_content=True)
-            tm = await message.reply(f"✅ Pesan Berhasil Dikirim Ke {chat_id}")
+            tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
             await asyncio.sleep(3)
             await message.delete()
             await tm.delete()
