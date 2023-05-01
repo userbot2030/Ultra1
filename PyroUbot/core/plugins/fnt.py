@@ -81,10 +81,6 @@ async def font_callback(client, callback_query):
         else:
             text = m.text.split(None, 1)[1]
         get_new_font = gen_font(text, font[new])
-        return await callback_query.edit_message_text(
-            get_new_font
-        )
+        return await callback_query.edit_message_text(get_new_font)
     except Exception as error:
-        return await callback_query.edit_message_text(
-            f"<code>{error}</code>"
-        )
+        return await callback_query.edit_message_text(f"<code>{error}</code>")
