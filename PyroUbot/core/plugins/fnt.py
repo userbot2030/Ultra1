@@ -34,10 +34,10 @@ async def font_message(client, message):
         if message.reply_to_message.text:
             query = id(message)
         else:
-            return await message.reply("harap reply ke text")
+            return await message.reply("ʜᴀʀᴀᴘ ʀᴇᴘʟʏ ᴋᴇ ᴛᴇxᴛ")
     else:
         if len(message.command) < 2:
-            return await message.reply(f"{message.text} [reply/text]")
+            return await message.reply(f"{message.text} [ʀᴇᴘʟʏ/ᴛᴇxᴛ]")
         else:
             query = id(message)
     try:
@@ -63,7 +63,7 @@ async def font_inline(client, inline_query):
                     title="get font!",
                     reply_markup=buttons,
                     input_message_content=InputTextMessageContent(
-                        "<b>👇 Silahkan Pilih Salah Satu Font Dibawah</b>"
+                        "<b>👇 sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ sᴀʟᴀʜ sᴀᴛᴜ ꜰᴏɴᴛ ᴅɪʙᴀᴡᴀʜ</b>"
                     ),
                 )
             )
@@ -81,15 +81,10 @@ async def font_callback(client, callback_query):
         else:
             text = m.text.split(None, 1)[1]
         get_new_font = gen_font(text, font[new])
-        buttons = InlineKeyboard(row_width=2)
-        keyboard = []
-        for X in font:
-            keyboard.append(InlineKeyboardButton(X, callback_data=f"get {q} {X}"))
-        buttons.add(*keyboard)
         return await callback_query.edit_message_text(
-            get_new_font, reply_markup=buttons
+            get_new_font
         )
     except Exception as error:
         return await callback_query.edit_message_text(
-            f"<b>❌ ERROR:</b> <code>{error}</code>"
+            f"<code>{error}</code>"
         )
