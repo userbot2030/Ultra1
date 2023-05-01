@@ -8,7 +8,7 @@ from .. import *
 async def limit_cmd(client, message):
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
-    msg = await message.reply("<code>Processing . . .</code>")
+    msg = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ . . .</code>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
