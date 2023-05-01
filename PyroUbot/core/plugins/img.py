@@ -30,7 +30,7 @@ async def rbg_cmd(client, message):
         return
     if message.reply_to_message:
         reply_message = message.reply_to_message
-        xx = await message.reply("<i>Memproses...</i>")
+        xx = await message.reply("<i>ᴍᴇᴍᴘʀᴏsᴇs...</i>")
         try:
             if (
                 isinstance(reply_message.media, raw.types.MessageMediaPhoto)
@@ -39,13 +39,13 @@ async def rbg_cmd(client, message):
                 downloaded_file_name = await client.download_media(
                     reply_message, "./downloads/"
                 )
-                await xx.edit("<i>Menghapus latar belakang dari gambar ini...</i>")
+                await xx.edit("<i>ᴍᴇɴɢʜᴀᴘᴜs ʟᴀᴛᴀʀ ʙᴇʟᴀᴋᴀɴɢ ᴅᴀʀɪ ɢᴀᴍʙᴀʀ ɪɴɪ...</i>")
                 output_file_name = await ReTrieveFile(downloaded_file_name)
                 os.remove(downloaded_file_name)
             else:
                 await xx.edit("<i>Bagaimana cara menghapus latar belakang ini ?</i>")
         except Exception as e:
-            await xx.edit(f"ERROR: {(str(e))}")
+            await xx.edit(f"{(str(e))}")
             return
         contentType = output_file_name.headers.get("content-type")
         if "image" in contentType:
@@ -60,19 +60,19 @@ async def rbg_cmd(client, message):
                 await xx.delete()
         else:
             await xx.edit(
-                "<b>Kesalahan (Kunci API tidak valid, saya kira ?)</b>\n<i>{}</i>".format(
+                "<b>ᴋᴇsᴀʟᴀʜᴀɴ (ᴋᴜɴᴄɪ ᴀᴘɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ, sᴀʏᴀ ᴋɪʀᴀ ?)</b>\n<i>{}</i>".format(
                     output_file_name.content.decode("UTF-8")
                 ),
             )
     else:
-        return await message.reply("Silahkan Balas Ke Gambar")
+        return await message.reply("sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ɢᴀᴍʙᴀʀ")
 
 
 async def blur_cmd(client, message):
     ureply = message.reply_to_message
-    xd = await message.reply("<i>Memproses...</i>")
+    xd = await message.reply("<i>ᴍᴇᴍᴘʀᴏsᴇs...</i>")
     if not ureply:
-        return await xd.edit("Balas Ke Gambae")
+        return await xd.edit("ʙᴀʟᴀs ᴋᴇ ɢᴀᴍʙᴀʀ")
     yinsxd = await client.download_media(ureply, "./downloads/")
     if yinsxd.endswith(".tgs"):
         cmd = ["lottie_convert.py", yinsxd, "yin.png"]
@@ -106,9 +106,9 @@ async def blur_cmd(client, message):
 
 async def negative_cmd(client, message):
     ureply = message.reply_to_message
-    ayiin = await message.reply("Memproses...")
+    ayiin = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...")
     if not ureply:
-        return await ayiin.edit("Balas Ke Gambar")
+        return await ayiin.edit("ʙᴀʟᴀs ᴋᴇ ɢᴀᴍʙᴀʀ")
     ayiinxd = await client.download_media(ureply, "./downloads/")
     if ayiinxd.endswith(".tgs"):
         cmd = ["lottie_convert.py", ayiinxd, "yin.png"]
@@ -142,9 +142,9 @@ async def negative_cmd(client, message):
 
 async def miror_cmd(client, message):
     ureply = message.reply_to_message
-    kentu = await message.reply("<i>Memproses</i>")
+    kentu = await message.reply("<i>ᴍᴇᴍᴘʀᴏsᴇs</i>")
     if not ureply:
-        return await kentu.edit("Balas Ke Gambar")
+        return await kentu.edit("ʙᴀʟᴀs ᴋᴇ ɢᴀᴍʙᴀʀ")
     xnxx = await client.download_media(ureply, "./downloads/")
     if xnxx.endswith(".tgs"):
         cmd = ["lottie_convert.py", xnxx, "yin.png"]
