@@ -10,7 +10,7 @@ from .. import *
 
 
 async def convert_anime(client, message):
-    Tm = await message.reply("<b>Tunggu sebentar...</b>")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ...</b>")
     if message.reply_to_message:
         if len(message.command) < 2:
             if message.reply_to_message.photo:
@@ -24,7 +24,7 @@ async def convert_anime(client, message):
                 get_photo = await dl_pic(client, message.reply_to_message)
             else:
                 return await Tm.edit(
-                    "<b>mohon balas ke</b> <code>photo/striker/git</code>"
+                    "<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ</b> <code>ᴘʜᴏᴛᴏ/sᴛʀɪᴋᴇʀ/ɢɪᴛ</code>"
                 )
         else:
             if message.command[1] in ["foto", "profil", "photo"]:
@@ -39,7 +39,7 @@ async def convert_anime(client, message):
     else:
         if len(message.command) < 2:
             return await Tm.edit(
-                "Balas ke foto dan saya akan merubah foto anda menjadi anime"
+                "ʙᴀʟᴀs ᴋᴇ ꜰᴏᴛᴏ ᴅᴀɴ sᴀʏᴀ ᴀᴋᴀɴ ᴍᴇʀᴜʙᴀʜ ꜰᴏᴛᴏ ᴀɴᴅᴀ ᴍᴇɴᴊᴀᴅɪ ᴀɴɪᴍᴇ"
             )
         else:
             try:
@@ -49,7 +49,7 @@ async def convert_anime(client, message):
                 get_photo = await dl_pic(client, photo)
             except Exception as error:
                 return await Tm.edit(error)
-    await Tm.edit("<b>Sedang diproses...</b>")
+    await Tm.edit("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs...</b>")
     await client.unblock_user("@qq_neural_anime_bot")
     send_photo = await client.send_photo("@qq_neural_anime_bot", get_photo)
     await asyncio.sleep(30)
@@ -62,7 +62,7 @@ async def convert_anime(client, message):
     ):
         anime_photo.append(
             InputMediaPhoto(
-                anime.photo.file_id, caption=f"<b>Powered By: {bot.me.mention}</b>"
+                anime.photo.file_id, caption=f"<b>ᴘᴏᴡᴇʀᴇᴅ ʙʏ: {bot.me.mention}</b>"
             )
         )
     if anime_photo:
@@ -76,7 +76,7 @@ async def convert_anime(client, message):
     else:
         await client.send_message(
             message.chat.id,
-            f"<b>Gagal merubah {file} menjadi gambar anime</b>",
+            f"<b>ɢᴀɢᴀʟ ᴍᴇʀᴜʙᴀʜ {file} ᴍᴇɴᴊᴀᴅɪ ɢᴀᴍʙᴀʀ ᴀɴɪᴍᴇ</b>",
             reply_to_message_id=message.id,
         )
         return await client.invoke(DeleteHistory(peer=info, max_id=0, revoke=True))
@@ -84,7 +84,7 @@ async def convert_anime(client, message):
 
 async def convert_photo(client, message):
     try:
-        Tm = await message.reply("Downloading . . .")
+        Tm = await message.reply("ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ . . .")
         file_io = await dl_pic(client, message.reply_to_message)
         file_io.name = "sticker.png"
         await asyncio.gather(
@@ -99,7 +99,7 @@ async def convert_photo(client, message):
         await Tm.delete()
         return await client.send_message(
             message.chat.id,
-            f"INFO: {e}",
+            e,
             reply_to_message_id=message.id,
         )
 
@@ -107,7 +107,7 @@ async def convert_photo(client, message):
 async def convert_sticker(client, message):
     try:
         if not message.reply_to_message or not message.reply_to_message.photo:
-            return await message.reply_text("Reply ke foto untuk mengubah ke sticker")
+            return await message.reply_text("ʀᴇᴘʟʏ ᴋᴇ ꜰᴏᴛᴏ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴜʙᴀʜ ᴋᴇ sᴛɪᴄᴋᴇʀ")
         sticker = await client.download_media(
             message.reply_to_message.photo.file_id,
             f"sticker_{message.from_user.id}.webp",
@@ -119,10 +119,10 @@ async def convert_sticker(client, message):
 
 
 async def convert_gif(client, message):
-    TM = await message.reply("<b>Memproses...</b>")
+    TM = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>")
     if not message.reply_to_message.sticker:
-        return await TM.edit("<b>Balas ke Stiker...</b>")
-    await TM.edit("<b>Downloading Sticker. . .</b>")
+        return await TM.edit("<b>ʙᴀʟᴀs ᴋᴇ sᴛɪᴋᴇʀ...</b>")
+    await TM.edit("<b>ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ sᴛɪᴄᴋᴇʀ. . .</b>")
     file = await client.download_media(
         message.reply_to_message,
         f"Gift_{message.from_user.id}.mp4",
@@ -139,21 +139,21 @@ async def convert_gif(client, message):
 
 async def convert_audio(client, message):
     replied = message.reply_to_message
-    Tm = await message.reply("<b>Tunggu sebentar</b>")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
     if not replied:
-        return await Tm.edit("<b>Mohon Balas Ke Video</b>")
+        return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴠɪᴅᴇᴏ</b>")
     if replied.media == MessageMediaType.VIDEO:
-        await Tm.edit("<b>Downloading Video . . .</b>")
+        await Tm.edit("<b>ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴠɪᴅᴇᴏ . . ..</b>")
         file = await client.download_media(
             message=replied,
             file_name=f"toaudio_{replied.id}",
         )
         out_file = f"{file}.mp3"
         try:
-            await Tm.edit("<b>Mencoba Ekstrak Audio. . .</b>")
+            await Tm.edit("<b>ᴍᴇɴᴄᴏʙᴀ ᴇᴋsᴛʀᴀᴋ ᴀᴜᴅɪᴏ. ..</b>")
             cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
             await run_cmd(cmd)
-            await Tm.edit("<b>Uploading Audio . . .</b>")
+            await Tm.edit("<b>ᴜᴘʟᴏᴀᴅɪɴɢ ᴀᴜᴅɪᴏ . . .</b>")
             await client.send_voice(
                 message.chat.id,
                 voice=out_file,
@@ -164,7 +164,7 @@ async def convert_audio(client, message):
         except Exception as error:
             await Tm.edit(error)
     else:
-        return await Tm.edit("<b>Mohon Balas Ke Video</b>")
+        return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴠɪᴅᴇᴏ</b>")
 
 
 async def convert_efek(client, message):
@@ -173,7 +173,7 @@ async def convert_efek(client, message):
     if rep and helo:
         tau = ["bengek", "robot", "jedug", "fast", "echo"]
         if helo in tau:
-            Tm = await message.reply(f"Merubah suara menjadi {helo}")
+            Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
             indir = await client.download_media(rep)
             KOMUT = {
                 "bengek": '-filter_complex "rubberband=pitch=1.5"',
@@ -190,8 +190,8 @@ async def convert_efek(client, message):
             await rep.reply_voice("audio.mp3", caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
-            await message.reply(f"Silahkan isi sesuai {tau}")
+            await message.reply(f"sɪʟᴀʜᴋᴀɴ ɪsɪ sᴇsᴜᴀɪ {tau}")
     else:
         await Tm.edit(
-            f"Silahkan balas ke audio atau mp3, contoh : <code>!efek bengek</code> sambil balas ke audio atau mp3"
+            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek bengek</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
         )
