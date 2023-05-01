@@ -19,7 +19,7 @@ async def logo_cmd(client, message):
             for X in (send_pic, text_pic):
                 await X.delete()
         else:
-            return await Tm.edit("Reply ke foto/gif/sticker untuk membuat logo")
+            return await Tm.edit("ʀᴇᴘʟʏ ᴋᴇ ꜰᴏᴛᴏ/ɢɪꜰ/sᴛɪᴄᴋᴇʀ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ")
     else:
         if len(message.command) < 2:
             return await Tm.edit(
