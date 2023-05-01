@@ -5,9 +5,9 @@ from .. import *
 
 
 async def ai_cmd(client, message):
-    Tm = await message.reply("<code>Memproses...</code>")
+    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     if len(message.command) < 2:
-        return await Tm.edit(f"<b><code>{message.text}</code> [pertanyaan]</b>")
+        return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
         response = OpenAi.ChatGPT(message.text.split(None, 1)[1])
         if int(len(str(response))) > 4096:
@@ -29,9 +29,9 @@ async def ai_cmd(client, message):
 
 
 async def dalle_cmd(client, message):
-    Tm = await message.reply("<code>Memproses...</code>")
+    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     if len(message.command) < 2:
-        return await Tm.edit(f"<b><code>{message.text}</code> [query]</b>")
+        return await Tm.edit(f"<b><code>{message.text}</code> [ǫᴜᴇʀʏ]</b>")
     try:
         response = OpenAi.ImageDalle(message.text.split(None, 1)[1])
         msg = message.reply_to_message or message
@@ -43,7 +43,7 @@ async def dalle_cmd(client, message):
 
 
 async def stt_cmd(client, message):
-    Tm = await message.reply("<code>Memproses...</code>")
+    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     reply = message.reply_to_message
     if reply:
         if reply.voice or reply.audio or reply.video:
@@ -75,5 +75,5 @@ async def stt_cmd(client, message):
                 return await Tm.delete()
         else:
             return await Tm.edit(
-                f"<b><code>{message.text}</code> [reply voice_chat/audio/video]</b>"
+                f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
             )
