@@ -43,7 +43,7 @@ async def rbg_cmd(client, message):
                 output_file_name = await ReTrieveFile(downloaded_file_name)
                 os.remove(downloaded_file_name)
             else:
-                await xx.edit("<i>Bagaimana cara menghapus latar belakang ini ?</i>")
+                await xx.edit("<i>ʙᴀɢᴀɪᴍᴀɴᴀ ᴄᴀʀᴀ ᴍᴇɴɢʜᴀᴘᴜs ʟᴀᴛᴀʀ ʙᴇʟᴀᴋᴀɴɢ ɪɴɪ ?</i>")
         except Exception as e:
             await xx.edit(f"{(str(e))}")
             return
