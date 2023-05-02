@@ -2,7 +2,7 @@ from .. import *
 
 
 async def staff_cmd(client, message):
-    chat_title = m.chat.title
+    chat_title = message.chat.title
     creator = []
     co_founder = []
     admin = []
