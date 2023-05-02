@@ -14,12 +14,8 @@ async def sg_cmd(client, message):
     except Exception as error:
         return await lol.edit(error)
     bot = ["@Sangmata_bot", "@SangMata_beta_bot"]
-    try:
-        await client.join_chat("https://t.me/+QvgWBX23s3RkOWVl")
-    except:
-        pass
     getbot = random.choice(bot)
-    txt = await client.send_message(-1001835552147, f"{getbot} allhistory {user.id}")
+    txt = await client.send_message(getbot, user.id)
     await asyncio.sleep(4)
     await lol.delete()
     try:
@@ -27,4 +23,5 @@ async def sg_cmd(client, message):
         await message.reply(sg.text)
     except:
         await message.reply("❌ ᴀᴘɪ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
-    await client.leave_chat(-1001835552147)
+    user_info = await client.resolve_peer(bot)
+    return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
