@@ -1,6 +1,5 @@
 import asyncio
 
-from pyrogram.enums import MessagesFilter
 from pyrogram.raw.functions.messages import DeleteHistory
 
 
@@ -18,10 +17,7 @@ async def sosmed_cmd(client, message):
         await asyncio.sleep(10)
         try:
             sosmed = await client.get_messages(bot, xnxx.id + 2)
-            await sosmed.copy(
-                        message.chat.id,
-                        reply_to_message_id=message.id
-                    )
+            await sosmed.copy(message.chat.id, reply_to_message_id=message.id)
             await Tm.delete()
         except Exception:
             await Tm.edit(
