@@ -15,7 +15,7 @@ async def tg_cmd(client, message):
         try:
             media_url = upload_file(m_d)
         except exceptions.TelegraphException as exc:
-            return await XD.edit(f"<b>ERROR:</b> <code>{exc}</code>")
+            return await XD.edit(f"<code>{exc}</code>")
         U_done = f"<b>ʙᴇʀʜᴀsɪʟ ᴅɪᴜᴘʟᴏᴀᴅ ᴋᴇ</b> <a href='https://telegra.ph/{media_url[0]}'>ᴛᴇʟᴇɢʀᴀᴘʜ</a>"
         await XD.edit(U_done)
     elif message.reply_to_message.text:
@@ -25,6 +25,6 @@ async def tg_cmd(client, message):
         try:
             response = telegraph.create_page(page_title, html_content=page_text)
         except exceptions.TelegraphException as exc:
-            return await XD.edit(f"<b>ERROR:</b> <code>{exc}</code>")
+            return await XD.edit(f"<code>{exc}</code>")
         wow_graph = f"<b>ʙᴇʀʜᴀsɪʟ ᴅɪᴜᴘʟᴏᴀᴅ ᴋᴇ</b> <a href='https://telegra.ph/{response['path']}'>ᴛᴇʟᴇɢʀᴀᴘʜ</a>"
         await XD.edit(wow_graph)
