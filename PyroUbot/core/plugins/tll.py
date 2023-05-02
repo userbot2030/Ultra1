@@ -1,8 +1,6 @@
 import asyncio
 from random import shuffle
 
-from pyrogram.types import Message
-
 
 tagallgcid = []
 
