@@ -6,7 +6,7 @@ import cv2
 from PIL import Image
 from pyrogram import emoji
 from pyrogram.enums import ParseMode
-from pyrogram.errors import StickersetInvalid, YouBlockedUser
+from pyrogram.errors import StickersetInvalid
 from pyrogram.raw.functions.messages import DeleteHistory, GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
 
@@ -55,7 +55,6 @@ async def quotly_cmd(client, message):
             await message.reply("ɢᴀɢᴀʟ ᴍᴇᴍʙᴜᴀᴛ ᴋᴜᴛɪᴘᴀɴ")
         user_info = await client.resolve_peer("@QuotLyBot")
         await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
-
 
 
 async def kang_cmd(client, message):
