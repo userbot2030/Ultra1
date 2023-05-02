@@ -17,5 +17,5 @@ from ..core.plugins.lmt import *
 from ..core.plugins.nts import *
 from ..core.plugins.ocr import *
 from ..core.plugins.opi import *
-from ..core.plugins.pyn import *
 from ..core.plugins.pgr import *
+from ..core.plugins.pyn import *
