@@ -87,7 +87,7 @@ class Button:
 class INLINE:
     def QUERY(func):
         async def wrapper(client, inline_query):
-            users = client._get_my_id
+            users = ubot._get_my_id
             if inline_query.from_user.id not in users:
                 await client.answer_inline_query(
                     inline_query.id,
@@ -110,7 +110,7 @@ class INLINE:
 
     def DATA(func):
         async def wrapper(client, callback_query):
-            users = client._get_my_id
+            users = ubot._get_my_id
             if callback_query.from_user.id not in users:
                 await callback_query.answer(
                     f"ᴍᴀᴋᴀɴʏᴀ ᴏʀᴅᴇʀ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴅᴜʟᴜ ʙɪᴀʀ ʙɪsᴀ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ɪɴɪ",
