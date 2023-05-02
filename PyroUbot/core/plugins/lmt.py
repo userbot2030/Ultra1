@@ -2,7 +2,6 @@ from asyncio import sleep
 
 from pyrogram.raw.functions.messages import DeleteHistory, StartBot
 
-from .. import *
 
 
 async def limit_cmd(client, message):

@@ -2,7 +2,6 @@ import importlib
 import random
 from datetime import datetime, timedelta
 
-from pyrogram.enums import ChatType
 from pytz import timezone
 
 from .. import *

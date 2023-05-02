@@ -1,6 +1,5 @@
 import asyncio
 import os
-from io import BytesIO
 
 from pyrogram.enums import MessageMediaType, MessagesFilter
 from pyrogram.raw.functions.messages import DeleteHistory

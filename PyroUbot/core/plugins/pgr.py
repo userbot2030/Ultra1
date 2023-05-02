@@ -1,6 +1,5 @@
 import asyncio
 
-from .. import *
 
 
 async def del_cmd(client, message):
