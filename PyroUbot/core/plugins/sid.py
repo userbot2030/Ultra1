@@ -1,5 +1,4 @@
 from pyrogram.enums import ChatType
-from pyrogram.errors import BadRequest
 
 from .. import *
 
