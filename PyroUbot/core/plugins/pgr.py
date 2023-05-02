@@ -1,5 +1,7 @@
 import asyncio
 
+from .. import *
+
 
 async def del_cmd(client, message):
     rep = message.reply_to_message
