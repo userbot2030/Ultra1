@@ -28,3 +28,4 @@ from ..core.plugins.spm import *
 from ..core.plugins.srh import *
 from ..core.plugins.stf import *
 from ..core.plugins.stm import *
+from ..core.plugins.str import *
