@@ -4,7 +4,6 @@ from pyrogram.enums import MessagesFilter
 from pyrogram.raw.functions.messages import DeleteHistory
 
 
-
 async def sosmed_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply(
