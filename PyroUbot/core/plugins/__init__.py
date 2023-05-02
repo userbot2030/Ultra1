@@ -21,7 +21,7 @@ from ..core.plugins.pgr import *
 from ..core.plugins.pyn import *
 from ..core.plugins.qrq import *
 from ..core.plugins.rts import *
+from ..core.plugins.sid import *
 from ..core.plugins.smt import *
 from ..core.plugins.srh import *
 from ..core.plugins.stm import *
-from ..core.plugins.sid import *
