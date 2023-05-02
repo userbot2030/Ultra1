@@ -1,7 +1,6 @@
 import asyncio
 from random import shuffle
 
-
 tagallgcid = []
 
 
