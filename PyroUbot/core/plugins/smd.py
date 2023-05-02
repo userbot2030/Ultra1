@@ -15,19 +15,14 @@ async def sosmed_cmd(client, message):
         await client.unblock_user(bot)
         Tm = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ . . .</code>")
         xnxx = await client.send_message(bot, link)
-        await xnxx.delete()
         await asyncio.sleep(10)
         try:
-            async for sosmed in client.search_messages(
-                bot, filter=MessagesFilter.VIDEO
-            ):
-                if sosmed.video:
-                    await sosmed.copy(
+            sosmed = await client.get_messages(bot, xnxx.id + 2)
+            await sosmed.copy(
                         message.chat.id,
-                        caption=f"<b>ᴜᴘʟᴏᴀᴅ ʙʏ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>",
-                        reply_to_message_id=message.id,
+                        reply_to_message_id=message.id
                     )
-                    await Tm.delete()
+            await Tm.delete()
         except Exception:
             await Tm.edit(
                 "<b>ᴠɪᴅᴇᴏ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ʙᴇʙᴇʀᴀᴘᴀ sᴀᴀᴛ ʟᴀɢɪ</b>"
