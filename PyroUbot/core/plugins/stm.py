@@ -1,6 +1,5 @@
 from gc import get_objects
 
-from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
