@@ -1,7 +1,6 @@
 import asyncio
 
 
-
 async def del_cmd(client, message):
     rep = message.reply_to_message
     await message.delete()

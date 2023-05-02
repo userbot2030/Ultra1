@@ -5,7 +5,6 @@ import requests
 from bs4 import BeautifulSoup
 
 
-
 def qr_gen(content):
     return {
         "data": content,
