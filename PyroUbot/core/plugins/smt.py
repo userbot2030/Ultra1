@@ -3,6 +3,7 @@ import random
 
 from .. import *
 
+
 async def sg_cmd(client, message):
     user_id = await extract_user(message)
     lol = await message.reply("</b>Memproses. . .</b>")
