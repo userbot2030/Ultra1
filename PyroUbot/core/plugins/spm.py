@@ -1,7 +1,6 @@
 import asyncio
 
 
-
 async def spam_cmd(client, message):
     if message.command[0] == "spam":
         if message.reply_to_message:
