@@ -1,6 +1,5 @@
 import asyncio
 
-from .. import *
 
 
 async def spam_cmd(client, message):
