@@ -7,7 +7,7 @@ from pyrogram.types import Message
 tagallgcid = []
 
 
-async def tagall_batal_cmd(client, message: Message):
+async def tagall_batal_cmd(client, message):
     if message.command[0] == "tagall":
         if message.chat.id in tagallgcid:
             return
