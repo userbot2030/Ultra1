@@ -99,6 +99,4 @@ async def set_bahasa_callback(client, callback_query):
             f"<b>✅ ʙᴇʀʜᴀsɪʟ ᴅɪᴜʙᴀʜ ᴋᴇ ʙᴀʜᴀsᴀ {data[2]}"
         )
     except Exception as error:
-        return await callback_query.edit_message_text(
-            f"<code>{error}</code>"
-        )
+        return await callback_query.edit_message_text(f"<code>{error}</code>")
