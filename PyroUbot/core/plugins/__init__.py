@@ -33,3 +33,4 @@ from ..core.plugins.stm import *
 from ..core.plugins.str import *
 from ..core.plugins.tll import *
 from ..core.plugins.tph import *
+from ..core.plugins.trl import *
