@@ -3,7 +3,6 @@ import asyncio
 from pyrogram.enums import MessagesFilter
 from pyrogram.raw.functions.messages import DeleteHistory
 
-from .. import *
 
 
 async def sosmed_cmd(client, message):
