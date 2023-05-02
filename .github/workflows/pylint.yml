@@ -20,7 +20,7 @@ jobs:
           isort --skip-glob='**/venv/**' .
       - name: Remove unused imports
         run: |
-          autoflake --remove-unused-variables --remove-unused-imports --recursive .
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
       - name: Code Analysis
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
