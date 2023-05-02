@@ -20,4 +20,3 @@ from ..core.plugins.opi import *
 from ..core.plugins.pgr import *
 from ..core.plugins.pyn import *
 from ..core.plugins.qrq import *
-
