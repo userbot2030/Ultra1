@@ -1,4 +1,3 @@
-from .. import *
 
 
 async def staff_cmd(client, message):
