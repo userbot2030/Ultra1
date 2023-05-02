@@ -105,7 +105,7 @@ async def kang_cmd(client, message):
         else:
             await Tm.edit("ꜰɪʟᴇ ᴛɪᴅᴀᴋ ᴅɪᴅᴜᴋᴜɴɢ")
             return
-        media_ = await client.download_media(replied, file_name="tomimusic/modules/")
+        media_ = await client.download_media(replied, file_name="PyroiUbot")
     else:
         await Tm.edit("sɪʟᴀʜᴋᴀɴ ʀᴇᴘʟʏ ᴋᴇ ᴍᴇᴅɪᴀ ꜰᴏᴛᴏ/ɢɪꜰ/sᴛɪᴄᴋᴇʀ!")
         return
