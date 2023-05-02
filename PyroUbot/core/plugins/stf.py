@@ -1,5 +1,3 @@
-
-
 async def staff_cmd(client, message):
     chat_title = message.chat.title
     creator = []
