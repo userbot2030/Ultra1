@@ -3,10 +3,9 @@ from random import shuffle
 
 from pyrogram.types import Message
 
-from .. import *
-
 
 tagallgcid = []
+
 
 async def tagall_batal_cmd(client, message: Message):
     if message.command[0] == "tagall":
