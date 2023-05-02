@@ -24,3 +24,4 @@ from ..core.plugins.rts import *
 from ..core.plugins.smt import *
 from ..core.plugins.srh import *
 from ..core.plugins.stm import *
+from ..core.plugins.sid import *
