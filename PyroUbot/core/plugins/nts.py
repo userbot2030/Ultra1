@@ -49,7 +49,6 @@ async def delnote_cmd(client, message):
 
 async def notes_cmd(client, message):
     msg = f"📝 ᴅᴀꜰᴛᴀʀ ᴄᴀᴛᴀᴛᴀɴ {client.me.first_name} {client.me.last_name or ''}\n\n"
-    allnotes = ""
     for notes in await all_notes(client.me.id):
         msg += f"• {notes}\n"
     await message.reply(msg)
