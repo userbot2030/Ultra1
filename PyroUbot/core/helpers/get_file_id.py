@@ -55,7 +55,6 @@ def qr_gen(content):
     }
 
 
-
 lang_code_translate = {
     "Afrikaans": "af",
     "Arabic": "ar",
@@ -86,4 +85,3 @@ lang_code_translate = {
     "Turkish": "tr",
     "Vietname": "vi",
 }
-
