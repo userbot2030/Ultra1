@@ -73,8 +73,7 @@ class HELP:
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ sᴛɪᴄᴋᴇʀ ᴍᴇɴᴊᴀᴅɪ ᴋᴇᴄɪʟ
 """
 
-    
-    
+
 class MSG:
     def START(message):
         return f"""
