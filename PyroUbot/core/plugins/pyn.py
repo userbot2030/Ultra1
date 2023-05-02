@@ -34,9 +34,9 @@ async def confirm_callback(client, callback_query):
         if not pesan.photo:
             CONFIRM_PAYMENT.remove(get.id)
             await pesan.request.edit(
-                f"<b>💬 SILAHKAN KIRIMKAN SCREENSHOT BUKTI PEMBAYARAN ANDA: {full_name}</b>",
+                f"<b>💬 sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍᴋᴀɴ ʙᴜᴋᴛɪ sᴄʀᴇᴇɴsʜᴏᴛ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
             )
-            buttons = [[InlineKeyboardButton("✅ KONFIRMASI", callback_data="confirm")]]
+            buttons = [[InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ", callback_data="confirm")]]
             return await bot.send_message(
                 user_id,
                 """
@@ -81,10 +81,9 @@ async def confirm_callback(client, callback_query):
 async def success_failed_home_callback(client, callback_query):
     query = callback_query.data.split()
     get_user = await bot.get_users(query[1])
-    await callback_query.message.delete()
     if query[0] == "success":
         buttons = [
-            [InlineKeyboardButton("🔥 BUAT USERBOT 🔥", callback_data="add_ubot")],
+            [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="add_ubot")],
         ]
         await bot.send_message(
             get_user.id,
