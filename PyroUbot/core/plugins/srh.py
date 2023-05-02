@@ -3,7 +3,6 @@ import random
 from pyrogram.types import InputMediaPhoto
 
 
-
 async def pic_bing_cmd(client, message):
     TM = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>")
     if len(message.command) < 2:
