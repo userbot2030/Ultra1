@@ -2,7 +2,6 @@ import random
 
 from pyrogram.types import InputMediaPhoto
 
-from .. import *
 
 
 async def pic_bing_cmd(client, message):
