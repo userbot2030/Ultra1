@@ -1,6 +1,6 @@
 from .. import *
 
-__MODULE__ = "ADZAN"
+__MODULE__ = "ᴀᴅᴢᴀɴ"
 __HELP__ = f"""
 『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴢᴀɴ 』
 
