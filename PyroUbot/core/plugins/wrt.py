@@ -2,7 +2,6 @@ import os
 
 from PIL import Image, ImageDraw, ImageFont
 
-from .. import *
 
 
 def text_set(text):
