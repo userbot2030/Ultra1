@@ -25,3 +25,4 @@ jobs:
         with:
           commit_message: "Auto Fix"
           commit_options: "--no-verify"
+          commit_user_name: github
