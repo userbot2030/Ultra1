@@ -273,7 +273,7 @@ async def tiny_cmd(client, message):
         return await message.reply("sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ sᴛɪᴄᴋᴇʀ!")
     Tm = await message.reply("ᴘʀᴏᴄᴇssɪɴɢ...")
     ik = await client.download_media(reply)
-    im1 = Image.open("PyroUbot/storage/TM_BLACK.png")
+    im1 = Image.open("storage/TM_BLACK.png")
     if ik.endswith(".tgs"):
         await client.download_media(reply, "Tm.tgs")
         await bash("lottie_convert.py man.tgs json.json")
