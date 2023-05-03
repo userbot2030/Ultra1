@@ -94,7 +94,9 @@ async def set_bahasa_callback(client, callback_query):
     data = callback_query.data.split()
     try:
         m = [obj for obj in get_objects() if id(obj) == int(data[1])][0]
-        m._client._language_translate[m._client.me.id] = {"negara": lang_code_translate[data[2]]}
+        m._client._language_translate[m._client.me.id] = {
+            "negara": lang_code_translate[data[2]]
+        }
         return await callback_query.edit_message_text(
             f"<b>✅ ʙᴇʀʜᴀsɪʟ ᴅɪᴜʙᴀʜ ᴋᴇ ʙᴀʜᴀsᴀ {data[2]}"
         )
