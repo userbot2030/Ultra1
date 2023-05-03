@@ -6,7 +6,6 @@ from pyrogram.enums import ChatType
 from .. import *
 
 
-
 async def info_cmd(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("</b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
