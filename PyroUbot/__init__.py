@@ -34,8 +34,8 @@ class Bot(Client):
 class Ubot(Client):
     _ubot = []
     _get_my_id = []
+    _translate = {}
     _get_my_peer = {}
-    _language_translate = {}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
@@ -53,6 +53,7 @@ class Ubot(Client):
         if self not in self._ubot:
             self._ubot.append(self)
             self.get_my_id.append(self.me.id)
+            self._translate[self.me.id] = {"negara": "id"}
             users = 0
             group = 0
             async for dialog in self.get_dialogs():
@@ -61,7 +62,6 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            self._language_translate[self.me.id] = {"negara": "id"}
             print(f"STARTED UBOT {self.me.first_name} | {self.me.id}")
 
 
