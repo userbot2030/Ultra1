@@ -70,19 +70,6 @@ class Button:
         ]
         return button
 
-    def translate():
-        button = [
-            [
-                InlineKeyboardButton(
-                    "• ʟᴀɴɢ_ᴄᴏᴅᴇ •", url="https://graph.org/LANG-CODE-11-26"
-                )
-            ],
-            [
-                InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back"),
-            ],
-        ]
-        return button
-
 
 class INLINE:
     def QUERY(func):
