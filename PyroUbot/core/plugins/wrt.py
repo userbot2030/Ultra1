@@ -3,7 +3,6 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 
-
 def text_set(text):
     lines = []
     if len(text) <= 55:
