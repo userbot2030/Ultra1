@@ -18,6 +18,7 @@ data_ytp = """
 <b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}
 """
 
+
 async def vsong_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
