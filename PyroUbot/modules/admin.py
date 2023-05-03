@@ -7,7 +7,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT(["kick", "ban", "mute", "unmute", "unban"], F=FILTERS.ME_GROUP)
+@PY.UBOT(["kick", "ban", "mute", "unmute", "unban"], FILTERS.ME_GROUP)
 async def _(client, message):
     await admin_bannen(client, message)
 
