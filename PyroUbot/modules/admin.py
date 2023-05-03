@@ -1,6 +1,5 @@
 from .. import *
 
-
 __MODULE__ = "ᴀᴅᴍɪɴ"
 __HELP__ = f"""
 • <code>{PREFIX[0]}help global</code>
