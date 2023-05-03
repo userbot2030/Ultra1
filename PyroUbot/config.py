@@ -29,14 +29,14 @@ MONGO_URL = os.getenv("MONGO_URL")
 TEXT_PAYMENT = os.getenv(
     "TEXT_PAYMENT",
     """
-<b>💬 SILAHKAN MELAKUKAN PEMBAYARAN SEBESAR RP25.000 = 1 BULAN</b>
+<b>💬 sɪʟᴀʜᴋᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ sᴇʙᴇsᴀʀ ʀᴘ25.000 = 1 ʙᴜʟᴀɴ</b>
 
-<b>💳 MOTODE PEMBAYARAN:</b>
-  <b>┣ DANA/GOPAY/OVO/SPAY</b>
+<b>💳 ᴍᴏᴛᴏᴅᴇ ᴘᴇᴍʙᴀʏᴀʀᴀɴ:</b>
+  <b>┣ ᴅᴀɴᴀ/ɢᴏᴘᴀʏ/ᴏᴠᴏ/sᴘᴀʏ</b>
   <b>┣    ┗</b> <code>089525658633</code>
-  <b>┣ QRIS</b>
-  <b>┗    ┗</b> <a href=https://telegra.ph/file/21e888e1960b1ce9392a7.jpg>KLIK DISINI</a>
+  <b>┣ ǫʀɪs</b>
+  <b>┗    ┗</b> <a href=https://api.qrcode-monkey.com/tmp/2274eaefa4ad07bab3a2578ac5c1e000.png>ᴋʟɪᴋ ᴅɪsɪɴɪ</a>
 
-<b>✅ KLIK TOMBOL KONFIRMASI UNTUK KIRIM BUKTI PEMBAYARAN ANDA</b>
+<b>✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴋᴏɴꜰɪʀᴍᴀsɪ ᴜɴᴛᴜᴋ ᴋɪʀɪᴍ ʙᴜᴋᴛɪ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ</b>
 """,
 )
