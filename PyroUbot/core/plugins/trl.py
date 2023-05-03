@@ -10,13 +10,13 @@ from .. import *
 
 async def tts_cmd(client, message):
     if message.reply_to_message:
-        language = lang_code[client.me.id]["negara"]
+        language = client._translate[client.me.id]["negara"]
         words_to_say = message.reply_to_message.text or message.reply_to_message.caption
     else:
         if len(message.command) < 2:
             return await message.reply(f"<code>{message.text}</code> ʀᴇᴘʟʏ/ᴛᴇxᴛ")
         else:
-            language = client._language_translate[client.me.id]["negara"]
+            language = client._translate[client.me.id]["negara"]
             words_to_say = message.text.split(None, 1)[1]
     speech = gtts.gTTS(words_to_say, lang=language)
     speech.save("text_to_speech.oog")
@@ -38,7 +38,7 @@ async def tts_cmd(client, message):
 async def tr_cmd(client, message):
     trans = Translator()
     if message.reply_to_message:
-        dest = lang_code[client.me.id]["negara"]
+        dest = client._translate[client.me.id]["negara"]
         to_translate = message.reply_to_message.text or message.reply_to_message.caption
         source = await trans.detect(to_translate)
     else:
@@ -94,7 +94,7 @@ async def set_bahasa_callback(client, callback_query):
     data = callback_query.data.split()
     try:
         m = [obj for obj in get_objects() if id(obj) == int(data[1])][0]
-        m._client._language_translate[m._client.me.id] = {
+        m._client._translate[m._client.me.id] = {
             "negara": lang_code_translate[data[2]]
         }
         return await callback_query.edit_message_text(
