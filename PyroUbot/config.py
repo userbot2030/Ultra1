@@ -32,10 +32,11 @@ TEXT_PAYMENT = os.getenv(
 <b>💬 sɪʟᴀʜᴋᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ sᴇʙᴇsᴀʀ ʀᴘ25.000 = 1 ʙᴜʟᴀɴ</b>
 
 <b>💳 ᴍᴏᴛᴏᴅᴇ ᴘᴇᴍʙᴀʏᴀʀᴀɴ:</b>
-  <b>┣ ᴅᴀɴᴀ/ɢᴏᴘᴀʏ/ᴏᴠᴏ/sᴘᴀʏ</b>
-  <b>┣    ┗</b> <code>089525658633</code>
-  <b>┣ ǫʀɪs</b>
-  <b>┗    ┗</b> <a href=https://api.qrcode-monkey.com/tmp/2274eaefa4ad07bab3a2578ac5c1e000.png>ᴋʟɪᴋ ᴅɪsɪɴɪ</a>
+  <b>┣ ᴅᴀɴᴀ: </b> <code>089525658633</code>
+  <b>┣ ɢᴏᴘᴀʏ:</b> </b> <code>089525658633</code>
+  <b>┣ ᴏᴠᴏ:</b> </b> <code>089525658633</code>
+  <b>┣ sᴘᴀʏ</b> </b> <code>089525658633</code>
+  <b>┗ ǫʀɪs:</b> </b> <a href=https://api.qrcode-monkey.com/tmp/2274eaefa4ad07bab3a2578ac5c1e000.png>ᴋʟɪᴋ ᴅɪsɪɴɪ</a>
 
 <b>✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴋᴏɴꜰɪʀᴍᴀsɪ ᴜɴᴛᴜᴋ ᴋɪʀɪᴍ ʙᴜᴋᴛɪ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ</b>
 """,
