@@ -22,7 +22,7 @@ async def vsong_cmd(client, message):
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
     await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>")
     try:
-        file_name, title, url, duration, views, channel, thumb = await YoutubeDownload(
+        file_name, title, url, duration, views, channel, thumb, data_ytp = await YoutubeDownload(
             link, as_video=True
         )
     except Exception as error:
@@ -67,7 +67,7 @@ async def song_cmd(client, message):
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
     await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>")
     try:
-        file_name, title, url, duration, views, channel, thumb = await YoutubeDownload(
+        file_name, title, url, duration, views, channel, thumb, data_ytp = await YoutubeDownload(
             link, as_video=False
         )
     except Exception as error:
