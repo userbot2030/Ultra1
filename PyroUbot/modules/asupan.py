@@ -31,7 +31,7 @@ async def _(client, message):
     await photo_cewek(client, message)
 
 
-@PY.UBOT("ayang3")
+@PY.UBOT("ayang2")
 async def _(client, message):
     await photo_cowok(client, message)
 
