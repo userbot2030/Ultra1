@@ -23,9 +23,9 @@ class PY:
 
         return wrapper
 
-    def UBOT(command, P=PREFIX, F=FILTERS.ME):
+    def UBOT(command, filter=FILTERS.ME):
         def wrapper(func):
-            @ubot.on_message(filters.command(command, P) & F)
+            @ubot.on_message(filters.command(command, PREFIX) & filter)
             async def wrapped_func(client, message):
                 await func(client, message)
 
