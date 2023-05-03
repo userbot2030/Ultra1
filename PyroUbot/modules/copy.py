@@ -22,7 +22,7 @@ async def _(client, message):
 @PY.INLINE("^get_msg")
 @INLINE.QUERY
 async def _(client, inline_query):
-    await copy_copy_inline_msginline_msg(client, inline_query)
+    await copy_inline_msg(client, inline_query)
 
 
 @PY.CALLBACK("^copymsg")
