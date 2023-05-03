@@ -2,7 +2,7 @@ from .. import *
 
 
 
-@PY.UBOT("button"(
+@PY.UBOT("button")
 async def _(client, message):
     await cmd_button(client, message)
 
