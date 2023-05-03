@@ -21,7 +21,7 @@ RMBG_API = os.getenv("RMBG_API", "a6qxsmMJ3CsNo7HyxuKGsP1o")
 
 OPENAI_KEY = os.getenv(
     "OPENAI_KEY",
-    "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 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",
+    "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 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",
 ).split()
 
 MONGO_URL = os.getenv("MONGO_URL")
