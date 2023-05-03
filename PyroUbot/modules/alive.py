@@ -17,7 +17,7 @@ async def _(client, inline_query):
 @PY.CALLBACK("stats")
 @INLINE.DATA
 async def _(client, callback_query):
-    await alive_close(cln, cq):
+    await alive_close(client, callback_query)
   
   
   
