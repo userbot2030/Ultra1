@@ -21,6 +21,18 @@ async def YoutubeDownload(url, as_video=False):
             "nocheckcertificate": True,
             "geo_bypass": True,
         }
+     data_ytp = """
+<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {}</b>
+
+<b>🏷 ɴᴀᴍᴀ:</ʙ> {}<b>
+<b>🧭 ᴅᴜʀᴀsɪ:</b> {}
+<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {}
+<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {}
+<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href={}>ʏᴏᴜᴛᴜʙᴇ</a>
+
+<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}
+"""
+
     ydl = YoutubeDL(ydl_opts)
     ytdl_data = await run_sync(ydl.extract_info, url, download=True)
     file_name = ydl.prepare_filename(ytdl_data)
@@ -31,4 +43,4 @@ async def YoutubeDownload(url, as_video=False):
     channel = ytdl_data["uploader"]
     views = f"{ytdl_data['view_count']:,}".replace(",", ".")
     thumb = f"https://img.youtube.com/vi/{videoid}/hqdefault.jpg"
-    return file_name, title, url, duration, views, channel, thumb
+    return file_name, title, url, duration, views, channel, thumb, data_ytp
