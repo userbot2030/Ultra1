@@ -61,16 +61,16 @@ async def alive_query(client, inline_query):
             )
 
 
-async def alive_close(cln, cq):
-    get_id = cq.data.split()
-    if not cq.from_user.id == int(get_id[2]):
+async def alive_close(client, callback_query):
+    get_id = callback_query.data.split()
+    if not callback_query.from_user.id == int(get_id[2]):
         return await cq.answer(
-            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {cq.from_user.first_name} {cq.from_user.last_name or ''}",
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
     unPacked = unpackInlineMessage(cq.inline_message_id)
     for my in ubot._ubot:
-        if cq.from_user.id == int(my.me.id):
+        if callback_query.from_user.id == int(my.me.id):
             await my.delete_messages(
                 unPacked.chat_id, [int(get_id[1]), unPacked.message_id]
             )
