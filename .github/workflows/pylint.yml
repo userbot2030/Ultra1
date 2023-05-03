@@ -1,7 +1,7 @@
 name: Auto Fix
 on: [push]
 jobs:
-  auto_fix_by_tomi_setiawan:
+  python-auto-fix:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -23,3 +23,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Auto Fix"
+          commit_options: "--no-verify"
