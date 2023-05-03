@@ -4,7 +4,7 @@ from .. import *
 
 @PY.CALLBACK("bahan")
 async def _(client, callback_query):
-    awaut need_api(client, callback_query)
+    await need_api(client, callback_query)
 
 
 @PY.CALLBACK("add_ubot")
