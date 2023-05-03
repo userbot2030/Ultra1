@@ -23,5 +23,5 @@ async def sg_cmd(client, message):
         await sg.copy(message.chat.id, reply_to_message_id=message.id)
     except:
         await message.reply("❌ ᴀᴘɪ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
-    user_info = await client.resolve_peer(bot)
+    user_info = await client.resolve_peer(getbot)
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
