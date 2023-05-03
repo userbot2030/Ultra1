@@ -12,7 +12,7 @@ async def _(client, inline_query):
     await alive_query(client, inline_query)
 
 
-@PY.CALLBACK("stats")
+@PY.CALLBACK("alv_cls")
 @INLINE.DATA
 async def _(client, callback_query):
     await alive_close(client, callback_query)
