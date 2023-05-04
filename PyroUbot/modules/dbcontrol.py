@@ -37,17 +37,20 @@ async def _(client, message):
     await get_seles_user(cliebt, message)
 
 
-@PY.BOT("getseles", FILTERS.OWNER)
-@PY.UBOT("getseles", FILTERS.ME_OWNER)
+@PY.UBOT("addblacklist", FILTERS.ME_GROUP)
 async def _(client, message):
+    await add_blaclist(client, message)
+
+@PY.UBOT("unblacklist", FILTERS.ME_GROUP)
+async def _(client, message):
+    await del_blacklist(client, message)
 
 
-@PY.BOT("getseles", FILTERS.OWNER)
-@PY.UBOT("getseles", FILTERS.ME_OWNER)
+@PY.UBOT("getblacklist", FILTERS.ME_OWNER)
 async def _(client, message):
-@PY.BOT("getseles", FILTERS.OWNER)
-@PY.UBOT("getseles", FILTERS.ME_OWNER)
-async def _(client, message):
+    await get_blacklist(client, message)
+
+
 @PY.BOT("time", FILTERS.OWNER)
 @PY.UBOT("time", FILTERS.ME_OWNER)
 async def _(client, message):
