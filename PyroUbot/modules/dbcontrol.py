@@ -1,11 +1,10 @@
 from .. import *
 
 
-
-
 @PY.UBOT("addblacklist", FILTERS.ME_GROUP)
 async def _(client, message):
     await add_blaclist(client, message)
+
 
 @PY.UBOT("unblacklist", FILTERS.ME_GROUP)
 async def _(client, message):
@@ -15,7 +14,6 @@ async def _(client, message):
 @PY.UBOT("getblacklist", FILTERS.ME_OWNER)
 async def _(client, message):
     await get_blacklist(client, message)
-
 
 
 @PY.BOT("prem")
@@ -64,4 +62,3 @@ async def _(client, message):
 @PY.UBOT("cek", FILTERS.ME_OWNER)
 async def _(client, message):
     await expired_cek(client, message)
-
