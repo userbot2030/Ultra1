@@ -36,5 +36,3 @@ async def _(client, message):
 @PY.UBOT("miror")
 async def _(client, message):
     await miror_cmd(client, message)
-
-
