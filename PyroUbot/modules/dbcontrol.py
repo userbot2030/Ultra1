@@ -34,7 +34,20 @@ async def _(client, message):
 @PY.BOT("getseles", FILTERS.OWNER)
 @PY.UBOT("getseles", FILTERS.ME_OWNER)
 async def _(client, message):
-    await get_seles_user(cliebt, message)
+    await get_seles_user(client, message)
+
+
+@PY.BOT("time", FILTERS.OWNER)
+@PY.UBOT("time", FILTERS.ME_OWNER)
+async def _(client, message):
+    await expired_add(client, message)
+
+
+@PY.BOT("cek", FILTERS.OWNER)
+@PY.UBOT("cek", FILTERS.ME_OWNER)
+async def _(client, message):
+    await expired_cek(client, message)
+
 
 
 @PY.UBOT("addblacklist", FILTERS.ME_GROUP)
@@ -49,18 +62,4 @@ async def _(client, message):
 @PY.UBOT("getblacklist", FILTERS.ME_OWNER)
 async def _(client, message):
     await get_blacklist(client, message)
-
-
-@PY.BOT("time", FILTERS.OWNER)
-@PY.UBOT("time", FILTERS.ME_OWNER)
-async def _(client, message):
-    await expired_add(client, message)
-
-
-@PY.BOT("cek", FILTERS.OWNER)
-@PY.UBOT("time", FILTERS.ME_OWNER)
-async def _(client, message):
-    await expired_cek(client, message)
-
-
 
