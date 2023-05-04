@@ -8,6 +8,6 @@ async def _(client, message):
 
 
 @PY.BOT("trash", FILTERS.OWNER)
-@PY.UBOT("trash", PREFIX)
+@PY.UBOT("trash")
 async def _(client, message):
     await evalator_cmd(client, message)
