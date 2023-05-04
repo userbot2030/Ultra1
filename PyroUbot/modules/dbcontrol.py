@@ -1,14 +1,6 @@
 from .. import *
 
 
-@PY.UBOT("addblacklist", FILTERS.ME_GROUP)
-async def _(client, message):
-    await add_blaclist(client, message)
-
-
-@PY.UBOT("unblacklist", FILTERS.ME_GROUP)
-async def _(client, message):
-    await del_blacklist(client, message)
 
 
 @PY.UBOT("getblacklist", FILTERS.ME_OWNER)
