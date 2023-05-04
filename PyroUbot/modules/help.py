@@ -22,7 +22,3 @@ async def _(client, callback_query):
 @INLINE.DATA
 async def _(client, callback_query):
     await help_callback(client, callback_query)
-
-
-
-
