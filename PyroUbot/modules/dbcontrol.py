@@ -1,8 +1,6 @@
 from .. import *
 
 
-
-
 @PY.UBOT("getblacklist", FILTERS.ME_OWNER)
 async def _(client, message):
     await get_blacklist(client, message)
