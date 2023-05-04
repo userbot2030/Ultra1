@@ -1,7 +1,5 @@
 from .. import *
 
-
-
 __MODULE__ = "ꜰᴏɴᴛ"
 __HELP__ = f"""
 『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜰᴏɴᴛ 』
@@ -9,7 +7,6 @@ __HELP__ = f"""
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}font</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴇxᴛ ꜰᴏɴᴛ ᴅᴇɴɢᴀɴ ᴛᴀᴍᴘɪʟᴀɴ ʏᴀɴɢ ʙᴇʀʙᴇᴅᴀ
 """
-
 
 
 @PY.UBOT("font")
@@ -21,7 +18,6 @@ async def _(client, message):
 @INLINE.QUERY
 async def _(client, inline_query):
     await font_inline(client, inline_query)
-
 
 
 @PY.CALLBACK("^get")
