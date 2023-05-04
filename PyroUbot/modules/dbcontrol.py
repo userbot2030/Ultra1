@@ -1,6 +1,23 @@
 from .. import *
 
 
+
+
+@PY.UBOT("addblacklist", FILTERS.ME_GROUP)
+async def _(client, message):
+    await add_blaclist(client, message)
+
+@PY.UBOT("unblacklist", FILTERS.ME_GROUP)
+async def _(client, message):
+    await del_blacklist(client, message)
+
+
+@PY.UBOT("getblacklist", FILTERS.ME_OWNER)
+async def _(client, message):
+    await get_blacklist(client, message)
+
+
+
 @PY.BOT("prem")
 @PY.UBOT("prem")
 async def _(client, message):
@@ -25,7 +42,7 @@ async def _(client, message):
     await seles_user(client, message)
 
 
-@PY.BOT("unseles",, FILTERS.OWNER)
+@PY.BOT("unseles", FILTERS.OWNER)
 @PY.uBOT("unseles", PREFIX, FILTERS.ME_OWNER)
 async def _(client, message):
     await unseles_user(client, message)
@@ -47,19 +64,4 @@ async def _(client, message):
 @PY.UBOT("cek", FILTERS.ME_OWNER)
 async def _(client, message):
     await expired_cek(client, message)
-
-
-
-@PY.UBOT("addblacklist", FILTERS.ME_GROUP)
-async def _(client, message):
-    await add_blaclist(client, message)
-
-@PY.UBOT("unblacklist", FILTERS.ME_GROUP)
-async def _(client, message):
-    await del_blacklist(client, message)
-
-
-@PY.UBOT("getblacklist", FILTERS.ME_OWNER)
-async def _(client, message):
-    await get_blacklist(client, message)
 
