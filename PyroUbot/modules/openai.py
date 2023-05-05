@@ -25,6 +25,6 @@ async def _(client, message):
     await dalle_cmd(client, message)
 
 
-@PY.UBOT("stt", PREFIX)
+@PY.UBOT("stt")
 async def _(client, message):
     await stt_cmd(client, message)
