@@ -18,12 +18,13 @@ __HELP__ = f"""
 @PY.UBOT(["ai", "ask"])
 async def _(client, message):
     await ai_cmd(client, message)
-  
+
+
 @PY.UBOT(["dalle", "photo"])
 async def _(client, message):
     await dalle_cmd(client, message)
 
+
 @PY.UBOT("stt", PREFIX)
 async def _(client, message):
     await stt_cmd(client, message)
-  
