@@ -21,7 +21,7 @@ __HELP__ = f"""
 @PY.UBOT("addnote")
 async def _(client, message):
     await addnote_cmd(client, message)
-  
+
 
 @PY.UBOT("get")
 async def _(client, message):
@@ -36,5 +36,3 @@ async def _(client, message):
 @PY.UBOT("notes")
 async def _(client, message):
     await notes_cmd(client, message)
-
-    
