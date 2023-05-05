@@ -1,0 +1,40 @@
+from .. import *
+
+__MODULE__ = "ɴᴏᴛᴇs"
+__HELP__ = f"""
+『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɴᴏᴛᴇs 』
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}addnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ - ʀᴇᴘʟʏ]
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ sᴇʙᴜᴀʜ ᴄᴀᴛᴀᴛᴀɴ
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}get</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴄᴀᴛᴀᴛᴀɴ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}delnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴄᴀᴛᴀᴛᴀɴ
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}notes</code>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀꜰᴛᴀʀ ᴄᴀᴛᴀᴛᴀɴ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ
+"""
+
+
+@PY.UBOT("addnote")
+async def _(client, message):
+    await addnote_cmd(client, message)
+  
+
+@PY.UBOT("get")
+async def _(client, message):
+    await get_cmd(client, message)
+
+
+@PY.UBOT("delnote")
+async def _(client, message):
+    await delnote_cmd(client, message)
+
+
+@PY.UBOT("notes")
+async def _(client, message):
+    await notes_cmd(client, message)
+
+    
