@@ -244,7 +244,7 @@ async def cek_ubot(client, message):
             [
                 InlineKeyboardButton(
                     "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                    callback_data=f"del_ubot {new_client.me.id}",
+                    callback_data=f"del_ubot {X.me.id}",
                 )
             ],
         ]
