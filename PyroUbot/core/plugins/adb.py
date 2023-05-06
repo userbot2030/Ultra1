@@ -237,18 +237,19 @@ async def cek_ubot(client, message):
     for X in ubot._ubot:
         count += 1
         user += f"""
-❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ {count}
- ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
- ╰ ɪᴅ: <code>{X.me.id}</code>
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
+<b> ╰ ɪᴅ:</b> <code>{X.me.id}</code>
 """
-    if int(len(str(user))) > 4096:
-        with BytesIO(str.encode(str(user))) as out_file:
-            out_file.name = "userbot.txt"
-            await message.reply_document(
-                document=out_file,
+        buttons = [
+        [
+            InlineKeyboardButton(
+                "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                callback_data=f"del_ubot {new_client.me.id}",
             )
-    else:
-        await message.reply(f"<b>{user}</b>")
+        ],
+    ]
+        await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
 
 
 async def hapus_ubot(client, callback_query):
