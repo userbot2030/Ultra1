@@ -1,4 +1,3 @@
-
 from .. import *
 
 __MODULE__ = "ᴋᴀɴɢ"
