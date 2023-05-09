@@ -22,7 +22,7 @@ async def spam_cmd(client, message):
                 await asyncio.sleep(0.3)
         else:
             if len(message.command) < 3:
-                await message.reply_text("⚡ ᴜsᴀɢᴇ:\n.sᴘᴀᴍ ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴛᴇxᴛ sᴘᴀᴍ")
+                await message.reply_text("⚡ ᴜsᴀɢᴇ:\n.spam ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴛᴇxᴛ sᴘᴀᴍ")
             else:
                 spam = await message.reply("Diproses")
                 try:
@@ -40,7 +40,7 @@ async def spam_cmd(client, message):
         if message.reply_to_message:
             if len(message.command) < 3:
                 return await message.reply_text(
-                    "⚡ ᴜsᴀɢᴇ:\n.ᴅsᴘᴀᴍ ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ʙᴀʟᴀs ᴘᴇsᴀɴ"
+                    "⚡ ᴜsᴀɢᴇ:\n.dspam ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ʙᴀʟᴀs ᴘᴇsᴀɴ"
                 )
             spam = await message.reply("ᴅɪᴘʀᴏsᴇs")
             try:
@@ -56,7 +56,7 @@ async def spam_cmd(client, message):
                 await asyncio.sleep(delay_msg)
         if len(message.command) < 4:
             return await message.reply_text(
-                "⚡ ᴜsᴀɢᴇ:\n.ᴅsᴘᴀᴍ ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ᴛᴇxᴛ sᴘᴀᴍ"
+                "⚡ ᴜsᴀɢᴇ:\n.dspam ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ᴛᴇxᴛ sᴘᴀᴍ"
             )
         else:
             spam = await message.reply("ᴅɪᴘʀᴏsᴇs")
