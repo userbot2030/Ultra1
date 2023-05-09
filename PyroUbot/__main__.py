@@ -20,7 +20,7 @@ async def main():
             print(f"✅ {_ubot['name']} Dihapus Dari Database")
     await install_user_id()
     await loadPlugins()
-    await premium()
+    await expired_userbot()
     await idle()
 
 
