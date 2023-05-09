@@ -1,4 +1,4 @@
-from PyroUbot.config import PREFIX, bot
+from PyroUbot.config import bot
 
 
 class MSG:
