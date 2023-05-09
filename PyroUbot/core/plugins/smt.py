@@ -20,7 +20,7 @@ async def sg_cmd(client, message):
     await lol.delete()
     try:
         try:
-            for X in [1, 2]
+            for X in [1, 2]:
                 sg = await client.get_messages(getbot, txt.id + X)
                 await sg.copy(message.chat.id, reply_to_message_id=message.id)
         except:
