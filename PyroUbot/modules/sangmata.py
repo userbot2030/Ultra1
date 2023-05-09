@@ -11,4 +11,4 @@ __HELP__ = f"""
 
 @PY.UBOT("sg")
 async def _(client, message):
-    await sg_cmd(client, message?
+    await sg_cmd(client, message)
