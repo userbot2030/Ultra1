@@ -10,7 +10,7 @@ async def add_ubot(user_id, api_id, api_hash, session_string):
             "$set": {
                 "api_id": api_id,
                 "api_hash": api_hash,
-                "session_string": session_string,
+                "session_name": session_string,
             }
         },
         upsert=True,
@@ -29,7 +29,7 @@ async def get_userbots():
                 name=str(ubot["user_id"]),
                 api_id=ubot["api_id"],
                 api_hash=ubot["api_hash"],
-                session_string=ubot["session_string"],
+                session_name=ubot["session_string"],
             )
         )
     return data
