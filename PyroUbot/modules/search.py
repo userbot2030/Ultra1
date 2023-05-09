@@ -15,8 +15,8 @@ __HELP__ = f"""
 @PY.UBOT(["bing", "pic"])
 async def _(client, message):
     await pic_bing_cmd(client, message)
-  
-  
+
+
 @PY.UBOT("gif")
 async def _(client, message):
     await gif_cmd(client, message)
