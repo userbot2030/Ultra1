@@ -9,7 +9,6 @@ __HELP__ = f"""
 """
 
 
-
 @PY.UBOT("tiny")
 async def _(client, message):
     await tiny_cmd(client, message)
