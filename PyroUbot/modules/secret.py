@@ -14,7 +14,6 @@ async def _(client, message):
     await msg_cmd(client, message)
 
 
-
 @PY.INLINE("^secret")
 @INLINE.QUERY
 async def _(client, inline_query):
