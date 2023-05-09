@@ -32,7 +32,7 @@ class Bot(Client):
 
 
 class Ubot(Client):
-   def __init__(self, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
         self._ubot = []
         self._get_my_id = []
