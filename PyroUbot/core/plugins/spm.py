@@ -40,8 +40,8 @@ async def spam_cmd(client, message):
         if message.reply_to_message:
             if len(message.command) < 3:
                 return await message.reply_text(
-                "⚡ ᴜsᴀɢᴇ:\n.ᴅsᴘᴀᴍ ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ʙᴀʟᴀs ᴘᴇsᴀɴ"
-            )
+                    "⚡ ᴜsᴀɢᴇ:\n.ᴅsᴘᴀᴍ ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ʙᴀʟᴀs ᴘᴇsᴀɴ"
+                )
             spam = await message.reply("ᴅɪᴘʀᴏsᴇs")
             try:
                 quantity = int(message.text.split(None, 3)[1])
