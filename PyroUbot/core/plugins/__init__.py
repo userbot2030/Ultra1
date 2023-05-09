@@ -29,7 +29,7 @@ from ..core.plugins.spm import *
 from ..core.plugins.spt import *
 from ..core.plugins.srh import *
 from ..core.plugins.stf import *
-from ..core.plugins.stm import *
+from ..core.plugins.scr import *
 from ..core.plugins.str import *
 from ..core.plugins.tll import *
 from ..core.plugins.tph import *
