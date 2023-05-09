@@ -6,21 +6,6 @@ from PyroUbot import *
 
 
 class Button:
-    def admin():
-        menu_button = [
-            [
-                InlineKeyboardButton("ɢʟᴏʙᴀʟ", callback_data="menu_help admin_gban"),
-                InlineKeyboardButton(
-                    "ʀᴇsᴛʀɪᴄᴛ", callback_data="menu_help admin_restrict"
-                ),
-            ],
-            [InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ' •", callback_data="help_back")],
-        ]
-        back_button = [
-            [InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="menu_help admin_back")]
-        ]
-        return [menu_button, back_button]
-
     def alive(get_id):
         button = [
             [
@@ -31,34 +16,6 @@ class Button:
             ]
         ]
         return button
-
-    def sticker():
-        menu_button = [
-            [
-                InlineKeyboardButton("ᴋᴀɴɢ", callback_data="menu_help sticker_kang"),
-                InlineKeyboardButton(
-                    "ᴍᴇᴍɪꜰʏ", callback_data="menu_help sticker_memify"
-                ),
-            ],
-            [
-                InlineKeyboardButton("ᴍᴇᴍᴇs", callback_data="menu_help sticker_memes"),
-                InlineKeyboardButton(
-                    "ǫᴜᴏᴛʟʏ", callback_data="menu_help sticker_quotly"
-                ),
-            ],
-            [
-                InlineKeyboardButton("ᴛɪɴʏ", callback_data="menu_help sticker_tiny"),
-            ],
-            [InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back")],
-        ]
-        back_button = [
-            [
-                InlineKeyboardButton(
-                    "• ᴋᴇᴍʙᴀʟɪ •", callback_data="menu_help sticker_back"
-                )
-            ]
-        ]
-        return [menu_button, back_button]
 
     def start():
         button = [
