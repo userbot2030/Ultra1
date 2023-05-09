@@ -18,19 +18,13 @@ __HELP__ = f"""
 @PY.UBOT("del")
 async def _(client, message):
     await del_cmd(client, message)
-    
-    
-    
+
 
 @PY.UBOT("purgeme")
 async def _(client, message):
     await purgeme_cmd(client, message)
-  
+
 
 @PY.UBOT("purge")
 async def _(client, message):
     await purge_cmd(client, message)
-  
-  
-  
-  
