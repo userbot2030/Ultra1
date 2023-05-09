@@ -9,20 +9,20 @@ from ..modules import loadModule
 
 
 async def login_cmd(client, message):
-    if len(message.command) < 2:
+    if len(message.command) < 3:
         return await message.reply(
-            f"<code>{message.text}</code> <b>sᴛʀɪɴɢ ᴘʏʀᴏɢʀᴀᴍ</b>"
+            f"<code>{message.text}</code> <b>ʜᴀʀɪ - sᴛʀɪɴɢ ᴘʏʀᴏɢʀᴀᴍ</b>"
         )
     try:
         ub = Ubot(
             name=f"ubot{random.randrange(9999)}",
             api_id=API_ID,
             api_hash=API_HASH,
-            session_string=message.command[1],
+            session_string=message.command[2],
         )
         await ub.start()
         now = datetime.now(timezone("Asia/Jakarta"))
-        expire_date = now + timedelta(days=30)
+        expire_date = now + timedelta(days=int(message.command[1]))
         await set_expired_date(ub.me.id, expire_date)
         await add_ubot(
             user_id=int(ub.me.id),
