@@ -1,4 +1,4 @@
-from .. import * 
+from .. import *
 
 __MODULE__ = "ɢʟᴏʙᴀʟ"
 __HELP__ = f"""
