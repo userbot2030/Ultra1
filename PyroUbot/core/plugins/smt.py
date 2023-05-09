@@ -19,8 +19,12 @@ async def sg_cmd(client, message):
     await asyncio.sleep(4)
     await lol.delete()
     try:
-        sg = await client.get_messages(getbot, txt.id + 1)
-        await sg.copy(message.chat.id, reply_to_message_id=message.id)
+        try:
+            for X in [1, 2]
+                sg = await client.get_messages(getbot, txt.id + X)
+                await sg.copy(message.chat.id, reply_to_message_id=message.id)
+         except:
+            pass 
     except:
         await message.reply("❌ ᴀᴘɪ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
     user_info = await client.resolve_peer(getbot)
