@@ -1,4 +1,4 @@
-rom .. import *
+from .. import *
 
 
 
