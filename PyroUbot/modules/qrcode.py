@@ -1,7 +1,5 @@
 from .. import *
 
-
-
 __MODULE__ = "ǫʀᴄᴏᴅᴇ"
 __HELP__ = f"""
 『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ǫʀᴄᴏᴅᴇ 』
@@ -18,11 +16,7 @@ __HELP__ = f"""
 async def _(client, message):
     await qr_gen_cmd(client, message)
 
-    
-    
+
 @PY.UBOT("qrread")
 async def _(client, message):
     await qr_read_cmd(client, message)
-
-
-
