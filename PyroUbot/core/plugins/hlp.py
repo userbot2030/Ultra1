@@ -24,7 +24,7 @@ async def help_cmd(client, message):
 
 
 async def menu_inline(client, inline_query):
-    msg = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_usere.first_name} {inline_query.from_user.last_name or ''}</a>\n\n★ ᴍᴏᴅᴜʟᴇs: {len(HelpText) + len(HELP_COMMANDS)}</b>"
+    msg = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_usere.first_name} {inline_query.from_user.last_name or ''}</a>\n\n★ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -47,7 +47,7 @@ async def menu_callback(client, callback_query):
     prev_match = re.match(r"help_prev\((.+?)\)", callback_query.data)
     next_match = re.match(r"help_next\((.+?)\)", callback_query.data)
     back_match = re.match(r"help_back", callback_query.data)
-    top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► ᴍᴏᴅᴜʟᴇs: {len(HelpText) + len(HELP_COMMANDS)}</b>"
+    top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         text = HELP_COMMANDS[module].__HELP__
@@ -83,38 +83,3 @@ async def menu_callback(client, callback_query):
             ),
             disable_web_page_preview=True,
         )
-
-
-async def help_callback(client, callback_query):
-    data = callback_query.data.split()[1]
-    menu = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_usere.first_name} {callback_query.from_user.last_name or ''}</a>\n\► nᴍᴏᴅᴜʟᴇs: {len(HelpText) + len(HELP_COMMANDS)}</b>"
-    if data == "admin_gban":
-        msg = HelpText["global"]
-        button = Button.admin()[1]
-    if data == "admin_restrict":
-        msg = HelpText["restrict"]
-        button = Button.admin()[1]
-    if data == "admin_back":
-        msg = menu
-        button = Button.admin()[0]
-    if data == "sticker_kang":
-        msg = HelpText["kang"]
-        button = Button.sticker()[1]
-    if data == "sticker_memify":
-        msg = HelpText["memify"]
-        button = Button.sticker()[1]
-    if data == "sticker_memes":
-        msg = HelpText["memes"]
-        button = Button.sticker()[1]
-    if data == "sticker_quotly":
-        msg = HelpText["quotly"]
-        button = Button.sticker()[1]
-    if data == "sticker_tiny":
-        msg = HelpText["tiny"]
-        button = Button.sticker()[1]
-    if data == "sticker_back":
-        msg = menu
-        button = Button.sticker()[0]
-    await callback_query.edit_message_text(
-        msg, reply_markup=InlineKeyboardMarkup(button)
-    )
