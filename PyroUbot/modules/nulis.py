@@ -9,8 +9,6 @@ __HELP__ = f"""
 """
 
 
-
-
 @PY.UBOT("nulis")
 async def _(client, message):
-     await nulis_cmd(client, message)
+    await nulis_cmd(client, message)
