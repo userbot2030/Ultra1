@@ -30,8 +30,6 @@ async def memes_cmd(client, message):
     await TM.delete()
 
 
-
-
 async def kang_cmd(client, message):
     await client.unblock_user("stickers")
     user = message.from_user
