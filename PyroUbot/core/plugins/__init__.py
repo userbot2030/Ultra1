@@ -36,3 +36,4 @@ from ..core.plugins.tph import *
 from ..core.plugins.trl import *
 from ..core.plugins.whs import *
 from ..core.plugins.wrt import *
+from ..core.plugins.qtl import *
