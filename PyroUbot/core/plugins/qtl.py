@@ -1,9 +1,7 @@
 from io import BytesIO
 
-from pyrogram import Client, filters
-from pyrogram.types import Message
 from aiohttp import ClientSession
-
+from pyrogram.types import Message
 
 aiosession = ClientSession()
 http = aiosession.AsyncClient(
@@ -11,6 +9,7 @@ http = aiosession.AsyncClient(
     verify=False,
     timeout=httpx.Timeout(40),
 )
+
 
 class QuotlyException(Exception):
     pass
@@ -249,7 +248,8 @@ async def quotly_cmd(self, ctx):
         check_arg = isArgInt(ctx.command[1])
         if check_arg[0]:
             if check_arg[1] < 2 or check_arg[1] > 10:
-                return await message.reply("<code>Argumen yang anda berikan salah...</code>", del_in=6
+                return await message.reply(
+                    "<code>Argumen yang anda berikan salah...</code>", del_in=6
                 )
             try:
                 messages = [
