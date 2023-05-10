@@ -162,7 +162,7 @@ async def get_message_sender_photo(ctx):
         }
 
 
-async def get_text_or_caption(ctx:):
+async def get_text_or_caption(ctx):
     if ctx.text:
         return ctx.text
     elif ctx.caption:
