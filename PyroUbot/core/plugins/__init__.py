@@ -20,6 +20,7 @@ from ..core.plugins.opi import *
 from ..core.plugins.pgr import *
 from ..core.plugins.pyn import *
 from ..core.plugins.qrq import *
+from ..core.plugins.qtl import *
 from ..core.plugins.rts import *
 from ..core.plugins.sct import *
 from ..core.plugins.sid import *
@@ -36,4 +37,3 @@ from ..core.plugins.tph import *
 from ..core.plugins.trl import *
 from ..core.plugins.whs import *
 from ..core.plugins.wrt import *
-from ..core.plugins.qtl import *

@@ -1,7 +1,6 @@
 from io import BytesIO
 
 from aiohttp import ClientSession
-from pyrogram.types import Message
 
 aiosession = ClientSession()
 http = aiosession.AsyncClient(
