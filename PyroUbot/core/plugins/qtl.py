@@ -15,7 +15,7 @@ class QuotlyException(Exception):
     pass
 
 
-async def get_message_sender_id(ctx: Message):
+async def get_message_sender_id(ctx):
     if ctx.forward_date:
         if ctx.forward_sender_name:
             return 1
@@ -33,7 +33,7 @@ async def get_message_sender_id(ctx: Message):
         return 1
 
 
-async def get_message_sender_name(ctx: Message):
+async def get_message_sender_name(ctx):
     if ctx.forward_date:
         if ctx.forward_sender_name:
             return ctx.forward_sender_name
@@ -59,7 +59,7 @@ async def get_message_sender_name(ctx: Message):
         return ""
 
 
-async def get_custom_emoji(ctx: Message):
+async def get_custom_emoji(ctx):
     if ctx.forward_date:
         return (
             ""
@@ -73,7 +73,7 @@ async def get_custom_emoji(ctx: Message):
     return ctx.from_user.emoji_status.custom_emoji_id if ctx.from_user else ""
 
 
-async def get_message_sender_username(ctx: Message):
+async def get_message_sender_username(ctx):
     if ctx.forward_date:
         if (
             not ctx.forward_sender_name
@@ -105,7 +105,7 @@ async def get_message_sender_username(ctx: Message):
         return ctx.sender_chat.username
 
 
-async def get_message_sender_photo(ctx: Message):
+async def get_message_sender_photo(ctx):
     if ctx.forward_date:
         if (
             not ctx.forward_sender_name
@@ -162,7 +162,7 @@ async def get_message_sender_photo(ctx: Message):
         }
 
 
-async def get_text_or_caption(ctx: Message):
+async def get_text_or_caption(ctx:):
     if ctx.text:
         return ctx.text
     elif ctx.caption:
@@ -234,7 +234,7 @@ async def pyrogram_to_quotly(messages):
         raise QuotlyException(r.json())
 
 
-def isArgInt(txt) -> list:
+def isArgInt(txt):
     count = txt
     try:
         count = int(count)
