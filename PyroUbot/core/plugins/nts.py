@@ -1,10 +1,8 @@
-from .. import *
 from gc import get_objects
 
-from pykeyboard import InlineKeyboard
-from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
+from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent)
 
+from .. import *
 
 
 async def addnote_cmd(client, message):
@@ -52,7 +50,7 @@ async def get_cmd(client, message):
             )
         except Exception as error:
             await message.reply(error)
-            
+
 
 async def get_notes_button(client, inline_query):
     _id = int(inline_query.query.split()[1])
@@ -73,7 +71,6 @@ async def get_notes_button(client, inline_query):
             )
         ],
     )
-
 
 
 async def delnote_cmd(client, message):
