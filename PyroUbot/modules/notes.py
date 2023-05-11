@@ -28,6 +28,12 @@ async def _(client, message):
     await get_cmd(client, message)
 
 
+
+@PY.INLINE("^get_notes")
+@INLINE.QUERY
+async def _(client, inline_query):
+    await get_notes_button(client, inline_query)
+
 @PY.UBOT("delnote")
 async def _(client, message):
     await delnote_cmd(client, message)
