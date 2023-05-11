@@ -13,7 +13,7 @@ LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1001969856888"))
 COMMAND = os.getenv("COMMAND", ". , : ; !")
 PREFIX = COMMAND.split()
 
-BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT").split()))
+BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1001969856888").split()))
 
 MAX_BOT = int(os.getenv("MAX_BOT", "50"))
 
