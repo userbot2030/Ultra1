@@ -33,7 +33,7 @@ async def get_cmd(client, message):
     if not note:
         return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} ᴛɪᴅᴀᴋ ᴀᴅᴀ")
     note_id = await client.get_messages(client.me.id, note)
-    if "|>" not in note_id.text or note_id.caption:
+    if "|" not in note_id.text or note_id.caption:
         msg = message.reply_to_message or message
         await client.copy_message(
             message.chat.id,
@@ -57,12 +57,12 @@ async def get_cmd(client, message):
 async def notes_create_button(text):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
-    for X in text.split("|>", 1)[1].split():
+    for X in text.split("|", 1)[1].split():
         keyboard.append(
             InlineKeyboardButton(X.split(":", 1)[0], url=X.split(":", 1)[1])
         )
     buttons.add(*keyboard)
-    text_button = text.split("|>", 1)[0]
+    text_button = text.split("|", 1)[0]
     return buttons, text_button
 
 
