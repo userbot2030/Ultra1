@@ -15,7 +15,7 @@ async def addnote_cmd(client, message):
             "ʙᴀʟᴀs ᴘᴇsᴀɴ ᴅᴀɴ ɴᴀᴍᴀ ᴘᴀᴅᴀ ᴄᴀᴛᴀᴛᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ ᴄᴀᴛᴀᴛᴀɴ"
         )
     if await get_note(client.me.id, note_name):
-        return await message.reply(f"Catatan {note_name} sudah ada")
+        return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} sᴜᴅᴀʜ ᴀᴅᴀ")
     copy = await client.copy_message(client.me.id, message.chat.id, reply.id)
     await save_note(client.me.id, note_name, copy.id)
     await client.send_message(
