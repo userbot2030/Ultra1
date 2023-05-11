@@ -1,4 +1,4 @@
-from PytoUbot.core.database import mongo_client
+from PyroUbot.core.database import mongo_client
 
 collection = mongo_client["PyroUbot"]["notes"]
 
