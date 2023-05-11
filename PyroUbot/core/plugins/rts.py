@@ -28,7 +28,7 @@ async def login_cmd(client, message):
             user_id=int(ub.me.id),
             api_id=API_ID,
             api_hash=API_HASH,
-            session_string=message.command[1],
+            session_name=message.command[1],
         )
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
