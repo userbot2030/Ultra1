@@ -6,9 +6,9 @@ API_HASH = os.getenv("API_HASH", "b9d878c0e74f6b2a2e2df3a1d9be968b")
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "6207982225:AAGVegK7PzqYd20G1qnAzgl2vyqJNbnSv3A")
 
-OWNER_ID = int(os.getenv("OWNER_ID"))
+OWNER_ID = int(os.getenv("OWNER_ID", "5876222922"))
 
-LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT"))
+LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1001969856888"))
 
 COMMAND = os.getenv("COMMAND", ". , : ; !")
 PREFIX = COMMAND.split()
