@@ -1,4 +1,4 @@
-from PytoUbot.core.database import mongo_client
+from PyroUbot.core.database import mongo_client
 
 userEXP = mongo_client["PyroUbot"]["users"]
 
