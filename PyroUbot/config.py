@@ -24,7 +24,10 @@ OPENAI_KEY = os.getenv(
     "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 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",
 ).split()
 
-MONGO_URL = os.getenv("MONGO_URL", "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority")
+MONGO_URL = os.getenv(
+    "MONGO_URL",
+    "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
+)
 
 TEXT_PAYMENT = os.getenv(
     "TEXT_PAYMENT",
