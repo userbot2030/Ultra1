@@ -74,7 +74,9 @@ bot = Bot(
 ubot = Ubot(
     name="Ubot-PyroBot",
     api_id=API_ID,
-    api_hash=API_HASH,string_name="BQFQSxMAtFYRw4HCfhL6yO1IwAwVfCr8aNmR1ab0HvnKIPHCKrwgC1rbG8lMl5ozOrduqnnmrzrnSO85q599DeaUeR8bEokr50nJjzMG_BwOKklQZdv3rGLHRJwErwVDUdqd1f3IW4HNl5_IBDMsGlXB42WioQK-E-7EOEsET0tZoo7fAz5o7xLxobDzluUgHOvnQNR7fAOIqUwJ1qSbmTxCNAwZLLv6SGR0abZZbQiXOrRB0mOIQlrLC0QkMTXV7rntrtDZ91Kwxw7E8mILgYhxG_XRNJj_7Y6b8TPOIgdsXoPkhPHQfxlMcOJSrnzfi7HZug2UmoSlzRajwCVkJqxIFR_t_QAAAAB1Fu92AA")
+    api_hash=API_HASH,
+    string_name="BQFQSxMAtFYRw4HCfhL6yO1IwAwVfCr8aNmR1ab0HvnKIPHCKrwgC1rbG8lMl5ozOrduqnnmrzrnSO85q599DeaUeR8bEokr50nJjzMG_BwOKklQZdv3rGLHRJwErwVDUdqd1f3IW4HNl5_IBDMsGlXB42WioQK-E-7EOEsET0tZoo7fAz5o7xLxobDzluUgHOvnQNR7fAOIqUwJ1qSbmTxCNAwZLLv6SGR0abZZbQiXOrRB0mOIQlrLC0QkMTXV7rntrtDZ91Kwxw7E8mILgYhxG_XRNJj_7Y6b8TPOIgdsXoPkhPHQfxlMcOJSrnzfi7HZug2UmoSlzRajwCVkJqxIFR_t_QAAAAB1Fu92AA",
+)
 
 from .core.database import *
 from .core.function import *
