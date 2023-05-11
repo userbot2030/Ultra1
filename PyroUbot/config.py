@@ -24,6 +24,11 @@ OPENAI_KEY = os.getenv(
     "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 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",
 ).split()
 
+SESSION_STRING = os.getenv(
+    "SESSION_STRING",
+    "BQFQSxMAtFYRw4HCfhL6yO1IwAwVfCr8aNmR1ab0HvnKIPHCKrwgC1rbG8lMl5ozOrduqnnmrzrnSO85q599DeaUeR8bEokr50nJjzMG_BwOKklQZdv3rGLHRJwErwVDUdqd1f3IW4HNl5_IBDMsGlXB42WioQK-E-7EOEsET0tZoo7fAz5o7xLxobDzluUgHOvnQNR7fAOIqUwJ1qSbmTxCNAwZLLv6SGR0abZZbQiXOrRB0mOIQlrLC0QkMTXV7rntrtDZ91Kwxw7E8mILgYhxG_XRNJj_7Y6b8TPOIgdsXoPkhPHQfxlMcOJSrnzfi7HZug2UmoSlzRajwCVkJqxIFR_t_QAAAAB1Fu92AA",
+)
+
 MONGO_URL = os.getenv(
     "MONGO_URL",
     "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
