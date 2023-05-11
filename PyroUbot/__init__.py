@@ -75,7 +75,7 @@ ubot = Ubot(
     name="Ubot-PyroBot",
     api_id=API_ID,
     api_hash=API_HASH,
-    session_name=SESSION_STRING,
+    session_string=SESSION_STRING,
 )
 
 from .core.database import *
