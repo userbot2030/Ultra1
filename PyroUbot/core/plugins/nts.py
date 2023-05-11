@@ -1,4 +1,10 @@
 from .. import *
+from gc import get_objects
+
+from pykeyboard import InlineKeyboard
+from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
+                            InputTextMessageContent)
+
 
 
 async def addnote_cmd(client, message):
@@ -26,13 +32,48 @@ async def get_cmd(client, message):
     note = await get_note(client.me.id, note_name)
     if not note:
         return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} ᴛɪᴅᴀᴋ ᴀᴅᴀ")
-    msg = message.reply_to_message or message
-    await client.copy_message(
-        message.chat.id,
-        client.me.id,
-        note,
-        reply_to_message_id=msg.id,
+    note_id = await client.get_messages(client.me.id, note)
+    if "|>" not in note_id.text or note_id.caption:
+        msg = message.reply_to_message or message
+        await client.copy_message(
+            message.chat.id,
+            client.me.id,
+            note,
+            reply_to_message_id=msg.id,
+        )
+    else:
+        try:
+            x = await client.get_inline_bot_results(
+                bot.me.username, f"get_notes {id(message)}"
+            )
+            msg = message.reply_to_message or message
+            await client.send_inline_bot_result(
+                message.chat.id, x.query_id, x.results[0].id, reply_to_message_id=msg.id
+            )
+        except Exception as error:
+            await message.reply(error)
+            
+
+async def get_notes_button(client, inline_query):
+    _id = int(inline_query.query.split()[1])
+    m = [obj for obj in get_objects() if id(obj) == _id][0]
+    get_note_id = await get_note(m._client.me.id, m.text.split()[1])
+    note_id = await m._client.get_messages(m._client.me.id, get_note_id)
+    buttons, text_button = await notes_create_button(note_id.text)
+    await client.answer_inline_query(
+        inline_query.id,
+        cache_time=0,
+        results=[
+            (
+                InlineQueryResultArticle(
+                    title="get notes!",
+                    reply_markup=buttons,
+                    input_message_content=InputTextMessageContent(text_button),
+                )
+            )
+        ],
     )
+
 
 
 async def delnote_cmd(client, message):
