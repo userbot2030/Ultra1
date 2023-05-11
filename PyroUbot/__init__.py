@@ -17,11 +17,11 @@ logging.basicConfig(
 
 class Bot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
+        super().__init__(**kwargs)
 
     def on_message(self, filters: filters.Filter):
         def decorator(func):
-            self.add_handler(MessageHandler(func, filters))
+            self.add_handler(MessageHandler(func, filters), -1)
             return func
 
         return decorator
@@ -33,7 +33,7 @@ class Bot(Client):
 
 class Ubot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
+        super().__init__(**kwargs)
         self._ubot = []
         self._get_my_id = []
         self._translate = {}
@@ -42,7 +42,7 @@ class Ubot(Client):
     def on_message(self, filters: filters.Filter):
         def decorator(func):
             for ub in self._ubot:
-                ub.add_handler(MessageHandler(func, filters))
+                ub.add_handler(MessageHandler(func, filters), -1)
             return func
 
         return decorator
@@ -75,7 +75,7 @@ ubot = Ubot(
     name="Ubot-PyroBot",
     api_id=API_ID,
     api_hash=API_HASH,
-    string_name="BQFQSxMAtFYRw4HCfhL6yO1IwAwVfCr8aNmR1ab0HvnKIPHCKrwgC1rbG8lMl5ozOrduqnnmrzrnSO85q599DeaUeR8bEokr50nJjzMG_BwOKklQZdv3rGLHRJwErwVDUdqd1f3IW4HNl5_IBDMsGlXB42WioQK-E-7EOEsET0tZoo7fAz5o7xLxobDzluUgHOvnQNR7fAOIqUwJ1qSbmTxCNAwZLLv6SGR0abZZbQiXOrRB0mOIQlrLC0QkMTXV7rntrtDZ91Kwxw7E8mILgYhxG_XRNJj_7Y6b8TPOIgdsXoPkhPHQfxlMcOJSrnzfi7HZug2UmoSlzRajwCVkJqxIFR_t_QAAAAB1Fu92AA",
+    session_name="BQFQSxMAtFYRw4HCfhL6yO1IwAwVfCr8aNmR1ab0HvnKIPHCKrwgC1rbG8lMl5ozOrduqnnmrzrnSO85q599DeaUeR8bEokr50nJjzMG_BwOKklQZdv3rGLHRJwErwVDUdqd1f3IW4HNl5_IBDMsGlXB42WioQK-E-7EOEsET0tZoo7fAz5o7xLxobDzluUgHOvnQNR7fAOIqUwJ1qSbmTxCNAwZLLv6SGR0abZZbQiXOrRB0mOIQlrLC0QkMTXV7rntrtDZ91Kwxw7E8mILgYhxG_XRNJj_7Y6b8TPOIgdsXoPkhPHQfxlMcOJSrnzfi7HZug2UmoSlzRajwCVkJqxIFR_t_QAAAAB1Fu92AA",
 )
 
 from .core.database import *
