@@ -1,5 +1,6 @@
 from ..plugins.adb import *
 from ..plugins.adm import *
+from ..plugins.alv import *
 from ..plugins.asp import *
 from ..plugins.azn import *
 from ..plugins.btn import *
@@ -36,4 +37,3 @@ from ..plugins.tph import *
 from ..plugins.trl import *
 from ..plugins.whs import *
 from ..plugins.wrt import *
-from ..plugins.alv import *
