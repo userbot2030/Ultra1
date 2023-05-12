@@ -3,7 +3,7 @@ import os
 import requests
 from telegraph import upload_file
 
-from .. import *
+from PyroUbot import *
 
 
 async def read_cmd(client, message):
