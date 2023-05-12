@@ -4,7 +4,7 @@ from datetime import timedelta
 import wget
 from youtubesearchpython import VideosSearch
 
-from .. import *
+from PyroUbot import *
 
 
 async def vsong_cmd(client, message):
