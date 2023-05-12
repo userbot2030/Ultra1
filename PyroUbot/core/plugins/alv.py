@@ -37,7 +37,7 @@ async def alive_query(client, inline_query):
             ping = (datetime.now() - start).microseconds / 1000
             uptime = await get_time((time() - start_time))
             msg = f"""
-<b>{bot.me.username}</b>
+<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
     <b>sᴛᴀᴛᴜs:</b> {status} 
         <b>ᴇxᴘɪʀᴇᴅ_ᴏɴ:</b> <code>{exp}</code> 
         <b>ᴅᴄ_ɪᴅ:</b> <code>{my.me.dc_id}</code>
@@ -64,11 +64,11 @@ async def alive_query(client, inline_query):
 async def alive_close(client, callback_query):
     get_id = callback_query.data.split()
     if not callback_query.from_user.id == int(get_id[2]):
-        return await cq.answer(
+        return await callback_query.answer(
             f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
-    unPacked = unpackInlineMessage(cq.inline_message_id)
+    unPacked = unpackInlineMessage(callback_query.inline_message_id)
     for my in ubot._ubot:
         if callback_query.from_user.id == int(my.me.id):
             await my.delete_messages(
