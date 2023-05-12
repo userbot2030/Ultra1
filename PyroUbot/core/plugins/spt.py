@@ -2,7 +2,7 @@ import asyncio
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from .. import *
+from PyroUbot import *
 
 SUPPORT = []
 
