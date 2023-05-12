@@ -1,6 +1,6 @@
 from pyrogram.enums import ChatType
 
-from .. import *
+from PyroUbot import *
 
 
 async def id_cmd(client, message):
