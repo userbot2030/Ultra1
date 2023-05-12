@@ -52,7 +52,6 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        Client.DEVICE_MODEL = f"{self.me.first_name} {self.me.last_name or ''}"
         if self not in self._ubot:
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
