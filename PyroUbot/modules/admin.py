@@ -1,6 +1,8 @@
 from PyroUbot import *
+from os.path import dirname
 
-__MODULE__ = "ᴀᴅᴍɪɴ"
+# __MODULE__  = "ᴀᴅᴍɪɴ"
+__MODULE__ = dirname(__file__)
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ 』</b>
 
