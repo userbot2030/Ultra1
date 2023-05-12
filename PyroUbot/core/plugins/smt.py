@@ -1,7 +1,6 @@
 import asyncio
 import random
-
-from .. import *
+from PyroUbot import *
 
 
 async def sg_cmd(client, message):
