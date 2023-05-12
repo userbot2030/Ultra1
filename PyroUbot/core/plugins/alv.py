@@ -5,7 +5,7 @@ from pyrogram.raw.functions import Ping
 from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
 
-from .. import *
+from PyroUbot import *
 
 
 async def alive_cmd(client, message):
