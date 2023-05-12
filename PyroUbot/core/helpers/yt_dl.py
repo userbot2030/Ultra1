@@ -1,5 +1,5 @@
 from functools import partial
-
+from asyncio import get_event_loop
 from yt_dlp import YoutubeDL
 
 
