@@ -30,7 +30,7 @@ async def _(client, message):
     await seles_user(client, message)
 
 
-@PY.BOT("unseles". FILTERS.OWNER)
+@PY.BOT("unseles".FILTERS.OWNER)
 @PY.UBOT("unseles", FILTERS.ME_OWNER)
 async def _(client, message):
     await unseles_user(client, message)
