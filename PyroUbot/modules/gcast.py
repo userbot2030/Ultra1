@@ -44,3 +44,11 @@ async def _(client, message):
 @PY.UBOT("send")
 async def _(client, message):
     await send_msg_cmd(client, message)
+
+
+@PY.INLINE("^get_send")
+@INLINE.QUERY
+async def _(client, inline_query):
+    await send_inline(client, inline_query)
+  
+  
