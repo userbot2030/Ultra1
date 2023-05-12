@@ -1,4 +1,4 @@
-from PyroUbot import *
+from . import *
 
 
 @PY.BOT("sh", FILTERS.OWNER)
@@ -7,7 +7,7 @@ async def _(client, message):
     await shell_cmd(client, message)
 
 
-@PY.BOT("trash", FILTERS.OWNER)
-@PY.UBOT("trash")
+@PY.BOT("eval", FILTERS.OWNER)
+@PY.UBOT("eval")
 async def _(client, message):
     await evalator_cmd(client, message)
