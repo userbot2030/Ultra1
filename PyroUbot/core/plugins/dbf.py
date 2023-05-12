@@ -192,7 +192,7 @@ async def get_seles_user(cliebt, message):
 # ========================== #
 
 
-async def expired_adf(client, message):
+async def expired_add(client, message):
     try:
         user_id = int(message.text.split()[1])
         duration = int(message.text.split()[2])
