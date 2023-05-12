@@ -1,7 +1,6 @@
 import io
 import os
-
-from .. import *
+from PyroUbot import *
 
 
 async def ai_cmd(client, message):
