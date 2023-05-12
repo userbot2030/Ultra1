@@ -12,10 +12,10 @@ async def shell_cmd(client, message):
     try:
         if message.command[1] == "restart":
             await message.delete()
-            os.system(f"kill -9 {os.getpid()} && python3 -m tomimusic")
+            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
         elif message.command[1] == "gitpull":
             await message.delete()
-            os.system(f"kill -9 {os.getpid()} && git pull && python3 -m tomimusic")
+            os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
         elif message.command[1] == "clean":
             count = 0
             for X in os.popen("ls").read().split():
