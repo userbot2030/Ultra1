@@ -49,7 +49,7 @@ async def menu_callback(client, callback_query):
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         text = HELP_COMMANDS[module].__HELP__
-        button = [[InlineKeyboardButton("• KEMBALI •", callback_data="help_back")]]
+        button = [[InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back")]]
         await callback_query.edit_message_text(
             text=text,
             reply_markup=InlineKeyboardMarkup(button),
