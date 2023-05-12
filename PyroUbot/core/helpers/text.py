@@ -1,4 +1,4 @@
-from PyroUbot.config import bot
+from PyroUbot import bot
 
 
 class MSG:
