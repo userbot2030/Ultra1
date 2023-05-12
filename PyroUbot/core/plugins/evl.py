@@ -3,7 +3,7 @@ import sys
 import traceback
 from io import BytesIO, StringIO
 
-from .. import *
+from PyroUbot import *
 
 
 async def shell_cmd(client, message):
