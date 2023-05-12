@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 from pytz import timezone
 
-from .. import *
+from PyroUbot import *
 
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℙℝ𝔼𝕄𝕀𝕌𝕄 #
