@@ -1,6 +1,7 @@
 from pyrogram import filters
 
-from PyroUbot import ubot 
+from PyroUbot import ubot
+
 ONLY_UBOT = filters.user()
 
 
