@@ -1,4 +1,4 @@
-from .. import *
+from PyroUbot import *
 
 
 @PY.CALLBACK("^support")
