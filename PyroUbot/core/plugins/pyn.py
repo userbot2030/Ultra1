@@ -140,6 +140,7 @@ async def success_failed_home_callback(client, callback_query):
         if get_user.id in CONFIRM_PAYMENT:
             CONFIRM_PAYMENT.remove(get_user.id)
             buttons_home = Button.start()
+            await callback_query.message.delete()
             return await bot.send_message(
                 get_user.id,
                 MSG.START(callback_query),
