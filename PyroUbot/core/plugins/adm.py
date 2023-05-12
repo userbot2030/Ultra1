@@ -4,9 +4,6 @@ from pyrogram.enums import ChatType
 from pyrogram.types import ChatPermissions
 
 from PyroUbot import *
-from PyroUbot.core.database import *
-from PyroUbot.core.function import *
-from PyroUbot.core.helpers import *
 
 
 async def admin_bannen(client, message):
