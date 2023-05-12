@@ -14,7 +14,7 @@ async def sg_cmd(client, message):
     except Exception as error:
         return await lol.edit(error)
     bot = ["@Sangmata_bot", "@SangMata_beta_bot"]
-    getbot = random.choice(bot
+    getbot = random.choice(bot)
     await client.unblock_user(getbot)
     txt = await client.send_message(getbot, user.id)
     await asyncio.sleep(4)
