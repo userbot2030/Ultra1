@@ -1,2 +1,2 @@
-from ..function.expired import *
-from ..function.plugins import *
+from PyroUbot.core.function.expired import *
+from PyroUbot.core.function.plugins import *
