@@ -1,6 +1,6 @@
 from io import BytesIO
 
-from .. import *
+from PyroUbot import *
 
 http = aiosession.AsyncClient(
     http2=True,
