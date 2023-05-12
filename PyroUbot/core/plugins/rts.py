@@ -4,10 +4,9 @@ from datetime import datetime, timedelta
 
 from pytz import timezone
 
+from PyroUbot import *
 from PyroUbot.modules import loadModule
 
-
-from PyroUbot import *
 
 async def login_cmd(client, message):
     if len(message.command) < 3:
