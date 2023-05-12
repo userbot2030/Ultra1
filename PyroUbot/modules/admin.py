@@ -2,8 +2,7 @@ from os.path import dirname
 
 from PyroUbot import *
 
-# __MODULE__  = "ᴀᴅᴍɪɴ"
-__MODULE__ = dirname(__file__)
+__MODULE__  = "ᴀᴅᴍɪɴ"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴍɪɴ 』</b>
 
