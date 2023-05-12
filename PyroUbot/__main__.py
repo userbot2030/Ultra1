@@ -9,7 +9,7 @@ from PyroUbot import *
 async def main():
     await bot.start()
     await ubot.start()
-    for _ubot in await get_userbots():
+    """for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
@@ -18,7 +18,7 @@ async def main():
             await rm_all(int(_ubot["name"]))
             await rem_expired_date(int(_ubot["name"]))
             await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
-            print(f"✅ {_ubot['name']} Dihapus Dari Database")
+            print(f"✅ {_ubot['name']} Dihapus Dari Database")"""
     await install_user_id()
     await loadPlugins()
     await expired_userbot()
