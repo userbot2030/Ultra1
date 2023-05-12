@@ -14,7 +14,7 @@ async def help_cmd(client, message):
             return await message.reply(error)
     else:
         if message.command[1] in HELP_COMMANDS:
-            return await message.reply(HELP_COMMANDS[message.command[1].__HELP__)
+            return await message.reply(HELP_COMMANDS[message.command[1]].__HELP__)
         else:
             return await message.reply(
                 f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
