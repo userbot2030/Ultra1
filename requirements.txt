@@ -12,6 +12,7 @@ pymediainfo
 opencv-python-headless
 requests
 unidecode
+httpx[http2]
 attrify
 pySmartDL
 html2text
