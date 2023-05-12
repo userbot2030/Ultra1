@@ -3,8 +3,8 @@ from gc import get_objects
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
-from .. import *
 
+from PyroUbot import *
 
 async def msg_cmd(client, message):
     if not message.reply_to_message:
