@@ -5,7 +5,7 @@ from pykeyboard import InlineKeyboard
 from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
                             InputTextMessageContent)
 
-from .. import *
+from PyroUbot import *
 
 font = {
     "sᴍᴀʟʟᴄᴀᴘs": "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘϙʀsᴛᴜᴠᴡxʏᴢABCDEFGHIJKLMNOPQRSTUVWXYZ",
