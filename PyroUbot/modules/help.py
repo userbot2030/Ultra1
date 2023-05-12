@@ -13,7 +13,7 @@ async def _(client, inline_query):
 
 
 @PY.CALLBACK("help_(.*?)")
-@INLINE.DATa
+@INLINE.DATA
 async def _(client, callback_query):
     await menu_callback(client, callback_query)
 
