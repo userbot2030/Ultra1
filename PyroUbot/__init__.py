@@ -51,7 +51,7 @@ class Ubot(Client):
         await super().start()
         if self not in self._ubot:
             self._ubot.append(self)
-            self.get_my_id.append(self.me.id)
+            self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
             users = 0
             group = 0
