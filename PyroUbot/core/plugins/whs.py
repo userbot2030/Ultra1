@@ -3,7 +3,7 @@ from os import remove
 
 from pyrogram.enums import ChatType
 
-from .. import *
+from PyroUbot import *
 
 
 async def info_cmd(client, message):
