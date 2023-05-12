@@ -16,9 +16,3 @@ async def _(client, inline_query):
 @INLINE.DATA
 async def _(client, callback_query):
     await menu_callback(client, callback_query)
-
-
-@PY.CALLBACK("^menu_help")
-@INLINE.DATA
-async def _(client, callback_query):
-    await help_callback(client, callback_query)
