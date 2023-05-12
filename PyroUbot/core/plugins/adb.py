@@ -267,7 +267,7 @@ async def hapus_ubot(client, callback_query):
             await X.log_out()
             ubot._ubot.remove(X)
             await rm_all(get_id)
-            get_my_id.remove(get_id)
+            X._get_my_id.remove(get_id)
             await remove_ubot(get_id)
             await rem_expired_date(get_id)
             await bot.send_message(
