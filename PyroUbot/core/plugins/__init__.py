@@ -36,3 +36,4 @@ from ..plugins.tph import *
 from ..plugins.trl import *
 from ..plugins.whs import *
 from ..plugins.wrt import *
+from ..plugins.alv import *
