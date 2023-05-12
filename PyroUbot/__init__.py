@@ -32,13 +32,12 @@ class Bot(Client):
 
 
 class Ubot(Client):
-    _ubot = []
-    _get_my_id = []
-    _translate = {}
-    _get_my_peer = {}
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self._ubot = []
+        self._get_my_id = []
+        self._translate = {}
+        self._get_my_peer = {}
 
     def on_message(self, filters: filters.Filter):
         def decorator(func):
