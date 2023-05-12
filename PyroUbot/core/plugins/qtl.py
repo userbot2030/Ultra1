@@ -1,8 +1,8 @@
 from io import BytesIO
 
-from PyroUbot import *
+import httpx
 
-http = aiosession.AsyncClient(
+http = httpx.AsyncClient(
     http2=True,
     verify=False,
     timeout=httpx.Timeout(40),
