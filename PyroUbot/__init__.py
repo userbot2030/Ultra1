@@ -7,6 +7,10 @@ from pyromod import listen
 
 from .config import *
 
+from aiohttp import ClientSession
+
+aiosession = ClientSession()
+
 logging.basicConfig(
     level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
