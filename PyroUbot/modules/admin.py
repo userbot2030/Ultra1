@@ -1,5 +1,6 @@
-from PyroUbot import *
 from os.path import dirname
+
+from PyroUbot import *
 
 # __MODULE__  = "ᴀᴅᴍɪɴ"
 __MODULE__ = dirname(__file__)
