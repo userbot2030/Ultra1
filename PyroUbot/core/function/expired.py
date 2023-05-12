@@ -3,7 +3,10 @@ from datetime import datetime
 
 from pytz import timezone
 
-from . import *
+from PyroUbot import bot, ubot
+from PyroUbot.config import LOGS_MAKER_UBOT
+from PyroUbot.core.database import (get_expired_date, rem_expired_date,
+                                    remove_ubot, rm_all)
 
 
 def expired_msg_bot(X, time, clock):
