@@ -52,7 +52,7 @@ async def start_cmd(client, message):
     await send_msg_to_owner(client, message)
     if len(message.command) < 2:
         buttons = Button.start()
-        msg = HELP.START(message)
+        msg = MSG.START(message)
         await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
     else:
         txt = message.text.split(None, 1)[1]
