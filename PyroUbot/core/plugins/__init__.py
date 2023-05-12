@@ -1,6 +1,5 @@
 from ..plugins.adb import *
 from ..plugins.adm import *
-from ..plugins.alv import *
 from ..plugins.asp import *
 from ..plugins.azn import *
 from ..plugins.btn import *
