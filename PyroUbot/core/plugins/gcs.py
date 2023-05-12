@@ -2,7 +2,7 @@ import asyncio
 
 from pyrogram.enums import ChatType
 
-from .. import *
+from PyroUbot import *
 
 
 async def broadcast_group_cmd(client, message):
