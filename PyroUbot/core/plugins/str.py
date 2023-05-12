@@ -11,6 +11,7 @@ from PyroUbot.core.database import *
 from PyroUbot.core.function import *
 from PyroUbot.core.helpers import *
 
+
 async def send_msg_to_owner(client, message):
     if message.from_user.id == OWNER_ID:
         return
