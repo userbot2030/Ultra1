@@ -1,8 +1,5 @@
 from io import BytesIO
-
-from aiohttp import ClientSession
-
-aiosession = ClientSession()
+from .. import *
 http = aiosession.AsyncClient(
     http2=True,
     verify=False,
