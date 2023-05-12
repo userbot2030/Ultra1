@@ -40,7 +40,7 @@ async def _(client, inline_query):
             ping = (datetime.now() - start).microseconds / 1000
             uptime = await get_time((time() - start_time))
             msg = f"""
-<b>{bot.me.username}</b>
+<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
     <b>sᴛᴀᴛᴜs:</b> {status} 
         <b>ᴇxᴘɪʀᴇᴅ_ᴏɴ:</b> <code>{exp}</code> 
         <b>ᴅᴄ_ɪᴅ:</b> <code>{my.me.dc_id}</code>
