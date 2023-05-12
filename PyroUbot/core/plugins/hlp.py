@@ -7,8 +7,8 @@ from PyroUbot import *
 
 async def help_cmd(client, message):
     if len(message.command) < 2:
-        x = await client.get_inline_bot_results(bot.me.username, "help")
         try:
+            x = await client.get_inline_bot_results(bot.me.username, "help")
             return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
             return await message.reply(error)
