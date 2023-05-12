@@ -2,7 +2,7 @@ import asyncio
 
 from pyrogram.raw.functions.messages import DeleteHistory
 
-from .. import *
+from PyroUbot import *
 
 
 async def logo_cmd(client, message):
