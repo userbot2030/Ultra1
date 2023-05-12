@@ -1,13 +1,12 @@
 import logging
 
+from aiohttp import ClientSession
 from pyrogram import Client, filters
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
 from .config import *
-
-from aiohttp import ClientSession
 
 aiosession = ClientSession()
 
