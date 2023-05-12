@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from pytz import timezone
 
 from .. import *
-from ..modules import loadModule
+from .modules import loadModule
 
 
 async def login_cmd(client, message):
