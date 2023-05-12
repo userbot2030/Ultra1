@@ -2,7 +2,8 @@ import re
 
 from pyrogram.types import *
 
-from .. import *
+
+from PyroUbot import *
 
 
 async def help_cmd(client, message):
