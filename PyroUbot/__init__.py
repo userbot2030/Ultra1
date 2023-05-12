@@ -82,7 +82,7 @@ ubot = Ubot(
 )
 
 
-from .core.plugins import *
 from .core.database import *
 from .core.function import *
 from .core.helpers import *
+from .core.plugins import *
