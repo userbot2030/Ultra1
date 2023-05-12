@@ -1,4 +1,4 @@
-from .. import *
+from PyroUbot import *
 
 __MODULE__ = "ᴛᴇʟᴇɢʀᴀᴘʜ"
 __HELP__ = f"""
