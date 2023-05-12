@@ -6,7 +6,7 @@ import cv2
 import requests
 from pyrogram import raw
 
-from .. import *
+from PyroUbot import *
 
 
 async def ReTrieveFile(input_file_name):
