@@ -1,6 +1,6 @@
 from .. import *
 
-__MODULE__ = "SHOWID"
+__MODULE__ = "sʜᴏᴡɪᴅ"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sʜᴏᴡɪᴅ 』</b>
 
