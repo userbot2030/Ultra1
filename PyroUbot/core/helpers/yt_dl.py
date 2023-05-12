@@ -1,4 +1,4 @@
-from tomimusic.utils import run_sync
+from PyroUbot import run_sync
 from yt_dlp import YoutubeDL
 
 
