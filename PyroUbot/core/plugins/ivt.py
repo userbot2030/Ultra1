@@ -1,8 +1,7 @@
 import asyncio
 
 from pyrogram.enums import UserStatus
-
-from .. import *
+from PyroUbot import *
 
 
 async def invite_cmd(client, message):
