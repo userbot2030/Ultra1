@@ -3,7 +3,7 @@ from datetime import datetime
 
 from pytz import timezone
 
-from PyroUbot import bot, get_my_id, ubot
+from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.database import (get_expired_date, rem_expired_date,
                                     remove_ubot, rm_all)
@@ -29,7 +29,7 @@ async def expired_userbot():
                     await X.log_out()
                     ubot._ubot.remove(X)
                     await rm_all(X.me.id)
-                    get_my_id.remove(X.me.id)
+                    X._get_my_id.remove(X.me.id)
                     await remove_ubot(X.me.id)
                     await rem_expired_date(X.me.id)
                     await bot.send_message(
