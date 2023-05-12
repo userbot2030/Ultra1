@@ -1,7 +1,9 @@
 from yt_dlp import YoutubeDL
+from functools import partial
 
-from PyroUbot import run_sync
 
+def run_sync(func, *args, **kwargs):
+    return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 async def YoutubeDownload(url, as_video=False):
     if as_video:
