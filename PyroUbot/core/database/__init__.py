@@ -5,9 +5,9 @@ from PyroUbot.config import MONGO_URL
 mongo_client = AsyncIOMotorClient(MONGO_URL)
 mongodb = mongo_client.pyro_ubot
 
-from ..database.expired import *
-from ..database.notes import *
-from ..database.premium import *
-from ..database.reseller import *
-from ..database.saved import *
-from ..database.userbot import *
+from PyroUbot.core.database.expired import *
+from PyroUbot.core.database.notes import *
+from PyroUbot.core.database.premium import *
+from PyroUbot.core.database.reseller import *
+from PyroUbot.core.database.saved import *
+from PyroUbot.core.database.userbot import *
