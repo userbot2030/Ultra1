@@ -1,6 +1,6 @@
 from telegraph import Telegraph, exceptions, upload_file
 
-from .. import *
+from PyroUbot import *
 
 
 async def tg_cmd(client, message):
