@@ -6,7 +6,7 @@ from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
-from .config import *
+from PyroUbot.config import *
 
 aiosession = ClientSession()
 
@@ -82,7 +82,7 @@ ubot = Ubot(
 )
 
 
-from .core.database import *
-from .core.function import *
-from .core.helpers import *
-from .core.plugins import *
+from PyroUbot.core.database import *
+from PyroUbot.core.function import *
+from PyroUbot.core.helpers import *
+from PyroUbot.core.plugins import *
