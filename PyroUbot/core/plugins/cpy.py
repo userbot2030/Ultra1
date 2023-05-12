@@ -4,7 +4,7 @@ from gc import get_objects
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
-from .. import *
+from PyroUbot import *
 
 
 async def copy_bot_msg(client, message):
