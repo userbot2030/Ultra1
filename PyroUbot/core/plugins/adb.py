@@ -8,9 +8,6 @@ from pyrogram.types import *
 from pytz import timezone
 
 from PyroUbot import *
-from PyroUbot.core.database import *
-from PyroUbot.core.function import *
-from PyroUbot.core.helpers import *
 
 
 async def need_api(client, callback_query):
