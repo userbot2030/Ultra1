@@ -6,8 +6,8 @@ from pytz import timezone
 
 from PyroUbot.modules import loadModule
 
-from .. import *
 
+from PyroUbot import *
 
 async def login_cmd(client, message):
     if len(message.command) < 3:
