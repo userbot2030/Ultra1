@@ -10,7 +10,7 @@ from pyrogram.errors import StickersetInvalid
 from pyrogram.raw.functions.messages import DeleteHistory, GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
 
-from .. import *
+from PyroUbot import *
 
 
 async def memes_cmd(client, message):
