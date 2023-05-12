@@ -6,7 +6,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
-from PyroUbot.core.helpers.text import HelpText
 from PyroUbot.modules import loadModule
 
 HELP_COMMANDS = {}
@@ -26,7 +25,7 @@ async def loadPlugins():
     await bot.send_message(
         LOGS_MAKER_UBOT,
         f"""
-<b>📁 ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS) + len(HelpText)}</b>
+<b>📁 ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>
 <b>📘 ᴘʏᴛʜᴏɴ: {python_version()}</b>
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
 <b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
