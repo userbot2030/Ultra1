@@ -234,10 +234,9 @@ async def cek_ubot(client, message):
     if not message.from_user.id == OWNER_ID:
         return
     count = 0
-    user = ""
     for X in ubot._ubot:
         count += 1
-        user += f"""
+        user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
 <b> ╰ ɪᴅ:</b> <code>{X.me.id}</code>
@@ -251,6 +250,7 @@ async def cek_ubot(client, message):
             ],
         ]
         await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
+        await asyncio.sleep(1)
 
 
 async def hapus_ubot(client, callback_query):
