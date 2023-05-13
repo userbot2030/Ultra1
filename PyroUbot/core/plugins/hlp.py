@@ -6,15 +6,14 @@ from PyroUbot import *
 
 
 async def help_cmd(client, message):
-    arg = await get_arg(message)
-    if not arg:
+    if not get_arg(message):
         try:
             x = await client.get_inline_bot_results(bot.me.username, "user_help")
             await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
             await message.reply(error)
     else:
-        if message.command[1] in HELP_COMMANDS:
+        if get_arg(message) in HELP_COMMANDS:
             await message.reply(HELP_COMMANDS[message.command[1]].__HELP__)
         else:
             await message.reply(
