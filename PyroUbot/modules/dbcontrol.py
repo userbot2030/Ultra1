@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-@PY.UBOT("getblacklist", FILTERS.ME_OWNER)
+@PY.UBOT("listbl", FILTERS.ME_OWNER)
 async def _(client, message):
     await get_blacklist(client, message)
 
