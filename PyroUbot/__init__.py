@@ -1,6 +1,7 @@
 import logging
 
-from pyrogram import Client, filters as Pilter
+from pyrogram import Client
+from pyrogram import filters as Pilter
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
