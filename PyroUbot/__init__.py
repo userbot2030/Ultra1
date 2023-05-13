@@ -8,6 +8,7 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
+
 def LOGGER(name):
     return logging.getLogger(name)
 
@@ -66,7 +67,9 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            LOGGER(__main__).info(f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
+            LOGGER(__main__).info(
+                f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
+            )
 
 
 bot = Bot(
