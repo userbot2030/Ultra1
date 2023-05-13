@@ -39,10 +39,10 @@ class Ubot(Client):
         self._translate = {}
         self._get_my_peer = {}
 
-    def on_message(self, filters: filters.Filter):
+    def on_message(self):
         def decorator(func):
             for ub in self._ubot:
-                ub.add_handler(MessageHandler(func, filters), -1)
+                ub.add_handler(MessageHandler(func, filters.Filter), -1)
             return func
 
         return decorator
