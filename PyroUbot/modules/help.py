@@ -7,12 +7,12 @@ async def _(client, message):
 
 
 @PY.INLINE("^user_help")
-@INLINE.QUERY
+# @INLINE.QUERY
 async def _(client, inline_query):
     await menu_inline(client, inline_query)
 
 
 @PY.CALLBACK("help_(.*?)")
-@INLINE.DATA
+# @INLINE.DATA
 async def _(client, callback_query):
     await menu_callback(client, callback_query)
