@@ -40,7 +40,7 @@ class Ubot(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
+
     def on_message(self, filters=Filter, group=-1):
         def decorator(func):
             for ub in self._ubot:
