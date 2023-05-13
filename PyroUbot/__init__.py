@@ -19,7 +19,7 @@ class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def on_message(self, filters=None, group=-1):
+    def on_message(self, filters=filters.Filter, group=-1):
         def decorator(func):
             self.add_handler(MessageHandler(func, filters), group)
             return func
@@ -39,7 +39,7 @@ class Ubot(Client):
         self._translate = {}
         self._get_my_peer = {}
 
-    def on_message(self, filters=None, group=-1):
+    def on_message(self, filters=filters.Filter, group=-1):
         def decorator(func):
             for ub in self._ubot:
                 ub.add_handler(MessageHandler(func, filters), group)
