@@ -19,9 +19,9 @@ class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def on_message(self, filters: filters.Filter):
+    def on_message(self):
         def decorator(func):
-            self.add_handler(MessageHandler(func, filters), -1)
+            self.add_handler(MessageHandler(func, filters.Filter), -1)
             return func
 
         return decorator
