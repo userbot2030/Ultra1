@@ -37,14 +37,14 @@ async def alive_query(client, inline_query):
             ping = (datetime.now() - start).microseconds / 1000
             uptime = await get_time((time() - start_time))
             msg = f"""
-<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a></b>
-    <b>sᴛᴀᴛᴜs:</b> {status} 
-        <b>ᴇxᴘɪʀᴇᴅ_ᴏɴ:</b> <code>{exp}</code> 
-        <b>ᴅᴄ_ɪᴅ:</b> <code>{my.me.dc_id}</code>
-        <b>ᴘɪɴɢ_ᴅᴄ:</b> <code>{ping} ms</code>
-        <b>ᴘᴇᴇʀ_ᴜsᴇʀs:</b> <code>{peer['users']} users</code>
-        <b>ᴘᴇᴇʀ_ɢʀᴏᴜᴘ:</b> <code>{peer['group']} group</code>
-        <b>sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
+    sᴛᴀᴛᴜs: {status} 
+        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
+        ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
+        ᴘɪɴɢ_ᴅᴄ: <code>{ping} ms</code>
+        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{peer['users']} users</code>
+        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{peer['group']} group</code>
+        sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
             await client.answer_inline_query(
                 inline_query.id,
