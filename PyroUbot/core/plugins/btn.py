@@ -63,7 +63,7 @@ async def inline_button(client, inline_query):
                 InlineQueryResultArticle(
                     title="get button!",
                     reply_markup=buttons,
-                    input_message_content=InputTextMessageContent(text_or_rep),
+                    input_message_content=InputTextMessageContent(text),
                 )
             )
         ],
