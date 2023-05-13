@@ -65,14 +65,14 @@ class Ubot(Client):
 
 
 bot = Bot(
-    name=BOT_TOKEN.split(":")[0],
+    name="Bot-Premium",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token=BOT_TOKEN,
+    bot_token="6207982225:AAEWb1ueMJPQLZ_-GyxUkD8VRDZ2S9LN0q8",
 )
 
 ubot = Ubot(
-    name=OWNER_ID,
+    name="Ubot-Premium",
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
