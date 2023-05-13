@@ -57,8 +57,8 @@ async def spam_cmd(client, message):
         else:
             if len(message.command) < 4:
                 return await message.reply_text(
-                "⚡ ᴜsᴀɢᴇ:\n.dspam ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ᴛᴇxᴛ sᴘᴀᴍ"
-            )
+                    "⚡ ᴜsᴀɢᴇ:\n.dspam ᴊᴜᴍʟᴀʜ sᴘᴀᴍ, ᴊᴜᴍʟᴀʜ ᴅᴇʟᴀʏ ᴅᴇᴛɪᴋ, ᴛᴇxᴛ sᴘᴀᴍ"
+                )
             else:
                 spam = await message.reply("ᴅɪᴘʀᴏsᴇs")
                 try:
