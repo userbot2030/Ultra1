@@ -33,10 +33,10 @@ class Bot(Client):
 
 
 class Ubot(Client):
-     _ubot = []
-     _get_my_id = []
-     _translate = {}
-     _get_my_peer = {}
+    _ubot = []
+    _get_my_id = []
+    _translate = {}
+    _get_my_peer = {}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
