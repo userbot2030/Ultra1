@@ -1,6 +1,5 @@
 import logging
 
-from aiohttp import ClientSession
 from pyrogram import Client, filters
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
@@ -62,9 +61,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            print(
-                f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
-            )
+            print(f"STARTED UBOT {self.me.first_name} | {self.me.id}")
 
 
 bot = Bot(
