@@ -66,7 +66,7 @@ class Ubot(Client):
             print(f"STARTED UBOT {self.me.first_name} | {self.me.id}")
 
 
-bot = Bot(
+bot = Client(
     name="Bot-Premium",
     api_id=API_ID,
     api_hash=API_HASH,
