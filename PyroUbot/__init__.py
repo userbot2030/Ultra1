@@ -8,7 +8,9 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-aiosession = ClientSession()
+def LOGGER(name):
+    return logging.getLogger(name)
+
 
 logging.basicConfig(
     level=logging.ERROR,
@@ -31,7 +33,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        print(f"STARTED BOT {self.me.first_name} | {self.me.id}")
+        LOGGER(__main__).info(f"STARTED BOT {self.me.first_name} | {self.me.id}")
 
 
 class Ubot(Client):
@@ -64,9 +66,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            print(
-                f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
-            )
+            LOGGER(__main__).info(f"STARTED UBOT {self.me.first_name} {self.me.last_name or ''} | {self.me.id}")
 
 
 bot = Bot(
