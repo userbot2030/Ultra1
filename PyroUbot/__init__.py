@@ -70,13 +70,18 @@ class Ubot(Client):
 
 
 bot = Bot(
-    name="Bot-PyroBot",
+    name=BOT_TOKEN.split(":")[0],
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
 )
 
-ubot = Ubot()
+ubot = Ubot(
+    name=OWNER_ID,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    session_string=SESSION_STRING,
+)
 
 
 from PyroUbot.core.database import *
