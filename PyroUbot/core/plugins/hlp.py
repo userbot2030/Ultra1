@@ -6,17 +6,18 @@ from PyroUbot import *
 
 
 async def help_cmd(client, message):
-    if len(message.command) < 2:
+    arg = await get_arg(message)
+    if not arg:
         try:
             x = await client.get_inline_bot_results(bot.me.username, "user_help")
-            return await message.reply_inline_bot_result(x.query_id, x.results[0].id)
+            await message.reply_inline_bot_result(x.query_id, x.results[0].id)
         except Exception as error:
-            return await message.reply(error)
+            await message.reply(error)
     else:
         if message.command[1] in HELP_COMMANDS:
-            return await message.reply(HELP_COMMANDS[message.command[1]].__HELP__)
+            await message.reply(HELP_COMMANDS[message.command[1]].__HELP__)
         else:
-            return await message.reply(
+            await message.reply(
                 f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
             )
 
