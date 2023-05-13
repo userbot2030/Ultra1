@@ -41,9 +41,9 @@ async def alive_query(client, inline_query):
     sᴛᴀᴛᴜs: {status} 
         ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
-        ᴘɪɴɢ_ᴅᴄ: <code>{ping} ms</code>
-        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{peer['users']} users</code>
-        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{peer['group']} group</code>
+        ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
+        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{peer['users']} ᴜsᴇʀs</code>
+        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{peer['group']} ɢʀᴏᴜᴘ</code>
         sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
             await client.answer_inline_query(
