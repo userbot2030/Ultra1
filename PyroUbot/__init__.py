@@ -8,7 +8,6 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-
 LOGGER = logging.getLogger(__name__)
 
 
