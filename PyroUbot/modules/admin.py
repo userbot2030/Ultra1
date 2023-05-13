@@ -1,4 +1,3 @@
-
 from PyroUbot import *
 
 __MODULE__ = "ᴀᴅᴍɪɴ"
