@@ -6,7 +6,7 @@ async def _(client, message):
     await help_cmd(client, message)
 
 
-@PY.INLINE("^help")
+@PY.INLINE("^user_help")
 @INLINE.QUERY
 async def _(client, inline_query):
     await menu_inline(client, inline_query)
