@@ -68,7 +68,7 @@ bot = Bot(
     name="Bot-Premium",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token="6207982225:AAEWb1ueMJPQLZ_-GyxUkD8VRDZ2S9LN0q8",
+    bot_token=BOT_TOKEN,
 )
 
 ubot = Ubot(
