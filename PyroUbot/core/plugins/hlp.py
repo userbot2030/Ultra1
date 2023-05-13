@@ -14,7 +14,9 @@ async def help_cmd(client, message):
             await message.reply(error)
     else:
         if get_arg(message) in HELP_COMMANDS:
-            await message.reply(f"<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ {HELP_COMMANDS[get_arg(message)].__MODULE__}</b>\n{HELP_COMMANDS[get_arg(message)].__HELP__}")
+            await message.reply(
+                f"<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ {HELP_COMMANDS[get_arg(message)].__MODULE__}</b>\n{HELP_COMMANDS[get_arg(message)].__HELP__}"
+            )
         else:
             await message.reply(
                 f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
