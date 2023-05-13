@@ -1,6 +1,6 @@
 import logging
 
-from pyrogram import Client, filters
+from pyrogram import Client, filters as Pilter
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
@@ -19,7 +19,7 @@ class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def on_message(self, filters=filters.Filter, group=-1):
+    def on_message(self, filters=Pilter.Filter, group=-1):
         def decorator(func):
             self.add_handler(MessageHandler(func, filters), group)
             return func
@@ -39,7 +39,7 @@ class Ubot(Client):
         self._translate = {}
         self._get_my_peer = {}
 
-    def on_message(self, filters=filters.Filter, group=-1):
+    def on_message(self, filters=Pilter.Filter, group=-1):
         def decorator(func):
             for ub in self._ubot:
                 ub.add_handler(MessageHandler(func, filters), group)
