@@ -4,6 +4,7 @@ from pykeyboard import InlineKeyboard
 from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
                             InputTextMessageContent)
 
+from PyroUbot import *
 
 async def create_button(m):
     buttons = InlineKeyboard(row_width=2)
