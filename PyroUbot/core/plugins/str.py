@@ -50,7 +50,7 @@ async def start_cmd(client, message):
     if len(message.command) < 2:
         buttons = Button.start()
         msg = MSG.START(message)
-        await message.reply(msg, protect_content=True), reply_markup=InlineKeyboardMarkup(buttons))
+        await message.reply(msg, protect_content=True, reply_markup=InlineKeyboardMarkup(buttons))
     else:
         txt = message.text.split(None, 1)[1]
         msg_id = txt.split("_", 1)[1]
