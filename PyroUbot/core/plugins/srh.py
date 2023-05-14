@@ -27,10 +27,10 @@ async def pic_bing_cmd(client, message):
         return await TM.edit(f"<b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴋᴇ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     else:
         await client.send_media_group(
-        message.chat.id,
-        get_media,
-        reply_to_message_id=message.id,
-    )
+            message.chat.id,
+            get_media,
+            reply_to_message_id=message.id,
+        )
         return await TM.delete()
 
 
