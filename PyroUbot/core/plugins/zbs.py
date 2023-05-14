@@ -1,5 +1,3 @@
-
-
 async def zombies_cmd(client, message):
     chat_id = message.chat.id
     deleted_users = []
