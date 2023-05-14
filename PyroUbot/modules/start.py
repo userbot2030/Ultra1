@@ -1,4 +1,4 @@
-from PyroUbot import *
+from . import *
 
 
 @PY.UBOT("ping")
