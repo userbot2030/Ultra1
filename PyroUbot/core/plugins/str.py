@@ -51,7 +51,7 @@ async def start_cmd(client, message):
         buttons = Button.start()
         msg = MSG.START(message)
         await message.reply(
-            msg, protect_content=True, reply_markup=InlineKeyboardMarkup(buttons)
+            msg, reply_markup=InlineKeyboardMarkup(buttons)
         )
     else:
         txt = message.text.split(None, 1)[1]
