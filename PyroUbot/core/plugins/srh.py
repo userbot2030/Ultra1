@@ -23,7 +23,7 @@ async def pic_bing_cmd(client, message):
             await saved.delete()
         except:
             pass
-    if len(get_media) > 0:
+    if len(get_media) < 0:
         return await TM.edit(f"<b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴋᴇ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     else:
         await client.send_media_group(
