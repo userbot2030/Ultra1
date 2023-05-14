@@ -217,3 +217,11 @@ async def dl_pic(client, download):
     os.remove(path)
     get_photo = BytesIO(content)
     return get_photo
+
+async def edit_or_reply(message, text):
+    msg = (
+        message.edit_text
+        if bool(message.from_user and message.from_user.is_self or message.outgoing)
+        else (message.reply_to_message or message).reply_text
+    )
+    return await msg(text)
