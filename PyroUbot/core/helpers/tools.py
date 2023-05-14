@@ -218,6 +218,7 @@ async def dl_pic(client, download):
     get_photo = BytesIO(content)
     return get_photo
 
+
 async def edit_or_reply(message, text):
     msg = (
         message.edit_text
