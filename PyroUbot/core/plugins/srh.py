@@ -11,7 +11,7 @@ async def pic_bing_cmd(client, message):
         message.command[0], message.text.split(None, 1)[1]
     )
     get_media = []
-    for X in range(2):
+    for X in range(4):
         try:
             saved = await client.send_inline_bot_result(
                 client.me.id, x.query_id, x.results[random.randrange(len(x.results))].id
