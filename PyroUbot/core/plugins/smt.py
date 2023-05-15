@@ -1,7 +1,6 @@
 import asyncio
 import random
 
-from pyrogram.raw.functions.messages import DeleteHistory
 
 from PyroUbot import *
 
