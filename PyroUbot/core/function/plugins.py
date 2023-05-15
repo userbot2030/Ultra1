@@ -5,8 +5,8 @@ from platform import python_version
 from pyrogram import __version__
 
 from PyroUbot import bot, ubot
-from PyroUbot.core.helpers.client import PY 
 from PyroUbot.config import LOGS_MAKER_UBOT
+from PyroUbot.core.helpers.client import PY
 from PyroUbot.modules import loadModule
 
 HELP_COMMANDS = {}
@@ -37,9 +37,8 @@ async def loadPlugins():
     )
     await asyncio.sleep(5)
     await TM.delete()
-    
-    
-    
+
+
 @PY.CALLBACK("0_cls")
 async def _(client, callback_query):
     await callback_query.message.delete()
