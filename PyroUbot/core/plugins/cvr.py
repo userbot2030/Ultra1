@@ -199,12 +199,12 @@ async def convert_efek(client, message):
 async def colong_cmn(client, message):
     dia = message.reply_to_message
     if not dia:
-        return await message.reply("Mohon balas ke media")
-    anjing = dia.caption or None
-    Tm = await message.reply("Processing...")
+        return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴍᴇᴅɪᴀ")
+    anjing = dia.caption or ""
+    Tm = await message.reply("ᴘʀᴏᴄᴇssɪɴɢ...")
     if dia.photo:
         if message.reply_to_message.photo.file_size > 10000000:
-            return await Tm.edit("file di atas 10mb tidak di izinkan")
+            return await Tm.edit("ꜰɪʟᴇ ᴅɪ ᴀᴛᴀs 10ᴍʙ ᴛɪᴅᴀᴋ ᴅɪ ɪᴢɪɴᴋᴀɴ")
         anu = await client.download_media(dia)
         await client.send_photo(client.me.id, anu, anjing)
         os.remove(anu)
@@ -212,7 +212,7 @@ async def colong_cmn(client, message):
         return await Tm.delete()
     if dia.video:
         if message.reply_to_message.video.file_size > 10000000:
-            return await Tm.edit("file di atas 10mb tidak di izinkan")
+            return await Tm.edit("ꜰɪʟᴇ ᴅɪ ᴀᴛᴀs 10ᴍʙ ᴛɪᴅᴀᴋ ᴅɪ ɪᴢɪɴᴋᴀɴ")
         anu = await client.download_media(dia)
         await client.send_video(client.me.id, anu, anjing)
         os.remove(anu)
@@ -220,7 +220,7 @@ async def colong_cmn(client, message):
         return await Tm.delete()
     if dia.audio:
         if message.reply_to_message.audio.file_size > 10000000:
-            return await Tm.edit("file di atas 10mb tidak di izinkan")
+            return await Tm.edit("ꜰɪʟᴇ ᴅɪ ᴀᴛᴀs 10ᴍʙ ᴛɪᴅᴀᴋ ᴅɪ ɪᴢɪɴᴋᴀɴ")
         anu = await client.download_media(dia)
         await client.send_audio(client.me.id, anu, anjing)
         os.remove(anu)
@@ -228,7 +228,7 @@ async def colong_cmn(client, message):
         return await Tm.delete()
     if dia.voice:
         if message.reply_to_message.voice.file_size > 10000000:
-            return await Tm.edit("file di atas 10mb tidak di izinkan")
+            return await Tm.edit("ꜰɪʟᴇ ᴅɪ ᴀᴛᴀs 10ᴍʙ ᴛɪᴅᴀᴋ ᴅɪ ɪᴢɪɴᴋᴀɴ")
         anu = await client.download_media(dia)
         await client.send_voice(client.me.id, anu, anjing)
         os.remove(anu)
@@ -236,11 +236,11 @@ async def colong_cmn(client, message):
         return await Tm.delete()
     if dia.document:
         if message.reply_to_message.document.file_size > 10000000:
-            return await Tm.edit("file di atas 10mb tidak di izinkan")
+            return await Tm.edit("ꜰɪʟᴇ ᴅɪ ᴀᴛᴀs 10ᴍʙ ᴛɪᴅᴀᴋ ᴅɪ ɪᴢɪɴᴋᴀɴ")
         anu = await client.download_media(dia)
         await client.send_document(client.me.id, anu, anjing)
         os.remove(anu)
         await message.delete()
         return await Tm.delete()
     else:
-        return await message.reply("Sepertinya terjadi kesalahan")
+        return await message.reply("sᴇᴘᴇʀᴛɪɴʏᴀ ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ")
