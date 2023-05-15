@@ -4,7 +4,7 @@ from platform import python_version
 
 from pyrogram import __version__
 
-from PyroUbot import bot, ubot, LOGS_MAKER_UBOT, PY
+from PyroUbot import LOGS_MAKER_UBOT, PY, bot, ubot
 from PyroUbot.modules import loadModule
 
 HELP_COMMANDS = {}
