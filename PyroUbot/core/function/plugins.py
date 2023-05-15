@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.modules import loadModule
-
+import asyncio
 HELP_COMMANDS = {}
 
 
@@ -32,13 +32,7 @@ async def loadPlugins():
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
 
 <b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
-""",
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🗑 TUTUP 🗑", callback_data="0_cls")]],
-        ),
-    )
+""")
+    await asyncio.sleep(5)
+    await TM.delete()
 
-
-@bot.on_callback_query(filters.regex("0_cls"))
-async def now(_, cq):
-    await cq.message.delete()
