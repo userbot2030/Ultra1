@@ -5,7 +5,7 @@ from pyrogram.enums import MessageMediaType, MessagesFilter
 from pyrogram.raw.functions.messages import DeleteHistory
 from pyrogram.types import InputMediaPhoto
 
-from .. import *
+from PyroUbot import *
 
 
 async def convert_anime(client, message):
