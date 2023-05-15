@@ -194,10 +194,8 @@ async def convert_efek(client, message):
         await Tm.edit(
             f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek bengek</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
         )
-        
-        
-        
-        
+
+
 async def colong_cmn(client, message):
     dia = message.reply_to_message
     if not dia:
