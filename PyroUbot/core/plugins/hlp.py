@@ -13,11 +13,12 @@ async def help_cmd(client, message):
         except Exception as error:
             await message.reply(error)
     else:
-        if get_arg(message) in HELP_COMMANDS:
-            await message.reply(f"<b>{HELP_COMMANDS[get_arg(message)].__HELP__}</b>")
+        module = gen_font(get_arg(message) , font["sᴍᴀʟʟᴄᴀᴘs"])
+        if module in HELP_COMMANDS:
+            await message.reply(f"<b>{HELP_COMMANDS[module].__HELP__}</b>")
         else:
             await message.reply(
-                f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
+                f"<b>❌ ᴍᴏᴅᴜʟᴇs {module} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
             )
 
 
