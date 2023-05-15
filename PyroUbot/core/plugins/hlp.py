@@ -17,7 +17,7 @@ async def help_cmd(client, message):
         module = gen_font(get_arg(message), font["sᴍᴀʟʟᴄᴀᴘs"])
         if module in HELP_COMMANDS:
             await message.reply(
-                f"<b>{HELP_COMMANDS[module].__HELP__.split(' ', 1)[1]}</b>"
+                f"<b>{HELP_COMMANDS[module].__HELP__.replace("\n", ""}</b>"
             )
         else:
             await message.reply(f"<b>❌ ᴍᴏᴅᴜʟᴇs {module} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
