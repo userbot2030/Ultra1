@@ -13,13 +13,11 @@ async def help_cmd(client, message):
         except Exception as error:
             await message.reply(error)
     else:
-        module = gen_font(get_arg(message) , font["sᴍᴀʟʟᴄᴀᴘs"])
+        module = gen_font(get_arg(message), font["sᴍᴀʟʟᴄᴀᴘs"])
         if module in HELP_COMMANDS:
             await message.reply(f"<b>{HELP_COMMANDS[module].__HELP__}</b>")
         else:
-            await message.reply(
-                f"<b>❌ ᴍᴏᴅᴜʟᴇs {module} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
-            )
+            await message.reply(f"<b>❌ ᴍᴏᴅᴜʟᴇs {module} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
 
 
 async def menu_inline(client, inline_query):
