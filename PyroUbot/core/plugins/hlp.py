@@ -14,7 +14,7 @@ async def help_cmd(client, message):
             await message.reply(error)
     else:
         if get_arg(message) in HELP_COMMANDS:
-            await message.reply(HELP_COMMANDS[get_arg(message)].__HELP__)
+            await message.reply(f"<b>{HELP_COMMANDS[get_arg(message)].__HELP__}</b>")
         else:
             await message.reply(
                 f"<b>❌ ᴍᴏᴅᴜʟᴇs {message.command[1]} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
@@ -48,7 +48,7 @@ async def menu_callback(client, callback_query):
     top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
-        text = HELP_COMMANDS[module].__HELP__
+        text = f"<b>{HELP_COMMANDS[module].__HELP__}</b>"
         button = [[InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back")]]
         await callback_query.edit_message_text(
             text=text,
