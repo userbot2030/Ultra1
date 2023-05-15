@@ -64,7 +64,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            Client.DEVICE_MODEL.format(self.me.first_name, (self.me.last_name or ''))
+            Client.DEVICE_MODEL.format(self.me.first_name, (self.me.last_name or ""))
             print(
                 f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}"
             )
