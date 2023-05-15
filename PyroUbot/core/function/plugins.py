@@ -1,13 +1,13 @@
+import asyncio
 from importlib import import_module
 from platform import python_version
 
-from pyrogram import __version__, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import __version__
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.modules import loadModule
-import asyncio
+
 HELP_COMMANDS = {}
 
 
@@ -32,7 +32,7 @@ async def loadPlugins():
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
 
 <b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
-""")
+""",
+    )
     await asyncio.sleep(5)
     await TM.delete()
-
