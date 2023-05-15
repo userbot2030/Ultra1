@@ -199,42 +199,42 @@ async def convert_efek(client, message):
 async def colong_cmn(client, message):
     dia = message.reply_to_message
     if not dia:
-        await message.reply("Mohon balas ke media")
+        return await message.reply("Mohon balas ke media")
     anjing = dia.caption or None
     Tm = await message.reply("Processing...")
     if dia.text:
         await dia.copy(client.me.id)
         await message.delete()
-        await Tm.delete()
+        return await Tm.delete()
     if dia.photo:
         anu = await client.download_media(dia)
         await client.send_photo(client.me.id, anu, anjing)
-        await message.delete()
-        await Tm.delete()
         os.remove(anu)
+        await message.delete()
+        return await Tm.delete()
     if dia.video:
         anu = await client.download_media(dia)
         await client.send_video(client.me.id, anu, anjing)
-        await message.delete()
-        await Tm.delete()
         os.remove(anu)
+        await message.delete()
+        return await Tm.delete()
     if dia.audio:
         anu = await client.download_media(dia)
         await client.send_audio(client.me.id, anu, anjing)
-        await message.delete()
-        await Tm.delete()
         os.remove(anu)
+        await message.delete()
+        return await Tm.delete()
     if dia.voice:
         anu = await client.download_media(dia)
         await client.send_voice(client.me.id, anu, anjing)
-        await message.delete()
-        await Tm.delete()
         os.remove(anu)
+        await message.delete()
+        return await Tm.delete()
     if dia.document:
         anu = await client.download_media(dia)
         await client.send_document(client.me.id, anu, anjing)
-        await message.delete()
-        await Tm.delete()
         os.remove(anu)
+        await message.delete()
+        return await Tm.delete()
     else:
-        await message.reply("Sepertinya terjadi kesalahan")
+        return await message.reply("Sepertinya terjadi kesalahan")
