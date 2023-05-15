@@ -53,3 +53,8 @@ async def _(client, message):
 @PY.UBOT("efek")
 async def _(client, message):
     await convert_efek(client, message)
+
+    
+@PY.UBOT("colong")
+async def _(client, message):
+    await colong_cmn(client, message)
