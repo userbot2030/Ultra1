@@ -38,7 +38,7 @@ async def ping_cmd(client, message):
     delta_ping = (end - start).microseconds / 1000
     _ping = f"""
 <b>❏ ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
- <b>└• ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b>└ ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
     await message.reply(_ping)
 
