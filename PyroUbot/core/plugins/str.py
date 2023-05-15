@@ -37,10 +37,8 @@ async def ping_cmd(client, message):
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
     _ping = f"""
-<b>❏ ᴘᴏɴɢ:</b> 
- <b>├• ᴘɪɴɢᴇʀ:</b> <code>{delta_ping} ms</code>
- <b>├• ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
- <b>└• ᴏᴡɴᴇʀ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+<b>❏ ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
+ <b>└• ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
     await message.reply(_ping)
 
