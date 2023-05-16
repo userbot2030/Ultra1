@@ -97,13 +97,6 @@ async def trash_cmd(client, message):
                 return await message.reply(message.reply_to_message)
             else:
                 msg = {"get": message.reply_to_message}
-                return await message.reply(msg['get'] + message.command[1])
+                return await message.reply(msg["get"] + message.command[1])
     else:
         return await message.reply("reply ke pesan/media")
-
-    
-    
-    
-    
-    
-    
