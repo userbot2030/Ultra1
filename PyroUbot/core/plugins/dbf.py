@@ -114,8 +114,11 @@ async def get_blacklist(client, message):
     Tm = await message.reply("<b>Processing . . .</b>")
     msg = f"<b>Total blacklist {len(await get_chat())}</b>\n\n"
     for X in await get_chat():
-        get = await bot.get_chat(X)
-        msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
+        try:
+            get = await bot.get_chat(X)
+            msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
+        except Exception:
+            continue
     await Tm.delete()
     await message.reply(msg)
 
