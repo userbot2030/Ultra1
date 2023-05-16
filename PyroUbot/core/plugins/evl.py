@@ -93,7 +93,7 @@ async def trash_cmd(client, message):
                     return await message.reply_document(
                         document=out_file,
                     )
-           else:
+            else:
                 arg = get_arg(message)
                 if not arg:
                     return await message.reply(message.reply_to_message)
