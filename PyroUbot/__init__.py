@@ -12,7 +12,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[logging.StreamHandler()],
+    handlers=[logging.NullHandler()],
 )
 
 
