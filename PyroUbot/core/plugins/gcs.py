@@ -142,7 +142,7 @@ async def send_inline(client, inline_query):
         ],
     )
     
-    async def gcast_inline(client, inline_query):
+async def gcast_inline(client, inline_query):
     get_id = int(inline_query.query.split(None, 1)[1])
     m = [obj for obj in get_objects() if id(obj) == get_id][0]
     buttons, text = await gcast_create_button(m)
