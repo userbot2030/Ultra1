@@ -51,6 +51,7 @@ async def _(client, message):
 async def _(client, inline_query):
     await send_inline(client, inline_query)
 
+
 @PY.INLINE("^gcast_button")
 @INLINE.QUERY
 async def _(client, inline_query):
