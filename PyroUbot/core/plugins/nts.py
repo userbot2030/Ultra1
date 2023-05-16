@@ -54,16 +54,6 @@ async def get_cmd(client, message):
             await message.reply(error)
 
 
-async def notes_create_button(text):
-    buttons = InlineKeyboard(row_width=2)
-    keyboard = []
-    for X in text.split("|", 1)[1].split():
-        keyboard.append(
-            InlineKeyboardButton(X.split(":", 1)[0], url=X.split(":", 1)[1])
-        )
-    buttons.add(*keyboard)
-    text_button = text.split("|", 1)[0]
-    return buttons, text_button
 
 
 async def get_notes_button(client, inline_query):
