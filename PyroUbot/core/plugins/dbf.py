@@ -111,15 +111,15 @@ async def del_blacklist(client, message):
 
 
 async def get_blacklist(client, message):
-    Tm = await message.reply("<b>Processing . . .</b>")
-    msg = f"<b>Total blacklist {len(await get_chat())}</b>\n\n"
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat())}</b>\n\n"
     for X in await get_chat():
         for my in client._ubot:
             try:
                 get = await my.get_chat(X)
                 msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
             except:
-                pass
+                continue 
     await Tm.delete()
     await message.reply(msg)
 
@@ -131,7 +131,7 @@ async def get_blacklist(client, message):
 
 async def seles_user(client, message):
     user_id = await extract_user(message)
-    Tm = await message.reply("<b>Processing . . .</b>")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
         return await Tm.edit(
             "<b>Balas pesan pengguna atau berikan user_id/username</b>"
@@ -154,7 +154,7 @@ async def seles_user(client, message):
 
 async def unseles_user(client, message):
     user_id = await extract_user(message)
-    Tm = await message.reply("<b>Processing . . .</b>")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
         return await Tm.edit(
             "<b>Balas pesan pengguna atau berikan user_id/username</b>"
