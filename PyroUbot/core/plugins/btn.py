@@ -1,7 +1,6 @@
 from gc import get_objects
 
-from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
+from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent)
 
 from PyroUbot import *
 
