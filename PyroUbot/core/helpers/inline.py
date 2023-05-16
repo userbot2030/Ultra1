@@ -1,8 +1,7 @@
+from pykeyboard import InlineKeyboard
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
                             InputTextMessageContent)
-from pykeyboard import InlineKeyboard
-
 
 from PyroUbot import *
 
@@ -71,7 +70,6 @@ class INLINE:
         return wrapper
 
 
-
 async def create_button(m):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
@@ -98,6 +96,7 @@ async def create_button(m):
         buttons.add(*keyboard)
         text = m.text.split("|", 1)[0].split(None, 1)[1]
     return buttons, text
+
 
 async def notes_create_button(text):
     buttons = InlineKeyboard(row_width=2)
