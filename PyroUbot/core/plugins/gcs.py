@@ -34,7 +34,6 @@ async def broadcast_group_cmd(client, message):
                                 chat_id,
                                 x.query_id,
                                 x.results[0].id,
-                                reply_to_message_id=msg.id,
                             )
                         else:
                             await client.send_message(chat_id, send)
