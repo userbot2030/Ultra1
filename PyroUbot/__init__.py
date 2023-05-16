@@ -16,6 +16,11 @@ logging.basicConfig(
 )
 
 
+def LOGGER(name):
+    return logging.getLogger(name)
+
+
+
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -63,7 +68,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            print(
+            LOGGER("UBOT").info(
                 f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}"
             )
 
