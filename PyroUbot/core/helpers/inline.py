@@ -109,6 +109,7 @@ async def gcast_create_button(text):
     text_button = text.split("||", 1)[0].split(None, 1)[1]
     return buttons, text_button
 
+
 async def notes_create_button(text):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
