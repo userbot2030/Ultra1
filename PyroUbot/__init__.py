@@ -9,10 +9,10 @@ from pyromod import listen
 from PyroUbot.config import *
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[logging.NullHandler()],
+    handlers=[logging.StreamHandler()],
 )
 
 
