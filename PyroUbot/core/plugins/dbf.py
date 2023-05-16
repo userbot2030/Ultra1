@@ -110,12 +110,14 @@ async def del_blacklist(client, message):
         await Tm.edit("terjadi kesalahan yang tidak diketahui")
 
 
+
+
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>Processing . . .</b>")
     msg = f"<b>Total blacklist {len(await get_chat())}</b>\n\n"
     for X in await get_chat():
         try:
-            for my in ubot._ubot:
+            for my in client._ubot:
                 get = await my.get_chat(X)
                 msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
         except:
