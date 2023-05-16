@@ -236,10 +236,12 @@ async def cek_ubot(client, message):
     count = 0
     for X in ubot._ubot:
         count += 1
+        expired_date = await get_expired_date(X.me.id)
         user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
-<b> ╰ ɪᴅ:</b> <code>{X.me.id}</code>
+<b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
         buttons = [
             [
