@@ -11,3 +11,9 @@ async def _(client, message):
 @PY.UBOT("eval", FILTERS.ME_OWNER)
 async def _(client, message):
     await evalator_cmd(client, message)
+
+
+@PY.BOT("trash", FILTERS.OWNER)
+@PY.UBOT("trash")
+async def _(client, message):
+    await trash_cmd(client, message):
