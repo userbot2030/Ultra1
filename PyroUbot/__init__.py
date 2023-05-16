@@ -20,7 +20,6 @@ def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
 
 
-
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
