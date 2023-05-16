@@ -16,8 +16,9 @@ logging.basicConfig(
 )
 
 
-def LOGGER(name):
+def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
 
 
 class Bot(Client):
