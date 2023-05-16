@@ -82,3 +82,28 @@ async def evalator_cmd(client, message):
     else:
         await reply_to_.reply_text(final_output, quote=True)
     await TM.delete()
+
+
+async def trash_cmd(client, message):
+    if message.reply_to_message:
+        if int(len(str(message.reply_to_message))) > 4096:
+            with BytesIO(str.encode(str(message.reply_to_message))) as out_file:
+                out_file.name = "trash.txt"
+                return await message.reply_document(
+                    document=out_file,
+                )
+        else:
+            if not get_arg(message):
+                return await message.reply(message.reply_to_message)
+            else:
+                msg = {"get": message.reply_to_message}
+                return await message.reply(msg["get"]get_arg(message))
+    else:
+        return await message.reply("reply ke pesan/media")
+
+    
+    
+    
+    
+    
+    
