@@ -119,7 +119,7 @@ async def get_blacklist(client, message):
                 get = await my.get_chat(X)
                 msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
             except:
-                continue 
+                continue
     await Tm.delete()
     await message.reply(msg)
 
