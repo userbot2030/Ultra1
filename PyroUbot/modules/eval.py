@@ -16,4 +16,4 @@ async def _(client, message):
 @PY.BOT("trash", FILTERS.OWNER)
 @PY.UBOT("trash")
 async def _(client, message):
-    await trash_cmd(client, message):
+    await trash_cmd(client, message)
