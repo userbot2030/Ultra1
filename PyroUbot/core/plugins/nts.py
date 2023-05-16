@@ -1,8 +1,6 @@
 from gc import get_objects
 
-from pykeyboard import InlineKeyboard
-from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
+from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent)
 
 from PyroUbot import *
 
@@ -52,8 +50,6 @@ async def get_cmd(client, message):
             )
         except Exception as error:
             await message.reply(error)
-
-
 
 
 async def get_notes_button(client, inline_query):
