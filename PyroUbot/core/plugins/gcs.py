@@ -27,12 +27,15 @@ async def broadcast_group_cmd(client, message):
                         await send.copy(chat_id)
                     else:
                         if "||" in send:
-                             x = await client.get_inline_bot_results(
-                                    bot.me.username, f"gcast_button {id(message)}"
-                                )
-                             await client.send_inline_bot_result(
-                                    chat_id, x.query_id, x.results[0].id, reply_to_message_id=msg.id
-                                )
+                            x = await client.get_inline_bot_results(
+                                bot.me.username, f"gcast_button {id(message)}"
+                            )
+                            await client.send_inline_bot_result(
+                                chat_id,
+                                x.query_id,
+                                x.results[0].id,
+                                reply_to_message_id=msg.id,
+                            )
                         else:
                             await client.send_message(chat_id, send)
                     sent += 1
@@ -141,7 +144,8 @@ async def send_inline(client, inline_query):
             )
         ],
     )
-    
+
+
 async def gcast_inline(client, inline_query):
     get_id = int(inline_query.query.split(None, 1)[1])
     m = [obj for obj in get_objects() if id(obj) == get_id][0]
