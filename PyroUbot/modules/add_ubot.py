@@ -19,4 +19,3 @@ async def _(client, message):
 @PY.CALLBACK("del_ubot")
 async def _(client, callback_query):
     await hapus_ubot(client, callback_query)
-
