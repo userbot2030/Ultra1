@@ -3,6 +3,7 @@ from PyroUbot.core.plugins.adm import *
 from PyroUbot.core.plugins.alv import *
 from PyroUbot.core.plugins.asp import *
 from PyroUbot.core.plugins.azn import *
+from PyroUbot.core.plugins.bls import *
 from PyroUbot.core.plugins.btn import *
 from PyroUbot.core.plugins.cpy import *
 from PyroUbot.core.plugins.ctr import *
@@ -41,4 +42,3 @@ from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.wrt import *
 from PyroUbot.core.plugins.ytp import *
 from PyroUbot.core.plugins.zbs import *
-from PyroUbot.core.plugins.bls import *
