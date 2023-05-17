@@ -20,6 +20,7 @@ async def _(client, message):
 async def _(client, callback_query):
     await hapus_ubot(client, callback_query)
 
+
 @PY.BOT("restart", ONLY_UBOT)
 async def _(client, message):
     await restart_cmd(client, message)
