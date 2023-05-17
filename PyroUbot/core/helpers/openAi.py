@@ -14,13 +14,13 @@ class OpenAi:
             None,
             lambda: openai.Completion.create(
                 model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": question}],
-            stop=None,
-            n=1,
-            user="arc",
-        ))
+                messages=[{"role": "user", "content": question}],
+                stop=None,
+                n=1,
+                user="arc",
+            ),
+        )
         return response.choices[0].message["content"].strip()
-
 
     async def ImageDalle(question):
         response = await asyncio.get_event_loop().run_in_executor(
