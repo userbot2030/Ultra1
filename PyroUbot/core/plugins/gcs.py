@@ -26,7 +26,7 @@ async def broadcast_group_cmd(client, message):
                     if message.reply_to_message:
                         await send.copy(chat_id)
                     else:
-                        if "||" in send:
+                        if "|" in send:
                             x = await client.get_inline_bot_results(
                                 bot.me.username, f"gcast_button {id(message)}"
                             )
