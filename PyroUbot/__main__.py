@@ -1,10 +1,8 @@
-import importlib
 from asyncio import get_event_loop_policy
 
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
-from PyroUbot.modules import loadModule
 
 
 async def main():
