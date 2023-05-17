@@ -18,7 +18,6 @@ __HELP__ = f"""
 """
 
 
-
 @PY.UBOT("gcast")
 async def _(client, message):
     await broadcast_group_cmd(client, message)
