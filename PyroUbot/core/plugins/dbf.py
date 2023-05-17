@@ -114,12 +114,11 @@ async def get_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat())}</b>\n\n"
     for X in await get_chat():
-        for my in client._ubot:
-            try:
-                get = await my.get_chat(X)
-                msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
-            except:
-                continue
+        try:
+            get = await client.get_chat(X)
+            msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
+        except:
+            continue
     await Tm.delete()
     await message.reply(msg)
 
