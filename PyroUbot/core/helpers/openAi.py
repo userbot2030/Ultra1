@@ -18,7 +18,7 @@ class OpenAi:
             stop=None,
             n=1,
             user="arc",
-        )
+        ))
         return response.choices[0].message["content"].strip()
 
 
