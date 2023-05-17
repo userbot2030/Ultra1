@@ -1,5 +1,6 @@
-from asyncio import get_event_loop_policy
 import importlib
+from asyncio import get_event_loop_policy
+
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
