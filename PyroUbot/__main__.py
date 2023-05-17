@@ -10,14 +10,10 @@ from PyroUbot.modules import loadModule
 async def main():
     await bot.start()
     await ubot.start()
-    for mod in loadModule():
-        importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
-            for mod in loadModule():
-                importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         except RPCError:
             await remove_ubot(int(_ubot["name"]))
             await rm_all(int(_ubot["name"]))
