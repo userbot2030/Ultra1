@@ -98,16 +98,22 @@ async def add_blaclist(client, message):
 
 
 async def del_blacklist(client, message):
-    Tm = await message.reply("<b>Processing . . .</b>")
-    chat_id = message.chat.id
-    blacklist = await get_chat()
-    if chat_id not in blacklist:
-        return await Tm.edit(f"{message.chat.title} tidak ada dalam daftar hitam")
-    del_blacklist = await remove_chat(chat_id)
-    if del_blacklist:
-        await Tm.edit(f"{message.chat.title} berhasil dihapus dari daftar hitam")
-    else:
-        await Tm.edit("terjadi kesalahan yang tidak diketahui")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    try:
+        if not get_arg(message):
+            chat_id = message.chat.id
+        else:
+            chat_id = int(get_arg(message))
+        blacklist = await get_chat()
+        if chat_id not in blacklist:
+            return await Tm.edit(f"{message.chat.title} tidak ada dalam daftar hitam")
+        del_blacklist = await remove_chat(chat_id)
+        if del_blacklist:
+            await Tm.edit(f"{message.chat.title} berhasil dihapus dari daftar hitam")
+        else:
+            await Tm.edit("terjadi kesalahan yang tidak diketahui")
+   except Exception as error:
+       await Tm.edit(error)
 
 
 async def get_blacklist(client, message):
@@ -118,7 +124,7 @@ async def get_blacklist(client, message):
             get = await client.get_chat(X)
             msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
         except:
-            continue
+            msg += f"<b>• <code>{X}</code></b>\n"
     await Tm.delete()
     await message.reply(msg)
 
