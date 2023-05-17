@@ -54,6 +54,8 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         if self not in self._ubot:
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
@@ -66,9 +68,7 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-        for mod in loadModule():
-            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-            print(f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''})
+            print(f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''}")
 
 
 bot = Bot(
