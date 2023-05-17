@@ -7,7 +7,7 @@ from PyroUbot.modules import loadModule
 
 
 async def main():
-    await bot.start(
+    await bot.start()
     await ubot.start()
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
