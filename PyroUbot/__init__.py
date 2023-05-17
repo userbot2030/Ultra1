@@ -7,7 +7,7 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
 from PyroUbot.config import *
-
+from PyroUbot.modules import loadModule
 logging.basicConfig(
     level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
@@ -29,6 +29,8 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         print(f"STARTED BOT {self.me.first_name} | {self.me.id}")
 
 
@@ -63,6 +65,8 @@ class Ubot(Client):
                 elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                     group += 1
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
             print(
                 f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}"
             )
