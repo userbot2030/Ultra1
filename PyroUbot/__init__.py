@@ -8,6 +8,7 @@ from pyromod import listen
 
 from PyroUbot.config import *
 from PyroUbot.modules import loadModule
+
 logging.basicConfig(
     level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
