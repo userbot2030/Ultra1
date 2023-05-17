@@ -12,7 +12,6 @@ __HELP__ = f"""
 """
 
 
-
 @PY.UBOT("addbl", FILTERS.ME_GROUP)
 async def _(client, message):
     await add_blaclist(client, message)
