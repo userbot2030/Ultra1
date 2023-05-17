@@ -101,12 +101,12 @@ async def create_button(m):
 async def gcast_create_button(m):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
-    for X in m.text.split("||", 1)[1].split():
+    for X in m.text.split("|", 1)[1].split():
         keyboard.append(
             InlineKeyboardButton(X.split(":", 1)[0], url=X.split(":", 1)[1])
         )
     buttons.add(*keyboard)
-    text_button = m.text.split("||", 1)[0].split(None, 1)[1]
+    text_button = m.text.split("|", 1)[0].split(None, 1)[1]
     return buttons, text_button
 
 
