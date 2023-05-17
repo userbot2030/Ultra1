@@ -109,7 +109,7 @@ async def del_blacklist(client, message):
             return await Tm.edit(f"{message.chat.title} tidak ada dalam daftar hitam")
         del_blacklist = await remove_chat(chat_id)
         if del_blacklist:
-            await Tm.edit(f"{message.chat.title} berhasil dihapus dari daftar hitam")
+            await Tm.edit(f"{chat_id} berhasil dihapus dari daftar hitam")
         else:
             await Tm.edit("terjadi kesalahan yang tidak diketahui")
     except Exception as error:
