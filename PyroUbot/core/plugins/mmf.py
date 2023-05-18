@@ -1,9 +1,6 @@
 import asyncio
 import os
 
-from pyrogram.errors import *
-from pyrogram.raw.functions.messages import *
-from pyrogram.raw.types import *
 
 from PyroUbot import *
 
