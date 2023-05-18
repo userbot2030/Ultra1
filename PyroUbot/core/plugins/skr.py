@@ -163,9 +163,9 @@ async def kang_cmd(client, message):
                 packnick += " (Video)"
             await Tm.edit(
                 "ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ "
-                    + str(pack)
-                    + " ᴋᴀʀᴇɴᴀ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ sᴜᴅᴀʜ ᴘᴇɴᴜʜ"
-                )
+                + str(pack)
+                + " ᴋᴀʀᴇɴᴀ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ sᴜᴅᴀʜ ᴘᴇɴᴜʜ"
+            )
             await client.send_message("stickers", packname)
             await asyncio.sleep(2)
             if "Invalid pack selected." in await get_response(message, client):
@@ -187,12 +187,14 @@ async def kang_cmd(client, message):
                 await client.send_message("Stickers", packname)
                 await asyncio.sleep(2)
                 await Tm.edit(
-                        f"sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!\n         <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>\nᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs"
-                    )
+                    f"sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!\n         <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>\nᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs"
+                )
                 if os.path.exists(str(media_)):
                     os.remove(media_)
                 user_info = await client.resolve_peer("@stickers")
-                await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
+                await client.invoke(
+                    DeleteHistory(peer=user_info, max_id=0, revoke=True)
+                )
 
 
 async def get_response(message, client):
