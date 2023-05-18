@@ -102,7 +102,10 @@ async def kang_cmd(client, message):
         if not emoji_:
             emoji_ = "✨"
 
-        u_name = gen_font(f"{message.from_user.first_name} {message.from_user.last_name or ''}", font["sᴍᴀʟʟᴄᴀᴘs"])
+        u_name = gen_font(
+            f"{message.from_user.first_name} {message.from_user.last_name or ''}",
+            font["sᴍᴀʟʟᴄᴀᴘs"],
+        )
         packname = f"Sticker_u{user.id}_v{pack}"
         custom_packnick = f"{u_name} ᴋᴀɴɢ ᴘᴀᴄᴋ ᴠᴏʟ.{pack}"
         packnick = f"{custom_packnick}"
@@ -192,8 +195,8 @@ async def kang_cmd(client, message):
                     )
             await client.send_document("stickers", media_)
             await asyncio.sleep(2)
-            if (
-                "Sorry, the file type is invalid." in await get_response(message, client)
+            if "Sorry, the file type is invalid." in await get_response(
+                message, client
             ):
                 return await Tm.edit(
                     "ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @stIckerS ʙᴏᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ."
@@ -209,8 +212,8 @@ async def kang_cmd(client, message):
             await asyncio.sleep(2)
             await client.send_document("stickers", media_)
             await asyncio.sleep(2)
-            if (
-                "Sorry, the file type is invalid." in await get_response(message, client)
+            if "Sorry, the file type is invalid." in await get_response(
+                message, client
             ):
                 return await Tm.edit(
                     "ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @stIckerS ʙᴏᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ."
@@ -241,7 +244,6 @@ async def get_response(message, client):
     async for x in client.search_messages("Stickers"):
         invalid.append(x.text)
     return invalid
-        
 
 
 async def tiny_cmd(client, message):
