@@ -1,18 +1,13 @@
-
 import asyncio
 import imghdr
 import os
-import random
 
-import cv2
-from PIL import Image
 from pyrogram.errors import *
 from pyrogram.raw.functions.messages import *
 from pyrogram.raw.types import *
 
 from PyroUbot import *
 from PyroUbot.core.plugins import *
-
 
 
 async def kang_cmd_bot(client, message):
