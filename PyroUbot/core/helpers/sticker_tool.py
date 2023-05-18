@@ -8,7 +8,7 @@ from pyrogram.file_id import FileId
 STICKER_DIMENSIONS = (512, 512)
 
 
-async def resize_file_to_sticker_size(file_path):
+async def resize_file_to_sticker_size(file_path: str) -> str:
     im = Image.open(file_path)
     if (im.width, im.height) < STICKER_DIMENSIONS:
         size1 = im.width
@@ -35,7 +35,9 @@ async def resize_file_to_sticker_size(file_path):
         im.save(file_path)
 
 
-async def upload_document(client, file_path, chat_id):
+async def upload_document(
+    client: Client, file_path: str, chat_id: int
+) -> raw.base.InputDocument:
     media = await client.invoke(
         raw.functions.messages.UploadMedia(
             peer=await client.resolve_peer(chat_id),
@@ -57,7 +59,9 @@ async def upload_document(client, file_path, chat_id):
     )
 
 
-async def get_document_from_file_id(file_id):
+async def get_document_from_file_id(
+    file_id: str,
+) -> raw.base.InputDocument:
     decoded = FileId.decode(file_id)
     return raw.types.InputDocument(
         id=decoded.media_id,
@@ -66,7 +70,9 @@ async def get_document_from_file_id(file_id):
     )
 
 
-async def get_sticker_set_by_name(client, name):
+async def get_sticker_set_by_name(
+    client: Client, name: str
+) -> raw.base.messages.StickerSet:
     try:
         return await client.invoke(
             raw.functions.messages.GetStickerSet(
@@ -78,7 +84,13 @@ async def get_sticker_set_by_name(client, name):
         return None
 
 
-async def create_sticker_set(client, owner, title, short_name, stickers):
+async def create_sticker_set(
+    client: Client,
+    owner: int,
+    title: str,
+    short_name: str,
+    stickers: List[raw.base.InputStickerSetItem],
+) -> raw.base.messages.StickerSet:
     return await client.invoke(
         raw.functions.stickers.CreateStickerSet(
             user_id=await client.resolve_peer(owner),
@@ -89,7 +101,11 @@ async def create_sticker_set(client, owner, title, short_name, stickers):
     )
 
 
-async def add_sticker_to_set(client, stickerset, sticker):
+async def add_sticker_to_set(
+    client: Client,
+    stickerset: raw.base.messages.StickerSet,
+    sticker: raw.base.InputStickerSetItem,
+) -> raw.base.messages.StickerSet:
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
             stickerset=raw.types.InputStickerSetShortName(
@@ -100,5 +116,7 @@ async def add_sticker_to_set(client, stickerset, sticker):
     )
 
 
-async def create_sticker(sticker, emoji):
+async def create_sticker(
+    sticker: raw.base.InputDocument, emoji: str
+) -> raw.base.InputStickerSetItem:
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
