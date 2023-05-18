@@ -58,7 +58,7 @@ async def upload_document(client, file_path, chat_id):
 
 
 async def get_document_from_file_id(
-    file_id,
+    file_id
 ):
     decoded = FileId.decode(file_id)
     return raw.types.InputDocument(
@@ -85,7 +85,7 @@ async def create_sticker_set(
     owner,
     title,
     short_name,
-    stickers,
+    stickers
 ):
     return await client.invoke(
         raw.functions.stickers.CreateStickerSet(
