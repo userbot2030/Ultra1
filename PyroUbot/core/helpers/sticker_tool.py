@@ -1,9 +1,8 @@
 import math
 import os
-from typing import List
 
 from PIL import Image
-from pyrogram import Client, errors, raw
+from pyrogram import errors, raw
 from pyrogram.file_id import FileId
 
 STICKER_DIMENSIONS = (512, 512)
@@ -36,9 +35,7 @@ async def resize_file_to_sticker_size(file_path):
         im.save(file_path)
 
 
-async def upload_document(
-    client, file_path, chat_id
-):
+async def upload_document(client, file_path, chat_id):
     media = await client.invoke(
         raw.functions.messages.UploadMedia(
             peer=await client.resolve_peer(chat_id),
@@ -71,9 +68,7 @@ async def get_document_from_file_id(
     )
 
 
-async def get_sticker_set_by_name(
-    client, name
-):
+async def get_sticker_set_by_name(client, name):
     try:
         return await client.invoke(
             raw.functions.messages.GetStickerSet(
@@ -102,10 +97,7 @@ async def create_sticker_set(
     )
 
 
-async def add_sticker_to_set(
-    client,
-    stickerset,
-    sticker):
+async def add_sticker_to_set(client, stickerset, sticker):
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
             stickerset=raw.types.InputStickerSetShortName(
@@ -116,6 +108,5 @@ async def add_sticker_to_set(
     )
 
 
-async def create_sticker(
-    sticker):
+async def create_sticker(sticker):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
