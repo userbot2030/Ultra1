@@ -5,15 +5,17 @@ from traceback import format_exc
 from pyrogram.errors import (PeerIdInvalid, ShortnameOccupyFailed,
                              StickerEmojiInvalid, StickerPngDimensions,
                              StickerPngNopng, UserIsBlocked)
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 from PyroUbot import *
+
 
 async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to a sticker/image to kang it.")
     if not message.from_user:
         return await message.reply_text("You are anon admin, kang stickers in my pm.")
-    msg = await message.reply_text("Kanging Sticker..") 
+    msg = await message.reply_text("Kanging Sticker..")
     args = message.text.split()
     if len(args) > 1:
         sticker_emoji = str(args[1])
