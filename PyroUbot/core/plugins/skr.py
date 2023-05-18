@@ -230,6 +230,7 @@ async def delete_results(msg, copy_send, reply_copy_send, results):
     for trash in (msg, copy_send, reply_copy_send, results):
         await trash.delete()
 
+
 async def kang_cmd(client, message):
     reply = message.reply_to_message
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
