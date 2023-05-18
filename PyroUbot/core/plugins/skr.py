@@ -393,12 +393,12 @@ async def kang_cmd_bot(client, message):
         stickerset = await get_sticker_set_by_name(client, packname)
         if not stickerset:
             stickerset = await create_sticker_set(
-                    client,
-                    message.from_user.id,
-                    f"@{bot.me.username} ᴋᴀɴɢ ᴘᴀᴄᴋ",
-                    packname,
-                    [sticker],
-                )
+                client,
+                message.from_user.id,
+                f"@{bot.me.username} ᴋᴀɴɢ ᴘᴀᴄᴋ",
+                packname,
+                [sticker],
+            )
         elif stickerset.set.count >= 120:
             packnum += 1
             packname = f"{packnum}_{message.from_user.id}_by_{bot.me.username}"
