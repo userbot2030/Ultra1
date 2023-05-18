@@ -1,8 +1,6 @@
 import asyncio
 import os
 
-import cv2
-from PIL import Image
 from pyrogram.errors import *
 from pyrogram.raw.functions.messages import *
 from pyrogram.raw.types import *
