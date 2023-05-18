@@ -229,12 +229,13 @@ async def get_response(client, message):
 async def kang_cmd(client, message):
     reply = message.reply_to_message
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
-    if not reply or not reply.sticker or not reply.photo:
+    if reply.sticker or reply.photo:
+        await client.unblock_user(bot.me.username)
+        copy_send = await reply.copy(bot.me.username)
+        await copy_send.reply("/kang")
+        await asyncio.sleep(2)
+        results = await get_response(client, message)
+        await msg.delete()
+        return await results.copy(message.chat.id)
+    else:
         return await msg.edit("<b>ʜᴀʀᴀᴘ ʀᴇᴘʟʏ ᴋᴇ ᴘʜᴏᴛᴏ/sᴛɪᴄᴋᴇʀ</b>")
-    await client.unblock_user(bot.me.username)
-    copy_send = await reply.copy(bot.me.username)
-    await copy_send.reply("/kang")
-    await asyncio.sleep(2)
-    results = await get_response(client, message)
-    await msg.delete()
-    return await results.copy(message.chat.id)
