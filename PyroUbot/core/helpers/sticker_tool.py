@@ -100,5 +100,5 @@ async def add_sticker_to_set(client, stickerset, sticker):
     )
 
 
-async def create_sticker(sticker):
+async def create_sticker(sticker, emoji):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
