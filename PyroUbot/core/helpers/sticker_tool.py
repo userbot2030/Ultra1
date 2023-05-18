@@ -72,6 +72,7 @@ async def get_sticker_set_by_name(client, name):
         response = await client.invoke(
             raw.functions.messages.GetStickerSet(
                 stickerset=raw.types.InputStickerSetShortName(short_name=name),
+                hash=0,
             )
         )
         return response
