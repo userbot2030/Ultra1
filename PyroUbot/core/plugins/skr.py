@@ -372,13 +372,10 @@ async def kang_cmd_bot(client, message):
         elif doc:
             if doc.file_size > 10000000:
                 return await msg.edit("Ukuran file terlalu besar.")
-
             temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
-
             if image_type not in ["jpeg", "png", "webp"]:
                 return await msg.edit("Format tidak didukung! ({})".format(image_type))
-
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
             except Exception as e:
@@ -397,15 +394,13 @@ async def kang_cmd_bot(client, message):
         return await message.reply(str(SDF))
     except Exception as e:
         return await message.reply(str(e))
-
     packname = f"stk{message.from_user.id}by{bot.me.username}"
     limit = 0
+    packnum = 0
     try:
         if limit >= 50:
             return await msg.delete()
-
         stickerset = await get_sticker_set_by_name(client, packname)
-
         if not stickerset:
             stickerset = await create_sticker_set(
                 client,
@@ -419,7 +414,7 @@ async def kang_cmd_bot(client, message):
             )
         elif stickerset.set.count >= 120:
             packnum += 1
-            packname = f"stk{packnum}_{message.from_user.id}by{bot.me.username}"
+            packname = f"stk{packnum}in{message.from_user.id}by{bot.me.username}"
             limit += 1
         else:
             try:
