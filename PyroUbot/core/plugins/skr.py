@@ -419,7 +419,8 @@ sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!
          <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>
          ᴇᴍᴏᴊɪ: {sticker_emoji}
 ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs
-""")
+"""
+        )
     except StickerPngNopng as SPN:
         await message.reply(SPN)
     except StickerPngDimensions as SPD:
