@@ -12,17 +12,15 @@ class OpenAi:
     async def ChatGPT(question):
         response = await asyncio.get_event_loop().run_in_executor(
             None,
-            lambda: openai.Completion.create(
-                model="text-davinci-003",
-                prompt=question,
-                temperature=0.5,
+            lambda: openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": question}],
                 stop=None,
                 n=1,
                 user="arc",
-                max_tokens=768,
             ),
         )
-        return response["choices"][0].text.strip()
+        return response.choices[0].message["content"].strip()
 
     async def ImageDalle(question):
         response = await asyncio.get_event_loop().run_in_executor(
