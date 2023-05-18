@@ -14,6 +14,7 @@ from pyrogram.raw.types import InputStickerSetShortName
 from PyroUbot import *
 from PyroUbot.core.plugins import *
 
+
 async def memes_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply("<code>memes</code> [ᴛᴇxᴛ]")
@@ -395,7 +396,10 @@ async def kang_cmd_bot(client, message):
             stickerset = await create_sticker_set(
                 client,
                 message.from_user.id,
-                gen_font(f"{message.from_user.first_name} {message.from_user.last_name or ''}", font["sᴍᴀʟʟᴄᴀᴘs"]),
+                gen_font(
+                    f"{message.from_user.first_name} {message.from_user.last_name or ''}",
+                    font["sᴍᴀʟʟᴄᴀᴘs"],
+                ),
                 packname,
                 [sticker],
             )
