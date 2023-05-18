@@ -398,7 +398,7 @@ async def kang_cmd_bot(client, message):
     except Exception as e:
         return await message.reply(str(e))
 
-    packname = f"{message.from_user.id}_by_{bot.me.username}"
+    packname = f"{message.from_user.id}by{bot.me.username}"
     limit = 0
     try:
         if limit >= 50:
