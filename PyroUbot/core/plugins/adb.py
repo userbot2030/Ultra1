@@ -225,7 +225,7 @@ async def bikin_ubot(client, callback_query):
         return
     else:
         await remove_prem(callback_query.from_user.id)
-
+    await install_user_id()
 
 async def cek_ubot(client, message):
     if not message.from_user.id == OWNER_ID:
