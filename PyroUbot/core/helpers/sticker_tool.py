@@ -1,6 +1,6 @@
 import math
 import os
-
+import imghdr
 from PIL import Image
 from pyrogram import errors, raw
 from pyrogram.file_id import FileId
@@ -104,3 +104,4 @@ async def add_sticker_to_set(client, stickerset, sticker):
 
 async def create_sticker(sticker, emoji):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
+
