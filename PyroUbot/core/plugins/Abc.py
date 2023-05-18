@@ -6,30 +6,21 @@ from pyrogram.errors import (PeerIdInvalid, ShortnameOccupyFailed,
                              StickerEmojiInvalid, StickerPngDimensions,
                              StickerPngNopng, UserIsBlocked)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from wbb import BOT_USERNAME, app
-from wbb.utils.files import (get_document_from_file_id,
-                             resize_file_to_sticker_size, upload_document)
-from wbb.utils.stickerset import (add_sticker_to_set, create_sticker,
-                                  create_sticker_set, get_sticker_set_by_name)
+from PyroUbot import *
 
-
-async def kang(client, message: Message):
+async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to a sticker/image to kang it.")
     if not message.from_user:
         return await message.reply_text("You are anon admin, kang stickers in my pm.")
-    msg = await message.reply_text("Kanging Sticker..")
-
-    # Find the proper emoji
+    msg = await message.reply_text("Kanging Sticker..") 
     args = message.text.split()
     if len(args) > 1:
         sticker_emoji = str(args[1])
     elif message.reply_to_message.sticker and message.reply_to_message.sticker.emoji:
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
-        sticker_emoji = "🤔"
-
-    # Get the corresponding fileid, resize the file if necessary
+        sticker_emoji = "✨"
     doc = message.reply_to_message.photo or message.reply_to_message.document
     try:
         if message.reply_to_message.sticker:
@@ -42,18 +33,14 @@ async def kang(client, message: Message):
         elif doc:
             if doc.file_size > 10000000:
                 return await msg.edit("File size too large.")
-
-            temp_file_path = await app.download_media(doc)
+            temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
             if image_type not in SUPPORTED_TYPES:
                 return await msg.edit("Format not supported! ({})".format(image_type))
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
-            except OSError as e:
-                await msg.edit_text("Something wrong happened.")
-                raise Exception(
-                    f"Something went wrong while resizing the sticker (at {temp_file_path}); {e}"
-                )
+            except Exception as e:
+                await msg.edit_text(f"Something wrong happened.\n{e}")
             sticker = await create_sticker(
                 await upload_document(client, temp_file_path, message.chat.id),
                 sticker_emoji,
@@ -70,24 +57,18 @@ async def kang(client, message: Message):
         await message.reply_text(str(e))
         e = format_exc()
         return print(e)
-
-    # Find an available pack & add the sticker to the pack; create a new pack if needed
-    # Would be a good idea to cache the number instead of searching it every single time...
-    packnum = 0
-    packname = "f" + str(message.from_user.id) + "_by_" + BOT_USERNAME
+    packname = "f" + str(message.from_user.id) + "_by_" + bot.me.username
     limit = 0
     try:
         while True:
-            # Prevent infinite rules
             if limit >= 50:
                 return await msg.delete()
-
             stickerset = await get_sticker_set_by_name(client, packname)
             if not stickerset:
                 stickerset = await create_sticker_set(
                     client,
                     message.from_user.id,
-                    f"{message.from_user.first_name[:32]}'s kang pack",
+                    f"@{bot.me.username} ᴋᴀɴɢ ᴘᴀᴄᴋ",
                     packname,
                     [sticker],
                 )
