@@ -404,8 +404,7 @@ async def kang_cmd_bot(client, message):
                     f"{message.from_user.first_name} {message.from_user.last_name or ''}",
                     font["sᴍᴀʟʟᴄᴀᴘs"],
                 ),
-                packname
-                [sticker],
+                packname[sticker],
             )
         elif stickerset.set.count >= 120:
             packnum += 1
