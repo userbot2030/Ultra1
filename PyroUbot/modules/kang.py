@@ -9,6 +9,11 @@ __HELP__ = f"""
 """
 
 
+@PY.BOT("kang", ONLY_UBOT)
+async def _(client, message):
+    await kang_cmd_bot(client, message)
+
+
 @PY.UBOT("kang")
 async def _(client, message):
     await kang_cmd(client, message)
