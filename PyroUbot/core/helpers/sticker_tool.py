@@ -103,14 +103,3 @@ async def add_sticker_to_set(client, stickerset, sticker):
 
 async def create_sticker(sticker, emoji):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
-
-
-def capture_err(func):
-    @wraps(func)
-    async def capture(client, message, *args, **kwargs):
-        try:
-            return await func(client, message, *args, **kwargs)
-        except Exception as error:
-            return await message.reply(error)
-
-    return capture
