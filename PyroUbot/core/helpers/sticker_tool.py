@@ -69,13 +69,13 @@ async def get_document_from_file_id(file_id):
 
 async def get_sticker_set_by_name(client, name):
     try:
-        return await client.invoke(
+        response = await client.send(
             raw.functions.messages.GetStickerSet(
                 stickerset=raw.types.InputStickerSetShortName(short_name=name),
-                hash=0,
             )
         )
-    except errors.exceptions.not_acceptable_406.StickersetInvalid:
+        return response
+    except errors.exceptions.bad_request_400.StickersetInvalid:
         return None
 
 
