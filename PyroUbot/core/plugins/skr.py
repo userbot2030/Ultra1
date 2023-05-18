@@ -389,7 +389,7 @@ async def kang_cmd_bot(client, message):
         return await message.reply(str(SDF))
     except Exception as e:
         return await message.reply(str(e))
-    packname = f"stk{message.from_user.id}by{client.me.username}"
+    packname = f"stkr_{str(message.from_user.id)}_by_{client.me.username}"
     limit = 0
     packnum = 0
     try:
@@ -404,7 +404,8 @@ async def kang_cmd_bot(client, message):
                     f"{message.from_user.first_name} {message.from_user.last_name or ''}",
                     font["sᴍᴀʟʟᴄᴀᴘs"],
                 ),
-                packname[sticker],
+                packname,
+                [sticker],
             )
         elif stickerset.set.count >= 120:
             packnum += 1
