@@ -1,13 +1,9 @@
-from typing import List
-
-from pyrogram import Client, errors, raw
-
-
 import math
 import os
+from typing import List
 
 from PIL import Image
-from pyrogram import Client, raw
+from pyrogram import Client, errors, raw
 from pyrogram.file_id import FileId
 
 STICKER_DIMENSIONS = (512, 512)
@@ -73,7 +69,8 @@ async def get_document_from_file_id(
         access_hash=decoded.access_hash,
         file_reference=decoded.file_reference,
     )
-  
+
+
 async def get_sticker_set_by_name(
     client: Client, name: str
 ) -> raw.base.messages.StickerSet:
