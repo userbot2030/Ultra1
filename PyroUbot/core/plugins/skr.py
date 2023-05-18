@@ -419,7 +419,7 @@ async def kang_cmd_bot(client, message):
             )
         elif stickerset.set.count >= 120:
             packnum += 1
-            packname = f"{packnum}_{message.from_user.id}_by_{bot.me.username}"
+            packname = f"stk{packnum}_{message.from_user.id}by{bot.me.username}"
             limit += 1
         else:
             try:
