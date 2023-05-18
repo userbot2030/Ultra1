@@ -1,6 +1,5 @@
 import math
 import os
-from functools import wraps
 
 from PIL import Image
 from pyrogram import errors, raw
