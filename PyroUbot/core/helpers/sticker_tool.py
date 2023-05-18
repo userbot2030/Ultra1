@@ -1,18 +1,19 @@
 import math
 import os
+from functools import wraps
 
 from PIL import Image
 from pyrogram import errors, raw
-from pyrogram.types import (DocumentAttributeFilename, InputDocument,
-                            InputStickerSetShortName)
+from pyrogram.file_id import FileId
 
 STICKER_DIMENSIONS = (512, 512)
 
 
 async def resize_file_to_sticker_size(file_path):
     im = Image.open(file_path)
-    if im.size < STICKER_DIMENSIONS:
-        size1, size2 = im.size
+    if (im.width, im.height) < STICKER_DIMENSIONS:
+        size1 = im.width
+        size2 = im.height
         if im.width > im.height:
             scale = STICKER_DIMENSIONS[0] / size1
             size1new = STICKER_DIMENSIONS[0]
@@ -30,9 +31,10 @@ async def resize_file_to_sticker_size(file_path):
     try:
         os.remove(file_path)
         file_path = f"{file_path}.png"
+        im.save(file_path)
         return file_path
     finally:
-        im.save(file_path)
+        im.close()
 
 
 async def upload_document(client, file_path, chat_id):
@@ -43,12 +45,14 @@ async def upload_document(client, file_path, chat_id):
                 mime_type=client.guess_mime_type(file_path) or "application/zip",
                 file=await client.save_file(file_path),
                 attributes=[
-                    DocumentAttributeFilename(file_name=os.path.basename(file_path))
+                    raw.types.DocumentAttributeFilename(
+                        file_name=os.path.basename(file_path)
+                    )
                 ],
             ),
         )
     )
-    return InputDocument(
+    return raw.types.InputDocument(
         id=media.document.id,
         access_hash=media.document.access_hash,
         file_reference=media.document.file_reference,
@@ -57,7 +61,7 @@ async def upload_document(client, file_path, chat_id):
 
 async def get_document_from_file_id(file_id):
     decoded = FileId.decode(file_id)
-    return InputDocument(
+    return raw.types.InputDocument(
         id=decoded.media_id,
         access_hash=decoded.access_hash,
         file_reference=decoded.file_reference,
@@ -68,7 +72,7 @@ async def get_sticker_set_by_name(client, name):
     try:
         return await client.invoke(
             raw.functions.messages.GetStickerSet(
-                stickerset=InputStickerSetShortName(short_name=name),
+                stickerset=raw.types.InputStickerSetShortName(short_name=name),
                 hash=0,
             )
         )
@@ -90,7 +94,9 @@ async def create_sticker_set(client, owner, title, short_name, stickers):
 async def add_sticker_to_set(client, stickerset, sticker):
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
-            stickerset=InputStickerSetShortName(short_name=stickerset.set.short_name),
+            stickerset=raw.types.InputStickerSetShortName(
+                short_name=stickerset.set.short_name
+            ),
             sticker=sticker,
         )
     )
