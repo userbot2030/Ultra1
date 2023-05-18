@@ -57,9 +57,7 @@ async def upload_document(client, file_path, chat_id):
     )
 
 
-async def get_document_from_file_id(
-    file_id
-):
+async def get_document_from_file_id(file_id):
     decoded = FileId.decode(file_id)
     return raw.types.InputDocument(
         id=decoded.media_id,
@@ -80,13 +78,7 @@ async def get_sticker_set_by_name(client, name):
         return None
 
 
-async def create_sticker_set(
-    client,
-    owner,
-    title,
-    short_name,
-    stickers
-):
+async def create_sticker_set(client, owner, title, short_name, stickers):
     return await client.invoke(
         raw.functions.stickers.CreateStickerSet(
             user_id=await client.resolve_peer(owner),
