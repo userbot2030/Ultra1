@@ -10,7 +10,6 @@ __HELP__ = f"""
 
 
 @PY.BOT("kang", ONLY_UBOT)
-@capture_err
 async def _(client, message):
     await kang_cmd_bot(client, message)
 
