@@ -5,7 +5,6 @@ import random
 import cv2
 from PIL import Image
 from pyrogram import emoji
-from pyrogram.enums import ParseMode
 from pyrogram.errors import StickersetInvalid
 from pyrogram.raw.functions.messages import DeleteHistory, GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
@@ -179,9 +178,7 @@ async def kang_cmd(client, message):
                     await client.send_message("Stickers", "/publish")
                     await asyncio.sleep(2)
                     if is_anim:
-                        await client.send_message(
-                            "Stickers", f"{packnick}"
-                        )
+                        await client.send_message("Stickers", f"{packnick}")
                         await asyncio.sleep(2)
                     await client.send_message("Stickers", "/skip")
                     await asyncio.sleep(2)
