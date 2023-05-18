@@ -4,7 +4,7 @@ from PyroUbot.core.helpers.get_file_id import *
 from PyroUbot.core.helpers.inline import *
 from PyroUbot.core.helpers.misc import *
 from PyroUbot.core.helpers.openAi import *
-from PyroUbot.core.helpers.quotly_tool.py import *
+from PyroUbot.core.helpers.quotly_tool import *
 from PyroUbot.core.helpers.sticker_tool import *
 from PyroUbot.core.helpers.text import *
 from PyroUbot.core.helpers.tools import *
