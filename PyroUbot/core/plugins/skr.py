@@ -2,7 +2,7 @@ import asyncio
 import imghdr
 import os
 import random
-
+import imghdr
 import cv2
 from PIL import Image
 from pyrogram import emoji
