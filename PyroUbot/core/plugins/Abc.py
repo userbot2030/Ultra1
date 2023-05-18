@@ -3,9 +3,7 @@ import os
 
 from pyrogram.errors import *
 
-from PyroUbot import (add_sticker_to_set, create_sticker, create_sticker_set,
-                      get_document_from_file_id, get_sticker_set_by_name,
-                      resize_file_to_sticker_size, upload_document)
+from PyroUbot import *
 
 
 async def kang_cmd_bot(client, message):
