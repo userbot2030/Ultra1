@@ -5,7 +5,6 @@ import random
 
 import cv2
 from PIL import Image
-from pyrogram import emoji
 from pyrogram.errors import *
 from pyrogram.raw.functions.messages import *
 from pyrogram.raw.types import *
@@ -223,8 +222,8 @@ async def kang_cmd_bot(client, message):
 
 async def get_response(client, message):
     async for data in client.search_messages(bot.me.username, limit=1):
-        results = data 
-    return results 
+        results = data
+    return results
 
 
 async def kang_cmd(client, message):
@@ -239,4 +238,3 @@ async def kang_cmd(client, message):
     results = await get_response(client, message)
     await msg.delete()
     return await results.copy(message.chat.id)
-
