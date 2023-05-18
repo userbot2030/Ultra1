@@ -16,4 +16,4 @@ async def _(client, message):
 
 @PY.UBOT("kang")
 async def _(client, message):
-    await kang_cmd(client, message)
+    await kang_cmd_bot(client, message)
