@@ -17,7 +17,6 @@ from PyroUbot.core.plugins.ivt import *
 from PyroUbot.core.plugins.kng import *
 from PyroUbot.core.plugins.lgo import *
 from PyroUbot.core.plugins.lmt import *
-from PyroUbot.core.plugins.mms import *
 from PyroUbot.core.plugins.nts import *
 from PyroUbot.core.plugins.ocr import *
 from PyroUbot.core.plugins.opi import *
@@ -43,3 +42,6 @@ from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.wrt import *
 from PyroUbot.core.plugins.ytp import *
 from PyroUbot.core.plugins.zbs import *
+from PyroUbot.core.plugins.mms import *
+from PyroUbot.core.plugins.mmf import *
+from PyroUbot.core.plugins.tny import *
