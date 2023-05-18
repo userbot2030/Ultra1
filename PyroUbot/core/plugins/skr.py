@@ -414,15 +414,12 @@ async def kang_cmd_bot(client, message):
                 return await msg.edit("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
         limit += 1
         await msg.edit(
-            """
+            f"""
 sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!
-         [🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥](t.me/addstickers/{})
-         ᴇᴍᴏᴊɪ: {}
+         <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>
+         ᴇᴍᴏᴊɪ: {sticker_emoji}
 ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs
-""".format(
-                packname, sticker_emoji
-            )
-        )
+""")
     except StickerPngNopng as SPN:
         await message.reply(SPN)
     except StickerPngDimensions as SPD:
