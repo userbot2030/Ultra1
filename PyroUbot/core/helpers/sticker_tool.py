@@ -1,10 +1,10 @@
 import math
 import os
-from functools import wraps
 
 from PIL import Image
 from pyrogram import errors, raw
-from pyrogram.types import InputStickerSetShortName, InputDocument, DocumentAttributeFilename
+from pyrogram.types import (DocumentAttributeFilename, InputDocument,
+                            InputStickerSetShortName)
 
 STICKER_DIMENSIONS = (512, 512)
 
@@ -43,9 +43,7 @@ async def upload_document(client, file_path, chat_id):
                 mime_type=client.guess_mime_type(file_path) or "application/zip",
                 file=await client.save_file(file_path),
                 attributes=[
-                    DocumentAttributeFilename(
-                        file_name=os.path.basename(file_path)
-                    )
+                    DocumentAttributeFilename(file_name=os.path.basename(file_path))
                 ],
             ),
         )
@@ -92,9 +90,7 @@ async def create_sticker_set(client, owner, title, short_name, stickers):
 async def add_sticker_to_set(client, stickerset, sticker):
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
-            stickerset=InputStickerSetShortName(
-                short_name=stickerset.set.short_name
-            ),
+            stickerset=InputStickerSetShortName(short_name=stickerset.set.short_name),
             sticker=sticker,
         )
     )
