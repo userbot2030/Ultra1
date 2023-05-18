@@ -1,20 +1,11 @@
 import imghdr
 import os
-from traceback import format_exc
 
 from pyrogram.errors import *
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from PyroUbot import (
-    get_document_from_file_id,
-    resize_file_to_sticker_size,
-    upload_document,
-    add_sticker_to_set,
-    create_sticker,
-    create_sticker_set,
-    get_sticker_set_by_name,
-)
-
+from PyroUbot import (add_sticker_to_set, create_sticker, create_sticker_set,
+                      get_document_from_file_id, get_sticker_set_by_name,
+                      resize_file_to_sticker_size, upload_document)
 
 
 async def kang_cmd_bot(client, message):
