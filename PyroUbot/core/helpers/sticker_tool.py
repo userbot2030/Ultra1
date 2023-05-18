@@ -2,7 +2,7 @@ import math
 import os
 
 from PIL import Image
-from pyrogram import errors, raw, Client 
+from pyrogram import Client, errors, raw
 from pyrogram.file_id import FileId
 
 STICKER_DIMENSIONS = (512, 512)
