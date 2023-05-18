@@ -237,7 +237,7 @@ async def kang_cmd(client, message):
 
 
 async def get_response(message, client):
-    return [x async for x in client.get_chat_history("Stickers", limit=1)][0].text
+    return [x async for x in client.search_messages("Stickers", limit=1)][0].text
 
 
 async def tiny_cmd(client, message):
