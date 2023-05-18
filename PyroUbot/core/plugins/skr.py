@@ -120,7 +120,6 @@ async def kang_cmd(client, message):
             packname += "_video"
             packnick += " (ᴠɪᴅᴇᴏ)"
             cmd = "/newvideo"
-        exist = False
         while True:
             try:
                 exist = await client.invoke(
@@ -147,94 +146,53 @@ async def kang_cmd(client, message):
                 )
                 continue
             break
-        if exist == False:
-            await client.send_message("stickers", "/addsticker")
-            await asyncio.sleep(2)
-            await client.send_message("stickers", packname)
-            await asyncio.sleep(2)
-            limit = "50" if is_anim else "120"
-            while limit in await get_response(message, client):
-                pack += 1
-                packname = f"a{user.id}_by_{user.username}_{pack}"
-                packnick = f"{custom_packnick} vol.{pack}"
-                if is_anim:
-                    packname += "_anim"
-                    packnick += " (Animated)"
-                if is_video:
-                    packname += "_video"
-                    packnick += " (Video)"
-                await Tm.edit(
-                    "ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ "
+        await client.send_message("stickers", "/addsticker")
+        await asyncio.sleep(2)
+        await client.send_message("stickers", packname)
+        await asyncio.sleep(2)
+        limit = "50" if is_anim else "120"
+        while limit in await get_response(message, client):
+            pack += 1
+            packname = f"a{user.id}_by_{user.username}_{pack}"
+            packnick = f"{custom_packnick} vol.{pack}"
+            if is_anim:
+                packname += "_anim"
+                packnick += " (Animated)"
+            if is_video:
+                packname += "_video"
+                packnick += " (Video)"
+            await Tm.edit(
+                "ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ "
                     + str(pack)
                     + " ᴋᴀʀᴇɴᴀ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ sᴜᴅᴀʜ ᴘᴇɴᴜʜ"
                 )
-                await client.send_message("stickers", packname)
+            await client.send_message("stickers", packname)
+            await asyncio.sleep(2)
+            if "Invalid pack selected." in await get_response(message, client):
+                await client.send_message("stickers", cmd)
                 await asyncio.sleep(2)
-                if "Invalid pack selected." in await get_response(message, client):
-                    await client.send_message("stickers", cmd)
+                await client.send_message("stickers", packnick)
+                await asyncio.sleep(2)
+                await client.send_document("stickers", media_)
+                await asyncio.sleep(2)
+                await client.send_message("Stickers", emoji_)
+                await asyncio.sleep(2)
+                await client.send_message("Stickers", "/publish")
+                await asyncio.sleep(2)
+                if is_anim:
+                    await client.send_message("Stickers", f"{packnick}")
                     await asyncio.sleep(2)
-                    await client.send_message("stickers", packnick)
-                    await asyncio.sleep(2)
-                    await client.send_document("stickers", media_)
-                    await asyncio.sleep(2)
-                    await client.send_message("Stickers", emoji_)
-                    await asyncio.sleep(2)
-                    await client.send_message("Stickers", "/publish")
-                    await asyncio.sleep(2)
-                    if is_anim:
-                        await client.send_message("Stickers", f"{packnick}")
-                        await asyncio.sleep(2)
-                    await client.send_message("Stickers", "/skip")
-                    await asyncio.sleep(2)
-                    await client.send_message("Stickers", packname)
-                    await asyncio.sleep(2)
-                    return await Tm.edit(
+                await client.send_message("Stickers", "/skip")
+                await asyncio.sleep(2)
+                await client.send_message("Stickers", packname)
+                await asyncio.sleep(2)
+                await Tm.edit(
                         f"sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!\n         <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>\nᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs"
                     )
-            await client.send_document("stickers", media_)
-            await asyncio.sleep(2)
-            if "Sorry, the file type is invalid." in await get_response(
-                message, client
-            ):
-                return await Tm.edit(
-                    "ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @stIckerS ʙᴏᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ."
-                )
-            await client.send_message("Stickers", emoji_)
-            await asyncio.sleep(2)
-            await client.send_message("Stickers", "/done")
-        else:
-            await Tm.edit("ᴍᴇᴍʙᴜᴀᴛ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ")
-            await client.send_message("stickers", "/addsticker")
-            await asyncio.sleep(2)
-            await client.send_message("Stickers", packnick)
-            await asyncio.sleep(2)
-            await client.send_document("stickers", media_)
-            await asyncio.sleep(2)
-            if "Sorry, the file type is invalid." in await get_response(
-                message, client
-            ):
-                return await Tm.edit(
-                    "ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @stIckerS ʙᴏᴛ ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ sᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ."
-                )
-            await client.send_message("Stickers", emoji_)
-            await asyncio.sleep(2)
-            await client.send_message("Stickers", "/publish")
-            await asyncio.sleep(2)
-            if is_anim:
-                await client.send_message("Stickers", f"<{packnick}>")
-                await asyncio.sleep(2)
-            await client.send_message("Stickers", "/skip")
-            await asyncio.sleep(2)
-            await client.send_message("Stickers", packname)
-            await asyncio.sleep(2)
-        await Tm.edit(
-            f"sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!\n         <a href=https://t.me/addstickers/{packname}>🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥</a>\nᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs"
-        )
-        await asyncio.sleep(2)
-        if os.path.exists(str(media_)):
-            os.remove(media_)
-        user_info = await client.resolve_peer("@stickers")
-        await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
+                if os.path.exists(str(media_)):
+                    os.remove(media_)
+                user_info = await client.resolve_peer("@stickers")
+                await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
 
 
 async def get_response(message, client):
