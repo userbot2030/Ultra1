@@ -81,4 +81,3 @@ async def tiny_cmd(client, message):
     )
     os.remove(file)
     os.remove(ik)
-
