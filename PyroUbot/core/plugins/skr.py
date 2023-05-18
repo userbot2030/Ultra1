@@ -100,7 +100,7 @@ async def kang_cmd(client, message):
         if not emoji_:
             emoji_ = "✨"
 
-        u_name = f"{user.first_name} {user.last_name or ''}"
+        u_name = f"@{bot.me.username}"
         packname = f"Sticker_u{user.id}_v{pack}"
         custom_packnick = f"{u_name} ᴋᴀɴɢ ᴘᴀᴄᴋ ᴠᴏʟ.{pack}"
         packnick = f"{custom_packnick}"
@@ -144,6 +144,8 @@ async def kang_cmd(client, message):
             break
         if exist is not False:
             await client.send_message("stickers", "/addsticker")
+            if await get_response(message, client) == "Invalid pack selected.":
+                await client.send_message("stickers", cmd)
             await asyncio.sleep(2)
             await client.send_message("stickers", packname)
             await asyncio.sleep(2)
@@ -178,7 +180,7 @@ async def kang_cmd(client, message):
                     await asyncio.sleep(2)
                     if is_anim:
                         await client.send_message(
-                            "Stickers", f"<{packnick}>", parse_mode=ParseMode.MARKDOWN
+                            "Stickers", f"{packnick}"
                         )
                         await asyncio.sleep(2)
                     await client.send_message("Stickers", "/skip")
