@@ -9,7 +9,7 @@ from pyrogram.file_id import FileId
 STICKER_DIMENSIONS = (512, 512)
 
 
-async def resize_file_to_sticker_size(file_path: str) -> str:
+async def resize_file_to_sticker_size(file_path):
     im = Image.open(file_path)
     if (im.width, im.height) < STICKER_DIMENSIONS:
         size1 = im.width
@@ -37,8 +37,8 @@ async def resize_file_to_sticker_size(file_path: str) -> str:
 
 
 async def upload_document(
-    client: Client, file_path: str, chat_id: int
-) -> raw.base.InputDocument:
+    client, file_path, chat_id
+):
     media = await client.invoke(
         raw.functions.messages.UploadMedia(
             peer=await client.resolve_peer(chat_id),
@@ -61,8 +61,8 @@ async def upload_document(
 
 
 async def get_document_from_file_id(
-    file_id: str,
-) -> raw.base.InputDocument:
+    file_id,
+):
     decoded = FileId.decode(file_id)
     return raw.types.InputDocument(
         id=decoded.media_id,
@@ -72,8 +72,8 @@ async def get_document_from_file_id(
 
 
 async def get_sticker_set_by_name(
-    client: Client, name: str
-) -> raw.base.messages.StickerSet:
+    client, name
+):
     try:
         return await client.invoke(
             raw.functions.messages.GetStickerSet(
@@ -86,12 +86,12 @@ async def get_sticker_set_by_name(
 
 
 async def create_sticker_set(
-    client: Client,
-    owner: int,
-    title: str,
-    short_name: str,
-    stickers: List[raw.base.InputStickerSetItem],
-) -> raw.base.messages.StickerSet:
+    client,
+    owner,
+    title,
+    short_name,
+    stickers,
+):
     return await client.invoke(
         raw.functions.stickers.CreateStickerSet(
             user_id=await client.resolve_peer(owner),
@@ -103,10 +103,9 @@ async def create_sticker_set(
 
 
 async def add_sticker_to_set(
-    client: Client,
-    stickerset: raw.base.messages.StickerSet,
-    sticker: raw.base.InputStickerSetItem,
-) -> raw.base.messages.StickerSet:
+    client,
+    stickerset,
+    sticker):
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
             stickerset=raw.types.InputStickerSetShortName(
@@ -118,6 +117,5 @@ async def add_sticker_to_set(
 
 
 async def create_sticker(
-    sticker: raw.base.InputDocument, emoji: str
-) -> raw.base.InputStickerSetItem:
+    sticker):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
