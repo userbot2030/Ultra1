@@ -69,7 +69,7 @@ async def get_document_from_file_id(file_id):
 
 async def get_sticker_set_by_name(client, name):
     try:
-        response = await client.send(
+        response = await client.invoke(
             raw.functions.messages.GetStickerSet(
                 stickerset=raw.types.InputStickerSetShortName(short_name=name),
             )
