@@ -2,12 +2,19 @@ import imghdr
 import os
 from traceback import format_exc
 
-from pyrogram.errors import (PeerIdInvalid, ShortnameOccupyFailed,
-                             StickerEmojiInvalid, StickerPngDimensions,
-                             StickerPngNopng, UserIsBlocked)
+from pyrogram.errors import *
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from PyroUbot import *
+from PyroUbot import (
+    get_document_from_file_id,
+    resize_file_to_sticker_size,
+    upload_document,
+    add_sticker_to_set,
+    create_sticker,
+    create_sticker_set,
+    get_sticker_set_by_name,
+)
+
 
 
 async def kang_cmd_bot(client, message):
@@ -52,13 +59,9 @@ async def kang_cmd_bot(client, message):
         else:
             return await msg.edit("Nope, can't kang that.")
     except ShortnameOccupyFailed:
-        await message.reply_text("Change Your Name Or Username")
-        return
-
+        return await message.reply_text("Change Your Name Or Username")
     except Exception as e:
-        await message.reply_text(str(e))
-        e = format_exc()
-        return print(e)
+        return await message.reply(e)
     packname = "f" + str(message.from_user.id) + "_by_" + bot.me.username
     limit = 0
     try:
@@ -82,7 +85,7 @@ async def kang_cmd_bot(client, message):
                     + "_"
                     + str(message.from_user.id)
                     + "_by_"
-                    + BOT_USERNAME
+                    + bot.me.username
                 )
                 limit += 1
                 continue
@@ -98,14 +101,6 @@ async def kang_cmd_bot(client, message):
             "Sticker Kanged To [Pack](t.me/addstickers/{})\nEmoji: {}".format(
                 packname, sticker_emoji
             )
-        )
-    except (PeerIdInvalid, UserIsBlocked):
-        keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Start", url=f"t.me/{BOT_USERNAME}")]]
-        )
-        await msg.edit(
-            "You Need To Start A Private Chat With Me.",
-            reply_markup=keyboard,
         )
     except StickerPngNopng:
         await message.reply_text(
