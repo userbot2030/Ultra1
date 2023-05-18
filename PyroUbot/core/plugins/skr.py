@@ -1,5 +1,4 @@
 import asyncio
-import imghdr
 import os
 import random
 
@@ -127,5 +126,3 @@ async def memify_cmd(client, message):
         ),
     )
     os.remove(meme)
-    
-   
