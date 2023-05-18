@@ -1,18 +1,10 @@
 import math
 import os
+from functools import wraps
 
 from PIL import Image
 from pyrogram import errors, raw
 from pyrogram.file_id import FileId
-
-import sys
-import traceback
-from functools import wraps
-
-from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
-
-from wbb import LOG_GROUP_ID, app
-
 
 STICKER_DIMENSIONS = (512, 512)
 
@@ -113,14 +105,12 @@ async def create_sticker(sticker, emoji):
     return raw.types.InputStickerSetItem(document=sticker, emoji=emoji)
 
 
-
-
 def capture_err(func):
     @wraps(func)
     async def capture(client, message, *args, **kwargs):
         try:
             return await func(client, message, *args, **kwargs)
         except Exception as error:
-           return await message.reply(error)
+            return await message.reply(error)
 
     return capture
