@@ -389,7 +389,7 @@ async def kang_cmd_bot(client, message):
         return await message.reply(str(SDF))
     except Exception as e:
         return await message.reply(str(e))
-    packname = f"stkr_{str(message.from_user.id)}_by_{client.me.username}"
+    packname = f"stkr_{str(message.from_user.id)}_by_{bot.me.username}"
     limit = 0
     packnum = 0
     try:
@@ -401,7 +401,7 @@ async def kang_cmd_bot(client, message):
                 client,
                 message.from_user.id,
                 gen_font(
-                    f"{message.from_user.first_name} {message.from_user.last_name or ''}",
+                    f"{message.from_user.first_name} {message.from_user.last_name or ''} kang pack",
                     font["sᴍᴀʟʟᴄᴀᴘs"],
                 ),
                 packname,
