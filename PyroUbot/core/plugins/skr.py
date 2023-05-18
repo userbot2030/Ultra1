@@ -223,7 +223,8 @@ async def kang_cmd_bot(client, message):
 
 async def get_response(client, message):
     async for data in client.search_messages(bot.me.username, limit=1):
-    return data 
+        results = data 
+    return results 
 
 
 async def kang_cmd(client, message):
