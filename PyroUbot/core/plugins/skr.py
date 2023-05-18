@@ -347,8 +347,10 @@ async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to a sticker/image to kang it.")
     if not message.from_user:
-        return await message.reply_text("You are an anonymous admin, kang stickers in my PM.")
-    
+        return await message.reply_text(
+            "You are an anonymous admin, kang stickers in my PM."
+        )
+
     msg = await message.reply_text("Kanging Sticker..")
     args = message.text.split()
     if len(args) > 1:
@@ -357,7 +359,7 @@ async def kang_cmd_bot(client, message):
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
         sticker_emoji = "✨"
-    
+
     doc = message.reply_to_message.photo or message.reply_to_message.document
     try:
         if message.reply_to_message.sticker:
@@ -370,23 +372,23 @@ async def kang_cmd_bot(client, message):
         elif doc:
             if doc.file_size > 10000000:
                 return await msg.edit("Ukuran file terlalu besar.")
-            
+
             temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
-            
+
             if image_type not in ["jpeg", "png", "webp"]:
                 return await msg.edit("Format tidak didukung! ({})".format(image_type))
-            
+
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
             except Exception as e:
                 await msg.edit_text(str(e))
-            
+
             sticker = await create_sticker(
                 await upload_document(client, temp_file_path, message.chat.id),
                 sticker_emoji,
             )
-            
+
             if os.path.isfile(temp_file_path):
                 os.remove(temp_file_path)
         else:
@@ -395,15 +397,15 @@ async def kang_cmd_bot(client, message):
         return await message.reply(str(SDF))
     except Exception as e:
         return await message.reply(str(e))
-    
+
     packname = f"{message.from_user.id}_by_{bot.me.username}"
     limit = 0
     try:
         if limit >= 50:
             return await msg.delete()
-        
+
         stickerset = await get_sticker_set_by_name(client, packname)
-        
+
         if not stickerset:
             stickerset = await create_sticker_set(
                 client,
@@ -424,7 +426,7 @@ async def kang_cmd_bot(client, message):
                 await add_sticker_to_set(client, stickerset, sticker)
             except StickerEmojiInvalid:
                 return await msg.edit("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
-        
+
         limit += 1
         await msg.edit(
             f"""
