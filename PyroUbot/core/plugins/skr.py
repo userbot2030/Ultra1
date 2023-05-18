@@ -149,8 +149,6 @@ async def kang_cmd(client, message):
             break
         if exist is not False:
             await client.send_message("stickers", "/addsticker")
-            if "Invalid pack selected." in await get_response(message, client):
-                await client.send_message("stickers", cmd)
             await asyncio.sleep(2)
             await client.send_message("stickers", packname)
             await asyncio.sleep(2)
