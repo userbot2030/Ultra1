@@ -1,19 +1,15 @@
 import asyncio
+import imghdr
 import os
 import random
 
 import cv2
 from PIL import Image
 from pyrogram import emoji
+from pyrogram.errors import *
 from pyrogram.errors import StickersetInvalid
 from pyrogram.raw.functions.messages import DeleteHistory, GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
-
-from PyroUbot import *
-import imghdr
-import os
-
-from pyrogram.errors import *
 
 from PyroUbot import *
 
@@ -342,9 +338,7 @@ async def memify_cmd(client, message):
         ),
     )
     os.remove(meme)
-    
-    
-    
+
 
 async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
