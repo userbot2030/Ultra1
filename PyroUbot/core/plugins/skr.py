@@ -32,8 +32,8 @@ async def memes_cmd(client, message):
     await TM.delete()
 
 
-async def kang_cmd(client, message):
-    await client.unblock_user("stickers")
+async def kang_cmd(client, message):d
+    await client.unblock_user("stickers") bisa 
     user = message.from_user
     replied = message.reply_to_message
     Tm = await message.reply("ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...")
@@ -147,7 +147,7 @@ async def kang_cmd(client, message):
                 )
                 continue
             break
-        if exist is not False:
+        if exist == False:
             await client.send_message("stickers", "/addsticker")
             await asyncio.sleep(2)
             await client.send_message("stickers", packname)
