@@ -364,15 +364,15 @@ async def kang_cmd_bot(client, message):
             )
         elif doc:
             if doc.file_size > 10000000:
-                return await msg.edit("File size too large.")
+                return await msg.edit("Ukuran file terlalu besar.")
             temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
-            if image_type not in SUPPORTED_TYPES:
-                return await msg.edit("Format not supported! ({})".format(image_type))
+            if image_type not in ["jpeg", "png", "webp"]:
+                return await msg.edit("Format tidak didukung! ({})".format(image_type))
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
             except Exception as e:
-                await msg.edit_text(f"Something wrong happened.\n{e}")
+                await msg.edit_text(e)
             sticker = await create_sticker(
                 await upload_document(client, temp_file_path, message.chat.id),
                 sticker_emoji,
@@ -380,54 +380,48 @@ async def kang_cmd_bot(client, message):
             if os.path.isfile(temp_file_path):
                 os.remove(temp_file_path)
         else:
-            return await msg.edit("Nope, can't kang that.")
-    except ShortnameOccupyFailed:
-        return await message.reply_text("Change Your Name Or Username")
+            return await msg.edit("Tidak, tidak bisa kang itu.")
+    except ShortnameOccupyFailed as SDF:
+        return await message.reply(SDF)
     except Exception as e:
         return await message.reply(e)
-    packname = "f" + str(message.from_user.id) + "_by_" + bot.me.username
+    packname = f"{message.from_user.id}_by_{bot.me.username}"
     limit = 0
     try:
-        while True:
-            if limit >= 50:
-                return await msg.delete()
-            stickerset = await get_sticker_set_by_name(client, packname)
-            if not stickerset:
-                stickerset = await create_sticker_set(
+        if limit >= 50:
+            return await msg.delete()
+        stickerset = await get_sticker_set_by_name(client, packname)
+        if not stickerset:
+            stickerset = await create_sticker_set(
                     client,
                     message.from_user.id,
                     f"@{bot.me.username} ᴋᴀɴɢ ᴘᴀᴄᴋ",
                     packname,
                     [sticker],
                 )
-            elif stickerset.set.count >= MAX_STICKERS:
-                packnum += 1
-                packname = (
-                    "f"
-                    + str(packnum)
-                    + "_"
-                    + str(message.from_user.id)
-                    + "_by_"
-                    + bot.me.username
-                )
-                limit += 1
-                continue
-            else:
-                try:
-                    await add_sticker_to_set(client, stickerset, sticker)
-                except StickerEmojiInvalid:
-                    return await msg.edit("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
+        elif stickerset.set.count >= 120:
+            packnum += 1
+            packname = f"{packnum}_{message.from_user.id}_by_{bot.me.username}"
             limit += 1
-            break
-
+        else:
+            try:
+                await add_sticker_to_set(client, stickerset, sticker)
+            except StickerEmojiInvalid:
+                return await msg.edit("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
+        limit += 1
         await msg.edit(
-            "Sticker Kanged To [Pack](t.me/addstickers/{})\nEmoji: {}".format(
+            """
+sᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!
+         [🔥 ᴋʟɪᴋ ᴅɪsɪɴɪ 🔥](t.me/addstickers/{})
+         ᴇᴍᴏᴊɪ: {}
+ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ sᴛɪᴄᴋᴇʀs
+""".format(
                 packname, sticker_emoji
             )
         )
-    except StickerPngNopng:
-        await message.reply_text(
-            "Stickers must be png files but the provided image was not a png"
-        )
-    except StickerPngDimensions:
-        await message.reply_text("The sticker png dimensions are invalid.")
+    except StickerPngNopng as SPN:
+        await message.reply(SPN)
+    except StickerPngDimensions as SPD:
+        await message.reply(SPD)
+    except Exception as error:
+        await message.reply(error)
