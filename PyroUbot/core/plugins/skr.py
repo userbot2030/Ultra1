@@ -239,4 +239,3 @@ async def kang_cmd(client, message):
         results = await get_response(client, message)
         await msg.delete()
         return await results.copy(message.chat.id)
-        
