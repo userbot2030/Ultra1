@@ -7,9 +7,8 @@ import cv2
 from PIL import Image
 from pyrogram import emoji
 from pyrogram.errors import *
-from pyrogram.errors import StickersetInvalid
-from pyrogram.raw.functions.messages import DeleteHistory, GetStickerSet
-from pyrogram.raw.types import InputStickerSetShortName
+from pyrogram.raw.functions.messages import *
+from pyrogram.raw.types import *
 
 from PyroUbot import *
 from PyroUbot.core.plugins import *
@@ -350,7 +349,6 @@ async def kang_cmd_bot(client, message):
         return await message.reply_text(
             "You are an anonymous admin, kang stickers in my PM."
         )
-
     msg = await message.reply_text("Kanging Sticker..")
     args = message.text.split()
     if len(args) > 1:
@@ -359,7 +357,6 @@ async def kang_cmd_bot(client, message):
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
         sticker_emoji = "✨"
-
     doc = message.reply_to_message.photo or message.reply_to_message.document
     try:
         if message.reply_to_message.sticker:
@@ -379,13 +376,11 @@ async def kang_cmd_bot(client, message):
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
             except Exception as e:
-                await msg.edit_text(str(e))
-
+                return await msg.edit_text(str(e))
             sticker = await create_sticker(
                 await upload_document(client, temp_file_path, message.chat.id),
                 sticker_emoji,
             )
-
             if os.path.isfile(temp_file_path):
                 os.remove(temp_file_path)
         else:
@@ -394,7 +389,7 @@ async def kang_cmd_bot(client, message):
         return await message.reply(str(SDF))
     except Exception as e:
         return await message.reply(str(e))
-    packname = f"stk{message.from_user.id}by{bot.me.username}"
+    packname = f"stk{message.from_user.id}by{client.me.username}"
     limit = 0
     packnum = 0
     try:
@@ -409,19 +404,18 @@ async def kang_cmd_bot(client, message):
                     f"{message.from_user.first_name} {message.from_user.last_name or ''}",
                     font["sᴍᴀʟʟᴄᴀᴘs"],
                 ),
-                packname,
+                packname
                 [sticker],
             )
         elif stickerset.set.count >= 120:
             packnum += 1
-            packname = f"stk{packnum}in{message.from_user.id}by{bot.me.username}"
+            packname = f"stk{packnum}in{message.from_user.id}by{client.me.username}"
             limit += 1
         else:
             try:
                 await add_sticker_to_set(client, stickerset, sticker)
             except StickerEmojiInvalid:
                 return await msg.edit("[ERROR]: INVALID_EMOJI_IN_ARGUMENT")
-
         limit += 1
         await msg.edit(
             f"""
