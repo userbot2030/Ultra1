@@ -92,7 +92,7 @@ async def jawab_pesan_callback(client, callback_query):
     else:
         try:
             await pesan.copy(
-                user_ids[1[,
+                user_ids[1],
                 reply_to_message_id=user_ids[2],
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
