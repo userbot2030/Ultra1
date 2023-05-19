@@ -34,7 +34,7 @@ async def support_callback(client, callback_query):
     buttons = [
         [
             InlineKeyboardButton("👤 ᴘʀᴏꜰɪʟ", callback_data=f"profil {user_id}"),
-            InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id}"),
+            InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id} {pesan.id}"),
         ],
     ]
     if get.id not in SUPPORT:
@@ -58,7 +58,7 @@ async def jawab_pesan_callback(client, callback_query):
     user_id = int(callback_query.from_user.id)
     full_name = f"{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}"
     get = await bot.get_users(user_id)
-    user_ids = int(callback_query.data.split()[1])
+    user_ids = int(callback_query.data.split()
     SUPPORT.append(get.id)
     try:
         button = [
@@ -92,7 +92,8 @@ async def jawab_pesan_callback(client, callback_query):
     else:
         try:
             await pesan.copy(
-                user_ids,
+                user_ids[1[,
+                reply_to_message_id=user_ids[2],
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             SUPPORT.remove(get.id)
