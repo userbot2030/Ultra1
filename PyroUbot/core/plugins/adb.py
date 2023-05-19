@@ -11,11 +11,22 @@ from PyroUbot import *
 
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
-    buttons = [
-        [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
-    ]
-    await callback_query.message.delete()
-    return await bot.send_message(
+    PREM_ID = await get_prem()
+    if user_id not in PREM_ID:
+        buttons = [[InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ", callback_data="confirm")]]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            TEXT_PAYMENT,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
+    else;
+        buttons = [
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
+        ]
+        await callback_query.message.delete()
+        return await bot.send_message(
         user_id,
         """
 <b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
@@ -49,15 +60,6 @@ async def bikin_ubot(client, callback_query):
 
 <b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/T0M1_X>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
 """,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
-    elif user_id not in PREM_ID:
-        buttons = [[InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ", callback_data="confirm")]]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            TEXT_PAYMENT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
