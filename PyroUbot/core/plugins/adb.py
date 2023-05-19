@@ -44,7 +44,6 @@ async def need_api(client, callback_query):
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
-    await get_prem()
     ID_SELES = await get_seles()
     if len(ubot._ubot) == MAX_BOT:
         buttons = [
