@@ -34,7 +34,9 @@ async def support_callback(client, callback_query):
     buttons = [
         [
             InlineKeyboardButton("👤 ᴘʀᴏꜰɪʟ", callback_data=f"profil {user_id}"),
-            InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id} {pesan.id}"),
+            InlineKeyboardButton(
+                "ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id} {pesan.id}"
+            ),
         ],
     ]
     if get.id not in SUPPORT:
@@ -84,7 +86,9 @@ async def jawab_pesan_callback(client, callback_query):
         buttons = [
             [
                 InlineKeyboardButton("👤 ᴘʀᴏꜰɪʟ", callback_data=f"profil {user_id}"),
-                InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id} {pesan.id}"),
+                InlineKeyboardButton(
+                    "ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id} {pesan.id}"
+                ),
             ],
         ]
     if get.id not in SUPPORT:
