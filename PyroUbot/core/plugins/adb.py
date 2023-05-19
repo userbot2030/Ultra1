@@ -21,7 +21,7 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    else;
+    else:
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
         ]
