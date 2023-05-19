@@ -27,8 +27,8 @@ async def need_api(client, callback_query):
         ]
         await callback_query.message.delete()
         return await bot.send_message(
-        user_id,
-        """
+            user_id,
+            """
 <b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
 
     • <code>ᴀᴘɪ_ɪᴅ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
@@ -37,14 +37,14 @@ async def need_api(client, callback_query):
 
 ☑️ ᴊɪᴋᴀ sᴜᴅᴀʜ ᴛᴇʀsᴇᴅɪᴀ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏɪ ᴅɪʙᴀᴡᴀʜ</b>
 """,
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(buttons),
-    )
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
 
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
-    PREM_ID = await get_prem()
+    await get_prem()
     ID_SELES = await get_seles()
     if len(ubot._ubot) == MAX_BOT:
         buttons = [
