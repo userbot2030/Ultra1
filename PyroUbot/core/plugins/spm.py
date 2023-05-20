@@ -1,3 +1,5 @@
+"""colong teriak nyolong"""
+
 import asyncio
 
 
