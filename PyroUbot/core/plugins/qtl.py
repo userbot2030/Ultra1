@@ -23,14 +23,14 @@ async def quotly_cmd(self, ctx):
                     if not i.empty and not i.media
                 ]
             except Exception as e:
-                return await qctx.replyf"<code>Error : {e}</code>")
+                return await ctx.reply(f"<code>Error : {e}</code>")
             try:
                 make_quotly = await pyrogram_to_quotly(messages)
                 bio_sticker = BytesIO(make_quotly)
                 bio_sticker.name = "biosticker.webp"
                 return await ctx.reply_sticker(bio_sticker)
             except Exception as e:
-                return await ctx.replu(f"<code>Error : {e}</code>")
+                return await ctx.reply(f"<code>Error : {e}</code>")
     try:
         messages_one = await self.get_messages(
             chat_id=ctx.chat.id, message_ids=ctx.reply_to_message.id, replies=-1
