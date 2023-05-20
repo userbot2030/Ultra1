@@ -11,7 +11,7 @@ async def spam_cmd(client, message):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
-            await msg.edit(error)
+            return await msg.edit(error)
     else:
         if len(message.command) < 2:
             return await msg.edit(
@@ -24,7 +24,7 @@ async def spam_cmd(client, message):
                     await message.reply(message.text.split(None, 2)[2], quote=False)
                     await asyncio.sleep(0.1)
             except Exception as error:
-                await msg.edit(error)
+                return await msg.edit(error)
     await msg.delete()
     await message.delete()
 
