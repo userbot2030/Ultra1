@@ -42,7 +42,7 @@ async def dspam_cmd(client, message):
         except Exception as error:
             return await msg.edit(error)
     else:
-        if len(message.command) < 3:
+        if len(message.command) < 4:
             return await msg.edit(
                 "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>help spam</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
             )
