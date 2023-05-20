@@ -7,7 +7,7 @@ async def spam_cmd(client, message):
     msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
-            for i in in range(int(message.command[1])):
+            for i in range(int(message.command[1])):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
