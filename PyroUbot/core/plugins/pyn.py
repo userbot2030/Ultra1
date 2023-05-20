@@ -83,7 +83,7 @@ async def success_failed_home_callback(client, callback_query):
     get_user = await bot.get_users(query[1])
     if query[0] == "success":
         buttons = [
-            [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="add_ubot")],
+            [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
         ]
         await bot.send_message(
             get_user.id,
