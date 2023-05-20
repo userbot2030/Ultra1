@@ -14,14 +14,14 @@ async def spam_cmd(client, message):
         except Exception as error:
             await msg.edit(error)
     else:
-        if not get_arg(message):
+        if len(message.command) < 2:
             return await msg.edit(
                 "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>help spam</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
             )
         else:
             try:
                 for i in range(int(message.command[1])):
-                    await message.reply(get_arg(message), quote=False)
+                    await message.reply(message.text.split(None, 2)[2], quote=False)
                     await asyncio.sleep(0.1)
             except Exception as error:
                 await msg.edit(error)
@@ -40,14 +40,14 @@ async def dspam_cmd(client, message):
         except Exception as error:
             await msg.edit(error)
     else:
-        if not get_arg(message):
+        if len(message.command) < 3:
             return await msg.edit(
                 "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>help spam</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
             )
         else:
             try:
                 for i in range(int(message.command[1])):
-                    await message.reply(get_arg(message), quote=False)
+                    await message.reply(message.text.split(None, 3)[3], quote=False)
                     await asyncio.sleep(int(message.command[2]))
             except Exception as error:
                 await msg.edit(error)
