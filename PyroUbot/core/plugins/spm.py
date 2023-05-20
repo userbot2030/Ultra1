@@ -1,7 +1,6 @@
 import asyncio
 
 
-
 async def spam_cmd(client, message):
     reply = message.reply_to_message
     msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
