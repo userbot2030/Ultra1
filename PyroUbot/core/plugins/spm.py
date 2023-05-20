@@ -24,7 +24,7 @@ async def spam_cmd(client, message):
             except Exception as error:
                 await msg.edit(error)
     await msg.delete()
-    await message.deletw()
+    await message.delete()
 
 
 async def dspam_cmd(client, message):
@@ -50,4 +50,4 @@ async def dspam_cmd(client, message):
             except Exception as error:
                 await msg.edit(error)
     await msg.delete()
-    await message.deletw()
+    await message.delete()
