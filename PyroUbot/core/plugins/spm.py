@@ -6,7 +6,8 @@ async def spam_cmd(client, message):
     msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
-            for i in range(int(message.command[1])):
+            count_message = int(message.command[1])
+            for i in range(count_message):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
@@ -18,7 +19,8 @@ async def spam_cmd(client, message):
             )
         else:
             try:
-                for i in range(int(message.command[1])):
+                count_message = int(message.command[1])
+                for i in range(count_message):
                     await message.reply(message.text.split(None, 2)[2], quote=False)
                     await asyncio.sleep(0.1)
             except Exception as error:
@@ -32,9 +34,11 @@ async def dspam_cmd(client, message):
     msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
-            for i in range(int(message.command[1])):
+            count_message = int(message.command[1])
+            count_delay = int(message.command[2])
+            for i in range(count_message):
                 await reply.copy(message.chat.id)
-                await asyncio.sleep(int(message.command[2]))
+                await asyncio.sleep(count_delay)
         except Exception as error:
             await msg.edit(error)
     else:
@@ -44,9 +48,11 @@ async def dspam_cmd(client, message):
             )
         else:
             try:
-                for i in range(int(message.command[1])):
+                count_message = int(message.command[1])
+                count_delay = int(message.command[2])
+                for i in range(count_message):
                     await message.reply(message.text.split(None, 3)[3], quote=False)
-                    await asyncio.sleep(int(message.command[2]))
+                    await asyncio.sleep(count_delay)
             except Exception as error:
                 await msg.edit(error)
     await msg.delete()
