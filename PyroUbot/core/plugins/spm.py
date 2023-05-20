@@ -3,7 +3,7 @@ import asyncio
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
             count_message = int(message.command[1])
@@ -31,7 +31,7 @@ async def spam_cmd(client, message):
 
 async def dspam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply("xsᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
             count_message = int(message.command[1])
