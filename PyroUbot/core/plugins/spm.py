@@ -1,6 +1,5 @@
 import asyncio
 
-from PyroUbot import *
 
 
 async def spam_cmd(client, message):
