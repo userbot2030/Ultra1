@@ -33,7 +33,7 @@ async def dspam_cmd(client, message):
         try:
             for i range(int(message.command[1])):
                 await reply.copy(message.chat.id)
-                await asyncio.sleep(int(message.command[2])
+                await asyncio.sleep(int(message.command[2]))
         except Exception as error:
             await msg.edit(error)
     else:
@@ -43,7 +43,7 @@ async def dspam_cmd(client, message):
             try:
                 for i range(int(message.command[1])):
                     await message.reply(get_arg(message), quote=False)
-                    await asyncio.sleep(int(message.command[2])
+                    await asyncio.sleep(int(message.command[2]))
             except Exception as error:
                 await msg.edit(error)
     await msg.delete()
