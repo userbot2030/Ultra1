@@ -14,4 +14,7 @@ __HELP__ = f"""
 
 @PY.UBOT(["spam", "dspam"])
 async def _(client, message):
-    await spam_cmd(client, message)
+    if message.command[0] == "spam";
+        await spam_cmd(client, message)
+    if message.command[0] == "dspam";
+        await espam_cmd(client, message)
