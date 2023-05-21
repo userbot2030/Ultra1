@@ -116,7 +116,7 @@ async def delete_results(msg, send, reply_send, results):
 async def kang_cmd(client, message):
     reply = message.reply_to_message
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
-    elif message.reply_to_message:
+    if message.reply_to_message:
         if reply.sticker or reply.photo:
             if reply.file_size > 10000000:
                 return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
