@@ -118,17 +118,16 @@ async def kang_cmd(client, message):
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
     if message.reply_to_message:
         if reply.sticker or reply.photo:
-            if reply.sticker.file_size and or reply.photo.file_size > 10000000:
-                return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
-            else:
-                await client.unblock_user(bot.me.username)
-                photo = await dl_pic(client, reply)
-                send = await client.send_photo(bot.me.username, photo)
-                reply_send = await send.reply("/kang")
-                await asyncio.sleep(2)
-                results = await get_response(client, message)
-                await results.copy(message.chat.id)
-                return await delete_results(msg, send, reply_send, results)
+            await client.unblock_user(bot.me.username)
+            photo = await dl_pic(client, reply)
+            send = await client.send_photo(bot.me.username, photo)
+            reply_send = await send.reply("/kang")
+            await asyncio.sleep(2)
+            results = await get_response(client, message)
+            await results.copy(message.chat.id)
+            return await delete_results(msg, send, reply_send, results)
+        elif reply.sticker.file_size or reply.photo.file_size > 10000000:
+            return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
         else:
             return await msg.edit("<b>ʜᴀʀᴀᴘ ʀᴇᴘʟʏ ᴋᴇ ᴘʜᴏᴛᴏ/sᴛɪᴄᴋᴇʀ</b>")
     else:
