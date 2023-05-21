@@ -226,6 +226,10 @@ async def bikin_ubot(client, callback_query):
         return
     else:
         await remove_prem(callback_query.from_user.id)
+    try:
+        await new_client.join_chat("PremUbotCH")
+    except:
+        pass
     await install_user_id()
 
 
