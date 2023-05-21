@@ -118,7 +118,7 @@ async def kang_cmd(client, message):
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
     if message.reply_to_message:
         if reply.sticker or reply.photo:
-            if reply.sticker.file_size or reply.photo.file_size > 10000000:
+            if reply.sticker.file_size and or reply.photo.file_size > 10000000:
                 return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
             else:
                 await client.unblock_user(bot.me.username)
