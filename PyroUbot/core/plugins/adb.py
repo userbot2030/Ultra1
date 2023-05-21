@@ -261,7 +261,10 @@ async def cek_ubot(client, message):
 async def hapus_ubot(client, callback_query):
     user_id = callback_query.from_user.id
     if not user_id == OWNER_ID:
-        return
+        return await callback_query.answer(
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
+            True,
+        )
     try:
         show = await bot.get_users(callback_query.data.split()[1])
         get_id = show.id
