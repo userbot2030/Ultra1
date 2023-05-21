@@ -9,12 +9,13 @@ from PyroUbot import *
 
 
 async def tts_cmd(client, message):
+    TM = await message.reply("sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ")
     if message.reply_to_message:
         language = client._translate[client.me.id]["negara"]
         words_to_say = message.reply_to_message.text or message.reply_to_message.caption
     else:
         if len(message.command) < 2:
-            return await message.reply(f"<code>{message.text}</code> ʀᴇᴘʟʏ/ᴛᴇxᴛ")
+            return await TM.edit(f"<code>{message.text}</code> ʀᴇᴘʟʏ/ᴛᴇxᴛ")
         else:
             language = client._translate[client.me.id]["negara"]
             words_to_say = message.text.split(None, 1)[1]
@@ -27,8 +28,9 @@ async def tts_cmd(client, message):
             voice="text_to_speech.oog",
             reply_to_message_id=rep.id,
         )
+        await TM.delete()
     except Exception as error:
-        await message.reply(error)
+        await TM.edit(error)
     try:
         os.remove("text_to_speech.oog")
     except FileNotFoundError:
@@ -37,6 +39,7 @@ async def tts_cmd(client, message):
 
 async def tr_cmd(client, message):
     trans = Translator()
+    TM = await message.reply("sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ")
     if message.reply_to_message:
         dest = client._translate[client.me.id]["negara"]
         to_translate = message.reply_to_message.text or message.reply_to_message.caption
@@ -51,6 +54,7 @@ async def tr_cmd(client, message):
     translation = await trans(to_translate, sourcelang=source, targetlang=dest)
     reply = f"<code>{translation.text}</code>"
     rep = message.reply_to_message or message
+    await TM.delete()
     await client.send_message(message.chat.id, reply, reply_to_message_id=rep.id)
 
 
