@@ -14,9 +14,7 @@ async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
         return await message.reply_text("ᴍᴇᴍʙᴀʟᴀs sᴛɪᴋᴇʀ/ɢᴀᴍʙᴀʀ ᴋᴇ ᴋᴀɴɢ ɪᴛᴜ.")
     if not message.from_user:
-        return await message.reply_text(
-            "ᴀɴᴅᴀ ᴀᴅᴀʟᴀʜ ᴀᴅᴍɪɴ ᴀɴᴏɴɪᴍ,"
-        )
+        return await message.reply_text("ᴀɴᴅᴀ ᴀᴅᴀʟᴀʜ ᴀᴅᴍɪɴ ᴀɴᴏɴɪᴍ,")
     msg = await message.reply_text("ᴋᴀɴɢɪɴɢ sᴛɪᴄᴋᴇʀ..")
     args = message.text.split()
     if len(args) > 1:
