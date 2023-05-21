@@ -35,7 +35,7 @@ async def kang_cmd_bot(client, message):
         elif doc:
             if doc.file_size > 10000000:
                 return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
-            temp_file_path = await dl_pic(client, doc)
+            temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
             if image_type not in ["jpeg", "png", "webp"]:
                 return await msg.edit("ғᴏʀᴍᴀᴛ ᴛɪᴅᴀᴋ ᴅɪᴅᴜᴋᴜɴɢ! ({})".format(image_type))
