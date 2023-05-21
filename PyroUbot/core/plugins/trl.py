@@ -86,7 +86,7 @@ async def ubah_bahasa_inline(client, inline_query):
                     title="get bahasa!",
                     reply_markup=buttons,
                     input_message_content=InputTextMessageContent(
-                        "<b>🔄 sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ ʙᴀʜᴀsᴀ ᴛʀᴀɴsʟᴀᴛᴇ</b>"
+                        "<b>• sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ ʙᴀʜᴀsᴀ ᴛʀᴀɴsʟᴀᴛᴇ</b>"
                     ),
                 )
             )
