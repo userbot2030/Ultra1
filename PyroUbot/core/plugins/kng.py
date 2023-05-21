@@ -12,12 +12,12 @@ from PyroUbot.core.plugins import *
 
 async def kang_cmd_bot(client, message):
     if not message.reply_to_message:
-        return await message.reply_text("Reply to a sticker/image to kang it.")
+        return await message.reply_text("ᴍᴇᴍʙᴀʟᴀs sᴛɪᴋᴇʀ/ɢᴀᴍʙᴀʀ ᴋᴇ ᴋᴀɴɢ ɪᴛᴜ.")
     if not message.from_user:
         return await message.reply_text(
-            "You are an anonymous admin, kang stickers in my PM."
+            "ᴀɴᴅᴀ ᴀᴅᴀʟᴀʜ ᴀᴅᴍɪɴ ᴀɴᴏɴɪᴍ,"
         )
-    msg = await message.reply_text("Kanging Sticker..")
+    msg = await message.reply_text("ᴋᴀɴɢɪɴɢ sᴛɪᴄᴋᴇʀ..")
     args = message.text.split()
     if len(args) > 1:
         sticker_emoji = str(args[1])
@@ -36,11 +36,11 @@ async def kang_cmd_bot(client, message):
             )
         elif doc:
             if doc.file_size > 10000000:
-                return await msg.edit("Ukuran file terlalu besar.")
+                return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
             temp_file_path = await client.download_media(doc)
             image_type = imghdr.what(temp_file_path)
             if image_type not in ["jpeg", "png", "webp"]:
-                return await msg.edit("Format tidak didukung! ({})".format(image_type))
+                return await msg.edit("ғᴏʀᴍᴀᴛ ᴛɪᴅᴀᴋ ᴅɪᴅᴜᴋᴜɴɢ! ({})".format(image_type))
             try:
                 temp_file_path = await resize_file_to_sticker_size(temp_file_path)
             except Exception as e:
@@ -95,10 +95,13 @@ async def kang_cmd_bot(client, message):
         )
     except StickerPngNopng as SPN:
         await message.reply(str(SPN))
+        await msg.delete()
     except StickerPngDimensions as SPD:
         await message.reply(str(SPD))
+        await msg.delete()
     except Exception as error:
         await message.reply(str(error))
+        await msg.delete()
 
 
 async def get_response(client, message):
