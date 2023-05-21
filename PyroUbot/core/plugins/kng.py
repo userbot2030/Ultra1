@@ -116,10 +116,10 @@ async def delete_results(msg, send, reply_send, results):
 async def kang_cmd(client, message):
     reply = message.reply_to_message
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>")
-    if message.reply_to_message:
-        if reply.file_size > 10000000:
-            return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
-        elif reply.sticker or reply.photo:
+    if reply.file_size > 10000000:
+        return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
+    elif message.reply_to_message:
+        if reply.sticker or reply.photo:
             await client.unblock_user(bot.me.username)
             photo = await dl_pic(client, reply)
             send = await client.send_photo(bot.me.username, photo)
