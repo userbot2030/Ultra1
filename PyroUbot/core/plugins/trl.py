@@ -45,7 +45,7 @@ async def tr_cmd(client, message):
         if len(message.command) < 2:
             return await message.reply(f"<code>{message.text}</code> ʀᴇᴘʟʏ/ᴛᴇxᴛ")
         else:
-            dest = client._language_translate[client.me.id]["negara"]
+            dest = client._translate[client.me.id]["negara"]
             to_translate = message.text.split(None, 1)[1]
             source = await trans.detect(to_translate)
     translation = await trans(to_translate, sourcelang=source, targetlang=dest)
