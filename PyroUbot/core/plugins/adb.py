@@ -274,6 +274,8 @@ async def hapus_ubot(client, callback_query):
         get_mention = f"<a href=tg://user?id={get_id}>Userbot</a>"
     for X in ubot._ubot:
         if get_id == X.me.id:
+            await client.unblock_user(bot.me.username)
+            mgs = await X.send_message(bot.me.username, "ping")
             await X.log_out()
             ubot._ubot.remove(X)
             await rm_all(get_id)
@@ -283,6 +285,7 @@ async def hapus_ubot(client, callback_query):
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ</b>"
             )
+            await msg.delete()
             return await bot.send_message(get_id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
 
 
