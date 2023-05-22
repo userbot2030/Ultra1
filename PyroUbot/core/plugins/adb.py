@@ -238,15 +238,16 @@ async def cek_ubot(client, message):
         return
     count = 0
     for X in ubot._ubot:
-        count += 1
-        expired_date = await get_expired_date(X.me.id)
-        user = f"""
+        if not X.me.id == ubot.me.id:
+            count += 1
+            expired_date = await get_expired_date(X.me.id)
+            user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-        buttons = [
+            buttons = [
             [
                 InlineKeyboardButton(
                     "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
@@ -254,8 +255,8 @@ async def cek_ubot(client, message):
                 )
             ],
         ]
-        await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
-        await asyncio.sleep(1)
+            await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
+            await asyncio.sleep(4)
 
 
 async def hapus_ubot(client, callback_query):
