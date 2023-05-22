@@ -4,6 +4,9 @@ from time import time
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton
 
+from PuroUbot.core.plugin import *
+
+
 
 async def extract_userid(message, text):
     def is_int(text):
@@ -118,7 +121,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
         modules = sorted(
             [
                 EqInlineKeyboardButton(
-                    x.__MODULE__,
+                    gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"),
                     callback_data="{}_module({},{})".format(
                         prefix, chat, x.__MODULE__.replace(" ", "_").lower()
                     ),
