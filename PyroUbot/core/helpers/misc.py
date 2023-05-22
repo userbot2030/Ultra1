@@ -109,7 +109,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
         modules = sorted(
             [
                 EqInlineKeyboardButton(
-                    x.__MODULE__,
+                    gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"]),
                     callback_data="{}_module({})".format(
                         prefix, x.__MODULE__.replace(" ", "_").lower()
                     ),
@@ -121,7 +121,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
         modules = sorted(
             [
                 EqInlineKeyboardButton(
-                    gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"),
+                    gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"]),
                     callback_data="{}_module({},{})".format(
                         prefix, chat, x.__MODULE__.replace(" ", "_").lower()
                     ),
