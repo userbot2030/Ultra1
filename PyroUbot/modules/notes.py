@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ɴᴏᴛᴇs"
+__MODULE__ = "notes"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɴᴏᴛᴇs 』</b>
 
