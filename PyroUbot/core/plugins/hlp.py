@@ -3,7 +3,6 @@ import re
 from pyrogram.types import *
 
 from PyroUbot import *
-from PyroUbot.core.plugins import *
 
 
 async def help_cmd(client, message):
@@ -18,7 +17,7 @@ async def help_cmd(client, message):
         if module in HELP_COMMANDS:
             await message.reply(HELP_COMMANDS[module].__HELP__)
         else:
-            await message.reply(f"<b>❌ ᴍᴏᴅᴜʟᴇs {module} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+            await message.reply(f"<b>❌ ᴍᴏᴅᴜʟᴇs {get_arg(message)} ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
 
 
 async def menu_inline(client, inline_query):
