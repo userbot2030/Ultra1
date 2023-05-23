@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ɢᴄᴀsᴛ"
+__MODULE__ = "gcast"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɢᴄᴀsᴛ 』</b>
 
