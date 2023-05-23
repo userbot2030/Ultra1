@@ -4,7 +4,7 @@ from time import time
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton
 
-from PyroUbot.core.plugin import *
+from PyroUbot.core.plugins import *
 
 
 async def extract_userid(message, text):
