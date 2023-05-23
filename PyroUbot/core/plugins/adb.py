@@ -268,9 +268,8 @@ async def cek_ubot(client, message):
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
-    now = datetime.now(timezone("Asia/Jakarta"))
     expired = await get_expired_date(user_id)
-    xxxx = (expired - now).days
+    xxxx = (expired - datetime.now()).days
     return await callback_query.answer(
         f"⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ",
         True,
