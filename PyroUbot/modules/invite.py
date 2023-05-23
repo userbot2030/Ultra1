@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ɪɴᴠɪᴛᴇ"
+__MODULE__ = "invite"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɪɴᴠɪᴛᴇ 』</b>
 
