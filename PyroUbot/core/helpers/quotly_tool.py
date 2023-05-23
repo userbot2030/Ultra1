@@ -168,12 +168,12 @@ async def get_text_or_caption(ctx):
 
 
 async def pyrogram_to_quotly(messages):
-    if not isinstance(messages, list):
+    if not isinstance(messages):
         messages = [messages]
     payload = {
         "type": "quote",
         "format": "png",
-        "backgroundColor": "#000000",
+        "backgroundColor": "#333333",
         "messages": [],
     }
 
