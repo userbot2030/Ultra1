@@ -17,7 +17,9 @@ async def help_cmd(client, message):
         if get_arg(message) in HELP_COMMANDS:
             await message.reply(HELP_COMMANDS[get_arg(message)].__HELP__)
         else:
-            await message.reply(f"<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>")
+            await message.reply(
+                f"<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>"
+            )
 
 
 async def menu_inline(client, inline_query):
