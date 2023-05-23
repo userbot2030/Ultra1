@@ -1,7 +1,7 @@
 from math import ceil
 from time import time
 
-from PuroUbot.core.plugin import *
+from PyroUbot.core.plugin import *
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton
 
