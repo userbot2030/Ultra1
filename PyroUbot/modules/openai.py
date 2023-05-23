@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ᴏᴘᴇɴᴀɪ"
+__MODULE__ = "openai"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴏᴘᴇɴᴀɪ 』</b>
 
