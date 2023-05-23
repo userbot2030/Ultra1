@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ʏᴏᴜᴛᴜʙᴇ"
+__MODULE__ = "youtube"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ʏᴏᴜᴛᴜʙᴇ 』</b>
 
