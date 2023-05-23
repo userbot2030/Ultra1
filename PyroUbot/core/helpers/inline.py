@@ -122,7 +122,7 @@ async def notes_create_button(text):
     for X in text.split("~>", 1)[1].split():
         keyboard.append(
             InlineKeyboardButton(
-                X.split("~>", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
+                X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
             )
         )
     buttons.add(*keyboard)
