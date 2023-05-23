@@ -203,11 +203,9 @@ async def bikin_ubot(client, callback_query):
         disable_web_page_preview=True,
     )
     now = datetime.now(timezone("Asia/Jakarta"))
-    date = now.strftime("%d-%m-%Y")
-    expire_date = now + timedelta(days=30)
+    date = now + timedelta(days=30)
+    expire = date.strftime("%d-%m-%Y")
     await set_expired_date(new_client.me.id, expire_date)
-    get_exp = await get_expired_date(new_client.me.id)
-    exp = get_exp.strftime("%d-%m-%Y")
     buttons = [
         [
             InlineKeyboardButton(
@@ -218,7 +216,12 @@ async def bikin_ubot(client, callback_query):
     ]
     await bot.send_message(
         LOGS_MAKER_UBOT,
-        f"{text_done}\n<b>🗓️ ᴍᴜʟᴀɪ: {date}</b>\n<b>🗓️ ᴀᴋʜɪʀ: {exp}</b>",
+        f"""
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{new_client.me.id}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expire}</code>
+""",
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
