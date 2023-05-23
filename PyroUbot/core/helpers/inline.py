@@ -73,7 +73,7 @@ class INLINE:
 async def create_button(m):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
-    if "|" not in m.text.split(None, 1)[1]:
+    if "~>" not in m.text.split(None, 1)[1]:
         msg = []
         for X in m.text.split(None, 1)[1].split():
             keyboard.append(
@@ -91,7 +91,7 @@ async def create_button(m):
                 msg_text += f"{Z} "
             text = msg_text
     else:
-        for X in m.text.split("|", 1)[1].split():
+        for X in m.text.split("~>", 1)[1].split():
             keyboard.append(
                 InlineKeyboardButton(
                     X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
