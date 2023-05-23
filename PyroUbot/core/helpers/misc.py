@@ -1,17 +1,10 @@
+import string
 from math import ceil
 from time import time
 
 from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton
 
-import string
-from gc import get_objects
-
-from pykeyboard import InlineKeyboard
-from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
-
-from PyroUbot import *
 
 font = {
     "sᴍᴀʟʟᴄᴀᴘs": "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘϙʀsᴛᴜᴠᴡxʏᴢABCDEFGHIJKLMNOPQRSTUVWXYZ",
