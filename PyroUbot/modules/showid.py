@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "sʜᴏᴡɪᴅ"
+__MODULE__ = "showid"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sʜᴏᴡɪᴅ 』</b>
 
