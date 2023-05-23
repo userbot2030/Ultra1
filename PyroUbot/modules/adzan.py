@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ᴀᴅᴢᴀɴ"
+__MODULE__ = "adzan"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀᴅᴢᴀɴ 』</b>
 
