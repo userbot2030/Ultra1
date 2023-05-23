@@ -202,6 +202,10 @@ async def bikin_ubot(client, callback_query):
         text_done,
         disable_web_page_preview=True,
     )
+    try:
+        await new_client.join_chat("PremUbotCH")
+    except UserAlreadyParticipant:
+        pass
     now = datetime.now(timezone("Asia/Jakarta"))
     date = now + timedelta(days=30)
     expire = date.strftime("%d-%m-%Y")
@@ -229,10 +233,6 @@ async def bikin_ubot(client, callback_query):
         return
     else:
         await remove_prem(callback_query.from_user.id)
-    try:
-        await new_client.join_chat("PremUbotCH")
-    except:
-        pass
     await install_user_id()
 
 
