@@ -258,7 +258,7 @@ async def cek_ubot(client, message):
                 [
                     InlineKeyboardButton(
                         "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                        callback_data=f"cek_masa_aktif {new_client.me.id}",
+                        callback_data=f"cek_masa_aktif {X.me.id}",
                     )
                 ],
             ]
