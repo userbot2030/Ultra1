@@ -230,7 +230,7 @@ async def bikin_ubot(client, callback_query):
         disable_web_page_preview=True,
     )
     if callback_query.from_user.id not in ID_SELES:
-       await remove_prem(callback_query.from_user.id)
+        await remove_prem(callback_query.from_user.id)
     await install_user_id()
 
 
