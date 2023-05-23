@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ᴍᴇᴍᴇs"
+__MODULE__ = "memes"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇᴍᴇs 』</b>
 
