@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ᴍᴇᴍɪꜰʏ"
+__MODULE__ = "memify"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇᴍɪꜰʏ 』</b>
 
