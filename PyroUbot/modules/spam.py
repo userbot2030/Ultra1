@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "sᴘᴀᴍ"
+__MODULE__ = "spam"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴘᴀᴍ 』</b>
 
