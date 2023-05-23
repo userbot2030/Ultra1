@@ -98,7 +98,7 @@ async def create_button(m):
                 )
             )
         buttons.add(*keyboard)
-        text = m.text.split("|", 1)[0].split(None, 1)[1]
+        text = m.text.split("~>", 1)[0].split(None, 1)[1]
     return buttons, text
 
 
