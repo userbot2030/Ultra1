@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ʙʟᴀᴄᴋʟɪsᴛ"
+__MODULE__ = "blacklist"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ʙʟᴀᴄᴋʟɪsᴛ 』</b>
 
