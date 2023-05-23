@@ -229,10 +229,8 @@ async def bikin_ubot(client, callback_query):
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
-    if callback_query.from_user.id in ID_SELES:
-        return
-    else:
-        await remove_prem(callback_query.from_user.id)
+    if callback_query.from_user.id not in ID_SELES:
+       await remove_prem(callback_query.from_user.id)
     await install_user_id()
 
 
