@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "sᴇᴀʀᴄʜ"
+__MODULE__ = "search"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴇᴀʀᴄʜ 』</b>
 
