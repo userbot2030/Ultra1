@@ -205,7 +205,7 @@ async def bikin_ubot(client, callback_query):
     now = datetime.now(timezone("Asia/Jakarta"))
     date = now + timedelta(days=30)
     expire = date.strftime("%d-%m-%Y")
-    await set_expired_date(new_client.me.id, expire_date)
+    await set_expired_date(new_client.me.id, date)
     buttons = [
         [
             InlineKeyboardButton(
