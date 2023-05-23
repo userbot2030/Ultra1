@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ǫʀᴄᴏᴅᴇ"
+__MODULE__ = "qrcode"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ǫʀᴄᴏᴅᴇ 』</b>
 
