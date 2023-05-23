@@ -71,7 +71,7 @@ class INLINE:
 
 
 async def create_button(m):
-    buttons = InlineKeyboard(row_width=2)
+    buttons = InlineKeyboard(row_width=1)
     keyboard = []
     if "~>" not in m.text.split(None, 1)[1]:
         msg = []
