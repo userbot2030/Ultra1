@@ -31,7 +31,7 @@ async def get_cmd(client, message):
     if not note:
         return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} ᴛɪᴅᴀᴋ ᴀᴅᴀ")
     note_id = await client.get_messages(client.me.id, note)
-    if "|" not in note_id.text or note_id.caption:
+    if "~>" not in note_id.text or note_id.caption:
         msg = message.reply_to_message or message
         await client.copy_message(
             message.chat.id,
