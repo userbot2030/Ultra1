@@ -253,7 +253,13 @@ async def cek_ubot(client, message):
                     InlineKeyboardButton(
                         "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
                         callback_data=f"del_ubot {X.me.id}",
-                    )
+                    )],[InlineKeyboardButton(
+
+                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+
+                callback_data=f"cek_masa_aktif {new_client.me.id}",
+
+            )
                 ],
             ]
             await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
