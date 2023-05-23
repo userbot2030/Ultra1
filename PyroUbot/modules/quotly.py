@@ -1,6 +1,6 @@
 from PyroUbot import *
 
-__MODULE__ = "ǫᴜᴏᴛʟʏ"
+__MODULE__ = "quotly"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ǫᴜᴏᴛʟʏ 』</b>
 
