@@ -8,10 +8,6 @@ from PyroUbot import *
 async def cmd_button(client, message):
     if len(message.command) < 2:
         return await message.reply(f"{message.text} button_name:link_url")
-    if "~>" not in message.text:
-        return await message.reply(
-            "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>.help button</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
-        )
     await message.delete()
     try:
         x = await client.get_inline_bot_results(
