@@ -1,5 +1,6 @@
 import asyncio
-from datetime import datetime
+from datetime import datetime, timedelta
+
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
@@ -205,7 +206,9 @@ async def bikin_ubot(client, callback_query):
         await new_client.join_chat("PremUbotCH")
     except UserAlreadyParticipant:
         pass
-    await set_expired_date(new_client.me.id, date)
+    now = datetime.now(timezone("Asia/Jakarta"))
+    expired = now + timedelta(days=30)
+    await set_expired_date(new_client.me.id, expired)
     buttons = [
         [
             InlineKeyboardButton(
