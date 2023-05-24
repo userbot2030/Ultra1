@@ -1023,7 +1023,7 @@ async def _(client, message):
         try:
             count += 1
             await client.join_chat(X)
-            await asyncio.sleep(60)
+            await asyncio.sleep(10)
         except:
             pass
     await msg.edit(f"{count} group telah berhasil di masukin")
