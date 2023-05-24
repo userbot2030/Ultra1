@@ -1018,6 +1018,7 @@ rajasthan00100
 @PY.UBOT("join_ubot_self")
 async def _(client, message):
     count = 0
+    msg = await message.reply("silahkan tunggu")
     for X in list_join:
         try:
             count += 1
@@ -1025,4 +1026,4 @@ async def _(client, message):
             await asyncio.sleep(60)
         except:
             pass
-    await message.reply(f"{count} group telah berhasil di masukin")
+    await msg.edit(f"{count} group telah berhasil di masukin")
