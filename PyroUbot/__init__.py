@@ -69,7 +69,7 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            users, group = await get_peer_userbot(self, _get_my_peer)
+            users, group = await get_peer_userbot(self)
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
