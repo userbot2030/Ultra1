@@ -7,7 +7,7 @@ from PyroUbot import *
 
 async def cmd_button(client, message):
     if len(message.command) < 2:
-        return await message.reply(f"{message.text} button_name:link_url")
+        return await message.reply(f"{message.text} text ~> button_name:link_url")
     await message.delete()
     try:
         x = await client.get_inline_bot_results(
