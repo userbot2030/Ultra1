@@ -17,7 +17,7 @@ logging.basicConfig(
 )
 
 
-async def get_peer_userbot(self, _get_my_peer):
+async def get_peer_userbot(self):
     users = 0
     group = 0
     async for dialog in self.get_dialogs():
