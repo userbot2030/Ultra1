@@ -25,8 +25,7 @@ async def get_peer_userbot(self, _get_my_peer):
             users += 1
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group += 1
-    self._get_my_peer[self.me.id] = {"group": group, "users": users}
-
+    return users, group 
 
 class Bot(Client):
     def __init__(self, **kwargs):
@@ -69,7 +68,8 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            await get_peer_userbot(self, _get_my_peer)
+            users, group = await get_peer_userbot(self, _get_my_peer)
+            self._get_my_peer[self.me.id] = {"group": group, "users": users}
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
             print(f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''}")
