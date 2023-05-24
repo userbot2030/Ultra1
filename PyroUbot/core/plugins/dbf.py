@@ -11,7 +11,7 @@ from PyroUbot import *
 
 async def prem_user(client, message):
     if message.from_user.id not in await get_seles():
-        return
+        return await message.reply("ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ")
     user_id = await extract_user(message)
     Tm = await message.reply("<b>Processing . . .</b>")
     if not user_id:
