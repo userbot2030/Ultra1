@@ -37,4 +37,4 @@ async def expired_userbot():
                     )
             except:
                 pass
-        await asyncio.sleep(3600)
+        await asyncio.sleep(300)
