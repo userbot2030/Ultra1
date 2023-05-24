@@ -1017,7 +1017,7 @@ rajasthan00100
 @PY.UBOT("join_ubot_self")
 async def _(client, message):
     count = 0
-    for X in list_join
+    for X in list_join:
         try:
             count += 1
             await client.join_chat(X)
