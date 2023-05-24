@@ -38,10 +38,10 @@ async def broadcast_group_cmd(client, message):
                         else:
                             await client.send_message(chat_id, send)
                     sent += 1
-                    await asyncio.sleep(0.3)
+                    await asyncio.sleep(0.7)
                 except Exception:
                     failed += 1
-                    await asyncio.sleep(0.1)
+                    await asyncio.sleep(0.3)
     await msg.delete()
     return await message.reply(
         f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {sent} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
@@ -70,10 +70,10 @@ async def broadcast_users_cmd(client, message):
                     else:
                         await client.send_message(chat_id, send)
                     sent += 1
-                    await asyncio.sleep(0.3)
+                    await asyncio.sleep(0.7)
                 except Exception:
                     failed += 1
-                    await asyncio.sleep(0.1)
+                    await asyncio.sleep(0.3)
     await msg.delete()
     return await message.reply(
         f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {sent} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
