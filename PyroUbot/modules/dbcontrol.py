@@ -6,7 +6,7 @@ async def _(client, message):
     await get_blacklist(client, message)
 
 
-@PY.BOT("prem")
+@PY.BOT("prem", FILTERS.GROUP)
 @PY.UBOT("prem")
 async def _(client, message):
     await prem_user(client, message)
