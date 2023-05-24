@@ -1,10 +1,9 @@
 import asyncio
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
 from pyrogram.types import *
-from pytz import timezone
 
 from PyroUbot import *
 
