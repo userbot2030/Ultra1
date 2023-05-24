@@ -25,7 +25,8 @@ async def get_peer_userbot(self, _get_my_peer):
             users += 1
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group += 1
-    return users, group 
+    return users, group
+
 
 class Bot(Client):
     def __init__(self, **kwargs):
