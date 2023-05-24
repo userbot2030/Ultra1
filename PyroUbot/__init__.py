@@ -1,7 +1,7 @@
 import logging
 
 from pyrogram import Client
-from pyrogram.enums import ChatType, ParseMode
+from pyrogram.enums import ChatType
 from pyrogram.filters import Filter
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
@@ -15,6 +15,17 @@ logging.basicConfig(
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler()],
 )
+
+
+async def get_peer_userbot(self, _get_my_peer):
+    users = 0
+    group = 0
+    async for dialog in self.get_dialogs():
+        if dialog.chat.type == ChatType.PRIVATE:
+            users += 1
+        elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+            group += 1
+    self._get_my_peer[self.me.id] = {"group": group, "users": users}
 
 
 class Bot(Client):
@@ -58,14 +69,7 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            users = 0
-            group = 0
-            async for dialog in self.get_dialogs():
-                if dialog.chat.type == ChatType.PRIVATE:
-                    users += 1
-                elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-                    group += 1
-            self._get_my_peer[self.me.id] = {"group": group, "users": users}
+            await get_peer_userbot(self, _get_my_peer)
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
             print(f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''}")
