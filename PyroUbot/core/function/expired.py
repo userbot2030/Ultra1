@@ -10,10 +10,17 @@ from PyroUbot.core.database import (get_expired_date, rem_expired_date,
 
 
 def expired_msg_bot(X, time, clock):
-    date_text = (
-        f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>"
-    )
-    expired_text = f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ\n ├ ᴀᴋᴜɴ <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n ╰ ɪᴅ <code>{X.me.id}</code>\n\n► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>"
+    date_text = f"""
+<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>
+<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>
+"""
+    expired_text = f"""
+<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
+<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>╰ ɪᴅ:</b> <code>{X.me.id}</code>
+
+<b>► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>
+"""
     return date_text, expired_text
 
 
