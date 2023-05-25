@@ -1,8 +1,6 @@
 from PyroUbot import *
 
 
-
-
 @PY.BOT("prem", FILTERS.GROUP)
 @PY.UBOT("prem")
 async def _(client, message):
