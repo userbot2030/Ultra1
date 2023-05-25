@@ -112,7 +112,7 @@ async def admin_bannen(client, message):
             await message.reply(error)
         try:
             await message.chat.unban_member(user_id)
-            await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ᴊᴏɪɴ ʟᴀɢɪ</b>")
+            await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
         except Exception as error:
             await message.reply(error)
 
