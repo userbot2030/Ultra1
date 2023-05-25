@@ -22,15 +22,10 @@ async def confirm_callback(client, callback_query):
             timeout=300,
         )
     except asyncio.TimeoutError as out:
-        if get.id not in CONFIRM_PAYMENT:
-            return
-        else:
+        if get.id in CONFIRM_PAYMENT:
             CONFIRM_PAYMENT.remove(get.id)
-            await pesan.request.delete()
-            return await bot.send_message(user_id, "Pembatalan Otomatis")
-    if get.id not in CONFIRM_PAYMENT:
-        return
-    else:
+            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+    if get.id in CONFIRM_PAYMENT:
         if not pesan.photo:
             CONFIRM_PAYMENT.remove(get.id)
             await pesan.request.edit(
