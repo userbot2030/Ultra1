@@ -71,8 +71,8 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴡᴀᴋᴛᴜ ᴛᴇʟᴀʜ ʜᴀʙɪs")
+    except asyncio.TimeoutError as TE:
+        return await bot.send_message(user_id, TE)
     if await is_cancel(callback_query, api.text):
         return
     api_ids = api.text
@@ -85,8 +85,8 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴡᴀᴋᴛᴜ ᴛᴇʟᴀʜ ʜᴀʙɪs")
+    except asyncio.TimeoutError as TE:
+        return await bot.send_message(user_id, TE)
     if await is_cancel(callback_query, hash.text):
         return
     api_hashs = hash.text
@@ -99,8 +99,8 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "waktu Telah Habis")
+    except asyncio.TimeoutError as TE:
+        return await bot.send_message(user_id, TE)
     if await is_cancel(callback_query, phone.text):
         return
     phone_number = phone.text
@@ -110,7 +110,7 @@ async def bikin_ubot(client, callback_query):
         api_hash=api_hashs,
         in_memory=False,
     )
-    get_otp = await bot.send_message(user_id, "<b>Mengirim Kode OTP...</b>")
+    get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
     await new_client.connect()
     try:
         code = await new_client.send_code(phone_number.strip())
