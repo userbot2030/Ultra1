@@ -267,11 +267,17 @@ async def cek_ubot(client, message):
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
     expired = await get_expired_date(user_id)
-    xxxx = (expired - datetime.now()).days
-    return await callback_query.answer(
-        f"⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ",
-        True,
-    )
+    if expired is "None":
+        return await callback_query.answer(
+            "✅ sᴜᴅᴀʜ ᴛɪᴅᴀᴋ ᴀᴋᴛɪғ",
+            True,
+        )
+    else:
+        xxxx = (expired - datetime.now()).days
+        return await callback_query.answer(
+            f"⏳ ᴛɪɴɢɢᴀʟ {xxxx} ʜᴀʀɪ ʟᴀɢɪ",
+            True,
+        )
 
 
 async def hapus_ubot(client, callback_query):
