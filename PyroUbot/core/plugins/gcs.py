@@ -95,9 +95,8 @@ async def send_msg_cmd(client, message):
                 x = await client.get_inline_bot_results(
                     bot.me.username, f"get_send {id(message)}"
                 )
-                msg = message.reply_to_message or message
                 await client.send_inline_bot_result(
-                    chat_id, x.query_id, x.results[0].id, reply_to_message_id=msg.id
+                    chat_id, x.query_id, x.results[0].id
                 )
                 tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
                 await asyncio.sleep(5)
