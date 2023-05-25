@@ -188,6 +188,11 @@ async def bikin_ubot(client, callback_query):
     await new_client.disconnect()
     new_client.storage.session_string = session_string
     new_client.in_memory = False
+    bot_msg = await bot.send_message(
+        user_id,
+        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....\n\nsɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ",
+        disable_web_page_preview=True,
+    )
     await new_client.start()
     await add_ubot(
         user_id=int(new_client.me.id),
@@ -196,11 +201,7 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
-    await bot.send_message(
-        user_id,
-        text_done,
-        disable_web_page_preview=True,
-    )
+    await bot_msg.edit(text_done)
     try:
         await new_client.join_chat("PremUbotCH")
     except UserAlreadyParticipant:
