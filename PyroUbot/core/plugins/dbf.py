@@ -15,10 +15,10 @@ async def prem_user(client, message):
             "ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ"
         )
     user_id = await extract_user(message)
-    Tm = await message.reply("<b>Processing . . .</b>")
+    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
         return await Tm.edit(
-            "<b>Balas pesan pengguna atau berikan user_id/username</b>"
+            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
         )
     try:
         user = await client.get_users(user_id)
@@ -26,10 +26,10 @@ async def prem_user(client, message):
         await Tm.edit(error)
     premium = await get_prem()
     if user.id in premium:
-        return await Tm.edit("Dia Sudah Bisa Membuat Userbot")
+        return await Tm.edit("ᴅɪᴀ sᴜᴅᴀʜ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ")
     added = await add_prem(user.id)
     if added:
-        await Tm.edit(f"✅ {user.mention} silahkan buat userbot di @{bot.me.username}")
+        await Tm.edit(f"✅ {user.mention} sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
         await bot.send_message(
             OWNER_ID,
             f"""
@@ -39,15 +39,15 @@ async def prem_user(client, message):
         )
     else:
         await Tm.delete()
-        await message.reply_text("Terjadi kesalahan, periksa log.")
+        await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
 
 async def unprem_user(client, message):
     user_id = await extract_user(message)
-    Tm = await message.reply("<b>Processing . . .</b>")
+    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
         return await Tm.edit(
-            "<b>Balas pesan pengguna atau berikan user_id/username</b>"
+            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
         )
     try:
         user = await client.get_users(user_id)
@@ -55,13 +55,13 @@ async def unprem_user(client, message):
         await Tm.edit(error)
     delpremium = await get_prem()
     if user.id not in delpremium:
-        return await message.reply_text("<b>Tidak Ditemukan</b>")
+        return await message.reply_text("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     removed = await remove_prem(user.id)
     if removed:
-        await Tm.edit(f"<b> ✅ {user.mention} berhasil dihapus</b>")
+        await Tm.edit(f"<b> ✅ {user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
     else:
         await Tm.delete()
-        await message.reply_text("Terjadi kesalahan, periksa log.")
+        await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
 
 async def get_prem_user(client, message):
@@ -76,7 +76,7 @@ async def get_prem_user(client, message):
             continue
         text += f"{userlist}\n"
     if not text:
-        await message.reply_text("Tidak Ada Pengguna Yang Ditemukan")
+        await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
         await message.reply_text(text)
 
@@ -141,7 +141,7 @@ async def seles_user(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
         return await Tm.edit(
-            "<b>Balas pesan pengguna atau berikan user_id/username</b>"
+            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
         )
     try:
         user = await client.get_users(user_id)
@@ -149,14 +149,14 @@ async def seles_user(client, message):
         await Tm.edit(error)
     reseller = await get_seles()
     if user.id in reseller:
-        return await Tm.edit("Sudah menjadi reseller.")
+        return await Tm.edit("sᴜᴅᴀʜ ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ.")
     added = await add_seles(user.id)
     if added:
         await add_prem(user.id)
-        await Tm.edit(f"<b>✅ {user.mention} teleh menjadi reseller</b>")
+        await Tm.edit(f"<b>✅ {user.mention} ᴛᴇʟᴇʜ ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ</b>")
     else:
         await Tm.delete()
-        await message.reply_text("Terjadi kesalahan, periksa log.")
+        await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
 
 async def unseles_user(client, message):
@@ -164,7 +164,7 @@ async def unseles_user(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
         return await Tm.edit(
-            "<b>Balas pesan pengguna atau berikan user_id/username</b>"
+            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</n>"
         )
     try:
         user = await client.get_users(user_id)
@@ -172,14 +172,14 @@ async def unseles_user(client, message):
         await Tm.edit(error)
     delreseller = await get_seles()
     if user.id not in delreseller:
-        return await Tm.edit("Tidak Ditemukan.")
+        return await Tm.edit("ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     removed = await remove_seles(user.id)
     if removed:
         await remove_prem(user.id)
         await Tm.edit(f"{user.mention} berhasil dihapus")
     else:
         await Tm.delete()
-        await message.reply_text("Terjadi kesalahan, periksa log.")
+        await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
 
 async def get_seles_user(cliebt, message):
@@ -194,7 +194,7 @@ async def get_seles_user(cliebt, message):
             continue
         text += f"{user}\n"
     if not text:
-        await message.reply_text("Tidak Ada Pengguna Yang Ditemukan")
+        await message.reply_text("Tᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
         await message.reply_text(text)
 
@@ -213,16 +213,16 @@ async def expired_add(client, message):
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=duration)
     await set_expired_date(user_id, expire_date)
-    await message.reply(f"User {user_id} telah diaktifkan selama {duration} hari.")
+    await message.reply(f"{user_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {duration} ʜᴀʀɪ.")
 
 
 async def expired_cek(client, message):
     user_id = int(message.text.split()[1])
     expired_date = await get_expired_date(user_id)
     if expired_date is None:
-        await message.reply(f"User {user_id} belum diaktifkan.")
+        await message.reply(f"{user_id} ʙᴇʟᴜᴍ ᴅɪᴀᴋᴛɪғᴋᴀɴ.")
     else:
         remaining_days = (expired_date - datetime.now()).days
         await message.reply(
-            f"User {user_id} aktif hingga {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. Sisa waktu aktif {remaining_days} hari."
+            f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
         )
