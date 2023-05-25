@@ -17,5 +17,5 @@ async def limit_cmd(client, message):
     )
     await sleep(1)
     status = await client.get_messages("SpamBot", response.updates[1].message.id + 1)
-    await msg.edit(status.text)
+    await status.copy(message.chat.id, reply_to_message_id=message.id)
     return await client.invoke(DeleteHistory(peer=bot_info, max_id=0, revoke=True))
