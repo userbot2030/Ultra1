@@ -13,7 +13,7 @@ async def alive_cmd(client, message):
         x = await client.get_inline_bot_results(
             bot.me.username, f"alive {message.id} {message.from_user.id}"
         )
-        await message.reply_inline_bot_result(x.query_id, x.results[0].id)
+        await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
     except Exception as error:
         await message.reply(error)
 
