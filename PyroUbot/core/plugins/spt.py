@@ -24,12 +24,9 @@ async def support_callback(client, callback_query):
             timeout=90,
         )
     except asyncio.TimeoutError as out:
-        if get.id not in SUPPORT:
-            return
-        else:
+        if get.id in SUPPORT:
             SUPPORT.remove(get.id)
-            await pesan.request.delete()
-            return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     text = f"<b>💬 ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ sᴜᴅᴀʜ ᴛᴇʀᴋɪʀɪᴍ: {full_name}</b>"
     buttons = [
         [
@@ -37,9 +34,7 @@ async def support_callback(client, callback_query):
             InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id}"),
         ],
     ]
-    if get.id not in SUPPORT:
-        return
-    else:
+    if get.id in SUPPORT:
         try:
             await pesan.copy(
                 OWNER_ID,
@@ -71,12 +66,9 @@ async def jawab_pesan_callback(client, callback_query):
             timeout=300,
         )
     except asyncio.TimeoutError:
-        if get.id not in SUPPORT:
-            return
-        else:
+        if get.id in SUPPORT:
             SUPPORT.remove(get.id)
-            await pesan.request.delete()
-            return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     text = f"<b>✅ ᴘᴇsᴀɴ ʙᴀʟᴀsᴀɴ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴛᴇʀᴋɪʀɪᴍ: {full_name}</b>"
     if not user_ids == OWNER_ID:
         buttons = [[InlineKeyboardButton("💬 ᴊᴀᴡᴀʙ ᴘᴇsᴀɴ 💬", f"jawab_pesan {user_id}")]]
@@ -87,9 +79,7 @@ async def jawab_pesan_callback(client, callback_query):
                 InlineKeyboardButton("ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {user_id}"),
             ],
         ]
-    if get.id not in SUPPORT:
-        return
-    else:
+    if get.id in SUPPORT:
         try:
             await pesan.copy(
                 user_ids,
