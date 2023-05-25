@@ -222,7 +222,7 @@ async def bikin_ubot(client, callback_query):
         f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{new_client.me.id}</code>
+<b> ╰ ɪᴅ:</b> <code>{new_client.me.id}</code>
 """,
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
