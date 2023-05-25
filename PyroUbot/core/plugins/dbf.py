@@ -87,16 +87,16 @@ async def get_prem_user(client, message):
 
 
 async def add_blaclist(client, message):
-    Tm = await message.reply("<b>Processing . . .</b>")
+    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     chat_id = message.chat.id
     blacklist = await get_chat()
     if chat_id in blacklist:
-        return await Tm.edit("group ini sudah ada dalam blacklist")
+        return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
     add_blacklist = await add_chat(chat_id)
     if add_blacklist:
-        await Tm.edit(f"{message.chat.title} berhasil di ditambahkan ke daftar hitam")
+        await Tm.edit(f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
     else:
-        await Tm.edit("terjadi kesalahan yang tidak diketahui")
+        await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
 
 async def del_blacklist(client, message):
@@ -108,12 +108,12 @@ async def del_blacklist(client, message):
             chat_id = int(get_arg(message))
         blacklist = await get_chat()
         if chat_id not in blacklist:
-            return await Tm.edit(f"{message.chat.title} tidak ada dalam daftar hitam")
+            return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
         del_blacklist = await remove_chat(chat_id)
         if del_blacklist:
-            await Tm.edit(f"{chat_id} berhasil dihapus dari daftar hitam")
+            await Tm.edit(f"{chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
         else:
-            await Tm.edit("terjadi kesalahan yang tidak diketahui")
+            await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     except Exception as error:
         await Tm.edit(error)
 
