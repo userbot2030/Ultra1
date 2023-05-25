@@ -42,7 +42,7 @@ async def expired_userbot():
                     date_text, expired_text = expired_msg_bot(X, time, clock)
                     await bot.send_message(
                         LOGS_MAKER_UBOT,
-                        expired_text,
+                        expired_text
                     )
             except:
                 pass
