@@ -20,3 +20,8 @@ async def _(client, message):
 @PY.UBOT("unbl", FILTERS.ME_GROUP)
 async def _(client, message):
     await del_blacklist(client, message)
+
+
+@PY.UBOT("listbl", FILTERS.ME_OWNER)
+async def _(client, message):
+    await get_blacklist(client, message)
