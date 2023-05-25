@@ -71,8 +71,8 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError as TE:
-        return await bot.send_message(user_id, TE)
+    except asyncio.TimeoutError:
+        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     if await is_cancel(callback_query, api.text):
         return
     api_ids = api.text
@@ -85,7 +85,7 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError as TE:
+    except asyncio.TimeoutError:
         return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     if await is_cancel(callback_query, hash.text):
         return
@@ -99,7 +99,7 @@ async def bikin_ubot(client, callback_query):
             ),
             timeout=300,
         )
-    except asyncio.TimeoutError as TE:
+    except asyncio.TimeoutError:
         return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     if await is_cancel(callback_query, phone.text):
         return
