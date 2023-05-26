@@ -43,7 +43,7 @@ class Bot(Client):
         await super().start()
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-        print(f"STARTED BOT {self.me.first_name}")
+        print(f"sᴛᴀʀᴛ {self.me.first_name} | {self.me.id}")
 
 
 class Ubot(Client):
@@ -73,7 +73,7 @@ class Ubot(Client):
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-            print(f"STARTED UBOT {self.me.first_name}  {self.me.last_name or ''}")
+            print(f"sᴛᴀʀᴛ {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}")
 
 
 bot = Bot(
