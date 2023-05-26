@@ -3,9 +3,11 @@ from asyncio import get_event_loop_policy
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
+from uvloop import install 
 
 
 async def main():
+    install()
     await bot.start()
     await ubot.start()
     for _ubot in await get_userbots():
