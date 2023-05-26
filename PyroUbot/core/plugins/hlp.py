@@ -16,7 +16,8 @@ async def help_cmd(client, message):
         module = gen_font(get_arg(message), font["sᴍᴀʟʟᴄᴀᴘs"])
         if get_arg(message) in HELP_COMMANDS:
             await message.reply(
-                HELP_COMMANDS[get_arg(message)].__HELP__ + "\n<b>© PremUbotCH</b>", quote=True 
+                HELP_COMMANDS[get_arg(message)].__HELP__ + "\n<b>© PremUbotCH</b>",
+                quote=True,
             )
         else:
             await message.reply(
