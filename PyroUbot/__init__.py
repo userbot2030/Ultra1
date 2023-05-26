@@ -74,7 +74,7 @@ class Ubot(Client):
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
             print(
-                f"sᴛᴀʀᴛ {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}"
+                f"sᴛᴀʀᴛ {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
             )
 
 
