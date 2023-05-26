@@ -73,7 +73,9 @@ class Ubot(Client):
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-            print(f"sᴛᴀʀᴛ {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}")
+            print(
+                f"sᴛᴀʀᴛ {self.me.first_name}  {self.me.last_name or ''} | {self.me.id}"
+            )
 
 
 bot = Bot(
