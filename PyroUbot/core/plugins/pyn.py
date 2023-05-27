@@ -91,8 +91,14 @@ async def tambah_or_kurang(client, callback_query):
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
         buttons = [
             [
-                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {int(callback_query.data.split()[1])}"),
-                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {int(callback_query.data.split()[1])}"),
+                InlineKeyboardButton(
+                    "-1 ʙᴜʟᴀɴ",
+                    callback_data=f"kurang {int(callback_query.data.split()[1])}",
+                ),
+                InlineKeyboardButton(
+                    "+1 ʙᴜʟᴀɴ",
+                    callback_data=f"tambah {int(callback_query.data.split()[1])}",
+                ),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
