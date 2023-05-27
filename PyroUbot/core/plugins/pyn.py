@@ -77,12 +77,12 @@ async def tambah_or_kurang(client, callback_query):
     query = callback_query.data.split()
     MONTH = 1
     buttons = [
-            [
-                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang -1"),
-                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah +1"),
-            ],
-            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
-        ]
+        [
+            InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang -1"),
+            InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah +1"),
+        ],
+        [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
+    ]
     if query[0] == "kurang":
         if int(query[1]) == "-1":
             if MONTH == 12:
@@ -97,7 +97,10 @@ async def tambah_or_kurang(client, callback_query):
             else:
                 MONTH += 1
             TOTAL = HARGA * MONTH
-    await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, MONTH), reply_markup=InlineKeyboardMarkup(buttons))
+    await callback_query.edit_message_text(
+        TEXT_PAYMENT.format(HARGA, TOTAL, MONTH),
+        reply_markup=InlineKeyboardMarkup(buttons),
+    )
 
 
 async def success_failed_home_callback(client, callback_query):
