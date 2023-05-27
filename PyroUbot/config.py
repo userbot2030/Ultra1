@@ -34,8 +34,7 @@ MONGO_URL = os.getenv(
     "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
 )
 
-JUMLAH = 1
-BULAN = {}
+BULAN = 1
 HARGA = 25
 
 TEXT_PAYMENT = """
