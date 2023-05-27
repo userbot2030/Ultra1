@@ -86,23 +86,23 @@ async def tambah_or_kurang(client, callback_query):
                 BULAN += 1
                 TOTAL_HARGA = HARGA * BULAN
         buttons = [
-                [
-                    InlineKeyboardButton(
-                        "-1 ʙᴜʟᴀɴ",
-                        callback_data=f"kurang {int(callback_query.from_user.id)}",
-                    ),
-                    InlineKeyboardButton(
-                        "+1 ʙᴜʟᴀɴ",
-                        callback_data=f"tambah {int(callback_query.from_user.id)}",
-                    ),
-                ],
-                [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
-            ]
+            [
+                InlineKeyboardButton(
+                    "-1 ʙᴜʟᴀɴ",
+                    callback_data=f"kurang {int(callback_query.from_user.id)}",
+                ),
+                InlineKeyboardButton(
+                    "+1 ʙᴜʟᴀɴ",
+                    callback_data=f"tambah {int(callback_query.from_user.id)}",
+                ),
+            ],
+            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
+        ]
         await callback_query.edit_message_text(
-                TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(buttons),
-            )
+            TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
     except:
         pass
 
