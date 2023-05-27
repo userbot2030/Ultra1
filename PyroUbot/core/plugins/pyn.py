@@ -80,13 +80,13 @@ async def tambah_or_kurang(client, callback_query):
         if MONTH == 1:
             TOTAL_BULAN = 12
         else:
-            TOTAL_BULAN = MONTH -1
+            TOTAL_BULAN = MONTH - 1
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     elif query[0] == "tambah":
         if MONTH == 12:
             TOTAL_BULAN = 1
         else:
-            TOTAL_BULAN = MONTH +1
+            TOTAL_BULAN = MONTH + 1
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     buttons = [
         [
@@ -97,7 +97,7 @@ async def tambah_or_kurang(client, callback_query):
     ]
     await callback_query.edit_message_text(
         TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, TOTAL_BULAN),
-            disable_web_page_preview=True,
+        disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
