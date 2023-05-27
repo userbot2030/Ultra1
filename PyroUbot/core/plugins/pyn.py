@@ -79,13 +79,17 @@ async def tambah_or_kurang(client, callback_query):
         if int(query[1]) == 1:
             TOTAL_BULAN = 12
         else:
-            TOTAL_BULAN = int(query[1]) - 1
+            TOTAL_BULAN = BULAN - 1
+        MONTH 
+
+
+        MONTH =
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     elif query[0] == "tambah":
         if int(query[1]) == 12:
             TOTAL_BULAN = 1
         else:
-            TOTAL_BULAN = int(query[1]) + 1
+            TOTAL_BULAN = BULAN + 1
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     buttons = [
         [
