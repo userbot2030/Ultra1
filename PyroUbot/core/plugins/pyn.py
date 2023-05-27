@@ -76,14 +76,21 @@ async def confirm_callback(client, callback_query):
 async def tambah_or_kurang(client, callback_query):
     query = callback_query.data.split()
     if query[0] == "kurang":
-        if BULAN > 1:
-            BULAN -= 1
-            TOTAL = HARGA * BULAN
+        MONTH = 1 
+        if int(query[1]) == "-1":
+            if MONTH == 12
+                MONTH = 1
+            else:
+                 MONTH -= 1
+            TOTAL = HARGA * MONTH
     elif query[0] == "tambah":
-        if BULAN < 12:
-            BULAN += 1
-            TOTAL = HARGA * BULAN
-    await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, BULAN))
+        if int(query[1]) == "+1":
+            if MONTH == 1
+                MONTH = 12
+            else:
+                MONTH += 1
+            TOTAL = HARGA * MONTH
+    await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, MONTH))
 
 
 async def success_failed_home_callback(client, callback_query):
