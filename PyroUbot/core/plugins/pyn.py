@@ -76,12 +76,12 @@ async def confirm_callback(client, callback_query):
 async def tambah_or_kurang(client, callback_query):
     query = callback_query.data.split()
     if query[0] == "kurang":
-        MONTH = 1 
+        MONTH = 1
         if int(query[1]) == "-1":
             if MONTH == 12:
                 MONTH = 1
             else:
-                 MONTH -= 1
+                MONTH -= 1
             TOTAL = HARGA * MONTH
     elif query[0] == "tambah":
         if int(query[1]) == "+1":
