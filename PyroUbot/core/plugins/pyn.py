@@ -98,7 +98,8 @@ async def tambah_or_kurang(client, callback_query):
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
-        await callback_query.edit_message_text(
+        await callback_query.message.delete()
+        await callback_query.message.reply_text(
             TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
