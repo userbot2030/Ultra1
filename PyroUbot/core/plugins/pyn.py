@@ -79,7 +79,7 @@ HARGA = 25
 
 async def tambah_or_kurang(client, callback_query):
     global BULAN
-    BULAN[callback_query.from_user.id] = 1
+    BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
     try:
         if callback_query.data.split()[0] == "kurang":
             if BULAN[callback_query.from_user.id] > 1:
@@ -91,8 +91,8 @@ async def tambah_or_kurang(client, callback_query):
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
         buttons = [
             [
-                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang"),
-                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah"),
+                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {int(callback_query.data.split()[1])}"),
+                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {int(callback_query.data.split()[1])}"),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
