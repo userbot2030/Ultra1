@@ -78,23 +78,23 @@ async def tambah_or_kurang(client, callback_query):
     if query[0] == "kurang":
         if int(query[1]) == 1:
             TOTAL_BULAN = 12
+            MONTH = int(query[1]) - 1
         else:
             TOTAL_BULAN = BULAN - 1
-        MONTH 
-
-
-        MONTH =
+            MONTH = int(query[1]) - 1
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     elif query[0] == "tambah":
         if int(query[1]) == 12:
             TOTAL_BULAN = 1
+            MONTH = int(query[1]) + 1
         else:
             TOTAL_BULAN = BULAN + 1
+            MONTH = int(query[1]) + 1
         TOTAL_HARGA = HARGA * TOTAL_BULAN
     buttons = [
         [
-            InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {int(query[1])}"),
-            InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {int(query[1])}"),
+            InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {MONTH}"),
+            InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {MONTH}"),
         ],
         [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
     ]
