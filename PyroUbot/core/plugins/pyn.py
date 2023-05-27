@@ -85,8 +85,8 @@ async def tambah_or_kurang(client, callback_query):
             TOTAL = HARGA * MONTH
     elif query[0] == "tambah":
         if int(query[1]) == "+1":
-            if MONTH == 1
-                MONTH = 12:
+            if MONTH == 1:
+                MONTH = 12
             else:
                 MONTH += 1
             TOTAL = HARGA * MONTH
