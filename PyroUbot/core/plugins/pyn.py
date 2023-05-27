@@ -75,8 +75,8 @@ async def confirm_callback(client, callback_query):
 
 async def tambah_or_kurang(client, callback_query):
     query = callback_query.data.split()
-        MONTH = 1
-        buttons = [
+    MONTH = 1
+    buttons = [
             [
                 InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang -1"),
                 InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah +1"),
