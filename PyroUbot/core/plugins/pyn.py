@@ -73,6 +73,21 @@ async def confirm_callback(client, callback_query):
             )
 
 
+async def tambah_or_kurang(client, callback_query):
+    query = callback_query.data.split()
+    if query[0] == "kurang":
+        if BULAN > 1:
+            BULAN -= 1
+            TOTAL = HARGA * BULAN
+    elif query[0] == "tambah:
+        if BULAN > 12:
+            BULAN += 1
+            TOTAL = HARGA * BULAN
+    await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, BULAN))
+        
+        
+        
+
 async def success_failed_home_callback(client, callback_query):
     query = callback_query.data.split()
     get_user = await bot.get_users(query[1])
