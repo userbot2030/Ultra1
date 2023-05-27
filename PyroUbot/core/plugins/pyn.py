@@ -82,7 +82,7 @@ async def tambah_or_kurang(client, callback_query):
                 BULAN -= 1
                 TOTAL_HARGA = HARGA * BULAN
         elif callback_query.data.split()[0] == "tambah":
-                if BULAN < 12:
+            if BULAN < 12:
                 BULAN += 1
                 TOTAL_HARGA = HARGA * BULAN
         buttons = [
