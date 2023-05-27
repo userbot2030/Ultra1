@@ -80,7 +80,7 @@ async def tambah_or_kurang(client, callback_query):
             BULAN -= 1
             TOTAL = HARGA * BULAN
     elif query[0] == "tambah":
-        if BULAN > 12:
+        if BULAN < 12:
             BULAN += 1
             TOTAL = HARGA * BULAN
     await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, BULAN))
