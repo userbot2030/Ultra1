@@ -89,11 +89,11 @@ async def tambah_or_kurang(client, callback_query):
             [
                 InlineKeyboardButton(
                     "-1 ʙᴜʟᴀɴ",
-                    callback_data=f"kurang {int(callback_query.from_user.id)}",
+                    callback_data=f"kurang {BULAN}",
                 ),
                 InlineKeyboardButton(
                     "+1 ʙᴜʟᴀɴ",
-                    callback_data=f"tambah {int(callback_query.from_user.id)}",
+                    callback_data=f"tambah {BULAN}",
                 ),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
