@@ -79,29 +79,29 @@ HARGA = 25
 async def tambah_or_kurang(client, callback_query):
     global BULAN
     if callback_query.from_user.id == int(callback_query.data.split()[1])
-    try:
-        if callback_query.data.split()[0] == "kurang":
-            if BULAN > 1:
-                BULAN -= 1
-                TOTAL_HARGA = HARGA * BULAN
-        elif callback_query.data.split()[0] == "tambah":
-            if BULAN < 12:
-                BULAN += 1
-                TOTAL_HARGA = HARGA * BULAN
-        buttons = [
+        try:
+            if callback_query.data.split()[0] == "kurang":
+                if BULAN > 1:
+                    BULAN -= 1
+                   TOTAL_HARGA = HARGA * BULAN
+            elif callback_query.data.split()[0] == "tambah":
+                if BULAN < 12:
+                    BULAN += 1
+                    TOTAL_HARGA = HARGA * BULAN
+            buttons = [
             [
                 InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {int(callback_query.from_user.id)}",
                 InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {int(callback_query.from_user.id)}"),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
-        await callback_query.edit_message_text(
+            await callback_query.edit_message_text(
             TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    except:
-        pass
+        except:
+            pass
 
 
 async def success_failed_home_callback(client, callback_query):
