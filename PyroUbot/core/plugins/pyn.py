@@ -73,19 +73,19 @@ async def confirm_callback(client, callback_query):
             )
 
 
-BULAN = {}
-HARGA = 25
 
 
 async def tambah_or_kurang(client, callback_query):
-    global BULAN
-    BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
     try:
         if callback_query.data.split()[0] == "kurang":
+           HARGA = 25
+           BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
             if BULAN[callback_query.from_user.id] > 1:
                 BULAN[callback_query.from_user.id] -= 1
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
         elif callback_query.data.split()[0] == "tambah":
+            HARGA = 25
+            BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
             if BULAN[callback_query.from_user.id] < 12:
                 BULAN[callback_query.from_user.id] += 1
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
