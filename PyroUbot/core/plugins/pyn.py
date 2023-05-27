@@ -75,30 +75,29 @@ async def confirm_callback(client, callback_query):
 
 async def tambah_or_kurang(client, callback_query):
     query = callback_query.data.split()
-    MONTH = 1
+    MONTH = int(query[2])
     if query[0] == "kurang":
-        if query[1] == "-1":
-            if MONTH == 12:
-                MONTH = 1
-            else:
-                MONTH -= 1
-            TOTAL = HARGA * MONTH
+        if MONTH == 1:
+            TOTAL_BULAN = 12
+        else:
+            TOTAL_BULAN = MONTH -1
+        TOTAL_HARGA = HARGA * TOTAL_BULAN
     elif query[0] == "tambah":
-        if query[1] == "+1":
-            if MONTH == 1:
-                MONTH = 12
-            else:
-                MONTH += 1
-            TOTAL = HARGA * MONTH
+        if MONTH == 12:
+            TOTAL_BULAN = 1
+        else:
+            TOTAL_BULAN = MONTH +1
+        TOTAL_HARGA = HARGA * TOTAL_BULAN
     buttons = [
         [
-            InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang -1"),
-            InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah +1"),
+            InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data=f"kurang {MONTH}"),
+            InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data=f"tambah {MONTH}"),
         ],
         [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
     ]
     await callback_query.edit_message_text(
-        TEXT_PAYMENT.format(HARGA, TOTAL, MONTH),
+        TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, TOTAL_BULAN),
+            disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
