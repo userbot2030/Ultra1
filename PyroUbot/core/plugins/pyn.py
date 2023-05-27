@@ -101,8 +101,8 @@ async def tambah_or_kurang(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    except:
-        pass
+    except Exception as error:
+        print(error)
 
 
 async def success_failed_home_callback(client, callback_query):
