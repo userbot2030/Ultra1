@@ -73,8 +73,6 @@ async def confirm_callback(client, callback_query):
             )
 
 
-
-
 async def tambah_or_kurang(client, callback_query):
     BULAN = 1
     HARGA = 25
