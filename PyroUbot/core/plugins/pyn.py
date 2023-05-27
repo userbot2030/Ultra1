@@ -5,12 +5,14 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from PyroUbot import *
 
 CONFIRM_PAYMENT = []
+USER_ID = []
 
 
 async def confirm_callback(client, callback_query):
     user_id = int(callback_query.from_user.id)
     full_name = f"{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}"
     get = await bot.get_users(user_id)
+    USER_ID.remove(get.id)
     CONFIRM_PAYMENT.append(get.id)
     try:
         button = [[InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")]]
@@ -74,16 +76,17 @@ async def confirm_callback(client, callback_query):
 
 
 async def tambah_or_kurang(client, callback_query):
-    global JUMLAH
+    USER_ID.append(callback_query.from_user.id)
+    global BULAN
     try:
         if callback_query.data.split()[0] == "kurang":
-            if JUMLAH > 1:
-                BULAN[callback_query.from_user.id] = JUMLAH - 1
-                TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
+            if BULAN > 1:
+                BULAN -= 1
+                TOTAL_HARGA = HARGA * BULAN
         elif callback_query.data.split()[0] == "tambah":
-            if JUMLAH < 12:
-                BULAN[callback_query.from_user.id] = JUMLAH + 1
-                TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
+            if BULAN < 12:
+                BULAN += 1
+                TOTAL_HARGA = HARGA * BULAN
         buttons = [
             [
                 InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang"),
@@ -92,12 +95,12 @@ async def tambah_or_kurang(client, callback_query):
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
         await callback_query.edit_message_text(
-            TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN[callback_query.from_user.id]),
+            TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    except Exception as error:
-        print(error)
+    except:
+        pass
 
 
 async def success_failed_home_callback(client, callback_query):
