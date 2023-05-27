@@ -84,9 +84,7 @@ async def tambah_or_kurang(client, callback_query):
             BULAN += 1
             TOTAL = HARGA * BULAN
     await callback_query.edit_message_text(TEXT_PAYMENT.format(HARGA, TOTAL, BULAN))
-        
-        
-        
+
 
 async def success_failed_home_callback(client, callback_query):
     query = callback_query.data.split()
