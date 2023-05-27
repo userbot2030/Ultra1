@@ -78,14 +78,14 @@ async def tambah_or_kurang(client, callback_query):
         if callback_query.data.split()[0] == "kurang":
             BULAN = {}
             HARGA = 25
-            BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1]) - 1
+            BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
             if BULAN[callback_query.from_user.id] > 1:
                 BULAN[callback_query.from_user.id] -= 1
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
         elif callback_query.data.split()[0] == "tambah":
             BULAN = {}
             HARGA = 25
-            BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1]) + 1
+            BULAN[callback_query.from_user.id] = int(callback_query.data.split()[1])
             if BULAN[callback_query.from_user.id] < 12:
                 BULAN[callback_query.from_user.id] += 1
                 TOTAL_HARGA = HARGA * BULAN[callback_query.from_user.id]
@@ -93,11 +93,11 @@ async def tambah_or_kurang(client, callback_query):
             [
                 InlineKeyboardButton(
                     "-1 ʙᴜʟᴀɴ",
-                    callback_data=f"kurang {int(callback_query.data.split()[1])}",
+                    callback_data=f"kurang {int(callback_query.data.split()[1] - 1)}",
                 ),
                 InlineKeyboardButton(
                     "+1 ʙᴜʟᴀɴ",
-                    callback_data=f"tambah {int(callback_query.data.split()[1])}",
+                    callback_data=f"tambah {int(callback_query.data.split()[1] + 1)}",
                 ),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
