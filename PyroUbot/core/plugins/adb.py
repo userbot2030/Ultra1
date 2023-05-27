@@ -12,7 +12,13 @@ async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
     if user_id not in PREM_ID:
-        buttons = [[InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang"), InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah"), ],[InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")]]
+        buttons = [
+            [
+                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang"),
+                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah"),
+            ],
+            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
+        ]
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
