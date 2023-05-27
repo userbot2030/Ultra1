@@ -14,8 +14,8 @@ async def need_api(client, callback_query):
     if user_id not in PREM_ID:
         buttons = [
             [
-                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang"),
-                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah"),
+                InlineKeyboardButton("-1 ʙᴜʟᴀɴ", callback_data="kurang -1"),
+                InlineKeyboardButton("+1 ʙᴜʟᴀɴ", callback_data="tambah +1"),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
