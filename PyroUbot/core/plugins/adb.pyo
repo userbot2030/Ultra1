@@ -16,11 +16,11 @@ async def need_api(client, callback_query):
             [
                 InlineKeyboardButton(
                     "-1 ʙᴜʟᴀɴ",
-                    callback_data=f"kurang  {int(callback_query.from_user.id)}",
+                    callback_data="kurang 1",
                 ),
                 InlineKeyboardButton(
                     "+1 ʙᴜʟᴀɴ",
-                    callback_data=f"tambah  {int(callback_query.from_user.id)}",
+                    callback_data="tambah 1",
                 ),
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
