@@ -34,10 +34,11 @@ MONGO_URL = os.getenv(
     "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
 )
 
-TEXT_PAYMENT = os.getenv(
-    "TEXT_PAYMENT",
-    """
-<b>💬 sɪʟᴀʜᴋᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ sᴇʙᴇsᴀʀ ʀᴘ25.000 = 1 ʙᴜʟᴀɴ</b>
+BULAN = 1
+HARGA = 25000
+
+TEXT_PAYMENT = """
+<b>💬 sɪʟᴀʜᴋᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>
 
 <b>💳 ᴍᴏᴛᴏᴅᴇ ᴘᴇᴍʙᴀʏᴀʀᴀɴ:</b>
  <b>├ ᴅᴀɴᴀ/ɢᴏᴘᴀʏ/ᴏᴠᴏ/sᴘᴀʏ</b>
@@ -45,6 +46,9 @@ TEXT_PAYMENT = os.getenv(
  <b>├ ǫʀɪs</b>
  <b>└────• <a href=https://api.qrcode-monkey.com/tmp/2274eaefa4ad07bab3a2578ac5c1e000.png>ᴋʟɪᴋ ᴅɪsɪɴɪ</a></b>
 
+<b>🎟️ ʜᴀʀɢᴀ ᴘᴇʀʙᴜʟᴀɴ: ʀᴘ {}</b>
+<b>🔖 ᴛᴏᴛᴀʟ ʜᴀʀɢᴀ: ʀᴘ {} = {} ʙᴜʟᴀɴ</b> 
+
 <b>✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴋᴏɴꜰɪʀᴍᴀsɪ ᴜɴᴛᴜᴋ ᴋɪʀɪᴍ ʙᴜᴋᴛɪ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴀɴᴅᴀ</b>
-""",
-)
+"""
+
