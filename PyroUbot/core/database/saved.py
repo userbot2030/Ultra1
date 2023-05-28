@@ -18,7 +18,7 @@ async def add_chat(user_id, chat_id):
 
 
 async def remove_chat(user_id, chat_id):
-    list = await get_chat()
+    list = await get_chat(user_id)
     list.remove(chat_id)
     await chatsdb.update_one({"chat": "chat"}, {"$set": {"list": list}}, upsert=True)
     return True
