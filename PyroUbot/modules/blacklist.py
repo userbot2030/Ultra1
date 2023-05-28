@@ -22,6 +22,6 @@ async def _(client, message):
     await del_blacklist(client, message)
 
 
-@PY.UBOT("listbl", FILTERS.ME_OWNER)
+@PY.UBOT("listbl")
 async def _(client, message):
     await get_blacklist(client, message)
