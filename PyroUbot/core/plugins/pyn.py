@@ -76,28 +76,16 @@ async def confirm_callback(client, callback_query):
 async def tambah_or_kurang(client, callback_query):
     BULAN = int(callback_query.data.split()[1])
     HARGA = 25
+    QUERY = callback_query.data.split()[0]
     try:
-        if callback_query.data.split()[0] == "kurang":
+        if QUERY == "kurang":
             if BULAN > 1:
                 BULAN -= 1
-                TOTAL_HARGA = HARGA * BULAN
-        elif callback_query.data.split()[0] == "tambah":
+        elif QUERY == "tambah":
             if BULAN < 12:
                 BULAN += 1
-                TOTAL_HARGA = HARGA * BULAN
-        buttons = [
-            [
-                InlineKeyboardButton(
-                    "-1 ʙᴜʟᴀɴ",
-                    callback_data=f"kurang {BULAN}",
-                ),
-                InlineKeyboardButton(
-                    "+1 ʙᴜʟᴀɴ",
-                    callback_data=f"tambah {BULAN}",
-                ),
-            ],
-            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
-        ]
+        TOTAL_HARGA = HARGA * BULAN
+        buttons = Button.plus_minus(BULAN)
         await callback_query.message.delete()
         await callback_query.message.reply_text(
             MSG.TEXT_PAYMENT(HARGA, TOTAL_HARGA, BULAN),
