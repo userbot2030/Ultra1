@@ -100,7 +100,7 @@ async def tambah_or_kurang(client, callback_query):
         ]
         await callback_query.message.delete()
         await callback_query.message.reply_text(
-            TEXT_PAYMENT.format(HARGA, TOTAL_HARGA, BULAN),
+            MSG.TEXT_PAYMENT(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
