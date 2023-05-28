@@ -81,10 +81,11 @@ async def tambah_or_kurang(client, callback_query):
         if QUERY == "kurang":
             if BULAN > 1:
                 BULAN -= 1
+                TOTAL_HARGA = HARGA * BULAN
         elif QUERY == "tambah":
             if BULAN < 12:
                 BULAN += 1
-        TOTAL_HARGA = HARGA * BULAN
+                TOTAL_HARGA = HARGA * BULAN
         buttons = Button.plus_minus(BULAN)
         await callback_query.message.delete()
         await callback_query.message.reply_text(
