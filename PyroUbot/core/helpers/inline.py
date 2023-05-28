@@ -144,3 +144,22 @@ async def notes_create_button(text):
     buttons.add(*keyboard)
     text_button = text.split("~>", 1)[0]
     return buttons, text_button
+
+  
+add_button = {1: 30, 2: 60, 3: 90, 4: 120, 5: 150, 6: 180, 7: 210, 8: 240, 9: 270, 10: 300, 11: 330, 12: 365}
+              
+              
+async def button_add_expired(user_id):
+    buttons = InlineKeyboard(row_width=2)
+    keyboard = []
+    for X in add_button:
+        keyboard.append(InlineKeyboardButton(f"<b>{X} ʙᴜʟᴀɴ</b>", callback_data=f"confirm {user_id} {add_button[X]}")
+    buttons.add(*keyboard)
+    return buttons
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
