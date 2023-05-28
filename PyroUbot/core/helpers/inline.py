@@ -27,6 +27,7 @@ class Button:
             ],
         ]
         return button
+
     def plus_minus(query):
         button = [
             [
@@ -41,7 +42,7 @@ class Button:
             ],
             [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
         ]
-        return button 
+        return button
 
 
 class INLINE:
