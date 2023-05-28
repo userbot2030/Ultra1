@@ -120,7 +120,7 @@ async def del_blacklist(client, message):
 
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
-    msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat())}</b>\n\n"
+    msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat(client.me.id))}</b>\n\n"
     for X in await get_chat(client.me.id):
         try:
             get = await client.get_chat(X)
