@@ -89,10 +89,10 @@ async def get_prem_user(client, message):
 async def add_blaclist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     chat_id = message.chat.id
-    blacklist = await get_chat()
+    blacklist = await get_chat(client.me.id)
     if chat_id in blacklist:
         return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
-    add_blacklist = await add_chat(chat_id)
+    add_blacklist = await add_chat(client.me.id, chat_id)
     if add_blacklist:
         await Tm.edit(f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
     else:
@@ -109,7 +109,7 @@ async def del_blacklist(client, message):
         blacklist = await get_chat(client.me.id)
         if chat_id not in blacklist:
             return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
-        del_blacklist = await remove_chat(chat_id)
+        del_blacklist = await remove_chat(client.me.id, chat_id)
         if del_blacklist:
             await Tm.edit(f"{chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
         else:
