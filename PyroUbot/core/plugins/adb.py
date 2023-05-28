@@ -298,12 +298,14 @@ async def hapus_ubot(client, callback_query):
         if get_id == X.me.id:
             await X.unblock_user(bot.me.username)
             msg = await X.send_message(bot.me.username, "ping")
-            await X.log_out()
-            ubot._ubot.remove(X)
             await rm_all(get_id)
-            X._get_my_id.remove(get_id)
             await remove_ubot(get_id)
             await rem_expired_date(get_id)
+            for chat in await get_chat(X.me.id):
+                await remove_chat(X.me.id, chat)
+            await X.log_out()
+            ubot._ubot.remove(X)
+            X._get_my_id.remove(X.me.id)
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ</b>"
             )
