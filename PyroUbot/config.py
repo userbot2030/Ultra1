@@ -33,4 +33,3 @@ MONGO_URL = os.getenv(
     "MONGO_URL",
     "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
 )
-
