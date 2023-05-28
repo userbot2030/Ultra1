@@ -172,6 +172,10 @@ async def button_add_expired(user_id):
             )
         )
     buttons.add(*keyboard)
-    buttons.row(InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"))
-    buttons.row(InlineKeyboardButton("❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}"))
+    buttons.row(
+        InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}")
+    )
+    buttons.row(
+        InlineKeyboardButton("❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}")
+    )
     return buttons
