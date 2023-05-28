@@ -87,12 +87,12 @@ async def tambah_or_kurang(client, callback_query):
                 BULAN += 1
                 TOTAL_HARGA = HARGA * BULAN
         buttons = Button.plus_minus(BULAN)
-        await callback_query.message.delete()
         await callback_query.message.reply_text(
             MSG.TEXT_PAYMENT(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
+        await callback_query.message.delete()
     except:
         pass
 
