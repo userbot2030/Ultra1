@@ -309,7 +309,7 @@ async def hapus_ubot(client, callback_query):
     for X in ubot._ubot:
         if get_id == X.me.id:
             await X.unblock_user(bot.me.username)
-            await X.send_message(bot.me.username, "ping")
+            msg = await X.send_message(bot.me.username, "ping")
             await X.log_out()
             ubot._ubot.remove(X)
             await rm_all(get_id)
