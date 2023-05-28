@@ -18,6 +18,8 @@ async def main():
             await remove_ubot(int(_ubot["name"]))
             await rm_all(int(_ubot["name"]))
             await rem_expired_date(int(_ubot["name"]))
+            for X in await get_chat(int(_ubot["name"])):
+                await remove_chat(int(_ubot["name"]), X)
             await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
             print(f"✅ {_ubot['name']} Dihapus Dari Database")
     await install_user_id()
