@@ -163,7 +163,7 @@ add_button = {
 
 
 async def button_add_expired(user_id):
-    buttons = InlineKeyboard(row_width=2)
+    buttons = InlineKeyboard(row_width=3)
     keyboard = []
     for X in add_button:
         keyboard.append(
