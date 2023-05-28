@@ -12,7 +12,7 @@ async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
     if user_id not in PREM_ID:
-        buttons = plus_minus(1)
+        buttons = Button.plus_minus(1)
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
