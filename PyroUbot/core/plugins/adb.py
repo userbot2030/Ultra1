@@ -28,7 +28,7 @@ async def need_api(client, callback_query):
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
-            MSG.TEXT_PAYMENT.format(25, 25, 1),
+            MSG.TEXT_PAYMENT(25, 25, 1),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
