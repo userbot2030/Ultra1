@@ -27,6 +27,21 @@ class Button:
             ],
         ]
         return button
+    def plus_minus(query):
+        button = [
+            [
+                InlineKeyboardButton(
+                    "-1 ʙᴜʟᴀɴ",
+                    callback_data=f"kurang {query}",
+                ),
+                InlineKeyboardButton(
+                    "+1 ʙᴜʟᴀɴ",
+                    callback_data=f"tambah {query}",
+                ),
+            ],
+            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
+        ]
+        return button 
 
 
 class INLINE:
