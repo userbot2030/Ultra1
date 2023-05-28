@@ -106,7 +106,7 @@ async def del_blacklist(client, message):
             chat_id = message.chat.id
         else:
             chat_id = int(get_arg(message))
-        blacklist = await get_chat()
+        blacklist = await get_chat(client.me.id)
         if chat_id not in blacklist:
             return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
         del_blacklist = await remove_chat(chat_id)
@@ -121,7 +121,7 @@ async def del_blacklist(client, message):
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat())}</b>\n\n"
-    for X in await get_chat():
+    for X in await get_chat(client.me.id):
         try:
             get = await client.get_chat(X)
             msg += f"<b>• {get.title} | <code>{get.id}</code></b>\n"
