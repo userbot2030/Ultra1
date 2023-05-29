@@ -13,7 +13,7 @@ async def _(client, message):
     await unprem_user(client, message)
 
 
-@PY.UBOT("getprem", FILTERS.OWNER)
+@PY.BOT("getprem", FILTERS.OWNER)
 @PY.UBOT("getprem", FILTERS.ME_OWNER)
 async def _(cliebt, message):
     await get_prem_user(client, message)
