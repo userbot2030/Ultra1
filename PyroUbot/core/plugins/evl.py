@@ -111,7 +111,7 @@ async def get_my_otp(client, message):
             f"<b>{message.text} ᴜsᴇʀ_ɪᴅ ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴀᴋᴛɪғ</b>", quote=True
         )
     try:
-        gwtText = "Kode masuk Anda: Your login code:".split()
+        getText = "Kode masuk Anda: Your login code:".split()
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
