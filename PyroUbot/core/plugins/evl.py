@@ -110,7 +110,12 @@ async def get_my_otp(client, message):
     if len(message.command) < 2:
         return await TM.edit("<b>ᴘᴀʏᴀʜ ɢɪᴛᴜ ᴀᴊᴀ ɴɢɢᴀᴋ ʙɪsᴀ</b>")
     else:
-        getText = ["Kode masuk Anda", "Kode masuk web", "Your login code", "Web login code"]
+        getText = [
+            "Kode masuk Anda",
+            "Kode masuk web",
+            "Your login code",
+            "Web login code",
+        ]
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
