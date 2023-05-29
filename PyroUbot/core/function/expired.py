@@ -13,7 +13,7 @@ from PyroUbot.core.database import (get_chat, get_expired_date,
 def expired_msg_bot(X):
     return f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>\n<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n<b>╰ ɪᴅ:</b> <code>{X.me.id}</code>\n\n<b>► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>"
 
-  
+
 def datetime_msg_bot(time, clock):
     return f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>"
 
@@ -40,8 +40,6 @@ async def expired_userbot():
             except:
                 pass
         date_text = datetime_msg_bot(time, clock)
-        bot_msg = await bot.send_message(
-            OWNER_ID, date_text 
-            )
+        bot_msg = await bot.send_message(OWNER_ID, date_text)
         await asyncio.sleep(300)
         await bot_msg.delete()
