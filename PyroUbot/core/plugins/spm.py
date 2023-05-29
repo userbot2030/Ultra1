@@ -35,7 +35,7 @@ async def dspam_cmd(client, message):
         try:
             count_message = int(message.command[1])
             count_delay = int(message.command[2])
-            await message.delete!()
+            await message.delete()
             for i in range(count_message):
                 await asyncio.sleep(count_delay)
                 await reply.copy(message.chat.id)
@@ -43,14 +43,14 @@ async def dspam_cmd(client, message):
             return await message.reply(str(error))
     else:
         if len(message.command) < 4:
-            return await msg.edit(
+            return await message.reply(
                 "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>.help spam</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
             )
         else:
             try:
                 count_message = int(message.command[1])
                 count_delay = int(message.command[2])
-                await message.delete!()
+                await message.delete()
                 for i in range(count_message):
                     await asyncio.sleep(count_delay)
                     await message.reply(message.text.split(None, 3)[3], quote=False)
