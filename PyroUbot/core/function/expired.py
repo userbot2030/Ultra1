@@ -36,6 +36,9 @@ async def expired_userbot():
                     await bot.send_message(LOGS_MAKER_UBOT, text)
             except:
                 pass
-        bot_msg = await bot.send_message(OWNER_ID, f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>")
+        bot_msg = await bot.send_message(
+            OWNER_ID,
+            f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>",
+        )
         await asyncio.sleep(300)
         await bot_msg.delete()
