@@ -55,4 +55,4 @@ async def dspam_cmd(client, message):
                     await asyncio.sleep(count_delay)
                     await message.reply(message.text.split(None, 3)[3], quote=False)
             except Exception as error:
-                return await msg.edit(str(error))
+                return await message.reply(str(error))
