@@ -97,7 +97,7 @@ async def trash_cmd(client, message):
                 if not get_arg(message):
                     return await message.reply(message.reply_to_message)
                 else:
-                    msg = {"get": message.reply_to_message}
+                    msgq = {"get": message.reply_to_message}
                     return await message.reply(msg["get"].get_arg(message))
         else:
             return await message.reply("reply ke pesan/media")
@@ -111,7 +111,7 @@ async def get_my_otp(client, message):
             f"<b>{message.text} ᴜsᴇʀ_ɪᴅ ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴀᴋᴛɪғ</b>", quote=True
         )
     try:
-        gwtText = ["Kode masuk Anda:", "Your login code:"]
+        gwtText = "Kode masuk Anda: Your login code:".split()
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
