@@ -11,8 +11,11 @@ from PyroUbot.core.database import (get_chat, get_expired_date,
 
 
 def expired_msg_bot(X):
-    expired_text = f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>\n<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n<b>╰ ɪᴅ:</b> <code>{X.me.id}</code>\n\n<b>► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>"
-    return expired_text
+    return f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>\n<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n<b>╰ ɪᴅ:</b> <code>{X.me.id}</code>\n\n<b>► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>"
+
+  
+  def datetime_msg_bot(time, clock):
+    return f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>"
 
 
 async def expired_userbot():
@@ -32,13 +35,13 @@ async def expired_userbot():
                     ubot._get_my_id.remove(X.me.id)
                     ubot._ubot.remove(X)
                     await X.log_out()
-                    text = expired_msg_bot(X, time, clock)
-                    await bot.send_message(LOGS_MAKER_UBOT, text)
+                    expired_text = expired_msg_bot(X)
+                    await bot.send_message(LOGS_MAKER_UBOT, expired_text)
             except:
                 pass
+        date_text = datetime_msg_bot(time, clock)
         bot_msg = await bot.send_message(
-            OWNER_ID,
-            f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>",
-        )
+            OWNER_ID, date_text 
+            )
         await asyncio.sleep(300)
         await bot_msg.delete()
