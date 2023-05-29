@@ -10,12 +10,9 @@ from PyroUbot.core.database import (get_chat, get_expired_date,
                                     rm_all)
 
 
-def expired_msg_bot(X, time, clock):
-    date_text = (
-        f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>"
-    )
+def expired_msg_bot(X):
     expired_text = f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>\n<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n<b>╰ ɪᴅ:</b> <code>{X.me.id}</code>\n\n<b>► ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴜsᴇʀʙᴏᴛ ᴛᴇʟᴀʜ ʜᴀʙɪs ᴛᴇʀɪᴍᴀᴋᴀsɪʜ sᴜᴅᴀʜ ᴍᴇᴍᴀᴋᴀɪ ᴜsᴇʀʙᴏᴛ @{bot.me.username} ᴊᴀɴɢᴀɴ ʟᴜᴘᴀ ᴏʀᴅᴇʀ ʟᴀɢɪ ʏᴀ</b>"
-    return [date_text, expired_text]
+    return expired_text
 
 
 async def expired_userbot():
@@ -36,9 +33,9 @@ async def expired_userbot():
                     ubot._ubot.remove(X)
                     await X.log_out()
                     text = expired_msg_bot(X, time, clock)
-                    await bot.send_message(LOGS_MAKER_UBOT, text[1])
+                    await bot.send_message(LOGS_MAKER_UBOT, text)
             except:
                 pass
-        bot_msg = await bot.send_message(OWNER_ID, text[0])
+        bot_msg = await bot.send_message(OWNER_ID, f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>")
         await asyncio.sleep(300)
         await bot_msg.delete()
