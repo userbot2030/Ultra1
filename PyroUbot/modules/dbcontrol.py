@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-@PY.BOT("prem", FILTERS.GROUP)
+@PY.BOT("prem", FILTERS.PRIVATE)
 @PY.UBOT("prem")
 async def _(client, message):
     await prem_user(client, message)
