@@ -94,11 +94,12 @@ async def trash_cmd(client, message):
                         document=out_file,
                     )
             else:
-                if not get_arg(message):
+                text = get_arg(message)
+                if not text:
                     return await message.reply(message.reply_to_message)
                 else:
                     msg = {"get": message.reply_to_message}
-                    return await message.reply(msg["get"].get_arg(message))
+                    return await message.reply(msg["get"].text)
         else:
             return await message.reply("reply ke pesan/media")
     except Exception as error:
@@ -115,8 +116,9 @@ async def get_my_otp(client, message):
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000, limit=1):
                         if otp.text:
-                            await message.reply(otp.text, quote=True)
+                            await otp.copy(message.chat.id, otp.text, reply_to_message_id=message.id)
                             await otp.delete()
-                            await TM.delete()
+                    await TM.delete()
+                    await message.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
