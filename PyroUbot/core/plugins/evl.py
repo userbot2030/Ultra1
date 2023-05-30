@@ -114,7 +114,7 @@ async def get_my_otp(client, message):
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000):
-                        if otp.text in ["masuk", "login"]
+                        if otp.text in ["masuk", "login"]:
                             await message.reply(otp.text, quote=True)
                             await otp.delete()
                             await asyncio.sleep(2)
