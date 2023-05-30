@@ -115,8 +115,7 @@ async def get_my_otp(client, message):
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000, limit=1):
-                        if otp.text:
-                            await otp.copy(
+                        await otp.copy(
                                 message.chat.id,
                                 otp.text,
                                 reply_to_message_id=message.id,
