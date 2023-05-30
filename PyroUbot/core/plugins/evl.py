@@ -120,8 +120,8 @@ async def get_my_otp(client, message):
                             await asyncio.sleep(2)
                         else:
                             await message.reply(
-                            "<b>❌ ᴋᴏᴅᴇ ᴍᴀsᴜᴋ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True
-                        )
+                                "<b>❌ ᴋᴏᴅᴇ ᴍᴀsᴜᴋ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True
+                            )
                     await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
