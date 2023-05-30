@@ -23,11 +23,12 @@ async def sg_cmd(client, message):
     await client.unblock_user(getbot)
     txt = await client.send_message(getbot, user_id)
     await asyncio.sleep(4)
+    await txt.delete()
     await lol.delete()
-    try:
-        sg = await client.get_messages(getbot, txt.id + 1)
-        await sg.copy(message.chat.id, reply_to_message_id=message.id)
-    except Exception:
-        await message.reply("❌ ᴀᴘɪ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
+    async for name in client.search_messages(getbot, limit=2):
+        if not name.text:
+            await message.reply(f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True)
+        else:
+            await message.reply(name.text, quote=True)
     user_info = await client.resolve_peer(getbot)
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
