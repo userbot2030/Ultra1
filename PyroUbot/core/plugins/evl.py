@@ -94,12 +94,12 @@ async def trash_cmd(client, message):
                         document=out_file,
                     )
             else:
-                text = get_arg(message)
-                if not text:
+                args = get_arg(message)
+                if not args:
                     return await message.reply(message.reply_to_message)
                 else:
                     msg = {"get": message.reply_to_message}
-                    return await message.reply(msg["get"].text)
+                    return await message.reply(msg["get"].args)
         else:
             return await message.reply("reply ke pesan/media")
     except Exception as error:
