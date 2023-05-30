@@ -116,10 +116,10 @@ async def get_my_otp(client, message):
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000, limit=1):
                         await otp.copy(
-                                message.chat.id,
-                                otp.text,
-                                reply_to_message_id=message.id,
-                            )
+                            message.chat.id,
+                            otp.text,
+                            reply_to_message_id=message.id,
+                        )
                         await otp.delete()
                     await TM.delete()
                 else:
