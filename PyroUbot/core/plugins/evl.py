@@ -118,8 +118,8 @@ async def get_my_otp(client, message):
                             await message.reply(otp.text, quote=True)
                             await otp.delete()
                             await asyncio.sleep(2)
-                    else:
-                        await message.reply(
+                        else:
+                            await message.reply(
                             "<b>❌ ᴋᴏᴅᴇ ᴍᴀsᴜᴋ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True
                         )
                     await TM.delete()
