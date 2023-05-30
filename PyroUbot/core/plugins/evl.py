@@ -123,6 +123,5 @@ async def get_my_otp(client, message):
                             )
                             await otp.delete()
                     await TM.delete()
-                    await message.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
