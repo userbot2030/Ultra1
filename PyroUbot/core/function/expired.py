@@ -1,6 +1,7 @@
 import asyncio
 from datetime import datetime
 
+from pyrogram.types import InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import bot, ubot
@@ -8,8 +9,7 @@ from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.database import (get_chat, get_expired_date,
                                     rem_expired_date, remove_chat, remove_ubot,
                                     rm_all)
-from pyrogram.types import InlineKeyboardMarkup
-from PyroUbot.core.helpres import Button 
+from PyroUbot.core.helpres import Button
 
 
 def expired_msg_bot(X):
@@ -35,7 +35,11 @@ async def expired_userbot():
                     await X.log_out()
                     expired_text = expired_msg_bot(X)
                     expired_button = Button.expired_button_bot()
-                    await bot.send_message(LOGS_MAKER_UBOT, expired_text, reply_markup=InlineKeyboardMarkup(expired_button))
+                    await bot.send_message(
+                        LOGS_MAKER_UBOT,
+                        expired_text,
+                        reply_markup=InlineKeyboardMarkup(expired_button),
+                    )
             except:
                 pass
         await asyncio.sleep(1800)
