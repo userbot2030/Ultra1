@@ -41,16 +41,13 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        for mod in loadModule():
-            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-        print(f"sᴛᴀʀᴛ {self.me.first_name} | {self.me.id}")
+        print(f"({self.me.id}( started bot")
 
 
 class Ubot(Client):
     _ubot = []
     _get_my_id = []
     _translate = {}
-    _get_my_peer = {}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -69,13 +66,8 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            users, group = await get_peer_userbot(self)
             self._get_my_peer[self.me.id] = {"group": group, "users": users}
-            for mod in loadModule():
-                importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-            print(
-                f"sᴛᴀʀᴛ {self.me.first_name} {self.me.last_name or ''} | {self.me.id}"
-            )
+            print(f"({self.me.id}( started ubot")
 
 
 bot = Bot(
