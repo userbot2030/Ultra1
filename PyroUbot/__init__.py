@@ -41,7 +41,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        print(f"({self.me.id}( started bot")
+        print(f"({self.me.id}b started")
 
 
 class Ubot(Client):
@@ -66,7 +66,7 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            print(f"({self.me.id}( started ubot")
+            print(f"({self.me.id}) started")
 
 
 bot = Bot(
