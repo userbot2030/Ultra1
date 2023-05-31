@@ -29,7 +29,7 @@ async def expired_userbot():
                     ubot._get_my_id.remove(X.me.id)
                     ubot._ubot.remove(X)
                     await X.log_out()
-                    expired_text = MSG.expired_msg_bot(X)
+                    expired_text = MSG.EXPIRED_MSG_BOT(X)
                     expired_button = Button.expired_button_bot()
                     await bot.send_message(
                         LOGS_MAKER_UBOT,
