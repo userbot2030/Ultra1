@@ -16,6 +16,6 @@ async def memes_cmd(client, message):
             message.chat.id, saved.sticker.file_id, reply_to_message_id=message.id
         )
     except Exception as error:
-        await message.reply(error, quote=True) 
+        await message.reply(error, quote=True)
     await saved.delete()
     await TM.delete()
