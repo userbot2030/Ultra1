@@ -9,11 +9,9 @@ from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.database import (get_chat, get_expired_date,
                                     rem_expired_date, remove_chat, remove_ubot,
                                     rm_all)
-from PyroUbot.core.helpres import Button
+from PyroUbot.core.helpres import Button, MSG 
 
 
-def expired_msg_bot(X):
-    return f"<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>\n<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>\n<b>├ ɪᴅ:</b> <code>{X.me.id}</code>\n<b>╰ ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴛᴇʟᴀʜ ʜᴀʙɪs</b>"
 
 
 async def expired_userbot():
@@ -33,7 +31,7 @@ async def expired_userbot():
                     ubot._get_my_id.remove(X.me.id)
                     ubot._ubot.remove(X)
                     await X.log_out()
-                    expired_text = expired_msg_bot(X)
+                    expired_text = MSG.expired_msg_bot(X)
                     expired_button = Button.expired_button_bot()
                     await bot.send_message(
                         LOGS_MAKER_UBOT,
