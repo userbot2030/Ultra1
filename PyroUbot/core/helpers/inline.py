@@ -22,7 +22,7 @@ class Button:
         button = [
             [
                 InlineKeyboardButton(
-                    text=bot.me.first_name,
+                    text=f"{bot.me.first_name}",
                     url=f"https://t.me/{bot me.username}",
                 )
             ]
