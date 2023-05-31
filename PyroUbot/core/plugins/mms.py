@@ -11,8 +11,11 @@ async def memes_cmd(client, message):
         client.me.id, x.query_id, x.results[0].id
     )
     saved = await client.get_messages(client.me.id, int(saved.updates[1].message.id))
-    await client.send_sticker(
-        message.chat.id, saved.sticker.file_id, reply_to_message_id=message.id
-    )
+    try:
+        await client.send_sticker(
+            message.chat.id, saved.sticker.file_id, reply_to_message_id=message.id
+        )
+    except Exception as error:
+        await message.reply(error, quote=True) 
     await saved.delete()
     await TM.delete()
