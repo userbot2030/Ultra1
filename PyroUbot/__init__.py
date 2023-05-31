@@ -66,7 +66,6 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            self._get_my_peer[self.me.id] = {"group": group, "users": users}
             print(f"({self.me.id}( started ubot")
 
 
