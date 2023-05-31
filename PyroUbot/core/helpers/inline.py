@@ -17,6 +17,17 @@ class Button:
             ]
         ]
         return button
+     
+    def expired_button_bot():
+        button = [
+            [
+                InlineKeyboardButton(
+                    text=bot.me.first_name,
+                    Url=f"https://t.me/{bot me.username)",
+                )
+            ]
+        ]
+        return button
 
     def start():
         button = [
