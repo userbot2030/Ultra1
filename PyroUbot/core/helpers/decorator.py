@@ -22,6 +22,7 @@ async def install_all_peer():
                 users += 1
             elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group += 1
+        get_my_peer[self.me.id] = {"pm": users, "gc": group}
         print(f"{self.me.id} install to get_my_peer")
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
 
