@@ -25,8 +25,11 @@ async def quotly_cmd(client, message):
                 )
             ]
         await client.unblock_user("@QuotLyBot")
-        for x in msg:
-            await x.forward("@QuotLyBot")
+        try:
+            for x in msg:
+                await x.forward("@QuotLyBot")
+        except Exception:
+            pass 
         await asyncio.sleep(5)
         await info.delete()
         async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
