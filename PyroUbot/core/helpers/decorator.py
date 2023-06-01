@@ -28,7 +28,7 @@ async def install_all_peer():
 
 async def install_my_peer(self):
     users = 0
-    group = 0    
+    group = 0
     async for dialog in self.get_dialogs():
         if dialog.chat.type == ChatType.PRIVATE:
             users += 1
@@ -36,9 +36,3 @@ async def install_my_peer(self):
             group += 1
     get_my_peer[X.me.id] = {"pm": users, "gc": group}
     print(f"{self.me.id} install to get_my_peer")
-        
-    
-    
-    
-    
-    
