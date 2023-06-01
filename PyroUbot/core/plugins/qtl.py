@@ -3,7 +3,6 @@ import asyncio
 from pyrogram.raw.functions.messages import DeleteHistory
 
 
-
 async def quotly_cmd(client, message):
     info = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs.....</b>", quote=True)
     if message.reply_to_message:
@@ -29,7 +28,7 @@ async def quotly_cmd(client, message):
             for x in msg:
                 await x.forward("@QuotLyBot")
         except Exception:
-            pass 
+            pass
         await asyncio.sleep(5)
         await info.delete()
         async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
