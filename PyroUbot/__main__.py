@@ -21,9 +21,9 @@ async def main():
             await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
             print(f"✅ {_ubot['name']} Dihapus Dari Database")
     await loadPlugins()
-    await expired_userbot()
     await install_user_id()
     await install_my_peer()
+    await expired_userbot()
     await idle()
 
 
