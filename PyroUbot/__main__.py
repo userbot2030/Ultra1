@@ -24,6 +24,7 @@ async def main():
     await expired_userbot()
     await install_user_id()
     await install_my_peer()
+    await bot.send_message(OWNER_ID, "Install peer id telah selesai")
     await idle()
 
 
