@@ -24,7 +24,7 @@ async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
         if int(get_id[2]) == my.me.id:
-            users, group = await get_peer_userbot(my)
+            peer = get_my_peer[my.me.id]
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
@@ -44,8 +44,8 @@ async def alive_query(client, inline_query):
         ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
         ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
-        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
-        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
+        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{peer['pm']} ᴜsᴇʀs</code>
+        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{peer['gc']} ɢʀᴏᴜᴘ</code>
         sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
             await client.answer_inline_query(
