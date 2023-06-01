@@ -34,7 +34,7 @@ async def dspam_cmd(client, message):
     try:
         msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     except:
-        pass 
+        pass
     if reply:
         try:
             count_message = int(message.command[1])
