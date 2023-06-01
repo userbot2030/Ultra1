@@ -2,7 +2,6 @@ import asyncio
 
 from pyrogram.raw.functions.messages import DeleteHistory
 
-from PyroUbot import *
 
 
 async def quotly_cmd(client, message):
@@ -41,7 +40,3 @@ async def quotly_cmd(client, message):
         return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
     else:
         await info.edit("<b>ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ</b>")
-        
-        
-        
-        
