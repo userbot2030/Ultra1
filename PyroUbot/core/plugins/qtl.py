@@ -1,5 +1,6 @@
-from PyroUbot import *
 from pyrogram.raw.functions.messages import DeleteHistory
+
+from PyroUbot import *
 
 
 async def quotly_cmd(self, ctx):
@@ -47,7 +48,7 @@ async def quotly_cmd(self, ctx):
     except Exception as e:
         return await ctx.reply(f"<code>Error : {e}</code>")
 
-    
+
 async def quotly_cmd_test(client, message):
     info = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs.....</b>", quote=True)
     if message.reply_to_message:
@@ -55,17 +56,19 @@ async def quotly_cmd_test(client, message):
             msg = [message.reply_to_message]
         else:
             try:
-               count = int(message.command[1])
+                count = int(message.command[1])
             except Exception as error:
                 await info.edit(error)
             msg = [
-                   i
-                   for i in await user.get_messages(
-                       chat_id=message.chat.id,
-                       message_ids=range(message.reply_to_message.id, message.reply_to_message.id + count),
-                       replies=-1,
-                   )
-               ]
+                i
+                for i in await user.get_messages(
+                    chat_id=message.chat.id,
+                    message_ids=range(
+                        message.reply_to_message.id, message.reply_to_message.id + count
+                    ),
+                    replies=-1,
+                )
+            ]
         await client.unblock_user("@QuotLyBot")
         for x in msg:
             await x.forward("@QuotLyBot")
@@ -79,7 +82,3 @@ async def quotly_cmd_test(client, message):
                 await message.reply_sticker(quotly.sticker.file_id)
         user_info = await client.resolve_peer("@QuotLyBot")
         return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
-
-    
-
-    
