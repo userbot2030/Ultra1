@@ -47,6 +47,8 @@ async def quotly_cmd(client, message):
             )
             await asyncio.sleep(1)
             get = await client.get_messages("@QuotLyBot", msg.id + 1)
-            await info.edit(f"<b>ᴡᴀʀɴᴀ ʟᴀᴛᴀʀ ʙᴇʟᴀᴋᴀɴɢ ᴋᴜᴛɪᴘᴀɴ ᴅɪsᴇᴛᴇʟ ᴋᴇ:</b> <code>{get.text.split(':')[1]}</code>")
+            await info.edit(
+                f"<b>ᴡᴀʀɴᴀ ʟᴀᴛᴀʀ ʙᴇʟᴀᴋᴀɴɢ ᴋᴜᴛɪᴘᴀɴ ᴅɪsᴇᴛᴇʟ ᴋᴇ:</b> <code>{get.text.split(':')[1]}</code>"
+            )
     user_info = await client.resolve_peer("@QuotLyBot")
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
