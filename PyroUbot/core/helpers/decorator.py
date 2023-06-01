@@ -1,9 +1,7 @@
-from datetime import datetime, timedelta
 
 from pyrogram import filters
-from pytz import timezone
 
-from PyroUbot import set_expired_date, ubot
+from PyroUbot import ubot
 
 ONLY_UBOT = filters.user()
 
