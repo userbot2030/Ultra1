@@ -2,6 +2,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatType
 
 from PyroUbot import bot, ubot
+from PyroUbot.config import OWNER_ID
 
 ONLY_UBOT = filters.user()
 get_my_peer = {}
@@ -23,4 +24,4 @@ async def install_my_peer():
                 group += 1
         get_my_peer[X.me.id] = {"pm": users, "gc": group}
         print(f"{X.me.id} install to get_my_peer")
-    await bot.send_message(OWMER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
+    await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
