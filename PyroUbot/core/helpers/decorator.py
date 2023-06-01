@@ -20,11 +20,10 @@ async def get_peer_userbot(self):
             users += 1
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group += 1
-    return users, group 
+    return users, group
 
 
 async def install_my_peer():
     for X in ubot._ubot:
-       users, group = await get_peer_userbot(X)
-       get_my_peer[X.me.id] = {"pm": users, "gc": group}
-
+        users, group = await get_peer_userbot(X)
+        get_my_peer[X.me.id] = {"pm": users, "gc": group}
