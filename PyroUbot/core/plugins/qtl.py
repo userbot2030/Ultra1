@@ -66,19 +66,19 @@ async def quotly_cmd_test(client, message):
                        replies=-1,
                    )
                ]
-       await client.unblock_user("@QuotLyBot")
-       for x in msg:
-           await x.forward("@QuotLyBot")
-       await info.delete()
-       async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
-           if not quotly.sticker:
-               await message.reply(
-                f"❌ @QuotLyBot ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
-            )
-           else:
-               await message.reply_sticker(quotly.sticker.file_id)
-       user_info = await client.resolve_peer("@QuotLyBot")
-       return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
+        await client.unblock_user("@QuotLyBot")
+        for x in msg:
+            await x.forward("@QuotLyBot")
+        await info.delete()
+        async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
+            if not quotly.sticker:
+                await message.reply(
+                    f"❌ @QuotLyBot ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
+                )
+            else:
+                await message.reply_sticker(quotly.sticker.file_id)
+        user_info = await client.resolve_peer("@QuotLyBot")
+        return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
 
     
 
