@@ -2,7 +2,6 @@ from pyrogram import filters
 from pyrogram.enums import ChatType
 
 from PyroUbot import bot, ubot
-from PyroUbot.config import OWMER_I
 
 ONLY_UBOT = filters.user()
 get_my_peer = {}
