@@ -16,20 +16,6 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()],
 )
 
-get_my_peer = {}
-
-
-async def get_peer_userbot(self):
-    users = 0
-    group = 0
-    async for dialog in self.get_dialogs():
-        if dialog.chat.type == ChatType.PRIVATE:
-            users += 1
-        elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-            group += 1
-    get_my_peer[self.me.id] = {"pm": users, "gc": group}
-
-
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -84,6 +70,20 @@ ubot = Ubot(
     api_hash=API_HASH,
     session_string=SESSION_STRING,
 )
+
+
+get_my_peer = {}
+
+
+async def get_peer_userbot(self):
+    users = 0
+    group = 0
+    async for dialog in self.get_dialogs():
+        if dialog.chat.type == ChatType.PRIVATE:
+            users += 1
+        elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+            group += 1
+    get_my_peer[self.me.id] = {"pm": users, "gc": group}
 
 
 async def install_my_peer():
