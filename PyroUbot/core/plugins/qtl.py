@@ -74,7 +74,7 @@ async def quotly_cmd_test(client, message):
         await client.unblock_user("@QuotLyBot")
         for x in msg:
             await x.forward("@QuotLyBot")
-        await asyncio.sleep(4)
+        await asyncio.sleep(5)
         await info.delete()
         async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
             if not quotly.sticker:
