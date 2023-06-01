@@ -5,6 +5,7 @@ from pyrogram.raw.functions.messages import DeleteHistory
 
 async def quotly_cmd(client, message):
     info = await message.reply("<b>ᴍᴇᴍᴘʀᴏsᴇs.....</b>", quote=True)
+    await client.unblock_user("@QuotLyBot")
     if message.reply_to_message:
         if len(message.command) < 2:
             msg = [message.reply_to_message]
@@ -23,7 +24,6 @@ async def quotly_cmd(client, message):
                     replies=-1,
                 )
             ]
-        await client.unblock_user("@QuotLyBot")
         try:
             for x in msg:
                 await x.forward("@QuotLyBot")
@@ -41,4 +41,17 @@ async def quotly_cmd(client, message):
         user_info = await client.resolve_peer("@QuotLyBot")
         return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
     else:
-        await info.edit("<b>ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ</b>")
+        if len(message.command) < 2:
+            return await info.edit("<b>ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ</b>")
+        else:
+            msg = await client.send_message("@QuotLyBot", f"/qcolor {message.command[1]}")
+            await asyncio.sleep(1)
+            get = await client.get_messages("@QuotLyBot", msg.id + 1)
+            return await info.edit(get.text)
+            
+        
+        
+        
+        
+        
+        
