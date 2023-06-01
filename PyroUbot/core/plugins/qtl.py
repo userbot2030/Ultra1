@@ -1,5 +1,5 @@
 from pyrogram.raw.functions.messages import DeleteHistory
-
+import asyncio
 from PyroUbot import *
 
 
@@ -73,6 +73,7 @@ async def quotly_cmd_test(client, message):
         for x in msg:
             await x.forward("@QuotLyBot")
         await info.delete()
+        await asyncio.sleep(4)
         async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
             if not quotly.sticker:
                 await message.reply(
