@@ -16,6 +16,7 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()],
 )
 
+get_my_peer = {}
 
 async def get_peer_userbot(self):
     users = 0
@@ -25,7 +26,9 @@ async def get_peer_userbot(self):
             users += 1
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group += 1
-    return users, group
+    get_my_peer[self.me.id] = {"pm": users, "gc": group}
+    
+    
 
 
 class Bot(Client):
@@ -82,6 +85,11 @@ ubot = Ubot(
     api_hash=API_HASH,
     session_string=SESSION_STRING,
 )
+
+
+async def install_my_peer():
+    for X in ubot._ubot:
+        await get_peer_userbot(X)
 
 
 from PyroUbot.core.database import *
