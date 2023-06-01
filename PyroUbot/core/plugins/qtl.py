@@ -44,14 +44,9 @@ async def quotly_cmd(client, message):
         if len(message.command) < 2:
             return await info.edit("<b>ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ</b>")
         else:
-            msg = await client.send_message("@QuotLyBot", f"/qcolor {message.command[1]}")
+            msg = await client.send_message(
+                "@QuotLyBot", f"/qcolor {message.command[1]}"
+            )
             await asyncio.sleep(1)
             get = await client.get_messages("@QuotLyBot", msg.id + 1)
             return await info.edit(get.text)
-            
-        
-        
-        
-        
-        
-        
