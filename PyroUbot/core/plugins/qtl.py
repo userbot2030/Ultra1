@@ -1,4 +1,5 @@
 from PyroUbot import *
+from pyrogram.raw.functions.messages import DeleteHistory
 
 
 async def quotly_cmd(self, ctx):
@@ -52,7 +53,7 @@ async def quotly_cmd_test(client, message):
     if message.reply_to_message:
         if len(message.command) < 2:
             msg = [message.reply_to_message]
-       else:
+        else:
             try:
                count = int(message.command[1])
             except Exception as error:
