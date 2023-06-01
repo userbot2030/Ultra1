@@ -72,7 +72,6 @@ ubot = Ubot(
 )
 
 
-
 from PyroUbot.core.database import *
 from PyroUbot.core.function import *
 from PyroUbot.core.helpers import *
