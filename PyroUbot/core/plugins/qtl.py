@@ -37,7 +37,7 @@ async def quotly_cmd(client, message):
                     f"❌ @QuotLyBot ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
                 )
             else:
-                await message.reply_sticker(quotly.sticker.file_id)
+                await message.reply_sticker(quotly.sticker.file_id, quote=True)
         user_info = await client.resolve_peer("@QuotLyBot")
         return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
     else:
