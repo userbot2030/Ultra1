@@ -63,7 +63,7 @@ async def quotly_cmd_test(client, message):
                 await info.edit(error)
             msg = [
                 i
-                for i in await user.get_messages(
+                for i in await client.get_messages(
                     chat_id=message.chat.id,
                     message_ids=range(
                         message.reply_to_message.id, message.reply_to_message.id + count
