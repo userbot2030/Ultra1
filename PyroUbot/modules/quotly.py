@@ -11,4 +11,4 @@ __HELP__ = f"""
 
 @PY.UBOT("q")
 async def _(client, message):
-    await quotly_cmd_test(client, message)
+    await quotly_cmd(client, message)
