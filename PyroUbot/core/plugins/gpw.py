@@ -11,7 +11,9 @@ async def gen_password(client, message):
         count = int(message.command[1])
     except Exception as error:
         return await message.reply(str(error), quote=True)
-    symbols = string.ascii_letters + string.digits + string.punctuation + string.whitespace
+    symbols = (
+        string.ascii_letters + string.digits + string.punctuation + string.whitespace
+    )
     password = ""
     for x in range(count):
         password += random.choice(symbols)
