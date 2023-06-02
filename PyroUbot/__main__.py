@@ -1,7 +1,7 @@
 from asyncio import get_event_loop_policy
 
 from pyrogram.methods.utilities.idle import idle
-
+from pyrogram.errors import RPCError
 from PyroUbot import *
 
 
@@ -13,13 +13,13 @@ async def main():
         try:
             await ubot_.start()
         except RPCError:
-            await remove_ubot(int(_ubot["name"]))
-            await rm_all(int(_ubot["name"]))
-            await rem_expired_date(int(_ubot["name"]))
-            for X in await get_chat(int(_ubot["name"])):
-                await remove_chat(int(_ubot["name"]), X)
-            await bot.send_message(OWNER_ID, f"✅ {_ubot['name']} Dihapus Dari Database")
-            print(f"✅ {_ubot['name']} Dihapus Dari Database")
+            user_id = int(_ubot["name"])
+            await remove_ubot(user_id)
+            await rm_all(user_id)
+            await rem_expired_date(user_id)
+            for X in await get_chat(user_id):
+                await remove_chat(user_id), X)
+            print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await loadPlugins()
     await install_user_id()
     await install_all_peer()
