@@ -1,6 +1,8 @@
 import random
 import string
+
 from pyrogram.enums import ParseMode
+
 
 async def gen_password(client, message):
     if len(message.command) < 2:
