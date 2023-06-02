@@ -10,6 +10,9 @@ __HELP__ = f"""
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}unbl</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ɢʀᴏᴜᴘ ᴅᴀʀɪ ᴅᴀꜰᴛᴀʀ ʜɪᴛᴀᴍ ᴀɢᴀʀ ɢᴄᴀsᴛ ʙɪsᴀ ᴍᴀsᴜᴋ ᴋᴇ ɢʀᴏᴜᴘ  [ʟᴀᴋᴜᴋᴀɴ ᴅɪ ɢʀᴏᴜᴘ, sᴇʟᴀɪɴ ᴅɪ ɢʀᴏᴜᴘ ʙᴏᴛ ᴛɪᴅᴀᴋ ᴀᴋᴀɴ ʀᴇsᴘᴏɴ]
   
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}rallbl</code>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs sᴇᴍᴜᴀ ʙʟᴀᴄᴋʟɪsᴛ
+  
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}listbl</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍᴇʀɪᴋsᴀ ᴅᴀꜰᴛᴀʀ ʙʟᴀᴄᴋʟɪsᴛ ɢʀᴏᴜᴘ
 """
@@ -23,6 +26,11 @@ async def _(client, message):
 @PY.UBOT("unbl", FILTERS.ME_GROUP)
 async def _(client, message):
     await del_blacklist(client, message)
+
+
+@PY.UBOT("rallbl")
+async def _(client, message):
+    await rem_all_blacklist(client, message)
 
 
 @PY.UBOT("listbl")
