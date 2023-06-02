@@ -139,7 +139,7 @@ async def rem_all_blacklist(client, message):
     for X in get_bls:
         await remove_chat(client.me.id, X)
     await msg.edit("<b>sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
-    
+
 
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℝ𝔼𝕊𝔼𝕃𝕃𝔼ℝ #
