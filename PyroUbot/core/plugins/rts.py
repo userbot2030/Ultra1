@@ -9,18 +9,21 @@ from PyroUbot.modules import loadModule
 
 
 async def login_cmd(client, message):
+    info = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ...</b>", quote=True)
     if len(message.command) < 3:
-        return await message.reply(
+        return await info.edit(
             f"<code>{message.text}</code> <b>ʜᴀʀɪ - sᴛʀɪɴɢ ᴘʏʀᴏɢʀᴀᴍ</b>"
         )
     try:
         ub = Ubot(
-            name=f"ubot{random.randrange(9999)}",
+            name=f"ubot_{random.randrange(999999)}",
             api_id=API_ID,
             api_hash=API_HASH,
             session_string=message.command[2],
         )
         await ub.start()
+        await install_my_peer(ub)
+        await install_user_id()
         now = datetime.now(timezone("Asia/Jakarta"))
         expire_date = now + timedelta(days=int(message.command[1]))
         await set_expired_date(ub.me.id, expire_date)
@@ -32,11 +35,11 @@ async def login_cmd(client, message):
         )
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-        return await message.reply(
+        return await info.edit(
             f"<b>✅ ʙᴇʀʜᴀsɪʟ ʟᴏɢɪɴ ᴅɪ ᴀᴋᴜɴ: <a href='tg://user?id={ub.me.id}'>{ub.me.first_name} {ub.me.last_name or ''}</a></b>"
         )
     except Exception as error:
-        return await message.reply(f"<code>{error}</code>")
+        return await info.edit(f"<code>{error}</code>")
 
 
 async def restart_cmd(client, message):
