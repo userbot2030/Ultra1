@@ -18,7 +18,7 @@ async def main():
             await rm_all(user_id)
             await rem_expired_date(user_id)
             for X in await get_chat(user_id):
-                await remove_chat(user_id), X)
+                await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await loadPlugins()
     await install_user_id()
