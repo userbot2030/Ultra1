@@ -30,7 +30,7 @@ async def quotly_cmd(client, message):
                 await x.forward("@QuotLyBot")
         except Exception:
             pass
-        await asyncio.sleep(5)
+        await asyncio.sleep(9)
         await info.delete()
         async for quotly in client.get_chat_history("@QuotLyBot", limit=1):
             if not quotly.sticker:
