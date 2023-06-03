@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os
 
 from pyrogram.raw.functions.messages import DeleteHistory
 
@@ -37,7 +37,9 @@ async def quotly_cmd(client, message):
                     f"❌ @QuotLyBot ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
                 )
             else:
-                await message.reply_sticker(quotly.sticker.file_id, quote=True)
+                sticker = await await client.download_media(quotly)
+                await message.reply_sticker(sticker, quote=True)
+                os.remove(sticker)
     else:
         if len(message.command) < 2:
             return await info.edit("<b>ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ</b>")
