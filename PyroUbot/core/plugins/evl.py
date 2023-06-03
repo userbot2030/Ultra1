@@ -43,6 +43,8 @@ async def shell_cmd(client, message):
 
 
 async def evalator_cmd(client, message):
+    if not get_arg(message):
+        return 
     TM = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
     reply_to_ = message.reply_to_message or message
