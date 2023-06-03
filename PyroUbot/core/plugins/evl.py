@@ -99,7 +99,7 @@ async def trash_cmd(client, message):
                     for msgs in [message.reply_to_message]:
                         return await message.reply(getattr(msgs, args))
         else:
-            return await message.reply("reply ke pesan/media")
+            return await message.reply("ʀᴇᴘʟʏ ᴋᴇ ᴘᴇsᴀɴ/ᴍᴇᴅɪs")
     except Exception as error:
         return await message.reply(str(error))
 
