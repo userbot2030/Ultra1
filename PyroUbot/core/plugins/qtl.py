@@ -37,7 +37,7 @@ async def quotly_cmd(client, message):
                     f"❌ @QuotLyBot ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
                 )
             else:
-                sticker = await await client.download_media(quotly)
+                sticker = await client.download_media(quotly)
                 await message.reply_sticker(sticker, quote=True)
                 os.remove(sticker)
     else:
