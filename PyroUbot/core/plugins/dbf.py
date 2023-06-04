@@ -19,7 +19,7 @@ async def prem_user(client, message):
         )
     try:
         if message.reply_to_message:
-            get_id = message.reply_to_message.frok_user.id
+            get_id = message.reply_to_message.from_user.id
             get_bulan = int(message.command[1])
         else:
             if len(message.command) < 3:
