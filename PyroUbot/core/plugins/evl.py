@@ -87,21 +87,16 @@ async def evalator_cmd(client, message):
 
 
 async def trash_cmd(client, message):
+    msg = message.reply_to_message or message 
     try:
-        if message.reply_to_message:
-            if len(str(message.reply_to_message)) > 4096:
-                with BytesIO(str.encode(str(message.reply_to_message))) as out_file:
-                    out_file.name = "trash.txt"
-                    return await message.reply_document(document=out_file)
+        msgs = await client.get_messages(msg)
+        if not get_arg(message):
+            if len(str(msgs)) > 4096:
+                out_file = BytesIO(str.encode(str(msgs)))
+                out_file.name = "trash.txt"
+                return await message.reply_document(document=out_file)
             else:
-                args = get_arg(message)
-                if not args:
-                    return await message.reply(str(message.reply_to_message))
-                else:
-                    for msgs in [message.reply_to_message]:
-                        return await message.reply(getattr(msgs, args))
-        else:
-            return await message.reply("ʀᴇᴘʟʏ ᴋᴇ ᴘᴇsᴀɴ/ᴍᴇᴅɪs")
+                return await message.reply(getattr(msgs, get_arg(message)))
     except Exception as error:
         return await message.reply(str(error))
 
