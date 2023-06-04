@@ -6,7 +6,6 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
 from PyroUbot.config import *
-from PyroUbot.modules import loadModule
 
 logging.basicConfig(
     level=logging.ERROR,
