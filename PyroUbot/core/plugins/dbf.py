@@ -24,7 +24,7 @@ async def prem_user(client, message):
                  return await Tm.edit(
                     "<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>"
                 )
-            else:
+             else:
                  get_id = int(message.command[1])
                  get_bulan = int(message.command[2])
     except Exception as error:
