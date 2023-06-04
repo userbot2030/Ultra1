@@ -1,6 +1,6 @@
 import asyncio
 import importlib
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
