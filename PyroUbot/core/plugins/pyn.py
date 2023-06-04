@@ -50,7 +50,7 @@ async def confirm_callback(client, callback_query):
             buttons = await button_add_expired(get.id)
             await pesan.copy(
                 OWNER_ID,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=buttons,
             )
             CONFIRM_PAYMENT.remove(get.id)
             await pesan.request.edit(
@@ -122,7 +122,7 @@ async def success_failed_home_callback(client, callback_query):
             f"""
 <b>✅ {get_user.first_name} {get_user.last_name or ''} ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴀɴɢɢᴏᴛᴀ ᴘʀᴇᴍɪᴜᴍ</b>
 """,
-            reply_markup=buttons_success,
+            reply_markup=InlineKeyboardMarkup(buttons_success),
         )
     if query[0] == "failed":
         buttons = [
