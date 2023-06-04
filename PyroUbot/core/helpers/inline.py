@@ -100,60 +100,62 @@ class INLINE:
 async def create_button(m):
     buttons = InlineKeyboard(row_width=1)
     keyboard = []
+    msg = []
     if "~>" not in m.text.split(None, 1)[1]:
-        msg = []
         for X in m.text.split(None, 1)[1].split():
+            X_parts = X.split(":", 1)
             keyboard.append(
                 InlineKeyboardButton(
-                    X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
+                    X_parts[0].replace("_", " "), url=X_parts[1]
                 )
             )
-            msg.append(X.split(":")[0])
+            msg.append(X_parts[0])
         buttons.add(*keyboard)
         if m.reply_to_message:
             text = m.reply_to_message.text
         else:
-            msg_text = ""
-            for Z in msg:
-                msg_text += f"{Z} "
-            text = msg_text
+            text = " ".join(msg)
     else:
         for X in m.text.split("~>", 1)[1].split():
+            X_parts = X.split(":", 1)
             keyboard.append(
                 InlineKeyboardButton(
-                    X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
+                    X_parts[0].replace("_", " "), url=X_parts[1]
                 )
             )
         buttons.add(*keyboard)
         text = m.text.split("~>", 1)[0].split(None, 1)[1]
+    
     return buttons, text
 
 
 async def gcast_create_button(m):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
-    for X in m.text.split("~>", 1)[1].split():
+    split_text = m.text.split("~>", 1)
+    for X in split_text[1].split():
+        button_data = X.split(":", 1)
+        button_label = button_data[0].replace("_", " ")
+        button_url = button_data[1]
         keyboard.append(
-            InlineKeyboardButton(
-                X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
-            )
+            InlineKeyboardButton(button_label, url=button_url)
         )
     buttons.add(*keyboard)
-    text_button = m.text.split("~>", 1)[0].split(None, 1)[1]
+    text_button = split_text[0].split(None, 1)[1]
     return buttons, text_button
 
 
 async def notes_create_button(text):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
-    for X in text.split("~>", 1)[1].split():
-        keyboard.append(
-            InlineKeyboardButton(
-                X.split(":", 1)[0].replace("_", " "), url=X.split(":", 1)[1]
-            )
-        )
+    split_text = text.split("~>", 1)
+    for X in split_text[1].split():
+        split_X = X.split(":", 1)
+        button_text = split_X[0].replace("_", " ")
+        button_url = split_X[1]
+        keyboard.append(InlineKeyboardButton(button_text, url=button_url))
     buttons.add(*keyboard)
-    text_button = text.split("~>", 1)[0]
+    text_button = split_text[0]
     return buttons, text_button
 
 
