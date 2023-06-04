@@ -201,7 +201,7 @@ async def bikin_ubot(client, callback_query):
         api_hash=api_hashs,
         session_string=session_string,
     )
-    await install_my_peer(new_client)
+    await asyncio.gather(remove_prem(callback_query.from_user.id), install_user_id(), install_my_peer(new_client))
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
@@ -221,7 +221,7 @@ async def bikin_ubot(client, callback_query):
             )
         ],
     ]
-    await bot.send_message(
+    return await bot.send_message(
         LOGS_MAKER_UBOT,
         f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
@@ -231,9 +231,6 @@ async def bikin_ubot(client, callback_query):
         reply_markup=InlineKeyboardMarkup(buttons),
         disable_web_page_preview=True,
     )
-    if callback_query.from_user.id not in ID_SELES:
-        await remove_prem(callback_query.from_user.id)
-    await install_user_id()
 
 
 async def cek_ubot(client, message):
