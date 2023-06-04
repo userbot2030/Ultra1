@@ -42,7 +42,7 @@ async def prem_user(client, message):
         )
         await bot.send_message(
             OWNER_ID,
-            f"• {message.from_user.id} <──> {get_id} •",
+            f"• {message.from_user.id} ─> {get_id} •",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
