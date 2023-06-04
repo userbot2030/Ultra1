@@ -1,6 +1,6 @@
 import asyncio
 import importlib
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
@@ -221,14 +221,16 @@ async def bikin_ubot(client, callback_query):
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
 <b> ╰ ɪᴅ:</b> <code>{new_client.me.id}</code>
 """,
-        reply_markup=InlineKeyboardMarkup([
-        [
-            InlineKeyboardButton(
-                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                callback_data=f"cek_masa_aktif {new_client.me.id}",
-            )
-        ],
-    ]),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+                        callback_data=f"cek_masa_aktif {new_client.me.id}",
+                    )
+                ],
+            ]
+        ),
         disable_web_page_preview=True,
     )
 
@@ -247,20 +249,25 @@ async def cek_ubot(client, message):
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-            await message.reply(user, reply_markup=InlineKeyboardMarkup([
-                [
-                    InlineKeyboardButton(
-                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {X.me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                        callback_data=f"cek_masa_aktif {X.me.id}",
-                    )
-                ],
-            ]))
+            await message.reply(
+                user,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                                callback_data=f"del_ubot {X.me.id}",
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+                                callback_data=f"cek_masa_aktif {X.me.id}",
+                            )
+                        ],
+                    ]
+                ),
+            )
             await asyncio.sleep(4)
 
 
