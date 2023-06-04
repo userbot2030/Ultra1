@@ -1,7 +1,7 @@
-from datetime import datetime, timedelta
-
+from datetime import datetime
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from dateutil.relativedelta import relativedelta
 from pytz import timezone
-
 from PyroUbot import *
 
 # ========================== #
@@ -10,33 +10,51 @@ from PyroUbot import *
 
 
 async def prem_user(client, message):
+    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if message.from_user.id not in await get_seles():
-        return await message.reply(
+        return await Tm.edit(
             "ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ"
         )
-    user_id = await extract_user(message)
-    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
-    if not user_id:
-        return await Tm.edit(
-            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
-        )
     try:
-        user = await client.get_users(user_id)
+        if message.reply_to_message:
+            get_id = message.reply_to_message.frok_user.id
+            get_bulan = int(message.command[1])
+        else:
+             if len(message.command) < 3:
+                 return await Tm.edit(
+                    "<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>"
+                )
+            else:
+                 get_id = int(message.command[1])
+                 get_bulan = int(message.command[2])
     except Exception as error:
-        await Tm.edit(error)
+        return await Tm.edit(error)
     premium = await get_prem()
-    if user.id in premium:
+    if get_id in premium:
         return await Tm.edit("ᴅɪᴀ sᴜᴅᴀʜ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ")
-    added = await add_prem(user.id)
+    added = await add_prem(get_id)
     if added:
-        await Tm.edit(f"✅ {user.mention} sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
+        now = datetime.now(timezone("Asia/Jakarta"))
+        expired = now + relativedelta(months=get_bulan)
+        await set_expired_date(get_id, expired)
+        await Tm.edit(f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
         await bot.send_message(
             OWNER_ID,
-            f"""
-• <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>
-• <a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a>
-""",
-        )
+            f"• {message.from_user.id} <──> {get_id} •",
+            reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    "👤 ᴘʀᴏғɪʟ",
+                                    callback_data=f"profil {message.from_user.id}",
+                                ),
+                                InlineKeyboardButton(
+                                    "ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"
+                                ),
+                            ],
+                        ]
+                    ),
+                )
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
