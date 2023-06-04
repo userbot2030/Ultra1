@@ -295,7 +295,6 @@ async def hapus_ubot(client, callback_query):
     for X in ubot._ubot:
         if get_id == X.me.id:
             await X.unblock_user(bot.me.username)
-            msg = await X.send_message(bot.me.username, "ping")
             for chat in await get_chat(X.me.id):
                 await remove_chat(X.me.id, chat)
             await rm_all(X.me.id)
@@ -307,8 +306,7 @@ async def hapus_ubot(client, callback_query):
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ</b>"
             )
-            await bot.send_message(X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
-            return await bot.delete_messages(X.me.id, msg.id)
+            return await bot.send_message(X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
 
 
 async def is_cancel(callback_query, text):
