@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from dateutil.relativedelta import relativedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -78,6 +78,7 @@ async def unprem_user(client, message):
         return await message.reply_text("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     removed = await remove_prem(user.id)
     if removed:
+        await rem_expired_date(user.id)
         await Tm.edit(f"<b> ✅ {user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
     else:
         await Tm.delete()
