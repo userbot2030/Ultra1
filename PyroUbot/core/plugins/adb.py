@@ -214,17 +214,6 @@ async def bikin_ubot(client, callback_query):
         await new_client.join_chat("PremUbotCH")
     except UserAlreadyParticipant:
         pass
-    now = datetime.now(timezone("Asia/Jakarta"))
-    expired = now + timedelta(days=30)
-    await set_expired_date(new_client.me.id, expired)
-    buttons = [
-        [
-            InlineKeyboardButton(
-                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                callback_data=f"cek_masa_aktif {new_client.me.id}",
-            )
-        ],
-    ]
     return await bot.send_message(
         LOGS_MAKER_UBOT,
         f"""
@@ -232,7 +221,14 @@ async def bikin_ubot(client, callback_query):
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
 <b> ╰ ɪᴅ:</b> <code>{new_client.me.id}</code>
 """,
-        reply_markup=InlineKeyboardMarkup(buttons),
+        reply_markup=InlineKeyboardMarkup([
+        [
+            InlineKeyboardButton(
+                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+                callback_data=f"cek_masa_aktif {new_client.me.id}",
+            )
+        ],
+    ]),
         disable_web_page_preview=True,
     )
 
@@ -251,7 +247,7 @@ async def cek_ubot(client, message):
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-            buttons = [
+            await message.reply(user, reply_markup=InlineKeyboardMarkup([
                 [
                     InlineKeyboardButton(
                         "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
@@ -264,8 +260,7 @@ async def cek_ubot(client, message):
                         callback_data=f"cek_masa_aktif {X.me.id}",
                     )
                 ],
-            ]
-            await message.reply(user, reply_markup=InlineKeyboardMarkup(buttons))
+            ]))
             await asyncio.sleep(4)
 
 
