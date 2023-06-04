@@ -1,7 +1,9 @@
 from datetime import datetime
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 from dateutil.relativedelta import relativedelta
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
+
 from PyroUbot import *
 
 # ========================== #
@@ -20,13 +22,11 @@ async def prem_user(client, message):
             get_id = message.reply_to_message.frok_user.id
             get_bulan = int(message.command[1])
         else:
-             if len(message.command) < 3:
-                 return await Tm.edit(
-                    "<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>"
-                )
-             else:
-                 get_id = int(message.command[1])
-                 get_bulan = int(message.command[2])
+            if len(message.command) < 3:
+                return await Tm.edit("<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
+            else:
+                get_id = int(message.command[1])
+                get_bulan = int(message.command[2])
     except Exception as error:
         return await Tm.edit(error)
     premium = await get_prem()
@@ -37,24 +37,26 @@ async def prem_user(client, message):
         now = datetime.now(timezone("Asia/Jakarta"))
         expired = now + relativedelta(months=get_bulan)
         await set_expired_date(get_id, expired)
-        await Tm.edit(f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
+        await Tm.edit(
+            f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
+        )
         await bot.send_message(
             OWNER_ID,
             f"• {message.from_user.id} <──> {get_id} •",
             reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton(
-                                    "👤 ᴘʀᴏғɪʟ",
-                                    callback_data=f"profil {message.from_user.id}",
-                                ),
-                                InlineKeyboardButton(
-                                    "ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"
-                                ),
-                            ],
-                        ]
-                    ),
-                )
+                [
+                    [
+                        InlineKeyboardButton(
+                            "👤 ᴘʀᴏғɪʟ",
+                            callback_data=f"profil {message.from_user.id}",
+                        ),
+                        InlineKeyboardButton(
+                            "ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"
+                        ),
+                    ],
+                ]
+            ),
+        )
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
