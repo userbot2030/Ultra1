@@ -87,9 +87,12 @@ async def evalator_cmd(client, message):
 
 
 async def trash_cmd(client, message):
-    msg = message.reply_to_message or message
+    if message.reply_to_message:
+        msg_id = message.reply_to_message.id
+    else:
+        msg_id = message.id
     try:
-        msgs = await client.get_messages(message.chat.id, msg.id)
+        msgs = await client.get_messages(message.chat.id, msg_id)
         if not get_arg(message):
             if len(str(msgs)) > 4096:
                 out_file = BytesIO(str.encode(str(msgs)))
