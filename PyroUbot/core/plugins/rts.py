@@ -2,7 +2,7 @@ import importlib
 import random
 from datetime import datetime, timedelta
 
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import *
@@ -37,13 +37,13 @@ async def login_cmd(client, message):
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         buttons = [
-        [
-            InlineKeyboardButton(
-                "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                callback_data=f"cek_masa_aktif {ub.me.id}",
-            )
-        ],
-    ]
+            [
+                InlineKeyboardButton(
+                    "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+                    callback_data=f"cek_masa_aktif {ub.me.id}",
+                )
+            ],
+        ]
         await bot.send_message(
             LOGS_MAKER_UBOT,
             f"""
