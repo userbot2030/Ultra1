@@ -1,4 +1,7 @@
 import asyncio
+from datetime import datetime, timedelta
+
+from dateutil.relativedelta import relativedelta
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -121,6 +124,9 @@ async def success_failed_home_callback(client, callback_query):
             ],
         ]
         await add_prem(get_user.id)
+        now = datetime.now(timezone("Asia/Jakarta"))
+        expired = now + relativedelta(months=int(query[2]))
+        await set_expired_date(get_user.id, expired)
         return await bot.send_message(
             OWNER_ID,
             f"""
