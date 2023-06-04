@@ -23,6 +23,8 @@ async def login_cmd(client, message):
             session_string=message.command[2],
         )
         await ub.start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         await install_my_peer(ub)
         await install_user_id()
         now = datetime.now(timezone("Asia/Jakarta"))
@@ -34,8 +36,6 @@ async def login_cmd(client, message):
             api_hash=API_HASH,
             session_string=message.command[1],
         )
-        for mod in loadModule():
-            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         buttons = [
             [
                 InlineKeyboardButton(
