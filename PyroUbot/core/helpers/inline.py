@@ -154,18 +154,18 @@ async def notes_create_button(text):
 
 
 add_button = {
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 9,
-    9: 9,
-    10: 10,
-    11: 11,
-    12: 12,
+    "1_ʙᴜʟᴀɴ": 1,
+    "2_ʙᴜʟᴀɴ": 2,
+    "3_ʙᴜʟᴀɴ": 3,
+    "4_ʙᴜʟᴀɴ": 4,
+    "5_ʙᴜʟᴀɴ": 5,
+    "6_ʙᴜʟᴀɴ": 6,
+    "7_ʙᴜʟᴀɴ": 7,
+    "8_ʙᴜʟᴀɴ": 9,
+    "9_ʙᴜʟᴀɴ": 9,
+    "10_ʙᴜʟᴀɴ": 10,
+    "11_ʙᴜʟᴀɴ": 11,
+    "12_ʙᴜʟᴀɴ": 12,
 }
 
 
@@ -175,7 +175,7 @@ async def button_add_expired(user_id):
     for X in add_button:
         keyboard.append(
             InlineKeyboardButton(
-                f"{X} ʙᴜʟᴀɴ", callback_data=f"success {user_id} {add_button[X]}"
+                f"{X.replace('_', ' ')}", callback_data=f"success {user_id} {add_button[X]}"
             )
         )
     buttons.add(*keyboard)
