@@ -122,7 +122,7 @@ async def success_failed_home_callback(client, callback_query):
             f"""
 <b>✅ {get_user.first_name} {get_user.last_name or ''} ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴀɴɢɢᴏᴛᴀ ᴘʀᴇᴍɪᴜᴍ</b>
 """,
-            reply_markup=InlineKeyboardMarkup(buttons_success),
+            reply_markup=buttons_success,
         )
     if query[0] == "failed":
         buttons = [
