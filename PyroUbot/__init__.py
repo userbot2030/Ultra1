@@ -10,7 +10,7 @@ from PyroUbot.config import *
 logging.basicConfig(
     level=logging.WARNING,
     format="%(filename)s",
-    handlers=[logging.FileHandler('log.txt')],
+    handlers=[logging.FileHandler("log.txt")],
 )
 
 
