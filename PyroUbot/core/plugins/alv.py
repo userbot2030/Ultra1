@@ -25,7 +25,7 @@ async def alive_query(client, inline_query):
     for my in ubot._ubot:
         if int(get_id[2]) == my.me.id:
             try:
-                peer = get_my_peer[my.me.id]
+                peer = my._get_my_peer[my.me.id]
                 users = peer["pm"]
                 group = peer["gc"]
             except Exception:
