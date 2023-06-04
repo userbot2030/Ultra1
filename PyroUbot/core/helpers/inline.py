@@ -175,7 +175,8 @@ async def button_add_expired(user_id):
     for X in add_button:
         keyboard.append(
             InlineKeyboardButton(
-                f"{X.replace('_', ' ')}", callback_data=f"success {user_id} {add_button[X]}"
+                f"{X.replace('_', ' ')}",
+                callback_data=f"success {user_id} {add_button[X]}",
             )
         )
     buttons.add(*keyboard)
