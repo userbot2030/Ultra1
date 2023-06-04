@@ -87,7 +87,7 @@ async def evalator_cmd(client, message):
 
 
 async def trash_cmd(client, message):
-    msg = message.reply_to_message or message 
+    msg = message.reply_to_message or message
     try:
         msgs = await client.get_messages(msg)
         if not get_arg(message):
