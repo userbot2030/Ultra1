@@ -26,8 +26,8 @@ async def alive_query(client, inline_query):
         if int(get_id[2]) == my.me.id:
             try:
                 peer = get_my_peer[my.me.id]
-                users = peer['pm']
-                group = peer['gc']
+                users = peer["pm"]
+                group = peer["gc"]
             except Exception:
                 users = random.randrange(9999)
                 group = random.randrange(9999)
