@@ -47,17 +47,7 @@ async def confirm_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         elif pesan.photo:
-            buttons = [
-                [
-                    InlineKeyboardButton("✅ ʏᴇs ", callback_data=f"success {user_id}"),
-                    InlineKeyboardButton("ɴᴏᴛ ❌", callback_data=f"failed {user_id}"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"
-                    )
-                ],
-            ]
+            buttons = await button_add_expired(get.id)
             await pesan.copy(
                 OWNER_ID,
                 reply_markup=InlineKeyboardMarkup(buttons),
