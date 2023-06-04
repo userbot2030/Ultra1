@@ -105,9 +105,7 @@ async def create_button(m):
         for X in m.text.split(None, 1)[1].split():
             X_parts = X.split(":", 1)
             keyboard.append(
-                InlineKeyboardButton(
-                    X_parts[0].replace("_", " "), url=X_parts[1]
-                )
+                InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
             )
             msg.append(X_parts[0])
         buttons.add(*keyboard)
@@ -119,13 +117,11 @@ async def create_button(m):
         for X in m.text.split("~>", 1)[1].split():
             X_parts = X.split(":", 1)
             keyboard.append(
-                InlineKeyboardButton(
-                    X_parts[0].replace("_", " "), url=X_parts[1]
-                )
+                InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
             )
         buttons.add(*keyboard)
         text = m.text.split("~>", 1)[0].split(None, 1)[1]
-    
+
     return buttons, text
 
 
@@ -137,9 +133,7 @@ async def gcast_create_button(m):
         button_data = X.split(":", 1)
         button_label = button_data[0].replace("_", " ")
         button_url = button_data[1]
-        keyboard.append(
-            InlineKeyboardButton(button_label, url=button_url)
-        )
+        keyboard.append(InlineKeyboardButton(button_label, url=button_url))
     buttons.add(*keyboard)
     text_button = split_text[0].split(None, 1)[1]
     return buttons, text_button
