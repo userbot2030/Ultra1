@@ -23,7 +23,7 @@ async def prem_user(client, message):
             get_bulan = int(message.command[1])
         else:
             if len(message.command) < 3:
-                return await Tm.edit("<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
+                return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
             else:
                 get_id = int(message.command[1])
                 get_bulan = int(message.command[2])
