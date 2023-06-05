@@ -13,17 +13,21 @@ async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
     if user_id not in PREM_ID:
-        buttons = Button.plus_minus(1)
+        buttons = [
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")
+            ],[
+            InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")
+        ]]
         await callback_query.message.delete()
         return await bot.send_message(
             user_id,
-            MSG.TEXT_PAYMENT(25, 25, 1),
+            MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
         buttons = [
-            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")],
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]
         ]
         await callback_query.message.delete()
         return await bot.send_message(
@@ -40,11 +44,20 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-
+    
+async def payment_userbot(client, callback_query):
+    user_id = callback_query.from_user.id
+    buttons = Button.plus_minus(1)
+    await callback_query.message.delete()
+    return await bot.send_message(
+            user_id,
+            MSG.TEXT_PAYMENT(25, 25, 1),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
-    await get_seles()
     if len(ubot._ubot) == MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ Tutup 🗑️", callback_data="0_cls")],
