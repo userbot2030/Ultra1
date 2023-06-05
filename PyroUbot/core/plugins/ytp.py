@@ -1,5 +1,5 @@
 import os
-import time
+from time import time 
 from datetime import timedelta
 
 import wget
@@ -153,7 +153,7 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    c_time = time.time()
+    c_time = time()
     file_stark = f"{search['id']}.mp3"
     await client.send_audio(
         message.chat.id,
