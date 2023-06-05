@@ -1,23 +1,16 @@
-from logging import *
+import logging
 
 from pyrogram import Client
 from pyrogram.filters import Filter
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
-from rich.logging import RichHandler
 
 from PyroUbot.config import *
 
-basicConfig(
-    level=INFO,
-    format="%(filename)s: %(lineno)s: %(levelname)s: %(message)s",
-    datefmt="%m-%d %H:%M",
-    handlers=[RichHandler()],
-)
-console = StreamHandler()
-console.setLevel(ERROR)
-console.setFormatter(Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s"))
-getLogger("").addHandler(console)
+console = logging.StreamHandler()
+console.setLevel(logging.ERROR)
+console.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+logging.getLogger("").addHandler(console)
 
 
 class Bot(Client):
