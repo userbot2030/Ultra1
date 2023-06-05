@@ -23,7 +23,11 @@ async def kang_cmd_bot(client, message):
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
         sticker_emoji = "✨"
-    doc = message.reply_to_message.photo or message.reply_to_message.document or message.reply_to_message.animation
+    doc = (
+        message.reply_to_message.photo
+        or message.reply_to_message.document
+        or message.reply_to_message.animation
+    )
     try:
         if message.reply_to_message.sticker:
             sticker = await create_sticker(
