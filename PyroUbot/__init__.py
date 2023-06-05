@@ -9,13 +9,13 @@ from rich.logging import RichHandler
 from PyroUbot.config import *
 
 logging.basicConfig(
-    level=INFO,
+    level=logging.INFO,
     format="%(filename)s: %(lineno)s: %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[RichHandler()],
 )
 console = logging.StreamHandler()
-console.setLevel(ERROR)
+console.setLevel(logging.ERROR)
 console.setFormatter(Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s"))
 logging.getLogger("").addHandler(console)
 
