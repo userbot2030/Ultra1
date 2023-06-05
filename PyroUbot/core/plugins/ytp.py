@@ -16,7 +16,7 @@ def humanbytes(size):
         return ""
     power = 2**10
     raised_to_pow = 0
-    dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
+    dict_power_n = {0: "", 1: "K", 2: "M", 3: "G", 4: "T"}
     while size > power:
         size /= power
         raised_to_pow += 1
@@ -29,11 +29,11 @@ def time_formatter(milliseconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        (f"{str(days)} day(s), " if days else "")
-        + (f"{str(hours)} hour(s), " if hours else "")
-        + (f"{str(minutes)} minute(s), " if minutes else "")
-        + (f"{str(seconds)} second(s), " if seconds else "")
-        + (f"{str(milliseconds)} millisecond(s), " if milliseconds else "")
+        (f"{str(days)} ʜᴀʀɪ, " if days else "")
+        + (f"{str(hours)} ᴊᴀᴍ, " if hours else "")
+        + (f"{str(minutes)} ᴍᴇɴɪᴛ, " if minutes else "")
+        + (f"{str(seconds)} ᴅᴇᴛɪᴋ, " if seconds else "")
+        + (f"{str(milliseconds)} ᴍɪᴋʀᴏᴅᴇᴛɪᴋ, " if milliseconds else "")
     )
     return tmp[:-2]
 
@@ -54,13 +54,19 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
             "".join("🔘" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
-        tmp = progress_str + "{0} of {1}\nETA: {2}".format(
+        tmp = progress_str + "{0} of {1}\ᴇsᴛɪᴍᴀsɪ: {2}".format(
             humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
         )
         if file_name:
             try:
                 await message.edit(
-                    f"{type_of_ps}\n<b>File Name:</b> <code>{file_name}</code>\n{tmp}"
+                    f"""
+<b>{type_of_ps}</b>
+
+<b>ғɪʟᴇ:</b> <code>{file_name}</code>
+
+<b>{tmp}</b>
+"""
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -119,6 +125,8 @@ async def vsong_cmd(client, message):
             url,
             bot.me.mention,
         ),
+        progress=progress,
+        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", file_name),
         reply_to_message_id=message.id,
     )
     await infomsg.delete()
