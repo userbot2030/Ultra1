@@ -20,7 +20,6 @@ console.setFormatter(Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(messa
 logging.getLogger("").addHandler(console)
 
 
-
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
