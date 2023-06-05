@@ -161,3 +161,11 @@ async def success_failed_home_callback(client, callback_query):
                 MSG.START(callback_query),
                 reply_markup=InlineKeyboardMarkup(buttons_home),
             )
+        else:
+            buttons_home = Button.start()
+            await callback_query.message.delete()
+            return await bot.send_message(
+                get_user.id,
+                MSG.START(callback_query),
+                reply_markup=InlineKeyboardMarkup(buttons_home),
+            )
