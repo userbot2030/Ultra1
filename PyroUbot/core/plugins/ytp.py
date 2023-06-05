@@ -54,7 +54,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
             "".join("-" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
-        tmp = progress_str + "{0} of {1}n\ᴇsᴛɪᴍᴀsɪ: {2}".format(
+        tmp = progress_str + "{0} of {1}\nᴇsᴛɪᴍᴀsɪ: {2}".format(
             humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
         )
         if file_name:
@@ -148,7 +148,9 @@ async def song_cmd(client, message):
         link = f"https://youtu.be/{search['id']}"
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
-    await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>")
+    await infomsg.edit(
+        progress=progress,
+        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", f"{search['id']}.mp3"))
     try:
         (
             file_name,
@@ -181,8 +183,6 @@ async def song_cmd(client, message):
             url,
             bot.me.mention,
         ),
-        progress=progress,
-        progress_args=(infomsg, c_time, "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", file_stark),
         reply_to_message_id=message.id,
     )
     await infomsg.delete()
