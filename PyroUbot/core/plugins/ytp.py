@@ -16,11 +16,11 @@ def humanbytes(size):
         return ""
     power = 2**10
     raised_to_pow = 0
-    dict_power_n = {0: "", 1: "K", 2: "M", 3: "G", 4: "T"}
+    dict_power_n = {0: "", 1: "ᴋʙ", 2: "ᴍʙ", 3: "ɢʙ", 4: "ᴛʙ"}
     while size > power:
         size /= power
         raised_to_pow += 1
-    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}B"
+    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}"
 
 
 def time_formatter(milliseconds: int) -> str:
@@ -50,11 +50,11 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join("🔴" for _ in range(math.floor(percentage / 10))),
-            "".join("🔘" for _ in range(10 - math.floor(percentage / 10))),
+            "".join("•" for _ in range(math.floor(percentage / 10))),
+            "".join("-" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
-        tmp = progress_str + "{0} of {1}\ᴇsᴛɪᴍᴀsɪ: {2}".format(
+        tmp = progress_str + "{0} of {1}n\ᴇsᴛɪᴍᴀsɪ: {2}".format(
             humanbytes(current), humanbytes(total), time_formatter(estimated_total_time)
         )
         if file_name:
