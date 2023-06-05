@@ -63,7 +63,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                     f"""
 <b>{type_of_ps}</b>
 
-<b>ғɪʟᴇ:</b> <code>{file_name}</code>
+<b>ғɪʟᴇ_ɪᴅ:</b> <code>{file_name}</code>
 
 <b>{tmp}</b>
 """
@@ -94,7 +94,6 @@ async def vsong_cmd(client, message):
         link = f"https://youtu.be/{search['id']}"
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
-    await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>")
     try:
         (
             file_name,
@@ -153,15 +152,6 @@ async def song_cmd(client, message):
         link = f"https://youtu.be/{search['id']}"
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
-    await infomsg.edit(
-        progress=progress,
-        progress_args=(
-            infomsg,
-            time(),
-            "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
-            f"{search['id']}.mp3",
-        ),
-    )
     try:
         (
             file_name,
@@ -191,6 +181,13 @@ async def song_cmd(client, message):
             channel,
             url,
             bot.me.mention,
+        ),
+        progress=progress,
+        progress_args=(
+            infomsg,
+            time(),
+            "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
+            f"{search['id']}.mp3",
         ),
         reply_to_message_id=message.id,
     )
