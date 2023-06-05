@@ -1,8 +1,8 @@
-import os, time 
+import os
+import time
 from datetime import timedelta
 
 import wget
-
 from pyrogram.errors import FloodWait, MessageNotModified
 from youtubesearchpython import VideosSearch
 
@@ -57,7 +57,9 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         )
         if file_name:
             try:
-                await message.edit(f"{type_of_ps}\n<b>File Name:</b> <code>{file_name}</code>\n{tmp}")
+                await message.edit(
+                    f"{type_of_ps}\n<b>File Name:</b> <code>{file_name}</code>\n{tmp}"
+                )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except MessageNotModified:
@@ -69,7 +71,6 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                 await asyncio.sleep(e.x)
             except MessageNotModified:
                 pass
-
 
 
 async def vsong_cmd(client, message):
