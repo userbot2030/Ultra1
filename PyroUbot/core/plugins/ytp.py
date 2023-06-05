@@ -126,7 +126,12 @@ async def vsong_cmd(client, message):
             bot.me.mention,
         ),
         progress=progress,
-        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", f"{search['id']}.mp4"),
+        progress_args=(
+            infomsg,
+            time(),
+            "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
+            f"{search['id']}.mp4",
+        ),
         reply_to_message_id=message.id,
     )
     await infomsg.delete()
