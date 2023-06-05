@@ -150,7 +150,13 @@ async def song_cmd(client, message):
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
     await infomsg.edit(
         progress=progress,
-        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", f"{search['id']}.mp3"))
+        progress_args=(
+            infomsg,
+            time(),
+            "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
+            f"{search['id']}.mp3",
+        ),
+    )
     try:
         (
             file_name,
@@ -165,8 +171,8 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    c_time = time()
-    file_stark = f"{search['id']}.mp3"
+    time()
+    f"{search['id']}.mp3"
     await client.send_audio(
         message.chat.id,
         audio=file_name,
