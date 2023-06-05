@@ -23,7 +23,7 @@ async def kang_cmd_bot(client, message):
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
         sticker_emoji = "✨"
-    doc = message.reply_to_message.photo or message.reply_to_message.document
+    doc = message.reply_to_message.photo or message.reply_to_message.document or message.reply_to_message.animation
     try:
         if message.reply_to_message.sticker:
             sticker = await create_sticker(
@@ -35,7 +35,7 @@ async def kang_cmd_bot(client, message):
         elif doc:
             if doc.file_size > 10000000:
                 return await msg.edit("ᴜᴋᴜʀᴀɴ ғɪʟᴇ ᴛᴇʀʟᴀʟᴜ ʙᴇsᴀʀ.")
-            temp_file_path = await client.download_media(doc)
+            temp_file_path = await dl_pic(client, message.reply_to_message)
             image_type = imghdr.what(temp_file_path)
             if image_type not in ["jpeg", "png", "webp"]:
                 return await msg.edit("ғᴏʀᴍᴀᴛ ᴛɪᴅᴀᴋ ᴅɪᴅᴜᴋᴜɴɢ! ({})".format(image_type))
@@ -119,10 +119,9 @@ async def kang_cmd(client, message):
     if message.reply_to_message:
         if reply.sticker or reply.photo or reply.animation:
             await client.unblock_user(bot.me.username)
-            photo = await dl_pic(client, reply)
-            send = await client.send_photo(bot.me.username, photo)
+            send = await reply.copy(bot.me.username)
             reply_send = await send.reply("/kang")
-            await asyncio.sleep(2)
+            await asyncio.sleep(5)
             results = await get_response(client, message)
             await results.copy(message.chat.id)
             return await delete_results(msg, send, reply_send, results)
