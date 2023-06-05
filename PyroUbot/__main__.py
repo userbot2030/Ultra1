@@ -21,11 +21,7 @@ async def main():
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await asyncio.gather(
-        loadPlugins(),
-        install_user_id(),
-        install_all_peer(),
-        expired_userbot(),
-        idle()
+        loadPlugins(), install_user_id(), install_all_peer(), expired_userbot(), idle()
     )
 
 
