@@ -28,6 +28,6 @@ async def install_all_peer():
         try:
             await install_my_peer(self)
             print(f"{self.me.id} install to get_my_peer")
-         except:
-             pass
+        except:
+            pass
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
