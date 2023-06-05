@@ -126,7 +126,7 @@ async def vsong_cmd(client, message):
             bot.me.mention,
         ),
         progress=progress,
-        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", file_name),
+        progress_args=(infomsg, time(), "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>", f"{search['id']}.mp4"),
         reply_to_message_id=message.id,
     )
     await infomsg.delete()
@@ -171,8 +171,6 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    time()
-    f"{search['id']}.mp3"
     await client.send_audio(
         message.chat.id,
         audio=file_name,
