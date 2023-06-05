@@ -27,7 +27,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        print(f"({self.me.id} bisa started")
+        print(f"({self.me.id} started")
 
 
 class Ubot(Client):
