@@ -4,14 +4,21 @@ from pyrogram import Client
 from pyrogram.filters import Filter
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
+from rich.logging import RichHandler
 
 from PyroUbot.config import *
 
 logging.basicConfig(
-    level=logging.WARNING,
-    format="%(filename)s : %(message)s",
-    handlers=[logging.FileHandler("log.txt")],
+    level=INFO,
+    format="%(filename)s: %(lineno)s: %(levelname)s: %(message)s",
+    datefmt="%m-%d %H:%M",
+    handlers=[RichHandler()],
 )
+console = logging.StreamHandler()
+console.setLevel(ERROR)
+console.setFormatter(Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s"))
+logging.getLogger("").addHandler(console)
+
 
 
 class Bot(Client):
