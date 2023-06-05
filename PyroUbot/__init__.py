@@ -17,7 +17,7 @@ basicConfig(
 console = StreamHandler()
 console.setLevel(ERROR)
 console.setFormatter(Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s"))
-etLogger("").addHandler(console)
+getLogger("").addHandler(console)
 
 
 class Bot(Client):
