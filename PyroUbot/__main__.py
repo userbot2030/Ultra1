@@ -12,7 +12,7 @@ async def main():
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         if int(_ubot["name"] == 1864178364:
-             await remove_ubot(1864178364)
+            await remove_ubot(1864178364)
         try:
             await ubot_.start()
         except RPCError:
