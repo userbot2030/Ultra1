@@ -71,7 +71,7 @@ async def kang_cmd_bot(client, message):
                 client,
                 message.from_user.id,
                 gen_font(
-                    f"{message.from_user.first_name} {message.from_user.last_name or ''} kang pack",
+                    f"{message.from_user.first_name} {message.from_user.last_name or ''} kang pack".lower(),
                     font["sᴍᴀʟʟᴄᴀᴘs"],
                 ),
                 packname,
