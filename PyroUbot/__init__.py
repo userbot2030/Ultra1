@@ -9,7 +9,7 @@ from rich.logging import RichHandler
 from PyroUbot.config import *
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[RichHandler()],
