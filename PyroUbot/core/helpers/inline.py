@@ -117,7 +117,7 @@ async def create_button(m):
         for X in m.text.split("~>", 1)[1].split():
             X_parts = X.split(":", 1)
             keyboard.append(
-                InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
+                InlineKeyboardButton(X_parts[0].replace("_", " "), X_parts[1])
             )
         buttons.add(*keyboard)
         text = m.text.split("~>", 1)[0].split(None, 1)[1]
