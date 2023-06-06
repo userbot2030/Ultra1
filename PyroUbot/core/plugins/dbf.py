@@ -17,11 +17,10 @@ async def prem_user(client, message):
         return await Tm.edit(
             "ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ"
         )
-    
     user_id, get_bulan = await extract_user_and_reason(message)
     if not user_id:
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
-    try;
+    try:
         get_id = (await client.get_users(user_id)).id
     except Exception as error:
         return await Tm.edit(error)
@@ -238,7 +237,7 @@ async def expired_add(client, message):
     user_id, get_day = await extract_user_and_reason(message)
     if not user_id:
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʜᴀʀɪ</b>")
-    try;
+    try:
         get_id = (await client.get_users(user_id)).id
     except Exception as error:
         return await Tm.edit(error)
