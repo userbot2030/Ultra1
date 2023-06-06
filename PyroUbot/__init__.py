@@ -3,7 +3,6 @@ import logging
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
-from rich.logging import RichHandler
 
 from PyroUbot.config import *
 
@@ -11,11 +10,8 @@ logging.basicConfig(
     level=logging.ERROR,
     format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[RichHandler()],
+    handlers=[logging.StreamHandler()],
 )
-
-console = logging.StreamHandler()
-logging.getLogger().addHandler(console)
 
 
 class Bot(Client):
