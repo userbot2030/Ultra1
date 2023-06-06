@@ -32,7 +32,7 @@ async def prem_user(client, message):
     added = await add_prem(get_id)
     if added:
         now = datetime.now(timezone("Asia/Jakarta"))
-        expired = now + relativedelta(months=get_bulan)
+        expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(get_id, expired)
         await Tm.edit(
             f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
@@ -246,7 +246,7 @@ async def expired_add(client, message):
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
-    await Tm.edit(f"{user_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {duration} ʜᴀʀɪ.")
+    await Tm.edit(f"{user_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_day} ʜᴀʀɪ.")
 
 
 async def expired_cek(client, message):
