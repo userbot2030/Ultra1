@@ -10,9 +10,9 @@ async def main():
     await bot.start()
     await ubot.start()
     for _ubot in await get_userbots():
-        ubot_ = Ubot(**_ubot)
-        if 1864178364 == int(_ubot["name"]:
+        if 1864178364 == int(_ubot['name']:
             await remove_ubot(1864178364)
+        ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
         except RPCError:
