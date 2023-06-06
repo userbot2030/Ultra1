@@ -86,14 +86,12 @@ async def convert_photo(client, message):
         Tm = await message.reply("ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ . . .")
         file_io = await dl_pic(client, message.reply_to_message)
         file_io.name = "sticker.png"
-        await asyncio.gather(
-            Tm.delete(),
-            client.send_photo(
-                message.chat.id,
-                file_io,
-                reply_to_message_id=message.id,
-            ),
+        await client.send_photo(
+            message.chat.id,
+            file_io,
+            reply_to_message_id=message.id,
         )
+        await Tm.delete()
     except Exception as e:
         await Tm.delete()
         return await client.send_message(
