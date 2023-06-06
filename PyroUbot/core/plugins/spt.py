@@ -26,7 +26,7 @@ async def support_callback(client, callback_query):
     except asyncio.TimeoutError as out:
         if get.id in SUPPORT:
             SUPPORT.remove(get.id)
-            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+            return await bot.send_message(get.id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     text = f"<b>💬 ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ sᴜᴅᴀʜ ᴛᴇʀᴋɪʀɪᴍ: {full_name}</b>"
     buttons = [
         [
@@ -68,7 +68,7 @@ async def jawab_pesan_callback(client, callback_query):
     except asyncio.TimeoutError:
         if get.id in SUPPORT:
             SUPPORT.remove(get.id)
-            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+            return await bot.send_message(get.id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     text = f"<b>✅ ᴘᴇsᴀɴ ʙᴀʟᴀsᴀɴ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴛᴇʀᴋɪʀɪᴍ: {full_name}</b>"
     if not user_ids == OWNER_ID:
         buttons = [[InlineKeyboardButton("💬 ᴊᴀᴡᴀʙ ᴘᴇsᴀɴ 💬", f"jawab_pesan {user_id}")]]
