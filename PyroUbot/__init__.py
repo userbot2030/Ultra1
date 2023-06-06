@@ -15,8 +15,8 @@ logging.basicConfig(
 
 
 class Bot(Client):
-    def __init__(self, robot):
-        super().__init__(robot)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -36,8 +36,8 @@ class Ubot(Client):
     _translate = {}
     _get_my_peer = {}
 
-    def __init__(self, userbot):
-        super().__init__(userbot)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
