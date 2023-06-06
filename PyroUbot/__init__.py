@@ -4,10 +4,9 @@ from pyrogram import Client
 from pyrogram.filters import Filter
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
+from rich.logging import RichHandler
 
 from PyroUbot.config import *
-
-from rich.logging import RichHandler
 
 logging.basicConfig(
     level=logging.INFO,
@@ -18,7 +17,9 @@ logging.basicConfig(
 
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
-console.setFormatter(logging.Formatter("%(filename)s: %(lineno)s %(levelname)s: %(message)s"))
+console.setFormatter(
+    logging.Formatter("%(filename)s: %(lineno)s %(levelname)s: %(message)s")
+)
 logging.getLogger().addHandler(console)
 
 
