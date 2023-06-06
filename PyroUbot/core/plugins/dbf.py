@@ -238,11 +238,11 @@ async def expired_add(client, message):
     if not user_id:
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʜᴀʀɪ</b>")
     try:
-        get_id = (await client.get_users(user_id)).id
+        (await client.get_users(user_id)).id
     except Exception as error:
         return await Tm.edit(error)
     if not get_day:
-        get_bulan = 1
+        pass
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=get_day)
     await set_expired_date(user_id, expire_date)
