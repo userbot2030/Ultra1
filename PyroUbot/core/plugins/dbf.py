@@ -72,7 +72,7 @@ async def unprem_user(client, message):
         await Tm.edit(error)
     delpremium = await get_prem()
     if user.id not in delpremium:
-        return await message.reply_text("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     removed = await remove_prem(user.id)
     if removed:
         await rem_expired_date(user.id)
