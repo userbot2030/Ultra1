@@ -16,6 +16,6 @@ async def _(client, inline_query):
 # @INLINE.DATA
 async def _(client, callback_query):
     try:
-       await menu_callback(client, callback_query)
+        await menu_callback(client, callback_query)
     except:
         pass
