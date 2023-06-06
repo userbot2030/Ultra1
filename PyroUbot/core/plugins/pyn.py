@@ -27,7 +27,7 @@ async def confirm_callback(client, callback_query):
     except asyncio.TimeoutError as out:
         if get.id in CONFIRM_PAYMENT:
             CONFIRM_PAYMENT.remove(get.id)
-            return await pesan.request.edit("ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+            return await bot.send_message(get.id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
     if get.id in CONFIRM_PAYMENT:
         if not pesan.photo:
             CONFIRM_PAYMENT.remove(get.id)
