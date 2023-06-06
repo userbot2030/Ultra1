@@ -12,7 +12,7 @@ async def alive_cmd(client, message):
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>", quote=True)
     try:
         x = await client.get_inline_bot_results(
-            bot.me.username, f"alive {message.id} {message.from_user.id}"
+            bot.me.username, f"alive {message.id} {client.me.id}"
         )
         await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
         await msg.delete()
