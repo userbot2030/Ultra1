@@ -17,18 +17,16 @@ async def prem_user(client, message):
         return await Tm.edit(
             "ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ"
         )
-    try:
-        if message.reply_to_message:
-            get_id = message.reply_to_message.from_user.id
-            get_bulan = int(message.command[1])
-        else:
-            if len(message.command) < 3:
-                return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
-            else:
-                get_id = int(message.command[1])
-                get_bulan = int(message.command[2])
+    
+    user_id, get_bulan = await extract_user_and_reason(message)
+    if not user_id:
+        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʙᴜʟᴀɴ</b>")
+    try;
+        get_id = (await client.get_users(user_id)).id
     except Exception as error:
         return await Tm.edit(error)
+    if not get_bulan:
+        get_bulan = 1
     premium = await get_prem()
     if get_id in premium:
         return await Tm.edit("ᴅɪᴀ sᴜᴅᴀʜ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ")
@@ -236,15 +234,20 @@ async def get_seles_user(cliebt, message):
 
 
 async def expired_add(client, message):
-    try:
-        user_id = int(message.text.split()[1])
-        duration = int(message.text.split()[2])
-    except (IndexError, ValueError) as error:
-        return await message.reply(error)
+    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
+    user_id, get_day = await extract_user_and_reason(message)
+    if not user_id:
+        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ - ʜᴀʀɪ</b>")
+    try;
+        get_id = (await client.get_users(user_id)).id
+    except Exception as error:
+        return await Tm.edit(error)
+    if not get_day:
+        get_bulan = 1
     now = datetime.now(timezone("Asia/Jakarta"))
-    expire_date = now + timedelta(days=duration)
+    expire_date = now + timedelta(days=get_day)
     await set_expired_date(user_id, expire_date)
-    await message.reply(f"{user_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {duration} ʜᴀʀɪ.")
+    await Tm.edit(f"{user_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {duration} ʜᴀʀɪ.")
 
 
 async def expired_cek(client, message):
