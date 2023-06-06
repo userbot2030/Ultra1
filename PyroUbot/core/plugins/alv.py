@@ -29,8 +29,8 @@ async def alive_query(client, inline_query):
                 users = peer["pm"]
                 group = peer["gc"]
             except Exception:
-                users = random.randrange(9999)
-                group = random.randrange(9999)
+                users = random.randrange(999)
+                group = random.randrange(999)
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
