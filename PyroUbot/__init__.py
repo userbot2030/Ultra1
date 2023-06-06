@@ -17,7 +17,6 @@ except Exception as e:
     logging.error("Terjadi kesalahan: %s", str(e))
 
 
-
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
