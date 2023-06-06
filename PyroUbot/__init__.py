@@ -7,10 +7,19 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
+from rich.logging import RichHandler
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
+    datefmt="%m-%d %H:%M",
+    handlers=[RichHandler()],
+)
+
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
-console.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
-logging.getLogger("").addHandler(console)
+console.setFormatter(logging.Formatter("%(filename)s: %(lineno)s %(levelname)s: %(message)s"))
+logging.getLogger().addHandler(console)
 
 
 class Bot(Client):
