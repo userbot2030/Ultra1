@@ -1,5 +1,5 @@
 from gc import get_objects
-
+from io import BytesIO
 from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 
 from PyroUbot import *
@@ -92,4 +92,10 @@ async def notes_cmd(client, message):
     else:
         for notes in list:
             msg += f"• {notes}\n"
+    if int(len(str(msg))) > 4096:
+        with BytesIO(str.encode(str(msg))) as out_file:
+            out_file.name = "notes.txt"
+            await message.reply_document(
+                document=out_file,
+            )
     await message.reply(msg)
