@@ -22,7 +22,6 @@ async def main():
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await loadPlugins()
     await install_user_id()
-    await install_all_peer()
     await expired_userbot()
     await idle()
 
