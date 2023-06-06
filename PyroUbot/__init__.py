@@ -1,7 +1,6 @@
 import logging
 
 from pyrogram import Client
-from pyrogram.filters import Filter
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 from rich.logging import RichHandler
@@ -23,7 +22,7 @@ class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def on_message(self, filters=Filter, group=-1):
+    def on_message(self, filters=None, group=-1):
         def decorator(func):
             self.add_handler(MessageHandler(func, filters), group)
             return func
@@ -44,7 +43,7 @@ class Ubot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def on_message(self, filters=Filter, group=-1):
+    def on_message(self, filters=None, group=-1):
         def decorator(func):
             for ub in self._ubot:
                 ub.add_handler(MessageHandler(func, filters), group)
