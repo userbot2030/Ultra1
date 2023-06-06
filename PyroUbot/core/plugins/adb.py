@@ -213,11 +213,9 @@ async def bikin_ubot(client, callback_query):
         api_hash=api_hashs,
         session_string=session_string,
     )
-    await asyncio.gather(
-        remove_prem(callback_query.from_user.id),
-        install_user_id(),
-        install_my_peer(new_client),
-    )
+    await remove_prem(callback_query.from_user.id)
+    await install_user_id()
+    await install_my_peer(new_client)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
