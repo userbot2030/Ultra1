@@ -6,15 +6,12 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-logger = logging.getLogger()
-logger.setLevel(logging.ERROR)
-formatter = logging.Formatter(
-    "%(filename)s:%(lineno)s %(levelname)s: %(message)s", "%m-%d %H:%M"
+logging.basicConfig(
+    level=logging.ERROR,
+    format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
+    datefmt="%m-%d %H:%M",
+    handlers=[logging.StreamHandler()],
 )
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
-logger.addHandler(stream_handler)
-
 
 class Bot(Client):
     def __init__(self, **kwargs):
