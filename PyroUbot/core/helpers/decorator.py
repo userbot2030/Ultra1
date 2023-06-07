@@ -13,14 +13,14 @@ async def install_user_id():
 
 
 async def install_my_peer(self):
-    users = 0
-    group = 0
+    users = []
+    group = []
     async for dialog in self.get_dialogs():
         if dialog.chat.type == ChatType.PRIVATE:
-            users += 1
+            users.append(dialog.chat.id)
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-            group += 1
-    self._get_my_peer[self.me.id] = {"pm": users, "gc": group}
+            group.append(dialog.chat.id)
+    self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
 
 
 async def install_all_peer():
