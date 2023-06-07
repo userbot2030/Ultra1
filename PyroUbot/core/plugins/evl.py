@@ -1,9 +1,11 @@
 import os
+import platform
 import sys
 import traceback
-import psutil, platform
 from datetime import datetime
 from io import BytesIO, StringIO
+
+import psutil
 
 from PyroUbot import *
 
@@ -149,10 +151,8 @@ async def vps(client, message):
     softw += f"Waktu Hidup: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}\n"
 
     softw += "\nInformasi CPU\n"
-    softw += "Physical cores   : " + \
-        str(psutil.cpu_count(logical=False)) + "\n"
-    softw += "Total cores      : " + \
-        str(psutil.cpu_count(logical=True)) + "\n"
+    softw += "Physical cores   : " + str(psutil.cpu_count(logical=False)) + "\n"
+    softw += "Total cores      : " + str(psutil.cpu_count(logical=True)) + "\n"
     cpufreq = psutil.cpu_freq()
     softw += f"Max Frequency    : {cpufreq.max:.2f}Mhz\n"
     softw += f"Min Frequency    : {cpufreq.min:.2f}Mhz\n"
