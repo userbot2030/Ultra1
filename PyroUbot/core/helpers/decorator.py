@@ -23,7 +23,8 @@ async def install_my_peer(self):
                 group.append(dialog.chat.id)
         self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
     except:
-        pass 
+        pass
+
 
 async def install_all_peer():
     for self in ubot._ubot:
