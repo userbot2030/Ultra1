@@ -60,7 +60,7 @@ class Ubot(Client):
             self._translate[self.me.id] = {"negara": "id"}
             for mod in loadModule():
                 importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-            await install_my_peer(self)
+            # await install_my_peer(self)
             print(f"Userbot ({self.me.id}) Started")
 
 
