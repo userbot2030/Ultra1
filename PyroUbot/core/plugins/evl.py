@@ -174,4 +174,6 @@ async def vps(client, message):
     softw += f"Used      : {get_size(svmem.used)}\n"
     softw += f"Percentage: {svmem.percent}%\n"
 
-    return await message.reply(f"<b>{gen_font(softw.lower(), font['sᴍᴀʟʟᴄᴀᴘs'])}</b>", quote=True)
+    return await message.reply(
+        f"<b>{gen_font(softw.lower(), font['sᴍᴀʟʟᴄᴀᴘs'])}</b>", quote=True
+    )
