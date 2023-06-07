@@ -29,14 +29,17 @@ async def broadcast_group_cmd(client, message):
                         await send.copy(chat_id)
                     else:
                         if "~>" in send:
-                            x = await client.get_inline_bot_results(
+                            try:
+                                x = await client.get_inline_bot_results(
                                 bot.me.username, f"gcast_button {id(message)}"
                             )
-                            await client.send_inline_bot_result(
+                                await client.send_inline_bot_result(
                                 chat_id,
                                 x.query_id,
                                 x.results[0].id,
                             )
+                            except:
+                                pass
                         else:
                             await client.send_message(chat_id, send)
                     sent += 1
