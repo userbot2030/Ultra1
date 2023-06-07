@@ -45,7 +45,7 @@ async def need_api(client, callback_query):
 
 async def payment_userbot(client, callback_query):
     user_id = callback_query.from_user.id
-    buttons = Button.plus_minus(1)
+    buttons = Button.plus_minus(1, user_id)
     await callback_query.message.delete()
     return await bot.send_message(
         user_id,
