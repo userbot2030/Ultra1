@@ -23,18 +23,22 @@ class Button:
         keyboard = []
         for X in add_button:
             keyboard.append(
-            InlineKeyboardButton(
-                f"{X.replace('_', ' ')}",
-                callback_data=f"success {user_id} {add_button[X]}",
+                InlineKeyboardButton(
+                    f"{X.replace('_', ' ')}",
+                    callback_data=f"success {user_id} {add_button[X]}",
+                )
             )
-        )
         buttons.add(*keyboard)
         buttons.row(
-        InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}")
-    )
+            InlineKeyboardButton(
+                "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"
+            )
+        )
         buttons.row(
-        InlineKeyboardButton("❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}")
-    )
+            InlineKeyboardButton(
+                "❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}"
+            )
+        )
         return buttons
 
     def expired_button_bot():
@@ -187,4 +191,3 @@ add_button = {
     "11_ʙᴜʟᴀɴ": 11,
     "12_ʙᴜʟᴀɴ": 12,
 }
-
