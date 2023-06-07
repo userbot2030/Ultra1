@@ -19,7 +19,7 @@ async def prem_user(client, message):
         )
     user_id, get_bulan = await extract_user_and_reason(message)
     if not user_id:
-        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ- ʙᴜʟᴀɴ</b>")
+        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʙᴜʟᴀɴ</b>")
     try:
         get_id = (await client.get_users(user_id)).id
     except Exception as error:
