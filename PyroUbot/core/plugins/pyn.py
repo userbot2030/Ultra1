@@ -79,7 +79,7 @@ async def tambah_or_kurang(client, callback_query):
             if BULAN < 12:
                 BULAN += 1
                 TOTAL_HARGA = HARGA * BULAN
-        buttons = Button.plus_minus(BULAN)
+        buttons = Button.plus_minus(BULAN, callback_query.from_user.id)
         await callback_query.message.reply_text(
             MSG.TEXT_PAYMENT(HARGA, TOTAL_HARGA, BULAN),
             disable_web_page_preview=True,
