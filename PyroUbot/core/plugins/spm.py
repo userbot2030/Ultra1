@@ -31,19 +31,19 @@ async def spam_cmd(client, message):
 
 async def dspam_cmd(client, message):
     reply = message.reply_to_message
-    try:
-        msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
-    except:
-        pass
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
             count_message = int(message.command[1])
             count_delay = int(message.command[2])
-            for i in range(count_message):
-                await reply.copy(message.chat.id)
-                await asyncio.sleep(count_delay)
         except Exception as error:
             return await msg.edit(str(error))
+        for i in range(count_message):
+            try:
+                await reply.copy(message.chat.id)
+                await asyncio.sleep(count_delay)
+            except:
+                pass
     else:
         if len(message.command) < 4:
             return await msg.edit(
@@ -53,10 +53,13 @@ async def dspam_cmd(client, message):
             try:
                 count_message = int(message.command[1])
                 count_delay = int(message.command[2])
-                for i in range(count_message):
-                    await message.reply(message.text.split(None, 3)[3], quote=False)
-                    await asyncio.sleep(count_delay)
             except Exception as error:
                 return await msg.edit(str(error))
+            for i in range(count_message):
+                try:
+                    await message.reply(message.text.split(None, 3)[3], quote=False)
+                    await asyncio.sleep(count_delay)
+                except:
+                    pass
     await msg.delete()
     await message.delete()
