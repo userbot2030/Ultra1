@@ -76,7 +76,9 @@ async def restart_cmd(client, message):
                         UB = Ubot(**_ubot_)
                         await UB.start()
                         for mod in loadModule():
-                            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
+                            importlib.reload(
+                                importlib.import_module(f"PyroUbot.modules.{mod}")
+                            )
                         return await msg.edit(
                             f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
                         )
