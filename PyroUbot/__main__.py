@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os
 
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
@@ -32,4 +32,4 @@ if __name__ == "__main__":
     try:
         asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
     except (asyncio.CancelledError, asyncio.TimeoutError):
-        pass
+        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
