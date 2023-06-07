@@ -47,7 +47,7 @@ async def confirm_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
         elif pesan.photo:
-            buttons =  Button.button_add_expired(get.id)
+            buttons = Button.button_add_expired(get.id)
             await pesan.copy(
                 OWNER_ID,
                 reply_markup=buttons,
