@@ -7,8 +7,8 @@ from PyroUbot import *
 
 
 async def main():
-    await threading.Thread(target=bot.start).start()
-    await threading.Thread(target=ubot.start).start()
+    await bot.start)
+    await ubot.start)
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
