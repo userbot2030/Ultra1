@@ -31,13 +31,13 @@ async def broadcast_group_cmd(client, message):
                         if "~>" in send:
                             try:
                                 x = await client.get_inline_bot_results(
-                                bot.me.username, f"gcast_button {id(message)}"
-                            )
+                                    bot.me.username, f"gcast_button {id(message)}"
+                                )
                                 await client.send_inline_bot_result(
-                                chat_id,
-                                x.query_id,
-                                x.results[0].id,
-                            )
+                                    chat_id,
+                                    x.query_id,
+                                    x.results[0].id,
+                                )
                             except:
                                 pass
                         else:
