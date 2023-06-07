@@ -1,9 +1,7 @@
 import logging
-
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
-
 from PyroUbot.config import *
 
 logger = logging.getLogger()
@@ -19,6 +17,7 @@ logger.addHandler(stream_handler)
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.logger = logging.getLogger("Bot")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -29,7 +28,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        print(f"Robot ({self.me.id}) Started")
+        self.logger.info(f"Robot ({self.me.id}) Started")
 
 
 class Ubot(Client):
@@ -40,6 +39,7 @@ class Ubot(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.logger = logging.getLogger("Ubot")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -55,7 +55,7 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
-            print(f"Userbot ({self.me.id}) Started")
+            self.logger.info(f"Userbot ({self.me.id}) Started")
 
 
 bot = Bot(
