@@ -1,5 +1,4 @@
 import asyncio
-import threading
 
 from pyrogram.methods.utilities.idle import idle
 
