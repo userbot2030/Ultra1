@@ -1,5 +1,6 @@
 import asyncio
 
+from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
@@ -12,7 +13,7 @@ async def main():
         ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
-        except:
+        except RPCError:
             user_id = int(_ubot["name"])
             await remove_ubot(user_id)
             await rm_all(user_id)
