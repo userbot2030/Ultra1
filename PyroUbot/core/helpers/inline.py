@@ -33,7 +33,7 @@ class Button:
         button = [
             [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
             [
-                InlineKeyboardButton("💬 ʙᴀɴᴛᴜᴀɴ", callback_data="help_back"),
+                InlineKeyboardButton("✨ ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/PremUbotCH/157"),
                 InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
             ],
         ]
