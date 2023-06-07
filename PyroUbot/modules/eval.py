@@ -22,3 +22,9 @@ async def _(client, message):
 @PY.UBOT(["getotp", "getnum"], FILTERS.ME_OWNER)
 async def _(client, message):
     await get_my_otp(client, message)
+
+
+@PY.BOT("host", FILTERS.OWNER)
+@PY.UBOT("host", FILTERS.ME_OWNER)
+async def _(client, message):
+    await vps(client, message)
