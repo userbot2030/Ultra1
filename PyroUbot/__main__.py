@@ -1,8 +1,7 @@
 import asyncio
 import os
 
-from pyrogram.errors import RPCError
-from pyrogram.errors.exceptions.flood_42 import FloodWait
+from pyrogram.errors import FloodWait, RPCError 
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
