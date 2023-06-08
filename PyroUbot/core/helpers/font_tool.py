@@ -2447,8 +2447,3 @@ query_fomts = {
     Fonts.typewriter("abcd"): "typewriter",
     Fonts.outline("abcd"): "outline",
 }
-    
-    
-    
-    
-    
