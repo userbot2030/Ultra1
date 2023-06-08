@@ -2409,7 +2409,7 @@ def gens_font(font, text):
     elif font == "square":
         get_font = Fonts.square(text)
     elif font == "dark_square":
-        Fonts.dark_square(text)
+        get_font = Fonts.dark_square(text)
     elif font == "andalucia":
         get_font = Fonts.andalucia(text)
     elif font == "manga":
@@ -2444,6 +2444,17 @@ def gens_font(font, text):
 
 
 query_fomts = {
-    Fonts.typewriter("abcd"): "typewriter",
-    Fonts.outline("abcd"): "outline",
+    Fonts.typewriter("typewriter"): "typewriter",
+    Fonts.outline("outline"): "outline",
+    Fonts.serief("serief"): "serief",
+    Fonts.bold_cool("bold_cool": "bold_cool",
 }
+
+
+
+
+
+
+
+
+
