@@ -2384,7 +2384,7 @@ def gens_font(font, text):
         get_font = Fonts.comic(text)
     elif font == "san":
         get_font = Fonts.san(text)
-    elif font == "slant_san"
+    elif font == "slant_san":
         get_font = Fonts.slant_san(text)
     elif font == "slant":
         get_font = Fonts.slant(text)
