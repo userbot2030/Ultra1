@@ -31,8 +31,6 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        even = asyncio.get_event_loop_policy()
-        loop = even.get_event_loop()
-        loop.run_until_complete(main())
+        asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
     except FloodWait:
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
