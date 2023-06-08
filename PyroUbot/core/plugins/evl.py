@@ -16,7 +16,7 @@ async def shell_cmd(client, message):
     try:
         if message.command[1] == "restart":
             await message.delete()
-            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+            os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "gitpull":
             await message.delete()
             os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
