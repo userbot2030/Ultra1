@@ -23,7 +23,6 @@ async def main():
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await loadPlugins()
-    await install_all_peer()
     await install_user_id()
     await expired_userbot()
     await idle()
