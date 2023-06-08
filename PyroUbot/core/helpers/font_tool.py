@@ -2363,7 +2363,7 @@ class Fonts:
 
 def gens_font(font, text):
     if font == "typewriter":
-        get_font = Fonts.typewriter(text)               
+        get_font = Fonts.typewriter(text)
     elif font == "outline":
         get_font == Fonts.outline(text)
     elif font == "serief":
@@ -2441,10 +2441,3 @@ def gens_font(font, text):
     elif font == "frozen":
         get_font = Fonts.frozen(text)
     return get_font
-    
-    
-    
-    
-    
-    
-    
