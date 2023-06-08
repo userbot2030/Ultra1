@@ -2370,11 +2370,11 @@ def gens_font(font, text):
         get_font = Fonts.serief(text)
     elif font == "bold_cool":
         get_font = Fonts.bold_cool(text)
-    elif == "cool":
+    elif font == "cool":
         get_font = Fonts.cool(text)
-    elif == "smallcap":
+    elif font == "smallcap":
         get_font = Fonts.smallcap(text)
-    elif == "script":
+    elif font == "script":
         get_font = Fonts.script(text)
     elif == "bold_script":
         get_font = Fonts.bold_script(text)
@@ -2398,6 +2398,48 @@ def gens_font(font, text):
         get_font = Fonts.gothic(text)
     elif font == "bold_gothic":
         get_font = Fonts.bold_gothic(test)
+    elif font == "cloud":
+        get_font = Fonts.cloud(text)
+    elif font == "happy":
+        get_font = Fonts.happy(text)
+    elif font == "sad":
+        get_font = Fonts.sad(text)
+    elif font == "special":
+        get_font = Fonts.special(text)
+    elif font == "square":
+        get_font = Fonts.square(text)
+    elif font == "dark_square":
+        Fonts.dark_square(text)
+    elif font == "andalucia":
+        get_font = Fonts.andalucia(text)
+    elif font == "manga":
+        get_font = Fonts.manga(text)
+    elif font == "stinky":
+        get_font = Fonts.stinky(text)
+    elif font == "bubbles":
+        get_font = Fonts.bubbles(text)
+    elif font == "underline":
+        get_font = Fonts.underline(text)
+    elif font == "ladybug":
+        get_font = Fonts.ladybug(text)
+    elif font == "rays":
+        get_font == Fonts.rays(text)
+    elif font == "birds":
+        get_font = Fonts.birds(text)
+    elif font == "slash":
+        get_font = Fonts.slash(text)
+    elif font == "stop":
+        get_font = Fonts.stop(text)
+    elif font == "skyline":
+        get_font = Fonts.skyline(text)
+    elif font == "arrows":
+        get_font = Fonts.arrows(text)
+    elif font == "rvnes":
+        get_font = Fonts.rvnes(text)
+    elif font == "strike":
+        get_font = Fonts.strike(text)
+    elif font == "frozen":
+        get_font = Fonts.frozen(text)
     return get_font
     
     
