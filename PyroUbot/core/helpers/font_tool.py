@@ -2376,7 +2376,7 @@ def gens_font(font, text):
         get_font = Fonts.smallcap(text)
     elif font == "script":
         get_font = Fonts.script(text)
-    elif == "bold_script":
+    elif font == "bold_script":
         get_font = Fonts.bold_script(text)
     elif font == "tiny":
         get_font = Fonts.tiny(text)
