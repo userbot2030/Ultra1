@@ -1,7 +1,7 @@
 import asyncio
 import os
 
-from pyrogram.errors import ConnectionError, RPCError
+from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
