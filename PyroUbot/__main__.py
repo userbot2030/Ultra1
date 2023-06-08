@@ -31,5 +31,5 @@ async def main():
 if __name__ == "__main__":
     try:
         asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
-    except ConnectionError, TimeoutError):
+    except (ConnectionError, TimeoutError):
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
