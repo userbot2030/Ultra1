@@ -2372,7 +2372,7 @@ def gens_font(font, text):
         get_font = Fonts.bold_cool(text)
     elif == "cool":
         get_font = Fonts.cool(text)
-    elif == "smallcap";
+    elif == "smallcap":
         get_font = Fonts.smallcap(text)
     elif == "script":
         get_font = Fonts.script(text)
@@ -2380,7 +2380,25 @@ def gens_font(font, text):
         get_font = Fonts.bold_script(text)
     elif font == "tiny":
         get_font = Fonts.tiny(text)
-    
+    elif font == "comic":
+        get_font = Fonts.comic(text)
+    elif font == "san":
+        get_font = Fonts.san(text)
+    elif font == "slant_san"
+        get_font = Fonts.slant_san(text)
+    elif font == "slant":
+        get_font = Fonts.slant(text)
+    elif font == "sim":
+        get_font = Fonts.sim(text)
+    elif font == "circles":
+        get_font = Fomts.circles(text)
+    elif font == "dark_circle":
+        get_font = Fonts.dark_circle(text)
+    elif font == "gothic":
+        get_font = Fonts.gothic(text)
+    elif font == "bold_gothic":
+        get_font = Fonts.bold_gothic(test)
+    return get_font
     
     
     
