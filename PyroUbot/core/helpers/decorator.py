@@ -1,3 +1,5 @@
+import asyncio
+
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import FloodWait
@@ -14,17 +16,16 @@ async def install_user_id():
 
 
 async def install_my_peer(self):
-    try:
-        users = []
-        group = []
-        async for dialog in self.get_dialogs():
-            if dialog.chat.type == ChatType.PRIVATE:
-                users.append(dialog.chat.id)
-            elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-                group.append(dialog.chat.id)
-        self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
-    except FloodWait:
-        pass
+    users = []
+    group = []
+    async for dialog in self.get_dialogs():
+        if dialog.chat.type == ChatType.PRIVATE:
+            users.append(dialog.chat.id)
+            await asyncio.sleep(5)
+        elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+            group.append(dialog.chat.id)
+            await asyncio.sleep(5)
+    self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)
 
 
 async def install_all_peer():
