@@ -1,4 +1,5 @@
 import asyncio
+import os
 
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
@@ -29,6 +30,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    even = asyncio.get_event_loop_policy
-    loop = even.get_event_loop()
-    loop.run_until_complete(main())
+    try:
+       even = asyncio.get_event_loop_policy()
+       loop = even.get_event_loop()
+       loop.run_until_complete(main())
+    except:
+        os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
