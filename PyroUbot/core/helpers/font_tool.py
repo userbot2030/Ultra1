@@ -2359,3 +2359,32 @@ class Fonts:
         for i, j in style.items():
             text = text.replace(i, j)
         return text
+
+
+def gens_font(font, text):
+    if font == "typewriter":
+        get_font = Fonts.typewriter(text)               
+    elif font == "outline":
+        get_font == Fonts.outline(text)
+    elif font == "serief":
+        get_font = Fonts.serief(text)
+    elif font == "bold_cool":
+        get_font = Fonts.bold_cool(text)
+    elif == "cool":
+        get_font = Fonts.cool(text)
+    elif == "smallcap";
+        get_font = Fonts.smallcap(text)
+    elif == "script":
+        get_font = Fonts.script(text)
+    elif == "bold_script":
+        get_font = Fonts.bold_script(text)
+    elif font == "tiny":
+        get_font = Fonts.tiny(text)
+    
+    
+    
+    
+    
+    
+    
+    
