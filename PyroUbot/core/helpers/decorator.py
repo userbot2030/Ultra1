@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.enums import ChatType
-
+from pyrogram.errors import FloodWait
 from PyroUbot import bot, ubot
 from PyroUbot.config import OWNER_ID
 
@@ -22,14 +22,11 @@ async def install_my_peer(self):
             elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group.append(dialog.chat.id)
         self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
-    except:
+    except FloodWait:
         pass
 
 
 async def install_all_peer():
     for self in ubot._ubot:
-        try:
-            await install_my_peer(self)
-        except:
-            pass
+        await install_my_peer(self)
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
