@@ -2441,3 +2441,14 @@ def gens_font(font, text):
     elif font == "frozen":
         get_font = Fonts.frozen(text)
     return get_font
+
+
+query_fomts = {
+    Fonts.typewriter("abcd"): "typewriter",
+    Fonts.outline("abcd"): "outline",
+}
+    
+    
+    
+    
+    
