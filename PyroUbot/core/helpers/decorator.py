@@ -2,7 +2,6 @@ import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.errors import FloodWait
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import OWNER_ID
