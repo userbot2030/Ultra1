@@ -1,6 +1,7 @@
+import random
 from datetime import datetime
 from time import time
-import random 
+
 from pyrogram.raw.functions import Ping
 from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
