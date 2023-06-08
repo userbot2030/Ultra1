@@ -1,6 +1,6 @@
 from datetime import datetime
 from time import time
-
+import random 
 from pyrogram.raw.functions import Ping
 from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
@@ -29,8 +29,8 @@ async def alive_query(client, inline_query):
                 users = peer["pm"]
                 group = peer["gc"]
             except Exception:
-                users = random.randrange(999)
-                group = random.randrange(999)
+                users = random.randrange(await my.get_dialogs_count())
+                group = random.randrange(await my.get_dialogs_count())
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
