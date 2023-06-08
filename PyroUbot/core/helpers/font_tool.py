@@ -2449,12 +2449,3 @@ query_fomts = {
     Fonts.serief("serief"): "serief",
     Fonts.bold_cool("bold_cool"): "bold_cool",
 }
-
-
-
-
-
-
-
-
-
