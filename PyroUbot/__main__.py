@@ -29,7 +29,7 @@ async def main():
     await idle()
 
 
-if name == "__main__":
+if __name__ == "__main__":
     try:
         loop = asyncio.get_event_loop()
         loop.run_until_complete(main())
