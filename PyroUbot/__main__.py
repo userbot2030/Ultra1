@@ -2,6 +2,7 @@ import asyncio
 import os
 
 from pyrogram.errors import RPCError
+from pyrogram.errors.exceptions.flood_42 import FloodWait
 from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
@@ -32,5 +33,5 @@ async def main():
 if __name__ == "__main__":
     try:
         asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
-    except asyncio.FloodWait:
+    except FloodWait:
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
