@@ -28,9 +28,9 @@ async def main():
     await expired_userbot()
     await idle()
 
-
-if __name__ == "__main__":
+if name == "__main__":
     try:
-        asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
-    except Exception:
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main())
+    except:
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
