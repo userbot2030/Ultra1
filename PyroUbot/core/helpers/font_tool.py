@@ -2447,7 +2447,7 @@ query_fomts = {
     Fonts.typewriter("typewriter"): "typewriter",
     Fonts.outline("outline"): "outline",
     Fonts.serief("serief"): "serief",
-    Fonts.bold_cool("bold_cool": "bold_cool",
+    Fonts.bold_cool("bold_cool"): "bold_cool",
 }
 
 
