@@ -20,10 +20,9 @@ async def install_my_peer(self):
     async for dialog in self.get_dialogs():
         if dialog.chat.type == ChatType.PRIVATE:
             users.append(dialog.chat.id)
-            await asyncio.sleep(5)
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             group.append(dialog.chat.id)
-            await asyncio.sleep(5)
+        await asyncio.sleep(5)
     self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
 
 
