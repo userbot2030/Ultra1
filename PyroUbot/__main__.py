@@ -24,11 +24,6 @@ async def main():
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
-    await idle()
-
-
-if __name__ == "__main__":
-    asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
     count = 0
     for X in os.popen("ls").read().split():
         try:
@@ -37,3 +32,9 @@ if __name__ == "__main__":
         except:
             pass
     print(f"✅ {count} sampah berhasil di bersihkan")
+    await idle()
+
+
+if __name__ == "__main__":
+    asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
+    
