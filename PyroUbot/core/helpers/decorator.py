@@ -16,14 +16,14 @@ async def install_my_peer(client):
     users = len(
         [
             dialog.chat.id
-            async for dialog in client.iter_dialogs()
+            async for dialog in client.get_dialogs()
             if dialog.chat.type == ChatType.PRIVATE
         ]
     )
     group = len(
         [
             dialog.chat.id
-            async for dialog in client.iter_dialogs()
+            async for dialog in client.get_dialogs()
             if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
         ]
     )
