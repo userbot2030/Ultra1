@@ -22,7 +22,6 @@ async def start_client(client):
             for X in await get_chat(user_id):
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
-    await asyncio.gather(ubot_client)
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
