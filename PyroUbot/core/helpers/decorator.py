@@ -4,7 +4,6 @@ from pyrogram.types import ChatType
 from PyroUbot import bot, ubot
 from PyroUbot.config import OWNER_ID
 
-
 ONLY_UBOT = filters.user()
 
 
@@ -14,16 +13,20 @@ async def install_user_id():
 
 
 async def install_my_peer(client):
-    users = len([
-        dialog.chat.id
-        async for dialog in client.iter_dialogs()
-        if dialog.chat.type == ChatType.PRIVATE
-    ])
-    group = len([
-        dialog.chat.id
-        async for dialog in client.iter_dialogs()
-        if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
-    ])
+    users = len(
+        [
+            dialog.chat.id
+            async for dialog in client.iter_dialogs()
+            if dialog.chat.type == ChatType.PRIVATE
+        ]
+    )
+    group = len(
+        [
+            dialog.chat.id
+            async for dialog in client.iter_dialogs()
+            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
+        ]
+    )
     client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
 
 
