@@ -92,9 +92,9 @@ async def restart_cmd(client, message):
                             importlib.reload(
                                 importlib.import_module(f"PyroUbot.modules.{mod}")
                             )
-                         return await msg.edit(
+                        return await msg.edit(
                             f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
-                            f
+                            
                         )
                     except Exception as error:
                         return await msg.edit(f"<b>{error}</b>")
