@@ -158,7 +158,7 @@ async def success_failed_home_callback(client, callback_query):
     if query[0] == "home":
         if get_user.id in CONFIRM_PAYMENT:
             CONFIRM_PAYMENT.remove(get_user.id)
-            buttons_home = Button.start()
+            buttons_home = Button.start(callback_query)
             await callback_query.message.delete()
             return await bot.send_message(
                 get_user.id,
@@ -166,7 +166,7 @@ async def success_failed_home_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons_home),
             )
         else:
-            buttons_home = Button.start()
+            buttons_home = Button.start(callback_query)
             await callback_query.message.delete()
             return await bot.send_message(
                 get_user.id,
