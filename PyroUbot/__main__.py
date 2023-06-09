@@ -20,17 +20,26 @@ async def start_client(client):
             for X in await get_chat(user_id):
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
-    await loadPlugins()
-    await install_user_id()
-    await expired_userbot()
-    await idle()
 
 
 async def main():
     bot_client = asyncio.create_task(start_client(bot))
     ubot_client = asyncio.create_task(start_client(ubot))
     await asyncio.gather(bot_client, ubot_client)
+    await loadPlugins()
+    await install_user_id()
+    await expired_userbot()
+    await idle()
 
 
 if __name__ == "__main__":
+ if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
     asyncio.run(main())
+    try:
+        loop.run_until_complete(main())
+        loop.run_forever()
+    except KeyboardInterrupt:
+        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+    finally:
+        loop.stop()
