@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os 
 
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
