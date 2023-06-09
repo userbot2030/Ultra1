@@ -22,16 +22,16 @@ async def start_client(client):
             for X in await get_chat(user_id):
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
-
-
-async def main():
-    ubot_client = asyncio.create_task(start_client(ubot))
     await asyncio.gather(ubot_client)
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
     await idle()
 
+
+
+async def main():
+    ubot_client = asyncio.create_task(start_client(ubot))
 
 if __name__ == "__main__":
     if __name__ == "__main__":
