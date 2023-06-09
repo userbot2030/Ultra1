@@ -1,9 +1,8 @@
 import asyncio
-from aiohttp import ClientSession
 
+from aiohttp import ClientSession
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
-from uvloop import install
 
 from PyroUbot import (Ubot, bot, expired_userbot, get_chat, get_userbots,
                       install_user_id, loadPlugins, rem_expired_date,
