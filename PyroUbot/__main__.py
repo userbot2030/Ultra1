@@ -32,4 +32,4 @@ if __name__ == "__main__":
     try:
         asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
     except (asyncio.CancelledError, asyncio.TimeoutError):
-        os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
+        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
