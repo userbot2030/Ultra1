@@ -26,6 +26,7 @@ class MSG:
 ✅ ɢᴜɴᴀᴋᴀɴʟᴀʜ ᴛᴏᴍʙᴏɪ ᴅɪ ʙᴀᴡᴀʜ ᴅᴇɴɢᴀɴ ʙɪᴊᴀᴋ
 """
         return msg
+
     def TEXT_PAYMENT(harga, total, bulan):
         return f"""
 <b>💬 sɪʟᴀʜᴋᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>
