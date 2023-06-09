@@ -46,7 +46,7 @@ async def ping_cmd(client, message):
 async def start_cmd(client, message):
     await send_msg_to_owner(client, message)
     if len(message.command) < 2:
-        buttons = Button.start()
+        buttons = Button.start(message)
         msg = MSG.START(message)
         await message.reply(msg, reply_markup=InlineKeyboardMarkup(buttons))
     else:
