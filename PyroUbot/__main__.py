@@ -3,41 +3,34 @@ import asyncio
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
-from PyroUbot import (Ubot, bot, expired_userbot, get_chat, get_userbots,
-                      install_user_id, loadPlugins, rem_expired_date,
-                      remove_chat, remove_ubot, rm_all, ubot)
+from PyroUbot import *
 
 
 async def start_client(client):
-    try:
-        await client.start()
-    except RPCError:
-        user_id = int(client["name"])
-        await remove_ubot(user_id)
-        await rm_all(user_id)
-        await rem_expired_date(user_id)
-        for chat_id in await get_chat(user_id):
-            await remove_chat(user_id, chat_id)
-        print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
-
-
-async def main():
-    await asyncio.gather(start_client(bot), start_client(ubot))
+    await client.start()
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
-        await start_client(ubot_)
+        try:
+            await ubot_.start()
+        except RPCError:
+            user_id = int(_ubot["name"])
+            await remove_ubot(user_id)
+            await rm_all(user_id)
+            await rem_expired_date(user_id)
+            for X in await get_chat(user_id):
+                await remove_chat(user_id, X)
+            print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
     await idle()
 
 
+async def main():
+    bot_client = asyncio.create_task(start_client(bot))
+    ubot_client = asyncio.create_task(start_client(ubot))
+    await asyncio.gather(bot_client, ubot_client)
+
+
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    try:
-        loop.run_until_complete(main())
-        loop.run_forever()
-    except KeyboardInterrupt:
-        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
-    finally:
-        loop.stop()
+    asyncio.run(main())
