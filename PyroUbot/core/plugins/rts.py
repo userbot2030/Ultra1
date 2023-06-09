@@ -25,7 +25,6 @@ async def login_cmd(client, message):
         await ub.start()
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-        await install_my_peer(ub)
         await install_user_id()
         now = datetime.now(timezone("Asia/Jakarta"))
         expire_date = now + timedelta(days=int(message.command[1]))
