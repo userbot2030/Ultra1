@@ -27,7 +27,7 @@ async def install_my_peer(self):
             if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
         ]
     )
-    self._get_my_peer[self.me.id] = {"pm": len(users), "gc": len(group)}
+    self._get_my_peer[self.me.id] = {"pm": users, "gc": group}
 
 
 async def install_all_peer():
