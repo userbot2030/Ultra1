@@ -187,7 +187,3 @@ async def cb_restart(client, callback_query):
 async def cb_gitpull(client, callback_query):
     await callback_query.answer("✅ ʀᴇsᴛᴀʀᴛ ᴅᴀɴ ᴜᴘᴅᴀᴛᴇ sʏsᴛᴇᴍ", True)
     os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
-    
-    
-    
-    
