@@ -259,7 +259,7 @@ async def cek_ubot(client, message):
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-            await message.reply(
+            await bot.send_message(message.from_user.id,
                 user,
                 reply_markup=InlineKeyboardMarkup(
                     [
