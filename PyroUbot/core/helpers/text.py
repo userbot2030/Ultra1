@@ -19,7 +19,7 @@ class MSG:
 
 👉🏻 ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>
 """
-         else:
+        else:
             msg = f"""
 🧑‍💻 ᴍᴇɴᴜ ᴘᴇɴɢᴇᴍʙᴀɴɢ: <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
 
