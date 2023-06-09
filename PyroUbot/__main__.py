@@ -1,4 +1,5 @@
 import asyncio
+from uvloop import install
 
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
@@ -33,4 +34,5 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
+    install()
+    asyncio.get_event_loop().run_until_complete(main())
