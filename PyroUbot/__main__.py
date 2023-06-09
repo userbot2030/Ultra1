@@ -7,12 +7,10 @@ from pyrogram.methods.utilities.idle import idle
 from PyroUbot import *
 
 
-async def start_bot():
-    await bot.start()
-    await ubot.start()
 
 
 async def start_client(client):
+    await bot.start()
     await client.start()
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
@@ -29,9 +27,8 @@ async def start_client(client):
 
 
 async def main():
-    bot_client = asyncio.create_task(start_bot())
     ubot_client = asyncio.create_task(start_client(ubot))
-    await asyncio.gather(bot_client, ubot_client)
+    await asyncio.gather(ubot_client)
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
