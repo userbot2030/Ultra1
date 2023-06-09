@@ -7,8 +7,6 @@ from pyrogram.methods.utilities.idle import idle
 from PyroUbot import *
 
 
-
-
 async def start_client(client):
     await bot.start()
     await client.start()
