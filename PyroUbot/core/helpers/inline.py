@@ -81,11 +81,11 @@ class Button:
         button = [
             [
                 InlineKeyboardButton(
-                    "➕",
+                    "-1",
                     callback_data=f"kurang {query}",
                 ),
                 InlineKeyboardButton(
-                    "➕",
+                    "+1",
                     callback_data=f"tambah {query}",
                 ),
             ],
@@ -190,19 +190,3 @@ async def notes_create_button(text):
     buttons.add(*keyboard)
     text_button = split_text[0]
     return buttons, text_button
-
-
-add_button = {
-    "1_ʙᴜʟᴀɴ": 1,
-    "2_ʙᴜʟᴀɴ": 2,
-    "3_ʙᴜʟᴀɴ": 3,
-    "4_ʙᴜʟᴀɴ": 4,
-    "5_ʙᴜʟᴀɴ": 5,
-    "6_ʙᴜʟᴀɴ": 6,
-    "7_ʙᴜʟᴀɴ": 7,
-    "8_ʙᴜʟᴀɴ": 9,
-    "9_ʙᴜʟᴀɴ": 9,
-    "10_ʙᴜʟᴀɴ": 10,
-    "11_ʙᴜʟᴀɴ": 11,
-    "12_ʙᴜʟᴀɴ": 12,
-}
