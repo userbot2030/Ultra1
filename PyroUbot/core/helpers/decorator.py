@@ -2,6 +2,9 @@ from pyrogram import filters
 
 from PyroUbot import ubot
 
+from pyrogram.enums import ChatType
+from PyroUbot.config import OWNER_ID
+
 ONLY_UBOT = filters.user()
 
 
@@ -10,9 +13,6 @@ async def install_user_id():
         ONLY_UBOT.add(X)
 
 
-"""
-from pyrogram.enums import ChatType
-from PyroUbot.config import OWNER_ID
 
 async def install_my_peer(client):
     users = len(
@@ -31,10 +31,3 @@ async def install_my_peer(client):
     )
     client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
 
-
-async def install_all_peer():
-    for client in ubot._ubot:
-        await install_my_peer(client)
-        print(f"peer_id ({client.me.id}) telah diinstal ke get_my_peer")
-    await bot.send_message(OWNER_ID, "✅ semua peer_id telah berhasil diinstal")
-"""
