@@ -180,10 +180,10 @@ async def vps(client, message):
 
 
 async def cb_restart(client, callback_query):
-    await callback_query.answer("✅ ʀᴇsᴛᴀʀᴛ sʏsᴛᴇᴍ", True)
-    os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
+    await callback_query.message.delete()
+    os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 async def cb_gitpull(client, callback_query):
-    await callback_query.answer("✅ ʀᴇsᴛᴀʀᴛ ᴅᴀɴ ᴜᴘᴅᴀᴛᴇ sʏsᴛᴇᴍ", True)
+    await callback_query.message.delete()
     os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
