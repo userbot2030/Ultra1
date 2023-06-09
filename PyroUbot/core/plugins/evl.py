@@ -177,3 +177,17 @@ async def vps(client, message):
     return await bot.send_message(
         message.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
     )
+
+
+async def cb_restart(client, callback_query):
+    await callback_query.answer("✅ ʀᴇsᴛᴀʀᴛ sʏsᴛᴇᴍ", True)
+    os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
+
+
+async def cb_gitpull(client, callback_query):
+    await callback_query.answer("✅ ʀᴇsᴛᴀʀᴛ ᴅᴀɴ ᴜᴘᴅᴀᴛᴇ sʏsᴛᴇᴍ", True)
+    os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
+    
+    
+    
+    
