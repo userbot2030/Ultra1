@@ -5,7 +5,6 @@ from platform import python_version
 from pyrogram import __version__
 
 from PyroUbot import bot, ubot
-from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.helpers import PY
 from PyroUbot.modules import loadModule
 
