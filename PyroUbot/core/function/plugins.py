@@ -24,7 +24,7 @@ async def loadPlugins():
                 ] = imported_module
     print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     TM = await bot.send_message(
-        LOGS_MAKER_UBOT,
+        OWNER_ID,
         f"""
 <b>🤖 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ</b>
 
