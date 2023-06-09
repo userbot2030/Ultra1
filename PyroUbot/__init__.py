@@ -53,6 +53,7 @@ class Ubot(Client):
             self._ubot.append(self)
             self._get_my_id.append(self.me.id)
             self._translate[self.me.id] = {"negara": "id"}
+            await install_my_peer(self)
             print(f"Userbot ({self.me.id}) Started")
 
 
