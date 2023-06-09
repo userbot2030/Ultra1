@@ -25,6 +25,6 @@ async def _(client, message):
 
 
 @PY.BOT("host", FILTERS.OWNER)
-@PY.UBOT("host", FILTERS.ME_OWNER)
+@PY.CALLBACK("host")
 async def _(client, message):
     await vps(client, message)
