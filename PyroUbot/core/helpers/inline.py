@@ -81,11 +81,11 @@ class Button:
         button = [
             [
                 InlineKeyboardButton(
-                    "-1 ʙᴜʟᴀɴ",
+                    "➕",
                     callback_data=f"kurang {query}",
                 ),
                 InlineKeyboardButton(
-                    "+1 ʙᴜʟᴀɴ",
+                    "➕",
                     callback_data=f"tambah {query}",
                 ),
             ],
