@@ -175,5 +175,5 @@ async def vps(client, message):
     softw += f"Percentage: {svmem.percent}%\n"
 
     return bot.send_message(
-        message.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True
+        message.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
     )
