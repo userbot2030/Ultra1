@@ -137,7 +137,7 @@ async def batal_callback(client, callback_query):
         try:
             SUPPORT.remove(user_id)
             await callback_query.message.delete()
-            buttons = Button.start()
+            buttons = Button.start(callback_query)
             return await bot.send_message(
                 user_id,
                 MSG.START(callback_query),
