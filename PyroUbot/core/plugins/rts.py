@@ -66,6 +66,16 @@ async def restart_cmd(client, message):
         return await msg.edit(
             f"<b>ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ. ᴅɪᴋᴀʀᴇɴᴀᴋᴀɴ ᴀɴᴅᴀ ʙᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ @{bot.me.username}</b>"
         )
+    if message.from_user.id == ubot.me.id:
+        ubot._ubot.remove(ubot)
+        await ubot.start()
+        for mod in loadModule():
+            importlib.reload(
+                importlib.import_module(f"PyroUbot.modules.{mod}")
+                            )
+        return await msg.edit(
+                            f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {ubot.me.first_name} {ubot.me.last_name or ''} | {ubot.me.id}</b>"
+                        )
     for X in ubot._ubot:
         if message.from_user.id == X.me.id:
             for _ubot_ in await get_userbots():
