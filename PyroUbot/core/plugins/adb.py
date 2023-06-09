@@ -213,6 +213,7 @@ async def bikin_ubot(client, callback_query):
         api_hash=api_hashs,
         session_string=session_string,
     )
+    await install_my_peer(new_client)
     await remove_prem(callback_query.from_user.id)
     await install_user_id()
     await install_my_peer(new_client)
