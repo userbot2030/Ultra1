@@ -3,8 +3,9 @@ from importlib import import_module
 from platform import python_version
 
 from pyrogram import __version__
-from PyroUbot.config import OWNER_ID
+
 from PyroUbot import bot, ubot
+from PyroUbot.config import OWNER_ID
 from PyroUbot.core.helpers import PY
 from PyroUbot.modules import loadModule
 
