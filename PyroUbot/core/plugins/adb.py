@@ -278,7 +278,7 @@ async def cek_ubot(client, message):
                     ]
                 ),
             )
-            await asyncio.sleep(4)
+            await asyncio.sleep(1)
 
 
 async def cek_userbot_expired(client, callback_query):
