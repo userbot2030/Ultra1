@@ -1,6 +1,5 @@
 import asyncio
 
-from aiohttp import ClientSession
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
@@ -31,6 +30,7 @@ async def main():
     await install_user_id()
     await expired_userbot()
     await idle()
+
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(main())
