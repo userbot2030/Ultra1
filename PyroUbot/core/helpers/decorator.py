@@ -8,7 +8,7 @@ ONLY_UBOT = filters.user()
 
 
 async def install_user_id():
-    for X in await ubot._get_my_id:
+    for X in ubot._get_my_id:
         ONLY_UBOT.add(X.id)
 
 
