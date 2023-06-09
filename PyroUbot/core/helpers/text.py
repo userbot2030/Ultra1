@@ -1,4 +1,4 @@
-from PyroUbot import bot
+from PyroUbot import bot, OWNER_ID
 
 
 class MSG:
