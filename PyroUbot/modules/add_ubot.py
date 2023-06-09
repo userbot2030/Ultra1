@@ -15,7 +15,7 @@ async def _(client, callback_query):
 async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
-
+@PY.CALLBACK("cek_ubot")
 @PY.BOT("getubot", FILTERS.OWNER)
 async def _(client, message):
     await cek_ubot(client, message)
