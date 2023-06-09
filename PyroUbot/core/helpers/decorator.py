@@ -9,7 +9,7 @@ ONLY_UBOT = filters.user()
 
 async def install_user_id():
     for X in ubot._get_my_id:
-        ONLY_UBOT.add(X.id)
+        ONLY_UBOT.add(X)
 
 
 async def install_my_peer(client):
