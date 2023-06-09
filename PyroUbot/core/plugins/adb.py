@@ -245,9 +245,7 @@ async def bikin_ubot(client, callback_query):
     )
 
 
-async def cek_ubot(client, message):
-    if not message.from_user.id == OWNER_ID:
-        return
+async def cek_ubot(client, callback_query):
     count = 0
     for X in ubot._ubot:
         if not X.me.id == ubot.me.id:
@@ -260,7 +258,7 @@ async def cek_ubot(client, message):
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
             await bot.send_message(
-                message.from_user.id,
+                callback_query.from_user.id,
                 user,
                 reply_markup=InlineKeyboardMarkup(
                     [
