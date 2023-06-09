@@ -29,9 +29,9 @@ async def start_client(client):
     await idle()
 
 
-
 async def main():
-    ubot_client = asyncio.create_task(start_client(ubot))
+    asyncio.create_task(start_client(ubot))
+
 
 if __name__ == "__main__":
     if __name__ == "__main__":
