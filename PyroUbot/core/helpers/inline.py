@@ -57,23 +57,24 @@ class Button:
             button = [
                 [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
                 [
-                     InlineKeyboardButton("✨ ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/PremUbotCH/157"),
-                     InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
+                    InlineKeyboardButton(
+                        "✨ ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/PremUbotCH/157"
+                    ),
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
                 ],
-             ]
+            ]
         else:
             button = [
-                 [
-                   InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")
-                 ],
-                 [
-                   InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
-                   InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart")
-                 ],
-                 [
-                   InlineKeyboardButton("🤖 ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"),
-                   InlineKeyboardButton("ʜᴏsᴛɪɴɢ 💻", callback_data="host")
-             ]]
+                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
+                [
+                    InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
+                    InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
+                ],
+                [
+                    InlineKeyboardButton("🤖 ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"),
+                    InlineKeyboardButton("ʜᴏsᴛɪɴɢ 💻", callback_data="host"),
+                ],
+            ]
         return button
 
     def plus_minus(query, user_id):
