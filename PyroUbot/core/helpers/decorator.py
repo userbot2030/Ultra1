@@ -33,5 +33,5 @@ async def install_my_peer(self):
 async def install_all_peer():
     for self in ubot._ubot:
         await install_my_peer(self)
-        print(f"peer ({self.me.id}) telah diinstal ke get_my_peer
+        print(f"peer ({self.me.id}) telah diinstal ke get_my_peer")
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀɪᴅ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
