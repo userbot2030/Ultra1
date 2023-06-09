@@ -1,4 +1,5 @@
-import asyncio, os 
+import asyncio
+import os
 
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
@@ -33,13 +34,13 @@ async def main():
 
 
 if __name__ == "__main__":
- if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    asyncio.run(main())
-    try:
-        loop.run_until_complete(main())
-        loop.run_forever()
-    except KeyboardInterrupt:
-        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
-    finally:
-        loop.stop()
+    if __name__ == "__main__":
+        loop = asyncio.get_event_loop()
+        asyncio.run(main())
+        try:
+            loop.run_until_complete(main())
+            loop.run_forever()
+        except KeyboardInterrupt:
+            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+        finally:
+            loop.stop()
