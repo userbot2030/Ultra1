@@ -25,7 +25,6 @@ async def main():
         loadPlugins(),
         install_user_id(),
         expired_userbot(),
-        install_all_peer(),
         idle(),
     )
 
