@@ -4,9 +4,9 @@ import requests
 
 
 async def jadwal_adzan(client, message):
-    LOKASI = message.text.split(None, 1)[1]
     if len(message.command) < 2:
         return await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ɴᴀᴍᴀ ᴋᴏᴛᴀ ᴀɴᴅᴀ</b>")
+    LOKASI = message.text.split(None, 1)[1]
     url = f"http://muslimsalat.com/{LOKASI}.json?key=bd099c5825cbedb9aa934e255a81a5fc"
     request = requests.get(url)
     if request.status_code != 20:
