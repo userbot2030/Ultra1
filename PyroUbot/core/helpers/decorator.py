@@ -29,14 +29,9 @@ async def install_my_peer(client):
     client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
 
 
-
 async def install_all_peer():
     for client in ubot._ubot:
         try:
             await install_my_peer(client)
         except Exception as error:
             print(f"error: {error}")
-
-
-
-
