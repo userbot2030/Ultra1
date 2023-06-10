@@ -12,14 +12,17 @@ i = c(name="pyrogram", api_id=API_ID, api_hash=API_HASH, in_memory=True)
 
 async def main():
     await i.start()
-    ss = await i.export_session_string()
-    await i.send_message(i.me.id, """
+    await i.export_session_string()
+    await i.send_message(
+        i.me.id,
+        """
 **STRING PYROGRAM V2**
 
 `{ss}`
 
 **POWERED BY: @T0M1_X**
-""")
+""",
+    )
 
 
 run(main())
