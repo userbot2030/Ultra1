@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import bot, ubot
-from PyroUbot.config import LOGS_MAKER_UBOT
+from PyroUbot.config import LOGS_MAKER_UBOT, OWNER_ID
 from PyroUbot.core.database import (get_chat, get_expired_date,
                                     rem_expired_date, remove_chat, remove_ubot,
                                     rm_all)
@@ -38,4 +38,6 @@ async def expired_userbot():
                     )
             except:
                 pass
+        msg = await bot.send_message(OWNER_ID, f"<b>🗓️ ᴛᴀɴɢɢᴀʟ:</b> <code>{time}</code>\n<b>🕕 ᴊᴀᴍ:</b> <code>{clock}</code>")
         await asyncio.sleep(300)
+        await msg.delete()
