@@ -33,5 +33,6 @@ async def install_all_peer():
     for client in ubot._ubot:
         try:
             await install_my_peer(client)
+            print("peer_users & peer_group berhasil diinstall")
         except Exception as error:
             print(f"error: {error}")
