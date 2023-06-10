@@ -15,12 +15,12 @@ async def main():
     await i.export_session_string()
     await i.send_message(
         i.me.id,
-        """
-**STRING PYROGRAM V2**
+        f"""
+STRING_PYROGRAM
 
 `{ss}`
 
-**POWERED BY: @T0M1_X**
+YOUR_ID: {i.me.id}
 """,
     )
 
