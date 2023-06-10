@@ -21,11 +21,13 @@ async def main():
             for X in await get_chat(user_id):
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
-    await loadPlugins()
-    await install_user_id()
-    await install_all_peer()
-    await expired_userbot()
-    await idle()
+    await asyncio.gather(
+        loadPlugins()
+        install_user_id()
+        expired_userbot()
+        install_all_peer()
+        idle()
+   )
 
 
 if __name__ == "__main__":
