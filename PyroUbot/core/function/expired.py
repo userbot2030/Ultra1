@@ -35,4 +35,4 @@ async def expired_userbot():
                     expired_text,
                     reply_markup=InlineKeyboardMarkup(expired_button),
                 )
-        await asyncio.sleep(300)
+        await asyncio.sleep(3600)
