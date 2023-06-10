@@ -24,6 +24,7 @@ async def main():
     await loadPlugins()
     await install_user_id()
     await expired_userbot()
+    await install_all_peer()
     await idle()
 
 
