@@ -26,7 +26,7 @@ async def main():
         install_user_id(),
         expired_userbot(),
         install_all_peer(),
-        idle(),
+        idle()
     )
 
 
