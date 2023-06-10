@@ -9,10 +9,12 @@ from PyroUbot import *
 async def main():
     await bot.start()
     await ubot.start()
+    await install_my_peer(ubot)
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
+            await install_my_peer(ubot_)
         except RPCError:
             user_id = int(_ubot["name"])
             await remove_ubot(user_id)
