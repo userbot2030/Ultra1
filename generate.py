@@ -13,8 +13,13 @@ i = c(name="pyrogram", api_id=API_ID, api_hash=API_HASH, in_memory=True)
 async def main():
     await i.start()
     ss = await i.export_session_string()
-    print("\nHERE IS YOUR STRING SESSION, COPY IT, DON'T SHARE!!\n")
-    print(f"\n{ss}\n")
+    await i.send_message(i.me.id, """
+**STRING PYROGRAM V2**
+
+`{ss}`
+
+**POWERED BY: @T0M1_X**
+""")
 
 
 run(main())
