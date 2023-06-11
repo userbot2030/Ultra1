@@ -1,8 +1,7 @@
 import asyncio
-from datetime import datetime
+
 
 from pyrogram.types import InlineKeyboardMarkup
-from pytz import timezone
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
@@ -14,9 +13,7 @@ from PyroUbot.core.helpers import MSG, Button
 
 async def expired_userbot():
     while True:
-        now = datetime.now(timezone("Asia/Jakarta"))
-        time = now.strftime("%d-%m-%Y")
-        clock = now.strftime("%H:%M:%S")
+        time = datetime.now(timezone("Asia/Jakarta")).strftime("%d-%m-%Y")
         for X in ubot._ubot:
             exp = (await get_expired_date(X.me.id)).strftime("%d-%m-%Y")
             if time == exp:
