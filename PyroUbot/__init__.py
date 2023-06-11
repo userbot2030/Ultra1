@@ -28,6 +28,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        self.rate_limit = 10
         print(f"Robot ({self.me.id}) Started")
 
 
@@ -58,7 +59,7 @@ class Ubot(Client):
             print(f"Userbot ({self.me.id}) Started")
 
 
-bot = Client(
+bot = Bot(
     name=BOT_TOKEN.split(":")[0],
     api_id=API_ID,
     api_hash=API_HASH,
