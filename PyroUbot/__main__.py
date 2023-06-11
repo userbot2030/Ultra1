@@ -9,13 +9,11 @@ async def main():
     await bot.start()
     bot.rate_limit = 10
     await ubot.start()
-    ubot.rate_limit = 10
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
             if not 1864178364 == int(_ubot["name"]):
                 await ubot_.start()
-                ubot_.rate_limit = 10
         except:
             user_id = int(_ubot["name"])
             await remove_ubot(user_id)
