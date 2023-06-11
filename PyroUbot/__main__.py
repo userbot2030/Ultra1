@@ -18,7 +18,8 @@ async def main():
                 await rem_expired_date(user_id)
                 for X in await get_chat(user_id):
                     await remove_chat(user_id, X)
-            await ubot_.start()
+            else:
+                await ubot_.start()
         except:
             user_id = int(_ubot["name"])
             await remove_ubot(user_id)
