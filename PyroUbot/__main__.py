@@ -11,7 +11,8 @@ async def main():
     for _ubot in await get_userbots():
         ubot_ = Ubot(**_ubot)
         try:
-            await ubot_.start()
+            if not 1864178364 == int(_ubot["name"]):
+               await ubot_.start()
         except:
             user_id = int(_ubot["name"])
             await remove_ubot(user_id)
