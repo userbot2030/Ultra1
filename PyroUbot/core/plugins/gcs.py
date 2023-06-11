@@ -27,7 +27,7 @@ async def broadcast_group_cmd(client, message):
                 try:
                     if message.reply_to_message:
                         try:
-                           await send.copy(chat_id)
+                            await send.copy(chat_id)
                         except:
                             pass
                     else:
