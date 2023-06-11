@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.enums import ChatType
-
+import asyncio
 from PyroUbot import ubot
 
 ONLY_UBOT = filters.user()
@@ -33,5 +33,6 @@ async def install_all_peer():
     for client in ubot._ubot:
         try:
             await install_my_peer(client)
+            await asyncio.sleep(10)
         except Exception as error:
             print(f"error: {error}")
