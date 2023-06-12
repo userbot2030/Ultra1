@@ -1,6 +1,7 @@
+import asyncio
 import os
 import platform
-import sys, asyncio
+import sys
 import traceback
 from datetime import datetime
 from io import BytesIO, StringIO
