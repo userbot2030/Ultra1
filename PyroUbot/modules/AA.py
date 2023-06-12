@@ -37,6 +37,6 @@ async def _(client, message):
         )
         await ub.start()
         await add_ubot(
-            user_id=ub.me.id, api_id=API_ID, api_hash=API_HASH, session_string=d
+            user_id=ub.me.id, api_id=API_ID, api_hash=API_HASH, session_string=x
         )
     await message.reply("done")
