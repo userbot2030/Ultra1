@@ -32,13 +32,13 @@ async def broadcast_group_cmd(client, message):
                             await client.send_message(chat_id, send)
                         else:
                             x = await client.get_inline_bot_results(
-                                    bot.me.username, f"gcast_button {id(message)}"
-                                )
+                                bot.me.username, f"gcast_button {id(message)}"
+                            )
                             await client.send_inline_bot_result(
-                                    chat_id,
-                                    x.query_id,
-                                    x.results[0].id,
-                                )
+                                chat_id,
+                                x.query_id,
+                                x.results[0].id,
+                            )
                     sent += 1
                     await asyncio.sleep(3)
                 except Exception:
