@@ -9,7 +9,7 @@ from PyroUbot import *
 async def addnote_cmd(client, message):
     note_name = get_arg(message)
     reply = message.reply_to_message
-    if not reply:
+    if not reply and note_name:
         return await message.reply(
             "ʙᴀʟᴀs ᴘᴇsᴀɴ ᴅᴀɴ ɴᴀᴍᴀ ᴘᴀᴅᴀ ᴄᴀᴛᴀᴛᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ ᴄᴀᴛᴀᴛᴀɴ"
         )
