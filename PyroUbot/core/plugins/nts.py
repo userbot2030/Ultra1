@@ -40,18 +40,21 @@ async def get_cmd(client, message):
                 )
                 msg = message.reply_to_message or message
                 await client.send_inline_bot_result(
-                    message.chat.id, x.query_id, x.results[0].id, reply_to_message_id=msg.id
+                    message.chat.id,
+                    x.query_id,
+                    x.results[0].id,
+                    reply_to_message_id=msg.id,
                 )
             except Exception as error:
                 return await message.reply(error)
         else:
             msg = message.reply_to_message or message
             await client.copy_message(
-            message.chat.id,
-            client.me.id,
-            note,
-            reply_to_message_id=msg.id,
-        )
+                message.chat.id,
+                client.me.id,
+                note,
+                reply_to_message_id=msg.id,
+            )
     else:
         msg = message.reply_to_message or message
         await client.copy_message(
