@@ -137,7 +137,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-async def vps(client, message):
+async def vps(client, callback_query):
     uname = platform.uname()
     softw = "Informasi Sistem\n"
     softw += f"Sistem   : {uname.system}\n"
@@ -175,7 +175,7 @@ async def vps(client, message):
     softw += f"Percentage: {svmem.percent}%\n"
 
     return await bot.send_message(
-        message.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
+        callback_query.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
     )
 
 
