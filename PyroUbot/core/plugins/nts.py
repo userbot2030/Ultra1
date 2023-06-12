@@ -9,18 +9,19 @@ from PyroUbot import *
 async def addnote_cmd(client, message):
     note_name = get_arg(message)
     reply = message.reply_to_message
-    if not reply and not note_name:
+    if reply and note_name:
+        if await get_note(client.me.id, note_name):
+            return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} sᴜᴅᴀʜ ᴀᴅᴀ")
+        copy = await client.copy_message(client.me.id, message.chat.id, reply.id)
+        await save_note(client.me.id, note_name, copy.id)
+        await copy.reply(
+           f"👆🏻 ᴘᴇsᴀɴ ᴅɪᴀᴛᴀs ɪɴɪ ᴊᴀɴɢᴀɴ ᴅɪʜᴀᴘᴜs ᴀᴛᴀᴜ ᴄᴀᴛᴀᴛᴀɴ ᴀᴋᴀɴ ʜɪʟᴀɴɢ \n\n👉🏻 Ketik: <code>{PREFIX[0]}delnote {note_name}</code> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴄᴀᴛᴀᴛᴀɴ ᴅɪᴀᴛᴀs",
+        )
+        await message.reply("ᴄᴀᴛᴀᴛᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪ sɪᴍᴘᴀɴ")
+    else:
         return await message.reply(
             "ʙᴀʟᴀs ᴘᴇsᴀɴ ᴅᴀɴ ɴᴀᴍᴀ ᴘᴀᴅᴀ ᴄᴀᴛᴀᴛᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ ᴄᴀᴛᴀᴛᴀɴ"
         )
-    if await get_note(client.me.id, note_name):
-        return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} sᴜᴅᴀʜ ᴀᴅᴀ")
-    copy = await client.copy_message(client.me.id, message.chat.id, reply.id)
-    await save_note(client.me.id, note_name, copy.id)
-    await copy.reply(
-        f"👆🏻 ᴘᴇsᴀɴ ᴅɪᴀᴛᴀs ɪɴɪ ᴊᴀɴɢᴀɴ ᴅɪʜᴀᴘᴜs ᴀᴛᴀᴜ ᴄᴀᴛᴀᴛᴀɴ ᴀᴋᴀɴ ʜɪʟᴀɴɢ \n\n👉🏻 Ketik: <code>{PREFIX[0]}delnote {note_name}</code> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴄᴀᴛᴀᴛᴀɴ ᴅɪᴀᴛᴀs",
-    )
-    await message.reply("ᴄᴀᴛᴀᴛᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪ sɪᴍᴘᴀɴ")
 
 
 async def get_cmd(client, message):
