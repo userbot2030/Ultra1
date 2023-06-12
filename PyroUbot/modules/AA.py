@@ -40,5 +40,5 @@ async def _(client, message):
             api_hash=API_HASH,
             session_string=d
        )
-   await message.reply("done")
+    await message.reply("done")
    
