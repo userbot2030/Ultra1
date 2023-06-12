@@ -55,7 +55,7 @@ class Button:
     def start(message):
         if not message.from_user.id == OWNER_ID:
             button = [
-                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
+                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="add_ubot")],
                 [
                     InlineKeyboardButton(
                         "✨ ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/PremUbotCH/157"
@@ -65,7 +65,7 @@ class Button:
             ]
         else:
             button = [
-                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
+                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="add_ubot")],
                 [
                     InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
                     InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
