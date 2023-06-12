@@ -56,7 +56,6 @@ async def bikin_ubot(client, callback_query):
         )
     try:
         await callback_query.message.delete()
-        try:
         phone = await bot.ask(
             user_id,
             (
