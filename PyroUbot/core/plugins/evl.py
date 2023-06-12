@@ -1,6 +1,6 @@
 import os
 import platform
-import sys
+import sys, asyncio
 import traceback
 from datetime import datetime
 from io import BytesIO, StringIO
@@ -176,6 +176,7 @@ async def vps(client, callback_query):
     msg = await bot.send_message(
         callback_query.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
     )
+    await asyncio.sleep(15)
     return await msg.delete()
 
 
