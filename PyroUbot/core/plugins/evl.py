@@ -173,9 +173,10 @@ async def vps(client, callback_query):
     softw += f"Used      : {get_size(svmem.used)}\n"
     softw += f"Percentage: {svmem.percent}%\n"
 
-    return await bot.send_message(
+    msg = await bot.send_message(
         callback_query.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
     )
+    return await msg.delete()
 
 
 async def cb_restart(client, callback_query):
