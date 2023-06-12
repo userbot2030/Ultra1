@@ -70,7 +70,7 @@ async def inviteall_cmd(client, message):
 
 
 async def cancel_cmd(client, message):
-    if message.chat.id not in invte_id:
+    if message.chat.id not in invite_id:
         return await message.reply_text(
             f"sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}inviteall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ"
         )
