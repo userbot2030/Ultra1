@@ -1,9 +1,8 @@
-import asyncio
 from importlib import import_module
 from platform import python_version
 
 from pyrogram import __version__
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import OWNER_ID
@@ -34,10 +33,13 @@ async def loadPlugins():
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
 
 <b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
-""", reply_markup=InlineKeyboardMarkup(
+""",
+        reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
-                InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart")],
+                [
+                    InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
+                    InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
+                ],
             ]
         ),
     )
