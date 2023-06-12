@@ -9,12 +9,7 @@ async def main():
     await bot.start()
     await ubot.start()
     for _ubot in await get_userbots():
-        ubot_ = Ubot(
-            name=int(_ubot["name"]),
-            api_id=API_ID,
-            api_hash=API_HASH,
-            session_string=_ubot["session_string"],
-        )
+        ubot_ = Ubot(**_ubot)
         try:
             await ubot_.start()
         except:
