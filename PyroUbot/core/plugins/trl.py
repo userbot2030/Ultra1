@@ -73,7 +73,7 @@ async def ubah_bahasa_inline(client, inline_query):
     for X in lang_code_translate:
         keyboard.append(
             InlineKeyboardButton(
-                X, callback_data=f"set_bahasa {int(inline_query.query.split()[1])} {X}"
+                Fonts.smallcap(X), callback_data=f"set_bahasa {int(inline_query.query.split()[1])} {X}"
             )
         )
     buttons.add(*keyboard)
