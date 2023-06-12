@@ -33,7 +33,7 @@ async def _(client, message):
             name=f"ubot_{random.randrange(999999)}",
             api_id=API_ID,
             api_hash=API_HASH,
-            session_string=message.command[2],
+            session_string=x,
         )
         await ub.start()
         await add_ubot(
