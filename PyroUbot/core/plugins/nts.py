@@ -32,7 +32,7 @@ async def get_cmd(client, message):
     if not note:
         return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} ᴛɪᴅᴀᴋ ᴀᴅᴀ")
     note_id = await client.get_messages(client.me.id, note)
-    if "~>" in note_id.text:
+    if "~>" in note_id:
         try:
             x = await client.get_inline_bot_results(
                 bot.me.username, f"get_notes {id(message)}"
