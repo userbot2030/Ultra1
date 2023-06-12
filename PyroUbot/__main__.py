@@ -10,7 +10,7 @@ async def main():
     await ubot.start()
     for _ubot in await get_userbots():
         ubot_ = Ubot(
-    name=int(_ubot["name"],
+    name=int(_ubot["name"]),
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=_ubot["session_string"],
