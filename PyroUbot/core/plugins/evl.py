@@ -97,13 +97,12 @@ async def trash_cmd(client, message):
         msg_id = message.id
     try:
         msgs = await client.get_messages(message.chat.id, msg_id)
-        if not get_arg(message):
-            if len(str(msgs)) > 4096:
-                with BytesIO(str.encode(str(msgs))) as out_file:
-                    out_file.name = "trash.txt"
-                    return await message.reply_document(document=out_file)
-            else:
-                return await message.reply(getattr(msgs, get_arg(message)))
+        if len(str(msgs)) > 4096:
+            with BytesIO(str.encode(str(msgs))) as out_file:
+                out_file.name = "trash.txt"
+                return await message.reply_document(document=out_file)
+        else:
+            return await message.reply(msgs)
     except Exception as error:
         return await message.reply(str(error))
 
