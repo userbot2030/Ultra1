@@ -250,12 +250,15 @@ async def cek_ubot(client, callback_query):
     for X in ubot._ubot:
         if not X.me.id == ubot.me.id:
             count += 1
-            expired_date = await get_expired_date(X.me.id)
+            if await get_expired_date(X.me.id) == "None":
+                expired_date = "None"
+            else:
+                expired_date = await get_expired_date(X.me.id).strftime('%d-%m-%Y')
             user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date}</code>
 """
             await bot.send_message(
                 callback_query.from_user.id,
