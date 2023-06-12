@@ -253,7 +253,7 @@ async def cek_ubot(client, callback_query):
             if await get_expired_date(X.me.id) == "None":
                 expired_date = "None"
             else:
-                expired_date = await get_expired_date(X.me.id).strftime('%d-%m-%Y')
+                expired_date = await get_expired_date(X.me.id).strftime("%d-%m-%Y")
             user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
