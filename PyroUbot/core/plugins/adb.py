@@ -250,7 +250,7 @@ async def cek_ubot(client, callback_query):
     for X in ubot._ubot:
         if not X.me.id == ubot.me.id:
             count += 1
-            exp = await get_expired_date(X.me.id))
+            exp = await get_expired_date(X.me.id)
             if exp == "None":
                 expired_date = "None"
             else:
