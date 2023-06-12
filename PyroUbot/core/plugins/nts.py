@@ -32,15 +32,7 @@ async def get_cmd(client, message):
     if not note:
         return await message.reply(f"ᴄᴀᴛᴀᴛᴀɴ {note_name} ᴛɪᴅᴀᴋ ᴀᴅᴀ")
     note_id = await client.get_messages(client.me.id, note)
-    if "~>" not in note_id.text or note_id.caption:
-        msg = message.reply_to_message or message
-        await client.copy_message(
-            message.chat.id,
-            client.me.id,
-            note,
-            reply_to_message_id=msg.id,
-        )
-    else:
+    if "~>" in note_id.text or note_id.caption:
         try:
             x = await client.get_inline_bot_results(
                 bot.me.username, f"get_notes {id(message)}"
@@ -51,6 +43,14 @@ async def get_cmd(client, message):
             )
         except Exception as error:
             await message.reply(error)
+    else:
+        msg = message.reply_to_message or message
+        await client.copy_message(
+            message.chat.id,
+            client.me.id,
+            note,
+            reply_to_message_id=msg.id,
+        )
 
 
 async def get_notes_button(client, inline_query):
