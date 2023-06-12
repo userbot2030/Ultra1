@@ -26,28 +26,19 @@ async def broadcast_group_cmd(client, message):
             if chat_id not in await get_chat(client.me.id):
                 try:
                     if message.reply_to_message:
-                        try:
-                            await send.copy(chat_id)
-                        except:
-                            pass
+                        await send.copy(chat_id)
                     else:
                         if "~>" not in send:
-                            try:
-                                await client.send_message(chat_id, send)
-                            except:
-                                pass
+                            await client.send_message(chat_id, send)
                         else:
-                            try:
-                                x = await client.get_inline_bot_results(
+                            x = await client.get_inline_bot_results(
                                     bot.me.username, f"gcast_button {id(message)}"
                                 )
-                                await client.send_inline_bot_result(
+                            await client.send_inline_bot_result(
                                     chat_id,
                                     x.query_id,
                                     x.results[0].id,
                                 )
-                            except:
-                                pass
                     sent += 1
                     await asyncio.sleep(3)
                 except Exception:
