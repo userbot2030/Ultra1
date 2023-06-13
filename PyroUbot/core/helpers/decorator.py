@@ -26,7 +26,7 @@ async def install_my_peer(client):
         client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
     except FloodWait as e:
         print(f"FloodWait occurred. Sleeping for {e.seconds} seconds.")
-        await asyncio.sleep(e.seconds)
+        await asyncio.sleep(e.x)
         await install_my_peer(client)
     except Exception as error:
         print(f"Error occurred: {error}")
