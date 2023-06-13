@@ -2,7 +2,7 @@
 from pyrogram import filters
 from pyrogram.enums import ChatType
 
-from PyroUbot import ubot
+from PyroUbot import ubot, OWNER_ID, bot
 
 ONLY_UBOT = filters.user()
 
@@ -32,4 +32,4 @@ async def install_all_peer():
             await install_my_peer(client)
         except Exception as error:
             print(f"error: {error}")
-    await bot.send_message("✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
+    await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
