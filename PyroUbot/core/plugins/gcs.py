@@ -8,7 +8,7 @@ async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
     msg = await message.reply(
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
+        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 5 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
     for dialog in client._get_my_peer[client.me.id]["gc"]:
         if message.reply_to_message:
@@ -36,7 +36,7 @@ async def broadcast_group_cmd(client, message):
                             x.results[0].id,
                         )
                     sent += 1
-                await asyncio.sleep(3)
+                await asyncio.sleep(5)
             except Exception:
                 failed += 1
                 await asyncio.sleep(0.3)
@@ -50,7 +50,7 @@ async def broadcast_users_cmd(client, message):
     sent = 0
     failed = 0
     msg = await message.reply(
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
+        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 5 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
     for dialog in client._get_my_peer[client.me.id]["pm"]:
         if message.reply_to_message:
@@ -68,7 +68,7 @@ async def broadcast_users_cmd(client, message):
                     else:
                         await client.send_message(dialog, send)
                     sent += 1
-                    await asyncio.sleep(3)
+                    await asyncio.sleep(5)
                 except Exception:
                     failed += 1
                     await asyncio.sleep(0.3)
