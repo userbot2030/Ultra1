@@ -12,7 +12,7 @@ async def install_user_id():
 
 
 async def install_my_peer(client):
-    try;
+    try:
         users = [
         dialog.chat.id
         async for dialog in client.get_dialogs()
