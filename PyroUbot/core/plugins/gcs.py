@@ -35,9 +35,7 @@ async def broadcast_group_cmd(client, message):
                             bot.me.username, f"gcast_button {id(message)}"
                         )
                         await client.send_inline_bot_result(
-                            dialog,
-                            x.query_id,
-                            x.results[0].id
+                            dialog, x.query_id, x.results[0].id
                         )
                     sent += 1
                 await asyncio.sleep(5)
