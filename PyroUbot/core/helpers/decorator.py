@@ -1,12 +1,9 @@
+import asyncio
+
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import FloodWait
 
-from pyrogram.errors import FloodWait
-
-
-
-import asyncio
 from PyroUbot import OWNER_ID, bot, ubot
 
 ONLY_UBOT = filters.user()
