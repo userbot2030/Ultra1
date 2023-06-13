@@ -27,8 +27,8 @@ async def alive_query(client, inline_query):
         if int(get_id[2]) == my.me.id:
             try:
                 peer = my._get_my_peer[my.me.id]
-                users = peer["pm"]
-                group = peer["gc"]
+                users = len(peer["pm"])
+                group = len(peer["gc"])
             except Exception:
                 users = random.randrange(await my.get_dialogs_count())
                 group = random.randrange(await my.get_dialogs_count())
