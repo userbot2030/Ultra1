@@ -1,4 +1,3 @@
-
 from pyrogram import filters
 from pyrogram.enums import ChatType
 
@@ -24,7 +23,6 @@ async def install_my_peer(client):
         client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
     except Exception as error:
         print(f"Error occurred: {error}")
-        
 
 
 async def install_all_peer():
