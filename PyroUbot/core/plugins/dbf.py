@@ -75,7 +75,6 @@ async def unprem_user(client, message):
         return await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     removed = await remove_prem(user.id)
     if removed:
-        await rem_expired_date(user.id)
         await Tm.edit(f"<b> ✅ {user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
     else:
         await Tm.delete()
@@ -204,7 +203,7 @@ async def unseles_user(client, message):
     removed = await remove_seles(user.id)
     if removed:
         await remove_prem(user.id)
-        await Tm.edit(f"{user.mention} berhasil dihapus")
+        await Tm.edit(f"{user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
@@ -259,3 +258,18 @@ async def expired_cek(client, message):
         await message.reply(
             f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
         )
+  
+async def (client, message):
+    user_id = await extract_user(message)
+    Tm = await message.reply("</b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
+    if not user_id:
+        return await Tm.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+    try:
+        user = await client.get_users(user_id)
+    except Exception as error:
+        return await Tm.edit(error)
+    await rem_expired_date(user.id)
+    return await message.reply(f"<b>✅ {user.id} ᴇxᴘɪʀᴇᴅ ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜs</b>")
+
+
+
