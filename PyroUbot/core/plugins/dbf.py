@@ -258,7 +258,8 @@ async def expired_cek(client, message):
         await message.reply(
             f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
         )
-  
+
+
 async def un_expired(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("</b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
@@ -270,6 +271,3 @@ async def un_expired(client, message):
         return await Tm.edit(error)
     await rem_expired_date(user.id)
     return await message.reply(f"<b>✅ {user.id} ᴇxᴘɪʀᴇᴅ ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜs</b>")
-
-
-
