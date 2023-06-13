@@ -13,7 +13,7 @@ async def main():
         ubot_ = Ubot(**_ubot)
         try:
             try:
-                await asyncio.gather(ubot_.start(), timeout=5)
+                await asyncio.gather(ubot_.start())
             except asyncio.TimeoutError:
                 print(f"({user_id}) tidak bisa merespon")
         except RPCError:
