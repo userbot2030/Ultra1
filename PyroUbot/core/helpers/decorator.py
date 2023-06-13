@@ -24,7 +24,7 @@ async def install_my_peer(client):
         client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
     except Exception as error:
         print(f"Error occurred: {error}")
-        continue
+        
 
 
 async def install_all_peer():
