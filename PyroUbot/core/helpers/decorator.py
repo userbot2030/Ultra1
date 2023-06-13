@@ -24,13 +24,9 @@ async def install_my_peer(client):
             if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group.append(dialog.chat.id)
         client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
-    except FloodWait as e:
-        print(f"FloodWait occurred. Sleeping for {e.x} seconds.")
-        await asyncio.sleep(e.x)
-        await install_my_peer(client)
     except Exception as error:
         print(f"Error occurred: {error}")
-
+        continue
 
 async def install_all_peer():
     for client in ubot._ubot:
