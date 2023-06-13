@@ -9,11 +9,14 @@ from PyroUbot import *
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
     for _ubot in await get_userbots():
+        user_id = int(_ubot["name"])
         ubot_ = Ubot(**_ubot)
         try:
-            await asyncio.gather(ubot_.start())
+            try:
+                await asyncio.gather(ubot_.start(), timeout=5)
+            except asyncio.TimeoutError:
+                await remove_ubot(user_id)
         except RPCError:
-            user_id = int(_ubot["name"])
             await remove_ubot(user_id)
             await rm_all(user_id)
             await rem_expired_date(user_id)
