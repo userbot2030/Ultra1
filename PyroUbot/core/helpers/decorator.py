@@ -27,6 +27,7 @@ async def install_my_peer(client):
     client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
 
 
+
 async def install_all_peer():
     for client in ubot._ubot:
         try:
@@ -34,3 +35,4 @@ async def install_all_peer():
             await asyncio.sleep(10)
         except Exception as error:
             print(f"error: {error}")
+    await bot.send_message("✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
