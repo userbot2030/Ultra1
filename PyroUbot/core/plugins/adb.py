@@ -164,7 +164,8 @@ async def bikin_ubot(client, callback_query):
         api_hash=API_HASH,
         session_string=session_string,
     )
-    await remove_prem(callback_query.from_user.id)
+    if callback_query.from_user.id not in await get_seles():
+        await remove_prem(callback_query.from_user.id)
     await install_user_id()
     await install_my_peer(new_client)
     for mod in loadModule():
