@@ -15,15 +15,15 @@ async def install_user_id():
 
 async def install_my_peer(client):
     users = [
-            dialog.chat.id
-            async for dialog in client.get_dialogs()
-            if dialog.chat.type == ChatType.PRIVATE
-        ]
+        dialog.chat.id
+        async for dialog in client.get_dialogs()
+        if dialog.chat.type == ChatType.PRIVATE
+    ]
     group = [
-            dialog.chat.id
-            async for dialog in client.get_dialogs()
-            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
-        ]
+        dialog.chat.id
+        async for dialog in client.get_dialogs()
+        if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
+    ]
     client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
 
 
