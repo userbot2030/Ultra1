@@ -49,6 +49,12 @@ async def _(client, message):
     await expired_cek(client, message)
 
 
+@PY.BOT("untime", FILTERS.OWNER)
+@PY.UBOT("untime", FILTERS.ME_OWNER)
+async def _(client, message):
+    await un_expired(client, message)
+
+
 @PY.CALLBACK("restart")
 async def _(client, callback_query):
     await cb_restart(client, callback_query)
