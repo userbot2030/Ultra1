@@ -12,24 +12,23 @@ async def install_user_id():
 
 
 async def install_my_peer(client):
-    users = [
+    try;
+        users = [
         dialog.chat.id
         async for dialog in client.get_dialogs()
         if dialog.chat.type == ChatType.PRIVATE
     ]
-    group = [
+       group = [
         dialog.chat.id
         async for dialog in client.get_dialogs()
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
     ]
-    client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
-
+        client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
+    except Exception as error:
+        print(f"error: {error}")
 
 async def install_all_peer():
     for client in ubot._ubot:
-        try:
-            await install_my_peer(client)
-            print(f"({client.me.id}) berhasil diinstall ke ubot._get_my_peer")
-        except Exception as error:
-            print(f"error: {error}")
-    await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
+        await install_my_peer(client)
+        print(f"({client.me.id}) berhasil diinstall ke ubot._get_my_peer")
+        await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
