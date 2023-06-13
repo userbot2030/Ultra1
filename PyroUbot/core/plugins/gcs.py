@@ -1,7 +1,6 @@
 import asyncio
 from gc import get_objects
 
-from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
@@ -30,13 +29,13 @@ async def broadcast_group_cmd(client, message):
                         await client.send_message(dialog, send)
                     else:
                         x = await client.get_inline_bot_results(
-                                bot.me.username, f"gcast_button {id(message)}"
-                            )
+                            bot.me.username, f"gcast_button {id(message)}"
+                        )
                         await client.send_inline_bot_result(
-                                dialog,
-                                x.query_id,
-                                x.results[0].id,
-                            )
+                            dialog,
+                            x.query_id,
+                            x.results[0].id,
+                        )
                     sent += 1
                 await asyncio.sleep(3)
             except Exception:
@@ -62,7 +61,7 @@ async def broadcast_users_cmd(client, message):
                 await msg.delete()
                 return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
             else:
-                  send = message.text.split(None, 1)[1]
+                send = message.text.split(None, 1)[1]
             if dialog not in await get_chat():
                 try:
                     if message.reply_to_message:
