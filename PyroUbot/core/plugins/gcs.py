@@ -11,7 +11,7 @@ async def broadcast_group_cmd(client, message):
     msg = await message.reply(
         "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
-    for dialog in client._get_my_peer["gc"]:
+    for dialog in client._get_my_peer[client.me.id]["gc"]:
         if message.reply_to_message:
             send = message.reply_to_message
         else:
@@ -53,7 +53,7 @@ async def broadcast_users_cmd(client, message):
     msg = await message.reply(
         "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
-    for dialog in client._get_my_peer["pm"]:
+    for dialog in client._get_my_peer[client.me.id]["pm"]:
         if message.reply_to_message:
             send = message.reply_to_message
         else:
