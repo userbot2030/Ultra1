@@ -12,8 +12,9 @@ async def main():
         user_id = int(_ubot["name"])
         ubot_ = Ubot(**_ubot)
         try:
-            if not 1338932764 == user_id:
-                await asyncio.gather(ubot_.start())
+            await asyncio.wait_for(ubot_.start(), timeout=5)
+        except asyncio.TimeoutError:
+            print(f"({user_id}) tidak bisa merespon")
         except RPCError:
             await remove_ubot(user_id)
             await rm_all(user_id)
