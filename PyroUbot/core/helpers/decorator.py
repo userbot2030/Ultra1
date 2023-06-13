@@ -1,8 +1,6 @@
-import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.errors import FloodWait
 
 from PyroUbot import OWNER_ID, bot, ubot
 
@@ -27,6 +25,7 @@ async def install_my_peer(client):
     except Exception as error:
         print(f"Error occurred: {error}")
         continue
+
 
 async def install_all_peer():
     for client in ubot._ubot:
