@@ -32,7 +32,6 @@ async def install_all_peer():
     for client in ubot._ubot:
         try:
             await install_my_peer(client)
-            await asyncio.sleep(10)
         except Exception as error:
             print(f"error: {error}")
     await bot.send_message("✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
