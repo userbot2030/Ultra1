@@ -10,7 +10,11 @@ async def broadcast_group_cmd(client, message):
     msg = await message.reply(
         "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 5 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
-    for dialog in client._get_my_peer[client.me.id]["gc"]:
+    try:
+        my_peer = client._get_my_peer[client.me.id]["gc"]
+    except:
+        return await message.reply("ʙʀᴏᴀᴅᴄᴀsᴛ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
+    for dialog in my_peer:
         if message.reply_to_message:
             send = message.reply_to_message
         else:
@@ -52,7 +56,11 @@ async def broadcast_users_cmd(client, message):
     msg = await message.reply(
         "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 5 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
-    for dialog in client._get_my_peer[client.me.id]["pm"]:
+    try:
+        my_peer = client._get_my_peer[client.me.id]["pm"]
+    except:
+        return await message.reply("ʙʀᴏᴀᴅᴄᴀsᴛ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
+    for dialog in my_peer:
         if message.reply_to_message:
             send = message.reply_to_message
         else:
