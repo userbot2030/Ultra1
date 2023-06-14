@@ -27,7 +27,7 @@ async def font_message(client, message):
 
 async def font_inline(client, inline_query):
     get_id = int(inline_query.query.split(None, 1)[1])
-    buttons = InlineKeyboard(row_width=2)
+    buttons = InlineKeyboard(row_width=3)
     keyboard = []
     for X in query_fonts:
         keyboard.append(
@@ -55,7 +55,7 @@ async def font_callback(client, callback_query):
     try:
         q = int(callback_query.data.split()[1])
         m = [obj for obj in get_objects() if id(obj) == q][0]
-        str(callback_query.data.split()[2])
+        new = str(callback_query.data.split()[2])
         if m.reply_to_message:
             text = m.reply_to_message.text
         else:
