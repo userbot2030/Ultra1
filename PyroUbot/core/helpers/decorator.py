@@ -12,7 +12,7 @@ async def install_my_peer(client):
                 users.append(dialog.chat.id)
             if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 group.append(dialog.chat.id)
-        client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
+            client._get_my_peer[client.me.id] = {"pm": users, "gc": group}
     except Exception as error:
         print(f"Error occurred: {error}")
 
