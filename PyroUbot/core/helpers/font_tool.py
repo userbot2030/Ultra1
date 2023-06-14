@@ -2443,7 +2443,7 @@ def gens_font(font, text):
     return get_font
 
 
-query_fots = {
+query_fonts = {
     Fonts.typewriter("typewriter"): "typewriter",
     Fonts.outline("outline"): "outline",
     Fonts.serief("serief"): "serief",
