@@ -29,8 +29,8 @@ async def font_inline(client, inline_query):
     get_id = int(inline_query.query.split(None, 1)[1])
     buttons = InlineKeyboard(row_width=4)
     keyboard = []
-    for X in query_fomts:
-        keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {X}"))
+    for X in query_fonts:
+        keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[X]}"))
     buttons.add(*keyboard)
     await client.answer_inline_query(
         inline_query.id,
@@ -58,7 +58,7 @@ async def font_callback(client, callback_query):
             text = m.reply_to_message.text
         else:
             text = m.text.split(None, 1)[1]
-        get_new_font = gens_font(query_fomts[new], text)
+        get_new_font = gens_font(New, text)
         return await callback_query.edit_message_text(get_new_font)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
