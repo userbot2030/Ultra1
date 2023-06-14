@@ -1,4 +1,3 @@
-from pyrogram import filters
 from pyrogram.enums import ChatType
 
 from PyroUbot import OWNER_ID, bot, ubot
