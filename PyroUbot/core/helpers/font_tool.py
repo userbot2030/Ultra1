@@ -2469,7 +2469,7 @@ query_fomts = {
     Fonts.square("square"): "square",
     Fonts.dark_square("square"): "dark_square",
     Fonts.andalucia("andalucia"): "andalucia",
-    Fonts.manga("manga") "manga",
+    Fonts.manga("manga"): "manga",
     Fonts.stinky("stinky"): "stinky",
     Fonts.bubbles("bubbles"): "bubbles",
     Fonts.underline("underline"): "underline",
