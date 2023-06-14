@@ -8,6 +8,8 @@ from PyroUbot import *
 
 
 async def copy_bot_msg(client, message):
+    if message.from_user.id not in ubot._get_my_id:
+        return
     Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ")
     link = get_arg(message)
     if not link:
