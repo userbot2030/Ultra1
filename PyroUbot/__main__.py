@@ -1,5 +1,5 @@
 import asyncio
-
+from pyrogram import compose
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
@@ -7,14 +7,14 @@ from PyroUbot import *
 
 
 async def main():
-    await asyncio.gather(bot.start(), ubot.start())
+    await bot.start()
+    clients = []
+    clients.append(ubot)
     for _ubot in await get_userbots():
         user_id = int(_ubot["name"])
         ubot_ = Ubot(**_ubot)
         try:
-            await asyncio.wait_for(ubot_.start(), timeout=5)
-        except asyncio.TimeoutError:
-            print(f"({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
+            clients.append(ubot_)
         except RPCError:
             await remove_ubot(user_id)
             await rm_all(user_id)
@@ -23,10 +23,10 @@ async def main():
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await asyncio.gather(
+        compose(clients)
         loadPlugins(),
         expired_userbot(),
         install_all_peer(),
-        idle(),
     )
 
 
