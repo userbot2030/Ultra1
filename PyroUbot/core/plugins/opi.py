@@ -3,6 +3,7 @@ import os
 
 from PyroUbot import *
 
+
 def repText(message):
     text = None
     if message.reply_to_message:
@@ -12,8 +13,7 @@ def repText(message):
             text = message.reply_to_message.text + "\n" + message.text.split(None, 1)[1]
     else:
         text = message.text.split(None, 1)[1]
-    return text 
-   
+    return text
 
 
 async def ai_cmd(client, message):
