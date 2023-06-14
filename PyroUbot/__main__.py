@@ -1,7 +1,7 @@
 import asyncio
+
 from pyrogram import compose
 from pyrogram.errors import RPCError
-from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
 
