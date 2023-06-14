@@ -8,8 +8,8 @@ from PyroUbot.config import *
 
 logging.basicConfig(
     level=logging.ERROR,
-    format="%(filename)s ~~ %(lineno)s ~~ %(levelname)s ~~ %(message)s",
-    datefmt="%m-%d %H:%M",
+    format="[%(levelname)s] - %(name)s - %(message)s",
+    datefmt="%d-%b-%y %H:%M:%S",
     handlers=[logging.StreamHandler()],
 )
 
