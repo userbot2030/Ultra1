@@ -51,7 +51,7 @@ class Ubot(Client):
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
-        print(f"Userbot ({self.me.id}) Started")
+        logging.info(f"Userbot ({self.me.id}) Started")
 
 
 bot = Bot(
