@@ -12,6 +12,7 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()],
 )
 
+
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
