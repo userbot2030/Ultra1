@@ -5,12 +5,12 @@ from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import *
 
-
 """
             await asyncio.wait_for(ubot_.start(), timeout=5)
         except asyncio.TimeoutError:
             print(f"({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
 """
+
 
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
