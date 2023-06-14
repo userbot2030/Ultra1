@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import asyncio
 from pyrogram.types import InlineKeyboardMarkup
 from pytz import timezone
 
@@ -35,3 +35,4 @@ async def expired_userbot():
                     )
             except:
                 pass
+        await asyncio.sleep(21600)
