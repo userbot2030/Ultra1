@@ -12,7 +12,7 @@ def repText(message):
         else:
             text = message.reply_to_message.text + "\n" + message.text.split(None, 1)[1]
     else:
-        if len(message.command) < 2
+        if len(message.command) < 2:
              text = None 
         else:
             text = message.text.split(None, 1)[1]
