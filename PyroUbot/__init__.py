@@ -28,8 +28,6 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        self.rate_limit = 1
-        print(f"Robot ({self.me.id}) Started")
 
 
 class Ubot(Client):
@@ -51,12 +49,10 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        if self not in self._ubot:
-            self.rate_limit = 1
-            self._ubot.append(self)
-            self._get_my_id.append(self.me.id)
-            self._translate[self.me.id] = {"negara": "id"}
-            print(f"Userbot ({self.me.id}) Started")
+        self._ubot.append(self)
+        self._get_my_id.append(self.me.id)
+        self._translate[self.me.id] = {"negara": "id"}
+        print(f"Userbot ({self.me.id}) Started")
 
 
 bot = Bot(
