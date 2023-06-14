@@ -8,8 +8,7 @@ from PyroUbot import *
 
 
 async def copy_bot_msg(client, message):
-    msg = message.reply_to_message or message
-    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀ")
+    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
@@ -23,7 +22,7 @@ async def copy_bot_msg(client, message):
             chat = str(link.split("/")[-2])
         try:
             get = await client.get_messages(chat, msg_id)
-            await get.copy(message.chat.id, reply_to_message_id=msg.id)
+            await get.copy(message.chat.id)
             await Tm.delete()
         except Exception as error:
             await Tm.edit(error)
@@ -33,7 +32,7 @@ async def copy_bot_msg(client, message):
 
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
-    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀ")
+    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
