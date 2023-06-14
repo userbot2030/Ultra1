@@ -11,6 +11,8 @@ from PyroUbot.core.plugins import *
 
 
 async def kang_cmd_bot(client, message):
+    if message.from_user.id not in ubot._get_my_id:
+        return
     if not message.reply_to_message:
         return await message.reply_text("ᴍᴇᴍʙᴀʟᴀs sᴛɪᴋᴇʀ/ɢᴀᴍʙᴀʀ ᴋᴇ ᴋᴀɴɢ ɪᴛᴜ.")
     if not message.from_user:
