@@ -1,4 +1,3 @@
-import string
 from gc import get_objects
 
 from pykeyboard import InlineKeyboard
@@ -31,8 +30,7 @@ async def font_inline(client, inline_query):
     buttons = InlineKeyboard(row_width=4)
     keyboard = []
     for X in query_fomts:
-        keyboard.append(
-          InlineKeyboardButton(X, callback_data=f"get {get_id} {X}"))
+        keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {X}"))
     buttons.add(*keyboard)
     await client.answer_inline_query(
         inline_query.id,
