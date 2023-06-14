@@ -4,7 +4,7 @@ import os
 from PyroUbot import *
 
 
-def repText(message):
+def get_text(message):
     if message.reply_to_message:
         if len(message.command) < 2:
             text = message.reply_to_message.text
@@ -20,7 +20,7 @@ def repText(message):
 
 async def ai_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
-    args = repText(message)
+    args = get_text(message)
     if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
