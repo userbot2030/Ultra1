@@ -2477,7 +2477,7 @@ query_fomts = {
     Fonts.rays("rays"): "rays",
     Fonts.birds("birds"): "birds",
     Fonts.slash("slash"): "slash",
-    Fonts.stop("stop": "stop",
+    Fonts.stop("stop"): "stop",
     Fonts.skyline("skyline"): "skyline",
     Fonts.arrows("arrows"): "arrows",
     Fonts.rvnes("rvnes"): "rvnes",
