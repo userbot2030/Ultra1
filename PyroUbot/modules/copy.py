@@ -9,7 +9,7 @@ __HELP__ = f"""
   """
 
 
-@PY.BOT("copy", ONLY_UBOT)
+@PY.BOT("copy")
 async def _(client, message):
     await copy_bot_msg(client, message)
 
