@@ -1,5 +1,6 @@
 import importlib
 import logging
+import sys
 
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
@@ -7,11 +8,10 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-import logging
-import sys
 
 def restart_program():
     os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+
 
 try:
     logging.basicConfig(
