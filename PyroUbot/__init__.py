@@ -6,13 +6,11 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-formatter = logging.Formatter("[%(levelname)s] - %(name)s - %(message)s")
-handler = logging.StreamHandler()
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-
+logging.basicConfig(
+    level=logging.ERROR,
+    format="[%(levelname)s] - %(name)s - %(message)s",
+    handlers=[logging.StreamHandler()],
+)
 
 class Bot(Client):
     def __init__(self, **kwargs):
