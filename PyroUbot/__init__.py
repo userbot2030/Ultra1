@@ -6,6 +6,8 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
 from PyroUbot.config import *
+from pyrogram.methods.utilities.idle import idle
+
 
 logging.basicConfig(
     level=logging.ERROR,
@@ -28,6 +30,7 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
+        await idle()
 
 
 class Ubot(Client):
@@ -49,6 +52,7 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        await idle()
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
