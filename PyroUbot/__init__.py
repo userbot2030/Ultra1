@@ -3,11 +3,10 @@ import logging
 
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
+from pyrogram.methods.utilities.idle import idle
 from pyromod import listen
 
 from PyroUbot.config import *
-from pyrogram.methods.utilities.idle import idle
-
 
 logging.basicConfig(
     level=logging.ERROR,
