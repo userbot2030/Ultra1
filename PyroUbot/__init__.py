@@ -49,10 +49,11 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        self._ubot.append(self)
-        self._get_my_id.append(self.me.id)
-        self._translate[self.me.id] = {"negara": "id"}
-        print(f"Userbot ({self.me.id}) Started")
+        if self not in self._ubot:
+            self._ubot.append(self)
+            self._get_my_id.append(self.me.id)
+            self._translate[self.me.id] = {"negara": "id"}
+            print(f"Userbot ({self.me.id}) Started")
 
 
 bot = Bot(
