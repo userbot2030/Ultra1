@@ -3,13 +3,26 @@ import os
 
 from PyroUbot import *
 
+def repText(message):
+    text = None
+    if message.reply_to_message:
+        if len(message.command) < 2:
+            text = message.reply_to_message.text
+        else:
+            text = message.reply_to_message.text + "\n" + message.text.split(None, 1)[1]
+    else:
+        text = message.text.split(None, 1)[1]
+    return text 
+   
+
 
 async def ai_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
-    if len(message.command) < 2:
+    args = repText(message)
+    if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
-        response = await OpenAi.ChatGPT(message.text.split(None, 1)[1])
+        response = await OpenAi.ChatGPT(args)
         if int(len(str(response))) > 4096:
             with io.BytesIO(str.encode(str(response))) as out_file:
                 out_file.name = "openAi.txt"
