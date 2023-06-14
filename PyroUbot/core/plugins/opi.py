@@ -5,7 +5,6 @@ from PyroUbot import *
 
 
 def repText(message):
-    text = None
     if message.reply_to_message:
         if len(message.command) < 2:
             text = message.reply_to_message.text
@@ -13,7 +12,7 @@ def repText(message):
             text = message.reply_to_message.text + "\n" + message.text.split(None, 1)[1]
     else:
         if len(message.command) < 2:
-            text = None
+            text = ""
         else:
             text = message.text.split(None, 1)[1]
     return text
@@ -22,7 +21,7 @@ def repText(message):
 async def ai_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     args = repText(message)
-    if args == "None":
+    if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
         response = await OpenAi.ChatGPT(args)
