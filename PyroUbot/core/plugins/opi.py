@@ -12,14 +12,17 @@ def repText(message):
         else:
             text = message.reply_to_message.text + "\n" + message.text.split(None, 1)[1]
     else:
-        text = message.text.split(None, 1)[1]
+        if len(message.command) < 2
+             text = None 
+        else:
+            text = message.text.split(None, 1)[1]
     return text
 
 
 async def ai_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     args = repText(message)
-    if not args:
+    if args == "None":
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
         response = await OpenAi.ChatGPT(args)
