@@ -1,6 +1,4 @@
-import importlib
 import logging
-import sys
 
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
@@ -15,7 +13,7 @@ def restart_program():
 
 try:
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.ERROR,
         format="%(filename)s:%(lineno)s %(levelname)s: %(message)s",
         datefmt="%m-%d %H:%M",
         handlers=[logging.StreamHandler()],
