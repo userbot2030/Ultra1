@@ -5,13 +5,15 @@ from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
 from PyroUbot.config import *
+import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(levelname)s] - %(name)s - %(message)s",
-    datefmt="%d-%b-%y %H:%M:%S",
-    handlers=[logging.NullHandler()],
-)
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter("[%(levelname)s] - %(name)s - %(message)s", "%d-%b-%y %H:%M:%S")
+handler = logging.StreamHandler()
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
 
 
 class Bot(Client):
