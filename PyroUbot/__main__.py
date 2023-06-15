@@ -12,7 +12,7 @@ async def main():
         user_id = int(_ubot["name"])
         ubot_ = Ubot(**_ubot)
         try:
-            await asyncio.wait_for(ubot_.start(), timeout=5)
+            await asyncio.wait_for(ubot_.start(), timeout=120)
         except asyncio.TimeoutError:
             print(f"[INFO] - ({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
         except RPCError:
