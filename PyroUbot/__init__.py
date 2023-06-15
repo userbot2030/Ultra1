@@ -17,7 +17,7 @@ def handle_connection_lost(record):
 
 console = logging.StreamHandler()
 console.setLevel(logging.IBFO)
-console.setFormatter(logging.Formatter("[%(levelname)s] - %(name)s - %(message)s")
+console.setFormatter(logging.Formatter("[%(levelname)s] - %(name)s - %(message)s"))
 
 logger = logging.getLogger("")
 logger.addHandler(console)
