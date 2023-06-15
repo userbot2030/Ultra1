@@ -25,7 +25,6 @@ async def main():
     await asyncio.gather(
         loadPlugins(),
         expired_userbot(),
-        install_all_peer(),
         idle(),
     )
 
