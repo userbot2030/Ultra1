@@ -15,12 +15,13 @@ def handle_connection_lost(record):
         os.system("python3 -m PyroUbot")
 
 
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-console.setFormatter(logging.Formatter("[%(levelname)s] - %(name)s - %(message)s"))
-
-logger = logging.getLogger("")
-logger.addHandler(console)
+logging.basicConfig(
+    level=logging.ERROR,
+    format="[%(levelname)s] - %(name)s - %(message)s",
+    datefmt="%m-%d %H:%M",
+    handlers=[logging.StreamHandler()],
+)      
+        
 logger.addFilter(handle_connection_lost)
 
 
