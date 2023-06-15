@@ -1,4 +1,3 @@
-import importlib
 import random
 from datetime import datetime, timedelta
 
@@ -6,7 +5,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import *
-from PyroUbot.modules import loadModule
 
 
 async def login_cmd(client, message):
