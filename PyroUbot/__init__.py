@@ -13,16 +13,10 @@ def handle_connection_lost(record):
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
 
 
-basicConfig(
-    level=ERROR,
-    format="[%(levelname)s] - %(name)s - %(message)s",
-    datefmt="%m-%d %H:%M",
-    handlers=[RichHandler()],
-)
 
 console = StreamHandler()
 console.setLevel(ERROR)
-console.setFormatter(Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s"))
+console.setFormatter(Formatter("[%(levelname)s] - %(name)s - %(message)s"))
 getLogger("").addHandler(console)
 getLogger("").addFilter(handle_connection_lost)
 
