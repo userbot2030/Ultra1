@@ -47,7 +47,6 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
-        await install_my_peer(self)
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
