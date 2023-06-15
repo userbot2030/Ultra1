@@ -21,7 +21,7 @@ logging.basicConfig(
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler()],
 )
-logger = logging.getLogger("")
+logger = logging.getLogger()
 logger.addFilter(handle_connection_lost)
 
 
