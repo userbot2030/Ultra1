@@ -15,15 +15,13 @@ class ConnectionHandler(logging.Handler):
             os.system("kill -9 {}".format(os.getpid()))
             os.system("python3 -m PyroUbot")
         print("DONE")
-            
+
+
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[
-        logging.StreamHandler(),
-        ConnectionHandler()
-    ],
+    handlers=[logging.StreamHandler(), ConnectionHandler()],
 )
 
 # Contoh penggunaan logging
