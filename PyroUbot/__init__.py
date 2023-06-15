@@ -1,6 +1,6 @@
 import logging
 import os
-
+from logging import *
 
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
@@ -9,11 +9,13 @@ from rich.logging import RichHandler
 
 from PyroUbot.config import *
 
-from logging import *
 
 def handle_connection_lost(record):
     if "Connection" in record.getMessage():
-        os.system("kill -9 {} && rm -rf *.session* && python3 -m PyroUbot".format(os.getpid()))
+        os.system(
+            "kill -9 {} && rm -rf *.session* && python3 -m PyroUbot".format(os.getpid())
+        )
+
 
 logger = logging.getLogger("")
 logger.setLevel(logging.ERROR)
