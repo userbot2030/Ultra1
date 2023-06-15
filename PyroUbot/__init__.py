@@ -12,8 +12,7 @@ from PyroUbot.config import *
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
         if "Telegram" in record.getMessage():
-            os.system("kill -9 {}".format(os.getpid()))
-            os.system("python3 -m PyroUbot")
+            os.system("kill -9 {} python3 -m PyroUbot".format(os.getpid()))
 
 
 logging.basicConfig(
