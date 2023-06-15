@@ -25,7 +25,7 @@ logging.basicConfig(
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
 console.setFormatter(
-    logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
+    logging.Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s")
 )
 logging.getLogger("").addHandler(console)
 logging.getLogger("").addFilter(handle_connection_lost)
