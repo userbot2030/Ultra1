@@ -15,7 +15,7 @@ def handle_connection_lost(record):
 
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
 )
