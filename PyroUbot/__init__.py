@@ -2,7 +2,7 @@ from pyrogram import Client
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
-l
+
 import logging
 import os
 
