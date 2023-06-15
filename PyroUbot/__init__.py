@@ -14,7 +14,6 @@ class ConnectionHandler(logging.Handler):
         if "Telegram" in record.getMessage():
             os.system("kill -9 {}".format(os.getpid()))
             os.system("python3 -m PyroUbot")
-        print("DONE")
 
 
 logging.basicConfig(
@@ -23,9 +22,6 @@ logging.basicConfig(
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler(), ConnectionHandler()],
 )
-
-# Contoh penggunaan logging
-logging.error("Connection otomatis mati")
 
 
 class Bot(Client):
