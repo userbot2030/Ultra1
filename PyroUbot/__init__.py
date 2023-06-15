@@ -11,7 +11,7 @@ from PyroUbot.config import *
 
 def handle_connection_lost(record):
     if "OSError" in record.getMessage():
-        os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+        os.system(f"kill -9 {os.getpid()}")
 
 
 logging.basicConfig(
