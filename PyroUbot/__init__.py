@@ -1,4 +1,5 @@
-import logging, importlib
+import importlib
+import logging
 
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
@@ -28,7 +29,6 @@ class Bot(Client):
         await super().start()
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-   
 
 
 class Ubot(Client):
