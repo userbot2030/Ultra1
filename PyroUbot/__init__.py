@@ -10,25 +10,25 @@ from PyroUbot.config import *
 
 
 def handle_connection_lost(record):
-    if "FLOOD_WAIT" in record.getMessage():
+    if "Telegram" in record.getMessage():
         os.system("kill -9 {}".format(os.getpid()))
         os.system("python3 -m PyroUbot")
 
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[RichHandler()],
+    handlers=[logging.StreamHandler()],
 )
 
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
-console.setFormatter(
-    logging.Formatter("%(filename)s: %(lineno)s: %(levelname)s: %(message)s")
-)
-logging.getLogger("").addHandler(console)
-logging.getLogger("").addFilter(handle_connection_lost)
+console.setFormatter(logging.Formatter("%(filename)s - %(lineno)s - %(levelname)s - %(message)s"))
+
+logger = logging.getLogger("")
+logger.addHandler(console)
+logger.addFilter(handle_connection_lost)
 
 
 class Bot(Client):
