@@ -20,8 +20,8 @@ logging.basicConfig(
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler()],
-)      
-        
+)
+
 logger.addFilter(handle_connection_lost)
 
 
