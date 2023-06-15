@@ -20,5 +20,5 @@ async def install_my_peer(client):
 async def install_all_peer():
     for client in ubot._ubot:
         await install_my_peer(client)
-        print(f"[INFO] - ({client.me.id}) - install ubot._get_my_peer")
+        print(f"[𝗜𝗡𝗙𝗢] - ({client.me.id}) - 𝗜𝗡𝗦𝗧𝗔𝗟𝗟 𝗨𝗕𝗢𝗧._𝗚𝗘𝗧_𝗠𝗬_𝗣𝗘𝗘𝗥")
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
