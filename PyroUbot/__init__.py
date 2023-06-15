@@ -1,27 +1,32 @@
 from pyrogram import Client
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
+
 l
-from PyroUbot.config import *
-
-
 import logging
 import os
+
 from rich.logging import RichHandler
+
+from PyroUbot.config import *
+
 
 def handle_connection_lost(record):
     if "Connection" in record.getMessage():
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
 
+
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
-    datefmt="%m-%d %H:%M"
+    datefmt="%m-%d %H:%M",
 )
 
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
-console.setFormatter(logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s"))
+console.setFormatter(
+    logging.Formatter("%(filename)s:%(lineno)s %(levelname)s: %(message)s")
+)
 
 root_logger = logging.getLogger()
 root_logger.addHandler(RichHandler())
