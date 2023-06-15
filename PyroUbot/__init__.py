@@ -10,9 +10,8 @@ from PyroUbot.config import *
 
 
 def handle_connection_lost(record):
-    for X in ["Connection", "TimeoutError"]:
-        if X in record.getMessage():
-            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+    if "OSError" in record.getMessage():
+       os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logging.basicConfig(
