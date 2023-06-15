@@ -6,12 +6,25 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
+import logging
+import sys
+from rich.logging import RichHandler
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    if "Connecting lost" in str(exc_value):
+        print("Koneksi terputus. Menghentikan sistem...")
+        os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
+    else:
+        os.system(f"kill -9 {os.getpid()} && git  && python3 -m PyroUbot")
+
+sys.excepthook = handle_exception
+
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
-    handlers=[logging.StreamHandler()],
+    datefmt="%m-%d %H:%M",
+    handlers=logging.StreamHandler()],
 )
-
 
 class Bot(Client):
     def __init__(self, **kwargs):
