@@ -8,7 +8,6 @@ from PyroUbot.config import *
 
 import logging
 import sys
-from rich.logging import RichHandler
 
 def handle_exception(exc_type, exc_value, exc_traceback):
     if "Connecting lost" in str(exc_value):
@@ -23,7 +22,7 @@ logging.basicConfig(
     level=logging.ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=logging.StreamHandler()],
+    handlers=[logging.StreamHandler()],
 )
 
 class Bot(Client):
