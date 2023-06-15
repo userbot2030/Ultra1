@@ -50,6 +50,8 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         await install_my_peer(self)
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
