@@ -50,7 +50,7 @@ class Ubot(Client):
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
-        print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
+        print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) - 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
 
 
 bot = Bot(
