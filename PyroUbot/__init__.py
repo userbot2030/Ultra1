@@ -9,21 +9,25 @@ from rich.logging import RichHandler
 from PyroUbot.config import *
 
 
-def handle_connection_lost(record):
-    if "Telegram" in record.getMessage():
-        os.system("kill -9 {}".format(os.getpid()))
-        os.system("python3 -m PyroUbot")
-    print("DONE")
-
-
+class ConnectionHandler(logging.Handler):
+    def emit(self, record):
+        if "Telegram" in record.getMessage():
+            os.system("kill -9 {}".format(os.getpid()))
+            os.system("python3 -m PyroUbot")
+        print("DONE")
+            
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
-    handlers=[logging.StreamHandler()],
+    handlers=[
+        logging.StreamHandler(),
+        ConnectionHandler()
+    ],
 )
-logger = logging.getLogger()
-logger.addFilter(handle_connection_lost)
+
+# Contoh penggunaan logging
+logging.error("Connection otomatis mati")
 
 
 class Bot(Client):
