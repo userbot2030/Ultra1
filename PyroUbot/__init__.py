@@ -10,7 +10,7 @@ from PyroUbot.config import *
 
 def handle_connection_lost(record):
     if "Connection" in record.getMessage():
-        os.system(f"kill -9 {os.getpid()} && git  && python3 -m PyroUbot")
+        os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
 
 
 basicConfig(
