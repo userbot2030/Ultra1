@@ -21,6 +21,8 @@ async def login_cmd(client, message):
             session_string=message.command[2],
         )
         await ub.start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         now = datetime.now(timezone("Asia/Jakarta"))
         expire_date = now + timedelta(days=int(message.command[1]))
         await set_expired_date(ub.me.id, expire_date)
@@ -70,6 +72,8 @@ async def restart_cmd(client, message):
             session_string=SESSION_STRING,
         )
         await UB.start()
+        for mod in loadModule():
+            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         return await msg.edit(
             f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
         )
@@ -81,6 +85,8 @@ async def restart_cmd(client, message):
                         ubot._ubot.remove(X)
                         UB = Ubot(**_ubot_)
                         await UB.start()
+                        for mod in loadModule():
+                            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
                         return await msg.edit(
                             f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
                         )
