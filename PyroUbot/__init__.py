@@ -10,8 +10,9 @@ from PyroUbot.config import *
 
 
 def handle_connection_lost(record):
-    if "OSError" in record.getMessage():
-        os.system(f"kill -9 {os.getpid()}")
+    if "FLOOD_WAIT" in record.getMessage():
+        os.system("kill -9 {}".format(os.getpid()))
+        os.system("python3 -m PyroUbot")
 
 
 logging.basicConfig(
