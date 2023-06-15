@@ -7,7 +7,7 @@ from pyromod import listen
 from PyroUbot.config import *
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     handlers=[logging.StreamHandler()],
 )
@@ -50,7 +50,7 @@ class Ubot(Client):
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
-        print(f"[INFO] - ({self.me.id}) - [START]")
+        print(f"[INFO] - ({self.me.id})")
 
 
 bot = Bot(
