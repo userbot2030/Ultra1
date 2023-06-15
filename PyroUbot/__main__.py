@@ -24,6 +24,7 @@ async def main():
             print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
     await asyncio.gather(
         loadPlugins(),
+        install_all_peer(),
         expired_userbot(),
         idle(),
     )
