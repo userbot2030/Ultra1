@@ -14,7 +14,7 @@ async def main():
         try:
             await asyncio.wait_for(ubot_.start(), timeout=5)
         except asyncio.TimeoutError:
-            print(f"({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
+            print(f"[INFO] - ({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
         except RPCError:
             await remove_ubot(user_id)
             await rm_all(user_id)
