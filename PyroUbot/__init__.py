@@ -11,8 +11,9 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        if "Telegram" in record.getMessage():
-            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+        for X in ["Connection", "TimeoutError"]:
+            if X in record.getMessage():
+                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logging.basicConfig(
