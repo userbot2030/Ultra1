@@ -24,7 +24,9 @@ logging.basicConfig(
 
 console = logging.StreamHandler()
 console.setLevel(logging.ERROR)
-console.setFormatter(logging.Formatter("%(filename)s - %(lineno)s - %(levelname)s - %(message)s"))
+console.setFormatter(
+    logging.Formatter("%(filename)s - %(lineno)s - %(levelname)s - %(message)s")
+)
 
 logger = logging.getLogger("")
 logger.addHandler(console)
