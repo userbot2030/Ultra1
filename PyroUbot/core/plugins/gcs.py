@@ -55,9 +55,10 @@ async def broadcast_users_cmd(client, message):
     sent = 0
     failed = 0
     msg = await message.reply(
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
+        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 5 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
     async for dialog in client.get_dialogs():
+        await asyncio.sleep(5)
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
                 send = message.reply_to_message
@@ -75,10 +76,10 @@ async def broadcast_users_cmd(client, message):
                     else:
                         await client.send_message(chat_id, send)
                     sent += 1
-                    await asyncio.sleep(3)
+                    await asyncio.sleep(0.1)
                 except Exception:
                     failed += 1
-                    await asyncio.sleep(0.3)
+                    await asyncio.sleep(0.1)
     await msg.delete()
     return await message.reply(
         f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {sent} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
