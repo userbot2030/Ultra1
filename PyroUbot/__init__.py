@@ -13,7 +13,6 @@ def handle_connection_lost(record):
         os.system(f"kill -9 {os.getpid()} && rm -rf *.session* && python3 -m PyroUbot")
 
 
-
 console = StreamHandler()
 console.setLevel(ERROR)
 console.setFormatter(Formatter("[%(levelname)s] - %(name)s - %(message)s"))
