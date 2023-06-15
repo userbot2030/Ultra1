@@ -14,14 +14,14 @@ async def main():
         try:
             await asyncio.wait_for(ubot_.start(), timeout=120)
         except asyncio.TimeoutError:
-            print(f"[INFO] - ({user_id}) ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇʀᴇsᴘᴏɴ")
+            print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
         except RPCError:
             await remove_ubot(user_id)
             await rm_all(user_id)
             await rem_expired_date(user_id)
             for X in await get_chat(user_id):
                 await remove_chat(user_id, X)
-            print(f"✅ {user_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs")
+            print(f"✅ {user_id} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
     await asyncio.gather(
         loadPlugins(),
         install_all_peer(),
