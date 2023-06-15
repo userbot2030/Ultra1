@@ -14,7 +14,7 @@ def handle_connection_lost(record):
 
 
 basicConfig(
-    level=INFO,
+    level=ERROR,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[RichHandler()],
