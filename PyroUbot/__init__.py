@@ -13,7 +13,7 @@ def handle_connection_lost(record):
     if "Telegram" in record.getMessage():
         os.system("kill -9 {}".format(os.getpid()))
         os.system("python3 -m PyroUbot")
-     print("DONE")
+    print("DONE")
 
 
 logging.basicConfig(
