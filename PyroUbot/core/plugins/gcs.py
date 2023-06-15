@@ -13,6 +13,7 @@ async def broadcast_group_cmd(client, message):
         "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs\n\nᴘᴇsᴀɴ ᴀɴᴅᴀ ᴀᴋᴀɴ ᴛᴇʀᴋɪʀɪᴍ sᴇᴛɪᴀᴘ 3 ᴅᴇᴛɪᴋ sᴇᴋᴀʟɪ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ"
     )
     async for dialog in client.get_dialogs():
+        await asyncio.sleep(5)
         if dialog.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
             if message.reply_to_message:
                 send = message.reply_to_message
@@ -40,10 +41,10 @@ async def broadcast_group_cmd(client, message):
                                 x.results[0].id,
                             )
                     sent += 1
-                    await asyncio.sleep(3)
+                    await asyncio.sleep(0.1)
                 except Exception:
                     failed += 1
-                    await asyncio.sleep(0.3)
+                    await asyncio.sleep(0.1)
     await msg.delete()
     return await message.reply(
         f"💬 ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇʟᴇsᴀɪ\n\n✅ ʙᴇʀʜᴀsɪʟ ᴛᴇʀᴋɪʀɪᴍ: {sent} \n❌ ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ: {failed}"
