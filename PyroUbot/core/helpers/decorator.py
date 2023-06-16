@@ -1,6 +1,9 @@
 import asyncio
+
 from pyrogram.enums import ChatType
+
 from PyroUbot import OWNER_ID, bot, ubot
+
 
 async def install_my_peer(client):
     try:
@@ -15,6 +18,7 @@ async def install_my_peer(client):
     except Exception as error:
         print(f"Error occurred: {error}")
 
+
 async def install_all_peer():
     tasks = []
     for client in ubot._ubot:
@@ -22,4 +26,3 @@ async def install_all_peer():
         print(f"[𝗜𝗡𝗙𝗢] - ({client.me.id}) - 𝗜𝗡𝗦𝗧𝗔𝗟𝗟 𝗨𝗕𝗢𝗧._𝗚𝗘𝗧_𝗠𝗬_𝗣𝗘𝗘𝗥")
     await asyncio.gather(*tasks)
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
-
