@@ -29,10 +29,10 @@ async def broadcast_group_cmd(client, message):
                             x = await client.get_inline_bot_results(
                                 bot.me.username, f"gcast_button {id(message)}"
                             )
-                           await client.send_inline_bot_result(
+                            await client.send_inline_bot_result(
                                 dialog, x.query_id, x.results[0].id
                             )
-                        sent += 1
+                    sent += 1
                 except FloodWait as FW:
                     await asyncio.sleep(FW.x)
                 except Exception:
