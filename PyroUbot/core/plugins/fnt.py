@@ -57,7 +57,7 @@ async def font_next(client, callback_query):
         get_id = int(callback_query.data.split()[1])
         buttons = InlineKeyboard(row_width=3)
         keyboard = []
-        for X in query_fonts[0]:
+        for X in query_fonts[1]:
             keyboard.append(
                 InlineKeyboardButton(
                     X, callback_data=f"get {get_id} {query_fonts[1][X]}"
