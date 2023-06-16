@@ -1,7 +1,7 @@
 import asyncio
 from gc import get_objects
 
-from pyrogram.error import FloodWait
+from pyrogram.errors import FloodWait
 
 from PyroUbot import *
 
