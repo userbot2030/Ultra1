@@ -1,13 +1,14 @@
 import asyncio
 from gc import get_objects
+
 from pyrogram.error import FloodWait
+
 from PyroUbot import *
 
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    msg = await message.reply(
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
     try:
         for dialog in client._get_my_peer[client.me.id]["gc"]:
             if message.reply_to_message:
@@ -38,19 +39,15 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
         await msg.delete()
-        return await message.reply(
-            f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ"
-        )
+        return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
     except:
         return await msg.edit("ʙʀᴏᴀᴅᴄᴀsᴛ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
 
 
-
 async def broadcast_users_cmd(client, message):
     sent = 0
-    msg = await message.reply(
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    try:    
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
+    try:
         for dialog in client._get_my_peer[client.me.id]["pm"]:
             if message.reply_to_message:
                 send = message.reply_to_message
@@ -72,9 +69,7 @@ async def broadcast_users_cmd(client, message):
                     except Exception:
                         pass
         await msg.delete()
-        return await message.reply(
-            f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ"
-        )
+        return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
     except:
         return await msg.edit("ʙʀᴏᴀᴅᴄᴀsᴛ sᴇᴅᴀɴɢ ᴇʀʀᴏʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ")
 
