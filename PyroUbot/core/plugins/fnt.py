@@ -64,13 +64,13 @@ async def font_next(client, callback_query):
                 )
             )
         buttons.add(*keyboard)
-        button.row(InlineKeyboardButton("⬅️", callback_data=f"prew {get_id}"))
+        button.row(InlineKeyboardButton("⬅️", callback_data=f"prev {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
 
 
-async def font_next(client, callback_query):
+async def font_prev(client, callback_query):
     try:
         get_id = int(callback_query.data.split()[1])
         buttons = InlineKeyboard(row_width=3)
