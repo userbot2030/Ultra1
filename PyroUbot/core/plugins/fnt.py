@@ -34,7 +34,7 @@ async def font_inline(client, inline_query):
             InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}")
         )
     buttons.add(*keyboard)
-    button.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
+    buttons.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -64,7 +64,7 @@ async def font_next(client, callback_query):
                 )
             )
         buttons.add(*keyboard)
-        button.row(InlineKeyboardButton("⬅️", callback_data=f"prev {get_id}"))
+        buttons.row(InlineKeyboardButton("⬅️", callback_data=f"prev {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
@@ -82,7 +82,7 @@ async def font_prev(client, callback_query):
                 )
             )
         buttons.add(*keyboard)
-        button.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
+        buttons.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
