@@ -29,11 +29,12 @@ async def font_inline(client, inline_query):
     get_id = int(inline_query.query.split(None, 1)[1])
     buttons = InlineKeyboard(row_width=3)
     keyboard = []
-    for X in query_fonts:
+    for X in query_fonts[0]:
         keyboard.append(
-            InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[X]}")
+            InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}")
         )
     buttons.add(*keyboard)
+    button.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
@@ -49,7 +50,41 @@ async def font_inline(client, inline_query):
             )
         ],
     )
+    
 
+async def font_next(client, callback_query):
+    try:
+        get_id = int(callback_query.data.split()[1])
+        buttons = InlineKeyboard(row_width=3)
+        keyboard = []
+        for X in query_fonts[0]:
+            keyboard.append(
+                InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[1][X]}")
+             )
+        buttons.add(*keyboard)
+        button.row(InlineKeyboardButton("⬅️", callback_data=f"prew {get_id}"))
+        return await callback_query.edit_message_reply_markup(reply_markup=buttons)
+    except Exception as error:
+        return await callback_query.edit_message_text(f"<code>{error}</code>")
+    
+
+async def font_next(client, callback_query):
+    try:
+        get_id = int(callback_query.data.split()[1])
+        buttons = InlineKeyboard(row_width=3)
+        keyboard = []
+        for X in query_fonts[0]:
+            keyboard.append(
+                InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}")
+             )
+        buttons.add(*keyboard)
+        button.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
+        return await callback_query.edit_message_reply_markup(reply_markup=buttons)
+    except Exception as error:
+        return await callback_query.edit_message_text(f"<code>{error}</code>")
+
+        
+        
 
 async def font_callback(client, callback_query):
     try:
