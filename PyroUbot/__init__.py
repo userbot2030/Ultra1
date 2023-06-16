@@ -17,7 +17,7 @@ class ConnectionHandler(logging.Handler):
 
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler(), ConnectionHandler()],
