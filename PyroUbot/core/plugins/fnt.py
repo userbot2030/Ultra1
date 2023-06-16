@@ -50,7 +50,7 @@ async def font_inline(client, inline_query):
             )
         ],
     )
-    
+
 
 async def font_next(client, callback_query):
     try:
@@ -59,14 +59,16 @@ async def font_next(client, callback_query):
         keyboard = []
         for X in query_fonts[0]:
             keyboard.append(
-                InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[1][X]}")
-             )
+                InlineKeyboardButton(
+                    X, callback_data=f"get {get_id} {query_fonts[1][X]}"
+                )
+            )
         buttons.add(*keyboard)
         button.row(InlineKeyboardButton("⬅️", callback_data=f"prew {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
-    
+
 
 async def font_next(client, callback_query):
     try:
@@ -75,16 +77,16 @@ async def font_next(client, callback_query):
         keyboard = []
         for X in query_fonts[0]:
             keyboard.append(
-                InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}")
-             )
+                InlineKeyboardButton(
+                    X, callback_data=f"get {get_id} {query_fonts[0][X]}"
+                )
+            )
         buttons.add(*keyboard)
         button.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")
 
-        
-        
 
 async def font_callback(client, callback_query):
     try:
