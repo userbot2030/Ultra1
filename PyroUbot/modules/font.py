@@ -24,3 +24,16 @@ async def _(client, inline_query):
 @INLINE.DATA
 async def _(client, callback_query):
     await font_callback(client, callback_query)
+
+    
+
+@PY.CALLBACK("^next")
+@INLINE.DATA
+async def _(client, callback_query):
+    await font_next(client, callback_query)
+    
+
+@PY.CALLBACK("^prev")
+@INLINE.DATA
+async def _(client, callback_query):
+    await font_prev(client, callback_query)
