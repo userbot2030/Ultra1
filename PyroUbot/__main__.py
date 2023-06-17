@@ -32,7 +32,7 @@ async def main():
     await asyncio.gather(
         loadPlugins(),
         install_all_peer(),
-        expired_userbot(),
+        check_expired_userbots(),
         idle(),
     )
 
