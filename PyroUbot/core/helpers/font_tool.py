@@ -1121,6 +1121,38 @@ class Fonts:
             text = text.replace(i, j)
         return text
 
+    def upside_down(text)
+        style = {
+            "a": ,"ɐ"
+            "b"; ,"q"
+            "c": ,"ɔ"
+            "d": ,"p"
+            "e": ,"ǝ"
+            "f": ,"ɟ"
+            "g": ,"ƃ"
+            "h": ,"ɥ"
+            "i": ,"ᴉ"
+            "j": ,"ɾ"
+            "k": ,"ʞ"
+            "l": ,"l"
+            "m": ,"ɯ"
+            "n": ,"u"
+            "o": ,"o"
+            "p": ,"d"
+            "q": ,"b"
+            "r": ,"ɹ"
+            "s": ,"s"
+            "t": ,"ʇ"
+            "u": ,"n"
+            "v": ,"ʌ"
+            "w": ,"ʍ"
+            "y": '"ƃ"
+            "z": ,"z"
+        } 
+        for i, j in style.items():
+            text = text.replace(i, j)
+        return text
+
     def cloud(text):
         style = {
             "a": "a͜͡",
@@ -2396,6 +2428,8 @@ def gens_font(font, text):
         get_font = Fonts.dark_circle(text)
     elif font == "gothic":
         get_font = Fonts.gothic(text)
+    elif font == "upside_down":
+        get_font = Fonts.upside_down(text)
     elif font == "bold_gothic":
         get_font = Fonts.bold_gothic(test)
     elif font == "cloud":
@@ -2463,11 +2497,12 @@ query_fonts = [
         "🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎": "dark_circle",
         "𝔊𝔬𝔱𝔥𝔦𝔠": "gothic",
         "𝕲𝖔𝖙𝖍𝖎𝖈": "bold_gothic",
+        "uʍop ǝpᴉsdn": "upside_down",
         "C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡": "cloud",
         "H̆̈ă̈p̆̈p̆̈y̆̈": "happy",
-        "S̑̈ȃ̈d̑̈": "sad",
     },
     {
+        "S̑̈ȃ̈d̑̈": "sad",
         "🇸 🇵 🇪 🇨 🇮 🇦 🇱": "special",
         "🅂🅀🅄🄰🅁🄴🅂": "square",
         "🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎": "dark_square",
