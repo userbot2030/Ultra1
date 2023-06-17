@@ -2431,83 +2431,83 @@ class Fonts:
 def gens_font(font, text):
     if font == "typewriter":
         get_font = Fonts.typewriter(text)
-    elif font == "outline":
+    if font == "outline":
         get_font == Fonts.outline(text)
-    elif font == "serief":
+    if font == "serief":
         get_font = Fonts.serief(text)
-    elif font == "bold_cool":
+    if font == "bold_cool":
         get_font = Fonts.bold_cool(text)
-    elif font == "cool":
+    if font == "cool":
         get_font = Fonts.cool(text)
-    elif font == "smallcap":
+    if font == "smallcap":
         get_font = Fonts.smallcap(text)
-    elif font == "script":
+    if font == "script":
         get_font = Fonts.script(text)
-    elif font == "bold_script":
+    if font == "bold_script":
         get_font = Fonts.bold_script(text)
-    elif font == "tiny":
+    if font == "tiny":
         get_font = Fonts.tiny(text)
-    elif font == "comic":
+    if font == "comic":
         get_font = Fonts.comic(text)
-    elif font == "san":
+    if font == "san":
         get_font = Fonts.san(text)
-    elif font == "slant_san":
+    if font == "slant_san":
         get_font = Fonts.slant_san(text)
-    elif font == "slant":
+    if font == "slant":
         get_font = Fonts.slant(text)
-    elif font == "sim":
+    if font == "sim":
         get_font = Fonts.sim(text)
-    elif font == "circles":
+    if font == "circles":
         get_font = Fomts.circles(text)
-    elif font == "dark_circle":
+    if font == "dark_circle":
         get_font = Fonts.dark_circle(text)
-    elif font == "gothic":
+    if font == "gothic":
         get_font = Fonts.gothic(text)
-    elif font == "upside_down":
+    if font == "upside_down":
         get_font = Fonts.upside_down(text)
-    elif font == "bold_gothic":
+    if font == "bold_gothic":
         get_font = Fonts.bold_gothic(test)
-    elif font == "cloud":
+    if font == "cloud":
         get_font = Fonts.cloud(text)
-    elif font == "happy":
+    if font == "happy":
         get_font = Fonts.happy(text)
-    elif font == "sad":
+    if font == "sad":
         get_font = Fonts.sad(text)
-    elif font == "special":
+    if font == "special":
         get_font = Fonts.special(text)
-    elif font == "square":
+    if font == "square":
         get_font = Fonts.square(text)
-    elif font == "dark_square":
+    if font == "dark_square":
         get_font = Fonts.dark_square(text)
-    elif font == "andalucia":
+    if font == "andalucia":
         get_font = Fonts.andalucia(text)
-    elif font == "manga":
+    if font == "manga":
         get_font = Fonts.manga(text)
-    elif font == "stinky":
+    if font == "stinky":
         get_font = Fonts.stinky(text)
-    elif font == "bubbles":
+    if font == "bubbles":
         get_font = Fonts.bubbles(text)
-    elif font == "underline":
+    if font == "underline":
         get_font = Fonts.underline(text)
-    elif font == "ladybug":
+    if font == "ladybug":
         get_font = Fonts.ladybug(text)
-    elif font == "rays":
+    if font == "rays":
         get_font == Fonts.rays(text)
-    elif font == "birds":
+    if font == "birds":
         get_font = Fonts.birds(text)
-    elif font == "slash":
+    if font == "slash":
         get_font = Fonts.slash(text)
-    elif font == "stop":
+    if font == "stop":
         get_font = Fonts.stop(text)
-    elif font == "skyline":
+    if font == "skyline":
         get_font = Fonts.skyline(text)
-    elif font == "arrows":
+    if font == "arrows":
         get_font = Fonts.arrows(text)
-    elif font == "rvnes":
+    if font == "rvnes":
         get_font = Fonts.rvnes(text)
-    elif font == "strike":
+    if font == "strike":
         get_font = Fonts.strike(text)
-    elif font == "frozen":
+    if font == "frozen":
         get_font = Fonts.frozen(text)
     return get_font
 
