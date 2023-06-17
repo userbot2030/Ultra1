@@ -1158,7 +1158,7 @@ class Fonts:
             "7": "7",
             "8": "8",
             "9": "9",
-        } 
+        }
         for i, j in style.items():
             text = text.replace(i, j)
         return text
