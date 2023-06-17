@@ -1121,7 +1121,7 @@ class Fonts:
             text = text.replace(i, j)
         return text
 
-    def upside_down(text)
+    def upside_down(text):
         style = {
             "a": ,"ɐ"
             "b"; ,"q"
