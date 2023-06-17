@@ -1124,7 +1124,7 @@ class Fonts:
     def upside_down(text):
         style = {
             "a": "ɐ",
-            "b"; "q",
+            "b": "q",
             "c": "ɔ",
             "d": "p",
             "e": "ǝ",
