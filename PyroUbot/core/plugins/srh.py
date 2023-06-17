@@ -24,7 +24,7 @@ async def pic_bing_cmd(client, message):
         except:
             pass
     if len(get_media) == 0:
-        return await TM.edit(f"<b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴋᴇ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await TM.edit("<b>❌ ɪᴍᴀɢᴇ ᴘʜᴏᴛᴏ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     else:
         await client.send_media_group(
             message.chat.id,
