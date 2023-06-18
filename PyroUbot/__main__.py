@@ -12,7 +12,7 @@ from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
 async def start_ubot(user_id, _ubot):
     ubot_ = Ubot(**_ubot)
     try:
-        await asyncio.wait_for(ubot_.start(), timeout=30)
+        await asyncio.wait_for(ubot_.start(), timeout=60)
     except asyncio.TimeoutError:
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
