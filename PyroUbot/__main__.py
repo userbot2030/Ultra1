@@ -13,7 +13,7 @@ from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
     for _ubot in await get_userbots()
-        user_id = int(_ubot["name"]
+        user_id = int(_ubot["name"])
         ubot_ = Ubot(**ubot)
         try:
             await asyncio.wait_for(ubot_.start(), timeout=30)
