@@ -31,7 +31,10 @@ async def main():
     await asyncio.gather(bot.start(), ubot.start())
     await asyncio.gather(*tasks)
     await asyncio.gather(
-        loadPlugins(), install_all_peer(), check_expired_userbots(), idle(),
+        loadPlugins(),
+        install_all_peer(),
+        check_expired_userbots(),
+        idle(),
     )
 
 
