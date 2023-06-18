@@ -1,7 +1,8 @@
 import asyncio
 
-from pyrogram.errors import RPCError
 from pyrogram import idle
+from pyrogram.errors import RPCError
+
 from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
                       get_userbots, install_all_peer, loadPlugins,
                       rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
@@ -25,10 +26,7 @@ async def main():
             print(f"✅ {user_id} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
         await asyncio.sleep(1)
     await asyncio.gather(
-        loadPlugins(),
-        install_all_peer(),
-        check_expired_userbots(),
-        idle()
+        loadPlugins(), install_all_peer(), check_expired_userbots(), idle()
     )
 
 
