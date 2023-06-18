@@ -1,4 +1,5 @@
 import asyncio
+
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
@@ -26,7 +27,9 @@ async def main():
     await asyncio.gather(bot.start(), ubot.start())
     tasks = [asyncio.create_task(start_ubot(user_id)) for _ubot in await get_userbots()]
     await asyncio.gather(*tasks)
-    await asyncio.gather(loadPlugins(), install_all_peer(), check_expired_userbots(), idle())
+    await asyncio.gather(
+        loadPlugins(), install_all_peer(), check_expired_userbots(), idle()
+    )
 
 
 if __name__ == "__main__":
