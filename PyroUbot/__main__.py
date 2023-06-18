@@ -33,7 +33,7 @@ async def main():
         loadPlugins(),
         install_all_peer(),
         check_expired_userbots(),
-        )
+    )
     await idle()
 
 
