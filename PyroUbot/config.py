@@ -1,6 +1,6 @@
 import os
 
-API_ID = int(os.getenv("API_ID", ""))
+API_ID = int(os.getenv("API_ID", "2237557"))
 
 API_HASH = os.getenv("API_HASH", "5dcc2172391406707828d375603cc001")
 
