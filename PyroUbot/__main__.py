@@ -3,7 +3,7 @@ import asyncio
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
-from PyroUbot import *
+from PyroUbot import Ubot, bot, get_userbots, remove_ubot, rm_all, rem_expired_date, get_chat, remove_chat, loadPlugins, install_all_peer, check_expired_userbots
 
 
 async def start_ubot(user_id, ubot):
