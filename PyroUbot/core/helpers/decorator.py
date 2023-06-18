@@ -18,7 +18,7 @@ async def install_my_peer(client):
             client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
         except FloodWait as FW:
             print(f"FloodWait: {FW.x}")
-            await asyncio.sleep(FW.x)
+            await asyncio.sleep(int(FW.x))
 
 
 async def install_all_peer():
