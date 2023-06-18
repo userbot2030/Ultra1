@@ -34,10 +34,13 @@ async def main():
         install_all_peer(),
         check_expired_userbots(),
     )
-    await idle()
-    print("okey done")
 
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    try:
+        loop = asyncio.get_event_loop()
+        loop.create_task(main())
+        loop.create_task(idle())
+        loop.run_forever()
+    except KeyboardInterrupt:
+        pass
