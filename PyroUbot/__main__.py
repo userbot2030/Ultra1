@@ -14,7 +14,7 @@ async def main():
     await asyncio.gather(bot.start(), ubot.start())
     for _ubot in await get_userbots():
         user_id = int(_ubot["name"])
-        ubot_ = Ubot(**ubot)
+        ubot_ = Ubot(**_ubot)
         try:
             await asyncio.wait_for(ubot_.start(), timeout=30)
         except asyncio.TimeoutError:
