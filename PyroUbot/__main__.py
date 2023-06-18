@@ -11,6 +11,7 @@ async def start_ubot(user_id, ubot):
     try:
         await asyncio.wait_for(ubot_.start(), timeout=30)
         await idle()
+        continue
     except asyncio.TimeoutError:
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
@@ -25,6 +26,7 @@ async def start_ubot(user_id, ubot):
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
     await idle()
+    continue
     tasks = []
     for _ubot in await get_userbots():
         user_id = int(_ubot["name"])
