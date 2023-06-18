@@ -1,40 +1,41 @@
 import asyncio
+import signal
 
+from pyrogram import Client
 from pyrogram.errors import RPCError
-from pyrogram.methods.utilities.idle import idle
+from pyrogram.methods import utilities
+from pyrogram.raw import functions
 
-from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
-                      get_userbots, install_all_peer, loadPlugins,
-                      rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
+from PyroUbot import Ubot, bot, check_expired_userbots, get_chat, get_userbots, install_all_peer, loadPlugins, rem_expired_date, remove_chat, remove_ubot, rm_all, ubot
 
 
-async def start_ubot(ubot_id):
-    ubot_ = Ubot(**ubot_id)
-    try:
-        await asyncio.wait_for(ubot_.start(), timeout=30)
-    except asyncio.TimeoutError:
-        print(f"[𝗜𝗡𝗙𝗢] - ({ubot_id['name']}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
-    except RPCError:
-        await remove_ubot(int(ubot_id["name"]))
-        await rm_all(int(ubot_id["name"]))
-        await rem_expired_date(int(ubot_id["name"]))
-        for X in await get_chat(int(ubot_id["name"])):
-            await remove_chat(int(ubot_id["name"]), X)
-        print(f"✅ {ubot_id['name']} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
+signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 
 async def main():
-    await asyncio.gather(ubot.start(), bot.start())
-    tasks = [start_ubot(ubot_id) for ubot_id in await get_userbots()]
-    await asyncio.gather(*tasks)
+    await asyncio.gather(bot.start(), ubot.start())
+    for _ubot in await get_userbots():
+        user_id = int(_ubot["name"])
+        ubot_ = Ubot(**ubot)
+        try:
+            await asyncio.wait_for(ubot_.start(), timeout=30, loop=ubot_.loop)
+        except asyncio.TimeoutError:
+            print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
+        except RPCError:
+            await remove_ubot(user_id)
+            await rm_all(user_id)
+            await rem_expired_date(user_id)
+            for X in await get_chat(user_id):
+                await remove_chat(user_id, X)
+            print(f"✅ {user_id} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
+        await asyncio.sleep(1)
     await asyncio.gather(
-        idle(),
-        check_expired_userbots(),
-        install_all_peer(),
         loadPlugins(),
+        install_all_peer(),
+        check_expired_userbots(),
     )
 
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_event_loop_policy().get_event_loop()
     loop.run_until_complete(main())
