@@ -5,7 +5,7 @@ from pyrogram.methods.utilities.idle import idle
 
 from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
                       get_userbots, install_all_peer, loadPlugins,
-                      rem_expired_date, remove_chat, remove_ubot, rm_all)
+                      rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
 
 
 async def start_ubot(user_id, ubot):
