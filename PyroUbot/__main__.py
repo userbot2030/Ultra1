@@ -8,8 +8,8 @@ from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
                       rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
 
 
-async def start_ubot(user_id):
-    ubot_ = Ubot(**ubot)
+async def start_ubot(user_id, _ubot):
+    ubot_ = Ubot(**_ubot)
     try:
         await asyncio.wait_for(ubot_.start(), timeout=30)
     except asyncio.TimeoutError:
@@ -25,7 +25,7 @@ async def start_ubot(user_id):
 
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
-    tasks = [asyncio.create_task(start_ubot(user_id)) for _ubot in await get_userbots()]
+    tasks = [asyncio.create_task(start_ubot(int(_ubot["name"], _ubot)) for _ubot in await get_userbots()]
     await asyncio.gather(
         loadPlugins(),
         install_all_peer(),
