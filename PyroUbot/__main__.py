@@ -1,6 +1,5 @@
 import asyncio
 
-from aiohttp import ClientSession
 from pyrogram.errors import RPCError
 from pyrogram.methods.utilities.idle import idle
 
@@ -35,7 +34,6 @@ async def main():
         install_all_peer(),
         check_expired_userbots(),
         idle(),
-        ClientSession().close,
     )
 
 
