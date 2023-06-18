@@ -1,3 +1,4 @@
+
 import asyncio
 
 from pyrogram.errors import RPCError
@@ -35,6 +36,7 @@ async def main():
         check_expired_userbots(),
     )
     await idle()
+    print("okey done")
 
 
 if __name__ == "__main__":
