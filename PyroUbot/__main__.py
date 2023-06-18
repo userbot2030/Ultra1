@@ -26,13 +26,13 @@ async def start_ubot(ubot_id):
 async def main():
     await asyncio.gather(ubot.start(), bot.start())
     tasks = [start_ubot(ubot_id) for ubot_id in await get_userbots()]
+    await asyncio.gather(*tasks)
     await asyncio.gather(
         idle(),
         check_expired_userbots(),
         install_all_peer(),
         loadPlugins(),
-        *tasks,
-    )
+   )
 
 
 if __name__ == "__main__":
