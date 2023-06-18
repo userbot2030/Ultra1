@@ -1,13 +1,10 @@
 import asyncio
-import signal
 
 from pyrogram.errors import RPCError
-
+from pyrogram import idle
 from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
                       get_userbots, install_all_peer, loadPlugins,
                       rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
-
-signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 
 async def main():
@@ -31,6 +28,7 @@ async def main():
         loadPlugins(),
         install_all_peer(),
         check_expired_userbots(),
+        idle()
     )
 
 
