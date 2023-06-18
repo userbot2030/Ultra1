@@ -33,8 +33,8 @@ async def main():
         install_all_peer(),
         loadPlugins(),
         *tasks,
-        ubot.start()
-        bot.start(), 
+        ubot.start(),
+        bot.start(),
     )
 
 
