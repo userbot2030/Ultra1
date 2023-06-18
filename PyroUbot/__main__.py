@@ -33,14 +33,11 @@ async def main():
         loadPlugins(),
         install_all_peer(),
         check_expired_userbots(),
+        idle(),
     )
 
 
+
 if __name__ == "__main__":
-    try:
-        loop = asyncio.get_event_loop()
-        loop.create_task(main())
-        loop.create_task(idle())
-        loop.run_forever()
-    except KeyboardInterrupt:
-        pass
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
