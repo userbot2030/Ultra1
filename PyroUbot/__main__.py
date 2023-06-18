@@ -24,7 +24,7 @@ async def start_ubot(ubot_id):
 
 
 async def main():
-    await asyncio.gather(ubot.start(),bot.start())
+    await asyncio.gather(ubot.start(), bot.start())
     tasks = [start_ubot(ubot_id) for ubot_id in await get_userbots()]
     await asyncio.gather(
         idle(),
