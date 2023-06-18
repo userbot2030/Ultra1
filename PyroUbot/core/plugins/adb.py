@@ -9,19 +9,7 @@ from pyrogram.types import *
 from PyroUbot import *
 
 
-async def payment_userbot(client, callback_query):
-    user_id = callback_query.from_user.id
-    buttons = Button.plus_minus(1, user_id)
-    await callback_query.message.delete()
-    return await bot.send_message(
-        user_id,
-        MSG.TEXT_PAYMENT(20, 20, 1),
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(buttons),
-    )
-
-
-async def bikin_ubot(client, callback_query):
+async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     PREM_ID = await get_prem()
     if user_id not in PREM_ID:
@@ -36,6 +24,39 @@ async def bikin_ubot(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
+    else:
+        buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            """
+<b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
+
+    • <code>ᴀᴘɪ_ɪᴅ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
+    • <code>ᴀᴘɪ_ʜᴀsʜ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
+    • <code>ᴘʜᴏɴᴇ_ɴᴜᴍʙᴇʀ</code>: ɴᴏᴍᴇʀ ʜᴘ ᴀᴋᴜɴ ᴛᴇʟᴇɢʀᴀᴍ
+
+☑️ ᴊɪᴋᴀ sᴜᴅᴀʜ ᴛᴇʀsᴇᴅɪᴀ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏɪ ᴅɪʙᴀᴡᴀʜ</b>
+""",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
+
+
+async def payment_userbot(client, callback_query):
+    user_id = callback_query.from_user.id
+    buttons = Button.plus_minus(1, user_id)
+    await callback_query.message.delete()
+    return await bot.send_message(
+        user_id,
+        MSG.TEXT_PAYMENT(25, 25, 1),
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup(buttons),
+    )
+
+
+async def bikin_ubot(client, callback_query):
+    user_id = callback_query.from_user.id
     if len(ubot._ubot) == MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ Tutup 🗑️", callback_data="0_cls")],
@@ -48,13 +69,41 @@ async def bikin_ubot(client, callback_query):
 
 <b>📚 ᴋᴀʀᴇɴᴀ ᴍᴀᴋsɪᴍᴀʟ ᴜsᴇʀʙᴏᴛ ᴀᴅᴀʟᴀʜ {MAX_UBOT} ᴛᴇʟᴀʜ ᴛᴇʀᴄᴀᴘᴀɪ</b>
 
-<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/T0M1_X>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
+<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/Punk_Mod>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
 """,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     try:
         await callback_query.message.delete()
+        api = await bot.ask(
+            user_id,
+            (
+                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
+            timeout=300,
+        )
+    except asyncio.TimeoutError:
+        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+    if await is_cancel(callback_query, api.text):
+        return
+    api_ids = api.text
+    try:
+        hash = await bot.ask(
+            user_id,
+            (
+                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n"
+                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
+            ),
+            timeout=300,
+        )
+    except asyncio.TimeoutError:
+        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
+    if await is_cancel(callback_query, hash.text):
+        return
+    api_hashs = hash.text
+    try:
         phone = await bot.ask(
             user_id,
             (
@@ -70,8 +119,8 @@ async def bikin_ubot(client, callback_query):
     phone_number = phone.text
     new_client = Ubot(
         name=str(callback_query.id),
-        api_id=API_ID,
-        api_hash=API_HASH,
+        api_id=api_ids,
+        api_hash=api_hashs,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
@@ -160,19 +209,20 @@ async def bikin_ubot(client, callback_query):
     await new_client.start()
     await add_ubot(
         user_id=int(new_client.me.id),
-        api_id=API_ID,
-        api_hash=API_HASH,
+        api_id=api_ids,
+        api_hash=api_hashs,
         session_string=session_string,
     )
-    await install_my_peer(new_client)
     if callback_query.from_user.id not in await get_seles():
         await remove_prem(callback_query.from_user.id)
+    await install_user_id()
+    await install_my_peer(new_client)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot_msg.edit(text_done)
     try:
-        await new_client.join_chat("PremUbotCH")
+        await new_client.join_chat("punksupportgroup")
     except UserAlreadyParticipant:
         pass
     return await bot.send_message(
@@ -201,12 +251,12 @@ async def cek_ubot(client, callback_query):
     for X in ubot._ubot:
         if not X.me.id == ubot.me.id:
             count += 1
-            expired_date = (await get_expired_date(X.me.id)).strftime("%d-%m-%Y")
+            expired_date = await get_expired_date(X.me.id)
             user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
             await bot.send_message(
                 callback_query.from_user.id,
