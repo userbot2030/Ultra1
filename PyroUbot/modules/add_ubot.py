@@ -1,6 +1,11 @@
 from PyroUbot import *
 
 
+@PY.CALLBACK("bahan")
+async def _(client, callback_query):
+    await need_api(client, callback_query)
+
+
 @PY.CALLBACK("bayar_dulu")
 async def _(client, callback_query):
     await payment_userbot(client, callback_query)
