@@ -33,8 +33,8 @@ async def main():
         loadPlugins(),
         install_all_peer(),
         check_expired_userbots(),
-        idle(),
-    )
+        )
+    await idle()
 
 
 if __name__ == "__main__":
