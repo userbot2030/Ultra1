@@ -16,7 +16,7 @@ async def main():
         user_id = int(_ubot["name"])
         ubot_ = Ubot(**ubot)
         try:
-            await asyncio.wait_for(ubot_.start(), timeout=30, loop=ubot_.loop)
+            await asyncio.wait_for(ubot_.start(), timeout=30)
         except asyncio.TimeoutError:
             print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
         except RPCError:
