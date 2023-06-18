@@ -10,8 +10,6 @@ async def start_ubot(user_id, ubot):
     ubot_ = Ubot(**ubot)
     try:
         await asyncio.wait_for(ubot_.start(), timeout=30)
-        await idle()
-        continue
     except asyncio.TimeoutError:
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
@@ -37,6 +35,8 @@ async def main():
         loadPlugins(),
         install_all_peer(),
         check_expired_userbots(),
+        idle(),
+
     )
 
 
