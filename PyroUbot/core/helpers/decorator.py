@@ -23,6 +23,5 @@ async def install_all_peer():
     tasks = []
     for client in ubot._ubot:
         tasks.append(install_my_peer(client))
-        print(f"[𝗜𝗡𝗙𝗢] - ({client.me.id}) - 𝗜𝗡𝗦𝗧𝗔𝗟𝗟 𝗨𝗕𝗢𝗧._𝗚𝗘𝗧_𝗠𝗬_𝗣𝗘𝗘𝗥")
     await asyncio.gather(*tasks)
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
