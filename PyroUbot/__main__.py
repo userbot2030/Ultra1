@@ -8,8 +8,6 @@ from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
                       rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
 
 
-
-
 async def main():
     await asyncio.gather(bot.start(), ubot.start())
     for _ubot in await get_userbots():
