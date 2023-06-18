@@ -1,4 +1,5 @@
 import asyncio
+from pyrogram.errors import FloodWait
 
 from pyrogram.enums import ChatType
 
@@ -15,8 +16,9 @@ async def install_my_peer(client):
             elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
                 groups.append(dialog.chat.id)
             client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
-        except Exception as error:
-            print(f"Error occurred: {error}")
+        except FloodWait as FW:
+            print(f"FloodWait: {FW.x}")
+            await asyncio.sleep(FW.x)
 
 
 async def install_all_peer():
