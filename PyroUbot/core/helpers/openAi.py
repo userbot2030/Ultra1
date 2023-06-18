@@ -1,9 +1,12 @@
 import asyncio
 import random
+
 import openai
+
 from PyroUbot import OPENAI_KEY
 
 openai.api_key = random.choice(OPENAI_KEY)
+
 
 class OpenAi:
     @staticmethod
@@ -33,8 +36,6 @@ class OpenAi:
     async def SpeechToText(file):
         audio_file = open(file, "rb")
         response = await asyncio.to_thread(
-            openai.Audio.transcribe,
-            "whisper-1",
-            audio_file
+            openai.Audio.transcribe, "whisper-1", audio_file
         )
         return response["text"]
