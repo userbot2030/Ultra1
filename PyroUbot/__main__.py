@@ -32,7 +32,7 @@ async def main():
         check_expired_userbots(),
         install_all_peer(),
         loadPlugins(),
-   )
+    )
 
 
 if __name__ == "__main__":
