@@ -32,6 +32,7 @@ async def expired_userbot(X):
                 expired_text,
                 reply_markup=InlineKeyboardMarkup(expired_button),
             )
+        print("expired userbot telah di periksa")
     except Exception as e:
         print(f"Error: {str(e)}")
 
