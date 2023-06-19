@@ -11,6 +11,23 @@ from PyroUbot import *
 
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
+    if len(ubot._ubot) > MAX_BOT:
+        buttons = [
+            [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
+        ]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            f"""
+<b>❌ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ!</b>
+
+<b>📚 ᴋᴀʀᴇɴᴀ ᴍᴀᴋsɪᴍᴀʟ ᴜsᴇʀʙᴏᴛ ᴀᴅᴀʟᴀʜ {MAX_UBOT} ᴛᴇʟᴀʜ ᴛᴇʀᴄᴀᴘᴀɪ</b>
+
+<b>🤖 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ ʙᴏᴛ ᴋᴇ 𝟸 ᴋᴀᴍɪ @V2PremUbot</b>
+""",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
     PREM_ID = await get_prem()
     if user_id not in PREM_ID:
         buttons = [
@@ -57,23 +74,6 @@ async def payment_userbot(client, callback_query):
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
-    if len(ubot._ubot) == MAX_BOT:
-        buttons = [
-            [InlineKeyboardButton("🗑️ Tutup 🗑️", callback_data="0_cls")],
-        ]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            f"""
-<b>❌ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ!</b>
-
-<b>📚 ᴋᴀʀᴇɴᴀ ᴍᴀᴋsɪᴍᴀʟ ᴜsᴇʀʙᴏᴛ ᴀᴅᴀʟᴀʜ {MAX_UBOT} ᴛᴇʟᴀʜ ᴛᴇʀᴄᴀᴘᴀɪ</b>
-
-<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/Punk_Mod>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
-""",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
     try:
         await callback_query.message.delete()
         api = await bot.ask(
