@@ -1,6 +1,5 @@
 import asyncio
 
-from pyrogram import idle
 from pyrogram.errors import RPCError
 
 from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
@@ -25,7 +24,7 @@ async def main():
                 await remove_chat(user_id, X)
             print(f"✅ {user_id} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
     await asyncio.gather(
-        loadPlugins(), check_expired_userbots(), install_all_peer(),vidle()
+        loadPlugins(), check_expired_userbots(), install_all_peer(), vidle()
     )
 
 
