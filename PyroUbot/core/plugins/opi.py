@@ -7,9 +7,13 @@ from PyroUbot import *
 def get_text(message):
     if message.reply_to_message:
         if len(message.command) < 2:
-            text = (message.reply_to_message.text or message.reply_to_message.caption)
+            text = message.reply_to_message.text or message.reply_to_message.caption
         else:
-            text = (message.reply_to_message.text or message.reply_to_message.caption) + "\n\n" + message.text.split(None, 1)[1]
+            text = (
+                (message.reply_to_message.text or message.reply_to_message.caption)
+                + "\n\n"
+                + message.text.split(None, 1)[1]
+            )
     else:
         if len(message.command) < 2:
             text = ""
