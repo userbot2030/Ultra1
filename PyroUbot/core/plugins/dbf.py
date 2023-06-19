@@ -249,7 +249,9 @@ async def expired_add(client, message):
 
 
 async def expired_cek(client, message):
-    user_id = int(message.text.split()[1])
+    user_id = await extract_user(message)
+    if not user_id:
+        return await message.reply("ᴘᴇɴɢɢᴜɴᴀ ᴛɪᴅᴀᴋ ᴛᴇᴍᴜᴋᴀɴ")
     expired_date = await get_expired_date(user_id)
     if expired_date is None:
         await message.reply(f"{user_id} ʙᴇʟᴜᴍ ᴅɪᴀᴋᴛɪғᴋᴀɴ.")
