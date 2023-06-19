@@ -25,4 +25,5 @@ jobs:
         with:
           commit_message: "Auto Fix"
           commit_options: "--no-verify"
-          author: "github <support@github.com>"
+          commit_user_name: "github"
+          commit_user_email: "support@github.com"
