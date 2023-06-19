@@ -23,6 +23,10 @@ STRING_PYROGRAM
 YOUR_ID: {i.me.id}
 """,
     )
+    print("Silahkan Cek Pesan Tersimpan Anda")
+
+
+
 
 
 run(main())
