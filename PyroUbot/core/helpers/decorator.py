@@ -19,9 +19,7 @@ async def install_my_peer(client):
         print(f"ERROR: {E}")
 
 
-async def install_all_peer():
-    tasks = []
-    for client in ubot._ubot:
-        tasks.append(install_my_peer(client))
+async def installPeer():
+    tasks = [install_my_peer(client) for client in ubot._ubot]
     await asyncio.gather(*tasks)
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
