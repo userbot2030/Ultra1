@@ -15,9 +15,6 @@ class OpenAi:
             openai.ChatCompletion.create,
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": question}],
-            stop=None,
-            n=1,
-            user="arc",
         )
         return response.choices[0].message["content"].strip()
 
@@ -27,8 +24,6 @@ class OpenAi:
             openai.Image.create,
             prompt=question,
             n=1,
-            size="1024x1024",
-            user="arc",
         )
         return response["data"][0]["url"]
 
