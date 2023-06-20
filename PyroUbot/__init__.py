@@ -12,11 +12,26 @@ class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
+import logging
+import os
+
+from pyrogram import Client
+from pyrogram.enums import ParseMode
+from pyrogram.handlers import MessageHandler
+from pyromod import listen
+
+from PyroUbot.config import *
+
+
+class ConnectionHandler(logging.Handler):
+    def emit(self, record):
+        for X in ["Connection", "TimeoutError"]:
+            if X in record.getMessage():
                 os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler(), ConnectionHandler()],
@@ -25,7 +40,7 @@ logging.basicConfig(
 
 class Bot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -45,7 +60,7 @@ class Ubot(Client):
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -64,14 +79,14 @@ class Ubot(Client):
 
 
 bot = Bot(
-    name=BOT_TOKEN.split(":")[0],
+    name="bot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
 )
 
 ubot = Ubot(
-    name=OWNER_ID,
+    name="ubot",
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
