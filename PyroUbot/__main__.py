@@ -2,9 +2,9 @@ import asyncio
 
 from pyrogram import idle
 from pyrogram.errors import RPCError
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import *
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 async def start_ubot(user_id, _ubot):
@@ -18,17 +18,17 @@ async def start_ubot(user_id, _ubot):
             user_id,
             "💬 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ",
             reply_markup=InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton(
-                        "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥",
-                        callback_data="bahan",
-                    )
-                ],
-            ]
-        ),
-        disable_web_page_preview=True,
-    )
+                    [
+                        InlineKeyboardButton(
+                            "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥",
+                            callback_data="bahan",
+                        )
+                    ],
+                ]
+            ),
+            disable_web_page_preview=True,
+        )
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
         await remove_ubot(user_id)
