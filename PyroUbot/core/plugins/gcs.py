@@ -30,10 +30,10 @@ async def broadcast_group_cmd(client, message):
                         else:
                             x = await client.get_inline_bot_results(
                                  bot.me.username, f"gcast_button {id(message)}"
-                       )
+                            )
                             await client.send_inline_bot_result(
-                             dialog.chat.id, x.query_id, x.results[0].id
-                       )
+                                 dialog.chat.id, x.query_id, x.results[0].id
+                            )
                    sent += 1
                except Exception:
                    pass
