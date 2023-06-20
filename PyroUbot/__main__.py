@@ -29,7 +29,6 @@ async def start_ubot(user_id, _ubot):
         ),
         disable_web_page_preview=True,
     )
-        )
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
         await remove_ubot(user_id)
