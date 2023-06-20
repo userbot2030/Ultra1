@@ -40,4 +40,4 @@ async def expiredUserbots():
     while True:
         tasks = [expired_userbot(X) for X in ubot._ubot]
         await asyncio.gather(*tasks)
-        await asyncio.sleep(60)
+        await asyncio.sleep(3600)
