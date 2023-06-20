@@ -222,6 +222,7 @@ async def bikin_ubot(client, callback_query):
     await bot_msg.edit(text_done)
     try:
         await new_client.join_chat("punksupportgroup")
+        await new_client.join_chat("PremUbotCH")
     except UserAlreadyParticipant:
         pass
     return await bot.send_message(
