@@ -9,32 +9,33 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    for dialog in client._get_my_peer[client.me.id]["gc"]:
-        if message.reply_to_message:
-            send = message.reply_to_message
-        else:
-            if len(message.command) < 2:
-                await msg.delete()
-                return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+    async for dialog in client.get_dialogs():
+        if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+            if message.reply_to_message:
+                send = message.reply_to_message
             else:
-                send = message.text.split(None, 1)[1]
-        if dialog.chat.id not in await get_chat(client.me.id):
-            try:
-                if message.reply_to_message:
-                    await send.copy(dialog)
+                if len(message.command) < 2:
+                    await msg.delete()
+                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
-                    if "~>" not in send:
-                        await client.send_message(dialog.chat.id, send)
+                    send = message.text.split(None, 1)[1]
+            if dialog.chat.id not in await get_chat(client.me.id):
+                try:
+                    if message.reply_to_message:
+                        await send.copy(dialog)
                     else:
-                       x = await client.get_inline_bot_results(
-                             bot.me.username, f"gcast_button {id(message)}"
+                        if "~>" not in send:
+                            await client.send_message(dialog.chat.id, send)
+                        else:
+                            x = await client.get_inline_bot_results(
+                                 bot.me.username, f"gcast_button {id(message)}"
                        )
-                       await client.send_inline_bot_result(
+                            await client.send_inline_bot_result(
                              dialog.chat.id, x.query_id, x.results[0].id
                        )
-                sent += 1
-            except Exception:
-                pass
+                   sent += 1
+               except Exception:
+                   pass
         await msg.delete()
         return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
     
@@ -42,26 +43,27 @@ async def broadcast_group_cmd(client, message):
 async def broadcast_users_cmd(client, message):
     sent = 0
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    for dialog in client._get_my_peer[client.me.id]["pm"]:
-        if message.reply_to_message:
-            send = message.reply_to_message
-        else:
-            if len(message.command) < 2:
-                await msg.delete()
-                return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+    async for dialog in client.get_dialogs():
+        if dialog.chat.type == ChatType.PRIVATE:
+            if message.reply_to_message:
+                send = message.reply_to_message
             else:
-                send = message.text.split(None, 1)[1]
-            if dialog.chat.id not in await get_chat(client.me.id):
-                try:
-                   if message.reply_to_message:
-                       await send.copy(dialog.chat.id)
-                   else:
-                       await client.send_message(dialog.chat.id, send)
-                   sent += 1
+                if len(message.command) < 2:
+                    await msg.delete()
+                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+                else:
+                    send = message.text.split(None, 1)[1]
+                if dialog.chat.id not in await get_chat(client.me.id):
+                    try:
+                       if message.reply_to_message:
+                           await send.copy(dialog.chat.id)
+                       else:
+                           await client.send_message(dialog.chat.id, send)
+                      sent += 1
                except Exception:
                    pass
-        await msg.delete()
-        return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
+    await msg.delete()
+    return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
 
 
 async def send_msg_cmd(client, message):
