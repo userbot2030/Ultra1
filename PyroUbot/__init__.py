@@ -2,20 +2,6 @@ import logging
 import os
 
 from pyrogram import Client
-from pyrogram.handlers import MessageHandler
-from pyromod import listen
-
-from PyroUbot.config import *
-
-
-class ConnectionHandler(logging.Handler):
-    def emit(self, record):
-        for X in ["Connection", "TimeoutError"]:
-            if X in record.getMessage():
-import logging
-import os
-
-from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
