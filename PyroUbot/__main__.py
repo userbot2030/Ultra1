@@ -3,9 +3,7 @@ import asyncio
 from pyrogram import idle
 from pyrogram.errors import RPCError
 
-from PyroUbot import (Ubot, bot, check_expired_userbots, get_chat,
-                      get_userbots, install_all_peer, loadPlugins,
-                      rem_expired_date, remove_chat, remove_ubot, rm_all, ubot)
+from PyroUbot import *
 
 
 async def start_ubot(user_id, _ubot):
@@ -29,12 +27,7 @@ async def main():
         for _ubot in await get_userbots()
     ]
     await asyncio.gather(*tasks, ubot.start(), bot.start())
-    await asyncio.gather(
-        loadPlugins(),
-        install_all_peer(),
-        check_expired_userbots(),
-        idle(),
-    )
+    await asyncio.gather(loadPlugins(), expiredUserbots(), installPeer(), idle())
 
 
 if __name__ == "__main__":
