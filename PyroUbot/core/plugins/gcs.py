@@ -22,7 +22,7 @@ async def broadcast_group_cmd(client, message):
             if dialog.chat.id not in await get_chat(client.me.id):
                 try:
                     if message.reply_to_message:
-                        await send.copy(dialog)
+                        await send.copy(dialog.chat.id)
                     else:
                         if "~>" not in send:
                             await client.send_message(dialog.chat.id, send)
