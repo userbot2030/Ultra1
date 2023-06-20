@@ -56,13 +56,13 @@ async def broadcast_users_cmd(client, message):
                     send = message.text.split(None, 1)[1]
             if dialog.chat.id not in await get_chat(client.me.id):
                 try:
-                   if message.reply_to_message:
-                       await send.copy(dialog.chat.id)
-                   else:
-                       await client.send_message(dialog.chat.id, send)
-                   sent += 1
-               except Exception:
-                   pass
+                    if message.reply_to_message:
+                        await send.copy(dialog.chat.id)
+                    else:
+                        await client.send_message(dialog.chat.id, send)
+                    sent += 1
+                except Exception:
+                    pass
     await msg.delete()
     return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
 
