@@ -9,7 +9,7 @@ from PyroUbot import (Ubot, bot, expiredUserbots, get_chat, get_userbots,
 
 
 async def main():
-    await  bot.start()
+    await bot.start()
     await ubot.start()
     for _ubot in await get_userbots():
         user_id = int(_ubot["name"])
