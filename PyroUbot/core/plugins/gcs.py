@@ -34,9 +34,9 @@ async def broadcast_group_cmd(client, message):
                             await client.send_inline_bot_result(
                                  dialog.chat.id, x.query_id, x.results[0].id
                             )
-                   sent += 1
-               except Exception:
-                   pass
+                    sent += 1
+                except Exception:
+                    pass
         await msg.delete()
         return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
     
