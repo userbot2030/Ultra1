@@ -16,7 +16,7 @@ async def broadcast_group_cmd(client, message):
             if len(message.command) < 2:
                 await msg.delete()
                 return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
-           else:
+            else:
                 send = message.text.split(None, 1)[1]
         if dialog.chat.id not in await get_chat(client.me.id):
             try:
