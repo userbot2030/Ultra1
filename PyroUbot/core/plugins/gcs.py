@@ -9,7 +9,7 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    async for dialog in client._get_my_peer[client.me.id]["gc"]:
+    for dialog in client._get_my_peer[client.me.id]["gc"]:
         if message.reply_to_message:
             send = message.reply_to_message
         else:
