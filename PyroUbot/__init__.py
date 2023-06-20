@@ -11,17 +11,17 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["Connection", "TimeoutError"]:
-            if X in record.getMessage():
-                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+        if "socket.send()" in record.getMessage():
+            os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
     datefmt="%m-%d %H:%M",
     handlers=[logging.StreamHandler(), ConnectionHandler()],
 )
+
 
 
 class Bot(Client):
