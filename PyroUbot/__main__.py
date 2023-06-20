@@ -4,6 +4,7 @@ from pyrogram import idle
 from pyrogram.errors import RPCError
 
 from PyroUbot import *
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 async def start_ubot(user_id, _ubot):
@@ -11,6 +12,24 @@ async def start_ubot(user_id, _ubot):
     try:
         await asyncio.wait_for(ubot_.start(), timeout=30)
     except asyncio.TimeoutError:
+        await remove_ubot(user_id)
+        await add_prem(user_id)
+        await bot.send_message(
+            user_id,
+            "💬 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ",
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥",
+                        callback_data="bahan",
+                    )
+                ],
+            ]
+        ),
+        disable_web_page_preview=True,
+    )
+        )
         print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
     except RPCError:
         await remove_ubot(user_id)
@@ -26,11 +45,11 @@ async def main():
         asyncio.create_task(start_ubot(int(_ubot["name"]), _ubot))
         for _ubot in await get_userbots()
     ]
-    await asyncio.gather(*tasks, ubot.start(), bot.start())
+    await asyncio.gather(ubot.start(), bot.start())
+    await asyncio.gather(*tasks)
     await asyncio.gather(loadPlugins(), expiredUserbots(), installPeer(), idle())
 
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
     loop.run_until_complete(main())
-    loop.run_forever()
