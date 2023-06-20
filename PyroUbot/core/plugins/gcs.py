@@ -1,9 +1,8 @@
 import asyncio
 from gc import get_objects
 
-from pyrogram.errors import FloodWait
-
 from pyrogram.enums import ChatType
+
 from PyroUbot import *
 
 
@@ -29,17 +28,17 @@ async def broadcast_group_cmd(client, message):
                             await client.send_message(dialog.chat.id, send)
                         else:
                             x = await client.get_inline_bot_results(
-                                 bot.me.username, f"gcast_button {id(message)}"
+                                bot.me.username, f"gcast_button {id(message)}"
                             )
                             await client.send_inline_bot_result(
-                                 dialog.chat.id, x.query_id, x.results[0].id
+                                dialog.chat.id, x.query_id, x.results[0].id
                             )
                     sent += 1
                 except Exception:
                     pass
         await msg.delete()
         return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
-    
+
 
 async def broadcast_users_cmd(client, message):
     sent = 0
