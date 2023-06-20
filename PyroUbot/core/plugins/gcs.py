@@ -63,7 +63,7 @@ async def broadcast_users_cmd(client, message):
                             await client.send_message(chat_id, send)
                         sent += 1
                     except Exception:
-                       pass
+                        pass
     await msg.delete()
     return await message.reply(f"✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ")
 
