@@ -1,4 +1,3 @@
-import asyncio
 import time
 from gc import get_objects
 
