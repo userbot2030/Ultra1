@@ -35,7 +35,7 @@ async def broadcast_group_cmd(client, message):
                                 chat_id, x.query_id, x.results[0].id
                             )
                     sent += 1
-                    time.sleep(5)
+                    await asyncio.sleep(5)
                 except Exception:
                     pass
         try:
@@ -69,7 +69,7 @@ async def broadcast_users_cmd(client, message):
                         else:
                             await client.send_message(chat_id, send)
                         sent += 1
-                        time.sleep(5)
+                        await asyncio.sleep(5)
                     except Exception:
                         pass
         try:
@@ -97,7 +97,7 @@ async def send_msg_cmd(client, message):
                     chat_id, x.query_id, x.results[0].id
                 )
                 tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
-                time.sleep(5)
+                await asyncio.sleep(5)
                 await message.delete()
                 await tm.delete()
             except Exception as error:
@@ -106,7 +106,7 @@ async def send_msg_cmd(client, message):
             try:
                 await message.reply_to_message.copy(chat_id, protect_content=True)
                 tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
-                time.sleep(3)
+                await asyncio.sleep(3)
                 await message.delete()
                 await tm.delete()
             except Exception as t:
@@ -119,7 +119,7 @@ async def send_msg_cmd(client, message):
         try:
             await client.send_message(chat_id, chat_text, protect_content=True)
             tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
-            time.sleep(3)
+            await asyncio.sleep(3)
             await message.delete()
             await tm.delete()
         except Exception as t:
