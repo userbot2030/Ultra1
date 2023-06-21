@@ -58,6 +58,7 @@ async def payment_userbot(client, callback_query):
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
+    await callback_query.message.delete()
     try:
         phone = await bot.ask(
             user_id,
