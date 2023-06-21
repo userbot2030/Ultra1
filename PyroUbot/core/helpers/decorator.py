@@ -6,8 +6,16 @@ from PyroUbot import OWNER_ID, bot, ubot
 
 
 async def install_my_peer(client):
-    users = [dialog.chat.id async for dialog in client.get_dialogs() if dialog.chat.type == ChatType.PRIVATE]
-    groups = [dialog.chat.id async for dialog in client.get_dialogs() if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)]
+    users = [
+        dialog.chat.id
+        async for dialog in client.get_dialogs()
+        if dialog.chat.type == ChatType.PRIVATE
+    ]
+    groups = [
+        dialog.chat.id
+        async for dialog in client.get_dialogs()
+        if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
+    ]
     client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
 
 
