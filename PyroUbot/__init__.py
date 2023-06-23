@@ -2,7 +2,6 @@ import logging
 import os
 import threading
 
-
 from pyrogram import Client
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
