@@ -21,8 +21,6 @@ class ConnectionHandler(logging.Handler):
 
     @staticmethod
     def restart_program():
-        import os
-
         os.execv(sys.executable, ["python3"] + sys.argv)
 
 
