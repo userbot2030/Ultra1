@@ -49,7 +49,7 @@ async def main():
 
 
 async def installHelpers():
-    await asyncio.sleep(40)
+    await asyncio.sleep(15)
     await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots())
 
 
