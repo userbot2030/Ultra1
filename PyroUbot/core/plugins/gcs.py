@@ -39,7 +39,7 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
         try:
-            await msg.edit(f"<b>ᴍᴇᴍᴘʀᴏsᴇs...\nᴛᴇʀᴋɪʀɪᴍ {sent}</b>")
+            await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
         except Exception:
             pass
     await msg.delete()
@@ -73,7 +73,7 @@ async def broadcast_users_cmd(client, message):
                     except Exception:
                         pass
         try:
-            await msg.edit(f"<b>ᴍᴇᴍᴘʀᴏsᴇs...\nᴛᴇʀᴋɪʀɪᴍ {sent}</b>")
+            await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
         except Exception:
             pass
     await msg.delete()
