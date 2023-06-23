@@ -48,13 +48,18 @@ async def main():
     await idle()
 
 
-async def installHelpers():
+async def helpers():
     await loadPlugins()
     await installPeer()
     await expiredUserbots()
 
 
+async def installHelpers():
+   loop = asyncio.get_event_loop_policy().get_event_loop()
+   loop.create_task(helpers())
+
+
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
+    loop create_task(installHelpers())
     loop.run_until_complete(main())
-    loop.create_task(installHelpers())
