@@ -50,7 +50,7 @@ async def main():
 
 async def installHelpers():
     await asyncio.sleep(15)
-    await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots())
+    await asyncio.gather(loadPlugins(), expiredUserbots())
 
 
 if __name__ == "__main__":
