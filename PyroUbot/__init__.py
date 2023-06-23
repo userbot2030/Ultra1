@@ -11,13 +11,13 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["Broken", "socket"]:
+        for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
                 os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logger = logging.getLogger()
-logger.setLevel(logging.ERROR)
+logger.setLevel(logging.INFO)
 
 formatter = logging.Formatter(
     "%(filename)s - %(lineno)s - %(levelname)s - %(message)s", "%m-%d %H:%M"
