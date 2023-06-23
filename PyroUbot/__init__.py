@@ -1,5 +1,7 @@
 import logging
 import os
+import threading
+
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -11,9 +13,12 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["Connection", "TimeoutError"]:
+        for X in ["Broken", "socket"]:
             if X in record.getMessage():
-                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+                threading.Thread(target=self.run_PyroUbot).start()
+
+    def run_PyroUbot(self):
+        subprocess.call(["python3", "-m", "PyroUbot"])
 
 
 logger = logging.getLogger()
