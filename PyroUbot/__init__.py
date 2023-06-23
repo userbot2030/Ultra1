@@ -16,12 +16,19 @@ class ConnectionHandler(logging.Handler):
                 os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
-logging.basicConfig(
-    level=logging.ERROR,
-    format="%(filename)s - %(lineno)s - %(levelname)s - %(message)s",
-    datefmt="%m-%d %H:%M",
-    handlers=[logging.StreamHandler(), ConnectionHandler()],
-)
+logger = logging.getLogger()
+logger.setLevel(logging.ERROR)
+
+formatter = logging.Formatter("%(filename)s - %(lineno)s - %(levelname)s - %(message)s", "%m-%d %H:%M")
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
+connection_handler = ConnectionHandler()
+
+logger.addHandler(stream_handler)
+logger.addHandler(connection_handler)
+
 
 
 class Bot(Client):
