@@ -17,7 +17,7 @@ class ConnectionHandler(logging.Handler):
 
 
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.ERROR)
 
 formatter = logging.Formatter(
     "%(filename)s - %(lineno)s - %(levelname)s - %(message)s", "%m-%d %H:%M"
