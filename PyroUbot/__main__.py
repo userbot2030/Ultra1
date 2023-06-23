@@ -50,7 +50,7 @@ async def main():
 
 async def installHelpers():
     await loadPlugins()
-    await installPeer(
+    await installPeer()
     await expiredUserbots()
 
 
