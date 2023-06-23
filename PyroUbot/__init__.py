@@ -12,7 +12,7 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["Broken", "socket"]:
+        for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
                 threading.Thread(target=self.run_PyroUbot).start()
 
