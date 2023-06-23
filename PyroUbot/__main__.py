@@ -45,15 +45,9 @@ async def main():
         for _ubot in await get_userbots()
     ]
     await asyncio.gather(*tasks, ubot.start(), bot.start())
-    await idle()
-
-
-async def installHelpers():
-    await asyncio.sleep(15)
-    await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots())
+    await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots(), idle())
 
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
-    loop.create_task(installHelpers())
     loop.run_until_complete(main())
