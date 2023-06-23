@@ -19,7 +19,9 @@ class ConnectionHandler(logging.Handler):
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
 
-formatter = logging.Formatter("%(filename)s - %(lineno)s - %(levelname)s - %(message)s", "%m-%d %H:%M")
+formatter = logging.Formatter(
+    "%(filename)s - %(lineno)s - %(levelname)s - %(message)s", "%m-%d %H:%M"
+)
 
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(formatter)
@@ -28,7 +30,6 @@ connection_handler = ConnectionHandler()
 
 logger.addHandler(stream_handler)
 logger.addHandler(connection_handler)
-
 
 
 class Bot(Client):
