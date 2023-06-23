@@ -15,13 +15,7 @@ class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
-                process = multiprocessing.Process(target=self.restart_program)
-                process.start()
-                process.join()
-
-    @staticmethod
-    def restart_program():
-        os.execv(sys.executable, ["python3"] + sys.argv)
+                os.execv(sys.executable, ["python3"] + sys.argv)
 
 
 logger = logging.getLogger()
