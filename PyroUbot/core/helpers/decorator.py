@@ -15,7 +15,7 @@ async def install_my_peer(client):
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             groups.append(dialog.chat.id)
             await asyncio.sleep(5)
-        client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
+    client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
 
 
 async def installPeer():
