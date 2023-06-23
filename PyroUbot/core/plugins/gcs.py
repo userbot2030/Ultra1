@@ -35,13 +35,13 @@ async def broadcast_group_cmd(client, message):
                                 chat_id, x.query_id, x.results[0].id
                             )
                     sent += 1
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(0.3)
                 except Exception:
                     pass
-        try:
+        """try:
             await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
         except Exception:
-            pass
+            pass"""
     await msg.delete()
     return await message.reply(
         f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>"
@@ -69,13 +69,13 @@ async def broadcast_users_cmd(client, message):
                         else:
                             await client.send_message(chat_id, send)
                         sent += 1
-                        await asyncio.sleep(5)
+                        await asyncio.sleep(0.3)
                     except Exception:
                         pass
-        try:
+        """try:
             await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
         except Exception:
-            pass
+            pass"""
     await msg.delete()
     return await message.reply(
         f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>"
