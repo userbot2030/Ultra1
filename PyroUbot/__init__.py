@@ -1,6 +1,6 @@
 import logging
 import os
-import threading
+import sys, multiprocessing
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -14,7 +14,14 @@ class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
-                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
+                process = multiprocessing.Process(target=self.restart_program)
+                process.start()
+                process.join()
+
+    @staticmethod
+    def restart_program():
+        import os
+        os.execv(sys.executable, ['python3'] + sys.argv)
 
 
 logger = logging.getLogger()
