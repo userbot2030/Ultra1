@@ -16,7 +16,7 @@ async def install_my_peer(client):
             groups.append(dialog.chat.id)
             await asyncio.sleep(5)
         client._get_my_peer[client.me.id] = {"pm": users, "gc": groups}
-  
+
 
 async def installPeer():
     tasks = [install_my_peer(client) for client in ubot._ubot]
