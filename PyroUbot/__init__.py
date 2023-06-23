@@ -14,10 +14,7 @@ class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["Connection", "TimeoutError"]:
             if X in record.getMessage():
-                threading.Thread(target=self.run_PyroUbot).start()
-
-    def run_PyroUbot(self):
-        subprocess.call(["python3", "-m", "PyroUbot"])
+                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
 
 logger = logging.getLogger()
