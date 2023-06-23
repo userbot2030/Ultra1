@@ -33,7 +33,7 @@ async def expired_userbot(X):
                 reply_markup=InlineKeyboardMarkup(expired_button),
             )
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"Error: - {X.me.id} - :{str(e)}")
 
 
 async def expiredUserbots():
