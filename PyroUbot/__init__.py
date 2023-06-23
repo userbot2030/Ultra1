@@ -1,6 +1,7 @@
 import logging
+import multiprocessing
 import os
-import sys, multiprocessing
+import sys
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -21,7 +22,8 @@ class ConnectionHandler(logging.Handler):
     @staticmethod
     def restart_program():
         import os
-        os.execv(sys.executable, ['python3'] + sys.argv)
+
+        os.execv(sys.executable, ["python3"] + sys.argv)
 
 
 logger = logging.getLogger()
