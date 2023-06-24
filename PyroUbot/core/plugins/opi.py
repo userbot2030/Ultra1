@@ -33,18 +33,23 @@ async def ai_cmd(client, message):
         await message.reply(error)
         return await Tm.delete()
     answer = ""
-    for X in response:
-        answer += X
-        if int(len(str(answer))) > 4096:
-            with io.BytesIO(str.encode(str(answer))) as out_file:
-                out_file.name = "openAi.txt"
-                await message.reply_document(
-                    document=out_file,
-                )
-                return await Tm.delete()
-        else:
-            await asyncio.sleep(1.5)
-            await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
+    async for chunk in response:
+        try:
+            if not chunk.choices[0].delta or chunk.choices[0].delta.get("role"):
+                continue
+            answer += chunk.choices[0].delta.content
+            if int(len(str(answer))) > 4096:
+                with io.BytesIO(str.encode(str(answer))) as out_file:
+                    out_file.name = "openAi.txt"
+                    await message.reply_document(
+                        document=out_file,
+                    )
+                    return await Tm.delete()
+            else:
+                await asyncio.sleep(1.5)
+                await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
+        except Exception as error:
+            await tm.edit(error)
 
 
 async def dalle_cmd(client, message):
