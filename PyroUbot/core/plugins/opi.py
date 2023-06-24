@@ -46,8 +46,8 @@ async def ai_cmd(client, message):
             try:
                 await Tm.edit(answer + "...", parse_mode=enums.ParseMode.MARKDOWN)
                 await asyncio.sleep(1.5)
-        except FloodWait as error:
-            await asyncio.sleep(error.x)
+            except FloodWait as error:
+                await asyncio.sleep(error.x)
     await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
 
 
