@@ -51,8 +51,8 @@ async def ai_cmd(client, message):
                 await Tm.edit(answer + "...", parse_mode=ParseMode.MARKDOWN)
                 await asyncio.sleep(1)
             except FloodWait as error:
-                print(f"FloodWait: {error.X} Detik")
-                await asyncio.sleep(error.X)
+                print(f"FloodWait: {error.x} Detik")
+                await asyncio.sleep(error.x)
     await Tm.edit(answer, parse_mode=ParseMode.MARKDOWN)
 
 
