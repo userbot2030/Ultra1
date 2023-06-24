@@ -1,4 +1,4 @@
-import io
+import io, asyncio
 import os
 
 from pyrogram.enums import ParseMode
