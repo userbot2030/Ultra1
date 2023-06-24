@@ -33,7 +33,7 @@ async def ai_cmd(client, message):
         await message.reply(error)
         return await Tm.delete()
     answer = ""
-    async for chunk in response:
+    for chunk in response:
         try:
             if not chunk.choices[0].delta or chunk.choices[0].delta.get("role"):
                 continue
