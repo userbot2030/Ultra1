@@ -37,22 +37,25 @@ async def ai_cmd(client, message):
         await message.reply(error)
         return await Tm.delete()
     answer = ""
-    async for X in response:
-        answer += X.choices[0].delta.content
-        if int(len(str(answer))) > 4096:
-            with io.BytesIO(str.encode(str(answer))) as out_file:
-                out_file.name = "openAi.txt"
-                await message.reply_document(
-                    document=out_file,
-                )
-                return await Tm.delete()
-        else:
-            try:
-                await Tm.edit(answer + "...", parse_mode=ParseMode.MARKDOWN)
-                await asyncio.sleep(1)
-            except FloodWait as error:
-                print(f"FloodWait: {error.x} Detik")
-                await asyncio.sleep(error.x)
+    for X in response:
+        try:
+            answer += X.choices[0].delta.content
+            if int(len(str(answer))) > 4096:
+                with io.BytesIO(str.encode(str(answer))) as out_file:
+                    out_file.name = "openAi.txt"
+                    await message.reply_document(
+                        document=out_file,
+                    )
+                    return await Tm.delete()
+            else:
+                try:
+                    await Tm.edit(answer + "...", parse_mode=ParseMode.MARKDOWN)
+                    await asyncio.sleep(1)
+                except FloodWait as error:
+                    print(f"FloodWait: {error.x} Detik")
+                    await asyncio.sleep(error.x)
+        except Exception as error:
+            await Tm.edit(error)
     await Tm.edit(answer, parse_mode=ParseMode.MARKDOWN)
 
 
