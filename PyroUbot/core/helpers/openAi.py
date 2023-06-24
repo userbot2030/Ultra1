@@ -16,7 +16,7 @@ class OpenAi:
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": question}],
         )
-        return response
+        return response.choices[0].message["content"].strip()
 
     @staticmethod
     async def ImageDalle(question):
