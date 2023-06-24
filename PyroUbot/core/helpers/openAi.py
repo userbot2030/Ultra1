@@ -19,7 +19,7 @@ class OpenAi:
             messages=[{"role": "user", "content": question}],
         )
         return response
-        
+
     @staticmethod
     async def ImageDalle(question):
         response = await asyncio.to_thread(
