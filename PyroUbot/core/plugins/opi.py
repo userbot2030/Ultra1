@@ -46,7 +46,7 @@ async def ai_cmd(client, message):
                     continue
                 answer += chunk.choices[0].delta.content
                 await Tm.edit(answer + ",,", parse_mode=ParseMode.MARKDOWN)
-                    await asyncio.sleep(1.5)
+                await asyncio.sleep(1.5)
             except FloodWait as error:
                 await Tm.edit(f"Tunggu {error.x} detik")
                 await asyncio.sleep(error.x)
