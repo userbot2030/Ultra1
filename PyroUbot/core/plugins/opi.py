@@ -48,7 +48,8 @@ async def ai_cmd(client, message):
                 await Tm.edit(answer + "...", parse_mode=enums.ParseMode.MARKDOWN)
         except Exception as error:
             await Tm.edit(error)
-    await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN) 
+    await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
+
 
 async def dalle_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
