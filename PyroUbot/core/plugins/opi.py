@@ -45,7 +45,7 @@ async def ai_cmd(client, message):
                     return await Tm.delete()
             else:
                 await asyncio.sleep(1.5)
-                await Tm.edit(aParseMode.MARKDOWNParseMode.MARKDOWN)
+                await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
         else:
             return await Tm.edit(
                 "ᴛᴇʀJᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ᴘᴀᴅᴀ ᴏᴘᴇɴᴀɪ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ᴘᴇᴍɪɴᴛᴀᴀɴ"
