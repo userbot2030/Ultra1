@@ -1,6 +1,8 @@
 import io
 import os
+
 from pyrogram.errors import FloodWait
+
 from PyroUbot import *
 
 
@@ -39,7 +41,7 @@ async def ai_cmd(client, message):
             with io.BytesIO(str.encode(str(answer))) as out_file:
                 out_file.name = "openAi.txt"
                 await message.reply_document(
-                   document=out_file,
+                    document=out_file,
                 )
                 return await Tm.delete()
         else:
