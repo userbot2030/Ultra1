@@ -8,7 +8,7 @@ from PyroUbot import OWNER_ID, bot, ubot
 async def install_my_peer(client):
     users = []
     groups = []
-    async for dialog in client.get_dialogs():
+    async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             users.append(dialog.chat.id)
         elif dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
