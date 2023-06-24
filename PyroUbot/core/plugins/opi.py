@@ -1,6 +1,6 @@
 import io
 import os
-
+from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait
 
 from PyroUbot import *
@@ -46,11 +46,11 @@ async def ai_cmd(client, message):
                 return await Tm.delete()
         else:
             try:
-                await Tm.edit(answer + "...", parse_mode=enums.ParseMode.MARKDOWN)
+                await Tm.edit(answer + "...", parse_mode=ParseMode.MARKDOWN)
                 await asyncio.sleep(1.5)
             except FloodWait as error:
                 await asyncio.sleep(error.x)
-    await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
+    await Tm.edit(answer, parse_mode=ParseMode.MARKDOWN)
 
 
 async def dalle_cmd(client, message):
