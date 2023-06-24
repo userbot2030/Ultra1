@@ -40,14 +40,17 @@ async def ai_cmd(client, message):
                 with io.BytesIO(str.encode(str(answer))) as out_file:
                     out_file.name = "openAi.txt"
                     await message.reply_document(
-                            document=out_file,
+                        document=out_file,
                     )
                     return await Tm.delete()
             else:
                 await asyncio.sleep(1.5)
                 await Tm.edit(aParseMode.MARKDOWNParseMode.MARKDOWN)
         else:
-            return await Tm.edit("ᴛᴇʀJᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ᴘᴀᴅᴀ ᴏᴘᴇɴᴀɪ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ᴘᴇᴍɪɴᴛᴀᴀɴ")
+            return await Tm.edit(
+                "ᴛᴇʀJᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ᴘᴀᴅᴀ ᴏᴘᴇɴᴀɪ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ᴘᴇᴍɪɴᴛᴀᴀɴ"
+            )
+
 
 async def dalle_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
