@@ -1,9 +1,10 @@
+import asyncio
 import io
 import os
-import asyncio
 
 import openai
 from aiohttp import ClientSession
+
 from PyroUbot import *
 
 
