@@ -1,4 +1,5 @@
 from PyroUbot import OWNER_ID, bot
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 class MSG:
@@ -65,3 +66,24 @@ class MSG:
 ᴍᴇᴍʙᴀᴄᴀ ᴅᴀɴ ᴍᴇɴᴇʀɪᴍᴀ ᴋᴇᴛᴇɴᴛᴜᴀɴ ɪɴɪ ᴅᴀɴ ᴍᴇʟᴀɴᴊᴜᴛᴋᴀɴ 
 ᴘᴇᴍʙᴇʟɪᴀɴ. ᴊɪᴋᴀ ᴛɪᴅᴀᴋ, ᴛᴇᴋᴀɴ ᴛᴏᴍʙᴏʟ ʙᴀᴛᴀʟᴋᴀɴ.
 """
+
+
+async def sending_user(user_id):
+    await bot.send_message(
+            user_id,
+            "💬 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥",
+                            callback_data="bahan",
+                        )
+                    ],
+                ]
+            ),
+            disable_web_page_preview=True,
+        )
+
+
+
