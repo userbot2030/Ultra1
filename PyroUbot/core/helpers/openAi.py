@@ -8,7 +8,7 @@ from PyroUbot import OPENAI_KEY
 
 openai.aiosession.set(ClientSession())
 openai.api_key = random.choice(OPENAI_KEY)
-
+closed = openai.aiosession.get().close()
 
 class OpenAi:
     @staticmethod
