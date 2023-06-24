@@ -44,7 +44,6 @@ async def ai_cmd(client, message):
                     )
                     return await Tm.delete()
             else:
-                await asyncio.sleep(1.5)
                 await Tm.edit(answer + "...", parse_mode=enums.ParseMode.MARKDOWN)
         except Exception as error:
             await Tm.edit(error)
