@@ -50,6 +50,7 @@ async def ai_cmd(client, message):
                 await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
         except Exception as error:
             await tm.edit(error)
+    await closed
 
 
 async def dalle_cmd(client, message):
