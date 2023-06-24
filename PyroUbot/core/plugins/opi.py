@@ -37,7 +37,7 @@ async def ai_cmd(client, message):
         await message.reply(error)
         return await Tm.delete()
     answer = ""
-    for X in response:
+    async for X in response:
         answer += X.choices[0].delta.content
         if int(len(str(answer))) > 4096:
             with io.BytesIO(str.encode(str(answer))) as out_file:
