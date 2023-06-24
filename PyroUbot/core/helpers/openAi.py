@@ -2,9 +2,11 @@ import asyncio
 import random
 
 import openai
+from aiohttp import ClientSession
 
 from PyroUbot import OPENAI_KEY
 
+openai.aiosession.set(ClientSession())
 openai.api_key = random.choice(OPENAI_KEY)
 
 
@@ -16,8 +18,8 @@ class OpenAi:
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": question}],
         )
-        return response.choices[0].message["content"].strip()
-
+        return response
+        
     @staticmethod
     async def ImageDalle(question):
         response = await asyncio.to_thread(
