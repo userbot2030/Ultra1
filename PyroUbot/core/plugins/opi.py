@@ -49,7 +49,7 @@ async def ai_cmd(client, message):
                 await asyncio.sleep(1.5)
                 await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
         except Exception as error:
-            await tm.edit(error)
+            await Tm.edit(error)
     await closed
 
 
