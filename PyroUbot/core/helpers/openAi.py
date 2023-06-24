@@ -2,7 +2,6 @@ import asyncio
 import random
 
 import openai
-from aiohttp import ClientSession
 
 from PyroUbot import OPENAI_KEY
 
