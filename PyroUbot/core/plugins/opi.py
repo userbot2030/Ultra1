@@ -1,6 +1,6 @@
 import io
 import os
-
+from pyrogram.errors import FloodWait
 from PyroUbot import *
 
 
@@ -34,19 +34,20 @@ async def ai_cmd(client, message):
         return await Tm.delete()
     answer = ""
     for X in response:
-        try:
-            answer += X.choices[0].delta.content
-            if int(len(str(answer))) > 4096:
-                with io.BytesIO(str.encode(str(answer))) as out_file:
-                    out_file.name = "openAi.txt"
-                    await message.reply_document(
-                        document=out_file,
-                    )
-                    return await Tm.delete()
-            else:
+        answer += X.choices[0].delta.content
+        if int(len(str(answer))) > 4096:
+            with io.BytesIO(str.encode(str(answer))) as out_file:
+                out_file.name = "openAi.txt"
+                await message.reply_document(
+                   document=out_file,
+                )
+                return await Tm.delete()
+        else:
+            try:
                 await Tm.edit(answer + "...", parse_mode=enums.ParseMode.MARKDOWN)
-        except Exception as error:
-            await Tm.edit(error)
+                await asyncio.sleep(1.5)
+        except FloodWait as error:
+            await asyncio.sleep(error.x)
     await Tm.edit(answer, parse_mode=enums.ParseMode.MARKDOWN)
 
 
