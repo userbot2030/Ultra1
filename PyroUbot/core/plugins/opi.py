@@ -23,29 +23,31 @@ def get_text(message):
 
 
 async def ai_cmd(client, message):
-    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
+    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>", quote=True)
     args = get_text(message)
     if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
         response = await OpenAi.ChatGPT(args)
-        if int(len(str(response))) > 4096:
-            with io.BytesIO(str.encode(str(response))) as out_file:
-                out_file.name = "openAi.txt"
-                await message.reply_document(
-                    document=out_file,
-                )
-                return await Tm.delete()
-        else:
-            msg = message.reply_to_message or message
-            await client.send_message(
-                message.chat.id, response, reply_to_message_id=msg.id
-            )
-            return await Tm.delete()
     except Exception as error:
         await message.reply(error)
         return await Tm.delete()
-
+    answer = ""
+    for X in response:
+        if X.choices[0].delta.content:
+            answer += X.choices[0].delta.content
+            if int(len(str(answer))) > 4096:
+                with io.BytesIO(str.encode(str(answer))) as out_file:
+                    out_file.name = "openAi.txt"
+                    await message.reply_document(
+                            document=out_file,
+                    )
+                    return await Tm.delete()
+            else:
+                await asyncio.sleep(1.5)
+                await Tm.edit(aParseMode.MARKDOWNParseMode.MARKDOWN)
+        else:
+            return await Tm.edit("ᴛᴇʀJᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ᴘᴀᴅᴀ ᴏᴘᴇɴᴀɪ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ᴘᴇᴍɪɴᴛᴀᴀɴ")
 
 async def dalle_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
