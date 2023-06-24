@@ -1,7 +1,5 @@
 import logging
-import multiprocessing
 import os
-import sys
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -22,10 +20,9 @@ logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
 
 formatter = logging.Formatter("[%(levelname)s] - %(name)s - %(message)s", "%m-%d %H:%M")
-
-stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(formatter)
 
+stream_handler = logging.StreamHandler()
 connection_handler = ConnectionHandler()
 
 logger.addHandler(stream_handler)
