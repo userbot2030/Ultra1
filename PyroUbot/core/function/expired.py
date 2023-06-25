@@ -6,7 +6,7 @@ from pytz import timezone
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
-from PyroUbot.core.database import (get_chat, get_expired_date,
+from PyroUbot.core.database import (get_chat, get_expired_date, rem_uptime,
                                     rem_expired_date, remove_chat, remove_ubot,
                                     rm_all)
 from PyroUbot.core.helpers import MSG, Button
@@ -21,6 +21,7 @@ async def expired_userbot(X):
                 await remove_chat(X.me.id, chat)
             await rm_all(X.me.id)
             await remove_ubot(X.me.id)
+            await rem_uptime(X.me.id)
             await rem_expired_date(X.me.id)
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
