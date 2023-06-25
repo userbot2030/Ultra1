@@ -55,7 +55,6 @@ class PY:
         return wrapper
 
 
-
 def get_prefix(client, message):
     for x in client._ubot:
         if client.me.id == x.me.id:
