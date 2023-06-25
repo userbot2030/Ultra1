@@ -55,8 +55,6 @@ class PY:
         return wrapper
 
 
-
-
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
         @ubot.on_message(filters.command(command, ubot.ubot_prefix()) & filter)
