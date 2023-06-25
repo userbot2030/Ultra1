@@ -59,6 +59,7 @@ def TES(command, filter=FILTERS.ME):
     def wrapper(func):
         async def get_prefix(client, message):
             prefix = "-"
+
             @ubot.on_message(filters.command(command, prefix) & filter)
             async def wrapped_func(client, message):
                 await func(client, message)
