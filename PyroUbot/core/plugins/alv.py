@@ -1,4 +1,5 @@
-import random, time
+import random
+import time
 from datetime import datetime
 
 from pyrogram.raw.functions import Ping
