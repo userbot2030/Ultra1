@@ -54,9 +54,11 @@ class PY:
 
         return wrapper
 
+
 def prefix():
     async def wrapped_func(client, message):
-        handler = await ubot.func_prefix()
+        await ubot.func_prefix()
+
     return wrapped_func
 
     return handler
