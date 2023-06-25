@@ -18,6 +18,4 @@ def set_pref(user_id, expire_date):
 
 
 def rem__pref(user_id):
-    prefixes.users.update_one(
-        {"_id": user_id}, {"$unset": {"prefix": ""}}, upsert=True
-    )
+    prefixes.users.update_one({"_id": user_id}, {"$unset": {"prefix": ""}}, upsert=True)
