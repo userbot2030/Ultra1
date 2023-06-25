@@ -65,9 +65,9 @@ class Ubot(Client):
         def decorator(func):
             for x in self._ubot:
                 if self.me.id == x.me.id:
-                    pass
-            return func
-
+                    prefix = "-"
+            return prefix
+           
         return decorator
 
     async def start(self):
