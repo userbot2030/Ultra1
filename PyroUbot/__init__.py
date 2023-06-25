@@ -67,7 +67,7 @@ class Ubot(Client):
                 if self.me.id == x.me.id:
                     prefix = "-"
             return prefix
-           
+
         return decorator
 
     async def start(self):
