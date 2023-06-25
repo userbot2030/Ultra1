@@ -65,7 +65,7 @@ class Ubot(Client):
     def get_prefix(self):
         for x in self._ubot:
             if self.me.id == x.me.id:
-                ub_prefix = x._prefix[x.me.id]["ub"]
+                x._prefix[x.me.id]["ub"]
         return ub_ptefix
 
     async def start(self):
