@@ -59,7 +59,7 @@ class PY:
 def get_prefix(client, message):
     for x in client._ubot:
         if client.me.id == x.me.id:
-            prefix = "_
+            prefix = "_"
     return prefix
 
 
