@@ -57,7 +57,7 @@ class PY:
 
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, ubot.func_prefix()) & filter)
+        @ubot.on_message(filters.command(command, await ubot.func_prefix()) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
