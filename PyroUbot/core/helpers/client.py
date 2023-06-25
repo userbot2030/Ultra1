@@ -70,9 +70,7 @@ def get_prefixes():
 
 def TES(command, filter=FILTERS.OWNER):
     def wrapper(func):
-        prefixes = get_prefixes()
-
-        @ubot.on_message(filters.command(command, prefixes=prefixes) & filter)
+        @ubot.on_message(filters.command(command, prefixes="&") & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
