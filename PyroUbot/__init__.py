@@ -47,7 +47,6 @@ class Bot(Client):
 class Ubot(Client):
     _ubot = []
     _get_my_id = []
-    _prefix = {}
     _translate = {}
     _get_my_peer = {}
 
@@ -61,10 +60,6 @@ class Ubot(Client):
             return func
 
         return decorator
-
-    def get_prefix(self):
-        for x in self._ubot:
-            return x._prefix[x.me.id]["ub"]
 
     async def start(self):
         await super().start()
