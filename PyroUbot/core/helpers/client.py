@@ -54,7 +54,7 @@ class PY:
 
         return wrapper
 
-    
+
 def ubot_prefix(ub_id):
     for x in ubot._ubot:
         if ub_id == x.me.id:
@@ -63,7 +63,10 @@ def ubot_prefix(ub_id):
 
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, prefixes=lambda _, __: get_prefix(_.me.id)) & filter)
+        @ubot.on_message(
+            filters.command(command, prefixes=lambda _, __: get_prefix(_.me.id))
+            & filter
+        )
         async def wrapped_func(client, message):
             await func(client, message)
 
