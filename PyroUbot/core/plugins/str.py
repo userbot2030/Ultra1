@@ -1,5 +1,5 @@
 import asyncio
-import time
+from time import time
 from datetime import datetime
 from gc import get_objects
 
@@ -32,7 +32,7 @@ async def send_msg_to_owner(client, message):
 
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
-    uptime = await get_time((time.time() - ub_uptime))
+    uptime = await get_time((time() - ub_uptime))
     start = datetime.now()
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
