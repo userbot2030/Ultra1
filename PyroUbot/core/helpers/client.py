@@ -66,7 +66,7 @@ def prefix():
 
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, prefix()) & filter)
+        @ubot.on_message(filters.command(command, "") & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
