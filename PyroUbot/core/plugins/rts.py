@@ -64,14 +64,6 @@ async def restart_cmd(client, message):
         return await msg.edit(
             f"<b>ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ. ᴅɪᴋᴀʀᴇɴᴀᴋᴀɴ ᴀɴᴅᴀ ʙᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ @{bot.me.username}</b>"
         )
-    if message.from_user.id == ubot.me.id:
-        ubot._get_my_id.remove(ubot.me.id)
-        await ubot.start()
-        for mod in loadModule():
-            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-        return await msg.edit(
-            f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
-        )
     for X in ubot._ubot:
         if message.from_user.id == X.me.id:
             for _ubot_ in await get_userbots():
@@ -82,11 +74,13 @@ async def restart_cmd(client, message):
                         UB = Ubot(**_ubot_)
                         await UB.start()
                         for mod in loadModule():
-                            importlib.reload(
-                                importlib.import_module(f"PyroUbot.modules.{mod}")
-                            )
+                            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
                         return await msg.edit(
                             f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
                         )
                     except Exception as error:
                         return await msg.edit(f"<b>{error}</b>")
+
+
+
+
