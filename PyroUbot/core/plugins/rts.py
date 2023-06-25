@@ -65,14 +65,8 @@ async def restart_cmd(client, message):
             f"<b>ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ. ᴅɪᴋᴀʀᴇɴᴀᴋᴀɴ ᴀɴᴅᴀ ʙᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ @{bot.me.username}</b>"
         )
     if message.from_user.id == ubot.me.id:
-        ubot._ubot.remove(ubot)
-        UB = Ubot(
-            name=message.from_user.id,
-            api_id=API_ID,
-            api_hash=API_HASH,
-            session_string=SESSION_STRING,
-        )
-        await UB.start()
+        ubot._get_my_id.remove(ubot.me.id)
+        await ubot.start()
         for mod in loadModule():
             importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
         return await msg.edit(
@@ -84,6 +78,7 @@ async def restart_cmd(client, message):
                 if X.me.id == int(_ubot_["name"]):
                     try:
                         ubot._ubot.remove(X)
+                        ubot._get_my_id.remove(X.me.id)
                         UB = Ubot(**_ubot_)
                         await UB.start()
                         for mod in loadModule():
