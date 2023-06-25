@@ -62,13 +62,10 @@ class Ubot(Client):
         return decorator
 
     def get_prefix(self):
-        def decorator(func):
-            for x in self._ubot:
-                if self.me.id == x.me.id:
-                    prefix = "-"
-            return prefix
-
-        return decorator
+        for x in self._ubot:
+            if self.me.id == x.me.id:
+                prefix = "-"
+        return prefix
 
     async def start(self):
         await super().start()
