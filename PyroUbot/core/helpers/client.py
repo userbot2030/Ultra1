@@ -68,7 +68,7 @@ def TES(command, filter=FILTERS.OWNER):
             command,
             lambda _, __, m: ubot._prefix[m.from_user.id]["ub"]
             & filter
-        )
+        ))
         async def wrapped_func(client, message):
             await func(client, message)
 
