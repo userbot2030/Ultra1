@@ -54,6 +54,7 @@ class PY:
 
         return wrapper
 
+
 def ubot_prefix():
     def wrapper(func):
         async def wrapped_func(client, message):
