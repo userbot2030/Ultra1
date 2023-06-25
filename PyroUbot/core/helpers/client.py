@@ -55,12 +55,15 @@ class PY:
         return wrapper
 
 
-"""
+
 def get_prefix(client, message):
-    return "-"
+    for x in client._ubot:
+        if client.me.id == x.me.id:
+            prefix = "_
+    return prefix
 
 
-def TES(command, filter=FILTERS.ME):
+def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
         @ubot.on_message(filters.command(command, get_prefix) & filter)
         async def wrapped_func(client, message):
@@ -69,4 +72,3 @@ def TES(command, filter=FILTERS.ME):
         return wrapped_func
 
     return wrapper
-"""
