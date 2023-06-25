@@ -63,13 +63,9 @@ class Ubot(Client):
         return decorator
 
     def get_prefix(self):
-        def decorator(func):
-            for x in self._ubot:
-                if self.me.id == x.me.id:
-                    return x._prefix[x.me.id]["ub"]
-            return func
-
-        return decorator
+        for x in self._ubot:
+            if self.me.id == x.me.id:
+                return x._prefix[x.me.id]["ub"]
 
     async def start(self):
         await super().start()
