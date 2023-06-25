@@ -1,9 +1,5 @@
-import asyncio
 import io
 import os
-
-from pyrogram.enums import ParseMode
-from pyrogram.errors import FloodWait
 
 from PyroUbot import *
 
@@ -27,36 +23,28 @@ def get_text(message):
 
 
 async def ai_cmd(client, message):
-    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>", quote=True)
+    Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     args = get_text(message)
     if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
         response = await OpenAi.ChatGPT(args)
+        if int(len(str(response))) > 4096:
+            with io.BytesIO(str.encode(str(response))) as out_file:
+                out_file.name = "openAi.txt"
+                await message.reply_document(
+                    document=out_file,
+                )
+                return await Tm.delete()
+        else:
+            msg = message.reply_to_message or message
+            await client.send_message(
+                message.chat.id, response, reply_to_message_id=msg.id
+            )
+            return await Tm.delete()
     except Exception as error:
         await message.reply(error)
         return await Tm.delete()
-    answer = ""
-    for X in response:
-        try:
-            answer += X.choices[0].delta.content
-            if int(len(str(answer))) > 4096:
-                with io.BytesIO(str.encode(str(answer))) as out_file:
-                    out_file.name = "openAi.txt"
-                    await message.reply_document(
-                        document=out_file,
-                    )
-                    return await Tm.delete()
-            else:
-                try:
-                    await Tm.edit(answer + "...", parse_mode=ParseMode.MARKDOWN)
-                    await asyncio.sleep(0.3)
-                except FloodWait as error:
-                    print(f"FloodWait: {error.retry_after} Detik")
-                    await asyncio.sleep(error.retry_after)
-        except Exception as error:
-            await Tm.edit(error)
-    await Tm.edit(answer, parse_mode=ParseMode.MARKDOWN)
 
 
 async def dalle_cmd(client, message):
