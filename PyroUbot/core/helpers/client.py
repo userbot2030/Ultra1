@@ -63,6 +63,8 @@ def TES(command, filter=FILTERS.ME):
             async def wrapped_func(client, message):
                 await func(client, message)
 
-        return wrapped_func
+            return wrapped_func
+
+        return get_prefix
 
     return wrapper
