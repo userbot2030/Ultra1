@@ -54,9 +54,9 @@ class PY:
 
         return wrapper
 
+
 def get_prefix(client, message):
     return "-"
-
 
 
 def TES(command, filter=FILTERS.ME):
