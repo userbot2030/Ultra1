@@ -17,7 +17,7 @@ async def set_pref(user_id, expire_date):
     )
 
 
-async def rem__pref(user_id):
+async def rem_pref(user_id):
     await prefixes.users.update_one(
         {"_id": user_id}, {"$unset": {"prefix": ""}}, upsert=True
     )
