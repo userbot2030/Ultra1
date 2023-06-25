@@ -64,7 +64,7 @@ def get_prefix(client, message):
 
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, get_prefix) & filter)
+        @ubot.on_message(filters.command(command, PREFIX) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
