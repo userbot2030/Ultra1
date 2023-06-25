@@ -60,17 +60,9 @@ def ubot_prefix(ub_id):
         if ub_id == x.me.id:
             return x._prefix[x.me.id]["ub"]
 
-
-def get_prefixes():
-    def get_prefixes_helper(c):
-        return ubot_prefix(c.me.id)
-
-    return get_prefixes_helper
-
-
-def TES(command, filter=FILTERS.OWNER):
+def TES(command=, filter=FILTERS.OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, "&") & filter)
+        @ubot.on_message(Filters.command(command) & Filters.create(lambda c, m: ubot_prefix(c.me.id)) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
