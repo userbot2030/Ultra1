@@ -54,6 +54,7 @@ class PY:
 
         return wrapper
 
+
 """
 def get_prefix(client, message):
     return "-"
