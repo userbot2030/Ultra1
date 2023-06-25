@@ -60,9 +60,17 @@ def ubot_prefix(ub_id):
         if ub_id == x.me.id:
             return x._prefix[x.me.id]["ub"]
 
+
 def TES(command):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, prefixes=filters.create(lambda _, __, message: ubot_prefix(message._client.me.id))))
+        @ubot.on_message(
+            filters.command(
+                command,
+                prefixes=filters.create(
+                    lambda _, __, message: ubot_prefix(message._client.me.id)
+                ),
+            )
+        )
         async def wrapped_func(client, message):
             await func(client, message)
 
