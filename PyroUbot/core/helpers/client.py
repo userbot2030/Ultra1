@@ -55,26 +55,11 @@ class PY:
         return wrapper
 
 
-def ubot_prefix():
-    def wrapper(func):
-        async def wrapped_func(client, message):
-            for x in client._ubot:
-                if client.me.id == x.me.id:
-                    handler = await get_pref(x.me.id)
-                    if handler == "None":
-                        prefix = PREFIX
-                    else:
-                        prefix = handler
-            return prefix
-
-        return wrapped_func
-
-    return wrapper
 
 
 def TES(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, "") & filter)
+        @ubot.on_message(filters.command(command, ubot.ubot_prefix()) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
