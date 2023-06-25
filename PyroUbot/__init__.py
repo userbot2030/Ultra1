@@ -61,10 +61,10 @@ class Ubot(Client):
 
         return decorator
 
-    def func_prefix(self):
+    async def func_prefix(self):
         for x in self._ubot:
             if self.me.id == x.me.id:
-                handler = get_pref(x.me.id)
+                handler = await get_pref(x.me.id)
                 if handler is "None":
                     prefix = PREFIX
                 else:
