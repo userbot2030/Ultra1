@@ -62,7 +62,7 @@ class Ubot(Client):
 
         return decorator
 
-    def ubot_prefix(self):
+    def get_prefix(self):
         for x in self._ubot:
             if self.me.id == x.me.id:
                 return x._prefix[x.me.id]["ub"]
