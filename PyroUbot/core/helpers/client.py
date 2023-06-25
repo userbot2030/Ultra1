@@ -66,11 +66,7 @@ def TES(command):
         @ubot.on_message(
             filters.command(
                 command,
-                prefixes=filters.create(
-                    lambda _, __, message: ubot_prefix(message._client.me.id)
-                ),
-            )
-        )
+        ))
         async def wrapped_func(client, message):
             await func(client, message)
 
