@@ -268,6 +268,7 @@ async def hapus_ubot(client, callback_query):
                 await remove_chat(X.me.id, chat)
             await rm_all(X.me.id)
             await remove_ubot(X.me.id)
+            await rem_uptime(X.me.id)
             await rem_expired_date(X.me.id)
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
