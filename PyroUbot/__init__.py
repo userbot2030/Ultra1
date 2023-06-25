@@ -60,6 +60,12 @@ class Ubot(Client):
             return func
 
         return decorator
+        
+    def get_prefix(self):
+        for x in self._ubot:
+            if self.me.id == x.me.id:
+                prefix = "_"
+        return prefix
 
     async def start(self):
         await super().start()
