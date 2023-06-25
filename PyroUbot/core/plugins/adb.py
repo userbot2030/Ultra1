@@ -1,4 +1,5 @@
 import asyncio
+from time import time
 import importlib
 from datetime import datetime
 
@@ -169,7 +170,7 @@ async def bikin_ubot(client, callback_query):
         api_hash=API_HASH,
         session_string=session_string,
     )
-    await set_uptime(new_client.me.id)
+    await set_uptime(new_client.me.id, time())
     if callback_query.from_user.id not in await get_seles():
         await remove_prem(callback_query.from_user.id)
     for mod in loadModule():
