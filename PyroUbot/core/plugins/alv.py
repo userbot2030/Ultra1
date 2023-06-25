@@ -1,4 +1,4 @@
-import random
+import random, time
 from datetime import datetime
 
 from pyrogram.raw.functions import Ping
@@ -44,7 +44,7 @@ async def alive_query(client, inline_query):
             await my.invoke(Ping(ping_id=0))
             ping = (datetime.now() - start).microseconds / 1000
             ub_time = await get_uptime(my.me.id)
-            uptime = await get_time((ub_time - start_time))
+            uptime = await get_time((time.time() - ub_time))
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
