@@ -66,7 +66,8 @@ def TES(command):
         @ubot.on_message(
             filters.command(
                 command,
-        ))
+            )
+        )
         async def wrapped_func(client, message):
             await func(client, message)
 
