@@ -1,7 +1,6 @@
 import asyncio
 from datetime import datetime
 from gc import get_objects
-from time import time
 
 from pyrogram.raw.functions import Ping
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
