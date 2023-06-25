@@ -65,7 +65,7 @@ def TES(command, filter=FILTERS.OWNER):
     def wrapper(func):
         @ubot.on_message(
             filters.command(
-                command, lambda _, __, m: ubot._prefix[m.from_user.id]["ub"]
+                command, ""
             )
             & filter
         )
