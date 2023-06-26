@@ -272,4 +272,4 @@ async def un_expired(client, message):
     except Exception as error:
         return await Tm.edit(error)
     await rem_expired_date(user.id)
-    return await message.reply(f"<b>✅ {user.id} ᴇxᴘɪʀᴇᴅ ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜs</b>")
+    return await Tm.edit(f"<b>✅ {user.id} ᴇxᴘɪʀᴇᴅ ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜs</b>")
