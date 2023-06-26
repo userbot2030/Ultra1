@@ -18,6 +18,7 @@ async def start_ubot(user_id, _ubot):
     except RPCError:
         await remove_ubot(user_id)
         await rm_all(user_id)
+        await rem_uptime(user_id)
         await rem_expired_date(user_id)
         for X in await get_chat(user_id):
             await remove_chat(user_id, X)
