@@ -63,7 +63,7 @@ def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
         @ubot.on_message(
             filters.command(
-                command, lambda _, message: ubot_prefix(message.from_user.id)
+                command, ubot_prefix(message.from_user.id)
             )
             & filter
         )
