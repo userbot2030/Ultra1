@@ -47,6 +47,7 @@ class Bot(Client):
 class Ubot(Client):
     _ubot = []
     _get_my_id = []
+    _prefix = {}
     _translate = {}
     _get_my_peer = {}
 
@@ -63,6 +64,11 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        handler = await get_pref(self.me.id)
+        if handler == "None":
+            self._prefix[self.me.id] = {"ub": PREFIX}
+        elif handler:
+            self._prefix[self.me.id] = {"ub": handler}
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
