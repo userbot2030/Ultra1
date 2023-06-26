@@ -1,6 +1,6 @@
 from .. import *
 
 
-@TES("tes")
+@CMD("tes")
 async def _(client, message):
     await message.reply("good")
