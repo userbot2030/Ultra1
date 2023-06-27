@@ -66,7 +66,6 @@ def CMD(command, filter=FILTERS.ME_OWNER):
             if message.text.startswith(prefix + command):
                 await func(client, message)
 
-        ubot.add_handler(filters.command, wrapped_func)
         return wrapped_func
 
     return wrapper
