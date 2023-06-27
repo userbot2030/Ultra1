@@ -1,11 +1,12 @@
 from PyroUbot import *
 
 
+@CMD("prefix")
+async def _(client, message):
+    await setprefix(client, message)
+
+
 @CMD("tes")
-async def tes(client, message):
+async def (client, message):
     await coba(client, message)
 
-
-@CMD("prefix")
-async def prefix(client, message):
-    await setprefix(client, message)
