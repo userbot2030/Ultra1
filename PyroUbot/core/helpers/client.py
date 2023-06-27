@@ -56,7 +56,7 @@ class PY:
 
 
 def ubot_prefix():
-    return list(ubot._prefix[ubot.me.id]["prefix"])
+    return ubot._prefix[ubot.me.id]["prefix"]
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
