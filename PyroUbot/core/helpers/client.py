@@ -67,7 +67,7 @@ def CMD(command, filter=FILTERS.ME_OWNER):
                 await func(client, message)
 
         for ub in ubot._ubot:
-            ub.add_handler(MessageHandler(filters.text & filter, wrapped_func))
+            ub.add_handler(MessageHandler(filter, wrapped_func))
         return wrapped_func
 
     return wrapper
