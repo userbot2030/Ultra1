@@ -7,6 +7,6 @@ async def _(client, message):
 
 
 @CMD("tes")
-async def (client, message):
+async def _(client, message):
     await coba(client, message)
 
