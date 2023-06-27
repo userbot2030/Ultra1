@@ -61,18 +61,11 @@ def ubot_prefix(user_id):
 
 def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filter)
         async def wrapped_func(client, message):
-            user_id = message.from_user.id
-            prefixes = ubot_prefix(user_id)
-
-            for prefix in prefixes:
-                if message.text.startswith(prefix) and message.text[
-                    len(prefix) :
-                ].lstrip().startswith(command):
-                    await func(client, message)
-                    break
-
-        return wrapped_func
+            prefix = ubot_prefix(client.me.id)
+            if message.text.startswith(prefix + command):
+                await func(client, message)
+        for ub in ubot._ubot:
+            ub.add_handler(MessageHandler(Filters.text & filter, wrapped_func))
 
     return wrapper
