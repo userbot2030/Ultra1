@@ -55,16 +55,19 @@ class PY:
         return wrapper
 
 
-def ubot_prefix():
-    return list(ubot._prefix[ubot.me.id]["prefix"])
+def ubot_prefix(message):
+    return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
 
-
-def CMD(command, filter=FILTERS.ME_OWNER):
+def CMD(command, filter=filters.me & filters.private):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, ubot_prefix()) & filter)
-        async def wrapped_func(client, message):
-            await func(client, message)
-
+        async def wrapped_func(client: Client, message: Message):
+            GET_PREFIX = [ubot_prefix(message)]
+            if message.text.startswith(tuple(PREFIX)):
+                command_len = len(GET_PREFIX[0])
+                cmd_full = message.text[command_len:].strip().split(" ", 1)
+                command = cmd_full[0].lower() if cmd_full else ""
+                args = cmd_full[1] if len(cmd_full) > 1 else None
+                await func(client, message, command, args, PREFIX)
+        ubot.add_handler(filters.command, wrapped_func)
         return wrapped_func
-
     return wrapper
