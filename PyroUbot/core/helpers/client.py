@@ -59,11 +59,17 @@ def ubot_prefix(user_id):
     return ubot._prefix.get(user_id, {}).get("prefix", ".")
 
 
-GET_PREFIX = lambda cmd, message: filters.command(cmd, prefixes=list(ubot_prefix(message.from_user.id)))
+GET_PREFIX = lambda cmd, message: filters.command(
+    cmd, prefixes=list(ubot_prefix(message.from_user.id))
+)
+
 
 def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, lambda message: GET_PREFIX(command, message)) & filter)
+        @ubot.on_message(
+            filters.command(command, lambda message: GET_PREFIX(command, message))
+            & filter
+        )
         async def wrapped_func(client, message):
             await func(client, message)
 
