@@ -58,6 +58,7 @@ class PY:
 def ubot_prefix(message):
     return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
 
+
 def CMD(command, filter=filters.me & filters.private):
     def wrapper(func):
         async def wrapped_func(client: Client, message: Message):
@@ -68,6 +69,8 @@ def CMD(command, filter=filters.me & filters.private):
                 command = cmd_full[0].lower() if cmd_full else ""
                 args = cmd_full[1] if len(cmd_full) > 1 else None
                 await func(client, message, command, args, PREFIX)
+
         ubot.add_handler(filters.command, wrapped_func)
         return wrapped_func
+
     return wrapper
