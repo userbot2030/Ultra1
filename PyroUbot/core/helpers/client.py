@@ -59,7 +59,7 @@ def ubot_prefix(user_id):
     return ubot._prefix.get(user_id, {}).get("prefix", ".")
 
 
-GET_PREFIX = lambda cmd: filters.command(
+GET_PREFIX = lambda cmd, message: filters.command(
     cmd, prefixes=list(ubot_prefix(message.from_user.id))
 )
 
