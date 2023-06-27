@@ -35,6 +35,7 @@ from PyroUbot.core.plugins.spm import *
 from PyroUbot.core.plugins.spt import *
 from PyroUbot.core.plugins.srh import *
 from PyroUbot.core.plugins.stf import *
+from PyroUbot.core.plugins.stg import *
 from PyroUbot.core.plugins.str import *
 from PyroUbot.core.plugins.tll import *
 from PyroUbot.core.plugins.tny import *
@@ -44,4 +45,3 @@ from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.wrt import *
 from PyroUbot.core.plugins.ytp import *
 from PyroUbot.core.plugins.zbs import *
-from PyroUbot.core.plugins.stg import *
