@@ -9,4 +9,3 @@ async def _(client, message):
 @CMD("tes")
 async def _(client, message):
     await coba(client, message)
-
