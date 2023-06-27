@@ -12,10 +12,6 @@ class FILTERS:
     ME_OWNER = filters.me & filters.user(OWNER_ID)
 
 
-def ubot_prefix(user_id):
-    return ubot._prefix.get(user_id, {}).get("prefix", ".")
-
-
 class PY:
     def BOT(command, filter=FILTERS.PRIVATE):
         def wrapper(func):
@@ -59,14 +55,19 @@ class PY:
         return wrapper
 
 
+def ubot_prefix(user_id):
+    return ubot._prefix.get(user_id, {}).get("prefix", ".")
+
+
 def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filter)
         async def wrapped_func(client, message):
-            prefix = ubot_prefix(client.me.id)
+            user_id = message.from_user.id
+            prefix = ubot_prefix(user_id)
             if message.text.startswith(prefix + command):
                 await func(client, message)
 
+        client.add_handler(MessageHandler(wrapped_func, filter))
         return wrapped_func
 
     return wrapper
