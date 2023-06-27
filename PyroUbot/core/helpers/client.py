@@ -59,16 +59,12 @@ def ubot_prefix(message):
     return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
 
 
-def CMD(command, filter=filters.me & filters.private):
+def CMD(command, filter=FILTERS.ME_GROUP):
     def wrapper(func):
         async def wrapped_func(client, message):
-            GET_PREFIX = [ubot_prefix(message)]
-            if message.text.startswith(tuple(GET_PREFIX)):
-                command_len = len(GET_PREFIX[0])
-                cmd_full = message.text[command_len:].strip().split(" ", 1)
-                command = cmd_full[0].lower() if cmd_full else ""
-                args = cmd_full[1] if len(cmd_full) == 1 else None
-                await func(client, message, command, args, GET_PREFIX)
+            prefix = ubot_prefix(message)
+            if message.text.startswith(prefix + command):
+                await func(client, message)
 
         ubot.add_handler(filters.command, wrapped_func)
         return wrapped_func
