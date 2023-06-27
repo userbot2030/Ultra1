@@ -65,6 +65,7 @@ def CMD(command, filter=FILTERS.ME_OWNER):
             prefix = ubot_prefix(client.me.id)
             if message.text.startswith(prefix + command):
                 await func(client, message)
+
         for ub in ubot._ubot:
             ub.add_handler(MessageHandler(Filters.text & filter, wrapped_func))
 
