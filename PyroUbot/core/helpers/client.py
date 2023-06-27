@@ -56,7 +56,7 @@ class PY:
 
 
 def ubot_prefix(user_id):
-    return ubot._prefix.get(user_id, {}).get("ub", "")
+    return ubot._prefix.get(user_id, {}).get("ub", "!")
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
