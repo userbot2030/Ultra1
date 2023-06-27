@@ -12,6 +12,10 @@ class FILTERS:
     ME_OWNER = filters.me & filters.user(OWNER_ID)
 
 
+def ubot_prefix(user_id):
+    return ubot._prefix.get(user_id, {}).get("prefix", "!")
+
+
 class PY:
     def BOT(command, filter=FILTERS.PRIVATE):
         def wrapper(func):
@@ -54,9 +58,6 @@ class PY:
 
         return wrapper
 
-
-def ubot_prefix(user_id):
-    return ubot._prefix.get(user_id, {}).get("ub", "!")
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
