@@ -61,7 +61,7 @@ def ubot_prefix(message):
 
 def CMD(command, filter=filters.me & filters.private):
     def wrapper(func):
-        async def wrapped_func(client: Client, message: Message):
+        async def wrapped_func(client, message):
             GET_PREFIX = [ubot_prefix(message)]
             if message.text.startswith(tuple(PREFIX)):
                 command_len = len(GET_PREFIX[0])
