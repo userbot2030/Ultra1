@@ -3,7 +3,7 @@ from PyroUbot import *
 
 @CMD("tes")
 async def _(client, message):
-    await message.reply("good")
+    await coba(client, message)
 
 
 @CMD("prefix")
