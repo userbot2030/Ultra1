@@ -69,4 +69,5 @@ def CMD(command, filter=FILTERS.ME_OWNER):
         for ub in ubot._ubot:
             ub.add_handler(MessageHandler(filters.text & filter, wrapped_func))
         return wrapped_func
+
     return wrapper
