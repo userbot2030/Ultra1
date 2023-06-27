@@ -13,7 +13,7 @@ class FILTERS:
 
 
 def ubot_prefix(user_id):
-    return ubot._prefix.get(user_id, {}).get("prefix", "!")
+    return ubot._prefix.get(user_id, {}).get("prefix", ".")
 
 
 class PY:
