@@ -66,9 +66,9 @@ class Ubot(Client):
         await super().start()
         handler = await get_pref(self.me.id)
         if handler:
-            self._prefix[self.me.id] = {"ub": handler}
+            self._prefix[self.me.id] = {"prefix": handler}
         else:
-            self._prefix[self.me.id] = {"ub": "."}
+            self._prefix[self.me.id] = {"prefix": "."}
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
