@@ -55,8 +55,8 @@ class PY:
         return wrapper
 
 
-def ubot_prefix(client, message):
-    return list(ubot_prefix(message.from_user.id))
+def ubot_prefix():
+    return list(ubot_prefix(ubot.me.id))
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
