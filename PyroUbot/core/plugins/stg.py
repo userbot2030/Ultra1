@@ -15,5 +15,6 @@ async def setprefix(client, message):
         else:
             return await Tm.edit("ᴛᴇʀJᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
 
+
 async def coba(client, message):
     await message.reply("good")
