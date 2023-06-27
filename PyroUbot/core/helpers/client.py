@@ -63,7 +63,7 @@ def CMD(command, filter=filters.me & filters.private):
     def wrapper(func):
         async def wrapped_func(client, message):
             GET_PREFIX = [ubot_prefix(message)]
-            if message.text.startswith(tuple(PREFIX)):
+            if message.text.startswith(tuple(GET_PREFIX)):
                 command_len = len(GET_PREFIX[0])
                 cmd_full = message.text[command_len:].strip().split(" ", 1)
                 command = cmd_full[0].lower() if cmd_full else ""
