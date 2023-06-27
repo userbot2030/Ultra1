@@ -67,7 +67,9 @@ def CMD(command, filter=FILTERS.ME_OWNER):
             prefixes = ubot_prefix(user_id)
 
             for prefix in prefixes:
-                if message.text.startswith(prefix) and message.text[len(prefix):].lstrip().startswith(command):
+                if message.text.startswith(prefix) and message.text[
+                    len(prefix) :
+                ].lstrip().startswith(command):
                     await func(client, message)
                     break
 
