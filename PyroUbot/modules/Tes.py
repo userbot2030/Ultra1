@@ -1,4 +1,4 @@
-from .. import *
+from PyroUbot import *
 
 
 @CMD("tes")
