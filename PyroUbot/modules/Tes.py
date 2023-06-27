@@ -8,4 +8,4 @@ async def _(client, message):
 
 @CMD("prefix")
 async def _(client, message):
-    async def setprefix(client, message)
+    await setprefix(client, message)
