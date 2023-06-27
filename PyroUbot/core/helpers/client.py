@@ -64,7 +64,7 @@ def CMD(command, filter=FILTERS.ME_OWNER):
         async def wrapped_func(client, message):
             await func(client, message)
 
-        @ubot.on_message(filters.command(command, ubot_prefix(client.me.id)) & filter)
+        @ubot.on_message(filters.command(command, ubot_prefix) & filter)
         async def command_handler(client, message):
             await wrapped_func(client, message)
 
