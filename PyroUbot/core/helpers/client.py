@@ -55,9 +55,9 @@ class PY:
         return wrapper
 
 
-
 def ubot_prefix(user_id):
     return ubot._prefix.get(user_id, {}).get("ub", "")
+
 
 def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
