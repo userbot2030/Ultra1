@@ -8,6 +8,7 @@ async def setprefix(client, message):
     else:
         set = await set_pref(client.me.id, message.command[1])
         if set:
+            ubot._prefix[client.me.id] = {"prefix": message.command[1]}
             return await Tm.edit(
                 f"<b>ᴘʀᴇғɪx ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ {message.command[1]}"
             )
