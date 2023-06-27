@@ -59,7 +59,7 @@ def ubot_prefix(message):
     return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
 
 
-def CMD(command, filter=FILTERS.ME_GROUP):
+def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
         async def wrapped_func(client, message):
             prefix = ubot_prefix(message)
