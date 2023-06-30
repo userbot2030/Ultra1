@@ -54,19 +54,18 @@ class PY:
 
         return wrapper
 
-
-def ubot_prefix(user_id):
-    return ubot._prefix.get(user_id, {}).get("prefix", ".")
+class Prefix:
+    def __call__(self, message):
+        return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
     def wrapper(func):
-        @ubot.on_message(filters.text & filter)
+        @ubot.on_message(filters.command(command, Prefix()) & filter)
         async def wrapped_func(client, message):
-            prefix = ubot_prefix(client.me.id)
-            if message.text.startswith(f"{prefix}{command}"):
-                await func(client, message)
+            await func(client, message)
 
         return wrapped_func
 
     return wrapper
+
