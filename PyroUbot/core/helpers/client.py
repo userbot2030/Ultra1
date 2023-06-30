@@ -64,11 +64,14 @@ def CMD(command, filter=FILTERS.ME_OWNER):
         async def wrapped_func(client, message):
             await func(client, message)
 
-        command_prefix = prefix(message)
-        command_handler = filters.command(command, command_prefix)
-        if filter:
-            command_handler = command_handler & filter
-        ubot.on_message(command_handler)(wrapped_func)
+        async def command_handler(client, message):
+            command_prefix = prefix(message)
+            if message.text.startswith(command_prefix + command):
+                await wrapped_func(client, message)
+
+        command_handler = command_handler & filter
+
+        ubot.on_message(command_handler)
 
         return wrapped_func
 
