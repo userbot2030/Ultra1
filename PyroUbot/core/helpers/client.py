@@ -55,7 +55,7 @@ class PY:
         return wrapper
 
 
-class Prefix():
+class Prefix:
     def __init__(self, ubot):
         self.ubot = ubot
 
