@@ -54,6 +54,7 @@ class PY:
 
         return wrapper
 
+
 class Prefix:
     def __call__(self, message):
         return ubot._prefix.get(message.from_user.id, {}).get("prefix", ".")
@@ -68,4 +69,3 @@ def CMD(command, filter=FILTERS.ME_OWNER):
         return wrapped_func
 
     return wrapper
-
