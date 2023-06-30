@@ -123,6 +123,6 @@ def CMD(command, filter=FILTERS.ME_OWNER):
             async def wrapped_func(client, message):
                 await func(client, message)
 
-        return wrapped_func
+            return wrapped_func
 
     return wrapper
