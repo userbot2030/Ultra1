@@ -322,8 +322,8 @@ async def hapus_ubot(client, callback_query):
             )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
-                expired_text,
-                reply_markup=InlineKeyboardMarkup(expired_button),
+                MSG.EXPIRED_MSG_BOT(X),
+                reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
             )
             return await bot.send_message(
                 X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
