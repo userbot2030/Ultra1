@@ -30,7 +30,7 @@ async def expired_userbot(X):
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
-                reply_mButton.expired_button_bot()Button.expired_button_bot()),
+                reply_mButton.expired_button_bot(Button.expired_button_bot()),
             )
             await bot.send_message(
                 X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
