@@ -310,6 +310,7 @@ async def hapus_ubot(client, callback_query):
             for chat in await get_chat(X.me.id):
                 await remove_chat(X.me.id, chat)
             await rm_all(X.me.id)
+            await rem_pref(X.me.id)
             await remove_ubot(X.me.id)
             await rem_uptime(X.me.id)
             await rem_expired_date(X.me.id)
@@ -318,6 +319,11 @@ async def hapus_ubot(client, callback_query):
             await X.log_out()
             await bot.send_message(
                 OWNER_ID, f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ</b>"
+            )
+            await bot.send_message(
+                LOGS_MAKER_UBOT,
+                expired_text,
+                reply_markup=InlineKeyboardMarkup(expired_button),
             )
             return await bot.send_message(
                 X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
