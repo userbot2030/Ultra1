@@ -17,9 +17,9 @@ async def expired_userbot(X):
         time = datetime.now(timezone("Asia/Jakarta")).strftime("%d-%m-%Y")
         exp = (await get_expired_date(X.me.id)).strftime("%d-%m-%Y")
         if time == exp:
+            await X.unblock_user(bot.me.username)
             for chat in await get_chat(X.me.id):
                 await remove_chat(X.me.id, chat)
-            await X.unblock_user(bot.me.username
             await rm_all(X.me.id)
             await remove_ubot(X.me.id)
             await rem_uptime(X.me.id)
@@ -27,12 +27,10 @@ async def expired_userbot(X):
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
             await X.log_out()
-            expired_text = MSG.EXPIRED_MSG_BOT(X)
-            expired_button = Button.expired_button_bot()
             await bot.send_message(
                 LOGS_MAKER_UBOT,
-                expired_text,
-                reply_markup=InlineKeyboardMarkup(expired_button),
+                MSG.EXPIRED_MSG_BOT(X),
+                reply_mButton.expired_button_bot()Button.expired_button_bot()),
             )
             await bot.send_message(
                 X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
