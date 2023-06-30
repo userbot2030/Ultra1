@@ -19,6 +19,7 @@ async def expired_userbot(X):
         if time == exp:
             for chat in await get_chat(X.me.id):
                 await remove_chat(X.me.id, chat)
+            await X.unblock_user(bot.me.username
             await rm_all(X.me.id)
             await remove_ubot(X.me.id)
             await rem_uptime(X.me.id)
@@ -33,6 +34,9 @@ async def expired_userbot(X):
                 expired_text,
                 reply_markup=InlineKeyboardMarkup(expired_button),
             )
+            await bot.send_message(
+                X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
+           )
     except Exception as e:
         print(f"Error: - {X.me.id} - :{str(e)}")
 
