@@ -55,19 +55,13 @@ class PY:
         return wrapper
 
 
-class PrefixHandler:
-    def __init__(self, userbot):
-        self.ubot = userbot
-
-    def get_prefix(self, message):
-        return self.ubot._prefix[message.from_user.id]["prefix"]
+def prefix(message):
+    return ubot._prefix[message.from_user.id]["prefix"]
 
 
 def CMD(command, filter=FILTERS.ME_OWNER):
-    prefix_handler = PrefixHandler(ubot)
-
     def wrapper(func):
-        @ubot.on_message(filters.command(command, prefix_handler.get_prefix) & filter)
+        @ubot.on_message(filter & filters.command(command, lambda _, message: message.text.startswith(prefix(message))))
         async def wrapped_func(client, message):
             await func(client, message)
 
