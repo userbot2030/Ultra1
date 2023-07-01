@@ -33,10 +33,7 @@ class OpenAi:
             response = await session.post(
                 "https://api.openai.com/v1/images/dalle",
                 headers={"Authorization": f"Bearer {openai.api_key}"},
-                json={
-                    "prompt": question,
-                    "n": 1
-                },
+                json={"prompt": question, "n": 1},
             )
             data = await response.json()
             return data["data"][0]["url"]
