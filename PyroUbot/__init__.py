@@ -66,7 +66,8 @@ class Ubot(Client):
         self._prefix[self.me.id] = prefix
 
     def get_prefix(self):
-        return self._prefix[self.me.id]
+        for ub in self._ubot:
+             self._prefix[ub.me.id]
 
     async def start(self):
         await super().start()
