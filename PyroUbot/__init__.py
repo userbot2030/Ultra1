@@ -67,7 +67,7 @@ class Ubot(Client):
 
     def get_prefix(self):
         return self._prefix[self.me.id]
-        
+
     async def start(self):
         await super().start()
         handler = await get_pref(self.me.id)
