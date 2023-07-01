@@ -35,7 +35,7 @@ class OpenAi:
                 headers={"Authorization": f"Bearer {openai.api_key}"},
                 json={
                     "prompt": question,
-                    "n": 1,
+                    "n": 1
                 },
             )
             data = await response.json()
