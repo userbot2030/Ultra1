@@ -67,7 +67,7 @@ class Ubot(Client):
             if self.me.id == ub.me.id:
                 ub._prefix[ub.me.id] = prefix
         
-    def get_prefix(self)
+    def get_prefix(self):
         for ub in self._ubot:
             if self.me.id == ub.me.id:
                 return ub._prefix[ub.me.id]
