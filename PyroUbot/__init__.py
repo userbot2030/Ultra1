@@ -64,12 +64,12 @@ class Ubot(Client):
 
     def set_prefix(self, prefix):
         for ub in self._ubot:
-            if self.me.id == ub.me.id
+            if self.me.id == ub.me.id:
                 ub._prefix[ub.me.id] = prefix
         
     def get_prefix(self)
         for ub in self._ubot:
-            if self.me.id == ub.me.id
+            if self.me.id == ub.me.id:
                 return ub._prefix[ub.me.id]
 
     async def start(self):
