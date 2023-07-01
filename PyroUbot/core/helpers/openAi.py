@@ -1,11 +1,12 @@
 import random
-import aiohttp
 
+import aiohttp
 import openai
 
 from PyroUbot import OPENAI_KEY
 
 openai.api_key = random.choice(OPENAI_KEY)
+
 
 class OpenAi:
     @staticmethod
