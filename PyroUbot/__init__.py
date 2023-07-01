@@ -71,7 +71,7 @@ class Ubot(Client):
         aa = []
         aa.append(self.me.id)
         for ub in self._ubot:
-             aa.append(ubf.me.id)
+            aa.append(ubf.me.id)
         return aa
 
     async def start(self):
