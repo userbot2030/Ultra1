@@ -1,23 +1,22 @@
+import asyncio
 import random
-
 import aiohttp
+import json
+
 import openai
 
 from PyroUbot import OPENAI_KEY
 
 openai.api_key = random.choice(OPENAI_KEY)
 
-
 class OpenAi:
     @staticmethod
     async def ChatGPT(question):
-        async with aiohttp.ClientSession() as session:
+        session = aiohttp.ClientSession()
+        try:
             response = await session.post(
                 "https://api.openai.com/v1/chat/completions",
-                headers={
-                    "Content-Type": "application/json",
-                    "Authorization": f"Bearer {openai.api_key}",
-                },
+                headers={"Authorization": f"Bearer {openai.api_key}"},
                 json={
                     "model": "gpt-3.5-turbo",
                     "messages": [{"role": "user", "content": question}],
@@ -25,16 +24,16 @@ class OpenAi:
             )
             data = await response.json()
             return data["choices"][0]["message"]["content"].strip()
+        finally:
+            await session.close()
 
     @staticmethod
     async def ImageDalle(question):
-        async with aiohttp.ClientSession() as session:
+        session = aiohttp.ClientSession()
+        try:
             response = await session.post(
-                "https://api.openai.com/v1/images",
-                headers={
-                    "Content-Type": "application/json",
-                    "Authorization": f"Bearer {openai.api_key}",
-                },
+                "https://api.openai.com/v1/images/dalle",
+                headers={"Authorization": f"Bearer {openai.api_key}"},
                 json={
                     "prompt": question,
                     "n": 1,
@@ -42,18 +41,21 @@ class OpenAi:
             )
             data = await response.json()
             return data["data"][0]["url"]
+        finally:
+            await session.close()
 
     @staticmethod
     async def SpeechToText(file):
-        async with aiohttp.ClientSession() as session:
+        session = aiohttp.ClientSession()
+        try:
             audio_file = open(file, "rb")
             response = await session.post(
                 "https://api.openai.com/v1/audio/transcriptions",
-                headers={
-                    "Content-Type": "application/json",
-                    "Authorization": f"Bearer {openai.api_key}",
-                },
-                data=audio_file,
+                headers={"Authorization": f"Bearer {openai.api_key}"},
+                data={"engine": "whisper-1"},
+                files={"file": audio_file},
             )
             data = await response.json()
             return data["text"]
+        finally:
+            await session.close()
