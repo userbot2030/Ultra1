@@ -7,8 +7,7 @@ async def setprefix(client, message):
         return await Tm.edit(f"<code>{message.text} sɪᴍʙᴏʟ ᴘʀᴇғɪx</code>")
     else:
         try:
-            del client._prefix[client.me.id]
-            client._prefix[client.me.id] = message.command[1]
+            client.set_prefi(client.me.id, message.command[1])
             await set_pref(client.me.id, message.command[1])
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {message.command[1]}")
         except Exception as error:
