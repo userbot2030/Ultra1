@@ -164,6 +164,7 @@ async def convert_audio(client, message):
         return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴠɪᴅᴇᴏ</b>")
 
 
+
 async def convert_efek(client, message):
     helo = get_arg(message)
     rep = message.reply_to_message
@@ -185,6 +186,16 @@ async def convert_efek(client, message):
             "band_reject",
             "fade_in",
             "fade_out",
+            "chorus",
+            "vibrato",
+            "phaser",
+            "reverb",
+            "distortion",
+            "bitcrush",
+            "wahwah",
+            "compressor",
+            "delay",
+            "stereo_widen",
         ]
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
@@ -206,6 +217,16 @@ async def convert_efek(client, message):
                 "band_reject": '-filter_complex "bandreject=f=1000:width_type=h:w=100"',
                 "fade_in": '-filter_complex "afade=t=in:ss=0:d=5"',
                 "fade_out": '-filter_complex "afade=t=out:st=5:d=5"',
+                "chorus": '-filter_complex "chorus=0.7:0.9:55:0.4:0.25:2"',
+                "vibrato": '-filter_complex "vibrato=f=10"',
+                "phaser": '-filter_complex "aphaser=type=t:gain=0.2"',
+                "reverb": '-filter_complex "reverb"',
+                "distortion": '-filter_complex "distortion=gain=6"',
+                "bitcrush": '-filter_complex "acrusher=level_in=10:level_out=16:bits=4:mode=log:aa=1"',
+                "wahwah": '-filter_complex "wahwah"',
+                "compressor": '-filter_complex "compand=0.3|0.8:6:-70/-70/-20/-20/-20/-20:6:0:-90:0.2"',
+                "delay": '-filter_complex "adelay=1000|1000"',
+                "stereo_widen": '-filter_complex "stereowiden=level_in=0.5:level_out=1.0:delay=20:width=40"',
             }
             ses = await asyncio.create_subprocess_shell(
                 f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
