@@ -62,11 +62,11 @@ class Ubot(Client):
 
         return decorator
 
-    def set_prefix(self, prefix):
-        self._prefix[self.me.id] = prefix
+    def set_prefix(self, user_id, prefix):
+        self._prefix[user_id] = prefix
 
-    def get_prefix(self):
-        return self._prefix[self.me.id]
+    def get_prefix(self, user_id):
+        return self._prefix[user_id]
 
     async def start(self):
         await super().start()
