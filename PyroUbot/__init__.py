@@ -57,7 +57,12 @@ class Ubot(Client):
     def on_message(self, filters=None, group=-1):
         def decorator(func):
             for ub in self._ubot:
-                ub.add_handler(MessageHandler(func, filters), group)
+                async def wrapper(client, message):
+                    prefix = self._prefix.get(client.me.id, ".")
+                    if message.text.startswith(prefix):
+                        await func(client, message)
+
+                ub.add_handler(MessageHandler(wrapper, filters), group)
             return func
 
         return decorator
