@@ -168,7 +168,18 @@ async def convert_efek(client, message):
     helo = get_arg(message)
     rep = message.reply_to_message
     if rep and helo:
-        tau = ["bengek", "robot", "jedug", "fast", "echo", "tremolo", "reverse", "flanger", "pitch_up", "pitch_down"]
+        tau = [
+            "bengek",
+            "robot",
+            "jedug",
+            "fast",
+            "echo",
+            "tremolo",
+            "reverse",
+            "flanger",
+            "pitch_up",
+            "pitch_down",
+        ]
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
             indir = await client.download_media(rep)
@@ -193,9 +204,8 @@ async def convert_efek(client, message):
             os.remove("audio.mp3")
         else:
             await Tm.edit(
-            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
-        )
-           
+                f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
+            )
 
 
 async def colong_cmn(client, message):
