@@ -72,9 +72,9 @@ def filters_command(
         text = message.text or message.caption
         message.command = None
         prefixes = [
-            ubot.get_prefix[message.from_usee.id]
+            ubot.get_prefix[message.from_user.id]
             for x in ubot._ubot
-            if message.from_usee.id == x.me.id
+            if message.from_user.id == x.me.id
         ]
 
         if not text:
