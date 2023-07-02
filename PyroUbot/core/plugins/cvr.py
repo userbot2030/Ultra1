@@ -257,7 +257,7 @@ async def convert_efek(client, message):
         await message.reply(
             f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
 • '''.join(tau)}"""
-            )
+        )
 
 
 async def colong_cmn(client, message):
