@@ -179,6 +179,12 @@ async def convert_efek(client, message):
             "flanger",
             "pitch_up",
             "pitch_down",
+            "high_pass",
+            "low_pass",
+            "band_pass",
+            "band_reject",
+            "fade_in",
+            "fade_out",
         ]
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
@@ -194,6 +200,12 @@ async def convert_efek(client, message):
                 "flanger": '-filter_complex "flanger"',
                 "pitch_up": '-filter_complex "rubberband=pitch=2.0"',
                 "pitch_down": '-filter_complex "rubberband=pitch=0.5"',
+                "high_pass": '-filter_complex "highpass=f=200"',
+                "low_pass": '-filter_complex "lowpass=f=1000"',
+                "band_pass": '-filter_complex "bandpass=f=500:width_type=h:w=100"',
+                "band_reject": '-filter_complex "bandreject=f=1000:width_type=h:w=100"',
+                "fade_in": '-filter_complex "afade=t=in:ss=0:d=5"',
+                "fade_out": '-filter_complex "afade=t=out:st=5:d=5"',
             }
             ses = await asyncio.create_subprocess_shell(
                 f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
@@ -203,11 +215,8 @@ async def convert_efek(client, message):
             await rep.reply_voice("audio.mp3", caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
-            await message.reply(f"ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ {'/'.join(tau)}")
-    else:
-        await Tm.edit(
-            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
-        )
+            await message.reply(f"ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪ
+
 
 
 async def colong_cmn(client, message):
