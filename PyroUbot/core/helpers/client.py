@@ -60,44 +60,30 @@ class PY:
         return wrapper
 
 
-def filtras_command(commands: Union[str, List[str]], case_sensitive: bool = False):
+def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[str]] = "", case_sensitive: bool = False):
     command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
     async def func(flt, client: pyrogram.Client, message: Message):
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
-        prefixes = list(ubot.get_prefix(message.from_user.id))
 
         if not text:
             return False
 
-        for prefix in prefixes:
+        for prefix in flt.prefixes:
             if not text.startswith(prefix):
                 continue
 
-            without_prefix = text[len(prefix) :]
+            without_prefix = text[len(prefix):]
 
             for cmd in flt.commands:
-                if not re.match(
-                    rf"^(?:{cmd}(?:@?{username})?)(?:\s|$)",
-                    without_prefix,
-                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
-                ):
+                if not re.match(rf"^(?:{cmd}(?:@?{username})?)(?:\s|$)", without_prefix,
+                                flags=re.IGNORECASE if not flt.case_sensitive else 0):
                     continue
 
-                without_command = re.sub(
-                    rf"{cmd}(?:@?{username})?\s?",
-                    "",
-                    without_prefix,
-                    count=1,
-                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
-                )
-
-                # match.groups are 1-indexed, group(1) is the quote, group(2) is the text
-                # between the quotes, group(3) is unquoted, whitespace-split text
-
-                # Remove the escape character from the arguments
+                without_command = re.sub(rf"{cmd}(?:@?{username})?\s?", "", without_prefix, count=1,
+                                         flags=re.IGNORECASE if not flt.case_sensitive else 0)
                 message.command = [cmd] + [
                     re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                     for m in command_re.finditer(without_command)
@@ -110,13 +96,15 @@ def filtras_command(commands: Union[str, List[str]], case_sensitive: bool = Fals
     commands = commands if isinstance(commands, list) else [commands]
     commands = {c if case_sensitive else c.lower() for c in commands}
 
+    prefixes = [ubot.get_prefix[message.from_usee.id] for x in ubot._ubot if message.from_usee.id == x.me.id]
     return filters.create(
         func,
         "CommandFilter",
         commands=commands,
         prefixes=prefixes,
-        case_sensitive=case_sensitive,
+        case_sensitive=case_sensitive
     )
+
 
 
 def CMD(command, filter=FILTERS.ME):
