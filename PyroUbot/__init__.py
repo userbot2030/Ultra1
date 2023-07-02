@@ -62,12 +62,16 @@ class Ubot(Client):
         return decorator
 
     def get_prefix(self, user_id):
-        handler = await get_pref(user_id)
-        if handler:
-            ub_prefix = handler
-        else:
-            ub_prefix = "."
-        return ub_prefix
+        def wrapper(func):
+            async def docerator(self):
+                handler = await get_pref(user_id)
+                if handler:
+                    ub_prefix = handler
+                else:
+                    ub_prefix = "."
+                return ub_prefix
+            return docerator
+        return wrapper
 
     async def start(self):
         await super().start()
