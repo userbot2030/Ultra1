@@ -110,10 +110,6 @@ def filtras_command(commands: Union[str, List[str]], case_sensitive: bool = Fals
     commands = commands if isinstance(commands, list) else [commands]
     commands = {c if case_sensitive else c.lower() for c in commands}
 
-    prefixes = [] if prefixes is None else prefixes
-    prefixes = prefixes if isinstance(prefixes, list) else [prefixes]
-    prefixes = set(prefixes) if prefixes else {""}
-
     return filters.create(
         func,
         "CommandFilter",
