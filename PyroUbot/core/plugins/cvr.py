@@ -249,8 +249,10 @@ async def convert_efek(client, message):
             await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
-            await message.reply(f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n{'''
-• '''.join(tau)}""")
+            await message.reply(
+                f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n{'''
+• '''.join(tau)}"""
+            )
     else:
         await message.reply(
             f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : \n<code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
