@@ -164,6 +164,7 @@ async def convert_audio(client, message):
         return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴠɪᴅᴇᴏ</b>")
 
 
+
 async def convert_efek(client, message):
     helo = get_arg(message)
     rep = message.reply_to_message
@@ -246,7 +247,7 @@ async def convert_efek(client, message):
             )
             await ses.communicate()
             await Tm.delete()
-            await rep.reply_audio("audio.mp3", caption=f"Efek {helo}")
+            await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
             await message.reply(f"ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ {'/'.join(tau)}")
