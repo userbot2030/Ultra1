@@ -56,7 +56,7 @@ class PY:
         return wrapper
 
 
-def prefix_filter(_, __, m: Message):
+async def prefix_filter(_, __, m: Message):
     return ubot.get_prefix(bool(m.from_user.id))
 
 
@@ -66,7 +66,7 @@ def get_user_id():
 
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, get_user_id()) & filter)
+        @ubot.on_message(filters.command(command) & get_user_id() & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
