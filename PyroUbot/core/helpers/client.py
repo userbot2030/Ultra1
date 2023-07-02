@@ -71,6 +71,11 @@ def filters_command(
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
+        prefixes = [
+            ubot.get_prefix[message.from_usee.id]
+            for x in ubot._ubot
+            if message.from_usee.id == x.me.id
+        ]
 
         if not text:
             return False
@@ -108,11 +113,6 @@ def filters_command(
     commands = commands if isinstance(commands, list) else [commands]
     commands = {c if case_sensitive else c.lower() for c in commands}
 
-    prefixes = [
-        ubot.get_prefix[message.from_usee.id]
-        for x in ubot._ubot
-        if message.from_usee.id == x.me.id
-    ]
     return filters.create(
         func,
         "CommandFilter",
