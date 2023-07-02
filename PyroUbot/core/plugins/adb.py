@@ -214,7 +214,7 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     await set_uptime(new_client.me.id, time())
-    for client_id in [user_id, new_client.me.id]
+    for client_id in [user_id, new_client.me.id]:
         if client_id not in await get_seles():
             await remove_prem(client_id)
     for mod in loadModule():
