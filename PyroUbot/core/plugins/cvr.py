@@ -167,8 +167,7 @@ async def convert_audio(client, message):
 async def convert_efek(client, message):
     helo = get_arg(message)
     rep = message.reply_to_message
-    if rep and helo:
-        tau = [
+    tau = [
             "bengek",
             "robot",
             "jedug",
@@ -203,6 +202,7 @@ async def convert_efek(client, message):
             "telephone",
             "radio",
         ]
+    if rep and helo:
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
             indir = await client.download_media(rep)
