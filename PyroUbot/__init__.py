@@ -80,7 +80,6 @@ class Ubot(Client):
         print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) - 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
 
 
-
 bot = Bot(
     name="bot",
     api_id=API_ID,
