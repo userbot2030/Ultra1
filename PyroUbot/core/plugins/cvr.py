@@ -246,7 +246,7 @@ async def convert_efek(client, message):
             )
             await ses.communicate()
             await Tm.delete()
-            await rep.reply_voice("audio.mp3", caption=f"Efek {helo}")
+            await rep.reply_audio("audio.mp3", caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
             await message.reply(f"ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ {'/'.join(tau)}")
