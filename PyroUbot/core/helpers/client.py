@@ -1,7 +1,6 @@
 import re
 from typing import List, Union
 
-import pyrogram
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -60,14 +59,18 @@ class PY:
         return wrapper
 
 
-def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[str]] = "/", case_sensitive: bool = False):
+def filters_command(
+    commands: Union[str, List[str]],
+    prefixes: Union[str, List[str]] = "/",
+    case_sensitive: bool = False,
+):
     command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
     async def func(flt, client: Client, message: Message):
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
-        prefixes_list = ubot.get_prefix[client.me.id]
+        ubot.get_prefix[client.me.id]
 
         if not text:
             return False
@@ -76,7 +79,7 @@ def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[s
             if not text.startswith(prefix):
                 continue
 
-            without_prefix = text[len(prefix):]
+            without_prefix = text[len(prefix) :]
 
             for cmd in flt.commands:
                 if not re.match(
@@ -112,8 +115,6 @@ def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[s
         prefixes=prefixes_list,
         case_sensitive=case_sensitive,
     )
-
-
 
 
 def CMD(command, filter=FILTERS.ME):
