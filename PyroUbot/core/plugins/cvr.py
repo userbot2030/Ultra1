@@ -250,13 +250,14 @@ async def convert_efek(client, message):
             os.remove("audio.mp3")
         else:
             await message.reply(
-                f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n{'''
+                f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
 • '''.join(tau)}"""
             )
     else:
         await message.reply(
-            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : \n<code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
-        )
+            f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
+• '''.join(tau)}"""
+            )
 
 
 async def colong_cmn(client, message):
