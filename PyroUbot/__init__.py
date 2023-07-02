@@ -70,7 +70,9 @@ class Ubot(Client):
                 else:
                     ub_prefix = "."
                 return ub_prefix
+
             return docerator
+
         return wrapper
 
     async def start(self):
