@@ -46,6 +46,7 @@ class Bot(Client):
 
 class Ubot(Client):
     _ubot = []
+    _prefix = {}
     _get_my_id = []
     _translate = {}
     _get_my_peer = {}
