@@ -56,7 +56,7 @@ class PY:
         return wrapper
 
 
-async def prefix_filter(_, __, m: Message):
+def prefix_filter(_, __, m: Message):
     return ubot.get_prefix(bool(m.from_user.id))
 
 
