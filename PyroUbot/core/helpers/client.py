@@ -70,7 +70,7 @@ def filters_command(
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
-        ubot.get_prefix[client.me.id]
+        prefixes = ubot.get_prefix[client.me.id]
 
         if not text:
             return False
@@ -112,7 +112,7 @@ def filters_command(
         func,
         "CommandFilter",
         commands=commands,
-        prefixes=prefixes_list,
+        prefixes=prefixes,
         case_sensitive=case_sensitive,
     )
 
