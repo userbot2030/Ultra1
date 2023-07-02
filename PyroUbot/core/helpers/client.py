@@ -70,7 +70,7 @@ def filters_command(
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
-        prefixes = ubot.get_prefix[client.me.id]
+        ubot.get_prefix[client.me.id]
 
         if not text:
             return False
