@@ -63,7 +63,7 @@ class Ubot(Client):
 
     def get_prefix(self, user_id):
         def wrapper(func):
-            async def docerator(self):
+            async def wrapped_func(client, message):
                 handler = await get_pref(user_id)
                 if handler:
                     ub_prefix = handler
@@ -71,7 +71,7 @@ class Ubot(Client):
                     ub_prefix = "."
                 return ub_prefix
 
-            return docerator
+            return wrapped_func
 
         return wrapper
 
