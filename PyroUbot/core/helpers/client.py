@@ -1,7 +1,8 @@
 from pyrogram import filters
+from pyrogram.types import Message
 
 from PyroUbot import *
-from pyrogram.types import Message
+
 
 class FILTERS:
     ME = filters.me
@@ -53,16 +54,20 @@ class PY:
             return wrapped_func
 
         return wrapper
-        
+
+
 async def prefix_filter(_, __, m: Message):
     return bool(m.from_user.id)
+
 
 get_user_id = create(prefix_filter)
 
 
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
-        @ubot.on_message(filters.command(command, ubot.get_prefix(get_user_id)) & filter)
+        @ubot.on_message(
+            filters.command(command, ubot.get_prefix(get_user_id)) & filter
+        )
         async def wrapped_func(client, message):
             await func(client, message)
 
