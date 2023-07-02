@@ -111,6 +111,7 @@ class PY:
 
         return wrapper
 
+
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
         @ubot.on_message(filters.command(command, ubot.get_prefix()) & filter)
