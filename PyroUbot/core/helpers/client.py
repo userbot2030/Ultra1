@@ -60,7 +60,11 @@ class PY:
         return wrapper
 
 
-def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[str]] = "", case_sensitive: bool = False):
+def filters_command(
+    commands: Union[str, List[str]],
+    prefixes: Union[str, List[str]] = "",
+    case_sensitive: bool = False,
+):
     command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
     async def func(flt, client: pyrogram.Client, message: Message):
@@ -75,15 +79,23 @@ def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[s
             if not text.startswith(prefix):
                 continue
 
-            without_prefix = text[len(prefix):]
+            without_prefix = text[len(prefix) :]
 
             for cmd in flt.commands:
-                if not re.match(rf"^(?:{cmd}(?:@?{username})?)(?:\s|$)", without_prefix,
-                                flags=re.IGNORECASE if not flt.case_sensitive else 0):
+                if not re.match(
+                    rf"^(?:{cmd}(?:@?{username})?)(?:\s|$)",
+                    without_prefix,
+                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
+                ):
                     continue
 
-                without_command = re.sub(rf"{cmd}(?:@?{username})?\s?", "", without_prefix, count=1,
-                                         flags=re.IGNORECASE if not flt.case_sensitive else 0)
+                without_command = re.sub(
+                    rf"{cmd}(?:@?{username})?\s?",
+                    "",
+                    without_prefix,
+                    count=1,
+                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
+                )
                 message.command = [cmd] + [
                     re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                     for m in command_re.finditer(without_command)
@@ -96,15 +108,18 @@ def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[s
     commands = commands if isinstance(commands, list) else [commands]
     commands = {c if case_sensitive else c.lower() for c in commands}
 
-    prefixes = [ubot.get_prefix[message.from_usee.id] for x in ubot._ubot if message.from_usee.id == x.me.id]
+    prefixes = [
+        ubot.get_prefix[message.from_usee.id]
+        for x in ubot._ubot
+        if message.from_usee.id == x.me.id
+    ]
     return filters.create(
         func,
         "CommandFilter",
         commands=commands,
         prefixes=prefixes,
-        case_sensitive=case_sensitive
+        case_sensitive=case_sensitive,
     )
-
 
 
 def CMD(command, filter=FILTERS.ME):
