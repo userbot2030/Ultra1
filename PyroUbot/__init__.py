@@ -63,12 +63,12 @@ class Ubot(Client):
 
     def get_prefix(self, user_id):
         async def docerator(client, message):
-             handler = await get_pref(user_id)
-             if handler:
+            handler = await get_pref(user_id)
+            if handler:
                 ub_prefix = handler
-             else:
+            else:
                 ub_prefix = "."
-             return ub_prefix
+            return ub_prefix
 
         return docerator
 
