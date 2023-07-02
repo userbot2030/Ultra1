@@ -111,23 +111,9 @@ class PY:
 
         return wrapper
 
-
-"""def CMD(command, filter=FILTERS.ME):
-    def wrapper(func):
-        @ubot.on_message(filters.command(command, ubot.get_prefix()) & filter)
-        async def wrapped_func(client, message):
-            await func(client, message)
-
-        return wrapped_func
-
-    return wrapper"""
-
-
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
-        @ubot.on_message(
-            filters.command(command, ubot.get_prefix(message.from_user.id)) & filter
-        )
+        @ubot.on_message(filters.command(command, ubot.get_prefix()) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
