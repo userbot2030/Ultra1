@@ -60,7 +60,7 @@ async def prefix_filter(_, __, m: Message):
     return bool(m.from_user.id)
 
 
-get_user_id = create(prefix_filter)
+get_user_id = filters.create(prefix_filter)
 
 
 def CMD(command, filter=FILTERS.ME):
