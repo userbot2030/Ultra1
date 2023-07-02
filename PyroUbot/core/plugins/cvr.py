@@ -168,7 +168,7 @@ async def convert_efek(client, message):
     helo = get_arg(message)
     rep = message.reply_to_message
     if rep and helo:
-        tau = ["bengek", "robot", "jedug", "fast", "echo"]
+        tau = ["bengek", "robot", "jedug", "fast", "echo", "tremolo", "reverse", "flanger", "pitch_up", "pitch_down"]
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
             indir = await client.download_media(rep)
@@ -178,6 +178,11 @@ async def convert_efek(client, message):
                 "jedug": '-filter_complex "acrusher=level_in=8:level_out=18:bits=8:mode=log:aa=1"',
                 "fast": "-filter_complex \"afftfilt=real='hypot(re,im)*cos((random(0)*2-1)*2*3.14)':imag='hypot(re,im)*sin((random(1)*2-1)*2*3.14)':win_size=128:overlap=0.8\"",
                 "echo": '-filter_complex "aecho=0.8:0.9:500|1000:0.2|0.1"',
+                "tremolo": '-filter_complex "tremolo=f=5:d=0.5"',
+                "reverse": '-filter_complex "areverse"',
+                "flanger": '-filter_complex "flanger"',
+                "pitch_up": '-filter_complex "rubberband=pitch=2.0"',
+                "pitch_down": '-filter_complex "rubberband=pitch=0.5"',
             }
             ses = await asyncio.create_subprocess_shell(
                 f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
@@ -187,11 +192,10 @@ async def convert_efek(client, message):
             await rep.reply_voice("audio.mp3", caption=f"Efek {helo}")
             os.remove("audio.mp3")
         else:
-            await message.reply(f"sɪʟᴀʜᴋᴀɴ ɪsɪ sᴇsᴜᴀɪ {tau}")
-    else:
-        await Tm.edit(
-            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek bengek</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
+            await Tm.edit(
+            f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
         )
+           
 
 
 async def colong_cmn(client, message):
