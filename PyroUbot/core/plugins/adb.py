@@ -214,8 +214,8 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     await set_uptime(new_client.me.id, time())
-    if callback_query.from_user.id not in await get_seles():
-        await remove_prem(callback_query.from_user.id)
+    if new_client.me.id not in await get_seles():
+        await remove_prem(new_client.me.id)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
