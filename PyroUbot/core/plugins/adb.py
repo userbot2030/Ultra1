@@ -42,22 +42,7 @@ async def need_api(client, callback_query):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
-        buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            """
-<b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
-
-    • <code>ᴀᴘɪ_ɪᴅ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
-    • <code>ᴀᴘɪ_ʜᴀsʜ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
-    • <code>ᴘʜᴏɴᴇ_ɴᴜᴍʙᴇʀ</code>: ɴᴏᴍᴇʀ ʜᴘ ᴀᴋᴜɴ ᴛᴇʟᴇɢʀᴀᴍ
-
-☑️ ᴊɪᴋᴀ sᴜᴅᴀʜ ᴛᴇʀsᴇᴅɪᴀ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏɪ ᴅɪʙᴀᴡᴀʜ</b>
-""",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
+        await bikin_ubot(client, callback_query)
 
 
 async def payment_userbot(client, callback_query):
@@ -76,34 +61,6 @@ async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
     try:
         await callback_query.message.delete()
-        api = await bot.ask(
-            user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, api.text):
-        return
-    api_ids = api.text
-    try:
-        hash = await bot.ask(
-            user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, hash.text):
-        return
-    api_hashs = hash.text
-    try:
         phone = await bot.ask(
             user_id,
             (
@@ -119,8 +76,8 @@ async def bikin_ubot(client, callback_query):
     phone_number = phone.text
     new_client = Ubot(
         name=str(callback_query.id),
-        api_id=api_ids,
-        api_hash=api_hashs,
+        api_id=API_ID,
+        api_hash=API_HASH,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
@@ -209,14 +166,14 @@ async def bikin_ubot(client, callback_query):
     await new_client.start()
     await add_ubot(
         user_id=int(new_client.me.id),
-        api_id=api_ids,
-        api_hash=api_hashs,
+        api_id=API_ID,
+        api_hash=API_HASH,
         session_string=session_string,
     )
     await set_uptime(new_client.me.id, time())
-    for client_id in [user_id, new_client.me.id]:
-        if client_id not in await get_seles():
-            await remove_prem(client_id)
+    for id_maker in [user_id, new_client.me.id]:
+        if id_maker not in await get_seles():
+            await remove_prem(id_maker)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
@@ -249,16 +206,15 @@ async def bikin_ubot(client, callback_query):
 async def cek_ubot(client, callback_query):
     count = 0
     for X in ubot._ubot:
-        if not X.me.id == ubot.me.id:
-            count += 1
-            expired_date = await get_expired_date(X.me.id)
-            user = f"""
+        count += 1
+        expired_date = await get_expired_date(X.me.id)
+        user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-            await bot.send_message(
+        await bot.send_message(
                 callback_query.from_user.id,
                 user,
                 reply_markup=InlineKeyboardMarkup(
@@ -278,7 +234,7 @@ async def cek_ubot(client, callback_query):
                     ]
                 ),
             )
-            await asyncio.sleep(1)
+        await asyncio.sleep(1)
 
 
 async def cek_userbot_expired(client, callback_query):
