@@ -114,15 +114,6 @@ def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[s
     )
 
 
-def CMD(command, fltr=filters.ME):
-    def wrapper(func):
-        @ubot.on_message(filters_command(command) & fltr)
-        async def wrapped_func(client, message):
-            await func(client, message)
-
-        return wrapped_func
-
-    return wrapper
 
 
 def CMD(command, filter=FILTERS.ME):
