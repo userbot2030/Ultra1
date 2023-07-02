@@ -61,26 +61,24 @@ class Ubot(Client):
 
         return decorator
 
+    def set_prefix(self, user_id, prefix):
+        self._prefix[user_id] = prefix
+
     def get_prefix(self, user_id):
-        def wrapper(func):
-            async def wrapped_func(client, message):
-                handler = await get_pref(user_id)
-                if handler:
-                    ub_prefix = handler
-                else:
-                    ub_prefix = "."
-                return ub_prefix
-
-            return wrapped_func
-
-        return wrapper
+        return self._prefix[user_id]
 
     async def start(self):
         await super().start()
+        handler = await get_pref(self.me.id)
+        if handler:
+            self._prefix[self.me.id] = handler
+        else:
+            self._prefix[self.me.id] = "."
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
         print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) - 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
+
 
 
 bot = Bot(
