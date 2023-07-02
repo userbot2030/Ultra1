@@ -202,11 +202,7 @@ async def convert_efek(client, message):
         "telephone",
         "radio",
     ]
-    if rep and helo:
-        if helo in tau:
-            Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
-            indir = await client.download_media(rep)
-            KOMUT = {
+    KOMUT = {
                 "bengek": '-filter_complex "rubberband=pitch=1.5"',
                 "robot": "-filter_complex \"afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75\"",
                 "jedug": '-filter_complex "acrusher=level_in=8:level_out=18:bits=8:mode=log:aa=1"',
@@ -241,6 +237,10 @@ async def convert_efek(client, message):
                 "telephone": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=1.5"',
                 "radio": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=2.5"',
             }
+    if rep and helo:
+        if helo in tau:
+            Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
+            indir = await client.download_media(rep)
             ses = await asyncio.create_subprocess_shell(
                 f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
             )
