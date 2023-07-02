@@ -59,67 +59,10 @@ class PY:
         return wrapper
 
 
-def filters_command(
-    commands: Union[str, List[str]],
-    prefixes: Union[str, List[str]] = "/",
-    case_sensitive: bool = False,
-):
-    command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
-
-    async def func(flt, client: Client, message: Message):
-        username = client.me.username or ""
-        text = message.text or message.caption
-        message.command = None
-        ubot.get_prefix[client.me.id]
-
-        if not text:
-            return False
-
-        for prefix in flt.prefixes:
-            if not text.startswith(prefix):
-                continue
-
-            without_prefix = text[len(prefix) :]
-
-            for cmd in flt.commands:
-                if not re.match(
-                    rf"^(?:{cmd}(?:@?{username})?)(?:\s|$)",
-                    without_prefix,
-                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
-                ):
-                    continue
-
-                without_command = re.sub(
-                    rf"{cmd}(?:@?{username})?\s?",
-                    "",
-                    without_prefix,
-                    count=1,
-                    flags=re.IGNORECASE if not flt.case_sensitive else 0,
-                )
-                message.command = [cmd] + [
-                    re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                    for m in command_re.finditer(without_command)
-                ]
-
-                return True
-
-        return False
-
-    commands = commands if isinstance(commands, list) else [commands]
-    commands = {c if case_sensitive else c.lower() for c in commands}
-
-    return filters.create(
-        func,
-        "CommandFilter",
-        commands=commands,
-        prefixes=prefixes,
-        case_sensitive=case_sensitive,
-    )
-
 
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
-        @ubot.on_message(filters_command(command) & filter)
+        @ubot.on_message(filters.command(command) & filter)
         async def wrapped_func(client, message):
             await func(client, message)
 
