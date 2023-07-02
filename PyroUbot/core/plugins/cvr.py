@@ -222,7 +222,6 @@ async def convert_efek(client, message):
         )
 
 
-
 async def colong_cmn(client, message):
     dia = message.reply_to_message
     if not dia:
