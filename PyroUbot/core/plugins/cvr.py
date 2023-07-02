@@ -195,6 +195,13 @@ async def convert_efek(client, message):
             "compressor",
             "delay",
             "stereo_widen",
+            "phaser2",
+            "reverse_echo",
+            "low_pitch",
+            "high_pitch",
+            "megaphone",
+            "telephone",
+            "radio",
         ]
         if helo in tau:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
@@ -226,6 +233,13 @@ async def convert_efek(client, message):
                 "compressor": '-filter_complex "compand=0.3|0.8:6:-70/-70/-20/-20/-20/-20:6:0:-90:0.2"',
                 "delay": '-filter_complex "adelay=1000|1000"',
                 "stereo_widen": '-filter_complex "stereowiden=level_in=0.5:level_out=1.0:delay=20:width=40"',
+                "phaser2": '-filter_complex "aphaser=type=t:decay=1"',
+                "reverse_echo": '-filter_complex "aecho=0.8:0.88:1000:0.5"',
+                "low_pitch": '-filter_complex "rubberband=pitch=0.7"',
+                "high_pitch": '-filter_complex "rubberband=pitch=1.3"',
+                "megaphone": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=3"',
+                "telephone": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=1.5"',
+                "radio": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=2.5"',
             }
             ses = await asyncio.create_subprocess_shell(
                 f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
@@ -240,7 +254,6 @@ async def convert_efek(client, message):
         await message.reply(
             f"sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3, ᴄᴏɴᴛᴏʜ : <code>{PREFIX[0]}efek {'/'.join(tau)}</code> sᴀᴍʙɪʟ ʙᴀʟᴀs ᴋᴇ ᴀᴜᴅɪᴏ ᴀᴛᴀᴜ ᴍᴘ3"
         )
-
 
 async def colong_cmn(client, message):
     dia = message.reply_to_message
