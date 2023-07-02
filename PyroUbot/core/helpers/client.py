@@ -60,20 +60,14 @@ class PY:
         return wrapper
 
 
-def filters_command(
-    commands: Union[str, List[str]],
-    prefixes: Union[str, List[str]] = "",
-    case_sensitive: bool = False,
-):
+def filters_command(commands: Union[str, List[str]], prefixes: Union[str, List[str]] = "/", case_sensitive: bool = False):
     command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
-    async def func(flt, client: pyrogram.Client, message: Message):
+    async def func(flt, client: Client, message: Message):
         username = client.me.username or ""
         text = message.text or message.caption
         message.command = None
-        prefixes = [
-            ubot.get_prefix[client.me.id] for x in ubot._ubot if client.me.id == x.me.id
-        ]
+        prefixes_list = ubot.get_prefix[client.me.id]
 
         if not text:
             return False
@@ -82,7 +76,7 @@ def filters_command(
             if not text.startswith(prefix):
                 continue
 
-            without_prefix = text[len(prefix) :]
+            without_prefix = text[len(prefix):]
 
             for cmd in flt.commands:
                 if not re.match(
@@ -115,9 +109,20 @@ def filters_command(
         func,
         "CommandFilter",
         commands=commands,
-        prefixes=prefixes,
+        prefixes=prefixes_list,
         case_sensitive=case_sensitive,
     )
+
+
+def CMD(command, fltr=filters.ME):
+    def wrapper(func):
+        @ubot.on_message(filters_command(command) & fltr)
+        async def wrapped_func(client, message):
+            await func(client, message)
+
+        return wrapped_func
+
+    return wrapper
 
 
 def CMD(command, filter=FILTERS.ME):
