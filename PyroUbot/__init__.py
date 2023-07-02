@@ -57,22 +57,16 @@ class Ubot(Client):
     def on_message(self, filters=None, group=-1):
         def decorator(func):
             for ub in self._ubot:
-
-                async def wrapper(client, message):
-                    prefix = self._prefix.get(client.me.id, ".")
-                    if message.text.startswith(prefix):
-                        await func(client, message)
-
-                ub.add_handler(MessageHandler(wrapper, filters), group)
+                ub.add_handler(MessageHandler(func, filters), group)
             return func
 
         return decorator
 
-    def set_prefix(client, prefix):
-        client._prefix[client.me.id] = prefix
+    def set_prefix(self, prefix):
+        self._prefix[self.me.id] = prefix
 
-    def get_prefix(self, user_id):
-        return self._prefix[user_id]
+    def get_prefix(self):
+        return self._prefix[self.me.id]
 
     async def start(self):
         await super().start()
