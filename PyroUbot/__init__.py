@@ -49,7 +49,6 @@ class Ubot(Client):
     _get_my_id = []
     _translate = {}
     _get_my_peer = {}
-    _prefix = {}
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, parse_mode=ParseMode.HTML)
@@ -62,19 +61,16 @@ class Ubot(Client):
 
         return decorator
 
-    def set_prefix(self, user_id, prefix):
-        self._prefix[user_id] = prefix
-
     def get_prefix(self, user_id):
-        return self._prefix[user_id]
+        handler = await get_pref(user_id)
+        if handler:
+            ub_prefix = handler
+        else:
+            ub_prefix = "."
+        return ub_prefix
 
     async def start(self):
         await super().start()
-        handler = await get_pref(self.me.id)
-        if handler:
-            self._prefix[self.me.id] = handler
-        else:
-            self._prefix[self.me.id] = "."
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
