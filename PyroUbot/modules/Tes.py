@@ -8,6 +8,6 @@ async def _(client, message):
 
 
 # @CMD("tes")
-@ubot.on_message(filters.text & command_filter("tes))
+@ubot.on_message(filters.text & command_filter("tes"))
 async def _(client, message):
     await coba(client, message)
