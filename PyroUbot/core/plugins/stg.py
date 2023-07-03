@@ -6,8 +6,8 @@ async def setprefix(client, message):
     if len(message.command) < 2:
         return await Tm.edit(f"<code>{message.text} sɪᴍʙᴏʟ ᴘʀᴇғɪx</code>")
     else:
-        if message.command[1] == "none":
-            prefix = ""
+        if message.command[1] in ["none", "None"]:
+            return awaiy Tm.edit("❌ ᴘʀᴇғɪx ɪɴᴠᴀʟɪᴅ")
         else:
             prefix = message.command[1]
         try:
