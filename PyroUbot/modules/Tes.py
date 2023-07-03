@@ -6,6 +6,6 @@ async def _(client, message):
     await setprefix(client, message)
 
 
-@CMD("tes")
+@CMD(["tas", "tes"])
 async def _(client, message):
     await coba(client, message)
