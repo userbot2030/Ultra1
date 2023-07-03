@@ -248,6 +248,7 @@ async def convert_efek(client, message):
             await Tm.delete()
             await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {helo}")
             os.remove("audio.mp3")
+            os.remove(indir)
         else:
             await message.reply(
                 f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
