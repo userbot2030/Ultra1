@@ -70,12 +70,16 @@ class Ubot(Client):
         return self._prefix[user_id]
 
     def command_filter(self, cmd):
-        async def func(_, message: Message):
-            text = message.text
-            prefix = await self.get_prefix(message.from_user.id)
-            return text.startswith(prefix + cmd)
+        async def decorator(func):
+            async def wrapper(_, message: Message):
+                text = message.text
+                prefix = await self.get_prefix(message.from_user.id)
+                if text.startswith(prefix + cmd):
+                    await func(_, message)
 
-        return filters.create(func)
+            return wrapper
+
+        return decorator
 
     async def start(self):
         await super().start()
