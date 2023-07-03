@@ -1,7 +1,7 @@
 import logging
 import os
 
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
@@ -65,8 +65,15 @@ class Ubot(Client):
     def set_prefix(self, user_id, prefix):
         self._prefix[user_id] = prefix
 
-    def get_prefix(self, user_id):
+    async def get_prefix(self, user_id):
         return self._prefix[user_id]
+
+    def command_filter(self, cmd):
+        async def func(_, message):
+            prefix = await self.get_prefix(message.from_user.id)
+            return message.text.startswith(prefix + cmd)
+
+        return filters.create(func)
 
     async def start(self):
         await super().start()
