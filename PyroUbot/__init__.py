@@ -72,7 +72,7 @@ class Ubot(Client):
     def command_filter(self, cmd):
         async def func(_, ___, message):
             trigger = cmd if isinstance(cmd, list) else [cmd]
-            trigger = {c.lower() for c in cmd}
+            trigger = {c.lower() for c in trigger}
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
                 if message.text.startswith(prefix + trigger):
