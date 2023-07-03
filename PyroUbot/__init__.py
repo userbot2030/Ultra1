@@ -66,13 +66,13 @@ class Ubot(Client):
     def set_prefix(self, user_id, prefix):
         self._prefix[user_id] = prefix
 
-    async def get_prefix(self, user_id):
+    def get_prefix(self, user_id):
         return self._prefix[user_id]
 
     def command_filter(self, cmd):
         async def func(_, __, message):
             text = message.text
-            prefix = await self._prefix.get(message.from_user.id, ".")
+            prefix = self._prefix.get(message.from_user.id, ".")
             return text.startswith(prefix + cmd)
 
         return filters.create(func)
