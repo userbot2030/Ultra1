@@ -72,7 +72,7 @@ class Ubot(Client):
     def command_filter(self, cmd):
         async def func(_, __, message):
             text = message.text
-            prefix = await self._prefix.get(message.from_user.id, '.')
+            prefix = await self._prefix.get(message.from_user.id, ".")
             return text.startswith(prefix + cmd)
 
         return filters.create(func)
