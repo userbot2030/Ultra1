@@ -76,7 +76,7 @@ class Ubot(Client):
                 if message.text.startswith(prefix + cmd.lower()):
                     command = message.text.strip()
                     message.command = command.split() if command else None
-                    return True
+                    return False
             return False
 
         return filters.create(func)
