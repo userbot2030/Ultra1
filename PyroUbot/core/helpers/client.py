@@ -55,14 +55,6 @@ class PY:
         return wrapper
 
 
-def command_filter(cmd):
-    async def func(_, message):
-        prefix = await ubot.get_prefix(message.from_user.id)
-        return message.text.startswith(prefix + cmd)
-
-    return filters.create(func)
-
-
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
         @ubot.on_message(ubot.command_filter(command) & filter)
