@@ -15,4 +15,4 @@ async def setprefix(client, message):
 
 
 async def coba(client, message):
-    await message.reply("good")
+    await message.reply(message.command)
