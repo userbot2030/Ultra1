@@ -70,8 +70,9 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         async def func(_, message):
+            text = message.text
             prefix = await self.get_prefix(message.from_user.id)
-            return message.text.startswith(prefix + cmd)
+            return text.startswith(prefix + cmd)
 
         return filters.create(func)
 
