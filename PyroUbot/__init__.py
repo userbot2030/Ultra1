@@ -70,11 +70,11 @@ class Ubot(Client):
         return self._prefix.get(user_id, ".")
 
     def command_filter(self, cmd):
-        async def func(_, ___, message):
+        async def func(_, __, message):
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
-                if message.text.startswith(prefix) and any(
-                    message.text[len(prefix) :].startswith(c) for c in cmd
+                if message.text.startswith(prefix + cmd) and any(
+                    message.text.startswith(prefix + c) for c in cmd
                 ):
                     command = message.text.strip()
                     message.command = command.split() if command else None
