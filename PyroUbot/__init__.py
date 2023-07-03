@@ -1,5 +1,6 @@
 import logging
 import os
+from typing import Union, List
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -69,7 +70,7 @@ class Ubot(Client):
     async def get_prefix(self, user_id):
         return self._prefix.get(user_id, ".")
 
-    def command_filter(self, cmd):
+    def command_filter(self, cmd, Union[str, List[str]]):
         async def func(_, ___, message):
             trigger = cmd if isinstance(cmd, list) else [cmd]
             trigger = {c.lower() for c in trigger}
