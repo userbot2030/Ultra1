@@ -1,6 +1,5 @@
 import logging
 import os
-from typing import List, Union
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -70,10 +69,9 @@ class Ubot(Client):
     async def get_prefix(self, user_id):
         return self._prefix.get(user_id, ".")
 
-    def command_filter(self, cmd: Union[str, List[str]]):
+    def command_filter(self, cmd):
         async def func(_, ___, message):
-            trigger = cmd if isinstance(cmd, list) else [cmd]
-            trigger = {c.lower() for c in trigger}
+            trigger = {c.lower() for c in cmd}
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
                 if message.text.startswith(prefix + trigger):
