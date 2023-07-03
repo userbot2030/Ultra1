@@ -3,6 +3,7 @@ import os
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
+from pyrogram.types import Message
 from pyrogram.handlers import MessageHandler
 from pyromod import listen
 
@@ -69,7 +70,7 @@ class Ubot(Client):
         return self._prefix[user_id]
 
     def command_filter(self, cmd):
-        async def func(_, message):
+        async def func(_, message: Message):
             text = message.text
             prefix = await self.get_prefix(message.from_user.id)
             return text.startswith(prefix + cmd)
