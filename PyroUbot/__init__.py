@@ -71,14 +71,15 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         async def func(_, ___, message):
-            for x in cmd:
-                if message.text and message.from_user:
-                    prefix = await self.get_prefix(message.from_user.id)
-                    if message.text.startswith(prefix + x):
-                        command = message.text.strip()
-                        message.command = command.split() if command else None
-                        return True
-                return False
+            trigger = cmd if isinstance(cmd, list) else [cmd]
+            trigger = {c.lower() for c in cmd}
+            if message.text and message.from_user:
+                prefix = await self.get_prefix(message.from_user.id)
+                if message.text.startswith(prefix + trigger):
+                    command = message.text.strip()
+                    message.command = command.split() if command else None
+                    return True
+            return False
 
         return filters.create(func)
 
