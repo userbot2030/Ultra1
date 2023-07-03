@@ -65,7 +65,7 @@ def command_filter(cmd):
 
 def CMD(command, filter=FILTERS.ME):
     def wrapper(func):
-        @ubot.on_message(command_filter(command))
+        @ubot.on_message(filters.text & command_filter(command))
         async def wrapped_func(client, message):
             await func(client, message)
 
