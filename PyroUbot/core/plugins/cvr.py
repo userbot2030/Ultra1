@@ -247,7 +247,7 @@ async def convert_efek(client, message):
             await ses.communicate()
             await Tm.delete()
             await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {helo}")
-            for files in ("audio.mp3", indir):
+            for files in ("audio.mp3", indir, ses):
                 if files and os.path.exists(files):
                     os.remove(files)
 
