@@ -73,10 +73,20 @@ class Ubot(Client):
         async def func(_, ___, message):
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
-                if message.text.startswith(prefix + cmd):
-                    command = message.text.strip()
-                    message.command = command.split() if command else None
-                    return True
+
+                if isinstance(cmd, str):
+                    commands = [cmd]
+                elif isinstance(cmd, list):
+                    commands = cmd
+                else:
+                    raise ValueError("cmd must be a string or a list of strings")
+
+                for perintah in commands:
+                    if message.text.startswith(prefix + perintah):
+                        command = message.text.strip()
+                        message.command = command.split() if command else None
+                        return True
+
             return False
 
         return filters.create(func)
