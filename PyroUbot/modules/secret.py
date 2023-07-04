@@ -1,10 +1,10 @@
 from PyroUbot import *
 
 __MODULE__ = "secret"
-__HELP__ = f"""
+__HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴇᴄʀᴇᴛ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}msg</code> [ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ - ᴛᴇxᴛ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}msg</code> [ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ - ᴛᴇxᴛ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ sᴇᴄᴀʀᴀ ʀᴀʜᴀsɪᴀ
 """
 
