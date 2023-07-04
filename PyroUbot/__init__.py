@@ -80,7 +80,7 @@ class Ubot(Client):
                 handler = cmd if isinstance(commands, list) else [cmd]
                 handler = {c if False else c.lower() for c in handler}
                 if matched_prefix:
-                   if handler in command:
+                    if handler in command:
                         command = command[len(matched_prefix) :].strip()
                         message.command = command.split()
                         return True
