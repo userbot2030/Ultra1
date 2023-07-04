@@ -1,6 +1,6 @@
 import logging
 import os
-from typing import Union, List
+from typing import List, Union
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
