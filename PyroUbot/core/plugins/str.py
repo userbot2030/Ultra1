@@ -23,8 +23,7 @@ async def send_msg_to_owner(client, message):
                 ),
             ][
                 InlineKeyboardButton(
-                    "sᴀᴛᴜ ʙᴜʟᴀɴ",
-                    callback_data=f"success {message.from_user.id} 1"
+                    "sᴀᴛᴜ ʙᴜʟᴀɴ", callback_data=f"success {message.from_user.id} 1"
                 )
             ],
         ]
