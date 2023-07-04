@@ -79,7 +79,7 @@ class Ubot(Client):
                 )
                 if matched_prefix:
                     command = command[len(matched_prefix) :].strip()
-                    if command and cmd in command.split():
+                    if command and next((c for c in cmd)) in command.split():
                         message.command = command.split()
                         return True
             return False
