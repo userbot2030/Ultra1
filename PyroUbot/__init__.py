@@ -77,7 +77,7 @@ class Ubot(Client):
                 matched_prefix = next(
                     (p for p in prefix if command.startswith(p)), None
                 )
-                handler = cmd if isinstance(commands, list) else [cmd]
+                handler = cmd if isinstance(cmd, list) else [cmd]
                 handler = {c if False else c.lower() for c in handler}
                 if matched_prefix:
                     if handler in command:
