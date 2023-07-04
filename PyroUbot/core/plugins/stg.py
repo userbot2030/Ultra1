@@ -9,11 +9,11 @@ async def setprefix(client, message):
         if message.command[1].lower() == "none":
             return await Tm.edit("❌ ᴘʀᴇғɪx ɪɴᴠᴀʟɪᴅ")
         else:
-            prefix = message.command[1]
+            prefix = message.command[1:]
         try:
             client.set_prefix(client.me.id, prefix)
             await set_pref(client.me.id, prefix)
-            return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {message.command[1]}")
+            return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {.' '.join(message.command[1:])}")
         except Exception as error:
             await Tm.edit(error)
 
