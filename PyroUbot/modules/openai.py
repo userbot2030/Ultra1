@@ -1,16 +1,16 @@
 from PyroUbot import *
 
 __MODULE__ = "openai"
-__HELP__ = f"""
+__HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴏᴘᴇɴᴀɪ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ai</code> ᴏʀ <code>{PREFIX[0]}ask</code>  [ǫᴜᴇʀʏ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}ai</code> ᴏʀ <code>{PREFIX[0]}ask</code>  [ǫᴜᴇʀʏ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴊᴜᴋᴀɴ ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴋᴇ ᴄʜᴀᴛɢᴘᴛ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}dalle</code> ᴏʀ <code>{PREFIX[0]}photo</code> [ǫᴜᴇʀʏ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}dalle</code> ᴏʀ <code>{PREFIX[0]}photo</code> [ǫᴜᴇʀʏ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ sᴇʙᴜᴀʜ ᴘʜᴏᴛᴏ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}stt</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ ɴᴏᴛᴇ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}stt</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ ɴᴏᴛᴇ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴘᴇsᴀɴ sᴜᴀʀᴀ ᴋᴇ ᴛᴇxᴛ
 """
 
