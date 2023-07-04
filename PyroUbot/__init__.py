@@ -1,5 +1,6 @@
 import logging
 import os
+from typing import Union, List
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -79,7 +80,7 @@ class Ubot(Client):
                 )
                 if matched_prefix:
                     command = command[len(matched_prefix) :].strip()
-                    if type(cmd) == list:
+                    if isinstance(cmd, Union[str, List[str]]):
                         for item in cmd:
                             if command and command.split()[0] == item:
                                 message.command = command.split()
