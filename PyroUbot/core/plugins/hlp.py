@@ -17,7 +17,9 @@ async def help_cmd(client, message):
         if get_arg(message) in HELP_COMMANDS:
             prefix = await ubot.get_prefix(client.me.id)
             await message.reply(
-                HELP_COMMANDS[get_arg(message)].__HELP__.format(next((p) for p in prefix))
+                HELP_COMMANDS[get_arg(message)].__HELP__.format(
+                    next((p) for p in prefix)
+                )
                 + "\n<b>© PremUbotCH</b>",
                 quote=True,
             )
