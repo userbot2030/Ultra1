@@ -77,14 +77,11 @@ class Ubot(Client):
                 matched_prefix = next(
                     (p for p in prefix if command.startswith(p)), None
                 )
+                handler = cmd if isinstance(commands, list) else [cmd]
+                handler = {c if False else c.lower() for c in handler}
                 if matched_prefix:
-                    command = command[len(matched_prefix) :].strip()
-                    if command and command.split()[0] in cmd:
-                        for item in cmd:
-                            if command and command.split()[0] == item:
-                                message.command = command.split()
-                                return True
-                    elif command and command.split()[0] == cmd:
+                   if handler == command
+                        command = command[len(matched_prefix) :].strip()
                         message.command = command.split()
                         return True
             return False
