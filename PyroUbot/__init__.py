@@ -77,11 +77,9 @@ class Ubot(Client):
                 matched_prefix = next(
                     (p for p in prefix if command.startswith(p)), None
                 )
-                handler = cmd if isinstance(cmd, list) else [cmd]
-                handler = {c if False else c.lower() for c in handler}
                 if matched_prefix:
-                    if handler in command:
-                        command = command[len(matched_prefix) :].strip()
+                    command = command[len(matched_prefix) :].strip()
+                    if command and next((c for c in cmd)) in command.split()[0]:
                         message.command = command.split()
                         return True
             return False
@@ -94,7 +92,7 @@ class Ubot(Client):
         if handler:
             self._prefix[self.me.id] = handler
         else:
-            self._prefix[self.me.id] = PREFIX
+            self._prefix[self.me.id] = "."
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = {"negara": "id"}
