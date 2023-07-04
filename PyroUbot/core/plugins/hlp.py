@@ -17,7 +17,7 @@ async def help_cmd(client, message):
         if get_arg(message) in HELP_COMMANDS:
             prefix = await ubot.get_prefix(client.me.id)
             await message.reply(
-                HELP_COMMANDS[get_arg(message)].__HELP__.format(prefix)
+                HELP_COMMANDS[get_arg(message)].__HELP__.format(next((p) for p in prefix))
                 + "\n<b>© PremUbotCH</b>",
                 quote=True,
             )
@@ -55,7 +55,7 @@ async def menu_callback(client, callback_query):
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         prefix = await ubot.get_prefix(callback_query.from_user.id)
-        text = HELP_COMMANDS[module].__HELP__.format(prefix)
+        text = HELP_COMMANDS[module].__HELP__.format(next((p) for p in prefix))
         button = [[InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back")]]
         await callback_query.edit_message_text(
             text=text + "\n<b>© PremUbotCH</b>",
