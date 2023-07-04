@@ -17,6 +17,3 @@ async def setprefix(client, message):
         except Exception as error:
             await Tm.edit(error)
 
-
-async def coba(client, message):
-    await message.reply(message.command)
