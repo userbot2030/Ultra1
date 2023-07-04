@@ -70,7 +70,7 @@ class Ubot(Client):
     async def get_prefix(self, user_id):
         return self._prefix.get(user_id, ".")
 
-    def command_filter(self, cmd):
+    def command_filter(self, cmd: Union[str, List[str]]):
         async def func(_, __, message):
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
@@ -80,7 +80,7 @@ class Ubot(Client):
                 )
                 if matched_prefix:
                     command = command[len(matched_prefix) :].strip()
-                    if isinstance(cmd, List[str]):
+                    if isinstance(cmd, list):
                         for item in cmd:
                             if command and command.split()[0] == item:
                                 message.command = command.split()
