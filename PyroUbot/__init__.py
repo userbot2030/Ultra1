@@ -71,7 +71,7 @@ class Ubot(Client):
         return self._prefix.get(user_id, ".")
 
     def command_filter(self, commands, case_sensitive=False):
-        command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
+    command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, __, message):
             if message.text and message.from_user:
@@ -79,14 +79,12 @@ class Ubot(Client):
                 text = message.text.strip()
                 matched_prefix = next((p for p in prefix if text.startswith(p)), None)
                 if matched_prefix:
-                    without_prefix = text[len(matched_prefix) :]
+                    without_prefix = text[len(matched_prefix):]
 
-                    command_list = (
-                        commands if isinstance(commands, list) else [commands]
-                    )
-                    command_set = {
-                        c if case_sensitive else c.lower() for c in command_list
-                    }
+                    if not isinstance(commands, list):
+                        commands = [commands]
+
+                    command_set = {c if case_sensitive else c.lower() for c in commands}
 
                     for cmd in command_set:
                         if not re.match(
