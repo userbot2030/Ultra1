@@ -74,9 +74,7 @@ class Ubot(Client):
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
                 text = message.text.strip()
-                matched_prefix = next(
-                    (p for p in prefix if text.startswith(p)), None
-                )
+                matched_prefix = next((p for p in prefix if text.startswith(p)), None)
                 if matched_prefix:
                     command = text[len(matched_prefix) :].strip()
                     if command and command.split()[0] in cmd:
