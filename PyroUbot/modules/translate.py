@@ -20,7 +20,7 @@ async def _(client, message):
     await tts_cmd(client, message)
 
 
-@PY.UBOT(["tr", "tl"])
+@PY.UBOT("tr")
 async def _(client, message):
     await tr_cmd(client, message)
 
