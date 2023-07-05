@@ -71,7 +71,7 @@ class Ubot(Client):
         return self._prefix.get(user_id, ".")
 
     def command_filter(self, commands, case_sensitive=False):
-    command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
+        command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, __, message):
             if message.text and message.from_user:
