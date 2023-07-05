@@ -108,19 +108,18 @@ async def admin_unmute(client, message):
         await message.reply(error)
 
 async def admin_unban(client, message):
-    elif message.command[0] == "unban":
-        user_id = await extract_user(message)
-        if not user_id:
-            return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
-        try:
-            mention = (await client.get_users(user_id)).mention
-        except Exception as error:
-            await message.reply(error)
-        try:
-            await message.chat.unban_member(user_id)
-            await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
-        except Exception as error:
-            await message.reply(error)
+    user_id = await extract_user(message)
+    if not user_id:
+        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+    try:
+        mention = (await client.get_users(user_id)).mention
+    except Exception as error:
+        await message.reply(error)
+    try:
+        await message.chat.unban_member(user_id)
+        await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
+    except Exception as error:
+        await message.reply(error)
 
 
 async def global_banned(client, message):
