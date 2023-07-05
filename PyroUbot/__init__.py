@@ -109,7 +109,7 @@ ubot = Ubot(
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
-    )
+)
 
 
 from PyroUbot.core.database import *
