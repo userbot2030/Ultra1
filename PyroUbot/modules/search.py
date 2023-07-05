@@ -12,7 +12,12 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["bing", "pic"])
+@PY.UBOT("pic")
+async def _(client, message):
+    await pic_bing_cmd(client, message)
+
+
+@PY.UBOT("bing")
 async def _(client, message):
     await pic_bing_cmd(client, message)
 
