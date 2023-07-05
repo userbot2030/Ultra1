@@ -12,9 +12,11 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["spam", "dspam"])
+@PY.UBOT("spam")
 async def _(client, message):
-    if message.command[0] == "spam":
-        await spam_cmd(client, message)
-    if message.command[0] == "dspam":
-        await dspam_cmd(client, message)
+    await spam_cmd(client, message)
+
+
+@PY.UBOT("dspam")
+async def _(client, message):
+    await dspam_cmd(client, message)
