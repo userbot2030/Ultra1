@@ -21,6 +21,28 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["kick", "ban", "mute", "unmute", "unban"], FILTERS.ME_GROUP)
+@PY.UBOT("kick", FILTERS.ME_GROUP)
 async def _(client, message):
-    await admin_bannen(client, message)
+    await admin_kick(client, message)
+
+
+@PY.UBOT("ban", FILTERS.ME_GROUP)
+async def _(client, message):
+    await admin_ban(client, message)
+
+
+@PY.UBOT("mute", FILTERS.ME_GROUP)
+async def _(client, message):
+    await admin_mute(client, message)
+
+
+@PY.UBOT("unmute", FILTERS.ME_GROUP)
+async def _(client, message):
+    await admin_unmute(client, message)
+
+
+@PY.UBOT("unban", FILTERS.ME_GROUP)
+async def _(client, message):
+    await admin_unban(client, message)
+
+
