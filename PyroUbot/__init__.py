@@ -73,13 +73,16 @@ class Ubot(Client):
         async def func(_, __, message):
             if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
-                command = message.text.strip()
+                text = message.text.strip()
                 matched_prefix = next(
                     (p for p in prefix if command.startswith(p)), None
                 )
                 if matched_prefix:
-                    command = command[len(matched_prefix) :].strip()
-                    if cmd in command.split()[0]:
+                    command = text[len(matched_prefix) :].strip()
+                    if command and command.split()[0] in cmd:
+                        message.command = command.split()
+                        return True
+                    elif command and command.split()[0] == cmd:
                         message.command = command.split()
                         return True
             return False
