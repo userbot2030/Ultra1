@@ -76,10 +76,16 @@ class Ubot(Client):
                 text = message.text.strip()
                 matched_prefix = next((p for p in prefix if text.startswith(p)), None)
                 if matched_prefix:
-                    command = text[len(matched_prefix) :].strip()
-                    if command and command.split()[0] == cmd:
-                        message.command = command.split()
-                        return True
+                    command = text[len(matched_prefix):].strip()
+                    if command:
+                        if isinstance(cmd, str):
+                            commands = [cmd]
+                        else:
+                            commands = cmd
+
+                        if command.split()[0] in commands:
+                            message.command = command.split()
+                            return True
             return False
 
         return filters.create(func)
