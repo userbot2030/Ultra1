@@ -9,6 +9,6 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["mms", "memes"])
+@PY.UBOT("memes")
 async def _(client, message):
     await memes_cmd(client, message)
