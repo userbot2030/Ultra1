@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -70,16 +71,37 @@ class Ubot(Client):
         return self._prefix.get(user_id, ".")
 
     def command_filter(self, cmd):
-        async def func(_, __, message):
+        command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
+
+        async def func(_, client, message):
             if message.text and message.from_user:
-                prefix = await self.get_prefix(message.from_user.id)
                 text = message.text.strip()
-                matched_prefix = next((p for p in prefix if text.startswith(p)), None)
-                if matched_prefix:
-                    command = text[len(matched_prefix) :].strip()
-                    if command and command.split()[0] == cmd:
-                        message.command = command.split()
+                username = client.me.username or ""
+                prefixes = await client.get_prefix(client.me.id)
+
+                if not text:
+                    return False
+
+                for prefix in prefixes:
+                    if not text.startswith(prefix):
+                        continue
+
+                    without_prefix = text[len(prefix):]
+
+                    for command in [cmd]:
+                        if not re.match(rf"^(?:{command}(?:@?{username})?)(?:\s|$)", without_prefix,
+                                    flags=re.IGNORECASE if not case_sensitive else 0):
+                            continue
+
+                        without_command = re.sub(rf"{command}(?:@?{username})?\s?", "", without_prefix, count=1,
+                                             flags=re.IGNORECASE if not case_sensitive else 0)
+                        message.command = [command] + [
+                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
+                            for m in command_re.finditer(without_command)
+                        ]
+
                         return True
+
             return False
 
         return filters.create(func)
