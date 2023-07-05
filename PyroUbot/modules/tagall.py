@@ -12,6 +12,11 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["tagall", "batal"])
+@PY.UBOT("tagall")
 async def _(client, message):
-    await tagall_batal_cmd(client, message)
+    await tagall_cmd(client, message)
+
+
+@PY.UBOT("batal")
+async def _(client, message):
+    await batal_cmd(client, message)
