@@ -12,6 +12,10 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["gban", "ungban"])
+@PY.UBOT("gban")
 async def _(client, message):
     await global_banned(client, message)
+
+@PY.UBOT("ungban")
+async def _(client, message):
+    await global_ungban(client, message)
