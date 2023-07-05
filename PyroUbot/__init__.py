@@ -82,7 +82,7 @@ class Ubot(Client):
                             message.command = command.split()
                             return True
             return False
-    
+
         return filters.create(func)
 
     async def start(self):
