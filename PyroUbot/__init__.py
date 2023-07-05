@@ -92,7 +92,7 @@ class Ubot(Client):
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
-                            flags=re.IGNORECASE if not case_sensitive else 0,
+                            flags=re.IGNORECASE if not False else 0,
                         ):
                             continue
 
