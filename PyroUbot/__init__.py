@@ -86,15 +86,23 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix):]
+                    without_prefix = text[len(prefix) :]
 
                     for command in [cmd]:
-                        if not re.match(rf"^(?:{command}(?:@?{username})?)(?:\s|$)", without_prefix,
-                                    flags=re.IGNORECASE if not case_sensitive else 0):
+                        if not re.match(
+                            rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
+                            without_prefix,
+                            flags=re.IGNORECASE if not case_sensitive else 0,
+                        ):
                             continue
 
-                        without_command = re.sub(rf"{command}(?:@?{username})?\s?", "", without_prefix, count=1,
-                                             flags=re.IGNORECASE if not case_sensitive else 0)
+                        without_command = re.sub(
+                            rf"{command}(?:@?{username})?\s?",
+                            "",
+                            without_prefix,
+                            count=1,
+                            flags=re.IGNORECASE if not case_sensitive else 0,
+                        )
                         message.command = [command] + [
                             re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                             for m in command_re.finditer(without_command)
