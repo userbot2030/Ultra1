@@ -70,7 +70,7 @@ class Ubot(Client):
     async def get_prefix(self, user_id):
         return self._prefix.get(user_id, ".")
 
-    def command_filter(self, commands, case_sensitive=False):
+    def command_filter(self, command, case_sensitive=False):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, __, message):
@@ -81,8 +81,8 @@ class Ubot(Client):
                 if matched_prefix:
                     without_prefix = text[len(matched_prefix) :]
 
-                    if not isinstance(commands, list):
-                        commands = [commands]
+                    if not isinstance(command, list):
+                        commands = [command]
 
                     command_set = {c if case_sensitive else c.lower() for c in commands}
 
