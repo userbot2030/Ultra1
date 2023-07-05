@@ -77,7 +77,9 @@ class Ubot(Client):
                 matched_prefix = next((p for p in prefix if text.startswith(p)), None)
                 if matched_prefix:
                     command = text[len(matched_prefix) :].strip()
-                    if command and (command.split()[0] in cmd or command.split()[0] == cmd):
+                    if command and (
+                        command.split()[0] in cmd or command.split()[0] == cmd
+                    ):
                         message.command = command.split()
                         return True
             return False
