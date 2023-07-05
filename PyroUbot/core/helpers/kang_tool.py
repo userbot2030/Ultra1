@@ -1,12 +1,12 @@
 import math
 import os
+from io import BytesIO
 
 from PIL import Image
 from pyrogram import errors, raw
 from pyrogram.file_id import FileId
 
 STICKER_DIMENSIONS = (512, 512)
-
 
 async def resize_file_to_sticker_size(file_path):
     im = Image.open(file_path)
@@ -28,9 +28,12 @@ async def resize_file_to_sticker_size(file_path):
     else:
         im.thumbnail(STICKER_DIMENSIONS)
     try:
-        os.remove(file_path)
+        temp_file = BytesIO()
+        im.save(temp_file, "PNG")
+        temp_file.seek(0)
         file_path = f"{file_path}.png"
-        im.save(file_path)
+        with open(file_path, "wb") as f:
+            f.write(temp_file.read())
         return file_path
     finally:
         im.close()
