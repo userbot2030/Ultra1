@@ -71,12 +71,7 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         async def func(_, __, message):
-            if (
-                message.text
-                and message.caption
-                and message.from_user
-                and message.sender_chat
-            ):
+            if message.text and message.from_user:
                 prefix = await self.get_prefix(message.from_user.id)
                 text = message.text.strip()
                 matched_prefix = next((p for p in prefix if text.startswith(p)), None)
