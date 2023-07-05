@@ -79,7 +79,7 @@ class Ubot(Client):
                 text = message.text.strip()
                 matched_prefix = next((p for p in prefix if text.startswith(p)), None)
                 if matched_prefix:
-                    without_prefix = text[len(matched_prefix):]
+                    without_prefix = text[len(matched_prefix) :]
 
                     if not isinstance(commands, list):
                         commands = [commands]
