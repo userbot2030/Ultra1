@@ -101,7 +101,7 @@ class Ubot(Client):
                             "",
                             without_prefix,
                             count=1,
-                            flags=re.IGNORECASE if not case_sensitive else 0,
+                            flags=re.IGNORECASE if not False else 0,
                         )
                         message.command = [command] + [
                             re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
