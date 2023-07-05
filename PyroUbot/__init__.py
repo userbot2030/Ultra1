@@ -53,7 +53,7 @@ class Ubot(Client):
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, parse_mode=ParseMode.HTML)
+        super().__init__(**kwargs, device_model="V1PremUbot", parse_mode=ParseMode.HTML)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -109,8 +109,7 @@ ubot = Ubot(
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
-    device_model="V1PremUbot",
-)
+    )
 
 
 from PyroUbot.core.database import *
