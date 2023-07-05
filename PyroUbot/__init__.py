@@ -80,9 +80,13 @@ class Ubot(Client):
                 if matched_prefix:
                     without_prefix = text[len(matched_prefix) :]
 
-                    command_list = commands if isinstance(commands, list) else [commands]
-                    command_set = {c if case_sensitive else c.lower() for c in command_list}
-    
+                    command_list = (
+                        commands if isinstance(commands, list) else [commands]
+                    )
+                    command_set = {
+                        c if case_sensitive else c.lower() for c in command_list
+                    }
+
                     for cmd in command_set:
                         if not re.match(
                             rf"^(?:{cmd})(?:\s|$)",
