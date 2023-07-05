@@ -44,5 +44,3 @@ async def _(client, message):
 @PY.UBOT("unban", FILTERS.ME_GROUP)
 async def _(client, message):
     await admin_unban(client, message)
-
-
