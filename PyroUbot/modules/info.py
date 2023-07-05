@@ -12,11 +12,11 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT(["whois", "info"])
+@PY.UBOT("info")
 async def _(client, message):
     await info_cmd(client, message)
 
 
-@PY.UBOT(["cwhois", "cinfo"])
+@PY.UBOT("cinfo")
 async def _(client, message):
     await cinfo_cmd(client, message)
