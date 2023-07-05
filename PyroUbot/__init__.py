@@ -109,6 +109,7 @@ ubot = Ubot(
     api_id=API_ID,
     api_hash=API_HASH,
     session_string=SESSION_STRING,
+    device_model="V1PremUbot",
 )
 
 
