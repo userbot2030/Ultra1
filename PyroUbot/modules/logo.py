@@ -12,6 +12,11 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["blogo", "logo"])
+@PY.UBOT("logo")
+async def _(client, message):
+    await logo_cmd(client, message)
+
+
+@PY.UBOT("blogo")
 async def _(client, message):
     await logo_cmd(client, message)
