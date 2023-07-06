@@ -15,12 +15,12 @@ __HELP__ = """
 """
 
 
-@PY.UBOT(["ai", "ask"])
+@PY.UBOT("ai")
 async def _(client, message):
     await ai_cmd(client, message)
 
 
-@PY.UBOT(["dalle", "photo"])
+@PY.UBOT("dalle")
 async def _(client, message):
     await dalle_cmd(client, message)
 
