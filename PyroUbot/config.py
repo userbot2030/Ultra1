@@ -21,7 +21,7 @@ RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
 OPENAI_KEY = os.getenv(
     "OPENAI_KEY",
-    "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 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",
+    "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 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",
 ).split()
 
 SESSION_STRING = os.getenv(
