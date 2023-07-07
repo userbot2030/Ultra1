@@ -9,7 +9,7 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    async for dialog in client.get_dialogs():
+    async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
                 send = message.reply_to_message
@@ -35,13 +35,13 @@ async def broadcast_group_cmd(client, message):
                                 chat_id, x.query_id, x.results[0].id
                             )
                     sent += 1
-                    await asyncio.sleep(0.3)
+                    await asyncio.sleep(3)
                 except Exception:
                     pass
-        """try:
+        try:
             await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
         except Exception:
-            pass"""
+            pass
     await msg.delete()
     return await message.reply(
         f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>"
@@ -51,7 +51,7 @@ async def broadcast_group_cmd(client, message):
 async def broadcast_users_cmd(client, message):
     sent = 0
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    async for dialog in client.get_dialogs():
+    async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
                 send = message.reply_to_message
@@ -62,20 +62,19 @@ async def broadcast_users_cmd(client, message):
                 else:
                     send = message.text.split(None, 1)[1]
                 chat_id = dialog.chat.id
-                if chat_id not in await get_chat(client.me.id):
-                    try:
-                        if message.reply_to_message:
-                            await send.copy(chat_id)
-                        else:
-                            await client.send_message(chat_id, send)
-                        sent += 1
-                        await asyncio.sleep(0.3)
-                    except Exception:
-                        pass
-        """try:
+                try:
+                    if message.reply_to_message:
+                        await send.copy(chat_id)
+                    else:
+                        await client.send_message(chat_id, send)
+                    sent += 1
+                    await asyncio.sleep(0.3)
+                except Exception:
+                    pass
+        try:
             await msg.edit(f"<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...\n\nᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
         except Exception:
-            pass"""
+            pass
     await msg.delete()
     return await message.reply(
         f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>"
