@@ -88,7 +88,7 @@ class Ubot(Client):
 
                     without_prefix = text[len(prefix) :]
 
-                    if isinstance(cmd, list):
+                    if list(cmd):
                         commands = cmd
                     else:
                         commands = [cmd]
