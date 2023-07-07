@@ -73,7 +73,7 @@ class Ubot(Client):
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
         commands_trigger = [cmd] if type(cmd) == list else [cmd]
-        
+
         async def func(_, client, message):
             if message.text and message.from_user:
                 text = message.text.strip()
