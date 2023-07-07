@@ -92,7 +92,7 @@ class Ubot(Client):
                         commands = cmd
                     else:
                         commands = [cmd]
-        
+
                     for command in commands:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
