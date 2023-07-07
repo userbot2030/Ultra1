@@ -11,7 +11,6 @@ from pyromod import listen
 from PyroUbot.config import *
 
 
-
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["OSErro", "socket"]:
@@ -88,7 +87,7 @@ class Ubot(Client):
                         continue
 
                     without_prefix = text[len(prefix) :]
-        
+
                     if type(cmd) is str:
                         commands = [cmd]
                     elif type(cmd) is list:
