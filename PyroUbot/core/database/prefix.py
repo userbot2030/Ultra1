@@ -11,9 +11,9 @@ async def get_pref(user_id):
         return None
 
 
-async def set_pref(user_id, expire_date):
+async def set_pref(user_id, prefix):
     await prefixes.users.update_one(
-        {"_id": user_id}, {"$set": {"prefix": expire_date}}, upsert=True
+        {"_id": user_id}, {"$set": {"prefix": prefix}}, upsert=True
     )
 
 
