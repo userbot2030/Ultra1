@@ -2,7 +2,6 @@ import logging
 import os
 import re
 
-import emoji
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
@@ -69,7 +68,8 @@ class Ubot(Client):
         self._prefix[user_id] = prefix
 
     async def get_prefix(self, user_id):
-        return self._prefix.get(user_id, PREFIX)
+        prefixes = self._prefix.get(user_id, PREFIX)
+        return re.sub(r":[a-zA-Z0-9_]+:", "", prefixes)
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
@@ -78,7 +78,7 @@ class Ubot(Client):
             if message.text and message.from_user:
                 text = message.text.strip()
                 username = client.me.username or ""
-                prefixes = await client.get_prefix(client.me.id)
+                prefixes = await self.get_prefix(client.me.id)
 
                 if not text:
                     return False
@@ -87,7 +87,7 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix) :].strip()
+                    without_prefix = text[len(prefix) :]
 
                     for command in [cmd]:
                         if not re.match(
@@ -104,15 +104,9 @@ class Ubot(Client):
                             count=1,
                             flags=re.IGNORECASE if not False else 0,
                         )
-
-                        without_emoji = emoji.demojize(without_command)
-                        without_emoji = re.sub(r":[a-zA-Z0-9_]+:", "", without_emoji)
-
-                        command_args = command_re.findall(without_emoji)
-
-                        message.command = [
-                            re.sub(r"\\([\"'])", r"\1", m[1] or m[2] or "")
-                            for m in command_args
+                        message.command = [command] + [
+                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
+                            for m in command_re.finditer(without_command)
                         ]
 
                         return True
