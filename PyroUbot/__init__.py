@@ -69,7 +69,8 @@ class Ubot(Client):
         self._prefix[user_id] = prefix
 
     async def get_prefix(self, user_id):
-        return self._prefix.get(user_id, ".")
+        prefixes = self._prefix.get(user_id, ["."])
+        return [re.escape(prefix) for prefix in prefixes]
 
     def command_filter(self, cmd: Union[str, list]):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
