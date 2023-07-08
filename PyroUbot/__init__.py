@@ -93,7 +93,7 @@ class Ubot(Client):
                         rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                         without_prefix,
                         flags=re.IGNORECASE if not False else 0,
-                   ):
+                    ):
                         continue
 
                     without_command = re.sub(
@@ -105,14 +105,14 @@ class Ubot(Client):
                     )
                     message.command = [command] + [
                         re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                       for m in command_re.finditer(without_command)
-                   ]
+                        for m in command_re.finditer(without_command)
+                    ]
 
                     return True
 
             return False
 
-        command = cmd if isinstance(cmd, list) else [cmd]
+        cmd if isinstance(cmd, list) else [cmd]
 
         return filters.create(func)
 
