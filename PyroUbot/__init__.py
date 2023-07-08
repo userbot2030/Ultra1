@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+import emoji
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -72,12 +73,13 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
+        commands = cmd if isinstance(cmd, list) else [cmd]
 
         async def func(_, client, message):
             if message.text and message.from_user:
                 text = message.text.strip()
                 username = client.me.username or ""
-                prefixes = await self.get_prefix(client.me.id)
+                prefixes = await client.get_prefix(client.me.id)
 
                 if not text:
                     return False
@@ -86,9 +88,9 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix) :]
+                    without_prefix = text[len(prefix):].strip()
 
-                    for command in [cmd]:
+                    for command in commands:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
@@ -103,9 +105,15 @@ class Ubot(Client):
                             count=1,
                             flags=re.IGNORECASE if not False else 0,
                         )
-                        message.command = [command] + [
-                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                            for m in command_re.finditer(without_command)
+
+                        without_emoji = emoji.demojize(without_command)
+                        without_emoji = re.sub(r":[a-zA-Z0-9_]+:", "", without_emoji)
+
+                        command_args = command_re.findall(without_emoji)
+
+                        message.command = [
+                            re.sub(r"\\([\"'])", r"\1", m[1] or m[2] or "")
+                            for m in command_args
                         ]
 
                         return True
