@@ -76,7 +76,7 @@ class Ubot(Client):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
         commands = cmd if isinstance(cmd, list) else [cmd]
 
-        async def func(_, client: Client, message):
+        async def func(_, client, message):
             if message.text and message.from_user:
                 text = message.text.strip()
                 username = client.me.username or ""
