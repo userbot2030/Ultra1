@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+from typing import Union
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -70,49 +71,51 @@ class Ubot(Client):
     async def get_prefix(self, user_id):
         return self._prefix.get(user_id, ".")
 
-    def command_filter(self, cmd):
+    def command_filter(self, cmd: Union[str, list]):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
+        commands = cmd if isinstance(cmd, list) else [cmd]
 
-        async def func(_, client, message):
-            text = message.text or message.caption
-            username = client.me.username or ""
-            prefixes = await client.get_prefix(client.me.id)
+        async def func(_, client: Client, message):
+            if message.text and message.from_user:
+                text = message.text.strip()
+                username = client.me.username or ""
+                prefixes = await self.get_prefix(client.me.id)
 
-            if not text:
-                return False
+                if not text:
+                    return False
 
-            for prefix in prefixes:
-                if not text.startswith(prefix):
-                    continue
-
-                without_prefix = text[len(prefix) :]
-                commands = [cmd]
-
-                for command in commands:
-                    if not re.match(
-                        rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
-                        without_prefix,
-                        flags=re.IGNORECASE if not False else 0,
-                    ):
+                for prefix in prefixes:
+                    if not text.startswith(prefix):
                         continue
 
-                    without_command = re.sub(
-                        rf"{command}(?:@?{username})?\s?",
-                        "",
-                        without_prefix,
-                        count=1,
-                        flags=re.IGNORECASE if not False else 0,
-                    )
-                    message.command = [command] + [
-                        re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                        for m in command_re.finditer(without_command)
-                    ]
+                    without_prefix = text[len(prefix):]
 
-                    return True
+                    for command in commands:
+                        if not re.match(
+                            rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
+                            without_prefix,
+                            flags=re.IGNORECASE if not False else 0,
+                        ):
+                            continue
+
+                        without_command = re.sub(
+                            rf"{command}(?:@?{username})?\s?",
+                            "",
+                            without_prefix,
+                            count=1,
+                            flags=re.IGNORECASE if not False else 0,
+                        )
+                        message.command = [command] + [
+                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
+                            for m in command_re.finditer(without_command)
+                        ]
+
+                        return True
 
             return False
 
         return filters.create(func)
+
 
     async def start(self):
         await super().start()
