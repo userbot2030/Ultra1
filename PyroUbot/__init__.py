@@ -112,7 +112,7 @@ class Ubot(Client):
 
             return False
 
-        return filters.create(func, cmds)
+        return filters.create(func)
 
     async def start(self):
         await super().start()
