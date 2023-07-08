@@ -112,9 +112,9 @@ class Ubot(Client):
 
             return False
 
-        commands = cmd if isinstance(cmd, list) else [cmd]
+        cmds = cmd if isinstance(cmd, list) else [cmd]
 
-        return filters.create(func, commands)
+        return filters.create(func, cmds)
 
     async def start(self):
         await super().start()
