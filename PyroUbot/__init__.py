@@ -74,42 +74,41 @@ class Ubot(Client):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
-            if message.text and message.from_user:
-                text = message.text.strip()
-                username = client.me.username or ""
-                prefixes = await client.get_prefix(client.me.id)
+            text = message.text or message.caption
+            username = client.me.username or ""
+            prefixes = await client.get_prefix(client.me.id)
 
-                if not text:
-                    return False
+            if not text:
+                return False
 
-                for prefix in prefixes:
-                    if not text.startswith(prefix):
+            for prefix in prefixes:
+                if not text.startswith(prefix):
+                    continue
+
+                without_prefix = text[len(prefix) :]
+                commands = [cmd]
+
+                for command in commands:
+                    if not re.match(
+                        rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
+                        without_prefix,
+                        flags=re.IGNORECASE if not False else 0,
+                    ):
                         continue
 
-                    without_prefix = text[len(prefix) :]
-                    commands = [cmd]
+                    without_command = re.sub(
+                        rf"{command}(?:@?{username})?\s?",
+                        "",
+                        without_prefix,
+                        count=1,
+                        flags=re.IGNORECASE if not False else 0,
+                    )
+                    message.command = [command] + [
+                        re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
+                       for m in command_re.finditer(without_command)
+                   ]
 
-                    for command in commands:
-                        if not re.match(
-                            rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
-                            without_prefix,
-                            flags=re.IGNORECASE if not False else 0,
-                        ):
-                            continue
-
-                        without_command = re.sub(
-                            rf"{command}(?:@?{username})?\s?",
-                            "",
-                            without_prefix,
-                            count=1,
-                            flags=re.IGNORECASE if not False else 0,
-                        )
-                        message.command = [command] + [
-                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                            for m in command_re.finditer(without_command)
-                        ]
-
-                        return True
+                   return True
 
             return False
 
