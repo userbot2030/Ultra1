@@ -1,8 +1,8 @@
 import logging
 import os
 import re
-import emoji
 
+import emoji
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
@@ -88,7 +88,7 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix):].strip()
+                    without_prefix = text[len(prefix) :].strip()
 
                     for command in commands:
                         if not re.match(
