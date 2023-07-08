@@ -88,7 +88,7 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix):]
+                    without_prefix = text[len(prefix) :]
 
                     for command in commands:
                         if not re.match(
@@ -115,7 +115,6 @@ class Ubot(Client):
             return False
 
         return filters.create(func)
-
 
     async def start(self):
         await super().start()
