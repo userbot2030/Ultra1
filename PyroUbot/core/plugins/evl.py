@@ -18,9 +18,12 @@ async def shell_cmd(client, message):
         if message.command[1] == "restart":
             await message.delete()
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
-        elif message.command[1] == "gitpull":
-            await message.delete()
-            os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
+        elif message.command[1] == "update":
+            out = await bash("git pull")
+            if "Already up to date." in str(out):
+                return await message.reply(out, quote=True)
+            await message.reply(out, quote=True)
+            os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "clean":
             count = 0
             for X in os.popen("ls").read().split():
@@ -29,6 +32,7 @@ async def shell_cmd(client, message):
                     count += 1
                 except:
                     pass
+                await bash("rm -rf downloads")
             return await message.reply(f"✅ {count} sampah berhasil di bersihkan")
         else:
             msg = await message.reply("<b>Memproses</b>")
