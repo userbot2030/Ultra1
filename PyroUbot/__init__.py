@@ -75,41 +75,40 @@ class Ubot(Client):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
-            if message.text and message.from_user:
-                text = message.text.strip()
-                username = client.me.username or ""
-                prefixes = await self.get_prefix(client.me.id)
+            text = message.text.strip()
+            username = client.me.username or ""
+            prefixes = await self.get_prefix(client.me.id)
 
-                if not text:
-                    return False
+            if not text:
+                return False
 
-                for prefix in prefixes:
-                    if not text.startswith(prefix):
-                        continue
+            for prefix in prefixes:
+                if not text.startswith(prefix):
+                    continue
 
-                    without_prefix = text[len(prefix) :]
+                without_prefix = text[len(prefix) :]
 
-                    for command in [cmd]:
-                        if not re.match(
+                for command in [cmd]:
+                    if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
                             flags=re.IGNORECASE | re.UNICODE,
                         ):
-                            continue
+                        continue
 
-                        without_command = re.sub(
+                    without_command = re.sub(
                             rf"{command}(?:@?{username})?\s?",
                             "",
                             without_prefix,
                             count=1,
                             flags=re.IGNORECASE | re.UNICODE,
                         )
-                        message.command = [command] + [
+                    message.command = [command] + [
                             re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                             for m in command_re.finditer(without_command)
                         ]
 
-                        return True
+                    return True
 
             return False
 
