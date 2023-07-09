@@ -1,7 +1,7 @@
 import os
 import platform
 import sys
-import traceback
+import traceback, subprocess
 from datetime import datetime
 from io import BytesIO, StringIO
 
@@ -26,7 +26,7 @@ async def shell_cmd(client, message):
             await message.delete()
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "update":
-            out = await bash("git pull")
+            out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
             if "Already up to date." in str(out):
                 return await message.reply(out, quote=True)
             await message.reply(out, quote=True)
