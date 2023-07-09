@@ -90,23 +90,23 @@ class Ubot(Client):
 
                 for command in [cmd]:
                     if not re.match(
-                            rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
-                            without_prefix,
-                            flags=re.IGNORECASE | re.UNICODE,
-                        ):
+                        rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
+                        without_prefix,
+                        flags=re.IGNORECASE | re.UNICODE,
+                    ):
                         continue
 
                     without_command = re.sub(
-                            rf"{command}(?:@?{username})?\s?",
-                            "",
-                            without_prefix,
-                            count=1,
-                            flags=re.IGNORECASE | re.UNICODE,
-                        )
+                        rf"{command}(?:@?{username})?\s?",
+                        "",
+                        without_prefix,
+                        count=1,
+                        flags=re.IGNORECASE | re.UNICODE,
+                    )
                     message.command = [command] + [
-                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                            for m in command_re.finditer(without_command)
-                        ]
+                        re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
+                        for m in command_re.finditer(without_command)
+                    ]
 
                     return True
 
