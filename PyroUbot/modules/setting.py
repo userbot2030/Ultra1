@@ -8,7 +8,7 @@ __HELP__ = """
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴘʀᴇғɪx ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ
 """
 
-
+@PY.BOT("prefix", FILTERS.UBOT)
 @PY.UBOT("prefix")
 async def _(client, message):
     await setprefix(client, message)
