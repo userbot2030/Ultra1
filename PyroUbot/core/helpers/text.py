@@ -70,7 +70,8 @@ class MSG:
 
 
 async def sending_user(user_id):
-    await bot.send_message(
+    try:
+        await bot.send_message(
         user_id,
         "💬 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ",
         reply_markup=InlineKeyboardMarkup(
@@ -85,3 +86,13 @@ async def sending_user(user_id):
         ),
         disable_web_page_preview=True,
     )
+    except:
+         await bot.send_message(
+             user_id,
+              f"""
+➡️ ʏᴀɴɢ ᴍᴇʀᴀsᴀ ᴍᴇᴍɪʟɪᴋɪ ɪᴅ: {user_id}
+
+✅ sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ɴʏᴀ ᴅɪ: @{bot.me.username}
+    """)
+
+        
