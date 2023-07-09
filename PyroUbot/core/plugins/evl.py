@@ -11,6 +11,14 @@ import psutil
 from PyroUbot import *
 
 
+def get_size(bytes, suffix="B"):
+    factor = 1024
+    for unit in ["", "K", "M", "G", "T", "P"]:
+        if bytes < factor:
+            return f"{bytes:.2f}{unit}{suffix}"
+        bytes /= factor
+
+
 async def shell_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply("noob")
@@ -34,6 +42,44 @@ async def shell_cmd(client, message):
                     pass
                 await bash("rm -rf downloads")
             return await message.reply(f"✅ {count} sampah berhasil di bersihkan")
+        elif message.command[1] == "host":
+            uname = platform.uname()
+            softw = "Informasi Sistem\n"
+            softw += f"Sistem   : {uname.system}\n"
+            softw += f"Rilis    : {uname.release}\n"
+            softw += f"Versi    : {uname.version}\n"
+            softw += f"Mesin    : {uname.machine}\n"
+
+            boot_time_timestamp = psutil.boot_time()
+
+            bt = datetime.fromtimestamp(boot_time_timestamp)
+            softw += f"Waktu Hidup: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}\n"
+
+            softw += "\nInformasi CPU\n"
+            softw += "Physical cores   : " + str(psutil.cpu_count(logical=False)) + "\n"
+            softw += "Total cores      : " + str(psutil.cpu_count(logical=True)) + "\n"
+            cpufreq = psutil.cpu_freq()
+            softw += f"Max Frequency    : {cpufreq.max:.2f}Mhz\n"
+            softw += f"Min Frequency    : {cpufreq.min:.2f}Mhz\n"
+            softw += f"Current Frequency: {cpufreq.current:.2f}Mhz\n\n"
+            softw += "CPU Usage Per Core\n"
+            for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
+                softw += f"Core {i}  : {percentage}%\n"
+            softw += "Total CPU Usage\n"
+            softw += f"Semua Core: {psutil.cpu_percent()}%\n"
+
+            softw += "\nBandwith Digunakan\n"
+            softw += f"Unggah  : {get_size(psutil.net_io_counters().bytes_sent)}\n"
+            softw += f"Download: {get_size(psutil.net_io_counters().bytes_recv)}\n"
+
+            svmem = psutil.virtual_memory()
+            softw += "\nMemori Digunakan\n"
+            softw += f"Total     : {get_size(svmem.total)}\n"
+            softw += f"Available : {get_size(svmem.available)}\n"
+            softw += f"Used      : {get_size(svmem.used)}\n"
+            softw += f"Percentage: {svmem.percent}%\n"
+
+            return await message.reply(f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True)
         else:
             msg = await message.reply("<b>Memproses</b>")
             screen = (await bash(message.text.split(None, 1)[1]))[0]
@@ -131,58 +177,6 @@ async def get_my_otp(client, message):
                     await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
-
-
-def get_size(bytes, suffix="B"):
-    factor = 1024
-    for unit in ["", "K", "M", "G", "T", "P"]:
-        if bytes < factor:
-            return f"{bytes:.2f}{unit}{suffix}"
-        bytes /= factor
-
-
-async def vps(client, callback_query):
-    uname = platform.uname()
-    softw = "Informasi Sistem\n"
-    softw += f"Sistem   : {uname.system}\n"
-    softw += f"Rilis    : {uname.release}\n"
-    softw += f"Versi    : {uname.version}\n"
-    softw += f"Mesin    : {uname.machine}\n"
-
-    boot_time_timestamp = psutil.boot_time()
-
-    bt = datetime.fromtimestamp(boot_time_timestamp)
-    softw += f"Waktu Hidup: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}\n"
-
-    softw += "\nInformasi CPU\n"
-    softw += "Physical cores   : " + str(psutil.cpu_count(logical=False)) + "\n"
-    softw += "Total cores      : " + str(psutil.cpu_count(logical=True)) + "\n"
-    cpufreq = psutil.cpu_freq()
-    softw += f"Max Frequency    : {cpufreq.max:.2f}Mhz\n"
-    softw += f"Min Frequency    : {cpufreq.min:.2f}Mhz\n"
-    softw += f"Current Frequency: {cpufreq.current:.2f}Mhz\n\n"
-    softw += "CPU Usage Per Core\n"
-    for i, percentage in enumerate(psutil.cpu_percent(percpu=True)):
-        softw += f"Core {i}  : {percentage}%\n"
-    softw += "Total CPU Usage\n"
-    softw += f"Semua Core: {psutil.cpu_percent()}%\n"
-
-    softw += "\nBandwith Digunakan\n"
-    softw += f"Unggah  : {get_size(psutil.net_io_counters().bytes_sent)}\n"
-    softw += f"Download: {get_size(psutil.net_io_counters().bytes_recv)}\n"
-
-    svmem = psutil.virtual_memory()
-    softw += "\nMemori Digunakan\n"
-    softw += f"Total     : {get_size(svmem.total)}\n"
-    softw += f"Available : {get_size(svmem.available)}\n"
-    softw += f"Used      : {get_size(svmem.used)}\n"
-    softw += f"Percentage: {svmem.percent}%\n"
-
-    msg = await bot.send_message(
-        callback_query.from_user.id, f"<b>{Fonts.smallcap(softw.lower())}</b>"
-    )
-    await asyncio.sleep(15)
-    return await msg.delete()
 
 
 async def cb_restart(client, callback_query):
