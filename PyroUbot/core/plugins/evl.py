@@ -96,7 +96,7 @@ async def shell_cmd(client, message):
                 await message.reply(screen)
                 await msg.delete()
     except Exception as error:
-        await msg.edit(error)
+        await message.reply(error)
 
 
 async def evalator_cmd(client, message):
