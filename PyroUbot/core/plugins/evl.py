@@ -1,4 +1,3 @@
-import asyncio
 import os
 import platform
 import sys
@@ -79,7 +78,9 @@ async def shell_cmd(client, message):
             softw += f"Used      : {get_size(svmem.used)}\n"
             softw += f"Percentage: {svmem.percent}%\n"
 
-            return await message.reply(f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True)
+            return await message.reply(
+                f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True
+            )
         else:
             msg = await message.reply("<b>Memproses</b>")
             screen = (await bash(message.text.split(None, 1)[1]))[0]
