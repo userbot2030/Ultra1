@@ -8,6 +8,7 @@ class FILTERS:
     GROUP = filters.group
     PRIVATE = filters.private
     OWNER = filters.user(OWNER_ID)
+    UBOT = filters.user(ubot._get_my_id)
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
 
