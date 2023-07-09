@@ -8,11 +8,11 @@ async def id_cmd(client, message):
         chat_type = message.chat.type
         if chat_type == ChatType.PRIVATE:
             user_id = message.chat.id
-            await message.reply_text(
+            return await message.reply_text(
                 f"<b>ɪᴅ</b> <code>{user_id}</code>",
             )
         elif chat_type == ChatType.CHANNEL:
-            await message.reply(
+            return await message.reply(
                 f"<b>ɪᴅ {message.sender_chat.title} ᴀᴅᴀʟᴀʜ:</b> <code>{message.sender_chat.id}</code>",
             )
         elif chat_type in [ChatType.GROUP, ChatType.SUPERGROUP]:
