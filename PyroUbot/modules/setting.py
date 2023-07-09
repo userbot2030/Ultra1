@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.BOT("prefix", FILTERS.UBOT)
+@PY.BOT("prefix", filters.user(ubot._get_my_id))
 @PY.UBOT("prefix")
 async def _(client, message):
     await setprefix(client, message)
