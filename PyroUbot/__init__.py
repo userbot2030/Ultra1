@@ -75,7 +75,7 @@ class Ubot(Client):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
-            text = message.text.strip()
+            text = message.text
             username = client.me.username or ""
             prefixes = await self.get_prefix(client.me.id)
 
@@ -103,6 +103,9 @@ class Ubot(Client):
                         count=1,
                         flags=re.IGNORECASE | re.UNICODE,
                     )
+                    
+                    without_command = without_command.encode("utf-16", "surrogatepass").decode("unicode_escape")
+
                     message.command = [command] + [
                         re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                         for m in command_re.finditer(without_command)
