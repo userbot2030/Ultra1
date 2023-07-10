@@ -1,6 +1,7 @@
+import json
 import logging
 import os
-import re, json
+import re
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
