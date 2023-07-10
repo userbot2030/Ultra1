@@ -92,7 +92,7 @@ class Ubot(Client):
                     if not re.match(
                         rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                         without_prefix,
-                        flags=re.IGNORECASE | re.UNICODE,
+                        flags=re.IGNORECASE,
                     ):
                         continue
 
@@ -101,12 +101,8 @@ class Ubot(Client):
                         "",
                         without_prefix,
                         count=1,
-                        flags=re.IGNORECASE | re.UNICODE,
+                        flags=re.IGNORECASE,
                     )
-
-                    without_command = without_command.encode(
-                        "utf-16", "surrogatepass"
-                    ).decode("unicode_escape")
 
                     message.command = [command] + [
                         re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
