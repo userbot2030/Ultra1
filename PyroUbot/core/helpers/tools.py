@@ -64,12 +64,17 @@ class Media_Info:
 
 
 def get_arg(message):
-    msg = message.text
-    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
-    split = msg[1:].replace("\n", " \n").split(" ")
-    if " ".join(split[1:]).strip() == "":
+    if message.reply_to_message and len(message.command) < 2:
+        msg = message.reply_to_message.text or message.reply_to_message.caption
+        if not msg:
+            return ""
+        msg = msg.encode().decode("UTF-8")
+        msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+        return msg
+    elif len(message.command) > 1:
+        return " ".join(message.command[1:])
+    else:
         return ""
-    return " ".join(split[1:])
 
 
 async def resize_media(media, video, fast_forward):
