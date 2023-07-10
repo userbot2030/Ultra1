@@ -33,7 +33,7 @@ async def shell_cmd(client, message):
             out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
             if "Already up to date." in str(out):
                 return await message.reply(out, quote=True)
-            await message.reply(out, quote=True)
+            await message.reply(f"```{out}```"), quote=True)
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "clean":
             count = 0
