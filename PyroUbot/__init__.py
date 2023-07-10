@@ -75,7 +75,7 @@ class Ubot(Client):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
-            text = message.text.strip().encode("utf-8").decode("utf-8")
+            text = message.text.encode("utf-8").decode("utf-8")
             username = client.me.username or ""
             prefixes = await self.get_prefix(client.me.id)
 
