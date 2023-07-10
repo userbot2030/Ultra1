@@ -1,6 +1,6 @@
 import logging
 import os
-import re
+import re, json
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -69,7 +69,7 @@ class Ubot(Client):
 
     async def get_prefix(self, user_id):
         prefixes = self._prefix.get(user_id, PREFIX)
-        return prefixes
+        return json.loads(prefixes)
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
