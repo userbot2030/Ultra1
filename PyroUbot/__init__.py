@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 import re
@@ -70,7 +69,7 @@ class Ubot(Client):
 
     async def get_prefix(self, user_id):
         prefixes = self._prefix.get(user_id, PREFIX)
-        return json.loads(prefixes)
+        return prefixes
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
