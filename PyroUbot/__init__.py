@@ -71,7 +71,6 @@ class Ubot(Client):
         prefixes = self._prefix.get(user_id, PREFIX)
         return prefixes
 
-
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
@@ -87,7 +86,7 @@ class Ubot(Client):
                 if not text.startswith(prefix):
                     continue
 
-                without_prefix = text[len(prefix):]
+                without_prefix = text[len(prefix) :]
 
                 for command in [cmd]:
                     if not re.match(
