@@ -103,8 +103,10 @@ class Ubot(Client):
                         count=1,
                         flags=re.IGNORECASE | re.UNICODE,
                     )
-                    
-                    without_command = without_command.encode("utf-16", "surrogatepass").decode("unicode_escape")
+
+                    without_command = without_command.encode(
+                        "utf-16", "surrogatepass"
+                    ).decode("unicode_escape")
 
                     message.command = [command] + [
                         re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
