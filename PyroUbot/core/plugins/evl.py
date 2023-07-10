@@ -24,7 +24,7 @@ async def shell_cmd(client, message):
         return await message.reply("noob")
     try:
         if message.command[1] == "shutdown":
-            await message.reply("✅ sʏsᴛᴇᴍ ʙᴇʀʜᴀsɪʟ ᴅɪᴍᴀᴛɪᴋᴀɴ")
+            await message.reply("✅ sʏsᴛᴇᴍ ʙᴇʀʜᴀsɪʟ ᴅɪᴍᴀᴛɪᴋᴀɴ", quote=True)
             os.system(f"kill -9 {os.getpid()}")
         elif message.command[1] == "restart":
             await message.delete()
