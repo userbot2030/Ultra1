@@ -19,7 +19,5 @@ async def read_cmd(client, message):
             f"https://script.google.com/macros/s/AKfycbwURISN0wjazeJTMHTPAtxkrZTWTpsWIef5kxqVGoXqnrzdLdIQIfLO7jsR5OQ5GO16/exec?url={url}"
         ).json()
         await msg.edit(f"<code>{req['text']}</code>")
-        os.remove(file_path)
     except Exception as e:
         await msg.edit(str(e))
-        os.remove(file_path)
