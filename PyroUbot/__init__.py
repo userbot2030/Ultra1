@@ -71,11 +71,12 @@ class Ubot(Client):
         prefixes = self._prefix.get(user_id, PREFIX)
         return prefixes
 
+
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
-            text = message.text
+            text = message.text.strip().encode("utf-8").decode("utf-8")
             username = client.me.username or ""
             prefixes = await self.get_prefix(client.me.id)
 
@@ -86,13 +87,13 @@ class Ubot(Client):
                 if not text.startswith(prefix):
                     continue
 
-                without_prefix = text[len(prefix) :]
+                without_prefix = text[len(prefix):]
 
                 for command in [cmd]:
                     if not re.match(
                         rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                         without_prefix,
-                        flags=re.IGNORECASE,
+                        flags=re.IGNORECASE | re.UNICODE,
                     ):
                         continue
 
@@ -101,9 +102,8 @@ class Ubot(Client):
                         "",
                         without_prefix,
                         count=1,
-                        flags=re.IGNORECASE,
+                        flags=re.IGNORECASE | re.UNICODE,
                     )
-
                     message.command = [command] + [
                         re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
                         for m in command_re.finditer(without_command)
