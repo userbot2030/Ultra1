@@ -54,16 +54,16 @@ async def broadcast_users_cmd(client, message):
                     return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
-                chat_id = dialog.chat.id
-                try:
-                    if message.reply_to_message:
-                        await send.copy(chat_id)
-                    else:
-                        await client.send_message(chat_id, send)
-                    sent += 1
-                    await asyncio.sleep(3)
-                except Exception:
-                    pass
+            chat_id = dialog.chat.id
+            try:
+                if message.reply_to_message:
+                    await send.copy(chat_id)
+                else:
+                    await client.send_message(chat_id, send)
+                sent += 1
+                await asyncio.sleep(3)
+            except Exception:
+                pass
     await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
