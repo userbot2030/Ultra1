@@ -23,7 +23,10 @@ async def shell_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply("noob")
     try:
-        if message.command[1] == "restart":
+        if message.command[1] == "shutdown":
+            await message.reply("✅ sʏsᴛᴇᴍ ʙᴇʀʜᴀsɪʟ ᴅɪᴍᴀᴛɪᴋᴀɴ")
+            os.system(f"kill -9 {os.getpid()}")
+        elif message.command[1] == "restart":
             await message.delete()
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "update":
