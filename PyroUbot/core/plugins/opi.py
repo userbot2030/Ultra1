@@ -96,7 +96,7 @@ async def stt_cmd(client, message):
         else:
             return await Tm.edit(
                 f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
-            )"""
+            )
 
 
 """async def stt_cmd(client, message):
