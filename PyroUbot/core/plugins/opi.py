@@ -1,5 +1,6 @@
 import io
 import os
+import speech_recognition as sr
 
 from PyroUbot import *
 
@@ -58,6 +59,31 @@ async def dalle_cmd(client, message):
 
 
 async def stt_cmd(client, message):
+    file = await client.download_media(
+        message=message.reply_to_message,
+        file_name=f"stt_{message.reply_to_message.id}",
+    )
+    out_file = f"{file}.WAV"
+    try:
+        cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
+        await run_cmd(cmd)
+        os.remove(file)
+    except Exception as error:
+        return await message.reply(error, quote=True)
+
+    recognizer = sr.Recognizer()
+    with sr.AudioFile(out_file) as source:
+        audio = recognizer.record(source)
+        try:
+            text = recognizer.recognize_google(audio, language='id-ID')
+        except sr.UnknownValueError:
+            text = "ᴍᴀᴀғ, ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴇɴᴀʟɪ sᴜᴀʀᴀ ʏᴀɴɢ ᴅɪᴜᴄᴀᴘᴋᴀɴ."
+        except sr.RequestError:
+            text = "ᴍᴀᴀғ, sɪsᴛᴇᴍ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴋsᴇs ʟᴀʏᴀɴᴀɴ ᴘᴇɴɢᴇɴᴀʟᴀɴ sᴜᴀʀᴀ."
+    await message.reply(text, quote=True)
+
+
+"""async def stt_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     reply = message.reply_to_message
     if reply:
@@ -91,4 +117,5 @@ async def stt_cmd(client, message):
         else:
             return await Tm.edit(
                 f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
-            )
+            )"""
+            
