@@ -1,5 +1,6 @@
 import io
 import os
+
 import speech_recognition as sr
 
 from PyroUbot import *
@@ -75,7 +76,7 @@ async def stt_cmd(client, message):
     with sr.AudioFile(out_file) as source:
         audio = recognizer.record(source)
         try:
-            text = recognizer.recognize_google(audio, language='id-ID')
+            text = recognizer.recognize_google(audio, language="id-ID")
         except sr.UnknownValueError:
             text = "ᴍᴀᴀғ, ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴇɴᴀʟɪ sᴜᴀʀᴀ ʏᴀɴɢ ᴅɪᴜᴄᴀᴘᴋᴀɴ."
         except sr.RequestError:
@@ -118,4 +119,3 @@ async def stt_cmd(client, message):
             return await Tm.edit(
                 f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
             )"""
-            
