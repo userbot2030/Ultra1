@@ -83,7 +83,9 @@ async def stt_cmd(client, message):
                 except sr.UnknownValueError:
                     text = "ᴍᴀᴀғ, ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴇɴᴀʟɪ sᴜᴀʀᴀ ʏᴀɴɢ ᴅɪᴜᴄᴀᴘᴋᴀɴ."
                 except sr.RequestError:
-                    text = "ᴍᴀᴀғ, sɪsᴛᴇᴍ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴋsᴇs ʟᴀʏᴀɴᴀɴ ᴘᴇɴɢᴇɴᴀʟᴀɴ sᴜᴀʀᴀ."
+                    text = (
+                        "ᴍᴀᴀғ, sɪsᴛᴇᴍ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴋsᴇs ʟᴀʏᴀɴᴀɴ ᴘᴇɴɢᴇɴᴀʟᴀɴ sᴜᴀʀᴀ."
+                    )
                 if int(len(str(text))) > 4096:
                     with io.BytesIO(str.encode(str(text))) as out_file:
                         out_file.name = "text.txt"
