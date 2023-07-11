@@ -61,37 +61,42 @@ async def dalle_cmd(client, message):
 
 async def stt_cmd(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
-
-    file = await client.download_media(
-        message=message.reply_to_message,
-        file_name=f"stt_{message.reply_to_message.id}",
-    )
-    out_file = f"{file}.WAV"
-    try:
-        cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
-        await run_cmd(cmd)
-        os.remove(file)
-    except Exception as error:
-        return await Tm.edit(error)
-
-    recognizer = sr.Recognizer()
-    with sr.AudioFile(out_file) as source:
-        audio = recognizer.record(source)
-        try:
-            text = recognizer.recognize_google(audio, language="id-ID")
-        except sr.UnknownValueError:
-            text = "ᴍᴀᴀғ, ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴇɴᴀʟɪ sᴜᴀʀᴀ ʏᴀɴɢ ᴅɪᴜᴄᴀᴘᴋᴀɴ."
-        except sr.RequestError:
-            text = "ᴍᴀᴀғ, sɪsᴛᴇᴍ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴋsᴇs ʟᴀʏᴀɴᴀɴ ᴘᴇɴɢᴇɴᴀʟᴀɴ sᴜᴀʀᴀ."
-        if int(len(str(text))) > 4096:
-            with io.BytesIO(str.encode(str(text))) as out_file:
-                out_file.name = "text.txt"
-                await message.reply_document(
-                    document=out_file,
-                )
-                return await Tm.delete()
+    reply = message.reply_to_message
+    if reply:
+        if reply.voice or reply.audio or reply.video:
+            file = await client.download_media(
+                message=message.reply_to_message,
+                file_name=f"stt_{message.reply_to_message.id}",
+            )
+            out_file = f"{file}.WAV"
+            try:
+                cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
+                await run_cmd(cmd)
+                os.remove(file)
+            except Exception as error:
+                return await Tm.edit(error)
+            recognizer = sr.Recognizer()
+            with sr.AudioFile(out_file) as source:
+                audio = recognizer.record(source)
+                try:
+                    text = recognizer.recognize_google(audio, language="id-ID")
+                except sr.UnknownValueError:
+                    text = "ᴍᴀᴀғ, ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴇɴᴀʟɪ sᴜᴀʀᴀ ʏᴀɴɢ ᴅɪᴜᴄᴀᴘᴋᴀɴ."
+                except sr.RequestError:
+                    text = "ᴍᴀᴀғ, sɪsᴛᴇᴍ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴋsᴇs ʟᴀʏᴀɴᴀɴ ᴘᴇɴɢᴇɴᴀʟᴀɴ sᴜᴀʀᴀ."
+                if int(len(str(text))) > 4096:
+                    with io.BytesIO(str.encode(str(text))) as out_file:
+                        out_file.name = "text.txt"
+                        await message.reply_document(
+                            document=out_file,
+                        )
+                        return await Tm.delete()
+                else:
+                    await Tm.edit(text)
         else:
-            await Tm.edit(text)
+            return await Tm.edit(
+                f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
+            )"""
 
 
 """async def stt_cmd(client, message):
