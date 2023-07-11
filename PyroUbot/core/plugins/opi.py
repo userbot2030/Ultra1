@@ -68,7 +68,7 @@ async def stt_cmd(client, message):
                 message=message.reply_to_message,
                 file_name=f"stt_{message.reply_to_message.id}",
             )
-            out_file = f"{file}.WAV"
+            out_file = f"{file}.mp3"
             try:
                 cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"
                 await run_cmd(cmd)
