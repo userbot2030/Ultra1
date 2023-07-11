@@ -29,4 +29,4 @@ yt-dlp
 wget
 python-dateutil
 emoji
-
+python-ffmpeg
