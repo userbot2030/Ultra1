@@ -1,3 +1,4 @@
+git+https://github.com/TachibanaYoshino/AnimeGAN.git
 pyrogram
 tgcrypto
 pytz
