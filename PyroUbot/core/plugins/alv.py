@@ -27,10 +27,10 @@ async def alive_query(client, inline_query):
         if int(get_id[2]) == my.me.id:
             try:
                 peer = my._get_my_peer[my.me.id]
-                users = len(peer["pm"])
+                len(peer["pm"])
                 group = len(peer["gc"])
             except Exception:
-                users = random.randrange(await my.get_dialogs_count())
+                random.randrange(await my.get_dialogs_count())
                 group = random.randrange(await my.get_dialogs_count())
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
