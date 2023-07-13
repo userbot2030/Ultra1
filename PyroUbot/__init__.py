@@ -73,7 +73,6 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
-        command_list = cmd if type(cmd) is list else [cmd]
 
         async def func(_, client, message):
             if message.text:
@@ -89,6 +88,7 @@ class Ubot(Client):
                         continue
 
                     without_prefix = text[len(prefix) :]
+                    command_list = cmd if type(cmd) is list else [cmd]
 
                     for command in command_list:
                         if not re.match(
