@@ -73,7 +73,7 @@ class Ubot(Client):
 
     def command_filter(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
-        command_list = list(cmd) if type(cmd) is list else [str(cmd)]
+        command_list = cmd if type(cmd) is list else [cmd]
 
         async def func(_, client, message):
             if message.text:
