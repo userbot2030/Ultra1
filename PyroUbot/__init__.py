@@ -72,7 +72,7 @@ class Ubot(Client):
         return prefixes
 
     def command_filter(self, cmd):
-        cmd if isinstance(cmd, list) else [cmd]
+        commands = cmd if isinstance(cmd, list) else [cmd]
 
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
@@ -91,7 +91,7 @@ class Ubot(Client):
 
                     without_prefix = text[len(prefix) :]
 
-                    for command in cmd:
+                    for command in commands:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
