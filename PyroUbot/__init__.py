@@ -72,7 +72,7 @@ class Ubot(Client):
         return prefixes
 
     def command_filter(self, cmd):
-        commands = cmd if isinstance(cmd, list) else [cmd]
+        cmd if isinstance(cmd, list) else [cmd]
 
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
