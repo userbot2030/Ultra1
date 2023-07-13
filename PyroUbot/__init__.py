@@ -73,7 +73,11 @@ class Ubot(Client):
 
     def command_filter(self, commands):
         if isinstance(commands, str):
-            commands = [commands]
+            command_list = [commands]
+        elif isinstance(commands, list):
+            command_list = commands
+        else:
+            raise ValueError("Invalid commands type. Must be a string or a list.")
 
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
@@ -92,7 +96,7 @@ class Ubot(Client):
 
                     without_prefix = text[len(prefix) :]
 
-                    for command in commands:
+                    for command in command_list:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
