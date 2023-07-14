@@ -1,7 +1,6 @@
 import io
 import os
 
-import speech_recognition as sr
 
 from PyroUbot import *
 
