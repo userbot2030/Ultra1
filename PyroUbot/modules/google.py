@@ -9,5 +9,5 @@ __HELP__ = """
 """
 
 @PY.UBOT("google")
-async _(client, message):
+async def _(client, message):
     await google_search(client, message)
