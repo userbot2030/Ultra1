@@ -1,14 +1,7 @@
-import glob
-import io
-import os
 import re
 import urllib
 import urllib.request
 
-import bs4
-import requests
-from bs4 import BeautifulSoup
-from PIL import Image
 from search_engine_parser import GoogleSearch
 
 from PyroUbot import *
@@ -43,4 +36,9 @@ async def google_search(client, message):
         except Exception:
             passe
     return await webevent.edit(
-        "<b>ᴍᴇɴᴇʟᴜsᴜʀɪ  ǫᴜᴇʀʏ:</b>\n<code>" + match + "</code>\n\n<b>ʀᴇsᴜʟᴛs:</b>\n" + msg, disable_web_page_preview=True)
+        "<b>ᴍᴇɴᴇʟᴜsᴜʀɪ  ǫᴜᴇʀʏ:</b>\n<code>"
+        + match
+        + "</code>\n\n<b>ʀᴇsᴜʟᴛs:</b>\n"
+        + msg,
+        disable_web_page_preview=True,
+    )
