@@ -19,10 +19,7 @@ MAX_BOT = int(os.getenv("MAX_BOT", "50"))
 
 RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
-OPENAI_KEY = os.getenv(
-    "OPENAI_KEY",
-    "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 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",
-).split()
+OPENAI_KEY = os.getenv("OPENAI_KEY", "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")
 
 SESSION_STRING = os.getenv(
     "SESSION_STRING",
