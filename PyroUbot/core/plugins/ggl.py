@@ -1,6 +1,5 @@
 import re
 import urllib
-import urllib.request
 
 from search_engine_parser import GoogleSearch
 
