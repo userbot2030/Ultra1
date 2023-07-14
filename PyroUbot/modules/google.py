@@ -8,6 +8,7 @@ __HELP__ = """
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ɪɴғᴏʀᴍᴀsɪ ᴅᴀʀɪ ɢᴏᴏɢʟᴇ
 """
 
+
 @PY.UBOT("google")
 async def _(client, message):
     await google_search(client, message)
