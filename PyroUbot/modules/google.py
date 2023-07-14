@@ -1,4 +1,4 @@
-from PyroUbot *
+from PyroUbot import *
 
 __MODULE__ = "google"
 __HELP__ = """
