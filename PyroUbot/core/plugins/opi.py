@@ -59,7 +59,7 @@ async def dalle_cmd(client, message):
         return await Tm.delete()
 
 
-async def stt_cmd(client, message):
+"""async def stt_cmd(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
     reply = message.reply_to_message
     if reply:
@@ -98,10 +98,10 @@ async def stt_cmd(client, message):
         else:
             return await Tm.edit(
                 f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
-            )
+            )"""
 
 
-"""async def stt_cmd(client, message):
+async def stt_cmd(client, message):
     Tm = await message.reply("<code>ᴍᴇᴍᴘʀᴏsᴇs...</code>")
     reply = message.reply_to_message
     if reply:
@@ -135,4 +135,4 @@ async def stt_cmd(client, message):
         else:
             return await Tm.edit(
                 f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
-            )"""
+            )
