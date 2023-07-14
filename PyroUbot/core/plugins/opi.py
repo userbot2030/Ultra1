@@ -1,7 +1,6 @@
 import io
 import os
 
-
 from PyroUbot import *
 
 
