@@ -31,7 +31,7 @@ async def google_search(client, message):
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
-            msg += f"- [{title}]({link})\n**{desc}**\n\n"
+            msg += f"- <a href={link}>{title}</a>\n<b>{desc}</b>\n\n"
         except Exception:
             passe
     return await webevent.edit(
