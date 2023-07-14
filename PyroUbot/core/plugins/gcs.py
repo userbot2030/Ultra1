@@ -38,6 +38,7 @@ async def broadcast_group_cmd(client, message):
                     await asyncio.sleep(3)
                 except Exception:
                     pass
+    await msg.delete()
     await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
@@ -64,6 +65,7 @@ async def broadcast_users_cmd(client, message):
                 await asyncio.sleep(3)
             except Exception:
                 pass
+    await msg.delete()
     await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
