@@ -1,7 +1,7 @@
-from pyrogram.enums import ChatType
 from datetime import datetime, timedelta
 
 from dateutil.relativedelta import relativedelta
+from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
 
@@ -113,12 +113,13 @@ async def add_blaclist(client, message):
             return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+            return await Tm.edit(
+                f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ"
+            )
         else:
             return await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     else:
         return await Tm.edit("ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
-    
 
 
 async def del_blacklist(client, message):
@@ -131,7 +132,9 @@ async def del_blacklist(client, message):
                 chat_id = int(message.command[1])
             blacklist = await get_chat(client.me.id)
             if chat_id not in blacklist:
-                return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+                return await Tm.edit(
+                    f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ"
+                )
             del_blacklist = await remove_chat(client.me.id, chat_id)
             if del_blacklist:
                 return await Tm.edit(f"{chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
@@ -141,7 +144,7 @@ async def del_blacklist(client, message):
             return await Tm.edit(error)
     else:
         return await Tm.edit("ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
-    
+
 
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
