@@ -18,12 +18,12 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("addbl", FILTERS.ME_GROUP)
+@PY.UBOT("addbl")
 async def _(client, message):
     await add_blaclist(client, message)
 
 
-@PY.UBOT("unbl", FILTERS.ME_GROUP)
+@PY.UBOT("unbl")
 async def _(client, message):
     await del_blacklist(client, message)
 
