@@ -57,9 +57,7 @@ class Button:
             button = [
                 [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
                 [
-                    InlineKeyboardButton(
-                        "✨ ʜᴇʟᴘ ᴍᴇɴᴜ", callback_data="help_back"
-                    ),
+                    InlineKeyboardButton("✨ ʜᴇʟᴘ ᴍᴇɴᴜ", callback_data="help_back"),
                     InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
                 ],
             ]
