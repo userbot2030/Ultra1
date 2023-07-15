@@ -89,7 +89,7 @@ class Ubot(Client):
                     if not text.startswith(prefix):
                         continue
 
-                    without_prefix = text[len(prefix):]
+                    without_prefix = text[len(prefix) :]
                     command_list = cmd if type(cmd) is list else [cmd]
 
                     for command in command_list:
