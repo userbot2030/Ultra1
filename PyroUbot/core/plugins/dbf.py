@@ -1,3 +1,4 @@
+from pyrogram.enums import ChatType
 from datetime import datetime, timedelta
 
 from dateutil.relativedelta import relativedelta
@@ -105,35 +106,42 @@ async def get_prem_user(client, message):
 
 async def add_blaclist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
-    chat_id = message.chat.id
-    blacklist = await get_chat(client.me.id)
-    if chat_id in blacklist:
-        return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
-    add_blacklist = await add_chat(client.me.id, chat_id)
-    if add_blacklist:
-        await Tm.edit(f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        chat_id = message.chat.id
+        blacklist = await get_chat(client.me.id)
+        if chat_id in blacklist:
+            return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
+        add_blacklist = await add_chat(client.me.id, chat_id)
+        if add_blacklist:
+            return await Tm.edit(f"{message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+        else:
+            return await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     else:
-        await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+        return await Tm.edit("ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
+    
 
 
 async def del_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
-    try:
-        if not get_arg(message):
-            chat_id = message.chat.id
-        else:
-            chat_id = int(message.command[1])
-        blacklist = await get_chat(client.me.id)
-        if chat_id not in blacklist:
-            return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
-        del_blacklist = await remove_chat(client.me.id, chat_id)
-        if del_blacklist:
-            await Tm.edit(f"{chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
-        else:
-            await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
-    except Exception as error:
-        await Tm.edit(error)
-
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        try:
+            if not get_arg(message):
+                chat_id = message.chat.id
+            else:
+                chat_id = int(message.command[1])
+            blacklist = await get_chat(client.me.id)
+            if chat_id not in blacklist:
+                return await Tm.edit(f"{message.chat.title} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+            del_blacklist = await remove_chat(client.me.id, chat_id)
+            if del_blacklist:
+                return await Tm.edit(f"{chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ʜɪᴛᴀᴍ")
+            else:
+                return await Tm.edit("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+        except Exception as error:
+            return await Tm.edit(error)
+    else:
+        return await Tm.edit("ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
+    
 
 async def get_blacklist(client, message):
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
