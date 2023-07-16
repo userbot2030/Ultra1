@@ -1,8 +1,11 @@
 import asyncio
+
 import openai
+
 from PyroUbot import OPENAI_KEY
 
 openai.api_key = OPENAI_KEY
+
 
 class OpenAi:
     @staticmethod
