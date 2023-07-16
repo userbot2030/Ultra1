@@ -23,17 +23,16 @@ class OpenAi:
     @staticmethod
     async def ImageDalle(question):
         response = await asyncio.to_thread(
-            openai.Completion.create,
-            model="dall-e-2-0",
+            openai.Image.create,
             prompt=question,
             n=1,
         )
-        return response.choices[0].text.strip()
+        return response["data"][0]["url"]
 
     @staticmethod
     async def SpeechToText(file):
-        with open(file, "rb") as audio_file:
-            response = await asyncio.to_thread(
-                openai.SpeechApi.transcribe, audio=audio_file
-            )
-        return response["transcriptions"][0]["text"]
+        audio_file = open(file, "rb")
+        response = await asyncio.to_thread(
+            openai.Audio.transcribe, "whisper-1", audio_file
+        )
+        return response["text"]
