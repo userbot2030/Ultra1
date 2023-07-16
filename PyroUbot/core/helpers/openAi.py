@@ -1,35 +1,36 @@
 import asyncio
-
 import openai
-
 from PyroUbot import OPENAI_KEY
 
 openai.api_key = OPENAI_KEY
-
 
 class OpenAi:
     @staticmethod
     async def ChatGPT(question):
         response = await asyncio.to_thread(
             openai.ChatCompletion.create,
-            model="gpt-3.5-turbo-16k-0613",
-            messages=[{"role": "user", "content": question}],
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": question},
+            ],
         )
         return response.choices[0].message["content"].strip()
 
     @staticmethod
     async def ImageDalle(question):
         response = await asyncio.to_thread(
-            openai.Image.create,
+            openai.Completion.create,
+            model="dall-e-2-0",
             prompt=question,
             n=1,
         )
-        return response["data"][0]["url"]
+        return response.choices[0].text.strip()
 
     @staticmethod
     async def SpeechToText(file):
-        audio_file = open(file, "rb")
-        response = await asyncio.to_thread(
-            openai.Audio.transcribe, "whisper-1", audio_file
-        )
-        return response["text"]
+        with open(file, "rb") as audio_file:
+            response = await asyncio.to_thread(
+                openai.SpeechApi.transcribe, audio=audio_file
+            )
+        return response["transcriptions"][0]["text"]
