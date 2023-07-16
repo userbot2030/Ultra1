@@ -90,7 +90,7 @@ async def bikin_ubot(client, callback_query):
     new_client = Ubot(
         name=str(callback_query.id),
         api_id=API_ID,
-        api_hash=Api_hash,
+        api_hash=API_HASH,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
