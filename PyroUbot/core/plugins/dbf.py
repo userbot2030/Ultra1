@@ -247,7 +247,7 @@ async def expired_add(client, message):
     user_id, get_day = await extract_user_and_reason(message)
     if not user_id:
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʜᴀʀɪ</b>")
-    elif user_id not in client._get_my_id:
+    elif user_id not in ubot._get_my_id:
         return await Tm.edit(f"<b>{user_id} ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ sʏsᴛᴇᴍ</b>")
     try:
         get_id = (await client.get_users(user_id)).id
