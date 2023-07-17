@@ -63,12 +63,13 @@ async def copy_ubot_msg(client, message):
                     reply_to_message_id=msg.id,
                 )
                 COPY_ID[client.me.id] = results.id
-            except Exception:
+            except Exception as e:
                 await client.send_message(
                     message.chat.id,
                     f"<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅd\n\n👉🏻 <a href=https://t.me/{bot.me.username}?start=copyMsg_{id(message)}>ᴋʟɪᴋ ᴅɪsɪɴɪ</a> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>",
                     reply_to_message_id=msg.id,
                 )
+                print(e)
             await Tm.delete()
     else:
         await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
