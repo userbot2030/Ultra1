@@ -26,9 +26,7 @@ async def copy_bot_msg(client, message):
         await Tm.delete()
     except Exception as error:
         await Tm.edit(error)
-else:
-    await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
-
+      
 
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
