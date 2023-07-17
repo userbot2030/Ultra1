@@ -117,10 +117,11 @@ async def copy_callback_msg(client, callback_query):
             copy = await m._client.send_message(
                 bot.me.username, f"/copy {m.text.split()[1]}"
             )
+            msg = m.reply_to_message or m
             await asyncio.sleep(1.5)
             await copy.delete()
             async for get in m._client.search_messages(bot.me.username, limit=1):
-                await m._client.copy_message(m.chat.id, bot.me.username, get.id)
+                await m._client.copy_message(m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id)
                 await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id])
                 await get.delete()
     except Exception as error:
