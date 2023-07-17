@@ -1,15 +1,13 @@
 import asyncio
+import math
+import os
 from gc import get_objects
+from time import time
 
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
 from PyroUbot import *
-import asyncio
-import math
-import os
-from time import time
-
 
 
 async def copy_bot_msg(client, message):
@@ -33,6 +31,7 @@ async def copy_bot_msg(client, message):
 
 COPY_ID = {}
 
+
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
     Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
@@ -48,7 +47,9 @@ async def copy_ubot_msg(client, message):
             get = await client.get_messages(chat, msg_id)
             text = get.caption or ""
             if get.photo:
-                await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Photo"))
+                await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Photo")
+                )
                 await client.send_photo(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
@@ -56,7 +57,9 @@ async def copy_ubot_msg(client, message):
                 os.remove(media)
 
             elif get.video:
-                media = await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Video"))
+                media = await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Video")
+                )
                 await app.send_video(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
@@ -64,7 +67,9 @@ async def copy_ubot_msg(client, message):
                 os.remove(media)
 
             elif get.audio:
-                media = await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Audio"))
+                media = await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Audio")
+                )
                 await client.send_audio(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
@@ -72,7 +77,9 @@ async def copy_ubot_msg(client, message):
                 os.remove(media)
 
             elif get.voice:
-                media = await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Voice"))
+                media = await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Voice")
+                )
                 await client.send_voice(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
@@ -80,7 +87,9 @@ async def copy_ubot_msg(client, message):
                 os.remove(media)
 
             elif get.document:
-                media = await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Document"))
+                media = await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Document")
+                )
                 await client.send_document(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
@@ -88,7 +97,9 @@ async def copy_ubot_msg(client, message):
                 os.remove(media)
 
             elif get.animation:
-                media = await client.download_media(get, progress=progress, progress_args=(Tm, time(), "Animation"))
+                media = await client.download_media(
+                    get, progress=progress, progress_args=(Tm, time(), "Animation")
+                )
                 await client.send_animation(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
