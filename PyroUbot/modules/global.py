@@ -19,4 +19,4 @@ async def _(client, message):
 
 @PY.UBOT("ungban")
 async def _(client, message):
-    await global_ungban(client, message)
+    await global_unbanned(client, message)
