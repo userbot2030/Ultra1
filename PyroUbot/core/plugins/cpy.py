@@ -43,38 +43,50 @@ async def copy_ubot_msg(client, message):
             get = await client.get_messages(chat, msg_id)
             text = get.caption or ""
             if get.photo:
-                anu = await client.download_media(get)
-                await client.send_photo(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await client.download_media(get)
+                await client.send_photo(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
-        
+
             elif get.video:
                 media = await client.download_media(get)
-                await app.send_video(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await app.send_video(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
-        
+
             elif get.audio:
                 media = await client.download_media(get)
-                await client.send_audio(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await client.send_audio(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
-        
+
             elif get.voice:
                 media = await client.download_media(get)
-                await client.send_voice(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await client.send_voice(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
-        
+
             elif get.document:
                 media = await client.download_media(get)
-                await client.send_document(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await client.send_document(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
-            
+
             elif get.animation:
                 media = await client.download_media(get)
-                await client.send_animation(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await client.send_animation(
+                    message.chat.id, media, text, reply_to_message_id=msg.id
+                )
                 await message.delete()
                 os.remove(media)
             else:
