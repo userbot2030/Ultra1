@@ -225,7 +225,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
             "".join("-" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
-        tmp = "⏳ ғɪʟᴇ_sɪᴢᴇ: {0} - {1}\n{3}\n💡 ᴇsᴛɪᴍᴀsɪ: {2}\n".format(
+        tmp = "📂 ғɪʟᴇ_sɪᴢᴇ: {0} - {1}\n{3}\n⏳ ᴇsᴛɪᴍᴀsɪ: {2}\n".format(
             humanbytes(current),
             humanbytes(total),
             time_formatter(estimated_total_time),
@@ -237,7 +237,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                     f"""
 <b>📥 {type_of_ps}</b>
 
-<b>📂 ғɪʟᴇ_ɪᴅ:</b> <code>{file_name}</code>
+<b>🆔 ғɪʟᴇ_ɪᴅ:</b> <code>{file_name}</code>
 <b>{tmp}</b>
 """
                 )
