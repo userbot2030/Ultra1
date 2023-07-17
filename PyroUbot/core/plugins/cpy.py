@@ -1,4 +1,4 @@
-import asyncio
+   import asyncio
 import math
 import os
 from gc import get_objects
@@ -53,28 +53,32 @@ async def copy_ubot_msg(client, message):
                 await client.send_photo(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
 
             elif get.video:
                 media = await client.download_media(
                     get, progress=progress, progress_args=(Tm, time(), "Video")
                 )
+                thumbnail = await client.download_media(get.video.thumbs[-1])
                 await app.send_video(
-                    message.chat.id, media, text, reply_to_message_id=msg.id
+                    message.chat.id, thumb=thumbnail, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
+                os.remove(thumbnail)
 
             elif get.audio:
                 media = await client.download_media(
                     get, progress=progress, progress_args=(Tm, time(), "Audio")
                 )
+                thumbnail = await client.download_media(get.audio.thumbs[-1])
                 await client.send_audio(
-                    message.chat.id, media, text, reply_to_message_id=msg.id
+                    message.chat.id, thumb=thumbnail, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
+                os.remove(thumbnail)
 
             elif get.voice:
                 media = await client.download_media(
@@ -83,30 +87,33 @@ async def copy_ubot_msg(client, message):
                 await client.send_voice(
                     message.chat.id, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
 
             elif get.document:
                 media = await client.download_media(
                     get, progress=progress, progress_args=(Tm, time(), "Document")
                 )
+                thumbnail = await client.download_media(get.document.thumbs[-1])
                 await client.send_document(
-                    message.chat.id, media, text, reply_to_message_id=msg.id
+                    message.chat.id, thumb=thumbnail, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
+                os.remove(thumbnail)
 
             elif get.animation:
                 media = await client.download_media(
                     get, progress=progress, progress_args=(Tm, time(), "Animation")
                 )
                 await client.send_animation(
-                    message.chat.id, media, text, reply_to_message_id=msg.id
+                    message.chat.id, thumb=thumbnail, media, text, reply_to_message_id=msg.id
                 )
-                await message.delete()
+                await Tm.delete()
                 os.remove(media)
             else:
                 await get.copy(message.chat.id, reply_to_message_id=msg.id)
+                await Tm.delete()
         else:
             chat = str(link.split("/")[-2])
             try:
