@@ -47,7 +47,7 @@ async def copy_ubot_msg(client, message):
             get = await client.get_messages(chat, msg_id)
             text = get.caption or ""
             if get.photo:
-                await client.download_media(
+                media = await client.download_media(
                     get, progress=progress, progress_args=(Tm, time(), "Photo")
                 )
                 await client.send_photo(
@@ -61,7 +61,7 @@ async def copy_ubot_msg(client, message):
                     get, progress=progress, progress_args=(Tm, time(), "Video")
                 )
                 thumbnail = await client.download_media(get.video.thumbs[-1])
-                await app.send_video(
+                await client.send_video(
                     message.chat.id, thumb=thumbnail, media, text, reply_to_message_id=msg.id
                 )
                 await Tm.delete()
