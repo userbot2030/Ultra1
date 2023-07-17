@@ -1,5 +1,4 @@
 import asyncio
-import math
 import os
 from gc import get_objects
 from time import time
@@ -8,6 +7,7 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
 from PyroUbot import *
+
 
 async def copy_bot_msg(client, message):
     if message.from_user.id not in ubot._get_my_id:
