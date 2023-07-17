@@ -226,7 +226,10 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
             round(percentage, 2),
         )
         tmp = "⏳ ғɪʟᴇ_sɪᴢᴇ: {0} ᴏғ {1}\n{3}\n\n📍 ᴇsᴛɪᴍᴀsɪ: {2}\n".format(
-            humanbytes(current), humanbytes(total), time_formatter(estimated_total_time), progress_str
+            humanbytes(current),
+            humanbytes(total),
+            time_formatter(estimated_total_time),
+            progress_str,
         )
         if file_name:
             try:
