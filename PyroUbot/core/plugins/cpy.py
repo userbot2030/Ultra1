@@ -30,7 +30,7 @@ async def copy_bot_msg(client, message):
 
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
-    Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ")
+    Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
@@ -40,31 +40,64 @@ async def copy_ubot_msg(client, message):
         msg_id = int(link.split("/")[-1])
         if "t.me/c/" in link:
             chat = int("-100" + str(link.split("/")[-2]))
+            get = await client.get_messages(chat, msg_id)
+            text = get.caption or ""
+            if get.photo:
+                anu = await client.download_media(get)
+                await client.send_photo(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+        
+            elif get.video:
+                media = await client.download_media(get)
+                await app.send_video(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+        
+            elif get.audio:
+                media = await client.download_media(get)
+                await client.send_audio(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+        
+            elif get.voice:
+                media = await client.download_media(get)
+                await client.send_voice(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+        
+            elif get.document:
+                media = await client.download_media(get)
+                await client.send_document(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+            
+            elif get.animation:
+                media = await client.download_media(get)
+                await client.send_animation(message.chat.id, media, text, reply_to_message_id=msg.id)
+                await message.delete()
+                os.remove(media)
+            else:
+                await get.copy(message.chat.id, reply_to_message_id=msg.id)
         else:
             chat = str(link.split("/")[-2])
-        try:
-            get = await client.get_messages(chat, msg_id)
-            await get.copy(message.chat.id, reply_to_message_id=msg.id)
-            await Tm.delete()
-        except Exception:
             try:
-                text = f"get_msg {id(message)}"
-                x = await client.get_inline_bot_results(bot.me.username, text)
-                results = await client.send_inline_bot_result(
-                    message.chat.id,
-                    x.query_id,
-                    x.results[0].id,
-                    reply_to_message_id=msg.id,
-                )
-                COPY_ID[client.me.id] = int(results.updates[1].message.id)
-            except Exception as e:
-                await client.send_message(
-                    message.chat.id,
-                    f"<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅd\n\n👉🏻 <a href=https://t.me/{bot.me.username}?start=copyMsg_{id(message)}>ᴋʟɪᴋ ᴅɪsɪɴɪ</a> ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>",
-                    reply_to_message_id=msg.id,
-                )
-                print(e)
-            await Tm.delete()
+                get = await client.get_messages(chat, msg_id)
+                await get.copy(message.chat.id, reply_to_message_id=msg.id)
+                await Tm.delete()
+            except Exception:
+                try:
+                    text = f"get_msg {id(message)}"
+                    x = await client.get_inline_bot_results(bot.me.username, text)
+                    results = await client.send_inline_bot_result(
+                        message.chat.id,
+                        x.query_id,
+                        x.results[0].id,
+                        reply_to_message_id=msg.id,
+                    )
+                    COPY_ID[client.me.id] = int(results.updates[1].message.id)
+                except Exception as error:
+                    return await Tm.edit(error)
     else:
         await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
