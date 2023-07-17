@@ -1,9 +1,10 @@
 import asyncio
 import math
 import os
+from datetime import timedelta
 from gc import get_objects
 from time import time
-from datetime import timedelta
+
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
@@ -59,7 +60,9 @@ async def copy_ubot_msg(client, message):
 
                 elif get.video:
                     media = await client.download_media(
-                        get, progress=progress, progress_args=(Tm, time(), " Download Video")
+                        get,
+                        progress=progress,
+                        progress_args=(Tm, time(), " Download Video"),
                     )
                     thumbnail = await client.download_media(get.video.thumbs[-1])
                     await client.send_video(
