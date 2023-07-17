@@ -53,14 +53,3 @@ class PY:
             return wrapped_func
 
         return wrapper
-
-
-def CMD(command, filter=FILTERS.ME):
-    def wrapper(func):
-        @ubot.on_message(ubot.command_filter(command) & filter)
-        async def wrapped_func(client, message):
-            await func(client, message)
-
-        return wrapped_func
-
-    return wrapper
