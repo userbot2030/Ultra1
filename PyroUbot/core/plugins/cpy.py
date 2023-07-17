@@ -62,7 +62,7 @@ async def copy_ubot_msg(client, message):
                     x.results[0].id,
                     reply_to_message_id=msg.id,
                 )
-                COPY_ID[client.me.id] = results.id
+                COPY_ID[client.me.id] = int(results.updates[1].message.id)
             except Exception as e:
                 await client.send_message(
                     message.chat.id,
