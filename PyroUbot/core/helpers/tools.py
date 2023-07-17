@@ -238,7 +238,7 @@ def humanbytes(size):
     return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}"
 
 
-def time_formatter(milliseconds: int) -> str:
+def time_formatter(milliseconds):
     seconds, milliseconds = divmod(milliseconds, 1000)
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
