@@ -70,7 +70,7 @@ async def copy_ubot_msg(client, message):
                     await client.send_video(
                         message.chat.id,
                         video=media,
-                        duration=timedelta(seconds=get.video.duration),
+                        duration=get.video.duration,
                         caption=text,
                         thumb=thumbnail,
                         reply_to_message_id=msg.id,
@@ -89,7 +89,7 @@ async def copy_ubot_msg(client, message):
                     await client.send_audio(
                         message.chat.id,
                         audio=media,
-                        duration=timedelta(seconds=get.audio.duration),
+                        duration=get.audio.duration,
                         caption=text,
                         thumb=thumbnail,
                         reply_to_message_id=msg.id,
