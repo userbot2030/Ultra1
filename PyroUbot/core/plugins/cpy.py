@@ -221,8 +221,8 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join("•" for _ in range(math.floor(percentage / 10))),
-            "".join("~" for _ in range(10 - math.floor(percentage / 10))),
+            "".join("🔴" for _ in range(math.floor(percentage / 10))),
+            "".join("🔘" for _ in range(10 - math.floor(percentage / 10))),
             round(percentage, 2),
         )
         tmp = progress_str + "{0} of {1}\nᴇsᴛɪᴍᴀsɪ: {2}".format(
