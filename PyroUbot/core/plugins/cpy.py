@@ -169,6 +169,7 @@ async def copy_ubot_msg(client, message):
                         reply_to_message_id=msg.id,
                     )
                     COPY_ID[client.me.id] = int(results.updates[1].message.id)
+                    await Tm.delete()
                 except Exception as error:
                     return await Tm.edit(str(error))
     else:
