@@ -6,6 +6,7 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
 
 from PyroUbot import *
 
+COPY_ID = {}
 
 async def copy_bot_msg(client, message):
     if message.from_user.id not in ubot._get_my_id:
@@ -54,12 +55,13 @@ async def copy_ubot_msg(client, message):
             try:
                 text = f"get_msg {id(message)}"
                 x = await client.get_inline_bot_results(bot.me.username, text)
-                await client.send_inline_bot_result(
+                results = await client.send_inline_bot_result(
                     message.chat.id,
                     x.query_id,
                     x.results[0].id,
                     reply_to_message_id=msg.id,
                 )
+                COPY_ID[client.me.id] = results.id
             except Exception:
                 await client.send_message(
                     message.chat.id,
@@ -117,9 +119,7 @@ async def copy_callback_msg(client, callback_query):
             await copy.delete()
             async for get in m._client.search_messages(bot.me.username, limit=1):
                 await m._client.copy_message(m.chat.id, bot.me.username, get.id)
-                await callback_query.edit_message_text(
-                    "<b>✅ ᴄᴏᴘʏ ᴍᴇssᴀɢᴇ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ"
-                )
+                await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id]
                 await get.delete()
     except Exception as error:
         await callback_query.edit_message_text(f"<code>{error}</code>")
