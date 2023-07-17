@@ -3,7 +3,7 @@ import math
 import os
 from gc import get_objects
 from time import time
-
+from datetime import timedelta
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
@@ -59,12 +59,13 @@ async def copy_ubot_msg(client, message):
 
                 elif get.video:
                     media = await client.download_media(
-                        get, progress=progress, progress_args=(Tm, time(), "Video")
+                        get, progress=progress, progress_args=(Tm, time(), " Download Video")
                     )
                     thumbnail = await client.download_media(get.video.thumbs[-1])
                     await client.send_video(
                         message.chat.id,
                         video=media,
+                        duration=timedelta(seconds=get.video.duration),
                         caption=text,
                         thumb=thumbnail,
                         reply_to_message_id=msg.id,
@@ -81,6 +82,7 @@ async def copy_ubot_msg(client, message):
                     await client.send_audio(
                         message.chat.id,
                         audio=media,
+                        duration=timedelta(seconds=get.audio.duration),
                         caption=text,
                         thumb=thumbnail,
                         reply_to_message_id=msg.id,
