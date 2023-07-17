@@ -53,101 +53,106 @@ async def copy_ubot_msg(client, message):
                 except Exception:
                     if get.photo:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ", link),
-                    )
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ", link),
+                        )
                         await client.send_photo(
-                        message.chat.id, media, caption=text, reply_to_message_id=msg.id
-                    )
+                            message.chat.id,
+                            media,
+                            caption=text,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
 
                     elif get.video:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ", link),
-                    )
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ", link),
+                        )
                         thumbnail = await client.download_media(get.video.thumbs[-1])
                         await client.send_video(
-                        message.chat.id,
-                        video=media,
-                        duration=get.video.duration,
-                        caption=text,
-                        thumb=thumbnail,
-                        reply_to_message_id=msg.id,
-                    )
+                            message.chat.id,
+                            video=media,
+                            duration=get.video.duration,
+                            caption=text,
+                            thumb=thumbnail,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
                         os.remove(thumbnail)
 
                     elif get.audio:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ", link),
-                    )
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ", link),
+                        )
                         thumbnail = await client.download_media(get.audio.thumbs[-1])
                         await client.send_audio(
-                        message.chat.id,
-                        audio=media,
-                        duration=get.audio.duration,
-                        caption=text,
-                        thumb=thumbnail,
-                        reply_to_message_id=msg.id,
-                    )
+                            message.chat.id,
+                            audio=media,
+                            duration=get.audio.duration,
+                            caption=text,
+                            thumb=thumbnail,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
                         os.remove(thumbnail)
 
                     elif get.voice:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ", link),
-                    )
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ", link),
+                        )
                         await client.send_voice(
-                        message.chat.id,
-                        voice=media,
-                        caption=text,
-                        reply_to_message_id=msg.id,
-                    )
+                            message.chat.id,
+                            voice=media,
+                            caption=text,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
 
                     elif get.document:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ", link),
-                    )
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ", link),
+                        )
                         thumbnail = await client.download_media(get.document.thumbs[-1])
                         await client.send_document(
-                        message.chat.id,
-                        document=media,
-                        caption=text,
-                        thumb=thumbnail,
-                        reply_to_message_id=msg.id,
-                    )
+                            message.chat.id,
+                            document=media,
+                            caption=text,
+                            thumb=thumbnail,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
                         os.remove(thumbnail)
 
                     elif get.animation:
                         media = await client.download_media(
-                        get,
-                        progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ", link),
-                    )
-                        thumbnail = await client.download_media(get.animation.thumbs[-1])
+                            get,
+                            progress=progress,
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ", link),
+                        )
+                        thumbnail = await client.download_media(
+                            get.animation.thumbs[-1]
+                        )
                         await client.send_animation(
-                        message.chat.id,
-                        animation=media,
-                        caption=text,
-                        thumb=thumbnail,
-                        reply_to_message_id=msg.id,
-                    )
+                            message.chat.id,
+                            animation=media,
+                            caption=text,
+                            thumb=thumbnail,
+                            reply_to_message_id=msg.id,
+                        )
                         await Tm.delete()
                         os.remove(media)
                         os.remove(thumbnail)
