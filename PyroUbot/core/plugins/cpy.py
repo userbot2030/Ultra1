@@ -18,20 +18,16 @@ async def copy_bot_msg(client, message):
         return await Tm.edit(
             f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>"
         )
-    if link.startswith(("https", "t.me")):
-        msg_id = int(link.split("/")[-1])
-        if "t.me/c/" in link:
-            chat = int("-100" + str(link.split("/")[-2]))
-        else:
-            chat = str(link.split("/")[-2])
-        try:
-            get = await client.get_messages(chat, msg_id)
-            await get.copy(message.chat.id)
-            await Tm.delete()
-        except Exception as error:
-            await Tm.edit(error)
-    else:
-        await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
+    msg_id = int(link.split("/")[-1])
+    chat = str(link.split("/")[-2])
+    try:
+        get = await client.get_messages(chat, msg_id)
+        await get.copy(message.chat.id)
+        await Tm.delete()
+    except Exception as error:
+        await Tm.edit(error)
+else:
+    await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
 
 async def copy_ubot_msg(client, message):
