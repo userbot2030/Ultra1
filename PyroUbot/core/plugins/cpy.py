@@ -1,7 +1,6 @@
 import asyncio
 import math
 import os
-from datetime import timedelta
 from gc import get_objects
 from time import time
 
