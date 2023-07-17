@@ -1,18 +1,14 @@
 import asyncio
+import math
 import os
 import shlex
 import textwrap
 from io import BytesIO
+from time import time
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
 
-
-import asyncio
-import math
-import os
-from gc import get_objects
-from time import time
 
 class Media_Info:
     def data(media):
@@ -300,4 +296,3 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                 await asyncio.sleep(e.x)
             except MessageNotModified:
                 pass
-
