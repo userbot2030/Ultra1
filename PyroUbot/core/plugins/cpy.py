@@ -63,7 +63,7 @@ async def copy_ubot_msg(client, message):
                     media = await client.download_media(
                         get,
                         progress=progress,
-                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ\n"),
+                        progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ\n", msg.id),
                     )
                     thumbnail = await client.download_media(get.video.thumbs[-1])
                     await client.send_video(
