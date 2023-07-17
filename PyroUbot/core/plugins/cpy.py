@@ -54,7 +54,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ", get.photo.file_name),
                         )
                         await client.send_photo(
                             message.chat.id,
@@ -69,7 +69,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ", get.video.file_name),
                         )
                         thumbnail = await client.download_media(get.video.thumbs[-1])
                         await client.send_video(
@@ -88,7 +88,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ", get.audio.file_name),
                         )
                         thumbnail = await client.download_media(get.audio.thumbs[-1])
                         await client.send_audio(
@@ -107,7 +107,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ", get.voice.file_name),
                         )
                         await client.send_voice(
                             message.chat.id,
@@ -122,7 +122,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ", get.document.file_name),
                         )
                         thumbnail = await client.download_media(get.document.thumbs[-1])
                         await client.send_document(
@@ -140,7 +140,7 @@ async def copy_ubot_msg(client, message):
                         media = await client.download_media(
                             get,
                             progress=progress,
-                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ", link),
+                            progress_args=(Tm, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ", get.animation.file_name),
                         )
                         thumbnail = await client.download_media(
                             get.animation.thumbs[-1]
