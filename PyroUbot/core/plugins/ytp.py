@@ -31,7 +31,7 @@ async def vsong_cmd(client, message):
             channel,
             thumb,
             data_ytp,
-        ) = await YoutubeDownload(link, infomsg, as_video=True)
+        ) = await YoutubeDownload(link, as_video=True)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
@@ -90,7 +90,7 @@ async def song_cmd(client, message):
             channel,
             thumb,
             data_ytp,
-        ) = await YoutubeDownload(link, infomsg, as_video=False)
+        ) = await YoutubeDownload(link, as_video=False)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
