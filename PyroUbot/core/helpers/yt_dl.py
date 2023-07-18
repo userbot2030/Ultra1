@@ -2,14 +2,15 @@ from asyncio import get_event_loop
 from functools import partial
 
 from yt_dlp import YoutubeDL
-
+from PyroUbot.core.helpers.tools import *
 
 def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 
-async def YoutubeDownload(url, as_video=False):
+async def YoutubeDownload(url, message as_video=False):
     if as_video:
+        type = = "ᴠɪᴅᴇᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
@@ -19,6 +20,7 @@ async def YoutubeDownload(url, as_video=False):
             "geo_bypass": True,
         }
     else:
+        type = "ᴀᴜᴅɪᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
@@ -29,7 +31,18 @@ async def YoutubeDownload(url, as_video=False):
         }
     data_ytp = "<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {}</b>\n\n<b>🏷 ɴᴀᴍᴀ:</ʙ> {}<b>\n<b>🧭 ᴅᴜʀᴀsɪ:</b> {}\n<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {}\n<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {}\n<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href={}>ʏᴏᴜᴛᴜʙᴇ</a>\n\n<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}"
     ydl = YoutubeDL(ydl_opts)
-    ytdl_data = await run_sync(ydl.extract_info, url, download=True)
+    ytdl_data = await run_sync(
+        ydl.extract_info,
+        url,
+        download=True,
+        progress=progress,
+        progress_args=(
+            message,
+            time(),
+            f"ᴅᴏᴡɴʟᴏᴀᴅ {type}",
+            file_name,
+        )
+    )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
     title = ytdl_data["title"]
