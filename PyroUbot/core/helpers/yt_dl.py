@@ -1,6 +1,7 @@
+import random
 from asyncio import get_event_loop
 from functools import partial
-import random
+
 from yt_dlp import YoutubeDL
 
 from PyroUbot.core.helpers.tools import *
@@ -38,8 +39,13 @@ async def YoutubeDownload(url, message, as_video=False):
         url,
         download=True,
         progress=progress,
-        progress_args=(message, time(), type, random.randrange(123456789),
-    ))
+        progress_args=(
+            message,
+            time(),
+            type,
+            random.randrange(123456789),
+        ),
+    )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
     title = ytdl_data["title"]
