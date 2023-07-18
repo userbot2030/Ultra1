@@ -37,12 +37,13 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl.extract_info,
         url,
         download=True,
-        progress_hooks=[
-                    progress,
-                    message=message,
-                    start=time(),
-                    type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
-            ]
+        progress=progress,
+        progress_args=(
+            progress,
+            message,
+            time(),
+            f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
+        )
     )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
