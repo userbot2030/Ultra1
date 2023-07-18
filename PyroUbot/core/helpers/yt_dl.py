@@ -16,7 +16,7 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
-            "progress_hooks": partial(progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}")
+            "progress_hooks": partial(progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"),
             "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
@@ -27,7 +27,7 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
-            "progress_hooks": partial(progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}")
+            "progress_hooks": partial(progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"),
             "format": "bestaudio[ext=m4a]",
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
