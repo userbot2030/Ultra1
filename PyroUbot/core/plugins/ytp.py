@@ -32,7 +32,7 @@ async def vsong_cmd(client, message):
             channel,
             thumb,
             data_ytp,
-        ) = await YoutubeDownload(link, as_video=True)
+        ) = await YoutubeDownload(link, infomsg, as_video=True)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
@@ -52,13 +52,6 @@ async def vsong_cmd(client, message):
             channel,
             url,
             bot.me.mention,
-        ),
-        progress=partial(
-            progress,
-            message=infomsg,
-            start=start_time,
-            type_of_ps="<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
-            file_name=f"{search['id']}.mp4",
         ),
         reply_to_message_id=message.id,
     )
@@ -91,7 +84,7 @@ async def song_cmd(client, message):
             channel,
             thumb,
             data_ytp,
-        ) = await YoutubeDownload(link, as_video=False)
+        ) = await YoutubeDownload(link, infomsg, as_video=False)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
@@ -111,13 +104,6 @@ async def song_cmd(client, message):
             channel,
             url,
             bot.me.mention,
-        ),
-        progress=partial(
-            progress,
-            message=infomsg,
-            start=start_time,
-            type_of_ps="<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
-            file_name=f"{search['id']}.mp3",
         ),
         reply_to_message_id=message.id,
     )
