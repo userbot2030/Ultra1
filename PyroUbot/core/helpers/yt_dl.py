@@ -1,10 +1,8 @@
-import random
 from asyncio import get_event_loop
 from functools import partial
 
 from yt_dlp import YoutubeDL
 
-from PyroUbot.core.helpers.tools import *
 
 
 def run_sync(func, *args, **kwargs):
