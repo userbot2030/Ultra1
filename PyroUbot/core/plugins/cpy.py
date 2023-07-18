@@ -39,7 +39,7 @@ async def download_media_copy(get, client, infomsg, message):
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
                 get.photo.file_id,
@@ -99,7 +99,7 @@ async def download_media_copy(get, client, infomsg, message):
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ",
                 get.audio.file_id,
