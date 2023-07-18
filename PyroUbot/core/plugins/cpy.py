@@ -34,7 +34,7 @@ COPY_ID = {}
 async def download_media_copy(client, message, Tm, msg, get):
     text = get.caption or ""
     if get.photo:
-        name_id = (get.photo.file_name or get.photo.file_id)
+        name_id = get.photo.file_name or get.photo.file_id
         media = await client.download_media(
             get,
             progress=progress,
