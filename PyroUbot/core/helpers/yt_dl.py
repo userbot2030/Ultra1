@@ -16,24 +16,26 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
-            "progress_hooks": partial(
-                progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
-            ),
             "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
             "geo_bypass": True,
+            "progress_hooks": [partial(
+                progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
+            )],
         }
     else:
         type = "ᴀᴜᴅɪᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
-            "progress_hooks": [progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"],
             "format": "bestaudio[ext=m4a]",
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
             "geo_bypass": True,
+            "progress_hooks": [partial(
+                progress, message=message, start=time(), type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
+            )],
         }
     data_ytp = "<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {}</b>\n\n<b>🏷 ɴᴀᴍᴀ:</ʙ> {}<b>\n<b>🧭 ᴅᴜʀᴀsɪ:</b> {}\n<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {}\n<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {}\n<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href={}>ʏᴏᴜᴛᴜʙᴇ</a>\n\n<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}"
     ydl = YoutubeDL(ydl_opts)
