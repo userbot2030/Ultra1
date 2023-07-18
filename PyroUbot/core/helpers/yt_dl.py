@@ -2,7 +2,9 @@ from asyncio import get_event_loop
 from functools import partial
 
 from yt_dlp import YoutubeDL
+
 from PyroUbot.core.helpers.tools import *
+
 
 def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
@@ -41,7 +43,7 @@ async def YoutubeDownload(url, message, as_video=False):
             time(),
             f"ᴅᴏᴡɴʟᴏᴀᴅ {type}",
             file_name,
-        )
+        ),
     )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
