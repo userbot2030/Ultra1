@@ -10,7 +10,7 @@ def run_sync(func, *args, **kwargs):
 
 async def YoutubeDownload(url, message, as_video=False):
     if as_video:
-        type = = "ᴠɪᴅᴇᴏ"
+        type = "ᴠɪᴅᴇᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
