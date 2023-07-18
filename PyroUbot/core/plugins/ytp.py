@@ -33,17 +33,8 @@ async def vsong_cmd(client, message):
             data_ytp,
         ) = await YoutubeDownload(link, as_video=True)
     except Exception as error:
-        return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
-    await infomsg.edit(
-        progress=progress,
-        progress_args=(
-            progress,
-            infomsg,
-            time(),
-            "ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ",
-            f"{search['id']}.mp4",
-        ),
-    )
+        return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ...\n\n{error}</b>")
+    await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ</b>")
     thumbnail = wget.download(thumb)
     await client.send_video(
         message.chat.id,
@@ -94,7 +85,8 @@ async def song_cmd(client, message):
             data_ytp,
         ) = await YoutubeDownload(link, as_video=False)
     except Exception as error:
-        return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
+        return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ...\n\n{error}</b>")
+    await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ</b>")
     thumbnail = wget.download(thumb)
     await client.send_audio(
         message.chat.id,
@@ -113,13 +105,6 @@ async def song_cmd(client, message):
             bot.me.mention,
         ),
         reply_to_message_id=message.id,
-        progress=progress,
-        progress_args=(
-            infomsg,
-            time(),
-            "ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ",
-            f"{search['id']}.mp3",
-        ),
     )
     await infomsg.delete()
     for files in (thumbnail, file_name):
