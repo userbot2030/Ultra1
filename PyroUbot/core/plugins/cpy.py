@@ -51,7 +51,8 @@ async def copy_ubot_msg(client, message):
                     await Tm.delete()
                 except Exception:
                     if get.photo:
-                        media = await client.download_media(
+                        media = await asyncio.to_thread(
+                          client.download_media,
                             get,
                             progress=progress,
                             progress_args=(
@@ -71,7 +72,8 @@ async def copy_ubot_msg(client, message):
                         os.remove(media)
 
                     elif get.video:
-                        media = await client.download_media(
+                        media = await asyncio.to_thread(
+                          client.download_media, 
                             get,
                             progress=progress,
                             progress_args=(
@@ -81,7 +83,7 @@ async def copy_ubot_msg(client, message):
                                 get.video.file_name,
                             ),
                         )
-                        thumbnail = await client.download_media(get.video.thumbs[-1])
+                        thumbnail = await asyncio.to_thread(client.download_media, get.video.thumbs[-1])
                         await client.send_video(
                             message.chat.id,
                             video=media,
@@ -95,7 +97,8 @@ async def copy_ubot_msg(client, message):
                         os.remove(thumbnail)
 
                     elif get.audio:
-                        media = await client.download_media(
+                        media = await asyncio.to_thread(
+                          client.download_media,
                             get,
                             progress=progress,
                             progress_args=(
@@ -105,7 +108,7 @@ async def copy_ubot_msg(client, message):
                                 get.audio.file_name,
                             ),
                         )
-                        thumbnail = await client.download_media(get.audio.thumbs[-1])
+                        thumbnail = await asyncio.to_thread(client.download_media, get.audio.thumbs[-1])
                         await client.send_audio(
                             message.chat.id,
                             audio=media,
@@ -119,7 +122,8 @@ async def copy_ubot_msg(client, message):
                         os.remove(thumbnail)
 
                     elif get.voice:
-                        media = await client.download_media(
+                        media = await asyncio.to_thread(
+                            client.download_media, 
                             get,
                             progress=progress,
                             progress_args=(
@@ -139,7 +143,8 @@ async def copy_ubot_msg(client, message):
                         os.remove(media)
 
                     elif get.document:
-                        media = await client.download_media(
+                        media = await asyncio.to_thread(
+                            client.download_media, 
                             get,
                             progress=progress,
                             progress_args=(
@@ -149,7 +154,7 @@ async def copy_ubot_msg(client, message):
                                 get.document.file_name,
                             ),
                         )
-                        thumbnail = await client.download_media(get.document.thumbs[-1])
+                        thumbnail = await asyncio.to_thread(client.download_media, get.document.thumbs[-1])
                         await client.send_document(
                             message.chat.id,
                             document=media,
@@ -172,7 +177,7 @@ async def copy_ubot_msg(client, message):
                                 get.animation.file_name,
                             ),
                         )
-                        thumbnail = await client.download_media(
+                        thumbnail = await asyncio.to_thread(client.download_media, 
                             get.animation.thumbs[-1]
                         )
                         await client.send_animation(
