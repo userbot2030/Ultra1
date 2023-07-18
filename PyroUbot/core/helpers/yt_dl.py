@@ -20,14 +20,6 @@ async def YoutubeDownload(url, message, as_video=False):
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
             "geo_bypass": True,
-            "progress_hooks": [
-                partial(
-                    progress,
-                    message=message,
-                    start=time(),
-                    type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}",
-                )
-            ],
         }
     else:
         type = "ᴀᴜᴅɪᴏ"
@@ -38,14 +30,6 @@ async def YoutubeDownload(url, message, as_video=False):
             "outtmpl": "downloads/%(id)s.%(ext)s",
             "nocheckcertificate": True,
             "geo_bypass": True,
-            "progress_hooks": [
-                partial(
-                    progress,
-                    message=message,
-                    start=time(),
-                    type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}",
-                )
-            ],
         }
     data_ytp = "<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {}</b>\n\n<b>🏷 ɴᴀᴍᴀ:</ʙ> {}<b>\n<b>🧭 ᴅᴜʀᴀsɪ:</b> {}\n<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {}\n<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {}\n<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href={}>ʏᴏᴜᴛᴜʙᴇ</a>\n\n<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}"
     ydl = YoutubeDL(ydl_opts)
@@ -53,6 +37,12 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl.extract_info,
         url,
         download=True,
+        progress_hooks=[
+                    progress,
+                    message=message,
+                    start=time(),
+                    type_of_ps=f"ᴅᴏᴡɴʟᴏᴀᴅ {type}"
+            ]
     )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
