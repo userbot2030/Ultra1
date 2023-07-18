@@ -32,8 +32,8 @@ COPY_ID = {}
 
 
 async def download_media_copy(Tm, msg, get):
-    text = get.caption or ""
     if get.photo:
+        text = get.caption if get.caption else ""
         name_id = get.photo.file_name if get.photo.file_name else get.photo.file_id
         media = await client.download_media(
             get,
@@ -55,6 +55,7 @@ async def download_media_copy(Tm, msg, get):
         os.remove(media)
 
     elif get.animation:
+        text = get.caption if get.caption else ""
         name_id = (
             get.animation.file_name
             if get.animation.file_name
@@ -80,6 +81,7 @@ async def download_media_copy(Tm, msg, get):
         os.remove(media)
 
     elif get.voice:
+        text = get.caption if get.caption else ""
         name_id = get.voice.file_name if get.voice.file_name else get.voice.file_id
         media = await client.download_media(
             get,
@@ -101,6 +103,7 @@ async def download_media_copy(Tm, msg, get):
         os.remove(media)
 
     elif get.audio:
+        text = get.caption if get.caption else ""
         name_id = get.audio.file_name if get.audio.file_name else get.audio.file_id
         media = await client.download_media(
             get,
@@ -126,6 +129,7 @@ async def download_media_copy(Tm, msg, get):
         os.remove(thumbnail)
 
     elif get.document:
+        text = get.caption if get.caption else ""
         name_id = (
             get.document.file_name if get.document.file_name else get.document.file_id
         )
@@ -149,6 +153,7 @@ async def download_media_copy(Tm, msg, get):
         os.remove(media)
 
     elif get.video:
+        text = get.caption if get.caption else ""
         name_id = get.video.file_name if get.video.file_name else get.video.file_id
         media = await client.download_media(
             get,
@@ -192,7 +197,7 @@ async def copy_ubot_msg(client, message):
                     await get.copy(message.chat.id, reply_to_message_id=msg.id)
                     await Tm.delete()
                 except Exception:
-                    await download_media_copy(Tm, msg, get, text)
+                    await download_media_copy(Tm, msg, get)
             except Exception as e:
                 await Tm.edit(str(e))
         else:
