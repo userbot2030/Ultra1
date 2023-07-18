@@ -35,7 +35,6 @@ async def vsong_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    time()
     await client.send_video(
         message.chat.id,
         video=file_name,
@@ -56,10 +55,10 @@ async def vsong_cmd(client, message):
         progress=progress,
         progress_args=(
             progress,
-            message=infomsg,
-            start=time(),
-            type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ",
-            file_name=f"{search['id']}.mp4",
+            infomsg,
+            time(),
+            "📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ",
+            f"{search['id']}.mp4",
         ),
     )
     await infomsg.delete()
@@ -114,10 +113,10 @@ async def song_cmd(client, message):
         reply_to_message_id=message.id,
         progress=progress,
         progress_args=(
-            message=infomsg,
-            start=time(),
-            type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ",
-            file_name=f"{search['id']}.mp3",
+            infomsg,
+            time(),
+            "📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ",
+            f"{search['id']}.mp3",
         ),
     )
     await infomsg.delete()
