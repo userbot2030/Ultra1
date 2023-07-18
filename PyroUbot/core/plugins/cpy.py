@@ -59,7 +59,7 @@ async def copy_ubot_msg(client, message):
                                 Tm,
                                 time(),
                                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
-                                get.photo.file_name,
+                                get.photo.file_id,
                             ),
                         )
                         await client.send_photo(
