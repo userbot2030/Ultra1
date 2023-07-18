@@ -94,6 +94,7 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
+    start_time = time()
     await client.send_audio(
         message.chat.id,
         audio=file_name,
@@ -112,10 +113,10 @@ async def song_cmd(client, message):
         ),
         progress=partial(
             progress,
-            infomsg,
-            time(),
-            "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
-            f"{search['id']}.mp3",
+            message=infomsg,
+            start=start_time,
+            type_of_ps="<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
+            file_name=f"{search['id']}.mp3",
         ),
         reply_to_message_id=message.id,
     )
