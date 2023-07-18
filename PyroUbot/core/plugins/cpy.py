@@ -54,7 +54,11 @@ async def download_media_copy(Tm, get, text):
         os.remove(media)
 
     elif get.animation:
-        name_id = get.animation.file_name if get.animation.file_name else get.animation.file_id
+        name_id = (
+            get.animation.file_name
+            if get.animation.file_name
+            else get.animation.file_id
+        )
         media = await client.download_media(
             get,
             progress=progress,
@@ -121,7 +125,9 @@ async def download_media_copy(Tm, get, text):
         os.remove(thumbnail)
 
     elif get.document:
-        name_id = get.document.file_name if get.document.file_name else get.document.file_id
+        name_id = (
+            get.document.file_name if get.document.file_name else get.document.file_id
+        )
         media = await client.download_media(
             get,
             progress=progress,
@@ -166,7 +172,7 @@ async def download_media_copy(Tm, get, text):
         os.remove(media)
         os.remove(thumbnail)
 
-    
+
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
     Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
