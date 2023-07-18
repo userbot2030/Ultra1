@@ -31,10 +31,10 @@ async def copy_bot_msg(client, message):
 COPY_ID = {}
 
 
-async def download_media_copy(client, message, Tm, msg, get):
+async def download_media_copy(get, client, infomsg, message):
+    msg = message.reply_to_message or message
     text = get.caption or ""
-    if get.photo:
-        name_id = get.photo.file_name or get.photo.file_id
+    if get.photo:  
         media = await client.download_media(
             get,
             progress=progress,
@@ -42,7 +42,7 @@ async def download_media_copy(client, message, Tm, msg, get):
                 Tm,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
-                name_id,
+                get.photo.file_id,
             ),
         )
         await client.send_photo(
@@ -51,19 +51,18 @@ async def download_media_copy(client, message, Tm, msg, get):
             caption=text,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
 
     elif get.animation:
-        name_id = get.animation.file_name or get.animation.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ",
-                name_id,
+                get.animation.file_id,
             ),
         )
         await client.send_animation(
@@ -72,19 +71,18 @@ async def download_media_copy(client, message, Tm, msg, get):
             caption=text,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
 
     elif get.voice:
-        name_id = get.voice.file_name or get.voice.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ",
-                name_id,
+                get.voice.file_id,
             ),
         )
         await client.send_voice(
@@ -93,11 +91,10 @@ async def download_media_copy(client, message, Tm, msg, get):
             caption=text,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
 
     elif get.audio:
-        name_id = get.audio.file_name or get.audio.file_id
         media = await client.download_media(
             get,
             progress=progress,
@@ -105,7 +102,7 @@ async def download_media_copy(client, message, Tm, msg, get):
                 Tm,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ",
-                name_id,
+                get.audio.file_id,
             ),
         )
         thumbnail = await client.download_media(get.audio.thumbs[-1]) or None
@@ -117,20 +114,19 @@ async def download_media_copy(client, message, Tm, msg, get):
             thumb=thumbnail,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
         os.remove(thumbnail)
 
     elif get.document:
-        name_id = get.document.file_name or get.document.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ",
-                name_id,
+                get.document.file_id,
             ),
         )
         await client.send_document(
@@ -139,16 +135,15 @@ async def download_media_copy(client, message, Tm, msg, get):
             caption=text,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
 
     elif get.video:
-        name_id = get.video.file_name or get.video.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
-                Tm,
+                infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
                 get.video.file_name,
@@ -163,14 +158,14 @@ async def download_media_copy(client, message, Tm, msg, get):
             thumb=thumbnail,
             reply_to_message_id=msg.id,
         )
-        await Tm.delete()
+        await infomsg.delete()
         os.remove(media)
         os.remove(thumbnail)
 
 
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
-    Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
+    infomsg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
     link = get_arg(message)
     if not link:
         return await Tm.edit(
@@ -184,17 +179,17 @@ async def copy_ubot_msg(client, message):
                 get = await client.get_messages(chat, msg_id)
                 try:
                     await get.copy(message.chat.id, reply_to_message_id=msg.id)
-                    await Tm.delete()
+                    await infomsg.delete()
                 except Exception:
-                    await download_media_copy(client, message, Tm, msg, get)
+                    await download_media_copy(get, client, infomsg, message)
             except Exception as e:
-                await Tm.edit(str(e))
+                await infomsg.edit(str(e))
         else:
             chat = str(link.split("/")[-2])
             try:
                 get = await client.get_messages(chat, msg_id)
                 await get.copy(message.chat.id, reply_to_message_id=msg.id)
-                await Tm.delete()
+                await infomsg.delete()
             except Exception:
                 try:
                     text = f"get_msg {id(message)}"
@@ -206,9 +201,9 @@ async def copy_ubot_msg(client, message):
                         reply_to_message_id=msg.id,
                     )
                     COPY_ID[client.me.id] = int(results.updates[1].message.id)
-                    await Tm.delete()
+                    await infomsg.delete()
                 except Exception as error:
-                    return await Tm.edit(str(error))
+                    return await infomsg.edit(str(error))
     else:
         await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
