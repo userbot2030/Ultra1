@@ -30,6 +30,7 @@ async def copy_bot_msg(client, message):
 
 COPY_ID = {}
 
+
 async def download_media_copy(Tm, get, text):
     if get.video:
         media = await client.download_media(
@@ -54,7 +55,7 @@ async def download_media_copy(Tm, get, text):
         await Tm.delete()
         os.remove(media)
         os.remove(thumbnail)
-    
+
     elif get.audio:
         media = await client.download_media(
             get,
@@ -78,7 +79,7 @@ async def download_media_copy(Tm, get, text):
         await Tm.delete()
         os.remove(media)
         os.remove(thumbnail)
-    
+
     elif get.photo:
         media = await client.download_media(
             get,
@@ -98,7 +99,7 @@ async def download_media_copy(Tm, get, text):
         )
         await Tm.delete()
         os.remove(media)
-    
+
     elif get.voice:
         media = await client.download_media(
             get,
@@ -118,7 +119,7 @@ async def download_media_copy(Tm, get, text):
         )
         await Tm.delete()
         os.remove(media)
-    
+
     elif get.document:
         media = await client.download_media(
             get,
@@ -138,7 +139,7 @@ async def download_media_copy(Tm, get, text):
         )
         await Tm.delete()
         os.remove(media)
-    
+
     elif get.animation:
         media = await client.download_media(
             get,
@@ -159,7 +160,7 @@ async def download_media_copy(Tm, get, text):
         await Tm.delete()
         os.remove(media)
 
-  
+
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
     Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
