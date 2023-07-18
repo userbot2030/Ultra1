@@ -251,7 +251,8 @@ def humanbytes(size):
         + (f"{str(milliseconds)} ᴍɪᴋʀᴏᴅᴇᴛɪᴋ, " if milliseconds else "")
     )
     return tmp[:-2]"""
-    
+
+
 async def time_formatter(seconds):
     count = 0
     up_time = ""
@@ -275,6 +276,7 @@ async def time_formatter(seconds):
     up_time += ":".join(time_list)
 
     return up_time
+
 
 async def progress(current, total, message, start, type_of_ps, file_name=None):
     now = time()
