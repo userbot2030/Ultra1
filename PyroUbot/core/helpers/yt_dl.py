@@ -38,7 +38,7 @@ async def YoutubeDownload(url, message, as_video=False):
         url,
         download=True,
         progress=progress,
-        progress_args=(message, time(), type), random.randrange(123456789),
+        progress_args=(message, time(), type, random.randrange(123456789),
     )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
