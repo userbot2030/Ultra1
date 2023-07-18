@@ -11,9 +11,8 @@ def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 
-async def YoutubeDownload(url, message, as_video=False):
+async def YoutubeDownload(url, as_video=False):
     if as_video:
-        type = "📥 ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
@@ -23,7 +22,6 @@ async def YoutubeDownload(url, message, as_video=False):
             "geo_bypass": True,
         }
     else:
-        type = "📥 ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
@@ -38,13 +36,6 @@ async def YoutubeDownload(url, message, as_video=False):
         ydl.extract_info,
         url,
         download=True,
-        progress=progress,
-        progress_args=(
-            message,
-            time(),
-            type,
-            random.randrange(123456789),
-        ),
     )
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
