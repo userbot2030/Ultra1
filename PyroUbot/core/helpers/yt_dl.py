@@ -12,6 +12,7 @@ def run_sync(func, *args, **kwargs):
 
 async def YoutubeDownload(url, message, as_video=False):
     if as_video:
+        type_of_ps = "📥 ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
@@ -21,6 +22,7 @@ async def YoutubeDownload(url, message, as_video=False):
             "geo_bypass": True,
         }
     else:
+        type_of_ps = "📥 ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ"
         ydl_opts = {
             "quiet": True,
             "no_warnings": True,
