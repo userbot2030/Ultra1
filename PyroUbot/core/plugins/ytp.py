@@ -1,6 +1,5 @@
 import os
 from datetime import timedelta
-from time import time
 
 import wget
 from youtubesearchpython import VideosSearch
