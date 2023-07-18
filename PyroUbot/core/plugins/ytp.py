@@ -34,7 +34,7 @@ async def vsong_cmd(client, message):
         ) = await YoutubeDownload(link, as_video=True)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
-    text = (progress=progress,
+    await infomsg.edit((progress=progress,
         progress_args=(
             progress,
             infomsg,
