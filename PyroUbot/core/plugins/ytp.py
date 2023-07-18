@@ -55,7 +55,7 @@ async def vsong_cmd(client, message):
         reply_to_message_id=message.id,
         progress=partial(
             progress,
-            message=progress_msg,
+            message=infomsg,
             start=time(),
             type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ",
             file_name=f"{search['id']}.mp4",
@@ -113,7 +113,7 @@ async def song_cmd(client, message):
         reply_to_message_id=message.id,
         progress=partial(
             progress,
-            message=progress_msg,
+            message=infomsg,
             start=time(),
             type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ",
             file_name=f"{search['id']}.mp3",
