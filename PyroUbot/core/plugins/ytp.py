@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
 from time import time
+from functools import partial
 
 import wget
 from youtubesearchpython import VideosSearch
@@ -51,8 +52,7 @@ async def vsong_cmd(client, message):
             url,
             bot.me.mention,
         ),
-        progress=progress,
-        progress_args=(
+        progress=partial(
             infomsg,
             time(),
             "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
@@ -109,8 +109,7 @@ async def song_cmd(client, message):
             url,
             bot.me.mention,
         ),
-        progress=progress,
-        progress_args=(
+        progress=partial(
             infomsg,
             time(),
             "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
