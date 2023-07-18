@@ -32,31 +32,71 @@ COPY_ID = {}
 
 
 async def download_media_copy(Tm, get, text):
-    if get.video:
+    if get.photo:
+        name_id = get.photo.file_name if get.photo.file_name else get.photo.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
                 Tm,
                 time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
-                get.video.file_name,
+                "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
+                name_id,
             ),
         )
-        thumbnail = await client.download_media(get.video.thumbs[-1])
-        await client.send_video(
+        await client.send_photo(
             message.chat.id,
-            video=media,
-            duration=get.video.duration,
+            media,
             caption=text,
-            thumb=thumbnail,
             reply_to_message_id=msg.id,
         )
         await Tm.delete()
         os.remove(media)
-        os.remove(thumbnail)
+
+    elif get.animation:
+        name_id = get.animation.file_name if get.animation.file_name else get.animation.file_id
+        media = await client.download_media(
+            get,
+            progress=progress,
+            progress_args=(
+                Tm,
+                time(),
+                "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ",
+                name_id,
+            ),
+        )
+        await client.send_animation(
+            message.chat.id,
+            animation=media,
+            caption=text,
+            reply_to_message_id=msg.id,
+        )
+        await Tm.delete()
+        os.remove(media)
+
+    elif get.voice:
+        name_id = get.voice.file_name if get.voice.file_name else get.voice.file_id
+        media = await client.download_media(
+            get,
+            progress=progress,
+            progress_args=(
+                Tm,
+                time(),
+                "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ",
+                name_id,
+            ),
+        )
+        await client.send_voice(
+            message.chat.id,
+            voice=media,
+            caption=text,
+            reply_to_message_id=msg.id,
+        )
+        await Tm.delete()
+        os.remove(media)
 
     elif get.audio:
+        name_id = get.audio.file_name if get.audio.file_name else get.audio.file_id
         media = await client.download_media(
             get,
             progress=progress,
@@ -64,10 +104,10 @@ async def download_media_copy(Tm, get, text):
                 Tm,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀᴜᴅɪᴏ",
-                get.audio.file_name,
+                name_id,
             ),
         )
-        thumbnail = await client.download_media(get.audio.thumbs[-1])
+        thumbnail = await client.download_media(get.audio.thumbs[-1]) or None
         await client.send_audio(
             message.chat.id,
             audio=media,
@@ -80,47 +120,8 @@ async def download_media_copy(Tm, get, text):
         os.remove(media)
         os.remove(thumbnail)
 
-    elif get.photo:
-        media = await client.download_media(
-            get,
-            progress=progress,
-            progress_args=(
-                Tm,
-                time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
-                get.photo.file_id,
-            ),
-        )
-        await client.send_photo(
-            message.chat.id,
-            media,
-            caption=text,
-            reply_to_message_id=msg.id,
-        )
-        await Tm.delete()
-        os.remove(media)
-
-    elif get.voice:
-        media = await client.download_media(
-            get,
-            progress=progress,
-            progress_args=(
-                Tm,
-                time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ",
-                get.voice.file_id,
-            ),
-        )
-        await client.send_voice(
-            message.chat.id,
-            voice=media,
-            caption=text,
-            reply_to_message_id=msg.id,
-        )
-        await Tm.delete()
-        os.remove(media)
-
     elif get.document:
+        name_id = get.document.file_name if get.document.file_name else get.document.file_id
         media = await client.download_media(
             get,
             progress=progress,
@@ -128,7 +129,7 @@ async def download_media_copy(Tm, get, text):
                 Tm,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ",
-                get.document.file_id,
+                name_id,
             ),
         )
         await client.send_document(
@@ -140,27 +141,32 @@ async def download_media_copy(Tm, get, text):
         await Tm.delete()
         os.remove(media)
 
-    elif get.animation:
+    elif get.video:
+        name_id = get.video.file_name if get.video.file_name else get.video.file_id
         media = await client.download_media(
             get,
             progress=progress,
             progress_args=(
                 Tm,
                 time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ",
-                get.animation.file_id,
+                "ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ",
+                get.video.file_name,
             ),
         )
-        await client.send_animation(
+        thumbnail = await client.download_media(get.video.thumbs[-1]) or None
+        await client.send_video(
             message.chat.id,
-            animation=media,
+            video=media,
+            duration=get.video.duration,
             caption=text,
+            thumb=thumbnail,
             reply_to_message_id=msg.id,
         )
         await Tm.delete()
         os.remove(media)
+        os.remove(thumbnail)
 
-
+    
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
     Tm = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
