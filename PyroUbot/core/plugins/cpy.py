@@ -31,10 +31,10 @@ async def copy_bot_msg(client, message):
 COPY_ID = {}
 
 
-async def download_media_copy(client, Tm, msg, get):
+async def download_media_copy(client message, Tm, msg, get):
     text = get.caption or ""
     if get.photo:
-        name_id = get.photo.file_name or get.photo.file_id
+        name_id = get.photo.(file_name or file_id)
         media = await client.download_media(
             get,
             progress=progress,
@@ -186,7 +186,7 @@ async def copy_ubot_msg(client, message):
                     await get.copy(message.chat.id, reply_to_message_id=msg.id)
                     await Tm.delete()
                 except Exception:
-                    await download_media_copy(client, Tm, msg, get)
+                    await download_media_copy(client, message, Tm, msg, get)
             except Exception as e:
                 await Tm.edit(str(e))
         else:
