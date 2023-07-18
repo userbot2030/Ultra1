@@ -31,7 +31,7 @@ async def copy_bot_msg(client, message):
 COPY_ID = {}
 
 
-async def download_media_copy(client message, Tm, msg, get):
+async def download_media_copy(client, message, Tm, msg, get):
     text = get.caption or ""
     if get.photo:
         name_id = get.photo.(file_name or file_id)
