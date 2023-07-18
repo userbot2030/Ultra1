@@ -238,7 +238,7 @@ def humanbytes(size):
     return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}"
 
 
-"""def time_formatter(milliseconds):
+def time_formatter(milliseconds):
     seconds, milliseconds = divmod(milliseconds, 1000)
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
@@ -250,32 +250,7 @@ def humanbytes(size):
         + (f"{str(seconds)} ᴅᴇᴛɪᴋ, " if seconds else "")
         + (f"{str(milliseconds)} ᴍɪᴋʀᴏᴅᴇᴛɪᴋ, " if milliseconds else "")
     )
-    return tmp[:-2]"""
-
-
-async def time_formatter(seconds):
-    count = 0
-    up_time = ""
-    time_list = []
-    time_suffix_list = ["s", "ᴍ", "ʜ", "ᴅ"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for i in range(len(time_list)):
-        time_list[i] = str(time_list[i]) + time_suffix_list[i]
-    if len(time_list) == 4:
-        up_time += time_list.pop() + ":"
-
-    time_list.reverse()
-    up_time += ":".join(time_list)
-
-    return up_time
+    return tmp[:-2]
 
 
 async def progress(current, total, message, start, type_of_ps, file_name=None):
