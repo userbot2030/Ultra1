@@ -21,6 +21,7 @@ async def vsong_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
     try:
+        await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ</b>")
         (
             file_name,
             title,
@@ -33,7 +34,6 @@ async def vsong_cmd(client, message):
         ) = await YoutubeDownload(link, as_video=True)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ...\n\n{error}</b>")
-    await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ</b>")
     thumbnail = wget.download(thumb)
     await client.send_video(
         message.chat.id,
@@ -73,6 +73,7 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
     try:
+        await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ</b>")
         (
             file_name,
             title,
@@ -85,7 +86,6 @@ async def song_cmd(client, message):
         ) = await YoutubeDownload(link, as_video=False)
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ...\n\n{error}</b>")
-    await infomsg.edit("<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ</b>")
     thumbnail = wget.download(thumb)
     await client.send_audio(
         message.chat.id,
