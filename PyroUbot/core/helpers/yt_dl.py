@@ -33,18 +33,26 @@ async def YoutubeDownload(url, message, as_video=False):
         }
     data_ytp = "<b>💡 ɪɴꜰᴏʀᴍᴀsɪ {}</b>\n\n<b>🏷 ɴᴀᴍᴀ:</ʙ> {}<b>\n<b>🧭 ᴅᴜʀᴀsɪ:</b> {}\n<b>👀 ᴅɪʟɪʜᴀᴛ:</b> {}\n<b>📢 ᴄʜᴀɴɴᴇʟ:</b> {}\n<b>🔗 ᴛᴀᴜᴛᴀɴ:</b> <a href={}>ʏᴏᴜᴛᴜʙᴇ</a>\n\n<b>⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ:</b> {}"
     ydl = YoutubeDL(ydl_opts)
-    ytdl_data = await run_sync(
-        ydl.extract_info,
-        url,
-        download=True,
-        progress=progress,
-        progress_args=(
-            progress,
-            message,
-            time(),
-            f"ᴅᴏᴡɴʟᴏᴀᴅ {type}",
-        ),
-    )
+    async def progress_hook(d):
+        if d["status"] == "downloading":
+            progress_str = "{0}{1} {2}%\n".format(
+                "".join("•" for _ in range(math.floor(d["downloaded_bytes"] * 10 / d["total_bytes"]))),
+                "".join("~" for _ in range(10 - math.floor(d["downloaded_bytes"] * 10 / d["total_bytes"]))),
+                round(d["downloaded_bytes"] * 100 / d["total_bytes"], 2),
+            )
+            tmp = progress_str + "{0} of {1}\nᴇsᴛɪᴍᴀᴛᴇᴅ ᴛɪᴍᴇ: {2}".format(
+                humanbytes(d["downloaded_bytes"]), humanbytes(d["total_bytes"]), time_formatter(d["eta"])
+            )
+            try:
+                await message.edit(f"{type_of_ps}\n{tmp}")
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+            except MessageNotModified:
+                pass
+
+    ydl_opts["progress_hooks"] = [progress_hook]
+    ytdl_data = await run_sync(ydl.extract_info, url, download=True)
+    
     file_name = ydl.prepare_filename(ytdl_data)
     videoid = ytdl_data["id"]
     title = ytdl_data["title"]
