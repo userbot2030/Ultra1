@@ -205,7 +205,7 @@ async def copy_ubot_msg(client, message):
                 except Exception as error:
                     return await infomsg.edit(str(error))
     else:
-        await Tm.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
+        await infomsg.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
 
 async def copy_inline_msg(client, inline_query):
