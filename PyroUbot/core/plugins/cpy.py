@@ -51,8 +51,7 @@ async def copy_ubot_msg(client, message):
                     await Tm.delete()
                 except Exception:
                     if get.photo:
-                        media = await asyncio.to_thread(
-                            client.download_media,
+                        media = await client.download_media(
                             get,
                             progress=progress,
                             progress_args=(
@@ -72,8 +71,7 @@ async def copy_ubot_msg(client, message):
                         os.remove(media)
 
                     elif get.video:
-                        media = await asyncio.to_thread(
-                            client.download_media,
+                        media = await client.download_media(
                             get,
                             progress=progress,
                             progress_args=(
@@ -83,9 +81,7 @@ async def copy_ubot_msg(client, message):
                                 get.video.file_name,
                             ),
                         )
-                        thumbnail = await asyncio.to_thread(
-                            client.download_media, get.video.thumbs[-1]
-                        )
+                        thumbnail = await client.download_media(get.video.thumbs[-1])
                         await client.send_video(
                             message.chat.id,
                             video=media,
@@ -99,8 +95,7 @@ async def copy_ubot_msg(client, message):
                         os.remove(thumbnail)
 
                     elif get.audio:
-                        media = await asyncio.to_thread(
-                            client.download_media,
+                        media = await client.download_media(
                             get,
                             progress=progress,
                             progress_args=(
@@ -110,9 +105,7 @@ async def copy_ubot_msg(client, message):
                                 get.audio.file_name,
                             ),
                         )
-                        thumbnail = await asyncio.to_thread(
-                            client.download_media, get.audio.thumbs[-1]
-                        )
+                        thumbnail = await client.download_media(get.audio.thumbs[-1])
                         await client.send_audio(
                             message.chat.id,
                             audio=media,
@@ -126,15 +119,14 @@ async def copy_ubot_msg(client, message):
                         os.remove(thumbnail)
 
                     elif get.voice:
-                        media = await asyncio.to_thread(
-                            client.download_media,
+                        media = await client.download_media(
                             get,
                             progress=progress,
                             progress_args=(
                                 Tm,
                                 time(),
                                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ",
-                                get.voice.file_name,
+                                get.voice.file_id,
                             ),
                         )
                         await client.send_voice(
@@ -147,20 +139,17 @@ async def copy_ubot_msg(client, message):
                         os.remove(media)
 
                     elif get.document:
-                        media = await asyncio.to_thread(
-                            client.download_media,
+                        media = await client.download_media(
                             get,
                             progress=progress,
                             progress_args=(
                                 Tm,
                                 time(),
                                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴅᴏᴄᴜᴍᴇɴᴛ",
-                                get.document.file_name,
+                                get.document.file_id,
                             ),
                         )
-                        thumbnail = await asyncio.to_thread(
-                            client.download_media, get.document.thumbs[-1]
-                        )
+                        thumbnail = await client.download_media(get.document.thumbs[-1])
                         await client.send_document(
                             message.chat.id,
                             document=media,
@@ -180,11 +169,11 @@ async def copy_ubot_msg(client, message):
                                 Tm,
                                 time(),
                                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ",
-                                get.animation.file_name,
+                                get.animation.file_id,
                             ),
                         )
-                        thumbnail = await asyncio.to_thread(
-                            client.download_media, get.animation.thumbs[-1]
+                        thumbnail = await client.download_media(
+                            get.animation.thumbs[-1]
                         )
                         await client.send_animation(
                             message.chat.id,
