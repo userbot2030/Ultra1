@@ -53,6 +53,7 @@ async def vsong_cmd(client, message):
             bot.me.mention,
         ),
         progress=partial(
+            progress,
             infomsg,
             time(),
             "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
@@ -110,6 +111,7 @@ async def song_cmd(client, message):
             bot.me.mention,
         ),
         progress=partial(
+            progress,
             infomsg,
             time(),
             "<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...</b>",
