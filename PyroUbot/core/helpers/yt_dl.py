@@ -4,7 +4,6 @@ from functools import partial
 from yt_dlp import YoutubeDL
 
 
-
 def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
