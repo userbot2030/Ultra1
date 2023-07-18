@@ -8,7 +8,7 @@ def run_sync(func, *args, **kwargs):
     return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
 
 
-async def YoutubeDownload(url, message as_video=False):
+async def YoutubeDownload(url, message, as_video=False):
     if as_video:
         type = = "ᴠɪᴅᴇᴏ"
         ydl_opts = {
