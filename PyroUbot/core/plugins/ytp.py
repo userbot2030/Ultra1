@@ -1,6 +1,5 @@
 import os
 from datetime import timedelta
-from functools import partial
 from time import time
 
 import wget
@@ -36,7 +35,7 @@ async def vsong_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    start_time = time()
+    time()
     await client.send_video(
         message.chat.id,
         video=file_name,
@@ -88,7 +87,7 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    start_time = time()
+    time()
     await client.send_audio(
         message.chat.id,
         audio=file_name,
