@@ -53,7 +53,8 @@ async def vsong_cmd(client, message):
             bot.me.mention,
         ),
         reply_to_message_id=message.id,
-    )
+        progress=partial(progress, message=progress_msg, start=time(), type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ")
+    
     await infomsg.delete()
     for files in (thumbnail, file_name):
         if files and os.path.exists(files):
@@ -87,7 +88,6 @@ async def song_cmd(client, message):
     except Exception as error:
         return await infomsg.edit(f"<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ...\n\n{error}</b>")
     thumbnail = wget.download(thumb)
-    time()
     await client.send_audio(
         message.chat.id,
         audio=file_name,
@@ -105,6 +105,7 @@ async def song_cmd(client, message):
             bot.me.mention,
         ),
         reply_to_message_id=message.id,
+        progress=partial(progress, message=progress_msg, start=time(), type_of_ps="📥 ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴀᴜᴅɪᴏ")
     )
     await infomsg.delete()
     for files in (thumbnail, file_name):
