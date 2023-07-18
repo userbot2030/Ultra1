@@ -42,7 +42,7 @@ async def vsong_cmd(client, message):
             time(),
             "ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴠɪᴅᴇᴏ",
             f"{search['id']}.mp4",
-        )
+        ),
     )
     thumbnail = wget.download(thumb)
     await client.send_video(
