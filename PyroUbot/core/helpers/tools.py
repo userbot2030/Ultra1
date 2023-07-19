@@ -203,6 +203,14 @@ async def bash(cmd):
     return out, err
 
 
+def get_size(bytes, suffix="B"):
+    factor = 1024
+    for unit in ["", "K", "M", "G", "T", "P"]:
+        if bytes < factor:
+            return f"{bytes:.2f}{unit}{suffix}"
+        bytes /= factor
+
+
 async def run_cmd(cmd):
     args = shlex.split(cmd)
     process = await asyncio.create_subprocess_exec(
