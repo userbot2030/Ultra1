@@ -1,7 +1,8 @@
 import os
 import platform
+import subprocess
 import sys
-import traceback, subprocess
+import traceback
 from datetime import datetime
 from io import BytesIO, StringIO
 
