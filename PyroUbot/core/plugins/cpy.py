@@ -38,13 +38,7 @@ async def download_media_copy(get, client, infomsg, message):
         media = await client.download_media(
             get,
             progress=progress,
-            progress_args=(
-                infomsg,
-                time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ",
-                get.photo.file_id,
-            ),
-        )
+            progress_args=(infomsg, time(),"ᴅᴏᴡɴʟᴏᴀᴅ ᴘʜᴏᴛᴏ", get.photo.file_id))
         await client.send_photo(
             message.chat.id,
             media,
