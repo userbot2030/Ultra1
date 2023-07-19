@@ -73,11 +73,7 @@ async def download_media_copy(get, client, infomsg, message):
         media = await client.download_media(
             get,
             progress=progress,
-            progress_args=(
-                infomsg,
-                time(),
-                "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ",
-                get.voice.file_id),
+            progress_args=(infomsg, time(), "ᴅᴏᴡɴʟᴏᴀᴅ ᴠᴏɪᴄᴇ", get.voice.file_id),
         )
         await client.send_voice(
             message.chat.id,
