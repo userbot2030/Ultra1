@@ -1,6 +1,5 @@
 import os
 import platform
-import subprocess
 import sys
 import traceback
 from datetime import datetime
