@@ -11,14 +11,6 @@ import psutil
 from PyroUbot import *
 
 
-def get_size(bytes, suffix="B"):
-    factor = 1024
-    for unit in ["", "K", "M", "G", "T", "P"]:
-        if bytes < factor:
-            return f"{bytes:.2f}{unit}{suffix}"
-        bytes /= factor
-
-
 async def shell_cmd(client, message):
     if len(message.command) < 2:
         return await message.reply("noob")
@@ -30,7 +22,7 @@ async def shell_cmd(client, message):
             await message.delete()
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "update":
-            out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
+            out = await bash("git pull")
             if "Already up to date." in str(out):
                 return await message.reply(out, quote=True)
             elif int(len(str(out))) > 4096:
