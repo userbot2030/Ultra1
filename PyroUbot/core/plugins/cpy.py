@@ -57,8 +57,7 @@ async def download_media_copy(get, client, infomsg, message):
                 infomsg,
                 time(),
                 "ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴɪᴍᴀᴛɪᴏɴ",
-                get.animation.file_id,
-            ),
+                get.animation.file_id)
         )
         await client.send_animation(
             message.chat.id,
