@@ -73,7 +73,7 @@ class Ubot(Client):
         prefixes = self._prefix.get(user_id, PREFIX)
         return prefixes
 
-    def cmd_ubot(self, cmd):
+    def cmd_prefix(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
