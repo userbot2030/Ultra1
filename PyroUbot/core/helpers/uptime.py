@@ -7,7 +7,7 @@ async def get_time(seconds):
     count = 0
     up_time = ""
     time_list = []
-    time_suffix_list = ["s", "ᴍ", "ʜ", "ᴅ", "ᴡ", "ᴍᴏ"]
+    time_suffix_list = ["ᴅᴇᴛɪᴋ", "ᴍᴇɴɪᴛ", "Jᴀᴍ", "ʜᴀʀɪ", "ᴍɪɴɢɢᴜ", "ʙᴜʟᴀɴ"]
 
     while count < 6:
         count += 1
@@ -33,6 +33,6 @@ async def get_time(seconds):
         up_time += time_list.pop() + ":"
 
     time_list.reverse()
-    up_time += ":".join(time_list)
+    up_time += " ".join(time_list)
 
     return up_time
