@@ -73,7 +73,7 @@ class Ubot(Client):
         prefixes = self._prefix.get(user_id, PREFIX)
         return prefixes
 
-    def command_filter(self, cmd):
+    def cmd_ubot(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
@@ -127,7 +127,7 @@ class Ubot(Client):
             self._prefix[self.me.id] = PREFIX
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
-        self._translate[self.me.id] = {"negara": "id"}
+        self._translate[self.me.id] = "id"
         print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) - 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
 
 
