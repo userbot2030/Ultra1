@@ -27,10 +27,10 @@ async def get_time(seconds):
         seconds = int(remainder)
 
     for i in range(len(time_list)):
-        time_list[i] = str(time_list[i]) + time_suffix_list[i]
+        time_list[i] = str(time_list[i]) + " " + time_suffix_list[i]
 
     if len(time_list) >= 4:
-        up_time += time_list.pop() + ":"
+        up_time += time_list.pop() + " "
 
     time_list.reverse()
     up_time += " ".join(time_list)
