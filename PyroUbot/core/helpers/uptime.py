@@ -2,12 +2,13 @@ from time import time as waktunya
 
 start_time = waktunya()
 
+
 async def get_time(seconds):
     count = 0
     up_time = ""
     time_list = []
     time_suffix_list = ["s", "ᴍ", "ʜ", "ᴅ", "ᴡ", "ᴡᴍᴏ"]
-    
+
     while count < 6:
         count += 1
         if count < 3:
@@ -15,7 +16,7 @@ async def get_time(seconds):
         elif count < 4:
             remainder, result = divmod(seconds, 24)
         elif count < 5:
-            remainder, result = divmod(seconds, 7) 
+            remainder, result = divmod(seconds, 7)
         else:
             remainder, result = divmod(seconds, 30 * 24 * 60 * 60)
 
