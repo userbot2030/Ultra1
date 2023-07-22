@@ -148,20 +148,18 @@ async def evalator_cmd(client, message):
 async def trash_cmd(client, message):
     text = message.command[1:]
     if message.reply_to_message:
-        msg_id = message.reply_to_message.id
+        try:
+            msgs = await client.get_messages(message.chat.id, message.reply_to_message.id)
+            if len(str(msgs)) > 4096:
+                with BytesIO(str.encode(str(msgs))) as out_file:
+                    out_file.name = "trash.txt"
+                    return await message.reply_document(document=out_file)
+            else:
+                return await message.reply(msgs.text)
+        except Exception as error:
+            return await message.reply(str(error))
     else:
-        msg_id = message.id
-    try:
-        msgs = await client.get_messages(message.chat.id, msg_id)
-        if len(str(msgs)) > 4096:
-            with BytesIO(str.encode(str(msgs))) as out_file:
-                out_file.name = "trash.txt"
-                return await message.reply_document(document=out_file)
-        else:
-            return await message.reply(msgs.text)
-    except Exception as error:
-        return await message.reply(str(error))
-
+        return await message.reply("bukan gitu caranya")
 
 async def get_my_otp(client, message):
     TM = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs</b>", quote=True)
