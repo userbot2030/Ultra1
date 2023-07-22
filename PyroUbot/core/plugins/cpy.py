@@ -2,7 +2,7 @@ import asyncio
 import os
 from gc import get_objects
 from time import time
-
+drom  io import BytesIO
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InputTextMessageContent)
 
@@ -198,7 +198,14 @@ async def copy_ubot_msg(client, message):
                     COPY_ID[client.me.id] = int(results.updates[1].message.id)
                     await infomsg.delete()
                 except Exception as error:
-                    return await infomsg.edit(f"{str(error)}\n\n{results}")
+                    if int(len(str(error))) > 4096:
+                        with BytesIO(str.encode(str(error))) as out_file:
+                            out_file.name = "update.txt"
+                            await message.reply_document(
+                                document=out_file,
+                            )
+                    else:
+                        return await infomsg.edit(f"{str(error)}\n\n{results}")
     else:
         await infomsg.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
