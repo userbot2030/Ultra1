@@ -164,10 +164,7 @@ async def trash_cmd(client, message, query=None):
                         out_file.name = "trash.txt"
                         return await message.reply_document(document=out_file)
                 else:
-                    if len(message.command) < 2:
-                        return await message.reply(str(msgs))
-                    else:
-                        return await message.reply(str(msgs))
+                    return await message.reply(str(msgs))
         except Exception as error:
             return await message.reply(str(error))
     else:
