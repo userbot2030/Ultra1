@@ -146,6 +146,7 @@ async def evalator_cmd(client, message):
 
 
 async def trash_cmd(client, message):
+    text = message.command[1:]
     if message.reply_to_message:
         msg_id = message.reply_to_message.id
     else:
@@ -157,7 +158,7 @@ async def trash_cmd(client, message):
                 out_file.name = "trash.txt"
                 return await message.reply_document(document=out_file)
         else:
-            return await message.reply(msgs)
+            return await message.reply(msgs.text)
     except Exception as error:
         return await message.reply(str(error))
 
