@@ -10,6 +10,22 @@ from pyrogram.types import *
 from PyroUbot import *
 
 
+"""
+    if user_id not in await get_prem():
+        buttons = [
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
+            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
+        ]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            MSG.POLICY(),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
+"""
+
+
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     if len(ubot._ubot) > MAX_BOT:
@@ -29,20 +45,6 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-"""
-    if user_id not in await get_prem():
-        buttons = [
-            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
-        ]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            MSG.POLICY(),
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
-"""
     else:
         buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
         await callback_query.message.delete()
