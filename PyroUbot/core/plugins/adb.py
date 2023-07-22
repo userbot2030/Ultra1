@@ -1,6 +1,6 @@
 import asyncio
 import importlib
-from datetime import datetime
+from datetime import datetime, timedelta
 from time import time
 
 from pyrogram.enums import SentCodeType
@@ -186,6 +186,9 @@ async def bikin_ubot(client, callback_query):
         api_hash=API_HASH,
         session_string=session_string,
     )
+    now = datetime.now(timezone("Asia/Jakarta"))
+    expire_date = now + timedelta(days=7)
+    await set_expired_date(new_client.me.id, expire_date)
     await set_uptime(new_client.me.id, time())
     for id_maker in [user_id, new_client.me.id]:
         try:
