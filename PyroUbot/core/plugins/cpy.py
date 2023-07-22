@@ -201,12 +201,13 @@ async def copy_ubot_msg(client, message):
                 except Exception as error:
                     if int(len(str(error))) > 4096:
                         with BytesIO(str.encode(str(error))) as out_file:
-                            out_file.name = "update.txt"
+                            out_file.name = "k.txt"
                             await message.reply_document(
                                 document=out_file,
                             )
                     else:
-                        return await infomsg.edit(f"{str(error)}\n\n{results}")
+                        await message.reply(f"{str(error)}\n\n{results}")
+                    return await infomsg.delete()
     else:
         await infomsg.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
 
