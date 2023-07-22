@@ -195,7 +195,11 @@ async def copy_ubot_msg(client, message):
                         x.results[0].id,
                         reply_to_message_id=msg.id,
                     )
-                    if len(results.updates) > 1 and hasattr(results.updates[1], "message") and hasattr(results.updates[1].message, "id"):
+                    if (
+                        len(results.updates) > 1
+                        and hasattr(results.updates[1], "message")
+                        and hasattr(results.updates[1].message, "id")
+                    ):
                         COPY_ID[client.me.id] = int(results.updates[1].message.id)
                     await infomsg.delete()
                 except Exception as error:
