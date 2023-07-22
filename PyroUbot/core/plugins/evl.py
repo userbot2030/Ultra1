@@ -155,7 +155,7 @@ async def trash_cmd(client, message, query=None):
             else:
                 if len(message.command) < 2:
                     return await message.reply(msgs)
-                else;
+                else:
                     value = eval(f"message.reply_to_message.{message.command[1:]}")
                     return await message.reply(value)
         except Exception as error:
