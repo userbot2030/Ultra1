@@ -199,8 +199,8 @@ async def copy_ubot_msg(client, message):
                     COPY_ID[client.me.id] = int(results.updates[1].message.id)
                     await infomsg.delete()
                 except Exception as error:
-                    if int(len(str(results))) > 4096:
-                        with BytesIO(str.encode(str(results))) as out_file:
+                    if int(len(str(results.updates))) > 4096:
+                        with BytesIO(str.encode(str(results.updates))) as out_file:
                             out_file.name = "k.txt"
                             await message.reply_document(
                                 document=out_file,
