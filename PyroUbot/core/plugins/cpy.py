@@ -1,7 +1,6 @@
 import asyncio
 import os
 from gc import get_objects
-from io import BytesIO
 from time import time
 
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
