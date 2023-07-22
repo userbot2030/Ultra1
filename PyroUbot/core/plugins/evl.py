@@ -149,7 +149,9 @@ async def trash_cmd(client, message):
     text = message.command[1:]
     if message.reply_to_message:
         try:
-            msgs = await client.get_messages(message.chat.id, message.reply_to_message.id)
+            msgs = await client.get_messages(
+                message.chat.id, message.reply_to_message.id
+            )
             if len(str(msgs)) > 4096:
                 with BytesIO(str.encode(str(msgs))) as out_file:
                     out_file.name = "trash.txt"
@@ -160,6 +162,7 @@ async def trash_cmd(client, message):
             return await message.reply(str(error))
     else:
         return await message.reply("bukan gitu caranya")
+
 
 async def get_my_otp(client, message):
     TM = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs</b>", quote=True)
