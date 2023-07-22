@@ -13,7 +13,7 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["OSErro", "socket"]:
+        for X in ["OSErro", "TimeoutError"]:
             if X in record.getMessage():
                 os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
