@@ -148,7 +148,9 @@ async def evalator_cmd(client, message):
 async def trash_cmd(client, message):
     if message.reply_to_message:
         try:
-            msgs = await client.get_messages(message.chat.id, message.reply_to_message.id)
+            msgs = await client.get_messages(
+                message.chat.id, message.reply_to_message.id
+            )
             if len(str(msgs)) > 4096:
                 with BytesIO(str.encode(str(msgs))) as out_file:
                     out_file.name = "trash.txt"
