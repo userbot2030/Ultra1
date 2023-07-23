@@ -260,6 +260,13 @@ async def cek_ubot(client, callback_query):
         await asyncio.sleep(1)
 
 
+async def next_prev_ubot(client, callback_query)
+    query = callback_query.data.split()
+    if query[0] == "next_ub":
+        pass
+    elif query[0] == "prev_ub":
+        pass
+
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
     expired = await get_expired_date(user_id)
