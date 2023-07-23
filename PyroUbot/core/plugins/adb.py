@@ -260,7 +260,7 @@ async def cek_ubot(client, callback_query):
         await asyncio.sleep(1)
 
 
-async def next_prev_ubot(client, callback_query)
+async def next_prev_ubot(client, callback_query):
     query = callback_query.data.split()
     if query[0] == "next_ub":
         pass
