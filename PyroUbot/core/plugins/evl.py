@@ -145,7 +145,7 @@ async def evalator_cmd(client, message):
     await TM.delete()
 
 
-async def trash_cmd(client, message, query=None):
+async def trash_cmd(client, message):
     if message.reply_to_message:
         try:
             if len(message.command) < 2:
