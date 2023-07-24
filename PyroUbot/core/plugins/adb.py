@@ -28,7 +28,7 @@ from PyroUbot import *
 
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
-    if user_id in ubot._get_my_id
+    if user_id in ubot._get_my_id:
         return await bot.send_message(user_id, "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ > /restart</b>")
     elif len(ubot._ubot) > MAX_BOT:
         buttons = [
