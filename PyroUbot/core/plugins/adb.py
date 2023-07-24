@@ -355,26 +355,30 @@ async def hapus_ubot(client, callback_query):
             await callback_query.edit_message_text(
                 user,
                 reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {ubot._ubot[count].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                        callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
-                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
-                ],
-            ]
-        ),
-    )
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                                callback_data=f"del_ubot {ubot._ubot[count].me.id}",
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                                callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "⬅️", callback_data=f"prev_ub {count}"
+                            ),
+                            InlineKeyboardButton(
+                                "➡️", callback_data=f"next_ub {count}"
+                            ),
+                        ],
+                    ]
+                ),
+            )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
