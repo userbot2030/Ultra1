@@ -351,7 +351,7 @@ async def hapus_ubot(client, callback_query):
             await callback_query.answer(
                 f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
-            expired_date = await get_expired_date(ubot._ubot[0].me.id)
+            await get_expired_date(ubot._ubot[0].me.id)
             user = MSG.USERBOT()
             await callback_query.edit_message_text(
                 user,
