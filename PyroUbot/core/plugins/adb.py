@@ -242,7 +242,7 @@ async def cek_ubot(client, callback_query):
     await bot.send_message(
         callback_query.from_user.id,
         user,
-        reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0))
+        reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)),
     )
 
 
@@ -268,7 +268,9 @@ async def next_prev_ubot(client, callback_query):
 """
     await callback_query.edit_message_text(
         user,
-        reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[count].me.id, count))
+        reply_markup=InlineKeyboardMarkup(
+            Button.userbot(ubot._ubot[count].me.id, count)
+        ),
     )
 
 
@@ -292,7 +294,9 @@ async def get_num_otp(client, callback_query):
                     else:
                         await callback_query.edit_message_text(
                             otp.text,
-                            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2])))
+                            reply_markup=InlineKeyboardMarkup(
+                                Button.userbot(X.me.id, int(query[2]))
+                            ),
                         )
                         await X.delete_messages(X.me.id, otp.id)
                 except Exception as error:
@@ -301,7 +305,7 @@ async def get_num_otp(client, callback_query):
             try:
                 return await callback_query.edit_message_text(
                     X.me.phone_number,
-                    reply_markup=InlineKeyboardMarkup((X.me.id, int(query[2])))
+                    reply_markup=InlineKeyboardMarkup((X.me.id, int(query[2]))),
                 )
             except Exception as error:
                 return await callback_query.answer(error, True)
@@ -356,7 +360,10 @@ async def hapus_ubot(client, callback_query):
 """
             await callback_query.edit_message_text(
                 user,
-                reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)))
+                reply_markup=InlineKeyboardMarkup(
+                    Button.userbot(ubot._ubot[0].me.id, 0)
+                ),
+            )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
