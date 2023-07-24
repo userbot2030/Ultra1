@@ -100,20 +100,23 @@ class Button:
                 )
             ],
             [
-                InlineKeyboardButton(
-                    "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                    callback_data=f"cek_masa_aktif {int(user_id)}",
+               InlineKeyboardButton(
+                    "📲 ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
+                    callback_data=f"get_phone {int(user_id)} {int(count)}",
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
-                    callback_data=f"get_otp {int(user_id)} {int(count)}",
-                ),
+                    "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                    callback_data=f"cek_masa_aktif {int(user_id)}",
+                )
+                
+            ],
+            [
                 InlineKeyboardButton(
-                    "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
-                    callback_data=f"get_phone {int(user_id)} {int(count)}",
-                ),
+                    "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ 🔑",
+                    callback_data=f"get_otp {int(user_id)} {int(count)}",
+                )
             ],
             [
                 InlineKeyboardButton("⬅️", callback_data=f"prev_ub {int(count)}"),
