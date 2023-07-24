@@ -10,7 +10,6 @@ from pytz import timezone
 
 from PyroUbot import *
 
-
 """
     if user_id not in await get_prem():
         buttons = [
@@ -236,29 +235,29 @@ async def cek_ubot(client, callback_query):
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
     await bot.send_message(
-            callback_query.from_user.id,
-            user,
-            reply_markup=InlineKeyboardMarkup(
+        callback_query.from_user.id,
+        user,
+        reply_markup=InlineKeyboardMarkup(
+            [
                 [
-                    [
-                        InlineKeyboardButton(
-                            "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                            callback_data=f"del_ubot {ubot._ubot[0].id}",
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                            callback_data=f"cek_masa_aktif {ubot._ubot[0].id}",
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
-                        InlineKeyboardButton("➡️", callback_data="next_ub 1")
-                    ],
-                ]
-            ),
-        )
+                    InlineKeyboardButton(
+                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                        callback_data=f"del_ubot {ubot._ubot[0].id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                        callback_data=f"cek_masa_aktif {ubot._ubot[0].id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
+                    InlineKeyboardButton("➡️", callback_data="next_ub 1"),
+                ],
+            ]
+        ),
+    )
 
 
 async def next_prev_ubot(client, callback_query):
@@ -275,7 +274,9 @@ async def next_prev_ubot(client, callback_query):
 <b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-        await callback_query.edit_message_text(user, reply_markup=InlineKeyboardMarkup(
+        await callback_query.edit_message_text(
+            user,
+            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
@@ -291,13 +292,14 @@ async def next_prev_ubot(client, callback_query):
                     ],
                     [
                         InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
-                        InlineKeyboardButton("➡️", callback_data=f"next_ub {count}")
+                        InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
                     ],
                 ]
             ),
         )
     except:
         pass
+
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
