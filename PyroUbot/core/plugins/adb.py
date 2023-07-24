@@ -356,7 +356,7 @@ async def get_num_otp(client, callback_query):
                 [
                     InlineKeyboardButton(
                         "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
-                        callback_data=f"get_otp {ubot._ubot[int(query[2])].me.id} {count}",
+                        callback_data=f"get_otp {ubot._ubot[int(query[2])].me.id} {int(query[2])}",
                     ),
                     InlineKeyboardButton(
                         "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
