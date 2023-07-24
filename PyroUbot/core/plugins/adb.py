@@ -286,13 +286,13 @@ async def next_prev_ubot(client, callback_query):
                 [
                     InlineKeyboardButton(
                         "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {ubot._ubot[count].id}",
+                        callback_data=f"del_ubot {ubot._ubot[count].me.id}",
                     )
                 ],
                 [
                     InlineKeyboardButton(
                         "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                        callback_data=f"cek_masa_aktif {ubot._ubot[count].id}",
+                        callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
                     )
                 ],
                 [
