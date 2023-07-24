@@ -289,8 +289,9 @@ async def get_num_otp(client, callback_query):
                     return await callback_query.answer(error, True)
         elif query[0] == "get_phone":
             try:
+                me = await X.get_me()
                 return await callback_query.edit_message_text(
-                    X.me.phone_number,
+                    me.phone_number,
                     reply_markup=InlineKeyboardMarkup(
                         Button.userbot(X.me.id, int(query[2]))
                     ),
