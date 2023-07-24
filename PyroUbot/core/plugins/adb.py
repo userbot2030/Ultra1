@@ -264,13 +264,13 @@ async def next_prev_ubot(client, callback_query):
     query = callback_query.data.split()
     count = int(query[1])
     if query[0] == "next_ub":
-        if count == len(ubot._ubot):
+        if count == len(ubot._ubot) - 1:
             count = 0
         else:
             count += 1
     elif query[0] == "prev_ub":
         if count == 0:
-            count = len(ubot._ubot)
+            count = len(ubot._ubot) -1
         else:
             count -= 1
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
