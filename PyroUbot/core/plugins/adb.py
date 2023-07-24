@@ -257,8 +257,13 @@ async def cek_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ", callback_data=f"get_otp {ubot._ubot[0].me.id}"),
-                    InlineKeyboardButton("ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲", callback_data=f"get_phone {ubot._ubot[0].me.id}"),
+                    InlineKeyboardButton(
+                        "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ", callback_data=f"get_otp {ubot._ubot[0].me.id}"
+                    ),
+                    InlineKeyboardButton(
+                        "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
+                        callback_data=f"get_phone {ubot._ubot[0].me.id}",
+                    ),
                 ],
                 [
                     InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
@@ -306,8 +311,14 @@ async def next_prev_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ", callback_data=f"get_otp {ubot._ubot[count].me.id}"),
-                    InlineKeyboardButton("ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲", callback_data=f"get_phone {ubot._ubot[count].me.id}"),
+                    InlineKeyboardButton(
+                        "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
+                        callback_data=f"get_otp {ubot._ubot[count].me.id}",
+                    ),
+                    InlineKeyboardButton(
+                        "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
+                        callback_data=f"get_phone {ubot._ubot[count].me.id}",
+                    ),
                 ],
                 [
                     InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
@@ -342,6 +353,7 @@ async def get_num_otp(client, callback_query):
                     return await callback_query.answer(X.me.phone_number, True)
     except Exception as error:
         return await callback_query.answer(error, True)
+
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
