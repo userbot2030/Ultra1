@@ -345,6 +345,36 @@ async def hapus_ubot(client, callback_query):
             await callback_query.answer(
                 f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
+            expired_date = await get_expired_date(ubot._ubot[0].me.id)
+            user = f"""
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>1/{len(ubot._ubot)}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].me.id}>{ubot._ubot[0].me.first_name} {ubot._ubot[0].me.last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].me.id}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
+"""
+            await callback_query.edit_message_text(
+                user,
+                reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                        callback_data=f"del_ubot {ubot._ubot[count].me.id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                        callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
+                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
+                ],
+            ]
+        ),
+    )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
