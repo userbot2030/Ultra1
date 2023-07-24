@@ -274,7 +274,7 @@ async def next_prev_ubot(client, callback_query):
             count = int(query[1]) - 1
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
     user = f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}/{len(ubot._ubot)}</code>
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count + 1}/{len(ubot._ubot)}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].me.id}>{ubot._ubot[count].me.first_name} {ubot._ubot[count].me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
