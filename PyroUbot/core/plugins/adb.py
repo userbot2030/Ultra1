@@ -10,20 +10,7 @@ from pytz import timezone
 
 from PyroUbot import *
 
-"""
-    if user_id not in await get_prem():
-        buttons = [
-            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
-        ]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            MSG.POLICY(),
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
-"""
+
 
 
 async def need_api(client, callback_query):
@@ -45,6 +32,20 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
+"""
+    if user_id not in await get_prem():
+        buttons = [
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
+            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
+        ]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            MSG.POLICY(),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
+"""
     else:
         buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
         await callback_query.message.delete()
@@ -227,17 +228,14 @@ async def bikin_ubot(client, callback_query):
 
 
 async def cek_ubot(client, callback_query):
-    count = 0
-    for X in ubot._ubot:
-        count += 1
-        expired_date = await get_expired_date(X.me.id)
-        user = f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{X.me.id}</code>
+    expired_date = await get_expired_date(ubot._ubot[0].id)
+    user = f"""
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>1/{len(ubot._ubot)}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].id}>{ubot._ubot[0].first_name} {ubot._ubot[0].last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
-        await bot.send_message(
+     await bot.send_message(
             callback_query.from_user.id,
             user,
             reply_markup=InlineKeyboardMarkup(
@@ -245,28 +243,60 @@ async def cek_ubot(client, callback_query):
                     [
                         InlineKeyboardButton(
                             "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                            callback_data=f"del_ubot {X.me.id}",
+                            callback_data=f"del_ubot {ubot._ubot[0].id}",
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                            callback_data=f"cek_masa_aktif {X.me.id}",
+                            "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                            callback_data=f"cek_masa_aktif {ubot._ubot[0].id}",
                         )
+                    ],
+                    [
+                        InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
+                        InlineKeyboardButton("➡️", callback_data="next_ub 1")
                     ],
                 ]
             ),
         )
-        await asyncio.sleep(1)
 
 
 async def next_prev_ubot(client, callback_query):
     query = callback_query.data.split()
-    if query[0] == "next_ub":
+    try:
+        if query[0] == "next_ub":
+            count = query[1] + 1
+        elif query[0] == "prev_ub":
+            count = query[1] - 1
+        user = f"""
+<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}/{len(ubot._ubot)}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].id}>{ubot._ubot[count].first_name} {ubot._ubot[count].last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].id}</code>
+<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
+"""
+        await callback_query.edit_message_text(user, reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                            callback_data=f"del_ubot {ubot._ubot[count].id}",
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                            callback_data=f"cek_masa_aktif {ubot._ubot[count].id}",
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
+                        InlineKeyboardButton("➡️", callback_data=f"next_ub {count}")
+                    ],
+                ]
+            ),
+        )
+    except:
         pass
-    elif query[0] == "prev_ub":
-        pass
-
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
