@@ -227,11 +227,11 @@ async def bikin_ubot(client, callback_query):
 
 
 async def cek_ubot(client, callback_query):
-    expired_date = await get_expired_date(ubot._ubot[0].id)
+    expired_date = await get_expired_date(ubot._ubot[0].me.id)
     user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>1/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].id}>{ubot._ubot[0].first_name} {ubot._ubot[0].last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].id}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].me.id}>{ubot._ubot[0].me.first_name} {ubot._ubot[0].me.last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
     await bot.send_message(
@@ -242,13 +242,13 @@ async def cek_ubot(client, callback_query):
                 [
                     InlineKeyboardButton(
                         "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {ubot._ubot[0].id}",
+                        callback_data=f"del_ubot {ubot._ubot[0].me.id}",
                     )
                 ],
                 [
                     InlineKeyboardButton(
                         "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                        callback_data=f"cek_masa_aktif {ubot._ubot[0].id}",
+                        callback_data=f"cek_masa_aktif {ubot._ubot[0].me.id}",
                     )
                 ],
                 [
@@ -273,11 +273,11 @@ async def next_prev_ubot(client, callback_query):
                 count = 0
             else:
                 count = query[1] - 1
-        expired_date = await get_expired_date(ubot._ubot[count].id)
+        expired_date = await get_expired_date(ubot._ubot[count].me.id)
         user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].id}>{ubot._ubot[count].first_name} {ubot._ubot[count].last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].id}</code>
+<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].me.id}>{ubot._ubot[count].me.first_name} {ubot._ubot[count].me.last_name or ''}</a> 
+<b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
         await callback_query.edit_message_text(
