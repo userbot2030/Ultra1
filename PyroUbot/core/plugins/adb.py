@@ -342,7 +342,9 @@ async def hapus_ubot(client, callback_query):
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
             await X.log_out()
-            await callback_query.answer(f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True)
+            await callback_query.answer(
+                f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
+            )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
