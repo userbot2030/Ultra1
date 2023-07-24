@@ -275,7 +275,7 @@ async def get_num_otp(client, callback_query):
                 try:
                     if not otp.text:
                         await callback_query.answer(
-                            "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", True
+                            "❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True
                         )
                     else:
                         await callback_query.edit_message_text(
