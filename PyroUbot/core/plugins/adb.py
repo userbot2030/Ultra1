@@ -266,7 +266,7 @@ async def next_prev_ubot(client, callback_query):
         if query[0] == "next_ub":
             if query[1] == 0:
                 count = len(ubot._ubot)
-             else:
+            else:
                 count = query[1] + 1
         elif query[0] == "prev_ub":
             if query[1] == len(ubot._ubot):
