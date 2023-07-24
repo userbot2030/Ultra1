@@ -234,7 +234,7 @@ async def bikin_ubot(client, callback_query):
 async def cek_ubot(client, callback_query):
     await bot.send_message(
         callback_query.from_user.id,
-        MSG.USERBOT(0),
+        await MSG.USERBOT(0),
         reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)),
     )
 
@@ -253,7 +253,7 @@ async def next_prev_ubot(client, callback_query):
         else:
             count -= 1
     await callback_query.edit_message_text(
-        MSG.USERBOT(count),
+        await MSG.USERBOT(count),
         reply_markup=InlineKeyboardMarkup(
             Button.userbot(ubot._ubot[count].me.id, count)
         ),
@@ -340,7 +340,7 @@ async def hapus_ubot(client, callback_query):
                 f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
             await callback_query.edit_message_text(
-                MSG.USERBOT(0),
+                await MSG.USERBOT(0),
                 reply_markup=InlineKeyboardMarkup(
                     Button.userbot(ubot._ubot[0].me.id, 0)
                 ),
