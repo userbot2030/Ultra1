@@ -269,7 +269,7 @@ async def next_prev_ubot(client, callback_query):
             count = 0
     elif query[0] == "prev_ub":
         count -= 1
-        if count < 0:
+        if count >= 0:
             count = len(ubot._ubot)
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
     user = f"""
