@@ -302,9 +302,7 @@ async def next_prev_ubot(client, callback_query):
                 ]
             ),
         )
-    except:
-        pass
-
+    
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
