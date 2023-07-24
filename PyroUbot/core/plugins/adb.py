@@ -274,9 +274,7 @@ async def get_num_otp(client, callback_query):
             async for otp in X.search_messages(777000, limit=1):
                 try:
                     if not otp.text:
-                        await callback_query.answer(
-                            "❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True
-                        )
+                        await callback_query.answer("❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True)
                     else:
                         await callback_query.edit_message_text(
                             otp.text,
