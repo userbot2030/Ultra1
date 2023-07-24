@@ -21,6 +21,11 @@ async def _(client, callback_query):
     await next_prev_ubot(client, callback_query)
 
 
+@PY.CALLBACK("^(get_otp|get_num)")
+async def _(client, callback_query):
+   await get_num_otp(client, callback_query)
+
+
 @PY.CALLBACK("cek_ubot")
 @PY.BOT("getubot", FILTERS.OWNER)
 async def _(client, message):
