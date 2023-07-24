@@ -188,7 +188,7 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     now = datetime.now(timezone("Asia/Jakarta"))
-    expire_date = now + timedelta(days=1)
+    expire_date = now + timedelta(days=3)
     await set_expired_date(new_client.me.id, expire_date)
     await set_uptime(new_client.me.id, time())
     for id_maker in [user_id, new_client.me.id]:
