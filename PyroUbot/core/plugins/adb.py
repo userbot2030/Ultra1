@@ -352,12 +352,7 @@ async def hapus_ubot(client, callback_query):
                 f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
             expired_date = await get_expired_date(ubot._ubot[0].me.id)
-            user = f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>1/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].me.id}>{ubot._ubot[0].me.first_name} {ubot._ubot[0].me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
-"""
+            user = MSG.USERBOT()
             await callback_query.edit_message_text(
                 user,
                 reply_markup=InlineKeyboardMarkup(
