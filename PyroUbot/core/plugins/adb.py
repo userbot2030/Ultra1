@@ -325,10 +325,10 @@ async def hapus_ubot(client, callback_query):
     try:
         show = await bot.get_users(callback_query.data.split()[1])
         get_id = show.id
-        get_mention = f"<a href=tg://user?id={get_id}>{show.first_name} {show.last_name or ''}</a>"
+        get_mention = f"{get_id}"
     except Exception:
         get_id = int(callback_query.data.split()[1])
-        get_mention = f"<a href=tg://user?id={get_id}>Userbot</a>"
+        get_mention = f"{get_id}"
     for X in ubot._ubot:
         if get_id == X.me.id:
             await X.unblock_user(bot.me.username)
@@ -342,9 +342,7 @@ async def hapus_ubot(client, callback_query):
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
             await X.log_out()
-            await bot.send_message(
-                OWNER_ID, f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ</b>"
-            )
+            await callback_query.answer(f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ" True)
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
