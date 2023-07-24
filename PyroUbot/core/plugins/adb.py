@@ -283,30 +283,26 @@ async def next_prev_ubot(client, callback_query):
     await callback_query.edit_message_text(
         user,
         reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                                callback_data=f"del_ubot {ubot._ubot[count].me.id}",
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                                callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "⬅️", callback_data=f"prev_ub {count}"
-                            ),
-                            InlineKeyboardButton(
-                                "➡️", callback_data=f"next_ub {count}"
-                            ),
-                        ],
-                    ]
-                ),
-            )
+            [
+                [
+                    InlineKeyboardButton(
+                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                        callback_data=f"del_ubot {ubot._ubot[count].me.id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                        callback_data=f"cek_masa_aktif {ubot._ubot[count].me.id}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
+                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
+                ],
+            ]
+        ),
+    )
 
 
 async def cek_userbot_expired(client, callback_query):
@@ -359,26 +355,26 @@ async def hapus_ubot(client, callback_query):
             await callback_query.edit_message_text(
                 user,
                 reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
-                        callback_data=f"del_ubot {ubot._ubot[0].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton(
-                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                        callback_data=f"cek_masa_aktif {ubot._ubot[0].me.id}",
-                    )
-                ],
-                [
-                    InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
-                    InlineKeyboardButton("➡️", callback_data="next_ub 0"),
-                ],
-            ]
-        ),
-    )
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                                callback_data=f"del_ubot {ubot._ubot[0].me.id}",
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                                callback_data=f"cek_masa_aktif {ubot._ubot[0].me.id}",
+                            )
+                        ],
+                        [
+                            InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
+                            InlineKeyboardButton("➡️", callback_data="next_ub 0"),
+                        ],
+                    ]
+                ),
+            )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
