@@ -100,7 +100,7 @@ class Button:
                 )
             ],
             [
-               InlineKeyboardButton(
+                InlineKeyboardButton(
                     "📲 ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
                     callback_data=f"get_phone {int(user_id)} {int(count)}",
                 )
@@ -110,7 +110,6 @@ class Button:
                     "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
                     callback_data=f"cek_masa_aktif {int(user_id)}",
                 )
-                
             ],
             [
                 InlineKeyboardButton(
