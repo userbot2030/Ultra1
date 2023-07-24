@@ -291,7 +291,7 @@ async def get_num_otp(client, callback_query):
             try:
                 me = await X.get_me()
                 return await callback_query.edit_message_text(
-                    me.phone_number,
+                    f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{me.phone_number}</code></b>",
                     reply_markup=InlineKeyboardMarkup(
                         Button.userbot(X.me.id, int(query[2]))
                     ),
