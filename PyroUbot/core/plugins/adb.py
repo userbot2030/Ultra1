@@ -348,7 +348,7 @@ async def hapus_ubot(client, callback_query):
             ubot._ubot.remove(X)
             await X.log_out()
             await callback_query.answer(
-                f"<b> ✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
+                f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
             expired_date = await get_expired_date(ubot._ubot[0].me.id)
             user = f"""
