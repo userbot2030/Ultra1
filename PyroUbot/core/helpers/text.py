@@ -1,6 +1,6 @@
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot
+from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date
 
 
 class MSG:
@@ -69,6 +69,7 @@ class MSG:
 """
 
     def USERBOT(count):
+        expired_date = await get_expired_date(ubot._ubot[int(count)].me.id)
         return f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{int(count) + 1}/{len(ubot._ubot)}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[int(count)].me.id}>{ubot._ubot[int(count)].me.first_name} {ubot._ubot[int(count)].me.last_name or ''}</a> 
