@@ -90,6 +90,36 @@ class Button:
             [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ ❌", callback_data=f"home {user_id}")],
         ]
         return button
+    def userbot(user_id, count):
+        button = [
+                [
+                    InlineKeyboardButton(
+                        "📁 ʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ 📁",
+                        callback_data=f"del_ubot {int(user_id)}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
+                        callback_data=f"cek_masa_aktif {int(user_id)}",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ",
+                        callback_data=f"get_otp {int(user_id)} {int(count)}",
+                    ),
+                    InlineKeyboardButton(
+                        "ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
+                        callback_data=f"get_phone {int(user_id)} {int(count)}",
+                    ),
+                ],
+                [
+                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {int(count)}"),
+                    InlineKeyboardButton("➡️", callback_data=f"next_ub {int(count)}"),
+                ],
+            ]
+        return button
 
 
 class INLINE:
