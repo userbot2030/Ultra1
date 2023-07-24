@@ -252,7 +252,7 @@ async def cek_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
+                    InlineKeyboardButton("⬅️", callback_data="prev_ub 1"),
                     InlineKeyboardButton("➡️", callback_data="next_ub 1"),
                 ],
             ]
@@ -265,11 +265,11 @@ async def next_prev_ubot(client, callback_query):
     count = int(query[1])
     if query[0] == "next_ub":
         count += 1
-        if count >= len(ubot._ubot):
+        if count == len(ubot._ubot):
             count = 0
     elif query[0] == "prev_ub":
         count -= 1
-        if count >= 0:
+        if count == 0:
             count = len(ubot._ubot)
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
     user = f"""
