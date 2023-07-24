@@ -364,8 +364,12 @@ async def get_num_otp(client, callback_query):
                     ),
                 ],
                 [
-                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {int(query[2])}"),
-                    InlineKeyboardButton("➡️", callback_data=f"next_ub {int(query[2])}"),
+                    InlineKeyboardButton(
+                        "⬅️", callback_data=f"prev_ub {int(query[2])}"
+                    ),
+                    InlineKeyboardButton(
+                        "➡️", callback_data=f"next_ub {int(query[2])}"
+                    ),
                 ],
             ]
             if int(query[1]) == X.me.id:
