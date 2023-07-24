@@ -347,7 +347,7 @@ async def get_num_otp(client, callback_query):
                                 "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", True
                             )
                         else:
-                            await callback_query.edit_message_text(otp.text, True)
+                            await callback_query.answer(otp.text, True)
                             await X.delete_messages(X.me.id, otp.id)
                 else:
                     return await callback_query.answer(X.me.phone_number, True)
