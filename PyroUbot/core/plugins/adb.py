@@ -232,16 +232,9 @@ async def bikin_ubot(client, callback_query):
 
 
 async def cek_ubot(client, callback_query):
-    expired_date = await get_expired_date(ubot._ubot[0].me.id)
-    user = f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>1/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[0].me.id}>{ubot._ubot[0].me.first_name} {ubot._ubot[0].me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[0].me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
-"""
     await bot.send_message(
         callback_query.from_user.id,
-        user,
+        MSG.USERBOT(0),
         reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)),
     )
 
@@ -259,15 +252,8 @@ async def next_prev_ubot(client, callback_query):
             count = len(ubot._ubot) - 1
         else:
             count -= 1
-    expired_date = await get_expired_date(ubot._ubot[count].me.id)
-    user = f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count + 1}/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href="tg://user?id={ubot._ubot[count].me.id}">{ubot._ubot[count].me.first_name} {ubot._ubot[count].me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
-"""
     await callback_query.edit_message_text(
-        user,
+        MSG.USERBOT(count),
         reply_markup=InlineKeyboardMarkup(
             Button.userbot(ubot._ubot[count].me.id, count)
         ),
@@ -351,10 +337,8 @@ async def hapus_ubot(client, callback_query):
             await callback_query.answer(
                 f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
             )
-            await get_expired_date(ubot._ubot[0].me.id)
-            user = MSG.USERBOT()
             await callback_query.edit_message_text(
-                user,
+                MSG.USERBOT(0),
                 reply_markup=InlineKeyboardMarkup(
                     Button.userbot(ubot._ubot[0].me.id, 0)
                 ),
