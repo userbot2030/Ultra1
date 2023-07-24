@@ -295,8 +295,8 @@ async def next_prev_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count - 1}"),
-                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count + 1}"),
+                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
+                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
                 ],
             ]
         ),
