@@ -266,12 +266,12 @@ async def next_prev_ubot(client, callback_query):
         if query[1] == len(ubot._ubot):
             count = 0
         else:
-            count = int(query[1]) + 1
+            count = int(query[1])1
     elif query[0] == "prev_ub":
         if int(query[1]) == 0:
             count = len(ubot._ubot)
         else:
-            count = int(query[1]) - 1
+            count = int(query[1])
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
     user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count + 1}/{len(ubot._ubot)}</code>
@@ -296,8 +296,8 @@ async def next_prev_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
-                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
+                    InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count - 1}"),
+                    InlineKeyboardButton("➡️", callback_data=f"next_ub {count + 1}"),
                 ],
             ]
         ),
