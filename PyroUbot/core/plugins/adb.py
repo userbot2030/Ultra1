@@ -252,8 +252,8 @@ async def cek_ubot(client, callback_query):
                     )
                 ],
                 [
-                    InlineKeyboardButton("⬅️", callback_data="prev_ub 1"),
-                    InlineKeyboardButton("➡️", callback_data="next_ub 1"),
+                    InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
+                    InlineKeyboardButton("➡️", callback_data="next_ub 0"),
                 ],
             ]
         ),
