@@ -262,20 +262,19 @@ async def cek_ubot(client, callback_query):
 
 async def next_prev_ubot(client, callback_query):
     query = callback_query.data.split()
+    count = int(query[1])
     if query[0] == "next_ub":
-        if query[1] == len(ubot._ubot):
+        count += 1
+        if count >= len(ubot._ubot):
             count = 0
-        else:
-            count = int(query[1])
     elif query[0] == "prev_ub":
-        if int(query[1]) == 0:
+        count -= 1
+        if count < 0:
             count = len(ubot._ubot)
-        else:
-            count = int(query[1])
     expired_date = await get_expired_date(ubot._ubot[count].me.id)
     user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count + 1}/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].me.id}>{ubot._ubot[count].me.first_name} {ubot._ubot[count].me.last_name or ''}</a> 
+<b> ├ ᴀᴋᴜɴ:</b> <a href="tg://user?id={ubot._ubot[count].me.id}">{ubot._ubot[count].me.first_name} {ubot._ubot[count].me.last_name or ''}</a> 
 <b> ├ ɪᴅ:</b> <code>{ubot._ubot[count].me.id}</code>
 <b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
