@@ -376,7 +376,7 @@ async def get_num_otp(client, callback_query):
                                 "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", True
                             )
                     else:
-                         await callback_query.edit_message_text(
+                        await callback_query.edit_message_text(
                                 otp.text,
                                 reply_markup=InlineKeyboardMarkup(button),
                             )
