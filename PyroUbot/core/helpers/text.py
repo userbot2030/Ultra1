@@ -68,7 +68,7 @@ class MSG:
 ᴘᴇᴍʙᴇʟɪᴀɴ. ᴊɪᴋᴀ ᴛɪᴅᴀᴋ, ᴛᴇᴋᴀɴ ᴛᴏᴍʙᴏʟ ʙᴀᴛᴀʟᴋᴀɴ.
 """
 
-    def USERBOT(count):
+    async def USERBOT(count):
         expired_date = await get_expired_date(ubot._ubot[int(count)].me.id)
         return f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{int(count) + 1}/{len(ubot._ubot)}</code>
