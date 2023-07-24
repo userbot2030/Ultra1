@@ -11,6 +11,20 @@ from pytz import timezone
 from PyroUbot import *
 
 
+"""
+    if user_id not in await get_prem():
+        buttons = [
+            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
+            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
+        ]
+        await callback_query.message.delete()
+        return await bot.send_message(
+            user_id,
+            MSG.POLICY(),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
+"""
 
 
 async def need_api(client, callback_query):
@@ -32,20 +46,6 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-"""
-    if user_id not in await get_prem():
-        buttons = [
-            [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
-        ]
-        await callback_query.message.delete()
-        return await bot.send_message(
-            user_id,
-            MSG.POLICY(),
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
-"""
     else:
         buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
         await callback_query.message.delete()
@@ -268,6 +268,7 @@ async def next_prev_ubot(client, callback_query):
             count = query[1] + 1
         elif query[0] == "prev_ub":
             count = query[1] - 1
+        expired_date = await get_expired_date(ubot._ubot[count].id)
         user = f"""
 <b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{count}/{len(ubot._ubot)}</code>
 <b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[count].id}>{ubot._ubot[count].first_name} {ubot._ubot[count].last_name or ''}</a> 
