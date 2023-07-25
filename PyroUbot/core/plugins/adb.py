@@ -10,7 +10,15 @@ from pytz import timezone
 
 from PyroUbot import *
 
-"""
+
+
+async def need_api(client, callback_query):
+    user_id = callback_query.from_user.id
+    if user_id in ubot._get_my_id:
+        return await bot.send_message(
+            user_id,
+            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
+        )
     if user_id not in await get_prem():
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
@@ -22,16 +30,6 @@ from PyroUbot import *
             MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
-        )
-"""
-
-
-async def need_api(client, callback_query):
-    user_id = callback_query.from_user.id
-    if user_id in ubot._get_my_id:
-        return await bot.send_message(
-            user_id,
-            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
     elif len(ubot._ubot) > MAX_BOT:
         buttons = [
@@ -285,17 +283,12 @@ async def get_num_otp(client, callback_query):
             except Exception as error:
                 return await callback_query.answer(error, True)
     elif query[0] == "get_phone":
-        try:
-            me = await X.get_me()
-            return await callback_query.edit_message_text(
-                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{me.phone_number}</code></b>",
+        return await callback_query.edit_message_text(
+                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
                 reply_markup=InlineKeyboardMarkup(
                     Button.userbot(X.me.id, int(query[2]))
                 ),
             )
-        except Exception as error:
-            return await callback_query.answer(error, True)
-
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
