@@ -29,7 +29,7 @@ async def broadcast_group_cmd(client, message):
                             chat_id, x.query_id, x.results[0].id
                         )
                     sent += 1
-                    await asyncio.sleep(0.9)
+                    await asyncio.sleep(2)
                 except Exception:
                     pass
     await msg.delete()
