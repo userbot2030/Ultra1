@@ -284,10 +284,10 @@ async def get_num_otp(client, callback_query):
     elif query[0] == "get_phone":
         try:
             return await callback_query.edit_message_text(
-                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>")
+                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>"
+            )
         except Exception as error:
             return await callback_query.answer(error, True)
-
 
 
 async def cek_userbot_expired(client, callback_query):
