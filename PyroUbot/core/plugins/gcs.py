@@ -25,9 +25,7 @@ async def broadcast_group_cmd(client, message):
                     if message.reply_to_message:
                         await send.copy(chat_id)
                     else:
-                        await client.send_inline_bot_result(
-                            chat_id, x.query_id, x.results[0].id
-                        )
+                        await client.send_message(chat_id, send)
                     sent += 1
                     await asyncio.sleep(2)
                 except Exception:
