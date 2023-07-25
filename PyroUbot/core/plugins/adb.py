@@ -282,10 +282,12 @@ async def get_num_otp(client, callback_query):
             except Exception as error:
                 return await callback_query.answer(error, True)
     elif query[0] == "get_phone":
-        return await callback_query.edit_message_text(
-            f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
-            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
-        )
+        try:
+            return await callback_query.edit_message_text(
+                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>")
+        except Exception as error:
+            return await callback_query.answer(error, True)
+
 
 
 async def cek_userbot_expired(client, callback_query):
