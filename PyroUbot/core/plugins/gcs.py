@@ -1,5 +1,4 @@
 import asyncio
-from gc import get_objects
 
 from pyrogram.enums import ChatType
 
@@ -105,4 +104,3 @@ async def send_msg_cmd(client, message):
             await tm.delete()
         except Exception as t:
             return await message.reply(f"{t}")
-
