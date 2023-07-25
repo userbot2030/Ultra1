@@ -1,5 +1,6 @@
 import asyncio
 from gc import get_objects
+
 from pyrogram.enums import ChatType
 
 from PyroUbot import *
@@ -105,7 +106,8 @@ async def send_msg_cmd(client, message):
             await tm.delete()
         except Exception as t:
             return await message.reply(f"{t}")
-            
+
+
 async def send_inline(client, inline_query):
     _id = int(inline_query.query.split()[1])
     m = [obj for obj in get_objects() if id(obj) == _id][0]
