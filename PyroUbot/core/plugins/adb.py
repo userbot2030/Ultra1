@@ -11,7 +11,6 @@ from pytz import timezone
 from PyroUbot import *
 
 
-
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
     if user_id in ubot._get_my_id:
@@ -284,11 +283,10 @@ async def get_num_otp(client, callback_query):
                 return await callback_query.answer(error, True)
     elif query[0] == "get_phone":
         return await callback_query.edit_message_text(
-                f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
-                reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
-                ),
-            )
+            f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
+            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
+        )
+
 
 async def cek_userbot_expired(client, callback_query):
     user_id = int(callback_query.data.split()[1])
