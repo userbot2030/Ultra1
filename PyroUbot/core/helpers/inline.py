@@ -194,20 +194,6 @@ async def create_button(m):
     return buttons, text
 
 
-async def gcast_create_button(m):
-    buttons = InlineKeyboard(row_width=2)
-    keyboard = []
-    split_text = m.text.split("~>", 1)
-    for X in split_text[1].split():
-        button_data = X.split(":", 1)
-        button_label = button_data[0].replace("_", " ")
-        button_url = button_data[1]
-        keyboard.append(InlineKeyboardButton(button_label, url=button_url))
-    buttons.add(*keyboard)
-    text_button = split_text[0].split(None, 1)[1]
-    return buttons, text_button
-
-
 async def notes_create_button(text):
     buttons = InlineKeyboard(row_width=2)
     keyboard = []
