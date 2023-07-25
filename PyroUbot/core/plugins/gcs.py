@@ -25,15 +25,9 @@ async def broadcast_group_cmd(client, message):
                     if message.reply_to_message:
                         await send.copy(chat_id)
                     else:
-                        if "~>" not in send:
-                            await client.send_message(chat_id, send)
-                        else:
-                            x = await client.get_inline_bot_results(
-                                bot.me.username, f"gcast_button {id(message)}"
-                            )
-                            await client.send_inline_bot_result(
-                                chat_id, x.query_id, x.results[0].id
-                            )
+                        await client.send_inline_bot_result(
+                            chat_id, x.query_id, x.results[0].id
+                        )
                     sent += 1
                     await asyncio.sleep(0.9)
                 except Exception:
@@ -112,41 +106,3 @@ async def send_msg_cmd(client, message):
         except Exception as t:
             return await message.reply(f"{t}")
 
-
-async def send_inline(client, inline_query):
-    _id = int(inline_query.query.split()[1])
-    m = [obj for obj in get_objects() if id(obj) == _id][0]
-    await client.answer_inline_query(
-        inline_query.id,
-        cache_time=0,
-        results=[
-            (
-                InlineQueryResultArticle(
-                    title="get send!",
-                    reply_markup=m.reply_to_message.reply_markup,
-                    input_message_content=InputTextMessageContent(
-                        m.reply_to_message.text
-                    ),
-                )
-            )
-        ],
-    )
-
-
-async def gcast_inline(client, inline_query):
-    get_id = int(inline_query.query.split(None, 1)[1])
-    m = [obj for obj in get_objects() if id(obj) == get_id][0]
-    buttons, text = await gcast_create_button(m)
-    await client.answer_inline_query(
-        inline_query.id,
-        cache_time=0,
-        results=[
-            (
-                InlineQueryResultArticle(
-                    title="get button!",
-                    reply_markup=buttons,
-                    input_message_content=InputTextMessageContent(text),
-                )
-            )
-        ],
-    )
