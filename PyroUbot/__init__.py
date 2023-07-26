@@ -84,20 +84,14 @@ class Ubot(Client):
                 if not text:
                     return False
 
-                if isinstance(cmd, str):
-                    commend_list = [cmd]
-                elif isinstance(cmd, list):
-                    commend_list = cmd
-                else:
-                    raise ValueError("cmd must be a string or a list of strings")
-
                 for prefix in prefixes:
                     if not text.startswith(prefix):
                         continue
 
                     without_prefix = text[len(prefix) :]
-
-                    for command in commend_list:
+                    cmd_list = cmd if type(cmd) is list else [cmd]
+                    
+                    for command in cmd_list:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
