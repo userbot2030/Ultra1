@@ -19,7 +19,6 @@ async def _(client, message):
 
 
 @PY.UBOT(["getotp", "getnum"], FILTERS.ME_OWNER)
-@PY.BOT(["getotp", "getnum"], FILTERS.OWNER)
 async def _(client, message):
     await get_my_otp(client, message)
 
