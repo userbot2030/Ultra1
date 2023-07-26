@@ -6,9 +6,7 @@ from pytz import timezone
 
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
-from PyroUbot.core.database import (get_chat, get_expired_date,
-                                    rem_expired_date, remove_chat, remove_ubot,
-                                    rm_all)
+from PyroUbot.core.database import *
 from PyroUbot.core.helpers import MSG, Button
 
 
