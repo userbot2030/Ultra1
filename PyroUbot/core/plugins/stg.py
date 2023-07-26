@@ -9,7 +9,7 @@ async def setprefix(client, message):
         set_prefix_ub = []
         for prefix in message.command[1:]:
             if prefix.lower() == "none":
-                set_prefix_ub.append(prefix)
+                set_prefix_ub.append("")
             else:
                 set_prefix_ub.append(prefix)
         try:
