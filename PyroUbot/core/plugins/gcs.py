@@ -84,7 +84,7 @@ async def send_msg_cmd(client, message):
                     await message.reply(error)
         else:
             try:
-                await message.reply_to_message.copy(chat_id, protect_content=True)
+                await message.reply_to_message.copy(chat_id)
                 tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
                 await asyncio.sleep(3)
                 await message.delete()
@@ -97,7 +97,7 @@ async def send_msg_cmd(client, message):
         chat_id = message.text.split(None, 2)[1]
         chat_text = message.text.split(None, 2)[2]
         try:
-            await client.send_message(chat_id, chat_text, protect_content=True)
+            await client.send_message(chat_id, chat_text)
             tm = await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
             await asyncio.sleep(3)
             await message.delete()
