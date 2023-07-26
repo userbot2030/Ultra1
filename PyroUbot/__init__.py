@@ -1,6 +1,7 @@
 import logging
 import os
 import re
+from typing import Union, List, Dict, Any
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -71,7 +72,7 @@ class Ubot(Client):
         prefixes = self._prefix.get(user_id, PREFIX)
         return prefixes
 
-    def cmd_prefix(self, cmd):
+    def cmd_prefix(self, cmd: Union[str, List[str]]):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
 
         async def func(_, client, message):
@@ -79,10 +80,16 @@ class Ubot(Client):
                 text = message.text.strip().encode("utf-8").decode("utf-8")
                 username = client.me.username or ""
                 prefixes = await self.get_prefix(client.me.id)
-                commend_list = cmd type(cmd) is list else [cmd]
                 
                 if not text:
                     return False
+
+                if isinstance(cmd, str):
+                    commend_list = [cmd]
+                elif isinstance(cmd, list):
+                    commend_list = cmd
+                else:
+                    raise ValueError("cmd must be a string or a list of strings")
 
                 for prefix in prefixes:
                     if not text.startswith(prefix):
