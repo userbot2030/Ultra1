@@ -88,8 +88,8 @@ class Ubot(Client):
                         continue
 
                     without_prefix = text[len(prefix) :]
-
-                    for command in cmd if isinstance(cmd, list) else [cmd]:
+                    commend_list = (cmd if isinstance(cmd, list) else [cmd])
+                    for command in commend_list:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
