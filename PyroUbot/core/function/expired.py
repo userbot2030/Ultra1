@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime
 
 from pytz import timezone
-
+from pyrogram.types import InlineKeyboardMarkup
 from PyroUbot import bot, ubot
 from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.database import *
@@ -27,7 +27,7 @@ async def expired_userbot(X):
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
-                reply_mButton.expired_button_bot(Button.expired_button_bot()),
+                reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
             )
             await bot.send_message(X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
     except Exception as e:
