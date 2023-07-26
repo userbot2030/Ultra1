@@ -1,7 +1,7 @@
 import logging
 import os
 import re
-from typing import Union, List, Dict, Any
+from typing import Any, Dict, List, Union
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -80,7 +80,7 @@ class Ubot(Client):
                 text = message.text.strip().encode("utf-8").decode("utf-8")
                 username = client.me.username or ""
                 prefixes = await self.get_prefix(client.me.id)
-                
+
                 if not text:
                     return False
 
@@ -96,7 +96,7 @@ class Ubot(Client):
                         continue
 
                     without_prefix = text[len(prefix) :]
-                    
+
                     for command in commend_list:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
