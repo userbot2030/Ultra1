@@ -87,7 +87,7 @@ class Ubot(Client):
                     commend_list = cmd
                 else:
                     commend_list = [cmd]
-                    
+
                 for prefix in prefixes:
                     if not text.startswith(prefix):
                         continue
