@@ -83,12 +83,16 @@ class Ubot(Client):
                 if not text:
                     return False
 
+                if type(cmd) == list:
+                    commend_list = cmd
+                else:
+                    commend_list = [cmd]
+                    
                 for prefix in prefixes:
                     if not text.startswith(prefix):
                         continue
 
                     without_prefix = text[len(prefix) :]
-                    commend_list = [cmd]
 
                     for command in commend_list:
                         if not re.match(
