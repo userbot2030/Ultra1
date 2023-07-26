@@ -79,21 +79,17 @@ class Ubot(Client):
                 text = message.text.strip().encode("utf-8").decode("utf-8")
                 username = client.me.username or ""
                 prefixes = await self.get_prefix(client.me.id)
-
+                commend_list = cmd type(cmd) == list else [cmd]
+                
                 if not text:
                     return False
-
-                if type(cmd) == list:
-                    commend_list = cmd
-                else:
-                    commend_list = [cmd]
 
                 for prefix in prefixes:
                     if not text.startswith(prefix):
                         continue
 
                     without_prefix = text[len(prefix) :]
-
+                    
                     for command in commend_list:
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
