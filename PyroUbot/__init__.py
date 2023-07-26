@@ -79,7 +79,7 @@ class Ubot(Client):
                 text = message.text.strip().encode("utf-8").decode("utf-8")
                 username = client.me.username or ""
                 prefixes = await self.get_prefix(client.me.id)
-                commend_list = cmd type(cmd) == list else [cmd]
+                commend_list = cmd type(cmd) is list else [cmd]
                 
                 if not text:
                     return False
