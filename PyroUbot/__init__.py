@@ -88,13 +88,7 @@ class Ubot(Client):
                         continue
 
                     without_prefix = text[len(prefix) :]
-
-                    if isinstance(cmd, str, tuple):
-                        commend_list = [cmd]
-                    elif isinstance(cmd, list, tuple):
-                        commend_list = cmd
-                    else:
-                        return False
+                    commend_list = [cmd]
 
                     for command in commend_list:
                         if not re.match(
