@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-@PY.UBOT(["alive", "tomi"])
+@PY.UBOT("alive")
 async def _(client, message):
     await alive_cmd(client, message)
 
