@@ -113,8 +113,14 @@ class Button:
             ],
             [
                 InlineKeyboardButton(
-                    "🔑 ɢᴇᴛ ᴋᴏᴅᴇ ᴏᴛᴘ 🔑",
+                    "🔑 ɢᴇᴛ ᴄᴏᴅᴇ ᴏᴛᴘ 🔑",
                     callback_data=f"get_otp {int(user_id)} {int(count)}",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "🔐 ɢᴇᴛ ᴄᴏᴅᴇ ғᴀ 🔐",
+                    callback_data=f"get_2fa  {int(user_id)} {int(count)}",
                 )
             ],
             [
