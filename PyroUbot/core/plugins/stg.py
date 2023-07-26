@@ -15,6 +15,8 @@ async def setprefix(client, message):
         try:
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
-            return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {' '.join(set_prefix_ub)}")
+            return await Tm.edit(
+                f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {' '.join(set_prefix_ub)}"
+            )
         except Exception as error:
             await Tm.edit(error)
