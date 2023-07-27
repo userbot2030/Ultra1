@@ -1,5 +1,6 @@
-from PyroUbot import *
 from pyrogram.types import MessageEntity
+
+from PyroUbot import *
 
 
 def get_entities(text):
@@ -15,7 +16,7 @@ def get_entities(text):
         if entity_end == -1:
             break
 
-        entity_type = text[entity_start + 1:entity_end]
+        entity_type = text[entity_start + 1 : entity_end]
         entity_offset = entity_start
         entity_length = entity_end - entity_start + 1
 
