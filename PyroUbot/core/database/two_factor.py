@@ -1,6 +1,6 @@
 from PyroUbot.core.database import mongo_client
 
-factor = mongo_client["PyroUbot"]["users"]
+factor = mongo_client["PyroUbot"]["factor"]
 
 
 async def get_two_factor(user_id):
