@@ -188,8 +188,10 @@ async def bikin_ubot(client, callback_query):
         api_hash=API_HASH,
         session_string=session_string,
     )
-    if new_code:
+    try:
         await set_two_factor(new_client.me.id, new_code)
+    except:
+        pass
     await set_uptime(new_client.me.id, time())
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
