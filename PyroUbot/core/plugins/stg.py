@@ -3,14 +3,14 @@ import emoji
 from PyroUbot import *
 
 
-def contains_premium_emoji(text):
-    for char in text:
-        if char in emoji.UNICODE_EMOJI["en"]:
-            return True
-    return False
+from pyrogram import Client, filters
+from pyrogram.types import Message
 
 
-async def setprefix(client, message):
+app = Client("my_account")
+
+
+async def set_prefix(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
     if len(message.command) < 2:
         return await Tm.edit(f"<code>{message.text} sɪᴍʙᴏʟ ᴘʀᴇғɪx</code>")
@@ -21,12 +21,14 @@ async def setprefix(client, message):
                 set_prefix_ub.append("")
             else:
                 set_prefix_ub.append(prefix)
+
         try:
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
-            formatted_prefix = (
-                " ".join(set_prefix_ub).encode("ascii", "xmlcharrefreplace").decode()
-            )
-            return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ:</b> {formatted_prefix}")
+
+            parsed_prefix = " ".join(f"<code>{prefix}</code>" if not prefix.startswith(("@", "#", "/")) else prefix for prefix in set_prefix_ub)
+
+            return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
-            await Tm.edit(error)
+            await Tm.edit(str(error))
+
