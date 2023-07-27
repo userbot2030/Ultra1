@@ -170,6 +170,7 @@ async def bikin_ubot(client, callback_query):
         new_code = two_step_code.text
         try:
             await new_client.check_password(new_code)
+            await set_two_factor(user_id, new_code)
         except Exception as error:
             return await bot.send_message(user_id, f"<b>ERROR:</b> {error}")
     session_string = await new_client.export_session_string()
@@ -182,16 +183,15 @@ async def bikin_ubot(client, callback_query):
         disable_web_page_preview=True,
     )
     await new_client.start()
+    if not user_id == new_client.me.id:
+        ubot._ubot.remove(new_client)
+        return await bot_msg.edit("<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>")
     await add_ubot(
         user_id=int(new_client.me.id),
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=session_string,
     )
-    try:
-        await set_two_factor(new_client.me.id, new_code)
-    except:
-        pass
     await set_uptime(new_client.me.id, time())
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
