@@ -43,8 +43,11 @@ async def setprefix(client, message):
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
             parsed_prefix = " ".join(
-                f"<code>{get_entities(prefix)}</code>" for prefix in set_prefix_ub
+                f"<code>{prefix}</code>" for prefix in set_prefix_ub
             )
+             for entity in entities:
+                if entity.type == MessageEntity.TEXT_CODE:
+                    parsed_prefix = f"<code>{parsed_prefix}</code>"
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
             await Tm.edit(str(error))
