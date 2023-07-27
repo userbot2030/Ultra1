@@ -16,7 +16,7 @@ async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
 
-@PY.CALLBACK("^(prev_ub|next_ub)")
+@PY.CALLBACK("^(prev_ub|next_ub|get_2fa)")
 async def _(client, callback_query):
     await next_prev_ubot(client, callback_query)
 
