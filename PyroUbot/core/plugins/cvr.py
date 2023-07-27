@@ -163,11 +163,7 @@ async def convert_audio(client, message):
     else:
         return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴠɪᴅᴇᴏ</b>")
 
-
-async def convert_efek(client, message):
-    helo = get_arg(message)
-    rep = message.reply_to_message
-    tau = [
+list_efek = [
         "bengek",
         "robot",
         "jedug",
@@ -201,8 +197,8 @@ async def convert_efek(client, message):
         "megaphone",
         "telephone",
         "radio",
-    ]
-    KOMUT = {
+]
+get_efek = {
         "bengek": '-filter_complex "rubberband=pitch=1.5"',
         "robot": "-filter_complex \"afftfilt=real='hypot(re,im)*sin(0)':imag='hypot(re,im)*cos(0)':win_size=512:overlap=0.75\"",
         "jedug": '-filter_complex "acrusher=level_in=8:level_out=18:bits=8:mode=log:aa=1"',
@@ -237,29 +233,38 @@ async def convert_efek(client, message):
         "telephone": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=1.5"',
         "radio": '-filter_complex "amix=inputs=2:duration=first:dropout_transition=2,volume=volume=2.5"',
     }
-    if rep and helo:
-        if helo in tau:
-            Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {helo}")
-            indir = await client.download_media(rep)
+
+
+async def list_cmd_efek(client, message):
+   await message.reply(
+            f"""
+ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
+• '''.join(list_efek)}""")
+
+
+async def convert_efek(client, message):
+    args = get_arg(message)
+    reply = message.reply_to_message
+    if reply and list_efek:
+        if arga in list_efek:
+            Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {args}")
+            indir = await client.download_media(reply)
             ses = await asyncio.create_subprocess_shell(
-                f"ffmpeg -i '{indir}' {KOMUT[helo]} audio.mp3"
+                f"ffmpeg -i '{indir}' {get_efek[args]} audio.mp3"
             )
             await ses.communicate()
             await Tm.delete()
-            await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {helo}")
+            await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {args}")
             for files in ("audio.mp3", indir, ses):
                 if files and os.path.exists(files):
                     os.remove(files)
-
         else:
             await message.reply(
-                f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
-• '''.join(tau)}"""
-            )
+                "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ {} ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ"
+        )
     else:
         await message.reply(
-            f"""ᴇғᴇᴋ sᴜᴀʀᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ \n\n• {'''
-• '''.join(tau)}"""
+            "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ {} ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ"
         )
 
 
