@@ -263,10 +263,10 @@ async def convert_efek(client, message):
                     os.remove(files)
         else:
             await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                    next((p) for p in prefix))
+                    next((p) for p in prefix)))
     else:
         await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                    next((p) for p in prefix))
+                    next((p) for p in prefix)))
 
 
 async def colong_cmn(client, message):
