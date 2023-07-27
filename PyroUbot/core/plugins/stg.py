@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-async def set_prefix(client, message):
+async def setprefix(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
     if len(message.command) < 2:
         return await Tm.edit(f"<code>{message.text} sɪᴍʙᴏʟ ᴘʀᴇғɪx</code>")
