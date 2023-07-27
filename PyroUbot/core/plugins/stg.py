@@ -1,6 +1,5 @@
 from PyroUbot import *
 
-
 async def setprefix(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
     if len(message.command) < 2:
@@ -13,10 +12,11 @@ async def setprefix(client, message):
             else:
                 set_prefix_ub.append(prefix)
         try:
-            ubot.set_prefix(message.from_user.id, set_prefix_ub)
-            await set_pref(message.from_user.id, set_prefix_ub)
+            set_prefix_ubot = [emoji if len(emoji) == 1 else f"\\u{ord(emoji):X}" for emoji in set_prefix_ub]
+            ubot.set_prefix(message.from_user.id, set_prefix_ubot)
+            await set_pref(message.from_user.id, set_prefix_ubot)
             return await Tm.edit(
-                f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {' '.join(set_prefix_ub).encode('utf-8').decode('utf-8')}"
+                f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {' '.join(set_prefix_ubot)}"
             )
         except Exception as error:
-            await Tm.edit(error)
+            await Tm.edit(str(error))
