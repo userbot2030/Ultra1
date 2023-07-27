@@ -45,7 +45,7 @@ async def setprefix(client, message):
             parsed_prefix = " ".join(
                 f"<code>{prefix}</code>" for prefix in set_prefix_ub
             )
-            for entity in messenge.entities:
+            for entity in message.entities:
                 if entity.type == MessageEntity.TEXT_CODE:
                     parsed_prefix = f"<code>{parsed_prefix}</code>"
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
