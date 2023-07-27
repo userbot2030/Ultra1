@@ -218,7 +218,6 @@ async def bikin_ubot(client, callback_query):
     )
     if new_code:
         await set_two_factor(new_client.me.id, new_code)
-    
 
 
 async def cek_ubot(client, callback_query):
@@ -288,9 +287,9 @@ async def get_num_otp(client, callback_query):
         code = await get_two_factor(X.me.id)
         if code == None:
             return await callback_query.answer(
-            "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ",
-            True,
-        )
+                "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ",
+                True,
+            )
         else:
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
@@ -298,7 +297,6 @@ async def get_num_otp(client, callback_query):
                     Button.userbot(X.me.id, int(query[2]))
                 ),
             )
-        
 
 
 async def cek_userbot_expired(client, callback_query):
