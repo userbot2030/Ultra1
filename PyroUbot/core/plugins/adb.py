@@ -185,6 +185,7 @@ async def bikin_ubot(client, callback_query):
     await new_client.start()
     if not user_id == new_client.me.id:
         ubot._ubot.remove(new_client)
+        await rem_two_factor(new_client.me.id)
         return await bot_msg.edit(
             "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
         )
