@@ -285,7 +285,7 @@ async def get_num_otp(client, callback_query):
             return await callback_query.answer(error, True)
     elif query[0] == "get_faktor":
         code = await get_two_factor(X.me.id)
-        if code == "None":
+        if code == None:
             return await callback_query.answer(
                 "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ",
                 True,
