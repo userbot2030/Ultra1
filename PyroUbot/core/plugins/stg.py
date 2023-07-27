@@ -24,10 +24,7 @@ async def setprefix(client, message):
         try:
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
-            formatted_prefix = " ".join(
-                f"<code>{contains_premium_emoji(p)}</code>" if p else "✨"
-                for p in set_prefix_ub
-            )
+            formatted_prefix = " ".join(set_prefix_ub).encode("ascii", "xmlcharrefreplace").decode()
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ:</b> {formatted_prefix}")
         except Exception as error:
             await Tm.edit(error)
