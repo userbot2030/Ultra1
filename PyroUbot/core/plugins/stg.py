@@ -1,4 +1,11 @@
 from PyroUbot import *
+import emoji
+
+def contains_premium_emoji(text):
+    for char in text:
+        if char in emoji.UNICODE_EMOJI["en"]:
+            return True
+    return False
 
 
 async def setprefix(client, message):
@@ -16,7 +23,7 @@ async def setprefix(client, message):
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
             formatted_prefix = " ".join(
-                f"<code>{p}</code>" if p else "✨" for p in set_prefix_ub
+                f"<code>{contains_premium_emoji(p)}</code>" if p else "✨" for p in set_prefix_ub
             )
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ:</b> {formatted_prefix}")
         except Exception as error:
