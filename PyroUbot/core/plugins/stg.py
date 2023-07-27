@@ -18,7 +18,7 @@ async def setprefix(client, message):
             await set_pref(message.from_user.id, set_prefix_ub)
 
             parsed_prefix = " ".join(
-                f"<code>{prefix}</code>" if prefix else "✨" for prefix in set_prefix_ub
+                f"<code>{prefix}</code>" for prefix in set_prefix_ub
             )
 
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
