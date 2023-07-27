@@ -1,5 +1,6 @@
 from PyroUbot import *
 
+
 async def setprefix(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
     if len(message.command) < 2:
