@@ -120,7 +120,7 @@ class Button:
             [
                 InlineKeyboardButton(
                     "🔐 ɢᴇᴛ ᴄᴏᴅᴇ 𝟸ғᴀ 🔐",
-                    callback_data=f"get_2fa {int(user_id)} {int(count)}",
+                    callback_data=f"get_faktor {int(user_id)} {int(count)}",
                 )
             ],
             [
