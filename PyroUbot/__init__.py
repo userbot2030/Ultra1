@@ -137,12 +137,7 @@ bot = Bot(
     bot_token=BOT_TOKEN,
 )
 
-ubot = Ubot(
-    name="ubot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    session_string=SESSION_STRING,
-)
+ubot = Ubot(name="ubot")
 
 
 from PyroUbot.core.database import *
