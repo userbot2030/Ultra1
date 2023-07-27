@@ -19,8 +19,6 @@ async def set_prefix(client, message):
 
             parsed_prefix = " ".join(
                 f"<code>{prefix}</code>"
-                if not prefix.startswith(("@", "#", "/"))
-                else prefix
                 for prefix in set_prefix_ub
             )
 
