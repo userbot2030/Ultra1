@@ -262,11 +262,17 @@ async def convert_efek(client, message):
                 if files and os.path.exists(files):
                     os.remove(files)
         else:
-            await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                    next((p) for p in prefix)))
+            await message.reply(
+                "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
+                    next((p) for p in prefix)
+                )
+            )
     else:
-        await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                    next((p) for p in prefix)))
+        await message.reply(
+            "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
+                next((p) for p in prefix)
+            )
+        )
 
 
 async def colong_cmn(client, message):
