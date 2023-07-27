@@ -1,8 +1,4 @@
-from pyrogram import Client
-
 from PyroUbot import *
-
-app = Client("my_account")
 
 
 async def set_prefix(client, message):
