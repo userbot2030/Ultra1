@@ -247,6 +247,7 @@ async def list_cmd_efek(client, message):
 async def convert_efek(client, message):
     args = get_arg(message)
     reply = message.reply_to_message
+    prefix = await ubot.get_prefix(client.me.id)
     if reply and list_efek:
         if arga in list_efek:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {args}")
@@ -261,9 +262,11 @@ async def convert_efek(client, message):
                 if files and os.path.exists(files):
                     os.remove(files)
         else:
-            await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ {} ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ")
+            await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
+                    next((p) for p in prefix))
     else:
-        await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ {} ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ")
+        await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
+                    next((p) for p in prefix))
 
 
 async def colong_cmn(client, message):
