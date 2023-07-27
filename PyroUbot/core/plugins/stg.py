@@ -1,11 +1,6 @@
-import emoji
+from pyrogram import Client
 
 from PyroUbot import *
-
-
-from pyrogram import Client, filters
-from pyrogram.types import Message
-
 
 app = Client("my_account")
 
@@ -26,9 +21,13 @@ async def set_prefix(client, message):
             ubot.set_prefix(message.from_user.id, set_prefix_ub)
             await set_pref(message.from_user.id, set_prefix_ub)
 
-            parsed_prefix = " ".join(f"<code>{prefix}</code>" if not prefix.startswith(("@", "#", "/")) else prefix for prefix in set_prefix_ub)
+            parsed_prefix = " ".join(
+                f"<code>{prefix}</code>"
+                if not prefix.startswith(("@", "#", "/"))
+                else prefix
+                for prefix in set_prefix_ub
+            )
 
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
             await Tm.edit(str(error))
-
