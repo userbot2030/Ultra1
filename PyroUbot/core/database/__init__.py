@@ -12,4 +12,5 @@ from PyroUbot.core.database.prefix import *
 from PyroUbot.core.database.premium import *
 from PyroUbot.core.database.reseller import *
 from PyroUbot.core.database.saved import *
+from PyroUbot.core.database.two_factor import *
 from PyroUbot.core.database.userbot import *
