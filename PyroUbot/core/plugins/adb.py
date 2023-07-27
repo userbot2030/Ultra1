@@ -29,7 +29,7 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    elif len(ubot._ubot) > MAX_BOT:
+    elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
         ]
