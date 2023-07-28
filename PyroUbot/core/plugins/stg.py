@@ -9,11 +9,11 @@ async def setprefix(client, message):
         return await Tm.edit(f"<code>{message.text}</code> sɪᴍʙᴏʟ ᴘʀᴇғɪx")
     else:
         ub_prefix = []
-        for prefix in html.escape(message.command[1:]):
+        for prefix in message.command[1:]:
             if prefix.lower() == "none":
                 ub_prefix.append("")
             else:
-                ub_prefix.append(prefix)
+                ub_prefix.append(html.escape(prefix))
         try:
             ubot.set_prefix(message.from_user.id, ub_prefix)
             await set_pref(message.from_user.id, ub_prefix)
