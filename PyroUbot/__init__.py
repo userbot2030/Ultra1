@@ -89,7 +89,7 @@ class Ubot(Client):
 
                     without_prefix = text[len(prefix) :]
                     
-                    for command in cmd.split"|"):
+                    for command in cmd.split("|"):
                         if not re.match(
                             rf"^(?:{command}(?:@?{username})?)(?:\s|$)",
                             without_prefix,
