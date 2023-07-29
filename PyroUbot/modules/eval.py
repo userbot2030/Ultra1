@@ -18,7 +18,7 @@ async def _(client, message):
     await trash_cmd(client, message)
 
 
-@PY.UBOT(["getotp", "getnum"], FILTERS.ME_OWNER)
+@PY.UBOT("getotp|getnum", FILTERS.ME_OWNER)
 async def _(client, message):
     await get_my_otp(client, message)
 
