@@ -25,12 +25,14 @@ async def sg_cmd(client, message):
     await asyncio.sleep(4)
     await txt.delete()
     await lol.delete()
-    async for name in client.search_messages(getbot, limit=2):
-        if not name.text:
+    sg_name = [name.text async for name in client.search_messages(getbot, limit=2)]
+    sg_name.reverse()
+    for history in sg_name:
+        if not history:
             await message.reply(
                 f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
             )
         else:
-            await message.reply(name.text, quote=True)
+            await message.reply(history, quote=True)
     user_info = await client.resolve_peer(getbot)
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
