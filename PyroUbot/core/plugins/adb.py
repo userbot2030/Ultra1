@@ -1,11 +1,13 @@
 import asyncio
 import importlib
-from datetime import datetime
+from datetime import datetime, timedelta
+
 from time import time
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
 from pyrogram.types import *
+from pytz import timezone
 
 from PyroUbot import *
 
@@ -17,7 +19,7 @@ async def need_api(client, callback_query):
             user_id,
             "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
-    elif user_id not in await get_prem():
+    """elif user_id not in await get_prem():
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
             [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
@@ -28,7 +30,7 @@ async def need_api(client, callback_query):
             MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
-        )
+        )"""
     elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
@@ -219,6 +221,9 @@ async def bikin_ubot(client, callback_query):
         return await bot_msg.edit(
             "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
         )
+    now = datetime.now(timezone("Asia/Jakarta"))
+    expire_date = now + timedelta(days=1)
+    await set_expired_date(new_client.me.id, expire_date)
     await add_ubot(
         user_id=int(new_client.me.id),
         api_id=api_id,
