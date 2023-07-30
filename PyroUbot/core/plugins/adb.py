@@ -30,7 +30,8 @@ async def need_api(client, callback_query):
             MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
-        )"""
+        )
+"""
     elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
