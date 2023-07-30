@@ -13,8 +13,8 @@ async def quotly_cmd(client, message):
         else:
             try:
                 count = int(message.command[1])
-            except Exception as error:
-                await info.edit(error)
+            except ValueError as error:
+                return await info.edit(str(error))
             msg = [
                 i
                 for i in await client.get_messages(
