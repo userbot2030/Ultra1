@@ -68,7 +68,7 @@ class Ubot(Client):
         self._prefix[user_id] = prefix
 
     async def get_prefix(self, user_id):
-        return self._prefix.get(user_id, PREFIX)
+        return self._prefix.get(user_id, [".", ",", ":", ";", "!"])
 
     def cmd_prefix(self, cmd):
         command_re = re.compile(r"([\"'])(.*?)(?<!\\)\1|(\S+)")
@@ -120,7 +120,7 @@ class Ubot(Client):
         if handler:
             self._prefix[self.me.id] = handler
         else:
-            self._prefix[self.me.id] = PREFIX
+            self._prefix[self.me.id] = [".", ",", ":", ";", "!"]
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
         self._translate[self.me.id] = "id"
