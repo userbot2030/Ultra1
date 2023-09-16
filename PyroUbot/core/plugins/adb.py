@@ -10,8 +10,16 @@ from pytz import timezone
 
 from PyroUbot import *
 
-"""
-elif user_id not in await get_prem():
+
+
+async def need_api(client, callback_query):
+    user_id = callback_query.from_user.id
+    if user_id in ubot._get_my_id:
+        return await bot.send_message(
+            user_id,
+            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
+        )
+    elif user_id not in await get_prem():
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
             [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
@@ -22,16 +30,6 @@ elif user_id not in await get_prem():
             MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
-        )
-"""
-
-
-async def need_api(client, callback_query):
-    user_id = callback_query.from_user.id
-    if user_id in ubot._get_my_id:
-        return await bot.send_message(
-            user_id,
-            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
     elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
@@ -223,9 +221,6 @@ async def bikin_ubot(client, callback_query):
         return await bot_msg.edit(
             "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
         )
-    now = datetime.now(timezone("Asia/Jakarta"))
-    expire_date = now + timedelta(days=1)
-    await set_expired_date(new_client.me.id, expire_date)
     await add_ubot(
         user_id=int(new_client.me.id),
         api_id=api_id,
@@ -240,7 +235,7 @@ async def bikin_ubot(client, callback_query):
     try:
         await new_client.join_chat("ArabUbotpremium")
         await new_client.join_chat("SiArab_Support")
-    except UserAlreadyParticipant:
+    except:
         pass
     return await bot.send_message(
         LOGS_MAKER_UBOT,
