@@ -13,6 +13,6 @@ async def zombies_cmd(client, message):
                 await message.chat.ban_member(deleted_user)
             except Exception:
                 pass
-        await Tm.edit(f"<b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴇʟᴜᴀʀᴋᴀɴ {banned_users} ᴀᴋᴜɴ ᴛᴇʀʜᴀᴘᴜs</b>")
+        await Tm.edit(f"<b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴇʟᴜᴀʀᴋᴀɴ {banned_users} ᴀᴋᴜɴ ʜᴀɴᴛᴜ</b>")
     else:
-        await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴀᴋᴜɴ ᴛᴇʀʜᴀᴘᴜs ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ</b>")
+        await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴀᴋᴜɴ ʜᴀɴᴛᴜ ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ</b>")
