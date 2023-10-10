@@ -6,6 +6,13 @@ __HELP__ = """
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}prefix - sɪᴍʙᴏʟ/ᴇᴍᴏJɪ</code> 
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴘʀᴇғɪx ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ
+  
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}setemoji - [ǫᴜᴇʀʏ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
+  <b>• ǫᴜᴇʀʏ:</b>
+         <b>•> PONG</b>
+         <b>•> UPTIME</b>
+         <b>•> MENTION</b>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴀᴍᴘɪʟᴀɴ ᴘᴏɴɢ, ᴜᴘᴛɪᴍᴇ, ᴍᴇɴᴛɪᴏɴ ᴘᴀᴅᴀ ᴘɪɴɢ
 """
 
 
@@ -13,3 +20,8 @@ __HELP__ = """
 @PY.UBOT("prefix")
 async def _(client, message):
     await setprefix(client, message)
+
+
+@PY.UBOT("setemoji")
+async def _(client, message):
+    await change_emot(client, message)
