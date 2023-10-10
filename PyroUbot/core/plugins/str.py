@@ -1,5 +1,4 @@
 import asyncio
-from datetime import datetime
 from gc import get_objects
 from time import time
 
@@ -10,9 +9,7 @@ from PyroUbot import *
 
 
 async def send_msg_to_owner(client, message):
-    if message.from_user.id == OWNER_ID:
-        return
-    else:
+    if message.from_user.id != OWNER_ID:
         buttons = [
             [
                 InlineKeyboardButton(
@@ -28,23 +25,39 @@ async def send_msg_to_owner(client, message):
                 )
             ],
         ]
+        user_link = f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>"
+        formatted_text = f"{user_link}\n\n<code>{message.text}</code>"
+
         await client.send_message(
-            OWNER_ID,
-            f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>\n\n<code>{message.text}</code>",
-            reply_markup=InlineKeyboardMarkup(buttons),
+            OWNER_ID, formatted_text, reply_markup=InlineKeyboardMarkup(buttons)
         )
 
 
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
-    uptime = await get_time((time() - ub_uptime))
-    start = datetime.now()
+    uptime = await get_time(time() - ub_uptime)
+
+    start_time = time()
     await client.invoke(Ping(ping_id=0))
-    end = datetime.now()
-    delta_ping = (end - start).microseconds / 1000
-    _ping = f"""
-<b>❏ ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>└ ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+    delta_ping = round((time() - start_time) * 1000, 2)
+
+    emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "5269563867305879894"
+    emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "5316615057939897832"
+    emot_mention = (
+        await get_vars(client.me.id, "EMOJI_MENTION") or "6226371543065167427"
+    )
+
+    if client.me.is_premium:
+        _ping = f"""
+<b><emoji id={emot_pong}>🏓</emoji> ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id={emot_mention}>👑</emoji> ᴍᴇɴᴛɪᴏɴ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+"""
+    else:
+        _ping = f"""
+<b>❏ ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
+<b>├ ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b>╰ ᴍᴇɴᴛɪᴏɴ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     await message.reply(_ping)
 
