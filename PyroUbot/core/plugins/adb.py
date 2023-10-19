@@ -235,6 +235,7 @@ async def bikin_ubot(client, callback_query):
     try:
         await new_client.join_chat("ArabUbotpremium")
         await new_client.join_chat("SiArab_Support")
+        await new_client.join_chat("Jasasiarab")
     except:
         pass
     return await bot.send_message(
