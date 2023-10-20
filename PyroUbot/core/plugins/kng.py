@@ -24,7 +24,7 @@ async def kang_cmd_bot(client, message):
     elif message.reply_to_message.sticker and message.reply_to_message.sticker.emoji:
         sticker_emoji = message.reply_to_message.sticker.emoji
     else:
-        sticker_emoji = "✨"
+        sticker_emoji = "🚀"
     doc = (
         message.reply_to_message.photo
         or message.reply_to_message.document
