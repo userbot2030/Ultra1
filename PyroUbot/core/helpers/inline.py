@@ -55,11 +55,12 @@ class Button:
     def start(message):
         if not message.from_user.id == OWNER_ID:
             button = [
-                [InlineKeyboardButton("🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥", callback_data="bahan")],
+                [InlineKeyboardButton("🚀 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ", callback_data="bahan")],
                 [
-                    InlineKeyboardButton("✨ ʜᴇʟᴘ ᴍᴇɴᴜ", callback_data="help_back"),
+                    InlineKeyboardButton("ᴍᴏᴅᴜʟ ʜᴇʟᴘ ❓", callback_data="help_back"),
                     InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
                 ],
+                [InlineKeyboardButton("ᴛᴜᴛᴏʀɪᴀʟ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ", url=f"https://t.me/TutorialBuatUserbot/6")],
             ]
         else:
             button = [
@@ -86,8 +87,8 @@ class Button:
                     callback_data=f"tambah {query}",
                 ),
             ],
-            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ ✅", callback_data="confirm")],
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ ❌", callback_data=f"home {user_id}")],
+            [InlineKeyboardButton("✅ ᴋᴏɴꜰɪʀᴍᴀsɪ", callback_data="confirm")],
+            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"home {user_id}")],
         ]
         return button
 
