@@ -7,6 +7,8 @@ async def limit_cmd(client, message):
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
     msg = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
+    if client.me.is_premium:
+         msg = await message.reply("<emoji id={emot_mention}>👑</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
@@ -15,16 +17,7 @@ async def limit_cmd(client, message):
             start_param="start",
         )
     )
-    if client.me.is_premium:
-         msg = await message.reply("<emoji id={emot_mention}>👑</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
-        response = await client.invoke(
-        StartBot(
-            bot=bot_info,
-            peer=bot_info,
-            random_id=client.rnd_id(),
-            start_param="start",
-        )
-    )
+    
     await sleep(1)
     await msg.delete()
     status = await client.get_messages("SpamBot", response.updates[1].message.id + 1)
