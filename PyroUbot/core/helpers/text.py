@@ -17,9 +17,10 @@ class MSG:
             msg = f"""
 <b>👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
 
-💬 @{bot.me.username} ᴀᴅᴀʟᴀʜ ʙᴏᴛ ᴀʀᴀʙ-ᴜʙᴏᴛᴘʀᴇᴍ ʏᴀɴɢ ᴅᴀᴘᴀᴛ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅᴇɴɢᴀɴ ᴍᴜᴅᴀʜ
+💬Selamat Datang di {bot.me.username} yang akan membantu anda mengaktifkan userbot di akun anda, Tenang saja anda tidak perlu memikirkan tentang VPS ataupun heroku karena {bot.me.username} adalah userbot spesial.
+{bot.me.username} juga Support berbagai macam Emoji Premium jika akun anda Premium.
 
-👉🏻 ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>
+👉🏻 Silahkan klik tombol di bawah untuk membuat userbot anda</b>
 """
         else:
             msg = f"""
