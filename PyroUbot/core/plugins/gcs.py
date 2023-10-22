@@ -8,7 +8,9 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
+    if client.me.is_premium:
+    msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+          else await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -31,12 +33,17 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
     await msg.delete()
-    await message.reply(f"<b>🚀 ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
-
+    if client.me.is_premium:
+    await message.reply(f"<b><emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    else message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
+emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
 
 async def broadcast_users_cmd(client, message):
     sent = 0
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
+    if client.me.is_premium:
+    msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+    else await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
@@ -58,7 +65,9 @@ async def broadcast_users_cmd(client, message):
             except Exception:
                 pass
     await msg.delete()
-    await message.reply(f"<b>🚀 ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    if client.me.is_premium:
+    await message.reply(f"<b><emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    else message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
 async def send_msg_cmd(client, message):
@@ -76,7 +85,9 @@ async def send_msg_cmd(client, message):
                     await client.send_inline_bot_result(
                         chat_id, x.query_id, x.results[0].id
                     )
-                    tm = await message.reply(f"🚀 ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                     if client.me.is_premium:
+                    tm = await message.reply(f"<emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                         else await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
                     await asyncio.sleep(5)
                     await message.delete()
                     await tm.delete()
@@ -85,7 +96,9 @@ async def send_msg_cmd(client, message):
         else:
             try:
                 await message.reply_to_message.copy(chat_id)
-                tm = await message.reply(f"🚀 ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                if client.me.is_premium:
+                tm = await message.reply(f"<emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                     else await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
                 await asyncio.sleep(3)
                 await message.delete()
                 await tm.delete()
@@ -98,7 +111,9 @@ async def send_msg_cmd(client, message):
         chat_text = message.text.split(None, 2)[2]
         try:
             await client.send_message(chat_id, chat_text)
-            tm = await message.reply(f"🚀 ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+            if client.me.is_premium:
+            tm = await message.reply(f"<emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                 else await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
             await asyncio.sleep(3)
             await message.delete()
             await tm.delete()
