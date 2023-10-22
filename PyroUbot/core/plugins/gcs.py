@@ -123,5 +123,5 @@ async def send_inline(client, inline_query):
             )
         ],
     )
-emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
-emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
+emot_sukses = os.get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
+emot_proses = os.get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
