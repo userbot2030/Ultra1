@@ -7,9 +7,9 @@ async def limit_cmd(client, message):
     emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
     emot_gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6298671811345254603"
     emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6298321174510175872"
-    await emoji_id.initialize()
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
+    if client.me.is_premium:
     msg = await message.reply("<b><emoji id={emot_proses}>😘</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
     response = await client.invoke(
         StartBot(
