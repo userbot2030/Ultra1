@@ -7,6 +7,8 @@ from PyroUbot import *
 
 
 async def broadcast_group_cmd(client, message):
+    emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
+    emot_proses = from get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
     sent = 0
     msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
@@ -123,5 +125,3 @@ async def send_inline(client, inline_query):
             )
         ],
     )
-emot_sukses = from get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
-emot_proses = from get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
