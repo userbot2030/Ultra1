@@ -8,7 +8,6 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    if client.me.is_premium:
     msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
           else await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
