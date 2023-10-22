@@ -11,7 +11,7 @@ async def limit_cmd(client, message):
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
     if client.me.is_premium:
-    msg = await message.reply("<b><emoji id={emot_proses}>😘</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
+    msg = await message.reply("<b><emoji_id={emot_proses}>😘</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
