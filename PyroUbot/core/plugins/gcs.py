@@ -31,7 +31,6 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
     await msg.delete()
-    if client.me.is_premium:
     await message.reply(f"<b><emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
 emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
@@ -100,9 +99,7 @@ async def send_msg_cmd(client, message):
         chat_text = message.text.split(None, 2)[2]
         try:
             await client.send_message(chat_id, chat_text)
-            if client.me.is_premium:
             tm = await message.reply(f"<emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
-                 else await message.reply(f"✅ ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
             await asyncio.sleep(3)
             await message.delete()
             await tm.delete()
