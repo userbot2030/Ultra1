@@ -4,11 +4,13 @@ from pyrogram.raw.functions.messages import DeleteHistory, StartBot
 from PyroUbot import *
 
 async def limit_cmd(client, message):
-    emoji_id = Emo(client.me.id)
+    emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
+    emot_gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6298671811345254603"
+    emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6298321174510175872"
     await emoji_id.initialize()
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
-    msg = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
+    msg = await message.reply("<b><emoji id={emot_proses}>😘</emoji><code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
@@ -24,9 +26,9 @@ async def limit_cmd(client, message):
     await status.copy(message.chat.id, reply_to_message_id=message.id)
      result = status.text
     if "Good news" in result or "Kabar baik" in result:
-        emoji = f"{emo.sukses}"
+        emoji_id = f"{emot_sukses}"
     if "I'm afraid" in result or "Saya khawatir" in result:
-        emoji = f"{emo.gagal}"
-    await msg.edit(f"{emoji} {status.text}\n\n ~ {emo.alive} {bot.me.first_name}")
+        emoji_id = f"{emot_gagal}"
+    await msg.edit(f"{emoji_id} {status.text}\n\n ~ {emot_proses} {bot.me.first_name}")
 
     return await client.invoke(DeleteHistory(peer=bot_info, max_id=0, revoke=True))
