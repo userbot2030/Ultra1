@@ -24,7 +24,7 @@ async def limit_cmd(client, message):
     await msg.delete()
     status = await client.get_messages("SpamBot", response.updates[1].message.id + 1)
     await status.copy(message.chat.id, reply_to_message_id=message.id)
-     msg = await status.text
+     status = await status.text
     if "Good news" in result or "Kabar baik" in result:
         emoji_id = f"{emot_sukses}"
     if "I'm afraid" in result or "Saya khawatir" in result:
