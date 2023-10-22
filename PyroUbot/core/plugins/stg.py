@@ -41,7 +41,7 @@ async def change_emot(client, message):
             "gagal": "EMOJI_GAGAL",
             "proses": "EMOJI_PROSES", 
         }
-        command, mapping, value = message.command[:3]
+        command, mapping, value = message.command[:6]
 
         if mapping.lower() in query_mapping:
             query_var = query_mapping[mapping.lower()]
