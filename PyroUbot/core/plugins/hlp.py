@@ -20,7 +20,7 @@ async def help_cmd(client, message):
                 HELP_COMMANDS[get_arg(message)].__HELP__.format(
                     next((p) for p in prefix)
                 )
-                + "\n<b>© Arab-Ubotprem | @SiArabUbot</b>",
+                + "\n<b>© Arab-Ubot | @SiArabUbot</b>",
                 quote=True,
             )
         else:
@@ -30,7 +30,7 @@ async def help_cmd(client, message):
 
 
 async def menu_inline(client, inline_query):
-    msg = f"<b>ᯤ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>\n\nᝰ.ᐟ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs ᴜʙᴏᴛ: {len(HELP_COMMANDS)}</b>"
+    msg = f"<b>⌕ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>\n\n⌯ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs ᴜʙᴏᴛ: {len(HELP_COMMANDS)}</b>"
     await client.answer_inline_query(
         inline_query.id,
         cache_time=60,
