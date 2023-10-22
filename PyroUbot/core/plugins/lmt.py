@@ -2,6 +2,7 @@ from asyncio import sleep
 
 from pyrogram.raw.functions.messages import DeleteHistory, StartBot
 from PyroUbot import *
+from PyroUbot.core.plugins import stg.py
 
 async def limit_cmd(client, message):
     emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
