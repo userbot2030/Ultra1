@@ -31,7 +31,7 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
     await msg.delete()
-    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 async def broadcast_users_cmd(client, message):
     sent = 0
@@ -57,7 +57,7 @@ async def broadcast_users_cmd(client, message):
             except Exception:
                 pass
     await msg.delete()
-    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
 async def send_msg_cmd(client, message):
