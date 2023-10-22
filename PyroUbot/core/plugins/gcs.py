@@ -8,9 +8,7 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-     if client.me.is_premium:
     msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
-else:
 msg= await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
@@ -43,9 +41,8 @@ emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "54561406740280194
 
 async def broadcast_users_cmd(client, message):
     sent = 0
-    if client.me.is_premium:
     msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
-    else await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+    await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
