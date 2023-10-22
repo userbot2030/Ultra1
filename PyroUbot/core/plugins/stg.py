@@ -37,6 +37,9 @@ async def change_emot(client, message):
             "pong": "EMOJI_PING_PONG",
             "uptime": "EMOJI_UPTIME",
             "mention": "EMOJI_MENTION",
+            "sukses": "EMOJI_SUKSES",
+            "gagal": "EMOJI_GAGAL",
+            "proses": "EMOJI_PROSES", 
         }
         command, mapping, value = message.command[:3]
 
