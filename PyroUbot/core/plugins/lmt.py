@@ -4,13 +4,11 @@ from pyrogram.raw.functions.messages import DeleteHistory, StartBot
 from PyroUbot import *
 
 async def limit_cmd(client, message):
-    emo = Emo(client.me.id)
-    await emo.initialize()
+    emoji_id = Emo(client.me.id)
+    await emoji_id.initialize()
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
     msg = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
-    if client.me.is_premium:
-         msg = await message.reply("<code>ᴘʀᴏᴄᴇssɪɴɢ ᴋᴀʟᴏ ʟɪᴍɪᴛ ᴊᴀɴɢᴀɴ ꜱᴀʟᴀʜɪɴ ɢᴜᴀ ʏᴀ . . .</code>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
