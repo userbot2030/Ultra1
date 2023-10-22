@@ -8,8 +8,10 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
+     if client.me.is_premium:
     msg = await message.reply("<emoji id={emot_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
-          else await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+else:
+msg= await message.reply("ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -34,7 +36,8 @@ async def broadcast_group_cmd(client, message):
     await msg.delete()
     if client.me.is_premium:
     await message.reply(f"<b><emoji id={emot_sukses}>✅</emoji> ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
-    else message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+        else:
+message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 emot_sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6296367896398399651"
 emot_proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5456140674028019486"
 
