@@ -93,7 +93,7 @@ async def sending_user(user_id):
                 [
                     [
                         InlineKeyboardButton(
-                            "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ 🔥",
+                            "🔥 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ",
                             callback_data="bahan",
                         )
                     ],
