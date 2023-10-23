@@ -60,7 +60,8 @@ class Button:
                     InlineKeyboardButton("ᴍᴏᴅᴜʟ ʜᴇʟᴘ ❓", callback_data="help_back"),
                     InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ 💬", callback_data="support"),
                 ],
-                [InlineKeyboardButton("ᴛᴜᴛᴏʀɪᴀʟ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ", url=f"https://t.me/TutorialBuatUserbot/6")],
+                [InlineKeyboardButton("ᴛᴜᴛᴏʀɪᴀʟ ⚡️", url=f"https://t.me/TutorialBuatUserbot/6")],
+              [InlineKeyboardButton("ᴊᴀsᴀ ʙᴏᴛ ʟᴀɪɴɴʏᴀ 🛒", url=f"https://t.me/JasaSiArab/2")],
             ]
         else:
             button = [
