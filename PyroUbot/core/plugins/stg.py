@@ -40,6 +40,10 @@ async def change_emot(client, message):
             "sukses": "EMOJI_SUKSES",
             "gagal": "EMOJI_GAGAL",
             "proses": "EMOJI_PROSES", 
+            "ucast_proses": "UCAST_PROSES",
+            "gcast_proses": "GCAST_PROSES",
+            "gcast_done": "GCAST_DONE",
+            "send_done": "SEND_DONE"
         }
         command, mapping, value = message.command[:6]
 
