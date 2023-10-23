@@ -19,7 +19,7 @@ class MSG:
 
 💬Selamat Datang di @{bot.me.username} yang akan membantu anda mengaktifkan userbot di akun anda, Tenang saja anda tidak perlu memikirkan tentang VPS ataupun heroku karena @{bot.me.username} adalah userbot spesial.
 
-@{bot.me.username} juga Support berbagai macam Emoji Premium dan berbagai macam modul yang keren jika akun anda Premium. kalian bisa cek modul dengan klik Modul Help
+@{bot.me.username} juga Support berbagai macam Emoji Premium jika akun anda Premium dan berbagai macam modul yang keren. kalian bisa cek modul dengan klik Modul Help
 
 👉🏻 Silahkan klik tombol di bawah untuk membuat userbot anda</b>
 """
