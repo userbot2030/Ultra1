@@ -9,7 +9,7 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "5224607267797606837"
-    msg = await message.reply(f"<emoji id={gcast_done}>☄️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+    msg = await message.reply(f"<emoji id={gcast_proses}>☄️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
