@@ -73,7 +73,7 @@ async def payment_userbot(client, callback_query):
     await callback_query.message.delete()
     return await bot.send_message(
         user_id,
-        MSG.TEXT_PAYMENT(25, 25, 1),
+        MSG.TEXT_PAYMENT(30, 30, 1),
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(buttons),
     )
@@ -230,12 +230,12 @@ async def bikin_ubot(client, callback_query):
     await set_uptime(new_client.me.id, time())
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    text_done = f"<b>⚡️ {bot.me.mention} ᴜʙᴏᴛ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
+    text_done = f"<b>⚡️ {bot.me.mention} ʏᴇᴀʏ ᴜʙᴏᴛ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot_msg.edit(text_done)
     try:
         await new_client.join_chat("ArabUbotpremium")
         await new_client.join_chat("SiArab_Support")
-        await new_client.join_chat("Jasasiarab")
+        await new_client.join_chat("Arabc0de")
     except:
         pass
     return await bot.send_message(
