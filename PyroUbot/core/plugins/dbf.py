@@ -110,7 +110,7 @@ async def add_blaclist(client, message):
         chat_id = message.chat.id
         blacklist = await get_chat(client.me.id)
         if chat_id in blacklist:
-            return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʙʟᴀᴄᴋʟɪsᴛ")
+            return await Tm.edit("ɢʀᴏᴜᴘ ɪɴɪ sᴜᴅᴀʜ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ")
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
             return await Tm.edit(
