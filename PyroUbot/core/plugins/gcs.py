@@ -38,7 +38,7 @@ async def broadcast_group_cmd(client, message):
 async def broadcast_users_cmd(client, message):
     sent = 0
     ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "5456140674028019486"
-    msg = await message.reply(f"><emoji id={gcast_done}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+    msg = await message.reply(f"><emoji id={ucast_proses}>⚡️</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
