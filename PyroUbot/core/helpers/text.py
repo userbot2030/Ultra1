@@ -17,11 +17,12 @@ class MSG:
             msg = f"""
 <b>👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
 
-💬Selamat Datang di @{bot.me.username} yang akan membantu anda mengaktifkan userbot di akun anda, Tenang saja anda tidak perlu memikirkan tentang VPS ataupun heroku karena @{bot.me.username} adalah userbot spesial.
+💬ᴘᴇʀᴋᴇɴᴀʟᴋᴀɴ sᴀʏᴀ ᴀᴅᴀʟᴀʜ @{bot.me.username} ʏᴀɴɢ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴜsᴇʀʙᴏᴛ sᴘᴇsɪᴀʟ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ.
 
-@{bot.me.username} juga Support berbagai macam Emoji Premium jika akun anda Premium dan berbagai macam modul yang keren. kalian bisa cek modul dengan klik Modul Help
+@{bot.me.username} ᴀᴅᴀʟᴀʜ ᴜsᴇʀʙᴏᴛ sᴘᴇsɪᴀʟ ᴅᴇɴɢᴀɴ ʙᴇʀʙᴀɢᴀɪ ᴍᴀᴄᴀᴍ ᴍᴏᴅᴜʟ ʏᴀɴɢ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ɢᴜʏs, 
+ᴜsᴇʀʙᴏᴛ ɪɴɪ ᴘᴜɴ ᴍᴇᴍᴘᴜɴʏᴀɪ ᴍᴏᴅᴜʟ ᴘᴍᴘᴇʀᴍɪᴛ, sᴇʀᴛᴀ ᴘᴍ-ʟᴏɢs ᴅᴀɴ ᴊᴜɢᴀ ʙᴇʀʙᴀɢᴀɪ ᴍᴀᴄᴀᴍ ᴇᴍᴏᴊɪ ᴘʀᴇᴍɪᴜᴍ ᴅɪ ʙᴇʀʙᴀɢᴀɪ ᴍᴏᴅᴜʟɴʏᴀ ᴡɪʜ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ʙᴜᴋᴀɴ
 
-👉🏻 Silahkan klik tombol di bawah untuk membuat userbot anda</b>
+👉🏻 sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪ ʙᴀᴡᴀʜ ɪɴɪ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ sᴇɴᴅɪʀɪ</b>
 """
         else:
             msg = f"""
