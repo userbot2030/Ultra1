@@ -89,14 +89,14 @@ async def _(client, message):
                 MSG_ID[user.id] = int(msg.updates[0].id)
             else:
                 pm_pic = await get_vars(client.me.id, "PM_PIC")
-                photo_video = (
-                    message.reply_video
-                    if pm_pic.endswith(".mp4")
-                    else message.reply_photo
-                )
                 rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
                 peringatan = f"{FLOOD[user.id]} / {pm_limit}"
                 if pm_pic:
+                    photo_video = (
+                        message.reply_video
+                        if pm_pic.endswith(".mp4")
+                        else message.reply_photo
+                    )
                     msg = await photo_video(
                         pm_pic, caption=pm_msg.format(mention=rpk, warn=peringatan)
                     )
