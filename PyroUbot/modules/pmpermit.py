@@ -201,6 +201,8 @@ async def _(client, inline_query):
 @PY.PRIVATE
 async def _(client, message):
     user = message.chat
+    if user.id in FLOOD:
+        del FLOOD[user.id]
     rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
     vars = await get_pm_id(client.me.id)
     if user.id not in vars:
