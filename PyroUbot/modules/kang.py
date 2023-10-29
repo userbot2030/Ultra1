@@ -9,7 +9,6 @@ __HELP__ = """
 """
 
 @PY.UBOT("kang")
-@PY.TOP_CMD
 async def _(client, message):
     await kang_cmd(client, message)
 
