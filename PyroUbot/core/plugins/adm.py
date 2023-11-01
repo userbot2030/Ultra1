@@ -162,16 +162,22 @@ async def global_banned(client, message):
 
 async def global_unbanned(client, message):
     user_id = await extract_user(message)
-    Tm = await message.reply("</b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113844439292054570"
+    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji></b> ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
     if not user_id:
-        return await Tm.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await Tm.edit(f"<b><emoji id={gagal}>❎</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
         return await Tm.edit(error)
     done = 0
     failed = 0
-    text = "<b>💬 ɢʟᴏʙᴀʟ {}</b>\n\n<b>✅ ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>❌ ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>👤 ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6113647841459047673"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
+    mention = await get_vars(client.me.id, "EMOJI_MENTION") or "6323352999825507790"
+    gban_ini = await get_vars(client.me.id, "GBAN_INI") or "6172475875368373616"
+    text = "<b><emoji id={gban_ini}>⚠️</emoji> ɢʟᴏʙᴀʟ {}</b>\n\n<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b><emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b><emoji id={mention}>🕺</emoji> ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
         if chat_type in [
