@@ -117,8 +117,7 @@ async def admin_unban(client, message):
         await message.reply(error)
     try:
         await message.chat.unban_member(user_id)
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6113647841459047673"
-        await message.reply(f"<b><emoji id={sukses}>✅</emoji> {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
+        await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
     except Exception as error:
         await message.reply(error)
 
