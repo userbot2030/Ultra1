@@ -94,7 +94,6 @@ async def admin_mute(client, message):
 
 async def admin_unmute(client, message):
     user_id = await extract_user(message)
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6113647841459047673"
     if not user_id:
         return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     try:
@@ -103,7 +102,7 @@ async def admin_unmute(client, message):
         await message.reply(error)
     try:
         await message.chat.unban_member(user_id)
-        await message.reply(f"<b><emoji id={sukses}>✅</emoji> {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴄʜᴀᴛ ʟᴀɢɪ</b>")
+        await message.reply("<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴄʜᴀᴛ ʟᴀɢɪ</b>")
     except Exception as error:
         await message.reply(error)
 
