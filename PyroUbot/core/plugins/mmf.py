@@ -6,12 +6,15 @@ from PyroUbot import *
 
 async def memify_cmd(client, message):
     if not message.reply_to_message:
-        return await message.reply("ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ ꜰᴏᴛᴏ ᴀᴛᴀᴜ sᴛɪᴄᴋᴇʀ!")
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
+        return await message.reply(f"<emoji id={gagal}>❌</emoji>ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ ꜰᴏᴛᴏ ᴀᴛᴀᴜ sᴛɪᴄᴋᴇʀ!")
     reply_message = message.reply_to_message
     if not reply_message.media:
-        return await message.reply("ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ ꜰᴏᴛᴏ ᴀᴛᴀᴜ sᴛɪᴄᴋᴇʀ")
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
+        return await message.reply(f"<emoji id={gagal}>❌</emoji>ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ ꜰᴏᴛᴏ ᴀᴛᴀᴜ sᴛɪᴄᴋᴇʀ")
     file = await client.download_media(reply_message)
-    Tm = await message.reply("ᴘʀᴏᴄᴇssɪɴɢ . . .")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5215484787325676090"
+    Tm = await message.reply(f"<emoji id={proses}>🔍</emoji> ᴘʀᴏᴄᴇssɪɴɢ ɴɪʜ ʙʀᴇᴇ . . .")
     text = get_arg(message)
     if len(text) < 1:
         return await Tm.edit(f"ʜᴀʀᴀᴘ ᴋᴇᴛɪᴋ {PREFIX[0]}mmf ᴛᴇxᴛ")
