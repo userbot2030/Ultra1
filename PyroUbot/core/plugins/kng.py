@@ -11,8 +11,9 @@ from PyroUbot import *
 
 async def kang_cmd(client, message):
     replied = message.reply_to_message
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5215484787325676090"
     msg_text = await message.reply(
-        "<code>ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>"
+        f"<code><emoji id={proses}>😝</emoji>ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>"
     )
     media_ = None
     emoji_ = None
