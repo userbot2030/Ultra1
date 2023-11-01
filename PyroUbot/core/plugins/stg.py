@@ -40,6 +40,7 @@ async def change_emot(client, message):
             "sukses": "EMOJI_SUKSES",
             "gagal": "EMOJI_GAGAL",
             "proses": "EMOJI_PROSES", 
+            "gban_ini": "GBAN_INI", 
             "ucast_proses": "UCAST_PROSES",
             "gcast_proses": "GCAST_PROSES",
             "gcast_done": "GCAST_DONE",
