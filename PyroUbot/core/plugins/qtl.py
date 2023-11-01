@@ -3,11 +3,9 @@ import os
 
 from pyrogram.raw.functions.messages import DeleteHistory
 
-from PyroUbot import *
 
 async def quotly_cmd(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5215484787325676090"
-    info = await message.reply(f"<b><emoji id={proses}>🔍</emoji>ᴍᴇᴍᴘʀᴏsᴇs.....</b>", quote=True)
+    info = await message.reply(">ᴍᴇᴍᴘʀᴏsᴇs.....</b>", quote=True)
     await client.unblock_user("@QuotLyBot")
     if message.reply_to_message:
         if len(message.command) < 2:
