@@ -10,5 +10,6 @@ __HELP__ = """
 
 
 @PY.UBOT("memes")
+@PY.TOP_CMD
 async def _(client, message):
     await memes_cmd(client, message)
