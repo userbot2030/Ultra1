@@ -10,5 +10,6 @@ __HELP__ = """
 
 
 @PY.UBOT("sg")
+@PY.TOP_CMD
 async def _(client, message):
     await sg_cmd(client, message)
