@@ -10,5 +10,6 @@ __HELP__ = """
 
 
 @PY.UBOT("q")
+@PY.TOP_CMD
 async def _(client, message):
     await quotly_cmd(client, message)
