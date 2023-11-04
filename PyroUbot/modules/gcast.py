@@ -16,17 +16,20 @@ __HELP__ = """
 
 
 @PY.UBOT("gcast")
+@PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
 
 @PY.UBOT("ucast")
+@PY.TOP_CMD
 async def _(client, message):
     await broadcast_users_cmd(client, message)
 
 
 @PY.BOT("send")
 @PY.UBOT("send")
+@PY.TOP_CMD
 async def _(client, message):
     await send_msg_cmd(client, message)
 
