@@ -15,6 +15,7 @@ async def _(client, message):
 
 
 @PY.UBOT("copy")
+@PY.TOP_CMD
 async def _(client, message):
     await copy_ubot_msg(client, message)
 
