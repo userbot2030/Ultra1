@@ -20,6 +20,10 @@ __HELP__ = """
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
+@PY.UBOT("xgcast", FILTERS.OWNER)
+async def _(client, message):
+    await broadcast_group_cmd(client, message)
+
 
 @PY.UBOT("ucast")
 @PY.TOP_CMD
