@@ -13,10 +13,12 @@ __HELP__ = """
 
 
 @PY.UBOT("vsong")
+@PY.TOP_CMD
 async def _(client, message):
     await vsong_cmd(client, message)
 
 
 @PY.UBOT("song")
+@PY.TOP_CMD
 async def _(client, message):
     await song_cmd(client, message)
