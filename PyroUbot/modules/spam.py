@@ -13,10 +13,12 @@ __HELP__ = """
 
 
 @PY.UBOT("spam")
+@PY.TOP_CMD
 async def _(client, message):
     await spam_cmd(client, message)
 
 
 @PY.UBOT("dspam")
+@PY.TOP_CMD
 async def _(client, message):
     await dspam_cmd(client, message)
