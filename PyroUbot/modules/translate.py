@@ -16,16 +16,19 @@ __HELP__ = """
 
 
 @PY.UBOT("tts")
+@PY.TOP_CMD
 async def _(client, message):
     await tts_cmd(client, message)
 
 
 @PY.UBOT("tr")
+@PY.TOP_CMD
 async def _(client, message):
     await tr_cmd(client, message)
 
 
 @PY.UBOT("set_lang")
+@PY.TOP_CMD
 async def _(client, message):
     await set_lang_cmd(client, message)
 
