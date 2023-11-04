@@ -15,8 +15,8 @@ async def broadcast_group_cmd(client, message):
             if message.reply_to_message:
                 send = message.reply_to_message
             else:
-            gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
                 if len(message.command) < 2:
+                 gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
                     await msg.delete()
                     return await message.reply(f"<emoji id={gagal}>❎</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
