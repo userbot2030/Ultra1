@@ -19,20 +19,24 @@ __HELP__ = """
 
 
 @PY.UBOT("addbl")
+@PY.TOP_CMD
 async def _(client, message):
     await add_blaclist(client, message)
 
 
 @PY.UBOT("unbl")
+@PY.TOP_CMD
 async def _(client, message):
     await del_blacklist(client, message)
 
 
 @PY.UBOT("rallbl")
+@PY.TOP_CMD
 async def _(client, message):
     await rem_all_blacklist(client, message)
 
 
 @PY.UBOT("listbl")
+@PY.TOP_CMD
 async def _(client, message):
     await get_blacklist(client, message)
