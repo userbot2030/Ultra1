@@ -123,11 +123,11 @@ async def admin_unban(client, message):
 
 
 async def global_banned(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113844439292054570"
     user_id = await extract_user(message)
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
     if not user_id:
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
         return await Tm.edit(f"<b><emoji id={gagal}>❎</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
         user = await client.get_users(user_id)
