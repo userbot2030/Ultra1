@@ -16,15 +16,18 @@ __HELP__ = """
 
 
 @PY.UBOT("ai")
+@PY.TOP_CMD
 async def _(client, message):
     await ai_cmd(client, message)
 
 
 @PY.UBOT("dalle")
+@PY.TOP_CMD
 async def _(client, message):
     await dalle_cmd(client, message)
 
 
 @PY.UBOT("stt")
+@PY.TOP_CMD
 async def _(client, message):
     await stt_cmd(client, message)
