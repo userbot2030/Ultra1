@@ -10,5 +10,6 @@ __HELP__ = """
 
 
 @PY.UBOT("ocr")
+@PY.TOP_CMD
 async def _(client, message):
     await read_cmd(client, message)
