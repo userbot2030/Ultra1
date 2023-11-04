@@ -10,5 +10,6 @@ __HELP__ = """
 
 
 @PY.UBOT("google")
+@PY.TOP_CMD
 async def _(client, message):
     await google_search(client, message)
