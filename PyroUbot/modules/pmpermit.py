@@ -108,6 +108,7 @@ async def _(client, message):
 
 
 @PY.UBOT("setpm")
+@PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 3:
         return await message.reply(
@@ -130,6 +131,7 @@ async def _(client, message):
 
 
 @PY.UBOT("pmpermit")
+@PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
         return await message.reply(
@@ -199,6 +201,7 @@ async def _(client, inline_query):
 
 @PY.UBOT("ok|setuju")
 @PY.PRIVATE
+@PY.TOP_CMD
 async def _(client, message):
     user = message.chat
     if user.id in FLOOD:
@@ -214,6 +217,7 @@ async def _(client, message):
 
 @PY.UBOT("no|tolak")
 @PY.PRIVATE
+@PY.TOP_CMD
 async def _(client, message):
     user = message.chat
     rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
