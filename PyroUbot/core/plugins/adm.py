@@ -135,6 +135,10 @@ async def global_banned(client, message):
         return await Tm.edit(error)
     done = 0
     failed = 0
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
+    emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
+    gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
+    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
     text = "<b><emoji id={}>{}</emoji> ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
@@ -154,10 +158,6 @@ async def global_banned(client, message):
                 except:
                     failed += 1
                     await asyncio.sleep(0.1)
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
-    emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
-    gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
-    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
     await Tm.delete()
     return await message.reply(
         text.format(
