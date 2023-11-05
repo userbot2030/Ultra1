@@ -55,14 +55,32 @@ class PY:
 
         return wrapper
 
+    def AFK():
+        def wrapper(func):
+            afk_check = (
+                (filters.mentioned | filters.private)
+                & ~filters.bot
+                & ~filters.me
+                & filters.incoming
+            )
+
+            @ubot.on_message(afk_check, group=7)
+            async def wrapped_func(client, message):
+                await func(client, message)
+
+            return wrapped_func
+
+        return wrapper
+
     def LOGS_PRIVATE():
         def wrapper(func):
             @ubot.on_message(
                 filters.private
-                & filters.incoming
                 & ~filters.me
                 & ~filters.bot
                 & ~filters.service
+                & filters.incoming,
+                group=6,
             )
             async def wrapped_func(client, message):
                 await func(client, message)
@@ -74,7 +92,8 @@ class PY:
     def LOGS_GROUP():
         def wrapper(func):
             @ubot.on_message(
-                filters.group & filters.incoming & filters.mentioned & ~filters.bot
+                filters.group & filters.incoming & filters.mentioned & ~filters.bot,
+                group=8,
             )
             async def wrapped_func(client, message):
                 await func(client, message)
