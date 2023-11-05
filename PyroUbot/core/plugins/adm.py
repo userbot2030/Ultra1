@@ -135,7 +135,7 @@ async def global_banned(client, message):
         return await Tm.edit(error)
     done = 0
     failed = 0
-    text = "<b>{}{}{}{}{} ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
+    text = "<b><emoji id={}>{}</emoji> ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
         if chat_type in [
@@ -161,7 +161,7 @@ async def global_banned(client, message):
     await Tm.delete()
     return await message.reply(
         text.format(
-            <emoji id=, {emoji_global}, >, 💬, </emoji>, "ʙᴀɴɴᴇᴅ",<emoji id={sukses}></emoji>, done,<emoji id={gagal}></emoji>,<emoji id={gban_user}></emoji>, failed, user.id, user.first_name, (user.last_name or "")
+            {emoji_global}, 💬, "ʙᴀɴɴᴇᴅ",<emoji id={sukses}></emoji>, done,<emoji id={gagal}></emoji>,<emoji id={gban_user}></emoji>, failed, user.id, user.first_name, (user.last_name or "")
         )
     )
 
