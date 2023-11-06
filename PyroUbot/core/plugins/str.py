@@ -8,31 +8,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from PyroUbot import *
 
 
-async def send_msg_to_owner(client, message):
-    if message.from_user.id != OWNER_ID:
-        buttons = [
-            [
-                InlineKeyboardButton(
-                    "👤 ᴘʀᴏꜰɪʟ", callback_data=f"profil {message.from_user.id}"
-                ),
-                InlineKeyboardButton(
-                    "ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {message.from_user.id}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    "sᴀᴛᴜ ʙᴜʟᴀɴ", callback_data=f"success {message.from_user.id} 1"
-                )
-            ],
-        ]
-        user_link = f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>"
-        formatted_text = f"{user_link}\n\n<code>{message.text}</code>"
-
-        await client.send_message(
-            OWNER_ID, formatted_text, reply_markup=InlineKeyboardMarkup(buttons)
-        )
-
-
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
     uptime = await get_time(time() - ub_uptime)
@@ -63,7 +38,6 @@ async def ping_cmd(client, message):
 
 
 async def start_cmd(client, message):
-    await send_msg_to_owner(client, message)
     if len(message.command) < 2:
         buttons = Button.start(message)
         msg = MSG.START(message)
