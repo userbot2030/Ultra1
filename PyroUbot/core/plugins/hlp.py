@@ -20,7 +20,7 @@ async def help_cmd(client, message):
                 HELP_COMMANDS[get_arg(message)].__HELP__.format(
                     next((p) for p in prefix)
                 )
-                + "\n<b>© Arab-Ubot | @SiArabUbot</b>",
+                + "\n<b>© Arab Spesial Userbot | @Prem_Ubot </b>",
                 quote=True,
             )
         else:
@@ -53,7 +53,7 @@ async def menu_callback(client, callback_query):
     prev_match = re.match(r"help_prev\((.+?)\)", callback_query.data)
     next_match = re.match(r"help_next\((.+?)\)", callback_query.data)
     back_match = re.match(r"help_back", callback_query.data)
-    top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>\n\n▞ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs sɪ ᴧꝛᴧʙ ᴘʀᴇᴍ: {len(HELP_COMMANDS)}</b>"
+    top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>\n\n⌯ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs ᴜʙᴏᴛ:: {len(HELP_COMMANDS)}</b>"
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         prefix = await ubot.get_prefix(callback_query.from_user.id)
