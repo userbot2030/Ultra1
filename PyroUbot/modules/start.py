@@ -8,5 +8,6 @@ async def _(client, message):
 
 
 @PY.BOT("start")
+@PY.START
 async def _(client, message):
     await start_cmd(client, message)
