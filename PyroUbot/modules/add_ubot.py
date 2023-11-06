@@ -40,3 +40,41 @@ async def _(client, callback_query):
 @PY.CALLBACK("del_ubot")
 async def _(client, callback_query):
     await hapus_ubot(client, callback_query)
+
+
+def get_message(message):
+    msg = (
+        message.reply_to_message
+        if message.reply_to_message
+        else ""
+        if len(message.command) < 2
+        else message.text.split(None, 1)[1]
+    )
+    return msg
+
+
+@PY.BOT("broadcast", FILTERS.OWNER)
+async def _(client, message):
+    msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
+    done = 0
+    send = get_message(message)
+
+    if not send:
+        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ.")
+
+    saved_users = await get_list_from_vars(client.me.id, "SAVED_USERS")
+
+    if not saved_users:
+        return await msg.edit("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ.")
+
+    for user_id in saved_users:
+        try:
+            if send:
+                await send.copy(int(user_id))
+            else:
+                await client.send_message(int(user_id), send)
+            done += 1
+        except Exception:
+            await remove_from_vars(client.me.id, "SAVED_USERS", int(user_id))
+
+    return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ.")
