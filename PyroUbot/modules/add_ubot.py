@@ -69,7 +69,7 @@ async def _(client, message):
 
     for user_id in saved_users:
         try:
-            if send:
+            if message.reply_to_message:
                 await send.copy(int(user_id))
             else:
                 await client.send_message(int(user_id), send)
@@ -77,4 +77,4 @@ async def _(client, message):
         except Exception:
             await remove_from_vars(client.me.id, "SAVED_USERS", int(user_id))
 
-    return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ.")
+    return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} sᴀᴠᴇᴅ ᴄʜᴀᴛ")
