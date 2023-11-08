@@ -7,15 +7,16 @@ from PyroUbot import *
 
 
 async def admin_kick(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text(
             "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
         )
     if user_id == OWNER_ID:
-        return await message.reply_text("ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text(
             "sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ."
@@ -24,9 +25,12 @@ async def admin_kick(client, message):
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
-    msg = f"<b>👤 ᴅɪᴛᴇɴᴅᴀɴɢ:</b> {mention}\n<b>👑 ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6185884677367139563"
+    emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
+    gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
+    msg = f"<b><emoji id={emoji_global}>👤</emoji> ᴅɪᴛᴇɴᴅᴀɴɢ:</b> {mention}\n<b><emoji id={gban_user}>👑</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
     if reason:
-        msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
+        msg += f"\n<b><emoji id={alasan}>💬</emoji> ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
         await message.chat.ban_member(user_id)
         await message.reply(msg)
@@ -37,15 +41,16 @@ async def admin_kick(client, message):
 
 
 async def admin_ban(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text(
             "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
         )
     if user_id == OWNER_ID:
-        return await message.reply_text("ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text(
             "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
@@ -54,9 +59,12 @@ async def admin_ban(client, message):
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
-    msg = f"<b>👤 ᴅɪʙᴀɴɴᴇᴅ:</b> {mention}\n<b>👑 ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6185884677367139563"
+    emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
+    gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
+    msg = f"<b><emoji id={emoji_global}>👤</emoji> ᴅɪʙᴀɴɴᴇᴅ:</b> {mention}\n<b><emoji id={gban_user}>👑</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
     if reason:
-        msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
+        msg += f"\n<b><emoji id={alasan}>💬</emoji> ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
         await message.chat.ban_member(user_id)
         await message.reply(msg)
@@ -65,15 +73,16 @@ async def admin_ban(client, message):
 
 
 async def admin_mute(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text(
             "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
         )
     if user_id == OWNER_ID:
-        return await message.reply_text("ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text(
             "sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ."
@@ -82,12 +91,12 @@ async def admin_mute(client, message):
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6185884677367139563"
     emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
     gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
-    msg = f"<b><emoji id={emoji_global}>😎</emoji> ᴍᴇᴍʙɪsᴜᴋᴀɴ:</b> {mention}\n<b><emoji id={gban_user}>😎</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
+    msg = f"<b><emoji id={emoji_global}>🚫</emoji> ᴍᴇᴍʙɪsᴜᴋᴀɴ:</b> {mention}\n<b><emoji id={gban_user}>⚠️</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
     if reason:
-        msg += f"\n<b><emoji id={sukses}>✅</emoji> ᴀʟᴀsᴀɴ:</b> {reason}"
+        msg += f"\n<b><emoji id={alasan}>⛔️</emoji> ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
         await message.chat.restrict_member(user_id, ChatPermissions())
         await message.reply(msg)
