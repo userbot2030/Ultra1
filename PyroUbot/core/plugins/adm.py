@@ -82,9 +82,12 @@ async def admin_mute(client, message):
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
-    msg = f"<b>👤 ᴍᴇᴍʙɪsᴜᴋᴀɴ:</b> {mention}\n<b>👑 ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
+    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
+    emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
+    gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
+    msg = f"<b><emoji id={emoji_global}>😎</emoji> ᴍᴇᴍʙɪsᴜᴋᴀɴ:</b> {mention}\n<b><emoji id={gban_user}>😎</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
     if reason:
-        msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
+        msg += f"\n<b><emoji id={sukses}>✅</emoji> ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
         await message.chat.restrict_member(user_id, ChatPermissions())
         await message.reply(msg)
