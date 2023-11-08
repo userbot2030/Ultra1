@@ -120,7 +120,7 @@ async def add_blaclist(client, message):
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
             return await Tm.edit(
-                f"{message.chat.title} <emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ"
+                f"<emoji id={sukses}>✅</emoji> {message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ"
             )
         else:
             return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
@@ -147,7 +147,7 @@ async def del_blacklist(client, message):
             gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or " 6113872536968104754"
             del_blacklist = await remove_chat(client.me.id, chat_id)
             if del_blacklist:
-                return await Tm.edit(f"{chat_id} <emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ")
+                return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {chat_id} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ")
             else:
                 return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
         except Exception as error:
@@ -157,7 +157,8 @@ async def del_blacklist(client, message):
 
 
 async def get_blacklist(client, message):
-    Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113844439292054570"
+    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat(client.me.id))}</b>\n\n"
     for X in await get_chat(client.me.id):
         try:
@@ -170,13 +171,16 @@ async def get_blacklist(client, message):
 
 
 async def rem_all_blacklist(client, message):
-    msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>", quote=True)
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113844439292054570"
+    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> <b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>", quote=True)
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6113844439292054570"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or " 6113872536968104754"
     get_bls = await get_chat(client.me.id)
     if len(get_bls) == 0:
-        return await msg.edit("<b>ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
+        return await msg.edit(f"<b><emoji id={gagal}>❎</emoji> ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
     for X in get_bls:
         await remove_chat(client.me.id, X)
-    await msg.edit("<b>sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
+    await msg.edit(f"<b><emoji id={sukses}>✅</emoji> sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
 
 
 # ========================== #
