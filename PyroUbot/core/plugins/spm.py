@@ -1,9 +1,12 @@
 import asyncio
 
+from PyroUbot import *
+
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113844439292054570"
+    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
             count_message = int(message.command[1])
