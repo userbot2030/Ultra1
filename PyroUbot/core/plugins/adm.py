@@ -82,7 +82,7 @@ async def admin_mute(client, message):
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
-    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
     emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6210934442760866463"
     gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
     msg = f"<b><emoji id={emoji_global}>😎</emoji> ᴍᴇᴍʙɪsᴜᴋᴀɴ:</b> {mention}\n<b><emoji id={gban_user}>😎</emoji> ᴀᴅᴍɪɴ:</b> {message.from_user.mention}"
@@ -96,31 +96,35 @@ async def admin_mute(client, message):
 
 
 async def admin_unmute(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     user_id = await extract_user(message)
     if not user_id:
-        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     try:
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
     try:
         await message.chat.unban_member(user_id)
-        await message.reply("<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴄʜᴀᴛ ʟᴀɢɪ</b>")
+        await message.reply(f"<b><emoji id={sukses}>✅</emoji> {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴄʜᴀᴛ ʟᴀɢɪ</b>")
     except Exception as error:
         await message.reply(error)
 
 
 async def admin_unban(client, message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113872536968104754"
     user_id = await extract_user(message)
     if not user_id:
-        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     try:
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
     try:
         await message.chat.unban_member(user_id)
-        await message.reply(f"<b>✅ {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
+        await message.reply(f"<b><emoji id={sukses}>✅</emoji> {mention} sᴜᴅᴀʜ ʙɪsᴀ ᴊᴏɪɴ ʟᴀɢɪ</b>")
     except Exception as error:
         await message.reply(error)
 
