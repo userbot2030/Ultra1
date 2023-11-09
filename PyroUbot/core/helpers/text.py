@@ -17,7 +17,7 @@ class MSG:
             msg = f"""
 <b>👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
 
-💬 ᴘᴇʀᴋᴇɴᴀʟᴋᴀɴ sᴀʏᴀ ᴀᴅᴀʟᴀʜ <a href=tg://user?id={bot.me.first_name} </a> ʏᴀɴɢ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴜsᴇʀʙᴏᴛ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ.
+💬 ᴘᴇʀᴋᴇɴᴀʟᴋᴀɴ sᴀʏᴀ ᴀᴅᴀʟᴀʜ <a href=tg://bot?id={bot.me.first_name} </a> ʏᴀɴɢ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴜsᴇʀʙᴏᴛ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ.
 
 {bot.me.first_name} ᴀᴅᴀʟᴀʜ ᴜsᴇʀʙᴏᴛ ᴅᴇɴɢᴀɴ ʙᴇʀʙᴀɢᴀɪ ᴍᴀᴄᴀᴍ ᴍᴏᴅᴜʟ ʏᴀɴɢ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ɢᴜʏs, ᴘᴍᴘᴇʀᴍɪᴛ, ᴘᴍ-ʟᴏɢs, ᴀғᴋ ᴅᴀɴ ᴊᴜɢᴀ ғᴜʟʟ ᴇᴍᴏᴊɪ ᴘʀᴇᴍɪᴜᴍ 
  ᴅɪ ʙᴇʀʙᴀɢᴀɪ ᴍᴏᴅᴜʟɴʏᴀ ᴡɪʜ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ʙᴜᴋᴀɴ
