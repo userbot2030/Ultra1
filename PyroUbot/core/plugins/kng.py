@@ -138,6 +138,7 @@ async def kang_cmd(client, message):
             await asyncio.sleep(2)
             limit = "50" if is_anim else "120"
             while limit in await get_response(message, client):
+                kang_pack = await get_vars(client.me.id, "KANG_PACK") or "5280786999102415056"
                 pack += 1
                 packname = f"stkr_{str(message.from_user.id)}_by_{bot.me.username}"
                 packnick = f"{Fonts.smallcapc(f'{ustom_packnick} ᴠᴏʟ.{pack}')}"
@@ -174,7 +175,7 @@ async def kang_cmd(client, message):
                     await client.send_message("Stickers", packname)
                     await asyncio.sleep(2)
                     await msg_text.edit(
-                        f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🔥 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🔥\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
+                        f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         <emoji id={kang_pack}>🦋</emoji> <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> <emoji id={kang_pack}>🦋</emoji>\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
                     )
                     await asyncio.sleep(2)
                     user_info = await client.resolve_peer("@Stickers")
