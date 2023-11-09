@@ -42,6 +42,7 @@ async def change_emot(client, message):
             "alasan": "EMOJI_ALASAN",
             "proses": "EMOJI_PROSES", 
             "gban_user": "GBAN_USER", 
+            "kang_pack": "KANG_PACK",
             "emoji_global": "EMOJI_GLOBAL",
             "ucast_proses": "UCAST_PROSES",
             "gcast_proses": "GCAST_PROSES",
