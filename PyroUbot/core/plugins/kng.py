@@ -12,7 +12,7 @@ from PyroUbot import *
 async def kang_cmd(client, message):
     replied = message.reply_to_message
     msg_text = await message.reply(
-        f"<code><ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>"
+        f"<code>ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>"
     )
     media_ = None
     emoji_ = None
@@ -174,7 +174,7 @@ async def kang_cmd(client, message):
                     await client.send_message("Stickers", packname)
                     await asyncio.sleep(2)
                     await msg_text.edit(
-                        f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         <emoji id={kang_pack}>🦋</emoji> <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> <emoji id={kang_pack}>🦋</emoji>\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
+                        f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
                     )
                     await asyncio.sleep(2)
                     user_info = await client.resolve_peer("@Stickers")
@@ -226,7 +226,7 @@ async def kang_cmd(client, message):
             await client.send_message("Stickers", packname)
             await asyncio.sleep(2)
         await msg_text.edit(
-            f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         <emoji id={kang_pack}>🦋</emoji> <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> <emoji id={kang_pack}>🦋</emoji>\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
+            f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
         )
         await asyncio.sleep(2)
         if os.path.exists(str(media_)):
