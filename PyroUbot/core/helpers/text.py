@@ -15,14 +15,14 @@ class MSG:
     def START(message):
         if not message.from_user.id == OWNER_ID:
             msg = f"""
-<b>👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
+👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
 
 💬 ᴘᴇʀᴋᴇɴᴀʟᴋᴀɴ sᴀʏᴀ ᴀᴅᴀʟᴀʜ <b>{bot.me.first_name}</b> ʏᴀɴɢ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴜsᴇʀʙᴏᴛ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ.
 
 <b>{bot.me.first_name}</b> ᴀᴅᴀʟᴀʜ ᴜsᴇʀʙᴏᴛ ᴅᴇɴɢᴀɴ ʙᴇʀʙᴀɢᴀɪ ᴍᴀᴄᴀᴍ ᴍᴏᴅᴜʟ ʏᴀɴɢ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ɢᴜʏs, ᴘᴍᴘᴇʀᴍɪᴛ, ᴘᴍ-ʟᴏɢs, ᴀғᴋ ᴅᴀɴ ᴊᴜɢᴀ ғᴜʟʟ ᴇᴍᴏᴊɪ ᴘʀᴇᴍɪᴜᴍ 
  ᴅɪ ʙᴇʀʙᴀɢᴀɪ ᴍᴏᴅᴜʟɴʏᴀ ᴡɪʜ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ʙᴜᴋᴀɴ
 
-👉🏻 sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪ </b>
+👉🏻 sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪ sɪɴɪ
 """
         else:
             msg = f"""
