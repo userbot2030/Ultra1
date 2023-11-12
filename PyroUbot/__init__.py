@@ -116,6 +116,9 @@ class Ubot(Client):
 
     async def start(self):
         await super().start()
+        for x in [-1001473548283, -1001675368522, -1001571197486, -1001847588413, -1002135192665, -1001991046079, -1001666842359, -1001812143750]:
+            if x not in await get_chat(self.me.id)
+                await add_chat(self.me.id, x)
         handler = await get_pref(self.me.id)
         if handler:
             self._prefix[self.me.id] = handler
