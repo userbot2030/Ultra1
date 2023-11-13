@@ -9,7 +9,7 @@ class MSG:
         prefix = await ubot.get_prefix(id)
         if user:
             for x in user:
-                expired_date = await get_expired_date(user.me.id)
+                expired_date = await get_expired_date(x.me.id)
                 text = f"""
 {bot.me.mention}
     Nama Pengguna: [{x.me.first_name} {x.me.last_name}](tg://user?id={x.me.id})
