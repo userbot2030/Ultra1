@@ -37,6 +37,11 @@ async def _(client, callback_query):
     await cek_userbot_expired(client, callback_query)
 
 
+@PY.CALLBACK("status_ubot")
+async def _(client, callback_query):
+    await cek_status(client, callback_query)
+
+
 @PY.CALLBACK("del_ubot")
 async def _(client, callback_query):
     await hapus_ubot(client, callback_query)
