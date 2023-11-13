@@ -5,7 +5,7 @@ from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date, ubot
 
 class MSG:
     async def STATUS_UB(id):
-        user = [x for x in ubot._ubot if x.me.id == id][0]
+        user = [x for x in ubot._ubot if x.me.id == int(id)][0]
         prefix = await ubot.get_prefix(user.me.id)
         if user:
             expired_date = await get_expired_date(user.me.id)
@@ -18,7 +18,7 @@ class MSG:
     Status pengguna : Official of (sɪ ᴧꝛᴧʙ)
 """
         else:
-            me = await bot.get_users(id)
+            me = await bot.get_users(int(id))
             text = f"""
 {bot.me.mention}
     Nama Pengguna: [{me.first_name} {me.last_name}](tg://user?id={me.id})
