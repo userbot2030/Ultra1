@@ -14,7 +14,7 @@ class MSG:
     Nama Pengguna: [{user.me.first_name} {user.me.last_name}](tg://user?id={user.me.id})
     Ubot Status: Aktif
     Expired Akun: {expired_date.strftime('%d-%m-%Y')} 
-    Prefixes: {*prefix}
+    Prefixes: {' '.join(prefix)}
     Status pengguna : Official of (sɪ ᴧꝛᴧʙ)
 """
         else:
@@ -24,7 +24,7 @@ class MSG:
     Nama Pengguna: [{me.first_name} {me.last_name}](tg://user?id={me.id})
     Ubot Status: tidak aktif
     Expired Akun: belum aktif 
-    Prefixes: {*prefix}
+    Prefixes: {' '.join(prefix)}
     Status pengguna : Unofficial (sɪ ᴧꝛᴧʙ)            
 """
         return text 
