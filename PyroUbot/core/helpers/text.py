@@ -4,6 +4,31 @@ from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date, ubot
 
 
 class MSG:
+    def STATUS_UB(id):
+        user = [x for x in ubot._ubot if x.me.id][0]
+        prefix = await ubot.get_prefix(user.me.id)
+        if user:
+            expired_date = await get_expired_date(user.me.id)
+            text = f"""
+{bot.me.mention}
+    Nama Pengguna: [{user.me.first_name} {user.me.last_name}](tg://user?id={user.me.id})
+    Ubot Status: Aktif
+    Expired Akun: {expired_date.strftime('%d-%m-%Y')} 
+    Prefixes: {*prefix}
+    Status pengguna : Official of (sɪ ᴧꝛᴧʙ)
+"""
+        else:
+            me = await bot.get_users(id)
+            text = f"""
+{bot.me.mention}
+    Nama Pengguna: [{me.first_name} {me.last_name}](tg://user?id={me.id})
+    Ubot Status: tidak aktif
+    Expired Akun: belum aktif 
+    Prefixes: {*prefix}
+    Status pengguna : Unofficial (sɪ ᴧꝛᴧʙ)            
+"""
+        return text 
+    
     def EXPIRED_MSG_BOT(X):
         return f"""
 <b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
