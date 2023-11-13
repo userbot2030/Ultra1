@@ -13,7 +13,8 @@ from PyroUbot import *
 
 async def cek_status(client, callback_query):
     user_id = callback_query.from_user.id
-    buttons = [[InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")]]
+    buttons = [[InlineKeyboardButton("🚀 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ", callback_data="bahan")],
+                [InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")]]
     text = await MSG.STATUS_UB(user_id)
     await callback_query.message.delete()
     return await bot.send_message(
