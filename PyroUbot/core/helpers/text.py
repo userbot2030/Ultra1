@@ -5,13 +5,14 @@ from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date, ubot
 
 class MSG:
     async def STATUS_UB(id):
-        user = [x for x in ubot._ubot if x.me.id == int(id)][0]
-        prefix = await ubot.get_prefix(user.me.id)
+        user = [x for x in ubot._ubot if x.me.id == int(id)]
+        prefix = await ubot.get_prefix(id)
         if user:
-            expired_date = await get_expired_date(user.me.id)
-            text = f"""
+            for x in user:
+                expired_date = await get_expired_date(user.me.id)
+                text = f"""
 {bot.me.mention}
-    Nama Pengguna: [{user.me.first_name} {user.me.last_name}](tg://user?id={user.me.id})
+    Nama Pengguna: [{x.me.first_name} {x.me.last_name}](tg://user?id={x.me.id})
     Ubot Status: Aktif
     Expired Akun: {expired_date.strftime('%d-%m-%Y')} 
     Prefixes: {' '.join(prefix)}
