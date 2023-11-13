@@ -4,7 +4,7 @@ from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date, ubot
 
 
 class MSG:
-    def STATUS_UB(id):
+    async def STATUS_UB(id):
         user = [x for x in ubot._ubot if x.me.id][0]
         prefix = await ubot.get_prefix(user.me.id)
         if user:
