@@ -11,6 +11,18 @@ from pytz import timezone
 from PyroUbot import *
 
 
+async def cek_status(client, callback_query):
+    user_id = callback_query.from_user.id
+    buttons = [[InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")]]
+    text = await MSG.STATUS_UB(user_id)
+    await callback_query.message.delete()
+    return await bot.send_message(
+        user_id,
+        text,
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup(buttons),
+    )
+
 
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
