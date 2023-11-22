@@ -26,10 +26,10 @@ async def _(client, message):
     emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
     emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
     emot_afk = emot_1 if emot_1 else "5467890025217661107"
-    emot_reason = emot_2 if emot_2 else "5334882760735598374"
+    emot_reason = emot_2 if emot_2 else "6230829139297831733"
     if client.me.is_premium:
         msg_afk = (
-            f"<b><emoji id={emot_afk}>‼️</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji>ᴀʟᴀsᴀɴ: {reason}</b>"
+            f"<b><emoji id={emot_afk}>🦇</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji>ᴀʟᴀsᴀɴ: {reason}</b>"
             if reason
             else f"<b><emoji id={emot_afk}>‼️</emoji>sᴇᴅᴀɴɢ ᴀғᴋ</b>"
         )
@@ -56,13 +56,13 @@ async def _(client, message):
         emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
         emot_3 = await get_vars(client.me.id, "EMOJI_WAKTU")
         emot_afk = emot_1 if emot_1 else "5213205860498549992"
-        emot_reason = emot_2 if emot_2 else "5443038326535759644"
+        emot_reason = emot_2 if emot_2 else "6230829139297831733"
         emot_waktu = emot_3 if emot_3 else "5895288113537748673"
         if client.me.is_premium:
             afk_text = (
-                f"<b><emoji id={emot_afk}>‼️</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji>ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji>ᴀʟᴀsᴀɴ: {afk_reason}</b>"
+                f"<b><emoji id={emot_afk}>🦇</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji>ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji>ᴀʟᴀsᴀɴ: {afk_reason}</b>"
                 if afk_reason
-                else f"<b><emoji id={emot_afk}>‼️</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji>ᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
+                else f"<b><emoji id={emot_afk}>🦇</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji>ᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
             )
         else:
             afk_text = (
