@@ -6,8 +6,8 @@ from PyroUbot import *
 async def limit_cmd(client, message):
     await client.unblock_user("SpamBot")
     bot_info = await client.resolve_peer("SpamBot")
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5215484787325676090"
-    msg = await message.reply(f"<b><emoji id={proses}>🔍</emoji> ᴘʀᴏᴄᴇssɪɴɢ ɴɪʜ ʙʀᴇᴇ. . .</b>>")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    msg = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ ɴɪʜ ʙʀᴇᴇ. . .</b>")
     response = await client.invoke(
         StartBot(
             bot=bot_info,
