@@ -12,21 +12,21 @@ class MSG:
                 expired_date = await get_expired_date(x.me.id)
                 text = f"""
 {bot.me.mention}
-    Nama Pengguna: [{x.me.first_name} {x.me.last_name}](tg://user?id={x.me.id})
-    Ubot Status: Aktif
-    Expired Akun: {expired_date.strftime('%d-%m-%Y')} 
-    Prefixes: {' '.join(prefix)}
-    Status pengguna : Official of (sɪ ᴧꝛᴧʙ)
+    ɴᴀᴍᴀ ᴜsᴇʀ : [{x.me.first_name} {x.me.last_name}](tg://user?id={x.me.id})
+    sᴛᴀᴛᴜs ᴜʙᴏᴛ : ✅ ᴀᴄᴛɪᴠᴇᴅ 
+    ᴍᴀsᴀ ᴀᴋᴛɪғ ᴜʙᴏᴛ : {expired_date.strftime('%d-%m-%Y')} 
+    ᴘʀᴇғɪxᴇs : {' '.join(prefix)}
+    sᴛᴀᴛᴜs ᴜsᴇʀ : ᴍᴇᴍʙᴇʀ ᴏғ sɪ ᴧꝛᴧʙ
 """
         else:
             me = await bot.get_users(int(id))
             text = f"""
 {bot.me.mention}
-    Nama Pengguna: [{me.first_name} {me.last_name}](tg://user?id={me.id})
-    Ubot Status: tidak aktif
-    Expired Akun: belum aktif 
-    Prefixes: {' '.join(prefix)}
-    Status pengguna : Unofficial (sɪ ᴧꝛᴧʙ)            
+    ɴᴀᴍᴀ ᴜsᴇʀ : [{me.first_name} {me.last_name}](tg://user?id={me.id})
+    sᴛᴀᴛᴜs ᴜʙᴏᴛ : ❎ ɴᴏᴛ ᴀᴄᴛɪᴠᴀᴛᴇᴅ
+    ᴍᴀsᴀ ᴀᴋᴛɪғ ᴜʙᴏᴛ : ʙᴇʟᴜᴍ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ 
+    ᴘʀᴇғɪxᴇs : {' '.join(prefix)}
+    sᴛᴀᴛᴜs ᴜsᴇʀ : ɴᴏᴛ ᴀ ᴍᴇᴍʙᴇʀ ᴏғ sɪ ᴧꝛᴧʙ            
 """
         return text 
     
