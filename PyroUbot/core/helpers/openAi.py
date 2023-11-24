@@ -1,4 +1,6 @@
-import asyncio, openai, g4f
+import asyncio
+
+import openai
 
 from PyroUbot import OPENAI_KEY
 
@@ -8,23 +10,15 @@ openai.api_key = OPENAI_KEY
 class OpenAi:
     @staticmethod
     async def ChatGPT(question):
-        """
-           create by: NorSodikin.t.me
-           request by: Dhilnihnge.t.me
-        """
-        try:
-            response = await g4f.ChatCompletion.create_async(
-                model=g4f.models.default,
-                provider=g4f.Provider.GeekGpt,
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": question},
-                ],
-                timeout=60,
-            )
-            return response if response else "lagi error coba lagi nanti"
-        except Exception as error:
-            return str(error)
+        response = await asyncio.to_thread(
+            openai.ChatCompletion.create,
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": question},
+            ],
+        )
+        return response.choices[0].message["content"].strip()
 
     @staticmethod
     async def ImageDalle(question):
