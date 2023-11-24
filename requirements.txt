@@ -31,3 +31,4 @@ python-dateutil
 emoji
 python-ffmpeg
 search_engine_parser
+g4f
