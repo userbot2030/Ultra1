@@ -98,8 +98,8 @@ async def _(client, message):
 
 
 async def create_logs(client):
-    logs = await client.create_channel(f"Logs Ubot: {bot.me.username}")
-    url = wget.download("https://telegra.ph//file/2345387f86cca291ea34e.jpg")
+    logs = await client.create_channel(f"Logs Ubot {bot.me.first_name}")
+    url = wget.download("https://telegra.ph//file/ea39b52686ec35ed9950a.jpg")
     photo_video = {"video": url} if url.endswith(".mp4") else {"photo": url}
     await client.set_chat_photo(
         logs.id,
