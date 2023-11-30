@@ -32,21 +32,24 @@ __HELP__ = """
 """
 
 @PY.UBOT("joinvc")
+@PY.TOP_CMD
 async def _(client, message):
   await joinvc(client, message)
 
 @PY.UBOT("leavevc")
+@PY.TOP_CMD
 async def _(client, message):
   await leavevc(client, message)
 
 @PY.UBOT("startvc")
+@PY.TOP_CMD
 async def _(client, message):
   await opengc(client, message)
 
 @PY.UBOT("stopvc")
+@PY.TOP_CMD
 async def _(client, message):
   await end_vc_(client, message)
-@PY.TOP_CMD
 
 async def get_group_call(
     client: Client, message: Message, err_msg: str = ""
@@ -76,7 +79,7 @@ async def joinvc(client, message):
     except Exception as e:
         return await ky.edit(f"ERROR: {e}")
     await ky.edit(
-        f"❏ <b>Berhasil Join Voice Chat</b>\n└ <b>Chat</b>: {message.chat.title}"
+        f"❏ <b>Berhasil Join Voice Chat</b>\n└ <b>Chat</b>: {chat_id}"
     )
     await sleep(3)
     await client.group_call.set_is_mute(True)
