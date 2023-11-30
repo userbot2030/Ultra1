@@ -32,20 +32,21 @@ __HELP__ = """
 
 @PY.UBOT("joinvc")
 async def _(client, message):
-  await joinvc(client: Client, message: Message)
+  await joinvc(client, message)
 
 @PY.UBOT("leavevc")
 async def _(client, message):
-  await leavevc(client: Client, message: Message)
+  await leavevc(client, message)
 
 @PY.UBOT("startvc")
 async def _(client, message):
-  await opengc(client: Client, message: Message)
+  await opengc(client, message)
 
 @PY.UBOT("stopvc")
 async def _(client, message):
-  await end_vc_(client: Client, message: Message)
+  await end_vc_(client, message)
 @PY.TOP_CMD
+
 async def get_group_call(
     client: Client, message: Message, err_msg: str = ""
 ) -> Optional[InputGroupCall]:
