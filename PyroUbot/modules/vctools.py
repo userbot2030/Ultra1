@@ -73,6 +73,7 @@ async def joinvc(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
     ky = await message.reply(message, f"<emoji id={proses}>⏳</emoji>ʟᴀɢɪ ᴏᴛᴡ ɴᴀɪᴋ ᴍᴇᴋ..")
     with suppress(ValueError):
         chat_id = int(chat_id)
@@ -81,7 +82,7 @@ async def joinvc(client, message):
     except Exception as e:
         return await ky.edit(f"ERROR: {e}")
     await ky.edit(
-        f"<emoji id={sukses}>✅</emoji><b>ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n└ <b>ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {chat_id}"
+        f"<emoji id={sukses}>✅</emoji><b> ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n<emoji id={alasan}>⚠️</emoji> <b> ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {chat_id}"
     )
     await sleep(3)
     await client.group_call.set_is_mute(True)
@@ -90,16 +91,19 @@ async def joinvc(client, message):
 
 async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    ky = await message.reply(message, "`Processing....`")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
+    ky = await message.reply(message, f"<emoji id={proses}>⏳</emoji> Processing....")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
         await client.group_call.leave()
     except Exception as e:
         return await ky.edit(f"<b>ERROR:</b> {e}")
-    msg = "❏ <b>Berhasil Meninggalkan Voice Chat</b>\n"
+    msg = f"<emoji id={gagal}>❎</emoji> <b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n"
     if chat_id:
-        msg += f"└ <b>Chat:</b> {message.chat.title}"
+        msg += f"<emoji id={alasan}>⚠️</emoji> <b>ɢʀᴏᴜᴘ ᴄʜᴀᴛ:</b> {message.chat.title}"
     await ky.edit(msg)
 
 
