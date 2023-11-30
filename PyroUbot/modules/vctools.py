@@ -3,6 +3,7 @@ from asyncio import sleep
 from contextlib import suppress
 from random import randint
 from typing import Optional
+from pytgcalls import GroupCallFactory
 
 from pyrogram import Client, enums, filters
 from pyrogram.raw.functions.channels import GetFullChannel
