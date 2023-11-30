@@ -7,6 +7,7 @@ from pyrogram.enums import ParseMode
 from pyrogram.handlers import MessageHandler
 from pyrogram.types import Message
 from pyromod import listen
+from pytgcalls import GroupCallFactory
 
 from PyroUbot.config import *
 
@@ -55,7 +56,8 @@ class Ubot(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, device_model="ArabPremUbot")
-
+        self.group_call = GroupCallFactory(self).get_group_call()
+        
     def on_message(self, filters=None, group=-1):
         def decorator(func):
             for ub in self._ubot:
