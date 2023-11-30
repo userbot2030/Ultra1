@@ -82,7 +82,7 @@ async def joinvc(client, message):
     except Exception as e:
         return await ky.edit(f"ERROR: {e}")
     await ky.edit(
-        f"<emoji id={sukses}>✅</emoji><b> ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n<emoji id={alasan}>⚠️</emoji> <b> ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {chat_id}"
+        f"<emoji id={sukses}>✅</emoji><b> ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n<emoji id={alasan}>⚠️</emoji> <b> ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {message.chat.title}"
     )
     await sleep(3)
     await client.group_call.set_is_mute(True)
@@ -110,13 +110,15 @@ async def leavevc(client: Client, message: Message):
 
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
     ky = await message.reply(message, "`Processing....`")
     vctitle = get_arg(message)
     if flags == enums.ChatType.CHANNEL:
         chat_id = message.chat.title
     else:
         chat_id = message.chat.id
-    args = f"<b>Obrolan Suara Aktif</b>\n • <b>Chat</b> : {message.chat.title}"
+    args = f"<b><emoji id={sukses}>✅</emoji> ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ</b>\n <emoji id={alasan}>⚠️</emoji> <b>ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b> : {message.chat.title}"
     try:
         if not vctitle:
             await client.invoke(
@@ -141,6 +143,8 @@ async def opengc(client: Client, message: Message):
 
 
 async def end_vc_(client: Client, message: Message):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
     ky = await message.reply(message, "`Processing....`")
     message.chat.id
     if not (
@@ -149,5 +153,5 @@ async def end_vc_(client: Client, message: Message):
         return
     await client.send(DiscardGroupCall(call=group_call))
     await ky.edit(
-        f"<b>Obrolan Suara Diakhiri</b>\n • <b>Chat</b> : {message.chat.title}"
+        f"<emoji id={gagal}>❎</emoji> <b>ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ ʙᴇʀʜᴀsɪʟ ᴅɪ ᴍᴀᴛɪᴋᴀɴ</b>\n <emoji id={alasan}>⚠️</emoji><b>Chat</b> : {message.chat.title}"
     )
