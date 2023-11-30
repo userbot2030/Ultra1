@@ -71,7 +71,9 @@ async def get_group_call(
 
 async def joinvc(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    ky = await message.reply(message, "`Processing....`")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
+    ky = await message.reply(message, f"<emoji id={proses}>⏳</emoji>ʟᴀɢɪ ᴏᴛᴡ ɴᴀɪᴋ ᴍᴇᴋ..")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
@@ -79,7 +81,7 @@ async def joinvc(client, message):
     except Exception as e:
         return await ky.edit(f"ERROR: {e}")
     await ky.edit(
-        f"❏ <b>Berhasil Join Voice Chat</b>\n└ <b>Chat</b>: {chat_id}"
+        f"<emoji id={sukses}>✅</emoji><b>ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n└ <b>ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {chat_id}"
     )
     await sleep(3)
     await client.group_call.set_is_mute(True)
