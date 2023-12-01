@@ -174,7 +174,7 @@ async def _(client, message):
                 await msg.edit("<b>ᴀᴜᴛᴏ ᴄᴇᴋ ʟɪᴍɪᴛ sᴛᴀʀᴛᴇᴅ</b>")
                 while client.me.id in LT:
                     for x in range(2):
-                        await spam_bot(client, message)
+                        await limit_cmd(client, message)
                         await asyncio.sleep(5)
                     await asyncio.sleep(1200)
             else:
