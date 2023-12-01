@@ -55,7 +55,7 @@ AG = []
 LT = []
 
 
-@PY.UBOT("auto_gcast", sudo=True)
+@PY.UBOT("auto_gcast")
 @PY.TOP_CMD
 async def _(client, message):
     """
