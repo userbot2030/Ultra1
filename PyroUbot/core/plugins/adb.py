@@ -248,9 +248,10 @@ async def bikin_ubot(client, callback_query):
     text_done = f"<b>⚡️ {bot.me.mention} ʏᴇᴀʏ ᴜʙᴏᴛ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot_msg.edit(text_done)
     try:
-        await new_client.join_chat("ArabUbotpremium")
+        await new_client.join_chat("ArabUltraInfo")
         await new_client.join_chat("SiArab_Support")
         await new_client.join_chat("Arabc0de")
+        await new_client.join_chat("Cehaarab")
     except:
         pass
     return await bot.send_message(
