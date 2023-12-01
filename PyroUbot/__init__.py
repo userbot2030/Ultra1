@@ -34,7 +34,7 @@ logger.addHandler(connection_handler)
 
 class Bot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="ArbSpclUbot")
+        super().__init__(**kwargs, device_model="UltraUbot")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
@@ -55,7 +55,7 @@ class Ubot(Client):
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="ArabPremUbot")
+        super().__init__(**kwargs, device_model="UltraUbot")
         self.group_call = GroupCallFactory(self).get_group_call()
         
     def on_message(self, filters=None, group=-1):
