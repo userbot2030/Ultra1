@@ -60,7 +60,7 @@ LT = []
 async def _(client, message):
     """
     CREATE BY: NORSODIKIN.T.ME
-    REQUEST BY:
+    REQUEST BY DHILNIHNGE.T.ME:
     """
     msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...</b>", quote=True)
     type, value = extract_type_and_text(message)
