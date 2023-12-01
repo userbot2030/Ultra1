@@ -80,7 +80,7 @@ async def _(client, message):
             done = 0
             while client.me.id in AG:
                 delay = await get_vars(client.me.id, "DELAY_GCAST") or 1
-                blacklist = await get_list_from_vars(client.me.id, "BLACKLIST")
+                blacklist = await get_chat(client.me.id)
                 txt = random.choice(auto_text_vars)
 
                 group = 0
