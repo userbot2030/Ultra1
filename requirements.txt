@@ -22,7 +22,6 @@ gpytranslate
 gtts
 telegraph
 pyromod==1.1
-openai
 youtube-search-python
 pymongo
 yt-dlp
@@ -31,4 +30,5 @@ python-dateutil
 emoji
 python-ffmpeg
 search_engine_parser
-g4f
+g4f==0.1.9.2
+openai
