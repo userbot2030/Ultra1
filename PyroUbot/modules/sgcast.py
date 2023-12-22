@@ -10,12 +10,15 @@ from pyrogram.errors import FloodWait
 
 from .. import *
 
-__MODULE__ = "sɢᴄᴀsᴛ"
+__MODULE__ = "sgcast"
 __HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sɢᴄᴀsᴛ 』</b>
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}sgcast</code> (ᴊᴜᴍʟᴀʜ) - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ʙᴇʀsᴀᴍᴀᴀɴ sᴇᴄᴀʀᴀ ʀᴇᴀʟ-ᴛɪᴍᴇ
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}setdelay</code> (ᴄᴏᴜɴᴛ) 
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴛᴜʀ ᴅᴇʟᴀʏ sᴇᴛɪᴀᴘ ᴘᴇsᴀɴ ʏᴀɴɢ ᴅɪ ᴋɪʀɪᴍ
 
   <b>NB:</b> ᴊᴀɴɢᴀɴ ᴛᴇʀʟᴀʟᴜ sᴇʀɪɴɢ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴍᴏᴅᴜʟᴇ ɪɴɪ
 """
@@ -86,7 +89,7 @@ async def _(client, message):
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    return await r.edit("<b>SᴘᴀᴍG ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
+    return await r.edit("<b>sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
 
 
 @PY.UBOT("setdelay")
