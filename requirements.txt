@@ -30,5 +30,6 @@ python-dateutil
 emoji
 python-ffmpeg
 search_engine_parser
-g4f==0.1.9.2
+g4f==0.1.9.3
 openai
+pytgcalls==3.0.0.dev24
