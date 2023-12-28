@@ -4,17 +4,17 @@ __MODULE__ = "setting"
 __HELP__ = """
 <b>◖ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴇᴛᴛɪɴɢ ◗</b>
 
-  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}prefix - sɪᴍʙᴏʟ/ᴇᴍᴏJɪ</code> 
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}prefix - sɪᴍʙᴏʟ/ᴇᴍᴏJɪ</code> 
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴘʀᴇғɪx ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ
   
-  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}setemoji - [ǫᴜᴇʀʏ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
-  <b>➠ ǫᴜᴇʀʏ:</b>
-         <b>•> PONG</b>
-         <b>•> UPTIME</b>
-         <b>•> MENTION</b>
-         <b>•> PROSES</b>
-         <b>•> GAGAL</b>
-         <b>•> SUKSES</b>
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}setemoji - [ǫᴜᴇʀʏ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
+  <b>❑ ǫᴜᴇʀʏ:</b>
+  <b>├•> PONG</b>
+  <b>├•> UPTIME</b>
+  <b>├•> MENTION</b>
+  <b>├•> PROSES</b>
+  <b>├•> GAGAL</b>
+  <b>╰•> SUKSES</b>
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴀᴍᴘɪʟᴀɴ ᴘᴏɴɢ, ᴜᴘᴛɪᴍᴇ, ᴍᴇɴᴛɪᴏɴ ᴘᴀᴅᴀ ᴘɪɴɢ
 """
 
