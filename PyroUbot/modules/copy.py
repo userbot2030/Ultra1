@@ -14,7 +14,7 @@ async def _(client, message):
     await copy_bot_msg(client, message)
 
 
-@PY.UBOT("copy")
+@PY.UBOT("copy", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await copy_ubot_msg(client, message)
