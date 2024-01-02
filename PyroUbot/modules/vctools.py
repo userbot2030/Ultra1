@@ -70,42 +70,24 @@ async def get_group_call(
 
 
 async def joinvc(client, message):
+    msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
-    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
-    ky = await message.reply(message, f"<emoji id={proses}>⏳</emoji>ʟᴀɢɪ ᴏᴛᴡ ɴᴀɪᴋ ᴍᴇᴋ..")
-    with suppress(ValueError):
-        chat_id = int(chat_id)
     try:
         await client.group_call.start(chat_id, join_as=client.me.id)
     except Exception as e:
-        return await ky.edit(f"ERROR: {e}")
-    await ky.edit(
-        f"<emoji id={sukses}>✅</emoji><b> ʙᴇʀʜᴀsɪʟ Jᴏɪɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n<emoji id={alasan}>⚠️</emoji> <b> ɢʀᴏᴜᴘ ᴄʜᴀᴛ</b>: {message.chat.title}"
-    )
-    await sleep(3)
+        return await msg.edit(f"ERROR: {e}")
+    await msg.edit("<b>ʙᴇʀʜᴀsɪʟ ɴᴀɪᴋ ᴋᴇ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
+    await asyncio.sleep(1)
     await client.group_call.set_is_mute(True)
 
 
-
 async def leavevc(client: Client, message: Message):
-    chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-    alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
-    ky = await message.reply(message, f"<emoji id={proses}>⏳</emoji> Processing....")
-    with suppress(ValueError):
-        chat_id = int(chat_id)
+    msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
     try:
-        await client.group_call.leave()
+        await client.group_call.stop()
     except Exception as e:
-        return await ky.edit(f"<b>ERROR:</b> {e}")
-    msg = f"<emoji id={gagal}>❎</emoji> <b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ</b>\n"
-    if chat_id:
-        msg += f"<emoji id={alasan}>⚠️</emoji> <b>ɢʀᴏᴜᴘ ᴄʜᴀᴛ:</b> {message.chat.title}"
-    await ky.edit(msg)
-
+        return await msg.edit(f"ERROR: {e}")
+    return await msg.edit("<b>ʙᴇʀʜᴀsɪʟ ᴛᴜʀᴜɴ ᴅᴀʀɪ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
 
 
 async def opengc(client: Client, message: Message):
