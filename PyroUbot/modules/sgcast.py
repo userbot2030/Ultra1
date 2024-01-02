@@ -68,7 +68,7 @@ async def SpamGcast(client, message, send):
                 pass
 
 
-@PY.UBOT("sgcast")
+@PY.UBOT("sgcast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     r = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
@@ -92,7 +92,7 @@ async def _(client, message):
     return await r.edit("<b>sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
 
 
-@PY.UBOT("setdelay")
+@PY.UBOT("setdelay", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     r = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
