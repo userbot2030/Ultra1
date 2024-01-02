@@ -31,22 +31,22 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴜᴘ
 """
 
-@PY.UBOT("joinvc")
+@PY.UBOT("joinvc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
   await joinvc(client, message)
 
-@PY.UBOT("leavevc")
+@PY.UBOT("leavevc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
   await leavevc(client, message)
 
-@PY.UBOT("startvc")
+@PY.UBOT("startvc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
   await opengc(client, message)
 
-@PY.UBOT("stopvc")
+@PY.UBOT("stopvc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
   await end_vc_(client, message)
