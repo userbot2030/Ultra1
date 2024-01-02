@@ -27,7 +27,7 @@ class PY:
 
         return wrapper
 
-    def UBOT(command, filter=FILTERS.ME):
+    def UBOT(command, filter=FILTERS.ME, sudo=False):
         def wrapper(func):
             sudo_cmds = ubot.cmd_prefix(command) 
           
