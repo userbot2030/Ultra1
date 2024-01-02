@@ -30,49 +30,49 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("toanime")
+@PY.UBOT("toanime", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_anime(client, message)
 
 
-@PY.UBOT("toimg")
+@PY.UBOT("toimg", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_photo(client, message)
 
 
-@PY.UBOT("tosticker")
+@PY.UBOT("tosticker", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_sticker(client, message)
 
 
-@PY.UBOT("togif")
+@PY.UBOT("togif", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_gif(client, message)
 
 
-@PY.UBOT("toaudio")
+@PY.UBOT("toaudio", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_audio(client, message)
 
 
-@PY.UBOT("efek")
+@PY.UBOT("efek", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await convert_efek(client, message)
 
 
-@PY.UBOT("list_efek")
+@PY.UBOT("list_efek", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await list_cmd_efek(client, message)
 
 
-@PY.UBOT("colong")
+@PY.UBOT("colong", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await colong_cmn(client, message)
