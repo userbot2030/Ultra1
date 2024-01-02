@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("mmf")
+@PY.UBOT("mmf", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await memify_cmd(client, message)
