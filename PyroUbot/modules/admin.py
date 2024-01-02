@@ -21,7 +21,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("kick", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("kick", FILTERS.ME_GROUP, SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_kick(client, message)
