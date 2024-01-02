@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("memes")
+@PY.UBOT("memes", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await memes_cmd(client, message)
