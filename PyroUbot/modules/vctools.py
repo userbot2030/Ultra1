@@ -77,7 +77,7 @@ async def joinvc(client, message):
     except Exception as e:
         return await msg.edit(f"ERROR: {e}")
     await msg.edit("<b>ʙᴇʀʜᴀsɪʟ ɴᴀɪᴋ ᴋᴇ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
-    await asyncio.sleep(1)
+    await sleep(1)
     await client.group_call.set_is_mute(True)
 
 
