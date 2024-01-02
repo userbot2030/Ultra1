@@ -22,7 +22,7 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍᴋᴀɴ ᴘᴇsᴀɴ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ᴏᴛᴏᴍᴀᴛɪs
 """
 
-@PY.UBOT("gcast")
+@PY.UBOT("gcast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
@@ -32,14 +32,14 @@ async def _(client, message):
     await broadcast_group_cmd(client, message)
 
 
-@PY.UBOT("ucast")
+@PY.UBOT("ucast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_users_cmd(client, message)
 
 
 @PY.BOT("send")
-@PY.UBOT("send")
+@PY.UBOT("send", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await send_msg_cmd(client, message)
@@ -55,7 +55,7 @@ AG = []
 LT = []
 
 
-@PY.UBOT("auto_gcast")
+@PY.UBOT("auto_gcast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     """
