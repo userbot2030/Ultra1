@@ -12,19 +12,19 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("pic")
+@PY.UBOT("pic", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await pic_bing_cmd(client, message)
 
 
-@PY.UBOT("bing")
+@PY.UBOT("bing", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await pic_bing_cmd(client, message)
 
 
-@PY.UBOT("gif")
+@PY.UBOT("gif", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await gif_cmd(client, message)
