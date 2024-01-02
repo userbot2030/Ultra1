@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("google")
+@PY.UBOT("google", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await google_search(client, message)
