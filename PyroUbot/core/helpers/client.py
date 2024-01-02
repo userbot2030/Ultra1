@@ -35,7 +35,7 @@ class PY:
             @ubot.on_message(sudo_cmds & filter if not sudo else sudo_cmds)
             async def wrapped_func(client, message):
                 user = message.from_user or message.sender_chat
-                sudo_id = await get_vars(client.me.id, "SUDO_USERS") or []
+                sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
               
                 if (
                     SUDO and message.from_user.is_self
