@@ -20,13 +20,13 @@ __HELP__ = """
 
 
 @PY.BOT("prefix", filters.user(ubot._get_my_id))
-@PY.UBOT("prefix")
+@PY.UBOT("prefix", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await setprefix(client, message)
 
 
-@PY.UBOT("setemoji")
+@PY.UBOT("setemoji", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await change_emot(client, message)
