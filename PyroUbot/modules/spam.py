@@ -12,13 +12,13 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("spam")
+@PY.UBOT("spam", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await spam_cmd(client, message)
 
 
-@PY.UBOT("dspam")
+@PY.UBOT("dspam", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await dspam_cmd(client, message)
