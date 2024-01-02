@@ -21,31 +21,31 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("asupan")
+@PY.UBOT("asupan", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await video_asupan(client, message)
 
 
-@PY.UBOT("cewek")
+@PY.UBOT("cewek", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await photo_cewek(client, message)
 
 
-@PY.UBOT("cowok")
+@PY.UBOT("cowok", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await photo_cowok(client, message)
 
 
-@PY.UBOT("anime")
+@PY.UBOT("anime", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await photo_anime(client, message)
 
 
-@PY.UBOT("bokep")
+@PY.UBOT("bokep", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await video_bokep(client, message)
