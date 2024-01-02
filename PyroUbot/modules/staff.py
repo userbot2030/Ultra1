@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("staff")
+@PY.UBOT("staff", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await staff_cmd(client, message)
