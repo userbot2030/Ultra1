@@ -37,10 +37,13 @@ class PY:
                 user = message.from_user or message.sender_chat
                 sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
               
-                if (
-                    sudo and message.from_user.is_self
-                    if message.from_user
-                    else client.me.is_self or user.id in sudo_id
+                if SUDO and (
+                    bool(
+                        message.from_user.is_self
+                        if message.from_user
+                        else client.me.is_self
+                    )
+                    or user.id in sudo_id
                 ):
                     return await func(client, message)
 
