@@ -13,7 +13,7 @@ from PyroUbot import *
 
 
 async def prem_user(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if message.from_user.id not in await get_seles():
         return await Tm.edit(
@@ -62,7 +62,7 @@ async def prem_user(client, message):
 
 
 async def unprem_user(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     user_id = await extract_user(message)
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
@@ -107,29 +107,29 @@ async def get_prem_user(client, message):
 
 
 async def add_blaclist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or " 6113872536968104754"
+        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
         chat_id = message.chat.id
         blacklist = await get_chat(client.me.id)
         if chat_id in blacklist:
-            return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ɢʀᴏᴜᴘ {message.chat.title} sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
-        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or " 6113872536968104754"
-        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
+            return await Tm.edit(f"<emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ {message.chat.title} sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
+        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
             return await Tm.edit(
                 f"<emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ {message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ"
             )
         else:
-            return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+            return await Tm.edit(f"<emoji id={gagal}>❌</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     else:
         return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
 
 
 async def del_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
         try:
@@ -141,23 +141,23 @@ async def del_blacklist(client, message):
             blacklist = await get_chat(client.me.id)
             if chat_id not in blacklist:
                 return await Tm.edit(
-                    f"{message.chat.title} <emoji id={gagal}>❎</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ"
+                    f"{message.chat.title} <emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ"
                 )
-            sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
-            gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+            sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+            gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
             del_blacklist = await remove_chat(client.me.id, chat_id)
             if del_blacklist:
                 return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {chat_id} ɢʀᴏᴜᴘ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
             else:
-                return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+                return await Tm.edit(f"<emoji id={gagal}>❌</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
         except Exception as error:
             return await Tm.edit(error)
     else:
-        return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
+        return await Tm.edit(f"<emoji id={gagal}>❌</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
 
 
 async def get_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat(client.me.id))}</b>\n\n"
     for X in await get_chat(client.me.id):
@@ -171,13 +171,13 @@ async def get_blacklist(client, message):
 
 
 async def rem_all_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> <b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>", quote=True)
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6246660083808210143"
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
     get_bls = await get_chat(client.me.id)
     if len(get_bls) == 0:
-        return await msg.edit(f"<b><emoji id={gagal}>❎</emoji> ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
+        return await msg.edit(f"<b><emoji id={gagal}>❌</emoji> ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
     for X in get_bls:
         await remove_chat(client.me.id, X)
     await msg.edit(f"<b><emoji id={sukses}>✅</emoji> sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
