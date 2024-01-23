@@ -6,7 +6,7 @@ from PyroUbot import *
 
 
 async def video_asupan(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     y = await message.reply_text(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇɴᴄᴀʀɪ ᴠɪᴅᴇᴏ ᴀsᴜᴘᴀɴ...</b>")
     try:
         asupannya = []
@@ -22,7 +22,7 @@ async def video_asupan(client, message):
 
 
 async def photo_cewek(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     y = await message.reply_text(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇɴᴄᴀʀɪ ᴀʏᴀɴɢ...</b>")
     try:
         ayangnya = []
@@ -38,7 +38,7 @@ async def photo_cewek(client, message):
 
 
 async def photo_cowok(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     y = await message.reply_text(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇɴᴄᴀʀɪ ᴀʏᴀɴɢ...</b>")
     try:
         ayang2nya = []
@@ -54,7 +54,7 @@ async def photo_cowok(client, message):
 
 
 async def photo_anime(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     y = await message.reply_text(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇɴᴄᴀʀɪ ᴀɴɪᴍᴇ...</b>")
     anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
     try:
@@ -71,7 +71,7 @@ async def photo_anime(client, message):
 
 
 async def video_bokep(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     y = await message.reply_text(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇɴᴄᴀʀɪ ᴠɪᴅᴇᴏ ʙᴏᴋᴇᴘ...</b>")
     try:
         await client.join_chat("https://t.me/+kJJqN5kUQbs1NTVl")
