@@ -16,23 +16,23 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
 
-    emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "5269563867305879894"
-    emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "5316615057939897832"
+    emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
+    emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6113661520929885715"
     emot_mention = (
-        await get_vars(client.me.id, "EMOJI_MENTION") or "6226371543065167427"
+        await get_vars(client.me.id, "EMOJI_MENTION") or "6114013639528682251"
     )
 
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_pong}>🏓</emoji> ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
-<b><emoji id={emot_uptime}>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
-<b><emoji id={emot_mention}>👑</emoji> ᴛᴜᴀɴ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ :</b> <code>{delta_ping} ms</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴍᴀꜱᴀ ʜɪᴅᴜᴘ :</b> <code>{uptime}</code>
+<b><emoji id={emot_mention}>👑</emoji> ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     else:
         _ping = f"""
-<b>❏ ᴘᴏɴɢ:</b> <code>{delta_ping} ms</code>
-<b>├ ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
-<b>╰ ᴛᴜᴀɴ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+<b>❏ ᴘɪᴡᴡ :</b> <code>{delta_ping} ms</code>
+<b>├ ᴍᴀꜱᴀ ʜɪᴅᴜᴘ :</b> <code>{uptime}</code>
+<b>╰ ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     await message.reply(_ping)
 
