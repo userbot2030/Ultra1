@@ -8,7 +8,7 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "6248838379551591559"
+    gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "6113789201717660877"
     msg = await message.reply(f"<emoji id={gcast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
@@ -17,8 +17,8 @@ async def broadcast_group_cmd(client, message):
             else:
                 if len(message.command) < 2:
                     await msg.delete()
-                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-                    return await message.reply(f"<emoji id={gagal}>❎</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+                    return await message.reply(f"<emoji id={gagal}>❌</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
             chat_id = dialog.chat.id
@@ -33,12 +33,12 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
     await msg.delete()
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6246660083808210143"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
     await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 async def broadcast_users_cmd(client, message):
     sent = 0
-    ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6248838379551591559"
+    ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6111585093220830556"
     msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
@@ -47,8 +47,8 @@ async def broadcast_users_cmd(client, message):
             else:
                 if len(message.command) < 2:
                     await msg.delete()
-                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-                    return await message.reply(f"<emoji id={gagal}>❎</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+                    return await message.reply(f"<emoji id={gagal}>❌</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
             chat_id = dialog.chat.id
@@ -62,7 +62,7 @@ async def broadcast_users_cmd(client, message):
             except Exception:
                 pass
     await msg.delete()
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6246660083808210143"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
     await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
@@ -72,7 +72,7 @@ async def send_msg_cmd(client, message):
             chat_id = message.chat.id
         else:
             chat_id = message.text.split()[1]
-        send_done = await get_vars(client.me.id, "SEND_DONE") or "6296577138615125756"
+        send_done = await get_vars(client.me.id, "SEND_DONE") or "6111585093220830556"
         if not client.me.id == bot.me.id:
             if message.reply_to_message.reply_markup:
                 try:
