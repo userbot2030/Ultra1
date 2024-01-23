@@ -25,8 +25,8 @@ async def _(client, message):
     db_afk = {"time": time(), "reason": reason}
     emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
     emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
-    emot_afk = emot_1 if emot_1 else "5467890025217661107"
-    emot_reason = emot_2 if emot_2 else "6230829139297831733"
+    emot_afk = emot_1 if emot_1 else "6111585093220830556"
+    emot_reason = emot_2 if emot_2 else "6114074516395134769"
     if client.me.is_premium:
         msg_afk = (
             f"<b><emoji id={emot_afk}>🦇</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji>ᴀʟᴀsᴀɴ: {reason}</b>"
@@ -55,9 +55,9 @@ async def _(client, message):
         emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
         emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
         emot_3 = await get_vars(client.me.id, "EMOJI_WAKTU")
-        emot_afk = emot_1 if emot_1 else "5213205860498549992"
-        emot_reason = emot_2 if emot_2 else "6230829139297831733"
-        emot_waktu = emot_3 if emot_3 else "5895288113537748673"
+        emot_afk = emot_1 if emot_1 else "6111585093220830556"
+        emot_reason = emot_2 if emot_2 else "6114074516395134769"
+        emot_waktu = emot_3 if emot_3 else "6113669303410625425"
         if client.me.is_premium:
             afk_text = (
                 f"<b><emoji id={emot_afk}>🦇</emoji>sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji>ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji>ᴀʟᴀsᴀɴ: {afk_reason}</b>"
@@ -78,9 +78,11 @@ async def _(client, message):
 async def _(client, message):
     vars = await get_vars(client.me.id, "AFK")
     if vars:
+        emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
         afk_time = vars.get("time")
         afk_runtime = await get_time(time() - afk_time)
-        afk_text = f"<b>ᴋᴇᴍʙᴀʟɪ ᴏɴʟɪɴᴇ\nᴀғᴋ sᴇʟᴀᴍᴀ: {afk_runtime}</b>"
+        emot_afk = emot_1 if emot_1 else "6111585093220830556"
+        afk_text = f"<b><emoji id={emot_afk}>🦇</emoji>ᴋᴇᴍʙᴀʟɪ ᴏɴʟɪɴᴇ\nᴀғᴋ sᴇʟᴀᴍᴀ: {afk_runtime}</b>"
         await message.reply(afk_text)
         await message.delete()
         return await remove_vars(client.me.id, "AFK")
