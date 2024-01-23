@@ -4,8 +4,8 @@ from PyroUbot import *
 
 
 async def tg_cmd(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
-    XD = await message.reply(f"<b><emoji id={proses}>⏳</emoji><code> sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs . . .</code>")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
+    XD = await message.reply(f"<b><emoji id={proses}>⏳</emoji><code>ᴍᴇᴍᴘʀᴏsᴇs . . .</code>")
     if not message.reply_to_message:
         return await XD.edit(
             "<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ ᴘᴇsᴀɴ, ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ʟɪɴᴋ ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴘʜ.</b>"
