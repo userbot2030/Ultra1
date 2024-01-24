@@ -15,6 +15,7 @@ async def ping_cmd(client, message):
     start_time = time()
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
+    prefix = await ubot.get_prefix(id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
     emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6113661520929885715"
@@ -25,13 +26,13 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{' '.prefix}</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{' '.join(prefix)}</code>
 <b><emoji id={emot_mention}>👑</emoji> ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     else:
         _ping = f"""
 <b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{' '.prefix}</code>
+<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{' '.join(prefix)}</code>
 <b>╰ ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     await message.reply(_ping)
