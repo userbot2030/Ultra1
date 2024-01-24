@@ -70,24 +70,30 @@ async def get_group_call(
 
 
 async def joinvc(client, message):
-    msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
+    gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "6113789201717660877"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
+    msg = await message.reply(f"<b><emoji id={gcast_proses}>⏳</emoji>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     try:
         await client.group_call.start(chat_id, join_as=client.me.id)
     except Exception as e:
-        return await msg.edit(f"ERROR: {e}")
-    await msg.edit("<b>ʙᴇʀʜᴀsɪʟ ɴᴀɪᴋ ᴋᴇ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
+        return await msg.edit(f"<emoji id={gagal}>❌</emoji>ERROR: {e}")
+    await msg.edit(f"<b><emoji id={sukses}>✅</emoji>ʙᴇʀʜᴀsɪʟ ɴᴀɪᴋ ᴋᴇ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
     await sleep(1)
     await client.group_call.set_is_mute(True)
 
 
 async def leavevc(client: Client, message: Message):
-    msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
+    gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "6113789201717660877"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
+    msg = await message.reply(f"<b><emoji id={gcast_proses}>⏳</emoji>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
     try:
         await client.group_call.stop()
     except Exception as e:
-        return await msg.edit(f"ERROR: {e}")
-    return await msg.edit("<b>ʙᴇʀʜᴀsɪʟ ᴛᴜʀᴜɴ ᴅᴀʀɪ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
+        return await msg.edit(f"<emoji id={gagal}>❌</emoji>ERROR: {e}")
+    return await msg.edit(f"<b><emoji id={sukses}>✅</emoji>ʙᴇʀʜᴀsɪʟ ᴛᴜʀᴜɴ ᴅᴀʀɪ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ</b>")
 
 
 async def opengc(client: Client, message: Message):
