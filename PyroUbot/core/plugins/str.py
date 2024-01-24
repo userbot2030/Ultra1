@@ -26,13 +26,13 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{0}</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{((p) for p in prefix)}</code>
 <b><emoji id={emot_mention}>👑</emoji> ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     else:
         _ping = f"""
 <b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{0}</code>
+<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{((p) for p in prefix)}</code>
 <b>╰ ɢᴜᴀ ᴀᴅᴀʟᴀʜ ~</b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
 """
     await message.reply(_ping)
