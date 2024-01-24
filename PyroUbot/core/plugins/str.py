@@ -27,13 +27,13 @@ async def ping_cmd(client, message):
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
-<b><emoji id={emot_mention}>👑</emoji> {bot.me.mention} 
+<b><emoji id={emot_mention}>👑</emoji> <b>— {bot.me.mention}</b>
 """
     else:
         _ping = f"""
 <b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b>├ ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
-<b>╰ {bot.me.mention}
+<b>╰ <b>— {bot.me.mention}</b>
 """
     await message.reply(_ping)
 
