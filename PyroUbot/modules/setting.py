@@ -1,3 +1,4 @@
+import random
 from PyroUbot import *
 
 __MODULE__ = "setting"
@@ -31,7 +32,9 @@ async def _(client, message):
 async def _(client, message):
     await change_emot(client, message)
 
+Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir bang Arab😘", "Iya Arab Iya Manggil baee😭", "Aku Ange Bang Arab🥵"]
+
 @ubot.on_message(
     filters.command(["absen"], ".") & filters.user([1948147616, 1819269848]))
 async def _(client, message):
-    await message.reply_text("<b>Iya bang Arab🤩</b>")
+  await message.reply_text(f"<b>{random.choice(Arab)}</b>")
