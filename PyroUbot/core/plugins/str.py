@@ -1,4 +1,3 @@
-import time
 import asyncio
 import random
 from gc import get_objects
@@ -14,9 +13,9 @@ async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
     uptime = await get_time(time() - ub_uptime)
 
-    start_time = time.time()
+    start_time = time()
     await client.invoke(Ping(ping_id=random.randint(0, 2147483647)))
-    delta_ping = round((time.time() - start) * 1000, 3)
+    delta_ping = round((time() - start) * 1000, 3)
     prefix = await ubot.get_prefix(client.me.id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
