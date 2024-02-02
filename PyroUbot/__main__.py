@@ -2,6 +2,7 @@ import asyncio
 
 from pyrogram import idle
 from pyrogram.errors import RPCError
+from uvloop import install
 
 from PyroUbot import *
 
@@ -36,6 +37,7 @@ async def main():
         asyncio.create_task(start_ubot(int(_ubot["name"]), _ubot))
         for _ubot in await get_userbots()
     ]
+    install()
     await asyncio.gather(*tasks, bot.start())
     await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots(), idle())
 
