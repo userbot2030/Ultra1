@@ -13,8 +13,8 @@ async def ping_cmd(client, message):
     uptime = await get_time(time() - ub_uptime)
 
     start_time = time()
-    await client.invoke(Ping(ping_id=0))
-    delta_ping = round((time() - start_time) * 1000, 2)
+    await client.invoke(Ping(ping_id=randint(0, 2147483647)))
+    delta_ping = round((time.time() - start) * 1000, 3)
     prefix = await ubot.get_prefix(client.me.id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
