@@ -15,7 +15,7 @@ async def ping_cmd(client, message):
 
     start_time = time()
     end_time = time()
-    delta_ping = (end_time - start_time) * 1000
+    delta_ping = ((end_time - start_time) * 1000, 2)
     prefix = await ubot.get_prefix(client.me.id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
