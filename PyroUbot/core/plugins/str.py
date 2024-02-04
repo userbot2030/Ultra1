@@ -13,19 +13,16 @@ from PyroUbot import *
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
     uptime = await get_time(time() - ub_uptime)
-
-    start = time.time()
-    current_time = datetime.now()
-    await client.invoke(Ping(ping_id=random.randint(0, 2147483647)))
-    delta_ping = round((time.time() - start) * 1000, 3)
-    prefix = await ubot.get_prefix(client.me.id)
-
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
     emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6113661520929885715"
     emot_mention = (
         await get_vars(client.me.id, "EMOJI_MENTION") or "6114013639528682251"
     )
-
+    start = time.time()
+    current_time = datetime.now()
+    await client.invoke(Ping(ping_id=random.randint(0, 2147483647)))
+    delta_ping = round((time.time() - start) * 1000, 3)
+    prefix = await ubot.get_prefix(client.me.id)
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
