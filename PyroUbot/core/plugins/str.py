@@ -14,7 +14,8 @@ async def ping_cmd(client, message):
     uptime = await get_time(time() - ub_uptime)
 
     start_time = time()
-    await client.invoke(Ping(ping_id=0.0))
+    await client.send(ping=True)
+    response = await client.receive()
     end_time = time()
     delta_ping = (end_time - start_time) * 1000
     prefix = await ubot.get_prefix(client.me.id)
