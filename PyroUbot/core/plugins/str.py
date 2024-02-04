@@ -15,7 +15,8 @@ async def ping_cmd(client, message):
 
     start_time = time()
     await client.invoke(Ping(ping_id=0.0))
-    delta_ping = round((time() - start_time) * 1000, 3)
+    end_time = time()
+    delta_ping = (end_time - start_time) * 1000
     prefix = await ubot.get_prefix(client.me.id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
@@ -26,13 +27,13 @@ async def ping_cmd(client, message):
 
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
+<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping:.2f} ms</code>
 <b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
 <b><emoji id={emot_mention}>👑</emoji> <b>— {bot.me.mention}</b>
 """
     else:
         _ping = f"""
-<b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
+<b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping:.2f} ms</code>
 <b>├ ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
 <b>╰ <b>— {bot.me.mention}</b>
 """
