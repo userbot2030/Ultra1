@@ -2,6 +2,7 @@ import asyncio
 import random
 from gc import get_objects
 from time import time
+from datetime import datetime
 
 from pyrogram.raw.functions import Ping
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -13,9 +14,10 @@ async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
     uptime = await get_time(time() - ub_uptime)
 
-    start_time = time()
-    end_time = time()
-    delta_ping = ((end_time - start_time) * 1000, 2)
+    start = time.time()
+    current_time = datetime.now()
+    await client.invoke(Ping(ping_id=random.randint(0, 2147483647)))
+    delta_ping = round((time.time() - start) * 1000, 3)
     prefix = await ubot.get_prefix(client.me.id)
 
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
@@ -26,13 +28,13 @@ async def ping_cmd(client, message):
 
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping:.2f} ms</code>
+<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
 <b><emoji id={emot_mention}>👑</emoji> <b>— {bot.me.mention}</b>
 """
     else:
         _ping = f"""
-<b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping:.2f} ms</code>
+<b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b>├ ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
 <b>╰ <b>— {bot.me.mention}</b>
 """
