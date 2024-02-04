@@ -1,7 +1,7 @@
 import asyncio
 import random
+import time
 from gc import get_objects
-from time import time
 from datetime import datetime
 
 from pyrogram.raw.functions import Ping
