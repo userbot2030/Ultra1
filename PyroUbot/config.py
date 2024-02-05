@@ -9,7 +9,7 @@ BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1001969856888 -1001
 MAX_BOT = int(os.getenv("MAX_BOT", "40"))
 RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 OPENAI_KEY = os.getenv(
-    "OPENAI_KEY", "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"
+    "OPENAI_KEY", "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"
 )
 MONGO_URL = os.getenv(
     "MONGO_URL",
