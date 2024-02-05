@@ -1,6 +1,6 @@
 import asyncio
 import random
-import time
+from time import time
 from gc import get_objects
 from datetime import datetime
 
@@ -18,10 +18,9 @@ async def ping_cmd(client, message):
     emot_mention = (
         await get_vars(client.me.id, "EMOJI_MENTION") or "6114013639528682251"
     )
-    start = time.time()
-    current_time = datetime.now()
-    await client.invoke(Ping(ping_id=random.randint(0, 2147483647)))
-    delta_ping = round((time.time() - start) * 1000, 3)
+    start_time = time()
+    await client.invoke(Ping(ping_id=0))
+    delta_ping = round((time() - start_time) * 1000, 3)
     prefix = await ubot.get_prefix(client.me.id)
     if client.me.is_premium:
         _ping = f"""
