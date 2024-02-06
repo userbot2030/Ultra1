@@ -70,7 +70,9 @@ class Button:
                     InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
                 ],
                 [
-                    InlineKeyboardButton("🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"),
+                    InlineKeyboardButton(
+                      "🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"
+                    ),
                 ],
             ]
         return button
