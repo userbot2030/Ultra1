@@ -34,7 +34,8 @@ async def nulis_cmd(client, message):
     try:
         img = Image.open("storage/template.jpg")
         draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype("storage/assfont.ttf", 30)
+        font_path = os.path.join(os.path.dirname(__file__), "assfont.ttf")
+        font = ImageFont.truetype(font_path, 30)
         x, y = 150, 140
         lines = text_set(text)
         line_height = font.getsize("hg")[1]
