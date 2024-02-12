@@ -1,22 +1,13 @@
 import random
 from PyroUbot import *
 
-__MODULE__ = "setting"
+__MODULE__ = "prefix"
 __HELP__ = """
-<b>◖ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sᴇᴛᴛɪɴɢ ◗</b>
+<b>◖ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴘʀᴇꜰɪx ◗</b>
 
   <b>❑ ᴄᴍᴅ:</b> <code>{0}prefix - sɪᴍʙᴏʟ/ᴇᴍᴏJɪ</code> 
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴘʀᴇғɪx ᴜsᴇʀʙᴏᴛ ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ
   
-  <b>❑ ᴄᴍᴅ:</b> <code>{0}setemoji - [ǫᴜᴇʀʏ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
-  <b>❑ ǫᴜᴇʀʏ:</b>
-  <b>├•> PONG</b>
-  <b>├•> UPTIME</b>
-  <b>├•> MENTION</b>
-  <b>├•> PROSES</b>
-  <b>├•> GAGAL</b>
-  <b>╰•> SUKSES</b>
-  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴀᴍᴘɪʟᴀɴ ᴘᴏɴɢ, ᴜᴘᴛɪᴍᴇ, ᴍᴇɴᴛɪᴏɴ ᴘᴀᴅᴀ ᴘɪɴɢ
 """
 
 
@@ -27,10 +18,6 @@ async def _(client, message):
     await setprefix(client, message)
 
 
-@PY.UBOT("setemoji", sudo=True)
-@PY.TOP_CMD
-async def _(client, message):
-    await change_emot(client, message)
 
 Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir bang Arab😘", "Iya Arab Iya Manggil baee😭", "Aku Ange Bang Arab🥵"]
 
