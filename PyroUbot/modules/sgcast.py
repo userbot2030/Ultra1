@@ -10,9 +10,9 @@ from pyrogram.errors import FloodWait
 
 from .. import *
 
-__MODULE__ = "sgcast"
+__MODULE__ = "spamgcs"
 __HELP__ = """
-<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ sɢᴄᴀsᴛ 』</b>
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ 』</b>
 
   <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}sgcast</code> (ᴊᴜᴍʟᴀʜ) - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ʙᴇʀsᴀᴍᴀᴀɴ sᴇᴄᴀʀᴀ ʀᴇᴀʟ-ᴛɪᴍᴇ
