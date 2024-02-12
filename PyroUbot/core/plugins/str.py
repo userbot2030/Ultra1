@@ -20,7 +20,7 @@ async def ping_cmd(client, message):
     )
     start_time = time()
     await client.invoke(Ping(ping_id=0))
-    delta_ping = round((time() - start_time) * 1000, 3)
+    delta_ping = round((time() - start_time) * 1000, 2)
     prefix = await ubot.get_prefix(client.me.id)
     if client.me.is_premium:
         _ping = f"""
@@ -32,7 +32,7 @@ async def ping_cmd(client, message):
         _ping = f"""
 <b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b>├ ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
-<b>╰ <b>— {bot.me.mention}</b>
+<b>╰ <b>— <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
 
