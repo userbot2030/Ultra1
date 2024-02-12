@@ -1,0 +1,22 @@
+from PyroUbot import *
+
+__MODULE__ = "emoji"
+__HELP__ = """
+<b>◖ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜱᴇᴛ ᴇᴍᴏᴊɪ ◗</b>
+
+<b>❑ ᴄᴍᴅ:</b> <code>{0}setemoji - [ᴋᴀᴛᴀ ᴋᴜɴᴄɪ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
+  <b>❑ ᴋᴀᴛᴀ ᴋᴜɴᴄɪ:</b>
+  <b>├•> PONG</b>
+  <b>├•> UPTIME</b>
+  <b>├•> MENTION</b>
+  <b>├•> PROSES</b>
+  <b>├•> GAGAL</b>
+  <b>╰•> SUKSES</b>
+  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴀᴍᴘɪʟᴀɴ ᴇᴍᴏᴊɪ ᴘᴀᴅᴀ ᴜꜱᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴊɪᴋᴀ ᴀᴋᴜɴ ᴀɴᴅᴀ ᴘʀᴇᴍɪᴜᴍ.
+  
+"""
+
+@PY.UBOT("setemoji", sudo=True)
+@PY.TOP_CMD
+async def _(client, message):
+    await change_emot(client, message)
