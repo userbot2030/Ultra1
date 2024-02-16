@@ -4,17 +4,18 @@ from pyrogram import filters
 
 from . import *
 
-__MODULE__ = "spamgcs"
+__MODULE__ = "filter"
 __HELP__ = """
-<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ 』</b>
+<b>『 Bantuan Modul Untuk Filter 』</b>
 
-  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}sgcast</code> (ᴊᴜᴍʟᴀʜ) - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ
-  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ʙᴇʀsᴀᴍᴀᴀɴ sᴇᴄᴀʀᴀ ʀᴇᴀʟ-ᴛɪᴍᴇ
+  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}addfil</code> [nama filter] [balas ke pesan]
+  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> Untuk mengatur filter di grup.
 
-  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}setdelay</code> (ᴄᴏᴜɴᴛ) 
-  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴛᴜʀ ᴅᴇʟᴀʏ sᴇᴛɪᴀᴘ ᴘᴇsᴀɴ ʏᴀɴɢ ᴅɪ ᴋɪʀɪᴍ
+  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}delfil</code> [nama filter]
+  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> Untuk menghapus filter di grup.
 
-  <b>NB:</b> ᴊᴀɴɢᴀɴ ᴛᴇʀʟᴀʟᴜ sᴇʀɪɴɢ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴍᴏᴅᴜʟᴇ ɪɴɪ
+  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}filters</code>
+  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> Untuk melihat filter di grup.
 """
 
 @PY.UBOT("addfil", sudo=True)
