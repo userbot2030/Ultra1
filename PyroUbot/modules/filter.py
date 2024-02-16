@@ -88,7 +88,7 @@ async def del_filter(client, message):
 
 
 @ubot.on_message(
-    filters.text & ~filters.private & ~filters.via_bot & ~filters.forwarded
+    filters.text & ~filters.private & ~filters.via_bot & ~filters.forwarded, group=1
 )
 async def filters_re(client, message):
     text = message.text.lower().strip()
