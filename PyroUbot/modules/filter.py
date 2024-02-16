@@ -1,7 +1,7 @@
 import re
 
 from pyrogram import filters
-from filters import get_filters_names
+from filter import get_filters_names
 
 from .. import *
 
