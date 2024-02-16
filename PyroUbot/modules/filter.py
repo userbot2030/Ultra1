@@ -2,7 +2,7 @@ import re
 
 from pyrogram import filters
 
-from . import *
+from .. import *
 
 __MODULE__ = "filter"
 __HELP__ = """
