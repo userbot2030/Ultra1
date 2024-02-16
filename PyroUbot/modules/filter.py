@@ -88,7 +88,7 @@ async def del_filter(client, message):
 
 
 @PY.UBOT(
-    filters.text & ~filters.private & ~filters.via_bot & ~filters.forwarded, group=1
+    filters.text & ~filters.private & ~filters.via_bot & ~filters.forwarded
 )
 async def filters_re(client, message):
     text = message.text.lower().strip()
