@@ -87,7 +87,7 @@ async def del_filter(client, message):
         await eor(message, "<b>Filter tidak ditemukan.</b>")
 
 
-@PY.UBOT(
+@ubot.on_message(
     filters.text & ~filters.private & ~filters.via_bot & ~filters.forwarded
 )
 async def filters_re(client, message):
