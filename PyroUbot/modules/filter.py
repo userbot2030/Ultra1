@@ -18,7 +18,7 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> Untuk melihat filter di grup.
 """
 
-@ubot.on_message(ubot.cmd_prefix("addfil", sudo=True) 
+@ubot.on_message(ubot.cmd_prefix("addfil", sudo=True))
 @PY.TOP_CMD
 async def save_filters(client, message):
     if len(message.command) < 2 or not message.reply_to_message:
@@ -50,7 +50,7 @@ async def save_filters(client, message):
     await eor(message, f"<b>Filter <code>{name}</code> disimpan!.</b>")
 
 
-@ubot.on_message(ubot.cmd_prefix("filters", sudo=True) 
+@ubot.on_message(ubot.cmd_prefix("filters", sudo=True))
 @PY.TOP_CMD
 async def get_filterss(client, message):
     user_id = client.me.id
@@ -65,7 +65,7 @@ async def get_filterss(client, message):
     await eor(message, msg)
 
 
-@ubot.on_message(ubot.cmd_prefix("rmfil", sudo=True) 
+@ubot.on_message(ubot.cmd_prefix("rmfil", sudo=True))
 @PY.TOP_CMD
 async def del_filter(client, message):
     if len(message.command) < 2:
