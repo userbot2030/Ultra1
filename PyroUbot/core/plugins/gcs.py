@@ -8,8 +8,8 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    gcast_proses = await get_vars(client.me.id, "GCAST_PROSES") or "6113789201717660877"
-    msg = await message.reply(f"<emoji id={gcast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
+    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -33,8 +33,8 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     pass
     await msg.delete()
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
+    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 async def broadcast_users_cmd(client, message):
     sent = 0
