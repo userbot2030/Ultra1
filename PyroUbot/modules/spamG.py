@@ -10,11 +10,11 @@ from pyrogram.errors import FloodWait
 
 from .. import *
 
-__MODULE__ = "spamgcs"
+__MODULE__ = "spamg"
 __HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ 』</b>
 
-  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}sgcast</code> (ᴊᴜᴍʟᴀʜ) - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ
+  <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}spamg</code> (ᴊᴜᴍʟᴀʜ) - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟᴀᴋᴜᴋᴀɴ sᴘᴀᴍ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ʙᴇʀsᴀᴍᴀᴀɴ sᴇᴄᴀʀᴀ ʀᴇᴀʟ-ᴛɪᴍᴇ
 
   <b>❑ ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}setdelay</code> (ᴄᴏᴜɴᴛ) 
@@ -68,10 +68,13 @@ async def SpamGcast(client, message, send):
                 pass
 
 
-@PY.UBOT("sgcast", sudo=True)
+@PY.UBOT("spamg", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
-    r = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+    r = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ....</b>")
     count, msg = extract_type_and_msg(message)
 
     try:
@@ -81,7 +84,7 @@ async def _(client, message):
 
     if not msg:
         return await r.edit(
-            f"<b><code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>"
+            f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>"
         )
 
     async def run_spam():
@@ -89,7 +92,7 @@ async def _(client, message):
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    return await r.edit("<b>sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
+    return await r.edit(f"<b><emoji id={sukses}>✅</emoji> sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
 
 
 @PY.UBOT("setdelay", sudo=True)
