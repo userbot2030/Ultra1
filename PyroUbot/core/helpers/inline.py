@@ -29,16 +29,8 @@ class Button:
                 )
             )
         buttons.add(*keyboard)
-        buttons.row(
-            InlineKeyboardButton(
-                "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"
-            )
-        )
-        buttons.row(
-            InlineKeyboardButton(
-                "❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}"
-            )
-        )
+        buttons.row(InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {user_id}"))
+        buttons.row(InlineKeyboardButton("❌ ᴛᴏʟᴀᴋ ᴘᴇᴍʙᴀʏᴀʀᴀɴ ❌", callback_data=f"failed {user_id}"))
         return buttons
 
     def expired_button_bot():
@@ -70,9 +62,7 @@ class Button:
                     InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
                 ],
                 [
-                    InlineKeyboardButton(
-                      "🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"
-                    ),
+                    InlineKeyboardButton("🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ", callback_data="cek_ubot"),
                 ],
             ]
         return button
@@ -146,9 +136,7 @@ class INLINE:
                         (
                             InlineQueryResultArticle(
                                 title=f"ᴀɴᴅᴀ ʙᴇʟᴜᴍ ᴏʀᴅᴇʀ @{bot.me.username}",
-                                input_message_content=InputTextMessageContent(
-                                    f"sɪʟᴀʜᴋᴀɴ ᴏʀᴅᴇʀ ᴅɪ @{bot.me.username} ᴅᴜʟᴜ ʙɪᴀʀ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ɪɴʟɪɴᴇ ɪɴɪ"
-                                ),
+                                input_message_content=InputTextMessageContent(f"sɪʟᴀʜᴋᴀɴ ᴏʀᴅᴇʀ ᴅɪ @{bot.me.username} ᴅᴜʟᴜ ʙɪᴀʀ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ɪɴʟɪɴᴇ ɪɴɪ"),
                             )
                         )
                     ],
@@ -182,9 +170,7 @@ async def create_button(m):
     if "~>" not in m.text.split(None, 1)[1]:
         for X in m.text.split(None, 1)[1].split():
             X_parts = X.split(":", 1)
-            keyboard.append(
-                InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
-            )
+            keyboard.append(InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1]))
             msg.append(X_parts[0])
         buttons.add(*keyboard)
         if m.reply_to_message:
@@ -194,9 +180,7 @@ async def create_button(m):
     else:
         for X in m.text.split("~>", 1)[1].split():
             X_parts = X.split(":", 1)
-            keyboard.append(
-                InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
-            )
+            keyboard.append(InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1]))
         buttons.add(*keyboard)
         text = m.text.split("~>", 1)[0].split(None, 1)[1]
 

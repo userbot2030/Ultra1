@@ -13,9 +13,7 @@ async def read_cmd(client, message):
         file_path = await dl_pic(client, reply)
         response = upload_file(file_path)
         url = f"https://telegra.ph{response[0]}"
-        req = requests.get(
-            f"https://script.google.com/macros/s/AKfycbwURISN0wjazeJTMHTPAtxkrZTWTpsWIef5kxqVGoXqnrzdLdIQIfLO7jsR5OQ5GO16/exec?url={url}"
-        ).json()
+        req = requests.get(f"https://script.google.com/macros/s/AKfycbwURISN0wjazeJTMHTPAtxkrZTWTpsWIef5kxqVGoXqnrzdLdIQIfLO7jsR5OQ5GO16/exec?url={url}").json()
         await msg.edit(f"<code>{req['text']}</code>")
     except Exception as e:
         await msg.edit(str(e))

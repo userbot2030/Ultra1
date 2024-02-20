@@ -23,6 +23,7 @@ __HELP__ = """
   <b>NB:</b> ᴊᴀɴɢᴀɴ ᴛᴇʀʟᴀʟᴜ sᴇʀɪɴɢ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴍᴏᴅᴜʟᴇ ɪɴɪ
 """
 
+
 def extract_type_and_msg(message):
     args = message.text.split(None, 2)
 
@@ -30,15 +31,8 @@ def extract_type_and_msg(message):
         return None, None
 
     type = args[1]
-    msg = (
-        message.reply_to_message
-        if message.reply_to_message
-        else args[2]
-        if len(args) > 2
-        else None
-    )
+    msg = message.reply_to_message if message.reply_to_message else args[2] if len(args) > 2 else None
     return type, msg
-
 
 
 async def SpamGcast(client, message, send):
@@ -56,10 +50,7 @@ async def SpamGcast(client, message, send):
         await send_message(target_chat)
 
     async for dialog in client.get_dialogs():
-        if (
-            dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP}
-            and dialog.chat.id not in blacklist
-        ):
+        if dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP} and dialog.chat.id not in blacklist:
             try:
                 await send_message(dialog.chat.id)
             except FloodWait as e:
@@ -83,9 +74,7 @@ async def _(client, message):
         return await r.edit(error)
 
     if not msg:
-        return await r.edit(
-            f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>"
-        )
+        return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
     async def run_spam():
         spam_gcast = [SpamGcast(client, message, msg) for _ in range(int(count))]

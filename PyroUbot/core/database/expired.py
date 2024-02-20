@@ -12,12 +12,8 @@ async def get_expired_date(user_id):
 
 
 async def set_expired_date(user_id, expire_date):
-    await userEXP.users.update_one(
-        {"_id": user_id}, {"$set": {"expire_date": expire_date}}, upsert=True
-    )
+    await userEXP.users.update_one({"_id": user_id}, {"$set": {"expire_date": expire_date}}, upsert=True)
 
 
 async def rem_expired_date(user_id):
-    await userEXP.users.update_one(
-        {"_id": user_id}, {"$unset": {"expire_date": ""}}, upsert=True
-    )
+    await userEXP.users.update_one({"_id": user_id}, {"$unset": {"expire_date": ""}}, upsert=True)

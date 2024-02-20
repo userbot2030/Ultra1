@@ -30,9 +30,7 @@ async def font_inline(client, inline_query):
     buttons = InlineKeyboard(row_width=3)
     keyboard = []
     for X in query_fonts[0]:
-        keyboard.append(
-            InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}")
-        )
+        keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}"))
     buttons.add(*keyboard)
     buttons.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
     await client.answer_inline_query(
@@ -43,9 +41,7 @@ async def font_inline(client, inline_query):
                 InlineQueryResultArticle(
                     title="get font!",
                     reply_markup=buttons,
-                    input_message_content=InputTextMessageContent(
-                        "<b>👇 sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ sᴀʟᴀʜ sᴀᴛᴜ ꜰᴏɴᴛ ᴅɪʙᴀᴡᴀʜ</b>"
-                    ),
+                    input_message_content=InputTextMessageContent("<b>👇 sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ sᴀʟᴀʜ sᴀᴛᴜ ꜰᴏɴᴛ ᴅɪʙᴀᴡᴀʜ</b>"),
                 )
             )
         ],
@@ -58,11 +54,7 @@ async def font_next(client, callback_query):
         buttons = InlineKeyboard(row_width=3)
         keyboard = []
         for X in query_fonts[1]:
-            keyboard.append(
-                InlineKeyboardButton(
-                    X, callback_data=f"get {get_id} {query_fonts[1][X]}"
-                )
-            )
+            keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[1][X]}"))
         buttons.add(*keyboard)
         buttons.row(InlineKeyboardButton("⬅️", callback_data=f"prev {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)
@@ -76,11 +68,7 @@ async def font_prev(client, callback_query):
         buttons = InlineKeyboard(row_width=3)
         keyboard = []
         for X in query_fonts[0]:
-            keyboard.append(
-                InlineKeyboardButton(
-                    X, callback_data=f"get {get_id} {query_fonts[0][X]}"
-                )
-            )
+            keyboard.append(InlineKeyboardButton(X, callback_data=f"get {get_id} {query_fonts[0][X]}"))
         buttons.add(*keyboard)
         buttons.row(InlineKeyboardButton("➡️", callback_data=f"next {get_id}"))
         return await callback_query.edit_message_reply_markup(reply_markup=buttons)

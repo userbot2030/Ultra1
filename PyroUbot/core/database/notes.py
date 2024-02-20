@@ -7,9 +7,7 @@ async def save_note(user_id, note_name, message):
     doc = {"_id": user_id, "notes": {note_name: message}}
     result = await collection.find_one({"_id": user_id})
     if result:
-        await collection.update_one(
-            {"_id": user_id}, {"$set": {f"notes.{note_name}": message}}
-        )
+        await collection.update_one({"_id": user_id}, {"$set": {f"notes.{note_name}": message}})
     else:
         await collection.insert_one(doc)
 
@@ -27,9 +25,7 @@ async def get_note(user_id, note_name):
 
 
 async def rm_note(user_id, note_name):
-    await collection.update_one(
-        {"_id": user_id}, {"$unset": {f"notes.{note_name}": ""}}
-    )
+    await collection.update_one({"_id": user_id}, {"$unset": {f"notes.{note_name}": ""}})
 
 
 async def all_notes(user_id):

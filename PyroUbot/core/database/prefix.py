@@ -12,12 +12,8 @@ async def get_pref(user_id):
 
 
 async def set_pref(user_id, prefix):
-    await prefixes.users.update_one(
-        {"_id": user_id}, {"$set": {"prefix": prefix}}, upsert=True
-    )
+    await prefixes.users.update_one({"_id": user_id}, {"$set": {"prefix": prefix}}, upsert=True)
 
 
 async def rem_pref(user_id):
-    await prefixes.users.update_one(
-        {"_id": user_id}, {"$unset": {"prefix": ""}}, upsert=True
-    )
+    await prefixes.users.update_one({"_id": user_id}, {"$unset": {"prefix": ""}}, upsert=True)

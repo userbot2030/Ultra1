@@ -10,11 +10,7 @@ async def del_cmd(client, message):
 async def purgeme_cmd(client, message):
     if len(message.command) != 2:
         return await message.delete()
-    n = (
-        message.reply_to_message
-        if message.reply_to_message
-        else message.text.split(None, 1)[1].strip()
-    )
+    n = message.reply_to_message if message.reply_to_message else message.text.split(None, 1)[1].strip()
     if not n.isnumeric():
         return await message.reply("ᴀʀɢᴜᴍᴇɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ")
     n = int(n)

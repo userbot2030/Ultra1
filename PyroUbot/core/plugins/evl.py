@@ -81,9 +81,7 @@ async def shell_cmd(client, message):
             softw += f"Used      : {get_size(svmem.used)}\n"
             softw += f"Percentage: {svmem.percent}%\n"
 
-            return await message.reply(
-                f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True
-            )
+            return await message.reply(f"<b>{Fonts.smallcap(softw.lower())}</b>", quote=True)
         else:
             msg = await message.reply("<b>Memproses</b>")
             screen = (await bash(message.text.split(None, 1)[1]))[0]
@@ -174,9 +172,7 @@ async def get_my_otp(client, message):
                 if message.command[0] == "getotp":
                     async for otp in X.search_messages(777000, limit=1):
                         if not otp.text:
-                            await message.reply(
-                                "<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True
-                            )
+                            await message.reply("<b>❌ ᴋᴏᴅᴇ ᴏᴛᴘ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>", quote=True)
                         else:
                             await message.reply(otp.text, quote=True)
                             await X.delete_messages(X.me.id, otp.id)

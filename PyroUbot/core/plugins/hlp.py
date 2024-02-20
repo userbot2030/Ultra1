@@ -17,16 +17,11 @@ async def help_cmd(client, message):
         if get_arg(message) in HELP_COMMANDS:
             prefix = await ubot.get_prefix(client.me.id)
             await message.reply(
-                HELP_COMMANDS[get_arg(message)].__HELP__.format(
-                    next((p) for p in prefix)
-                )
-                + f"\n<b>© {bot.me.mention} </b>",
+                HELP_COMMANDS[get_arg(message)].__HELP__.format(next((p) for p in prefix)) + f"\n<b>© {bot.me.mention} </b>",
                 quote=True,
             )
         else:
-            await message.reply(
-                f"<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>"
-            )
+            await message.reply(f"<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>")
 
 
 async def menu_inline(client, inline_query):
@@ -38,9 +33,7 @@ async def menu_inline(client, inline_query):
             (
                 InlineQueryResultArticle(
                     title="Help Menu!",
-                    reply_markup=InlineKeyboardMarkup(
-                        paginate_modules(0, HELP_COMMANDS, "help")
-                    ),
+                    reply_markup=InlineKeyboardMarkup(paginate_modules(0, HELP_COMMANDS, "help")),
                     input_message_content=InputTextMessageContent(msg),
                 )
             )
@@ -68,22 +61,16 @@ async def menu_callback(client, callback_query):
     if prev_match:
         curr_page = int(prev_match.group(1))
         await callback_query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
-            ),
+            reply_markup=InlineKeyboardMarkup(paginate_modules(curr_page - 1, HELP_COMMANDS, "help")),
         )
     if next_match:
         next_page = int(next_match.group(1))
         await callback_query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(next_page + 1, HELP_COMMANDS, "help")
-            ),
+            reply_markup=InlineKeyboardMarkup(paginate_modules(next_page + 1, HELP_COMMANDS, "help")),
         )
     if back_match:
         await callback_query.edit_message_text(
             text=top_text,
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(0, HELP_COMMANDS, "help")
-            ),
+            reply_markup=InlineKeyboardMarkup(paginate_modules(0, HELP_COMMANDS, "help")),
             disable_web_page_preview=True,
         )

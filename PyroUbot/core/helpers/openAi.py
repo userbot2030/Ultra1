@@ -1,4 +1,7 @@
-import asyncio, openai, g4f
+import asyncio
+
+import g4f
+import openai
 
 from PyroUbot import OPENAI_KEY
 
@@ -9,8 +12,8 @@ class OpenAi:
     @staticmethod
     async def ChatGPT(question):
         """
-           create by: NorSodikin.t.me
-           request by: Dhilnihnge.t.me
+        create by: NorSodikin.t.me
+        request by: Dhilnihnge.t.me
         """
         try:
             response = await g4f.ChatCompletion.create_async(
@@ -38,7 +41,5 @@ class OpenAi:
     @staticmethod
     async def SpeechToText(file):
         audio_file = open(file, "rb")
-        response = await asyncio.to_thread(
-            openai.Audio.transcribe, "whisper-1", audio_file
-        )
+        response = await asyncio.to_thread(openai.Audio.transcribe, "whisper-1", audio_file)
         return response["text"]

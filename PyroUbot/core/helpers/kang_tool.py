@@ -47,11 +47,7 @@ async def upload_document(client, file_path, chat_id):
             media=raw.types.InputMediaUploadedDocument(
                 mime_type=client.guess_mime_type(file_path) or "application/zip",
                 file=await client.save_file(file_path),
-                attributes=[
-                    raw.types.DocumentAttributeFilename(
-                        file_name=os.path.basename(file_path)
-                    )
-                ],
+                attributes=[raw.types.DocumentAttributeFilename(file_name=os.path.basename(file_path))],
             ),
         )
     )
@@ -98,9 +94,7 @@ async def create_sticker_set(client, owner, title, short_name, stickers):
 async def add_sticker_to_set(client, stickerset, sticker):
     return await client.invoke(
         raw.functions.stickers.AddStickerToSet(
-            stickerset=raw.types.InputStickerSetShortName(
-                short_name=stickerset.set.short_name
-            ),
+            stickerset=raw.types.InputStickerSetShortName(short_name=stickerset.set.short_name),
             sticker=sticker,
         )
     )

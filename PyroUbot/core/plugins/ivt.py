@@ -11,9 +11,7 @@ async def invite_cmd(client, message):
         return await mg.delete()
     user_s_to_add = message.text.split(" ", 1)[1]
     if not user_s_to_add:
-        await mg.edit(
-            "<b>ʙᴇʀɪ sᴀʏᴀ ᴘᴇɴɢɢᴜɴᴀ ᴜɴᴛᴜᴋ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ! ᴘᴇʀɪᴋsᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɪɴꜰᴏ ʟᴇʙɪʜ ʟᴀɴᴊᴜᴛ!</b>"
-        )
+        await mg.edit("<b>ʙᴇʀɪ sᴀʏᴀ ᴘᴇɴɢɢᴜɴᴀ ᴜɴᴛᴜᴋ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ! ᴘᴇʀɪᴋsᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɪɴꜰᴏ ʟᴇʙɪʜ ʟᴀɴᴊᴜᴛ!</b>")
         return
     user_list = user_s_to_add.split(" ")
     try:
@@ -36,9 +34,7 @@ async def inviteall_cmd(client, message):
     except Exception as error:
         return await Tm.edit(error)
     if message.chat.id in invite_id:
-        return await Tm.edit_text(
-            f"sᴇᴅᴀɴɢ ᴍᴇɴɢɪɴᴠɪᴛᴇ ᴍᴇᴍʙᴇʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}cancel</code>"
-        )
+        return await Tm.edit_text(f"sᴇᴅᴀɴɢ ᴍᴇɴɢɪɴᴠɪᴛᴇ ᴍᴇᴍʙᴇʀ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}cancel</code>")
     else:
         done = 0
         failed = 0
@@ -71,9 +67,7 @@ async def inviteall_cmd(client, message):
 
 async def cancel_cmd(client, message):
     if message.chat.id not in invite_id:
-        return await message.reply_text(
-            f"sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}inviteall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ"
-        )
+        return await message.reply_text(f"sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}inviteall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ")
     try:
         invite_id.remove(message.chat.id)
         await message.reply_text("ok inviteall berhasil dibatalkan")

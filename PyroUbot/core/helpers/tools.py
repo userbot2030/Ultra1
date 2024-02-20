@@ -5,10 +5,10 @@ import shlex
 import textwrap
 from io import BytesIO
 from time import time
-from pyrogram.errors import MessageNotModified, FloodWait
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
+from pyrogram.errors import FloodWait, MessageNotModified
 
 
 class Media_Info:
@@ -22,11 +22,7 @@ class Media_Info:
                 format_ = track.format
                 duration_1 = track.duration
                 other_duration_ = track.other_duration
-                duration_2 = (
-                    f"{other_duration_[0]} - ({other_duration_[3]})"
-                    if other_duration_
-                    else None
-                )
+                duration_2 = f"{other_duration_[0]} - ({other_duration_[3]})" if other_duration_ else None
                 pixel_ratio_ = [track.width, track.height]
                 aspect_ratio_1 = track.display_aspect_ratio
                 other_aspect_ratio_ = track.other_display_aspect_ratio
@@ -185,10 +181,7 @@ async def add_text_img(image_path, text):
 
 
 async def aexec(code, user, message):
-    exec(
-        "async def __aexec(user, message): "
-        + "".join(f"\n {l_}" for l_ in code.split("\n"))
-    )
+    exec("async def __aexec(user, message): " + "".join(f"\n {l_}" for l_ in code.split("\n")))
     return await locals()["__aexec"](user, message)
 
 
@@ -214,9 +207,7 @@ def get_size(bytes, suffix="B"):
 
 async def run_cmd(cmd):
     args = shlex.split(cmd)
-    process = await asyncio.create_subprocess_exec(
-        *args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
+    process = await asyncio.create_subprocess_exec(*args, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
     stdout, stderr = await process.communicate()
     return (
         stdout.decode("utf-8", "replace").strip(),
@@ -252,13 +243,7 @@ def time_formatter(milliseconds):
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
-    tmp = (
-        (f"{str(days)} ʜᴀʀɪ, " if days else "")
-        + (f"{str(hours)} ᴊᴀᴍ, " if hours else "")
-        + (f"{str(minutes)} ᴍᴇɴɪᴛ, " if minutes else "")
-        + (f"{str(seconds)} ᴅᴇᴛɪᴋ, " if seconds else "")
-        + (f"{str(milliseconds)} ᴍɪᴋʀᴏᴅᴇᴛɪᴋ, " if milliseconds else "")
-    )
+    tmp = (f"{str(days)} ʜᴀʀɪ, " if days else "") + (f"{str(hours)} ᴊᴀᴍ, " if hours else "") + (f"{str(minutes)} ᴍᴇɴɪᴛ, " if minutes else "") + (f"{str(seconds)} ᴅᴇᴛɪᴋ, " if seconds else "") + (f"{str(milliseconds)} ᴍɪᴋʀᴏᴅᴇᴛɪᴋ, " if milliseconds else "")
     return tmp[:-2]
 
 

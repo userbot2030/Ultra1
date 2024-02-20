@@ -35,9 +35,6 @@ async def google_search(client, message):
         except Exception:
             passe
     return await webevent.edit(
-        "<b>ᴍᴇɴᴇʟᴜsᴜʀɪ  ǫᴜᴇʀʏ:</b>\n<code>"
-        + match
-        + "</code>\n\n<b>ʀᴇsᴜʟᴛs:</b>\n"
-        + msg,
+        "<b>ᴍᴇɴᴇʟᴜsᴜʀɪ  ǫᴜᴇʀʏ:</b>\n<code>" + match + "</code>\n\n<b>ʀᴇsᴜʟᴛs:</b>\n" + msg,
         disable_web_page_preview=True,
     )

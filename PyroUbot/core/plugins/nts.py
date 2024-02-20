@@ -19,9 +19,7 @@ async def addnote_cmd(client, message):
         )
         await message.reply("ᴄᴀᴛᴀᴛᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪ sɪᴍᴘᴀɴ")
     else:
-        return await message.reply(
-            "ʙᴀʟᴀs ᴘᴇsᴀɴ ᴅᴀɴ ɴᴀᴍᴀ ᴘᴀᴅᴀ ᴄᴀᴛᴀᴛᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ ᴄᴀᴛᴀᴛᴀɴ"
-        )
+        return await message.reply("ʙᴀʟᴀs ᴘᴇsᴀɴ ᴅᴀɴ ɴᴀᴍᴀ ᴘᴀᴅᴀ ᴄᴀᴛᴀᴛᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ ᴄᴀᴛᴀᴛᴀɴ")
 
 
 async def get_cmd(client, message):
@@ -35,9 +33,7 @@ async def get_cmd(client, message):
     if note_id.text:
         if "~>" in note_id.text:
             try:
-                x = await client.get_inline_bot_results(
-                    bot.me.username, f"get_notes {id(message)}"
-                )
+                x = await client.get_inline_bot_results(bot.me.username, f"get_notes {id(message)}")
                 msg = message.reply_to_message or message
                 await client.send_inline_bot_result(
                     message.chat.id,

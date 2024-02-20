@@ -48,13 +48,7 @@ async def _(client, callback_query):
 
 
 def get_message(message):
-    msg = (
-        message.reply_to_message
-        if message.reply_to_message
-        else ""
-        if len(message.command) < 2
-        else message.text.split(None, 1)[1]
-    )
+    msg = message.reply_to_message if message.reply_to_message else "" if len(message.command) < 2 else message.text.split(None, 1)[1]
     return msg
 
 

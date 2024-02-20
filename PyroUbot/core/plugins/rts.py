@@ -11,9 +11,7 @@ from PyroUbot import *
 async def login_cmd(client, message):
     info = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ...</b>", quote=True)
     if len(message.command) < 3:
-        return await info.edit(
-            f"<code>{message.text}</code> <b>ʜᴀʀɪ - sᴛʀɪɴɢ ᴘʏʀᴏɢʀᴀᴍ</b>"
-        )
+        return await info.edit(f"<code>{message.text}</code> <b>ʜᴀʀɪ - sᴛʀɪɴɢ ᴘʏʀᴏɢʀᴀᴍ</b>")
     try:
         ub = Ubot(
             name=f"ubot_{random.randrange(999999)}",
@@ -51,9 +49,7 @@ async def login_cmd(client, message):
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True,
         )
-        return await info.edit(
-            f"<b>✅ ʙᴇʀʜᴀsɪʟ ʟᴏɢɪɴ ᴅɪ ᴀᴋᴜɴ: <a href='tg://user?id={ub.me.id}'>{ub.me.first_name} {ub.me.last_name or ''}</a></b>"
-        )
+        return await info.edit(f"<b>✅ ʙᴇʀʜᴀsɪʟ ʟᴏɢɪɴ ᴅɪ ᴀᴋᴜɴ: <a href='tg://user?id={ub.me.id}'>{ub.me.first_name} {ub.me.last_name or ''}</a></b>")
     except Exception as error:
         return await info.edit(f"<code>{error}</code>")
 
@@ -61,9 +57,7 @@ async def login_cmd(client, message):
 async def restart_cmd(client, message):
     msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
     if message.from_user.id not in ubot._get_my_id:
-        return await msg.edit(
-            f"<b>ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ. ᴅɪᴋᴀʀᴇɴᴀᴋᴀɴ ᴀɴᴅᴀ ʙᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ @{bot.me.username}</b>"
-        )
+        return await msg.edit(f"<b>ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ. ᴅɪᴋᴀʀᴇɴᴀᴋᴀɴ ᴀɴᴅᴀ ʙᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ @{bot.me.username}</b>")
     for X in ubot._ubot:
         if message.from_user.id == X.me.id:
             for _ubot_ in await get_userbots():
@@ -74,11 +68,7 @@ async def restart_cmd(client, message):
                         UB = Ubot(**_ubot_)
                         await UB.start()
                         for mod in loadModule():
-                            importlib.reload(
-                                importlib.import_module(f"PyroUbot.modules.{mod}")
-                            )
-                        return await msg.edit(
-                            f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>"
-                        )
+                            importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
+                        return await msg.edit(f"<b>✅ ʀᴇsᴛᴀʀᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʟᴀᴋᴜᴋᴀɴ {UB.me.first_name} {UB.me.last_name or ''} | {UB.me.id}</b>")
                     except Exception as error:
                         return await msg.edit(f"<b>{error}</b>")

@@ -30,9 +30,7 @@ async def _(client, message):
     if logs and on_logs:
         type = "ᴘʀɪᴠᴀᴛᴇ"
         user_link = f"[{message.from_user.first_name} {message.from_user.last_name or ''}](tg://user?id={message.from_user.id})"
-        message_link = (
-            f"tg://openmessage?user_id={message.from_user.id}&message_id={message.id}"
-        )
+        message_link = f"tg://openmessage?user_id={message.from_user.id}&message_id={message.id}"
         message_text = f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
@@ -66,9 +64,7 @@ async def _(client, message):
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
-        return await message.reply(
-            "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
-        )
+        return await message.reply("ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ.")
 
     query = {"on": True, "off": False, "none": False}
     command = message.command[1].lower()
@@ -92,9 +88,7 @@ async def _(client, message):
         await set_vars(client.me.id, "ID_LOGS", value)
 
     await set_vars(client.me.id, "ON_LOGS", value)
-    return await message.reply(
-        f"<b>✅ <code>LOGS</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ:</b> <code>{value}</code>"
-    )
+    return await message.reply(f"<b>✅ <code>LOGS</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ:</b> <code>{value}</code>")
 
 
 async def create_logs(client):

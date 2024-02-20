@@ -10,17 +10,13 @@ async def info_cmd(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("</b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
-        return await Tm.edit(
-            "<bʙᴇʀɪᴋᴀɴ ᴜsᴇʀɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ɪɴꜰᴏ ᴘᴇɴɢɢᴜɴᴀ ᴛᴇʀsᴇʙᴜᴛ.></b>"
-        )
+        return await Tm.edit("<bʙᴇʀɪᴋᴀɴ ᴜsᴇʀɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ɪɴꜰᴏ ᴘᴇɴɢɢᴜɴᴀ ᴛᴇʀsᴇʙᴜᴛ.></b>")
     try:
         user = await client.get_users(user_id)
         username = f"@{user.username}" if user.username else "-"
         first_name = f"{user.first_name}" if user.first_name else "-"
         last_name = f"{user.last_name}" if user.last_name else "-"
-        fullname = (
-            f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
-        )
+        fullname = f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
         user_details = (await client.get_chat(user.id)).bio
         bio = f"{user_details}" if user_details else "-"
         h = f"{user.status}"
@@ -77,9 +73,7 @@ async def cinfo_cmd(client, message):
             chat = await client.get_chat(chat_u)
         else:
             if message.chat.type == ChatType.PRIVATE:
-                return await Tm.edit(
-                    f"ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴅɪ ᴅᴀʟᴀᴍ ɢʀᴜᴘ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ {PREFIX[0]}cinfo [ɢʀᴏᴜᴘ ᴜsᴇʀɴᴀᴍᴇ ᴀᴛᴀᴜ ɪᴅ]"
-                )
+                return await Tm.edit(f"ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴅɪ ᴅᴀʟᴀᴍ ɢʀᴜᴘ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ {PREFIX[0]}cinfo [ɢʀᴏᴜᴘ ᴜsᴇʀɴᴀᴍᴇ ᴀᴛᴀᴜ ɪᴅ]")
             else:
                 chatid = message.chat.id
                 chat = await client.get_chat(chatid)

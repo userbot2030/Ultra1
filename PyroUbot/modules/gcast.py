@@ -22,8 +22,8 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍᴋᴀɴ ᴘᴇsᴀɴ ɢᴄᴀsᴛ sᴇᴄᴀʀᴀ ᴏᴛᴏᴍᴀᴛɪs
 """
 
-@ubot.on_message(
-    filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
+
+@ubot.on_message(filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
 @PY.UBOT("gcast")
 @PY.TOP_CMD
 async def _(client, message):
@@ -66,9 +66,7 @@ async def _(client, message):
 
     if type == "on":
         if not auto_text_vars:
-            return await msg.edit(
-                "<b>ʜᴀʀᴀᴘ sᴇᴛᴛɪɴɢ ᴛᴇxᴛ ɢᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>"
-            )
+            return await msg.edit("<b>ʜᴀʀᴀᴘ sᴇᴛᴛɪɴɢ ᴛᴇxᴛ ɢᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>")
 
         if client.me.id not in AG:
             await msg.edit("<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>")
@@ -83,10 +81,7 @@ async def _(client, message):
 
                 group = 0
                 async for dialog in client.get_dialogs():
-                    if (
-                        dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP)
-                        and dialog.chat.id not in blacklist
-                    ):
+                    if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP) and dialog.chat.id not in blacklist:
                         try:
                             await asyncio.sleep(1)
                             await client.send_message(dialog.chat.id, f"{txt} {random.choice(range(999))}")
@@ -119,23 +114,17 @@ async def _(client, message):
 
     elif type == "text":
         if not value:
-            return await msg.edit(
-                "<b>ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴛᴇxᴛ ᴜɴᴛᴜᴋ ᴅɪ sɪᴍᴘᴀɴ sᴇʙᴀɢᴀɪ ᴛᴇxᴛ ᴀᴜᴛᴏ ɢᴄᴀsᴛ</b>"
-            )
+            return await msg.edit("<b>ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴛᴇxᴛ ᴜɴᴛᴜᴋ ᴅɪ sɪᴍᴘᴀɴ sᴇʙᴀɢᴀɪ ᴛᴇxᴛ ᴀᴜᴛᴏ ɢᴄᴀsᴛ</b>")
         await add_auto_text(client, value)
         return await msg.edit("<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴛᴇxᴛ: ʙᴇʀʜᴀsɪʟ ᴅɪ sɪᴍᴘᴀɴ</b>")
 
     elif type == "delay":
         await set_vars(client.me.id, "DELAY_GCAST", value)
-        return await msg.edit(
-            f"<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴅᴇʟᴀʏ: ʙᴀʀʜᴀsɪʟ ᴋᴇ sᴇᴛᴛɪɴɢ {value} ᴍᴇɴɪᴛ</b>"
-        )
+        return await msg.edit(f"<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴅᴇʟᴀʏ: ʙᴀʀʜᴀsɪʟ ᴋᴇ sᴇᴛᴛɪɴɢ {value} ᴍᴇɴɪᴛ</b>")
 
     elif type == "remove":
         if not value:
-            return await msg.edit(
-                "<b>ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴀɴɢᴋᴀ ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ʟɪsᴛ ᴛᴇxᴛ</b>"
-            )
+            return await msg.edit("<b>ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴀɴɢᴋᴀ ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ʟɪsᴛ ᴛᴇxᴛ</b>")
         if value == "all":
             await set_vars(client.me.id, "AUTO_TEXT", [])
             return await msg.edit("<b>sᴇᴍᴜᴀ ᴛᴇxᴛ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
@@ -143,9 +132,7 @@ async def _(client, message):
             value = int(value) - 1
             auto_text_vars.pop(value)
             await set_vars(client.me.id, "AUTO_TEXT", auto_text_vars)
-            return await msg.edit(
-                f"<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ʀᴇᴍᴏᴠᴇ: ᴛᴇxᴛ ᴋᴇ {value+1} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs\n\nsɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ: <code>{message.text.split()[0]} list</code>, ᴋᴇᴍʙᴀʟɪ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴄᴇᴋ ᴀᴘᴀᴋᴀʜ sᴜᴅᴀʜ ᴛᴇʀʜᴀᴘᴜs</b>"
-            )
+            return await msg.edit(f"<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ʀᴇᴍᴏᴠᴇ: ᴛᴇxᴛ ᴋᴇ {value+1} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs\n\nsɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ: <code>{message.text.split()[0]} list</code>, ᴋᴇᴍʙᴀʟɪ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴄᴇᴋ ᴀᴘᴀᴋᴀʜ sᴜᴅᴀʜ ᴛᴇʀʜᴀᴘᴜs</b>")
         except Exception as error:
             return await msg.edit(str(error))
 
@@ -178,7 +165,7 @@ async def _(client, message):
             else:
                 return await msg.delete()
         else:
-             return await msg.edit("<b>~ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴠᴀʟᴇᴜ ᴏɴ/ᴏғғ ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ</b>")
+            return await msg.edit("<b>~ʜᴀʀᴀᴘ ᴍᴀsᴜᴋᴋᴀɴ ᴠᴀʟᴇᴜ ᴏɴ/ᴏғғ ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ</b>")
     else:
         return await msg.edit("<b>ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪᴍᴀsᴜᴋᴋᴀɴ sᴀʟᴀʜ</b>")
 
@@ -195,11 +182,5 @@ def extract_type_and_text(message):
         return None, None
 
     type = args[1]
-    msg = (
-        message.reply_to_message.text
-        if message.reply_to_message
-        else args[2]
-        if len(args) > 2
-        else None
-    )
+    msg = message.reply_to_message.text if message.reply_to_message else args[2] if len(args) > 2 else None
     return type, msg

@@ -28,8 +28,8 @@ class MSG:
     ᴘʀᴇғɪxᴇs : {' '.join(prefix)}
     sᴛᴀᴛᴜs ᴜsᴇʀ : ɴᴏᴛ ᴀ ᴍᴇᴍʙᴇʀ ᴏғ sɪ ᴧꝛᴧʙ            
 """
-        return text 
-    
+        return text
+
     def EXPIRED_MSG_BOT(X):
         return f"""
 <b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>

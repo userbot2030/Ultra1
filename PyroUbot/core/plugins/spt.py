@@ -14,9 +14,7 @@ async def support_callback(client, callback_query):
     await callback_query.message.delete()
     SUPPORT.append(get.id)
     try:
-        button = [
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"batal {user_id}")]
-        ]
+        button = [[InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"batal {user_id}")]]
         pesan = await bot.ask(
             user_id,
             f"<b>✍️ sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
@@ -41,9 +39,7 @@ async def support_callback(client, callback_query):
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             SUPPORT.remove(get.id)
-            await pesan.request.edit(
-                f"<b>✍️ sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ: {full_name}</b>"
-            )
+            await pesan.request.edit(f"<b>✍️ sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ᴘᴇʀᴛᴀɴʏᴀᴀɴ ᴀɴᴅᴀ: {full_name}</b>")
             return await bot.send_message(user_id, text)
         except Exception as error:
             return await bot.send_message(user_id, error)
@@ -56,9 +52,7 @@ async def jawab_pesan_callback(client, callback_query):
     user_ids = int(callback_query.data.split()[1])
     SUPPORT.append(get.id)
     try:
-        button = [
-            [InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"batal {user_id}")]
-        ]
+        button = [[InlineKeyboardButton("❌ ʙᴀᴛᴀʟᴋᴀɴ", callback_data=f"batal {user_id}")]]
         pesan = await bot.ask(
             user_id,
             f"<b>✉️ sɪʟᴀʜᴋᴀɴ ᴋɪʀɪᴍ ʙᴀʟᴀsᴀɴ ᴀɴᴅᴀ: {full_name}</b>",
@@ -102,11 +96,7 @@ async def profil_callback(client, callback_query):
         last_name = f"{get.last_name}"
         full_name = f"{get.first_name} {get.last_name or ''}"
         username = f"{get.username}"
-        msg = (
-            f"<b>👤 <a href=tg://user?id={get.id}>{full_name}</a></b>\n"
-            f"<b> ┣ ɪᴅ ᴘᴇɴɢɢᴜɴᴀ:</b> <code>{get.id}</code>\n"
-            f"<b> ┣ ɴᴀᴍᴀ ᴅᴇᴘᴀɴ:</b> {first_name}\n"
-        )
+        msg = f"<b>👤 <a href=tg://user?id={get.id}>{full_name}</a></b>\n" f"<b> ┣ ɪᴅ ᴘᴇɴɢɢᴜɴᴀ:</b> <code>{get.id}</code>\n" f"<b> ┣ ɴᴀᴍᴀ ᴅᴇᴘᴀɴ:</b> {first_name}\n"
         if last_name == "None":
             msg += ""
         else:
@@ -124,9 +114,7 @@ async def profil_callback(client, callback_query):
                 )
             ]
         ]
-        await callback_query.message.reply_text(
-            msg, reply_markup=InlineKeyboardMarkup(buttons)
-        )
+        await callback_query.message.reply_text(msg, reply_markup=InlineKeyboardMarkup(buttons))
     except Exception as why:
         await callback_query.message.reply_text(why)
 

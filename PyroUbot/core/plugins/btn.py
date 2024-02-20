@@ -9,18 +9,12 @@ async def cmd_button(client, message):
     if len(message.command) < 2:
         return await message.reply(f"{message.text} text ~> button_name:link_url")
     if "~>" not in message.text:
-        return await message.reply(
-            "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>.help button</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ"
-        )
+        return await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ <code>.help button</code> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴄᴀʀᴀ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ")
     await message.delete()
     try:
-        x = await client.get_inline_bot_results(
-            bot.me.username, f"get_button {id(message)}"
-        )
+        x = await client.get_inline_bot_results(bot.me.username, f"get_button {id(message)}")
         msg = message.reply_to_message or message
-        await client.send_inline_bot_result(
-            message.chat.id, x.query_id, x.results[0].id, reply_to_message_id=msg.id
-        )
+        await client.send_inline_bot_result(message.chat.id, x.query_id, x.results[0].id, reply_to_message_id=msg.id)
     except Exception as error:
         await message.reply(error)
 

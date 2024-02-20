@@ -32,13 +32,8 @@ async def rbg_cmd(client, message):
         reply_message = message.reply_to_message
         xx = await message.reply("<i>ᴍᴇᴍᴘʀᴏsᴇs...</i>")
         try:
-            if (
-                isinstance(reply_message.media, raw.types.MessageMediaPhoto)
-                or reply_message.media
-            ):
-                downloaded_file_name = await client.download_media(
-                    reply_message, "./downloads/"
-                )
+            if isinstance(reply_message.media, raw.types.MessageMediaPhoto) or reply_message.media:
+                downloaded_file_name = await client.download_media(reply_message, "./downloads/")
                 await xx.edit("<i>ᴍᴇɴɢʜᴀᴘᴜs ʟᴀᴛᴀʀ ʙᴇʟᴀᴋᴀɴɢ ᴅᴀʀɪ ɢᴀᴍʙᴀʀ ɪɴɪ...</i>")
                 output_file_name = await ReTrieveFile(downloaded_file_name)
                 os.remove(downloaded_file_name)
@@ -60,9 +55,7 @@ async def rbg_cmd(client, message):
                 await xx.delete()
         else:
             await xx.edit(
-                "<b>ᴋᴇsᴀʟᴀʜᴀɴ (ᴋᴜɴᴄɪ ᴀᴘɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ, sᴀʏᴀ ᴋɪʀᴀ ?)</b>\n<i>{}</i>".format(
-                    output_file_name.content.decode("UTF-8")
-                ),
+                "<b>ᴋᴇsᴀʟᴀʜᴀɴ (ᴋᴜɴᴄɪ ᴀᴘɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ, sᴀʏᴀ ᴋɪʀᴀ ?)</b>\n<i>{}</i>".format(output_file_name.content.decode("UTF-8")),
             )
     else:
         return await message.reply("sɪʟᴀʜᴋᴀɴ ʙᴀʟᴀs ᴋᴇ ɢᴀᴍʙᴀʀ")

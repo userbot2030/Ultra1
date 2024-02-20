@@ -14,9 +14,7 @@ async def vsong_cmd(client, message):
         )
     infomsg = await message.reply_text("<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...</b>", quote=False)
     try:
-        search = VideosSearch(message.text.split(None, 1)[1], limit=1).result()[
-            "result"
-        ][0]
+        search = VideosSearch(message.text.split(None, 1)[1], limit=1).result()["result"][0]
         link = f"https://youtu.be/{search['id']}"
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")
@@ -66,9 +64,7 @@ async def song_cmd(client, message):
         )
     infomsg = await message.reply_text("<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...</b>", quote=False)
     try:
-        search = VideosSearch(message.text.split(None, 1)[1], limit=1).result()[
-            "result"
-        ][0]
+        search = VideosSearch(message.text.split(None, 1)[1], limit=1).result()["result"][0]
         link = f"https://youtu.be/{search['id']}"
     except Exception as error:
         return await infomsg.edit(f"<b>🔍 ᴘᴇɴᴄᴀʀɪᴀɴ...\n\n{error}</b>")

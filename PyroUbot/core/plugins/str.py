@@ -1,23 +1,19 @@
 import asyncio
-import random
-from time import time
 from gc import get_objects
-from datetime import datetime
+from time import time
 
 from pyrogram.raw.functions import Ping
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardMarkup
 
 from PyroUbot import *
 
 
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
-    uptime = await get_time(time() - ub_uptime)
+    await get_time(time() - ub_uptime)
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6111585093220830556"
     emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6113661520929885715"
-    emot_mention = (
-        await get_vars(client.me.id, "EMOJI_MENTION") or "6114013639528682251"
-    )
+    emot_mention = await get_vars(client.me.id, "EMOJI_MENTION") or "6114013639528682251"
     start_time = time()
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
@@ -53,9 +49,7 @@ async def start_cmd(client, message):
                 return await send.edit(f"<b>❌ ᴇʀʀᴏʀ:</b> <code>{error}</code>")
             user_or_me = [m.reply_to_message.from_user.id, m.from_user.id]
             if message.from_user.id not in user_or_me:
-                return await send.edit(
-                    f"<b>❌ ᴘᴇsᴀɴ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋᴍᴜ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>"
-                )
+                return await send.edit(f"<b>❌ ᴘᴇsᴀɴ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋᴍᴜ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>")
             else:
                 text = await client.send_message(
                     message.chat.id,

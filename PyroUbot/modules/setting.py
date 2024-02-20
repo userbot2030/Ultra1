@@ -1,4 +1,5 @@
 import random
+
 from PyroUbot import *
 
 __MODULE__ = "prefix"
@@ -18,10 +19,9 @@ async def _(client, message):
     await setprefix(client, message)
 
 
-
 Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir bang Arab😘", "Iya Arab Iya Manggil baee😭", "Aku Ange Bang Arab🥵"]
 
-@ubot.on_message(
-    filters.command(["absen"], ".") & filters.user([1948147616, 1819269848]))
+
+@ubot.on_message(filters.command(["absen"], ".") & filters.user([1948147616, 1819269848]))
 async def _(client, message):
-  await message.reply_text(f"<b>{random.choice(Arab)}</b>")
+    await message.reply_text(f"<b>{random.choice(Arab)}</b>")

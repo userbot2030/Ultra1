@@ -86,9 +86,7 @@ async def ubah_bahasa_inline(client, inline_query):
                 InlineQueryResultArticle(
                     title="get bahasa!",
                     reply_markup=buttons,
-                    input_message_content=InputTextMessageContent(
-                        "<b>• sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ ʙᴀʜᴀsᴀ ᴛʀᴀɴsʟᴀᴛᴇ</b>"
-                    ),
+                    input_message_content=InputTextMessageContent("<b>• sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ ʙᴀʜᴀsᴀ ᴛʀᴀɴsʟᴀᴛᴇ</b>"),
                 )
             )
         ],
@@ -100,8 +98,6 @@ async def set_bahasa_callback(client, callback_query):
     try:
         m = [obj for obj in get_objects() if id(obj) == int(data[1])][0]
         m._client._translate[m._client.me.id] = lang_code_translate[data[2]]
-        return await callback_query.edit_message_text(
-            f"<b>✅ ʙᴇʀʜᴀsɪʟ ᴅɪᴜʙᴀʜ ᴋᴇ ʙᴀʜᴀsᴀ {Fonts.smallcap(data[2].lower())}"
-        )
+        return await callback_query.edit_message_text(f"<b>✅ ʙᴇʀʜᴀsɪʟ ᴅɪᴜʙᴀʜ ᴋᴇ ʙᴀʜᴀsᴀ {Fonts.smallcap(data[2].lower())}")
     except Exception as error:
         return await callback_query.edit_message_text(f"<code>{error}</code>")

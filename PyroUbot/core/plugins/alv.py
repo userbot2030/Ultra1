@@ -12,9 +12,7 @@ from PyroUbot import *
 async def alive_cmd(client, message):
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>", quote=True)
     try:
-        x = await client.get_inline_bot_results(
-            bot.me.username, f"alive {message.id} {client.me.id}"
-        )
+        x = await client.get_inline_bot_results(bot.me.username, f"alive {message.id} {client.me.id}")
         await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
         await msg.delete()
     except Exception as error:
@@ -81,6 +79,4 @@ async def alive_close(client, callback_query):
     unPacked = unpackInlineMessage(callback_query.inline_message_id)
     for my in ubot._ubot:
         if callback_query.from_user.id == int(my.me.id):
-            await my.delete_messages(
-                unPacked.chat_id, [int(get_id[1]), unPacked.message_id]
-            )
+            await my.delete_messages(unPacked.chat_id, [int(get_id[1]), unPacked.message_id])

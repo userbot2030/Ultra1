@@ -1,20 +1,18 @@
 import asyncio
 import importlib
-from datetime import datetime, timedelta
+from datetime import datetime
 from time import time
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
 from pyrogram.types import *
-from pytz import timezone
 
 from PyroUbot import *
 
 
 async def cek_status(client, callback_query):
     user_id = callback_query.from_user.id
-    buttons = [[InlineKeyboardButton("🚀 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ", callback_data="bahan")],
-                [InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")]]
+    buttons = [[InlineKeyboardButton("🚀 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ", callback_data="bahan")], [InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")]]
     text = await MSG.STATUS_UB(user_id)
     await callback_query.message.delete()
     return await bot.send_message(
@@ -100,10 +98,7 @@ async def bikin_ubot(client, callback_query):
         await callback_query.message.delete()
         api = await bot.ask(
             user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
+            ("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -114,10 +109,7 @@ async def bikin_ubot(client, callback_query):
     try:
         hash = await bot.ask(
             user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
+            ("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -128,10 +120,7 @@ async def bikin_ubot(client, callback_query):
     try:
         phone = await bot.ask(
             user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ɴᴏᴍᴏʀ ᴛᴇʟᴇᴘᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅᴇɴɢᴀɴ ꜰᴏʀᴍᴀᴛ ᴋᴏᴅᴇ ɴᴇɢᴀʀᴀ.\nᴄᴏɴᴛᴏʜ: +628xxxxxxx</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
+            ("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ɴᴏᴍᴏʀ ᴛᴇʟᴇᴘᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅᴇɴɢᴀɴ ꜰᴏʀᴍᴀᴛ ᴋᴏᴅᴇ ɴᴇɢᴀʀᴀ.\nᴄᴏɴᴛᴏʜ: +628xxxxxxx</b>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -179,11 +168,7 @@ async def bikin_ubot(client, callback_query):
         await get_otp.delete()
         otp = await bot.ask(
             user_id,
-            (
-                f"<b>sɪʟᴀᴋᴀɴ ᴘᴇʀɪᴋsᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴅᴀʀɪ {sent_code[code.type]}. ᴋɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ ᴋᴇ sɪɴɪ sᴇᴛᴇʟᴀʜ ᴍᴇᴍʙᴀᴄᴀ ꜰᴏʀᴍᴀᴛ ᴅɪ ʙᴀᴡᴀʜ ɪɴɪ.</b>\n"
-                "\nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏᴅᴇ> ᴛᴏʟᴏɴɢ <b>[ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴘᴀsɪ ]</b> ᴋɪʀɪᴍᴋᴀɴ sᴇᴘᴇʀᴛɪ ɪɴɪ <code>1 2 3 4 5</code>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
+            (f"<b>sɪʟᴀᴋᴀɴ ᴘᴇʀɪᴋsᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴅᴀʀɪ {sent_code[code.type]}. ᴋɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ ᴋᴇ sɪɴɪ sᴇᴛᴇʟᴀʜ ᴍᴇᴍʙᴀᴄᴀ ꜰᴏʀᴍᴀᴛ ᴅɪ ʙᴀᴡᴀʜ ɪɴɪ.</b>\n" "\nᴊɪᴋᴀ ᴋᴏᴅᴇ ᴏᴛᴘ ᴀᴅᴀʟᴀʜ <ᴄᴏᴅᴇ>12345</ᴄᴏᴅᴇ> ᴛᴏʟᴏɴɢ <b>[ ᴛᴀᴍʙᴀʜᴋᴀɴ sᴘᴀsɪ ]</b> ᴋɪʀɪᴍᴋᴀɴ sᴇᴘᴇʀᴛɪ ɪɴɪ <code>1 2 3 4 5</code>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
             timeout=300,
         )
     except asyncio.TimeoutError:
@@ -233,9 +218,7 @@ async def bikin_ubot(client, callback_query):
     if not user_id == new_client.me.id:
         ubot._ubot.remove(new_client)
         await rem_two_factor(new_client.me.id)
-        return await bot_msg.edit(
-            "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
-        )
+        return await bot_msg.edit("<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>")
     await add_ubot(
         user_id=int(new_client.me.id),
         api_id=api_id,
@@ -298,9 +281,7 @@ async def next_prev_ubot(client, callback_query):
             count -= 1
     await callback_query.edit_message_text(
         await MSG.USERBOT(count),
-        reply_markup=InlineKeyboardMarkup(
-            Button.userbot(ubot._ubot[count].me.id, count)
-        ),
+        reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[count].me.id, count)),
     )
 
 
@@ -321,9 +302,7 @@ async def get_num_otp(client, callback_query):
                 else:
                     await callback_query.edit_message_text(
                         otp.text,
-                        reply_markup=InlineKeyboardMarkup(
-                            Button.userbot(X.me.id, int(query[2]))
-                        ),
+                        reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
                     )
                     await X.delete_messages(X.me.id, otp.id)
             except Exception as error:
@@ -332,9 +311,7 @@ async def get_num_otp(client, callback_query):
         try:
             return await callback_query.edit_message_text(
                 f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
-                reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
-                ),
+                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
             )
         except Exception as error:
             return await callback_query.answer(error, True)
@@ -348,9 +325,7 @@ async def get_num_otp(client, callback_query):
         else:
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
-                reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
-                ),
+                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
             )
 
 
@@ -391,29 +366,21 @@ async def hapus_ubot(client, callback_query):
             ubot._get_my_id.remove(X.me.id)
             ubot._ubot.remove(X)
             await X.log_out()
-            await callback_query.answer(
-                f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True
-            )
+            await callback_query.answer(f"✅ {get_mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀᴛᴀʙᴀsᴇ", True)
             await callback_query.edit_message_text(
                 await MSG.USERBOT(0),
-                reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(ubot._ubot[0].me.id, 0)
-                ),
+                reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)),
             )
             await bot.send_message(
                 LOGS_MAKER_UBOT,
                 MSG.EXPIRED_MSG_BOT(X),
                 reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
             )
-            return await bot.send_message(
-                X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
-            )
+            return await bot.send_message(X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
 
 
 async def is_cancel(callback_query, text):
     if text.startswith("/cancel"):
-        await bot.send_message(
-            callback_query.from_user.id, "<b>ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs!</b>"
-        )
+        await bot.send_message(callback_query.from_user.id, "<b>ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs!</b>")
         return True
     return False

@@ -16,9 +16,7 @@ async def prem_user(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if message.from_user.id not in await get_seles():
-        return await Tm.edit(
-            "ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ"
-        )
+        return await Tm.edit("ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ")
     user_id, get_bulan = await extract_user_and_reason(message)
     if not user_id:
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʙᴜʟᴀɴ</b>")
@@ -36,9 +34,7 @@ async def prem_user(client, message):
         now = datetime.now(timezone("Asia/Jakarta"))
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(get_id, expired)
-        await Tm.edit(
-            f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
-        )
+        await Tm.edit(f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
         await bot.send_message(
             OWNER_ID,
             f"• {message.from_user.id} ─> {get_id} •",
@@ -49,9 +45,7 @@ async def prem_user(client, message):
                             "👤 ᴘʀᴏғɪʟ",
                             callback_data=f"profil {message.from_user.id}",
                         ),
-                        InlineKeyboardButton(
-                            "ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"
-                        ),
+                        InlineKeyboardButton("ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"),
                     ],
                 ]
             ),
@@ -66,9 +60,7 @@ async def unprem_user(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
-        return await Tm.edit(
-            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
-        )
+        return await Tm.edit("<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
@@ -119,9 +111,7 @@ async def add_blaclist(client, message):
         sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(
-                f"<emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ {message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ"
-            )
+            return await Tm.edit(f"<emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ {message.chat.title} ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
         else:
             return await Tm.edit(f"<emoji id={gagal}>❌</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     else:
@@ -140,9 +130,7 @@ async def del_blacklist(client, message):
             gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
             blacklist = await get_chat(client.me.id)
             if chat_id not in blacklist:
-                return await Tm.edit(
-                    f"{message.chat.title} <emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ"
-                )
+                return await Tm.edit(f"{message.chat.title} <emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
             sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
             gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
             del_blacklist = await remove_chat(client.me.id, chat_id)
@@ -192,9 +180,7 @@ async def seles_user(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
-        return await Tm.edit(
-            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>"
-        )
+        return await Tm.edit("<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
@@ -215,9 +201,7 @@ async def unseles_user(client, message):
     user_id = await extract_user(message)
     Tm = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if not user_id:
-        return await Tm.edit(
-            "<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</n>"
-        )
+        return await Tm.edit("<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</n>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
@@ -284,9 +268,7 @@ async def expired_cek(client, message):
         await message.reply(f"{user_id} ʙᴇʟᴜᴍ ᴅɪᴀᴋᴛɪғᴋᴀɴ.")
     else:
         remaining_days = (expired_date - datetime.now()).days
-        await message.reply(
-            f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
-        )
+        await message.reply(f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ.")
 
 
 async def un_expired(client, message):

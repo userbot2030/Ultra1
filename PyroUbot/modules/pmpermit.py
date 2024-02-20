@@ -46,12 +46,7 @@ __HELP__ = """
 
 
 @ubot.on_message(
-    filters.private
-    & filters.incoming
-    & ~filters.me
-    & ~filters.bot
-    & ~filters.via_bot
-    & ~filters.service,
+    filters.private & filters.incoming & ~filters.me & ~filters.bot & ~filters.via_bot & ~filters.service,
     group=69,
 )
 async def _(client, message):
@@ -71,15 +66,11 @@ async def _(client, message):
             pm_limit = await get_vars(client.me.id, "PM_LIMIT") or "5"
             if FLOOD[user.id] > int(pm_limit):
                 del FLOOD[user.id]
-                await message.reply(
-                    "sᴜᴅᴀʜ ᴅɪɪɴɢᴀᴛᴋᴀɴ ᴊᴀɴɢᴀɴ sᴘᴀᴍ, sᴇᴋᴀʀᴀɴɢ Aɴᴅᴀ ᴅɪʙʟᴏᴋɪʀ."
-                )
+                await message.reply("sᴜᴅᴀʜ ᴅɪɪɴɢᴀᴛᴋᴀɴ ᴊᴀɴɢᴀɴ sᴘᴀᴍ, sᴇᴋᴀʀᴀɴɢ Aɴᴅᴀ ᴅɪʙʟᴏᴋɪʀ.")
                 return await client.block_user(user.id)
             pm_msg = await get_vars(client.me.id, "PM_TEXT") or PM_TEXT
             if "~>" in pm_msg:
-                x = await client.get_inline_bot_results(
-                    bot.me.username, f"pm_pr {id(message)} {FLOOD[user.id]}"
-                )
+                x = await client.get_inline_bot_results(bot.me.username, f"pm_pr {id(message)} {FLOOD[user.id]}")
                 msg = await client.send_inline_bot_result(
                     message.chat.id,
                     x.query_id,
@@ -92,18 +83,10 @@ async def _(client, message):
                 rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
                 peringatan = f"{FLOOD[user.id]} / {pm_limit}"
                 if pm_pic:
-                    photo_video = (
-                        message.reply_video
-                        if pm_pic.endswith(".mp4")
-                        else message.reply_photo
-                    )
-                    msg = await photo_video(
-                        pm_pic, caption=pm_msg.format(mention=rpk, warn=peringatan)
-                    )
+                    photo_video = message.reply_video if pm_pic.endswith(".mp4") else message.reply_photo
+                    msg = await photo_video(pm_pic, caption=pm_msg.format(mention=rpk, warn=peringatan))
                 else:
-                    msg = await message.reply(
-                        pm_msg.format(mention=rpk, warn=peringatan)
-                    )
+                    msg = await message.reply(pm_msg.format(mention=rpk, warn=peringatan))
                 MSG_ID[user.id] = msg.id
 
 
@@ -111,9 +94,7 @@ async def _(client, message):
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 3:
-        return await message.reply(
-            "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
-        )
+        return await message.reply("ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ.")
     query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC"}
     if message.command[1].lower() not in query:
         return await message.reply("<b>❌ ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪ ᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
@@ -125,18 +106,14 @@ async def _(client, message):
     if value_str.lower() == "none":
         value_str = False
     await set_vars(client.me.id, value, value_str)
-    return await message.reply(
-        f"<b>✅ <code>{value}</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ: <code>{value_str}</code>"
-    )
+    return await message.reply(f"<b>✅ <code>{value}</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ: <code>{value_str}</code>")
 
 
 @PY.UBOT("pmpermit")
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
-        return await message.reply(
-            "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
-        )
+        return await message.reply("ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ.")
 
     toggle_options = {"off": False, "on": True}
     toggle_option = message.command[1].lower()
@@ -162,16 +139,8 @@ async def _(client, inline_query):
     peringatan = f"{int(get_id[2])} / {pm_limit}"
     buttons, text = await pmpermit_button(pm_msg)
     if pm_pic:
-        photo_video = (
-            InlineQueryResultVideo
-            if pm_pic.endswith(".mp4")
-            else InlineQueryResultPhoto
-        )
-        photo_video_url = (
-            {"video_url": pm_pic, "thumb_url": pm_pic}
-            if pm_pic.endswith(".mp4")
-            else {"photo_url": pm_pic}
-        )
+        photo_video = InlineQueryResultVideo if pm_pic.endswith(".mp4") else InlineQueryResultPhoto
+        photo_video_url = {"video_url": pm_pic, "thumb_url": pm_pic} if pm_pic.endswith(".mp4") else {"photo_url": pm_pic}
         hasil = [
             photo_video(
                 **photo_video_url,
@@ -186,9 +155,7 @@ async def _(client, inline_query):
                 InlineQueryResultArticle(
                     title="Dapatkan tombol!",
                     reply_markup=buttons,
-                    input_message_content=InputTextMessageContent(
-                        text.format(mention=rpk, warn=peringatan)
-                    ),
+                    input_message_content=InputTextMessageContent(text.format(mention=rpk, warn=peringatan)),
                 )
             )
         ]
@@ -227,9 +194,7 @@ async def _(client, message):
         return await client.block_user(user.id)
     else:
         await remove_pm_id(client.me.id, user.id)
-        return await message.reply(
-            f"<b>🙏🏻 ᴍᴀᴀғ {rpk} ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪᴛᴏʟᴀᴋ ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴜʙᴜɴɢɪ ᴀᴋᴜɴ ɪɴɪ ʟᴀɢɪ</b>"
-        )
+        return await message.reply(f"<b>🙏🏻 ᴍᴀᴀғ {rpk} ᴀɴᴅᴀ ᴛᴇʟᴀʜ ᴅɪᴛᴏʟᴀᴋ ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴜʙᴜɴɢɪ ᴀᴋᴜɴ ɪɴɪ ʟᴀɢɪ</b>")
 
 
 async def pmpermit_button(m):
@@ -237,9 +202,7 @@ async def pmpermit_button(m):
     keyboard = []
     for X in m.split("~>", 1)[1].split():
         X_parts = X.split(":", 1)
-        keyboard.append(
-            InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1])
-        )
+        keyboard.append(InlineKeyboardButton(X_parts[0].replace("_", " "), url=X_parts[1]))
     buttons.add(*keyboard)
     text = m.split("~>", 1)[0]
 

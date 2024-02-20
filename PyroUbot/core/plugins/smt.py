@@ -29,9 +29,7 @@ async def sg_cmd(client, message):
     sg_name.reverse()
     for history in sg_name:
         if not history:
-            await message.reply(
-                f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
-            )
+            await message.reply(f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True)
         else:
             await message.reply(history, quote=True)
     user_info = await client.resolve_peer(getbot)

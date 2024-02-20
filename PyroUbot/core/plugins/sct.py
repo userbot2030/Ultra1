@@ -8,9 +8,7 @@ from PyroUbot import *
 
 async def msg_cmd(client, message):
     if not message.reply_to_message:
-        return await message.reply(
-            f"<code>{message.text}</code> [ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ - ᴛᴇxᴛ]"
-        )
+        return await message.reply(f"<code>{message.text}</code> [ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ - ᴛᴇxᴛ]")
     text = f"secret {id(message)}"
     await message.delete()
     x = await client.get_inline_bot_results(bot.me.username, text)
@@ -36,9 +34,7 @@ async def secret_inline(client, q):
                             ],
                         ]
                     ),
-                    input_message_content=InputTextMessageContent(
-                        f"<b>👉🏻 ᴀᴅᴀ ᴘᴇsᴀɴ ʀᴀʜᴀsɪᴀ ᴜɴᴛᴜᴋ ᴍᴜ ɴɪʜ:</b> <a href=tg://user?id={m.reply_to_message.from_user.id}>{m.reply_to_message.from_user.first_name} {m.reply_to_message.from_user.last_name or ''}</a>"
-                    ),
+                    input_message_content=InputTextMessageContent(f"<b>👉🏻 ᴀᴅᴀ ᴘᴇsᴀɴ ʀᴀʜᴀsɪᴀ ᴜɴᴛᴜᴋ ᴍᴜ ɴɪʜ:</b> <a href=tg://user?id={m.reply_to_message.from_user.id}>{m.reply_to_message.from_user.first_name} {m.reply_to_message.from_user.last_name or ''}</a>"),
                 )
             )
         ],

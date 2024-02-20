@@ -107,11 +107,7 @@ async def success_failed_home_callback(client, callback_query):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         buttons_success = [
-            [
-                InlineKeyboardButton(
-                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
-                )
-            ],
+            [InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}")],
         ]
         await add_prem(get_user.id)
         now = datetime.now(timezone("Asia/Jakarta"))
@@ -126,11 +122,7 @@ async def success_failed_home_callback(client, callback_query):
         )
     if query[0] == "failed":
         buttons = [
-            [
-                InlineKeyboardButton(
-                    "💳 ʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ 💳", callback_data="bayar_dulu"
-                )
-            ],
+            [InlineKeyboardButton("💳 ʟᴀᴋᴜᴋᴀɴ ᴘᴇᴍʙᴀʏᴀʀᴀɴ 💳", callback_data="bayar_dulu")],
         ]
         await bot.send_message(
             get_user.id,
@@ -142,11 +134,7 @@ async def success_failed_home_callback(client, callback_query):
             reply_markup=InlineKeyboardMarkup(buttons),
         )
         buttons_failed = [
-            [
-                InlineKeyboardButton(
-                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
-                )
-            ],
+            [InlineKeyboardButton("👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}")],
         ]
         return await bot.send_message(
             OWNER_ID,

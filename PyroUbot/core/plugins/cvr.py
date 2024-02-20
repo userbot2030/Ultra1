@@ -22,24 +22,17 @@ async def convert_anime(client, message):
                 file = "gift"
                 get_photo = await dl_pic(client, message.reply_to_message)
             else:
-                return await Tm.edit(
-                    "<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ</b> <code>ᴘʜᴏᴛᴏ/sᴛʀɪᴋᴇʀ/ɢɪᴛ</code>"
-                )
+                return await Tm.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴋᴇ</b> <code>ᴘʜᴏᴛᴏ/sᴛʀɪᴋᴇʀ/ɢɪᴛ</code>")
         else:
             if message.command[1] in ["foto", "profil", "photo"]:
-                chat = (
-                    message.reply_to_message.from_user
-                    or message.reply_to_message.sender_chat
-                )
+                chat = message.reply_to_message.from_user or message.reply_to_message.sender_chat
                 file = "foto profil"
                 get = await client.get_chat(chat.id)
                 photo = get.photo.big_file_id
                 get_photo = await dl_pic(client, photo)
     else:
         if len(message.command) < 2:
-            return await Tm.edit(
-                "ʙᴀʟᴀs ᴋᴇ ꜰᴏᴛᴏ ᴅᴀɴ sᴀʏᴀ ᴀᴋᴀɴ ᴍᴇʀᴜʙᴀʜ ꜰᴏᴛᴏ ᴀɴᴅᴀ ᴍᴇɴᴊᴀᴅɪ ᴀɴɪᴍᴇ"
-            )
+            return await Tm.edit("ʙᴀʟᴀs ᴋᴇ ꜰᴏᴛᴏ ᴅᴀɴ sᴀʏᴀ ᴀᴋᴀɴ ᴍᴇʀᴜʙᴀʜ ꜰᴏᴛᴏ ᴀɴᴅᴀ ᴍᴇɴᴊᴀᴅɪ ᴀɴɪᴍᴇ")
         else:
             try:
                 file = "foto"
@@ -56,14 +49,8 @@ async def convert_anime(client, message):
     await Tm.delete()
     info = await client.resolve_peer("@qq_neural_anime_bot")
     anime_photo = []
-    async for anime in client.search_messages(
-        "@qq_neural_anime_bot", filter=MessagesFilter.PHOTO
-    ):
-        anime_photo.append(
-            InputMediaPhoto(
-                anime.photo.file_id, caption=f"<b>ᴘᴏᴡᴇʀᴇᴅ ʙʏ: {bot.me.mention}</b>"
-            )
-        )
+    async for anime in client.search_messages("@qq_neural_anime_bot", filter=MessagesFilter.PHOTO):
+        anime_photo.append(InputMediaPhoto(anime.photo.file_id, caption=f"<b>ᴘᴏᴡᴇʀᴇᴅ ʙʏ: {bot.me.mention}</b>"))
     if anime_photo:
         await client.send_media_group(
             message.chat.id,
@@ -125,9 +112,7 @@ async def convert_gif(client, message):
         f"Gift_{message.from_user.id}.mp4",
     )
     try:
-        await client.send_animation(
-            message.chat.id, file, reply_to_message_id=message.id
-        )
+        await client.send_animation(message.chat.id, file, reply_to_message_id=message.id)
         os.remove(file)
         await TM.delete()
     except Exception as error:
@@ -252,9 +237,7 @@ async def convert_efek(client, message):
         if arga in list_efek:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {args}")
             indir = await client.download_media(reply)
-            ses = await asyncio.create_subprocess_shell(
-                f"ffmpeg -i '{indir}' {get_efek[args]} audio.mp3"
-            )
+            ses = await asyncio.create_subprocess_shell(f"ffmpeg -i '{indir}' {get_efek[args]} audio.mp3")
             await ses.communicate()
             await Tm.delete()
             await message.reply_voice(open("audio.mp3", "rb"), caption=f"Efek {args}")
@@ -262,17 +245,9 @@ async def convert_efek(client, message):
                 if files and os.path.exists(files):
                     os.remove(files)
         else:
-            await message.reply(
-                "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}list_efek` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                    next((p) for p in prefix)
-                )
-            )
+            await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}list_efek` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(next((p) for p in prefix)))
     else:
-        await message.reply(
-            "sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}list_efek` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(
-                next((p) for p in prefix)
-            )
-        )
+        await message.reply("sɪʟᴀʜᴋᴀɴ ᴋᴇᴛɪᴋ `{}list_efek` ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀғᴛᴀʀ ᴇғᴇᴋ".format(next((p) for p in prefix)))
 
 
 async def colong_cmn(client, message):

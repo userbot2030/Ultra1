@@ -1,11 +1,8 @@
-
 from asyncio import sleep
-from contextlib import suppress
 from random import randint
 from typing import Optional
-from pytgcalls import GroupCallFactory
 
-from pyrogram import Client, enums, filters
+from pyrogram import Client, enums
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
@@ -31,42 +28,42 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴜᴘ
 """
 
+
 @PY.UBOT("joinvc")
 @PY.TOP_CMD
 async def _(client, message):
-  await joinvc(client, message)
+    await joinvc(client, message)
+
 
 @PY.UBOT("leavevc")
 @PY.TOP_CMD
 async def _(client, message):
-  await leavevc(client, message)
+    await leavevc(client, message)
+
 
 @PY.UBOT("startvc")
 @PY.TOP_CMD
 async def _(client, message):
-  await opengc(client, message)
+    await opengc(client, message)
+
 
 @PY.UBOT("stopvc")
 @PY.TOP_CMD
 async def _(client, message):
-  await end_vc_(client, message)
+    await end_vc_(client, message)
 
-async def get_group_call(
-    client: Client, message: Message, err_msg: str = ""
-) -> Optional[InputGroupCall]:
+
+async def get_group_call(client: Client, message: Message, err_msg: str = "") -> Optional[InputGroupCall]:
     chat_peer = await client.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
         if isinstance(chat_peer, InputPeerChannel):
             full_chat = (await client.send(GetFullChannel(channel=chat_peer))).full_chat
         elif isinstance(chat_peer, InputPeerChat):
-            full_chat = (
-                await client.send(GetFullChat(chat_id=chat_peer.chat_id))
-            ).full_chat
+            full_chat = (await client.send(GetFullChat(chat_id=chat_peer.chat_id))).full_chat
         if full_chat is not None:
             return full_chat.call
     await eor(message, f"**No group call Found** {err_msg}")
     return False
-
 
 
 async def joinvc(client, message):
@@ -129,17 +126,12 @@ async def opengc(client: Client, message: Message):
         await ky.edit(f"<b>INFO:</b> `{e}`")
 
 
-
 async def end_vc_(client: Client, message: Message):
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     alasan = await get_vars(client.me.id, "EMOJI_ALASAN") or "6249259608469146625"
     ky = await message.reply(message, "`Processing....`")
     message.chat.id
-    if not (
-        group_call := (await get_group_call(client, message, err_msg=", Kesalahan..."))
-    ):
+    if not (group_call := (await get_group_call(client, message, err_msg=", Kesalahan..."))):
         return
     await client.send(DiscardGroupCall(call=group_call))
-    await ky.edit(
-        f"<emoji id={gagal}>❎</emoji> <b>ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ ʙᴇʀʜᴀsɪʟ ᴅɪ ᴍᴀᴛɪᴋᴀɴ</b>\n <emoji id={alasan}>⚠️</emoji><b>Chat</b> : {message.chat.title}"
-    )
+    await ky.edit(f"<emoji id={gagal}>❎</emoji> <b>ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ ʙᴇʀʜᴀsɪʟ ᴅɪ ᴍᴀᴛɪᴋᴀɴ</b>\n <emoji id={alasan}>⚠️</emoji><b>Chat</b> : {message.chat.title}")

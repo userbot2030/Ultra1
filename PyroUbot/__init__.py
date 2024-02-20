@@ -57,7 +57,7 @@ class Ubot(Client):
     def __init__(self, **kwargs):
         super().__init__(**kwargs, device_model="UltraUbot")
         self.group_call = GroupCallFactory(self).get_group_call()
-        
+
     def on_message(self, filters=None, group=-1):
         def decorator(func):
             for ub in self._ubot:
@@ -105,10 +105,7 @@ class Ubot(Client):
                             count=1,
                             flags=re.IGNORECASE | re.UNICODE,
                         )
-                        message.command = [command] + [
-                            re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "")
-                            for m in command_re.finditer(without_command)
-                        ]
+                        message.command = [command] + [re.sub(r"\\([\"'])", r"\1", m.group(2) or m.group(3) or "") for m in command_re.finditer(without_command)]
 
                         return True
 

@@ -16,6 +16,7 @@ __HELP__ = """
   
 """
 
+
 @PY.UBOT("setemoji")
 @PY.TOP_CMD
 async def _(client, message):

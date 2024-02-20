@@ -13,22 +13,16 @@ async def logo_cmd(client, message):
         if reply.photo or reply.animation or reply.sticker:
             rep_pic = await dl_pic(client, reply)
             send_pic = await client.send_photo("@Yone_Robot", rep_pic)
-            text_pic = await send_pic.reply(
-                f"/{message.command[0]} {message.text.split(None, 1)[1]}"
-            )
+            text_pic = await send_pic.reply(f"/{message.command[0]} {message.text.split(None, 1)[1]}")
             for X in (send_pic, text_pic):
                 await X.delete()
         else:
             return await Tm.edit("ʀᴇᴘʟʏ ᴋᴇ ꜰᴏᴛᴏ/ɢɪꜰ/sᴛɪᴄᴋᴇʀ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ")
     else:
         if len(message.command) < 2:
-            return await Tm.edit(
-                f"<code>{message.text} [ᴛᴇxᴛ]</code> - ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ"
-            )
+            return await Tm.edit(f"<code>{message.text} [ᴛᴇxᴛ]</code> - ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ")
         else:
-            Tm_S = await client.send_message(
-                "@Yone_Robot", f"/{message.command[0]} {message.text.split(None, 1)[1]}"
-            )
+            Tm_S = await client.send_message("@Yone_Robot", f"/{message.command[0]} {message.text.split(None, 1)[1]}")
             await Tm_S.delete()
     await Tm.edit("<code>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs...</code>")
     await asyncio.sleep(8)
@@ -41,9 +35,7 @@ async def logo_cmd(client, message):
                 )
                 await Tm.delete()
             elif "Error Report" in msg.text:
-                await Tm.edit(
-                    "<b>ɢᴀɢᴀʟ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ʙᴇʙᴇʀᴀᴘᴀ sᴀᴀᴛ ʟᴀɢɪ</b>"
-                )
+                await Tm.edit("<b>ɢᴀɢᴀʟ ᴍᴇᴍʙᴜᴀᴛ ʟᴏɢᴏ sɪʟᴀʜᴋᴀɴ ᴜʟᴀɴɢɪ ʙᴇʙᴇʀᴀᴘᴀ sᴀᴀᴛ ʟᴀɢɪ</b>")
         except:
             await Tm.edit("<code>ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</code>")
         user_info = await client.resolve_peer("@Yone_Robot")

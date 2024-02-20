@@ -11,9 +11,7 @@ from PyroUbot import *
 
 async def kang_cmd(client, message):
     replied = message.reply_to_message
-    msg_text = await message.reply(
-        f"<code>ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>"
-    )
+    msg_text = await message.reply(f"<code>ʙᴏʟᴇʜ ᴊᴜɢᴀ ɴɪ sᴛɪᴄᴋᴇʀɴʏᴀ ᴄᴏʟᴏɴɢ ᴀʜʜ...</code>")
     media_ = None
     emoji_ = None
     is_anim = False
@@ -48,10 +46,7 @@ async def kang_cmd(client, message):
             emoji_ = replied.sticker.emoji
             is_anim = replied.sticker.is_animated
             is_video = replied.sticker.is_video
-            if not (
-                replied.sticker.file_name.endswith(".tgs")
-                or replied.sticker.file_name.endswith(".webm")
-            ):
+            if not (replied.sticker.file_name.endswith(".tgs") or replied.sticker.file_name.endswith(".webm")):
                 resize = True
                 ff_vid = True
         else:
@@ -72,9 +67,7 @@ async def kang_cmd(client, message):
             else:
                 emoji_ = args[0]
 
-        if emoji_ and emoji_ not in (
-            getattr(emoji, _) for _ in dir(emoji) if not _.startswith("_")
-        ):
+        if emoji_ and emoji_ not in (getattr(emoji, _) for _ in dir(emoji) if not _.startswith("_")):
             emoji_ = None
         if not emoji_:
             emoji_ = "✨"
@@ -100,11 +93,7 @@ async def kang_cmd(client, message):
         exist = False
         while True:
             try:
-                exist = await client.invoke(
-                    GetStickerSet(
-                        stickerset=InputStickerSetShortName(short_name=packname), hash=0
-                    )
-                )
+                exist = await client.invoke(GetStickerSet(stickerset=InputStickerSetShortName(short_name=packname), hash=0))
             except StickersetInvalid:
                 exist = False
                 break
@@ -119,9 +108,7 @@ async def kang_cmd(client, message):
                 if is_video:
                     packname += f"_video{pack}"
                     packnick += f" (ᴠɪᴅᴇᴏ){pack}"
-                await msg_text.edit(
-                    f"<code>ᴍᴇᴍʙᴜᴀᴛ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ {pack} ᴋᴀʀᴇɴᴀ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ꜱᴜᴅᴀʜ ᴘᴇɴᴜʜ</code>"
-                )
+                await msg_text.edit(f"<code>ᴍᴇᴍʙᴜᴀᴛ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ {pack} ᴋᴀʀᴇɴᴀ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ꜱᴜᴅᴀʜ ᴘᴇɴᴜʜ</code>")
                 continue
             break
         if exist is not False:
@@ -137,7 +124,7 @@ async def kang_cmd(client, message):
             await asyncio.sleep(2)
             limit = "50" if is_anim else "120"
             while limit in await get_response(message, client):
-                kang_pack = await get_vars(client.me.id, "KANG_PACK") or "5280786999102415056"
+                await get_vars(client.me.id, "KANG_PACK") or "5280786999102415056"
                 pack += 1
                 packname = f"stkr_{str(message.from_user.id)}_by_{bot.me.username}"
                 packnick = f"{Fonts.smallcapc(f'{ustom_packnick} ᴠᴏʟ.{pack}')}"
@@ -147,9 +134,7 @@ async def kang_cmd(client, message):
                 if is_video:
                     packname += "_video"
                     packnick += " (ᴠɪᴅᴇᴏ)"
-                await msg_text.edit(
-                    f"<code>ᴍᴇᴍʙᴜᴀᴛ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ {pack} ᴋᴀʀᴇɴᴀ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ꜱᴜᴅᴀʜ ᴘᴇɴᴜʜ</code>"
-                )
+                await msg_text.edit(f"<code>ᴍᴇᴍʙᴜᴀᴛ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ʙᴀʀᴜ {pack} ᴋᴀʀᴇɴᴀ ꜱᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ ꜱᴜᴅᴀʜ ᴘᴇɴᴜʜ</code>")
                 await client.send_message("stickers", packname)
                 await asyncio.sleep(2)
                 if await get_response(message, client) == "Invalid pack selected.":
@@ -173,23 +158,14 @@ async def kang_cmd(client, message):
                     await asyncio.sleep(2)
                     await client.send_message("Stickers", packname)
                     await asyncio.sleep(2)
-                    await msg_text.edit(
-                        f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
-                    )
+                    await msg_text.edit(f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>")
                     await asyncio.sleep(2)
                     user_info = await client.resolve_peer("@Stickers")
-                    return await client.invoke(
-                        DeleteHistory(peer=user_info, max_id=0, revoke=True)
-                    )
+                    return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
             await client.send_document("stickers", media_)
             await asyncio.sleep(2)
-            if (
-                await get_response(message, client)
-                == "Sorry, the file type is invalid."
-            ):
-                await msg_text.edit(
-                    "<b>ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @Stickers Bot ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ.</b>"
-                )
+            if await get_response(message, client) == "Sorry, the file type is invalid.":
+                await msg_text.edit("<b>ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @Stickers Bot ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ.</b>")
                 return
             await client.send_message("Stickers", emoji_)
             await asyncio.sleep(2)
@@ -206,13 +182,8 @@ async def kang_cmd(client, message):
             await asyncio.sleep(2)
             await client.send_document("stickers", media_)
             await asyncio.sleep(2)
-            if (
-                await get_response(message, client)
-                == "Sorry, the file type is invalid."
-            ):
-                await msg_text.edit(
-                    "<b>ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @Stickers Bot ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ.</b>"
-                )
+            if await get_response(message, client) == "Sorry, the file type is invalid.":
+                await msg_text.edit("<b>ɢᴀɢᴀʟ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ, ɢᴜɴᴀᴋᴀɴ @Stickers Bot ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ꜱᴛɪᴄᴋᴇʀ ᴀɴᴅᴀ.</b>")
                 return
             await client.send_message("Stickers", emoji_)
             await asyncio.sleep(2)
@@ -225,9 +196,7 @@ async def kang_cmd(client, message):
             await asyncio.sleep(2)
             await client.send_message("Stickers", packname)
             await asyncio.sleep(2)
-        await msg_text.edit(
-            f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>"
-        )
+        await msg_text.edit(f"<b>ꜱᴛɪᴄᴋᴇʀ ʙᴇʀʜᴀꜱɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ!</b>\n         🦋 <b>[ᴋʟɪᴋ ᴅɪꜱɪɴɪ](https://t.me/addstickers/{packname})</b> 🦋\n<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ꜱᴛɪᴄᴋᴇʀꜱ</b>")
         await asyncio.sleep(2)
         if os.path.exists(str(media_)):
             os.remove(media_)

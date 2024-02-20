@@ -28,21 +28,12 @@ async def _(client, message):
     emot_afk = emot_1 if emot_1 else "6111585093220830556"
     emot_reason = emot_2 if emot_2 else "6114074516395134769"
     if client.me.is_premium:
-        msg_afk = (
-            f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji> ᴀʟᴀsᴀɴ: {reason}</b>"
-            if reason
-            else f"<b><emoji id={emot_afk}>‼️</emoji> sᴇᴅᴀɴɢ ᴀғᴋ</b>"
-        )
+        msg_afk = f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji> ᴀʟᴀsᴀɴ: {reason}</b>" if reason else f"<b><emoji id={emot_afk}>‼️</emoji> sᴇᴅᴀɴɢ ᴀғᴋ</b>"
     else:
-        msg_afk = (
-            f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴀʟᴀsᴀɴ: {reason}</b>"
-            if reason
-            else "<b>sᴇᴅᴀɴɢ ᴀғᴋ</b>"
-        )
+        msg_afk = f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴀʟᴀsᴀɴ: {reason}</b>" if reason else "<b>sᴇᴅᴀɴɢ ᴀғᴋ</b>"
     await set_vars(client.me.id, "AFK", db_afk)
     await message.reply(msg_afk)
     return await message.delete()
-
 
 
 @PY.AFK()
@@ -59,17 +50,9 @@ async def _(client, message):
         emot_reason = emot_2 if emot_2 else "6114074516395134769"
         emot_waktu = emot_3 if emot_3 else "6113669303410625425"
         if client.me.is_premium:
-            afk_text = (
-                f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji> ᴀʟᴀsᴀɴ: {afk_reason}</b>"
-                if afk_reason
-                else f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
-            )
+            afk_text = f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji> ᴀʟᴀsᴀɴ: {afk_reason}</b>" if afk_reason else f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
         else:
-            afk_text = (
-                f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴡᴀᴋᴛᴜ: {afk_runtime}\nᴀʟᴀsᴀɴ: {afk_reason}</b>"
-                if afk_reason
-                else f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
-            )
+            afk_text = f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴡᴀᴋᴛᴜ: {afk_runtime}\nᴀʟᴀsᴀɴ: {afk_reason}</b>" if afk_reason else f"<b>sᴇᴅᴀɴɢ ᴀғᴋ\nᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
         return await message.reply(afk_text)
 
 

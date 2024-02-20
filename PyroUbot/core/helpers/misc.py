@@ -58,11 +58,7 @@ async def extract_user_and_reason(message, sender_chat=False):
     if message.reply_to_message:
         reply = message.reply_to_message
         if not reply.from_user:
-            if (
-                reply.sender_chat
-                and reply.sender_chat != message.chat.id
-                and sender_chat
-            ):
+            if reply.sender_chat and reply.sender_chat != message.chat.id and sender_chat:
                 id_ = reply.sender_chat.id
             else:
                 return None, None
@@ -102,12 +98,7 @@ async def list_admins(message):
 
     admins_in_chat[message.chat.id] = {
         "last_updated_at": time(),
-        "data": [
-            member.user.id
-            async for member in message._client.get_chat_members(
-                message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS
-            )
-        ],
+        "data": [member.user.id async for member in message._client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS)],
     }
     return admins_in_chat[message.chat.id]["data"]
 
@@ -129,9 +120,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
             [
                 EqInlineKeyboardButton(
                     gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"]),
-                    callback_data="{}_module({})".format(
-                        prefix, x.__MODULE__.replace(" ", "_").lower()
-                    ),
+                    callback_data="{}_module({})".format(prefix, x.__MODULE__.replace(" ", "_").lower()),
                 )
                 for x in module_dict.values()
             ]
@@ -141,9 +130,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
             [
                 EqInlineKeyboardButton(
                     gen_font(x.__MODULE__, font["sᴍᴀʟʟᴄᴀᴘs"]),
-                    callback_data="{}_module({},{})".format(
-                        prefix, chat, x.__MODULE__.replace(" ", "_").lower()
-                    ),
+                    callback_data="{}_module({},{})".format(prefix, chat, x.__MODULE__.replace(" ", "_").lower()),
                 )
                 for x in module_dict.values()
             ]

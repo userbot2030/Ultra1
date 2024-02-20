@@ -30,29 +30,12 @@ async def change_emot(client, message):
         msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ...", quote=True)
 
         if not client.me.is_premium:
-            return await msg.edit(
-                "<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜs ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ</b>"
-            )
+            return await msg.edit("<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜs ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ</b>")
 
         if len(message.command) < 3:
             return await msg.edit(f"<b><emoji id={gagal}>⚠️</emoji> ᴛᴏʟᴏɴɢ ᴍᴀsᴜᴋᴋᴀɴ ǫᴜᴇʀʏ ᴅᴀɴ ᴠᴀʟᴇᴜ ɴʏᴀ</b>")
 
-        query_mapping = {
-            "pong": "EMOJI_PING_PONG",
-            "uptime": "EMOJI_UPTIME",
-            "mention": "EMOJI_MENTION",
-            "sukses": "EMOJI_SUKSES",
-            "gagal": "EMOJI_GAGAL",
-            "alasan": "EMOJI_ALASAN",
-            "proses": "EMOJI_PROSES", 
-            "gban_user": "GBAN_USER", 
-            "kang_pack": "KANG_PACK",
-            "emoji_global": "EMOJI_GLOBAL",
-            "ucast_proses": "UCAST_PROSES",
-            "gcast_proses": "GCAST_PROSES",
-            "gcast_done": "GCAST_DONE",
-            "send_done": "SEND_DONE"
-        }
+        query_mapping = {"pong": "EMOJI_PING_PONG", "uptime": "EMOJI_UPTIME", "mention": "EMOJI_MENTION", "sukses": "EMOJI_SUKSES", "gagal": "EMOJI_GAGAL", "alasan": "EMOJI_ALASAN", "proses": "EMOJI_PROSES", "gban_user": "GBAN_USER", "kang_pack": "KANG_PACK", "emoji_global": "EMOJI_GLOBAL", "ucast_proses": "UCAST_PROSES", "gcast_proses": "GCAST_PROSES", "gcast_done": "GCAST_DONE", "send_done": "SEND_DONE"}
         command, mapping, value = message.command[:6]
 
         if mapping.lower() in query_mapping:
@@ -66,13 +49,9 @@ async def change_emot(client, message):
 
             if emoji_id:
                 await set_vars(client.me.id, query_var, emoji_id)
-                await msg.edit(
-                    f"<b><emoji id={sukses}>✅</emoji> <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ:</b> <emoji id={emoji_id}>{value}</emoji>"
-                )
+                await msg.edit(f"<b><emoji id={sukses}>✅</emoji> <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ:</b> <emoji id={emoji_id}>{value}</emoji>")
             else:
-                await msg.edit(
-                    "<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜs ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ</b>"
-                )
+                await msg.edit("<b>ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜs ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ</b>")
         else:
             await msg.edit(f"<b><emoji id={gagal}>❌</emoji> ᴍᴀᴘᴘɪɴɢ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
 

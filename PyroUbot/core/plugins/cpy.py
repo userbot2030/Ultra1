@@ -15,9 +15,7 @@ async def copy_bot_msg(client, message):
     Tm = await message.reply("ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ")
     link = get_arg(message)
     if not link:
-        return await Tm.edit(
-            f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>"
-        )
+        return await Tm.edit(f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>")
     msg_id = int(link.split("/")[-1])
     chat = str(link.split("/")[-2])
     try:
@@ -163,9 +161,7 @@ async def copy_ubot_msg(client, message):
     infomsg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
     link = get_arg(message)
     if not link:
-        return await Tm.edit(
-            f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>"
-        )
+        return await Tm.edit(f"<b><code>{message.text}</code> [ʟɪɴᴋ_ᴋᴏɴᴛᴇɴ_ᴛᴇʟᴇɢʀᴀᴍ]</b>")
     if link.startswith(("https", "t.me")):
         msg_id = int(link.split("/")[-1])
         if "t.me/c/" in link:
@@ -221,9 +217,7 @@ async def copy_inline_msg(client, inline_query):
                             ],
                         ]
                     ),
-                    input_message_content=InputTextMessageContent(
-                        "<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅ\n\n✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>"
-                    ),
+                    input_message_content=InputTextMessageContent("<b>🔒 ᴋᴏɴᴛᴇɴ ʏᴀɴɢ ᴍᴀᴜ ᴅɪᴀᴍʙɪʟ ʙᴇʀsɪꜰᴀᴛ ʀᴇsᴛʀɪᴄᴛᴇᴅ\n\n✅ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪʙᴀᴡᴀʜ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ᴋᴏɴᴛᴇɴ ʀᴇsᴛʀɪᴄᴛᴇᴅ</b>"),
                 )
             )
         ],
@@ -242,16 +236,12 @@ async def copy_callback_msg(client, callback_query):
         else:
             await m._client.unblock_user(bot.me.username)
             await callback_query.edit_message_text("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
-            copy = await m._client.send_message(
-                bot.me.username, f"/copy {m.text.split()[1]}"
-            )
+            copy = await m._client.send_message(bot.me.username, f"/copy {m.text.split()[1]}")
             msg = m.reply_to_message or m
             await asyncio.sleep(1.5)
             await copy.delete()
             async for get in m._client.search_messages(bot.me.username, limit=1):
-                await m._client.copy_message(
-                    m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id
-                )
+                await m._client.copy_message(m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id)
                 await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id])
                 await get.delete()
     except Exception as error:

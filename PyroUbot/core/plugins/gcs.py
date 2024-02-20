@@ -36,6 +36,7 @@ async def broadcast_group_cmd(client, message):
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
     await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
+
 async def broadcast_users_cmd(client, message):
     sent = 0
     ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6111585093220830556"
@@ -76,12 +77,8 @@ async def send_msg_cmd(client, message):
         if not client.me.id == bot.me.id:
             if message.reply_to_message.reply_markup:
                 try:
-                    x = await client.get_inline_bot_results(
-                        bot.me.username, f"get_send {id(message)}"
-                    )
-                    await client.send_inline_bot_result(
-                        chat_id, x.query_id, x.results[0].id
-                    )
+                    x = await client.get_inline_bot_results(bot.me.username, f"get_send {id(message)}")
+                    await client.send_inline_bot_result(chat_id, x.query_id, x.results[0].id)
                     tm = await message.reply(f"<emoji id={send_done}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
                     await asyncio.sleep(5)
                     await message.delete()
@@ -123,9 +120,7 @@ async def send_inline(client, inline_query):
                 InlineQueryResultArticle(
                     title="get send!",
                     reply_markup=m.reply_to_message.reply_markup,
-                    input_message_content=InputTextMessageContent(
-                        m.reply_to_message.text
-                    ),
+                    input_message_content=InputTextMessageContent(m.reply_to_message.text),
                 )
             )
         ],

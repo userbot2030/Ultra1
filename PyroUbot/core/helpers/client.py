@@ -1,8 +1,6 @@
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.errors import MessageNotModified
-from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
-                            InlineQueryResultArticle)
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup)
 
 from PyroUbot import *
 
@@ -10,11 +8,7 @@ from PyroUbot import *
 async def if_sudo(_, client, message):
     sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS")
     is_user = message.from_user if message.from_user else message.sender_chat
-    is_self = bool(
-        message.from_user
-        and message.from_user.is_self
-        or getattr(message, "outgoing", False)
-    )
+    is_self = bool(message.from_user and message.from_user.is_self or getattr(message, "outgoing", False))
     return is_user.id in sudo_users or is_self
 
 
@@ -71,12 +65,7 @@ class PY:
 
     def AFK():
         def wrapper(func):
-            afk_check = (
-                (filters.mentioned | filters.private)
-                & ~filters.bot
-                & ~filters.me
-                & filters.incoming
-            )
+            afk_check = (filters.mentioned | filters.private) & ~filters.bot & ~filters.me & filters.incoming
 
             @ubot.on_message(afk_check, group=7)
             async def wrapped_func(client, message):
@@ -89,11 +78,7 @@ class PY:
     def LOGS_PRIVATE():
         def wrapper(func):
             @ubot.on_message(
-                filters.private
-                & ~filters.me
-                & ~filters.bot
-                & ~filters.service
-                & filters.incoming,
+                filters.private & ~filters.me & ~filters.bot & ~filters.service & filters.incoming,
                 group=6,
             )
             async def wrapped_func(client, message):
@@ -115,7 +100,7 @@ class PY:
             return wrapped_func
 
         return wrapper
-        
+
     def PRIVATE(func):
         async def function(client, message):
             user = message.from_user

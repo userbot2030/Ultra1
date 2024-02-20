@@ -34,9 +34,7 @@ async def ai_cmd(client, message):
                 return await Tm.delete()
         else:
             msg = message.reply_to_message or message
-            await client.send_message(
-                message.chat.id, response, reply_to_message_id=msg.id
-            )
+            await client.send_message(message.chat.id, response, reply_to_message_id=msg.id)
             return await Tm.delete()
     except Exception as error:
         await message.reply(error)
@@ -126,11 +124,7 @@ async def stt_cmd(client, message):
                     return await Tm.delete()
             else:
                 msg = message.reply_to_message or message
-                await client.send_message(
-                    message.chat.id, response, reply_to_message_id=msg.id
-                )
+                await client.send_message(message.chat.id, response, reply_to_message_id=msg.id)
                 return await Tm.delete()
         else:
-            return await Tm.edit(
-                f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>"
-            )
+            return await Tm.edit(f"<b><code>{message.text}</code> [ʀᴇᴘʟʏ ᴠᴏɪᴄᴇ_ᴄʜᴀᴛ/ᴀᴜᴅɪᴏ/ᴠɪᴅᴇᴏ]</b>")

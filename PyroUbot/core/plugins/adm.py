@@ -12,15 +12,11 @@ async def admin_kick(client, message):
     if not user_id:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
-        return await message.reply_text(
-            "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
-        )
+        return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
-        return await message.reply_text(
-            "sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ."
-        )
+        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ.")
     try:
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
@@ -46,15 +42,11 @@ async def admin_ban(client, message):
     if not user_id:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
-        return await message.reply_text(
-            "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
-        )
+        return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
-        return await message.reply_text(
-            "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
-        )
+        return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     try:
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
@@ -78,15 +70,11 @@ async def admin_mute(client, message):
     if not user_id:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
-        return await message.reply_text(
-            "ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ."
-        )
+        return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
         return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
-        return await message.reply_text(
-            "sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ."
-        )
+        return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ.")
     try:
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
@@ -174,20 +162,7 @@ async def global_banned(client, message):
                     failed += 1
                     await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(
-        text.format(
-            f"<emoji id={emoji_global}>😎</emoji>", 
-            "ʙᴀɴɴᴇᴅ",
-            f"<emoji id={sukses}>✅</emoji>", 
-            done, 
-            f"<emoji id={gagal}>❌</emoji>", 
-            failed, 
-            f"<emoji id={gban_user}>😎</emoji>", 
-            user.id, 
-            user.first_name,
-            (user.last_name or "")
-        )
-    )
+    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❌</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
 
 
 async def global_unbanned(client, message):
@@ -223,17 +198,4 @@ async def global_unbanned(client, message):
                 failed += 1
                 await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(
-        text.format(
-            f"<emoji id={emoji_global}>😎</emoji>", 
-            "ʙᴀɴɴᴇᴅ",
-            f"<emoji id={sukses}>✅</emoji>", 
-            done, 
-            f"<emoji id={gagal}>❌</emoji>", 
-            failed, 
-            f"<emoji id={gban_user}>😎</emoji>", 
-            user.id, 
-            user.first_name,
-            (user.last_name or "")
-        )
-    )
+    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❌</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
