@@ -1,20 +1,30 @@
-name: Rename Code
-on: workflow_dispatch 
+name: Python-Auto-Fix
+on: [push]
 
 jobs:
-  rename_folder:
+  python-auto-fix:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Update Code 
+      - name: Setup Python
+        uses: actions/setup-python@v2
+
+      - name: Install Dependencies
         run: |
-          find . -type f -name "*.py" -exec sed -i 's/, sudo=True//g' {} \;
-          git add .
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git commit -m "Remove SUDO parameter" || true
-          git push
-      
+          python -m pip install --upgrade pip
+          pip install black isort autoflake flake8
+          
+      - name: Auto Fix
+        run: |
+          black . --safe --line-length 999
+          isort --skip-glob='**/venv/**' .
+          autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --extend-ignore=E203,W503 --max-line-length=127 --max-complexity=10
+          
+      - name: Code Analysis
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto Fix"
+          commit_options: "--no-verify"
