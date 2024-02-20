@@ -2466,7 +2466,7 @@ def gens_font(font, text):
     if font == "upside_down":
         get_font = Fonts.upside_down(text)
     if font == "bold_gothic":
-        get_font = Fonts.bold_gothic(test)
+        get_font = Fonts.bold_gothic(text)
     if font == "cloud":
         get_font = Fonts.cloud(text)
     if font == "happy":
