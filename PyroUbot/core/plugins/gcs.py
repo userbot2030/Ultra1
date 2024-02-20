@@ -8,7 +8,7 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
-    failed  = 0
+    failed = 0
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
     async for dialog in client.get_dialogs(limit=None):
@@ -40,7 +40,7 @@ async def broadcast_group_cmd(client, message):
 
 async def broadcast_users_cmd(client, message):
     sent = 0
-    failed  = 0
+    failed = 0
     ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6111585093220830556"
     msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):

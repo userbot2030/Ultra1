@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import *
 
