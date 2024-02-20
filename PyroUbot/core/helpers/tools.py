@@ -5,6 +5,7 @@ import shlex
 import textwrap
 from io import BytesIO
 from time import time
+from pyrogram.errors import MessageNotModified, FloodWait
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
