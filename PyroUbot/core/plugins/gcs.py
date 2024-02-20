@@ -8,6 +8,7 @@ from PyroUbot import *
 
 async def broadcast_group_cmd(client, message):
     sent = 0
+    failed  = 0
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
     async for dialog in client.get_dialogs(limit=None):
@@ -31,14 +32,15 @@ async def broadcast_group_cmd(client, message):
                     sent += 1
                     await asyncio.sleep(2)
                 except Exception:
-                    pass
+                    failed += 1
     await msg.delete()
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ, ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ɢʀᴏᴜᴘ</b>")
 
 
 async def broadcast_users_cmd(client, message):
     sent = 0
+    failed  = 0
     ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6111585093220830556"
     msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
     async for dialog in client.get_dialogs(limit=None):
@@ -61,10 +63,10 @@ async def broadcast_users_cmd(client, message):
                 sent += 1
                 await asyncio.sleep(3)
             except Exception:
-                pass
+                failed += 1
     await msg.delete()
     gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ᴜᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀ, ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ᴜsᴇʀ</b>")
 
 
 async def send_msg_cmd(client, message):
