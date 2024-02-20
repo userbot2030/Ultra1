@@ -18,25 +18,25 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("rbg", sudo=True)
+@PY.UBOT("rbg")
 @PY.TOP_CMD
 async def _(client, message):
     await rbg_cmd(client, message)
 
 
-@PY.UBOT("blur", sudo=True)
+@PY.UBOT("blur")
 @PY.TOP_CMD
 async def _(client, message):
     await blur_cmd(client, message)
 
 
-@PY.UBOT("negative", sudo=True)
+@PY.UBOT("negative")
 @PY.TOP_CMD
 async def _(client, message):
     await negative_cmd(client, message)
 
 
-@PY.UBOT("miror", sudo=True)
+@PY.UBOT("miror")
 @PY.TOP_CMD
 async def _(client, message):
     await miror_cmd(client, message)

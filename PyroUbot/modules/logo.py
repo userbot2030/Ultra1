@@ -12,13 +12,13 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("logo", sudo=True)
+@PY.UBOT("logo")
 @PY.TOP_CMD
 async def _(client, message):
     await logo_cmd(client, message)
 
 
-@PY.UBOT("blogo", sudo=True)
+@PY.UBOT("blogo")
 @PY.TOP_CMD
 async def _(client, message):
     await logo_cmd(client, message)

@@ -107,7 +107,7 @@ async def _(client, message):
                 MSG_ID[user.id] = msg.id
 
 
-@PY.UBOT("setpm", sudo=True)
+@PY.UBOT("setpm")
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 3:
@@ -130,7 +130,7 @@ async def _(client, message):
     )
 
 
-@PY.UBOT("pmpermit", sudo=True)
+@PY.UBOT("pmpermit")
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
@@ -199,7 +199,7 @@ async def _(client, inline_query):
     )
 
 
-@PY.UBOT("ok|setuju", sudo=True)
+@PY.UBOT("ok|setuju")
 @PY.PRIVATE
 @PY.TOP_CMD
 async def _(client, message):
@@ -215,7 +215,7 @@ async def _(client, message):
         return await message.reply(f"<b>{rpk} sᴜᴅᴀʜ ᴅɪᴛᴇʀɪᴍᴀ</b>")
 
 
-@PY.UBOT("no|tolak", sudo=True)
+@PY.UBOT("no|tolak")
 @PY.PRIVATE
 @PY.TOP_CMD
 async def _(client, message):

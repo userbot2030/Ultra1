@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("zombies", sudo=True)
+@PY.UBOT("zombies")
 @PY.TOP_CMD
 async def _(client, message):
     await zombies_cmd(client, message)

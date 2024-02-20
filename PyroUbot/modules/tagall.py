@@ -12,13 +12,13 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("tagall", sudo=True)
+@PY.UBOT("tagall")
 @PY.TOP_CMD
 async def _(client, message):
     await tagall_cmd(client, message)
 
 
-@PY.UBOT("cancel", sudo=True)
+@PY.UBOT("cancel")
 @PY.TOP_CMD
 async def _(client, message):
     await batal_cmd(client, message)

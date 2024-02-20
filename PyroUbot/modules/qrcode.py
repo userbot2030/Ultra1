@@ -12,13 +12,13 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("qrgen", sudo=True)
+@PY.UBOT("qrgen")
 @PY.TOP_CMD
 async def _(client, message):
     await qr_gen_cmd(client, message)
 
 
-@PY.UBOT("qrread", sudo=True)
+@PY.UBOT("qrread")
 @PY.TOP_CMD
 async def _(client, message):
     await qr_read_cmd(client, message)

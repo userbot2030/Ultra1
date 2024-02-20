@@ -21,31 +21,31 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("kick", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("kick", FILTERS.ME_GROUP)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_kick(client, message)
 
 
-@PY.UBOT("ban", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("ban", FILTERS.ME_GROUP)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_ban(client, message)
 
 
-@PY.UBOT("mute", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("mute", FILTERS.ME_GROUP)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_mute(client, message)
 
 
-@PY.UBOT("unmute", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("unmute", FILTERS.ME_GROUP)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_unmute(client, message)
 
 
-@PY.UBOT("unban", FILTERS.ME_GROUP, sudo=True)
+@PY.UBOT("unban", FILTERS.ME_GROUP)
 @PY.TOP_CMD
 async def _(client, message):
     await admin_unban(client, message)

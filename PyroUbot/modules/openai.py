@@ -15,19 +15,19 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("ai", sudo=True)
+@PY.UBOT("ai")
 @PY.TOP_CMD
 async def _(client, message):
     await ai_cmd(client, message)
 
 
-@PY.UBOT("dalle", sudo=True)
+@PY.UBOT("dalle")
 @PY.TOP_CMD
 async def _(client, message):
     await dalle_cmd(client, message)
 
 
-@PY.UBOT("stt", sudo=True)
+@PY.UBOT("stt")
 @PY.TOP_CMD
 async def _(client, message):
     await stt_cmd(client, message)

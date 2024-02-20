@@ -8,7 +8,7 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ᴅᴀɴ ᴄᴏsᴛᴜᴍ ᴇᴍᴏᴊɪ sᴛɪᴄᴋᴇʀ ᴋᴇ sᴛɪᴄᴋᴇʀ ᴘᴀᴄᴋ
 """
 
-@PY.UBOT("kang", sudo=True)
+@PY.UBOT("kang")
 @PY.TOP_CMD
 async def _(client, message):
     await kang_cmd(client, message)

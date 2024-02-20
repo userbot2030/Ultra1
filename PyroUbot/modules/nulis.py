@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("nulis", sudo=True)
+@PY.UBOT("nulis")
 @PY.TOP_CMD
 async def _(client, message):
     await nulis_cmd(client, message)

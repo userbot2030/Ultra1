@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-@PY.UBOT("help", sudo=True)
+@PY.UBOT("help")
 async def _(client, message):
     await help_cmd(client, message)
 

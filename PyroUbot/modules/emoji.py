@@ -16,7 +16,7 @@ __HELP__ = """
   
 """
 
-@PY.UBOT("setemoji", sudo=True)
+@PY.UBOT("setemoji")
 @PY.TOP_CMD
 async def _(client, message):
     await change_emot(client, message)

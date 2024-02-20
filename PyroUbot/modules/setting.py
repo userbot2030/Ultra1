@@ -12,7 +12,7 @@ __HELP__ = """
 
 
 @PY.BOT("prefix", filters.user(ubot._get_my_id))
-@PY.UBOT("prefix", sudo=True)
+@PY.UBOT("prefix")
 @PY.TOP_CMD
 async def _(client, message):
     await setprefix(client, message)

@@ -62,7 +62,7 @@ async def _(client, message):
         await send_log(client, int(logs), message, message_text, "LOGS_GROUP")
 
 
-@PY.UBOT("logs", sudo=True)
+@PY.UBOT("logs")
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:

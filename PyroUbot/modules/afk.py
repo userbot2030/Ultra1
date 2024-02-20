@@ -18,7 +18,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("afk", sudo=True)
+@PY.UBOT("afk")
 @PY.TOP_CMD
 async def _(client, message):
     reason = get_arg(message)
@@ -73,7 +73,7 @@ async def _(client, message):
         return await message.reply(afk_text)
 
 
-@PY.UBOT("unafk", sudo=True)
+@PY.UBOT("unafk")
 @PY.TOP_CMD
 async def _(client, message):
     vars = await get_vars(client.me.id, "AFK")

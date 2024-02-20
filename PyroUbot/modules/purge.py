@@ -15,19 +15,19 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("del", sudo=True)
+@PY.UBOT("del")
 @PY.TOP_CMD
 async def _(client, message):
     await del_cmd(client, message)
 
 
-@PY.UBOT("purgeme", sudo=True)
+@PY.UBOT("purgeme")
 @PY.TOP_CMD
 async def _(client, message):
     await purgeme_cmd(client, message)
 
 
-@PY.UBOT("purge", sudo=True)
+@PY.UBOT("purge")
 @PY.TOP_CMD
 async def _(client, message):
     await purge_cmd(client, message)

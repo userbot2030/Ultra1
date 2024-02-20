@@ -11,7 +11,7 @@ __HELP__ = """
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴜɴʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ
 """
 
-@PY.UBOT("gban", sudo=True)
+@PY.UBOT("gban")
 @PY.TOP_CMD
 async def _(client, message):
     await global_banned(client, message)
@@ -21,7 +21,7 @@ async def _(client, message):
 async def _(client, message):
     await global_banned(client, message)
 
-@PY.UBOT("ungban", sudo=True)
+@PY.UBOT("ungban")
 @PY.TOP_CMD
 async def _(client, message):
     await global_unbanned(client, message)

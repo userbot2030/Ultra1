@@ -24,20 +24,20 @@ __HELP__ = """
 
 @ubot.on_message(
     filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
-@PY.UBOT("gcast", sudo=True)
+@PY.UBOT("gcast")
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
 
-@PY.UBOT("ucast", sudo=True)
+@PY.UBOT("ucast")
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_users_cmd(client, message)
 
 
 @PY.BOT("send")
-@PY.UBOT("send", sudo=True)
+@PY.UBOT("send")
 @PY.TOP_CMD
 async def _(client, message):
     await send_msg_cmd(client, message)
@@ -53,7 +53,7 @@ AG = []
 LT = []
 
 
-@PY.UBOT("auto_gcast", sudo=True)
+@PY.UBOT("auto_gcast")
 @PY.TOP_CMD
 async def _(client, message):
     """

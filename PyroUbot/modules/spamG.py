@@ -68,7 +68,7 @@ async def SpamGcast(client, message, send):
                 pass
 
 
-@PY.UBOT("spamg", sudo=True)
+@PY.UBOT("spamg")
 @PY.TOP_CMD
 async def _(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
@@ -95,7 +95,7 @@ async def _(client, message):
     return await r.edit(f"<b><emoji id={sukses}>✅</emoji> sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
 
 
-@PY.UBOT("setdelay", sudo=True)
+@PY.UBOT("setdelay")
 @PY.TOP_CMD
 async def _(client, message):
     r = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ....</b>")
