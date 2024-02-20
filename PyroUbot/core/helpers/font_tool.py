@@ -2458,7 +2458,7 @@ def gens_font(font, text):
     if font == "sim":
         get_font = Fonts.sim(text)
     if font == "circles":
-        get_font = Fomts.circles(text)
+        get_font = Fonts.circles(text)
     if font == "dark_circle":
         get_font = Fonts.dark_circle(text)
     if font == "gothic":
