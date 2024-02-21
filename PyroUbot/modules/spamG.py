@@ -36,6 +36,7 @@ def extract_type_and_msg(message):
 
 
 async def SpamGcast(client, message, send):
+    sent = 0
     blacklist = await get_chat(client.me.id)
 
     async def send_message(target_chat):
@@ -53,6 +54,7 @@ async def SpamGcast(client, message, send):
         if dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP} and dialog.chat.id not in blacklist:
             try:
                 await send_message(dialog.chat.id)
+              sent += 1
             except FloodWait as e:
                 await handle_flood_wait(e, dialog.chat.id)
             except Exception:
@@ -67,12 +69,14 @@ async def _(client, message):
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
     r = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ....</b>")
     count, msg = extract_type_and_msg(message)
+    jumlah = 0
 
     try:
         count = int(count)
     except Exception as error:
+      jumlah += 1
         return await r.edit(error)
-
+        
     if not msg:
         return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
@@ -81,7 +85,7 @@ async def _(client, message):
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    return await r.edit(f"<b><emoji id={sukses}>✅</emoji> sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ</b>")
+    return await r.edit(f"<b><emoji id={sukses}>✅</emoji> {sent} sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ jumlah putaran {jumlah}</b>")
 
 
 @PY.UBOT("setdelay")
