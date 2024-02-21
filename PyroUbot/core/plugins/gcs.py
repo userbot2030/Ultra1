@@ -34,8 +34,9 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     failed += 1
     await msg.delete()
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ, ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ɢʀᴏᴜᴘ</b>")
+    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ɢʀᴏᴜᴘ</b>")
 
 
 async def broadcast_users_cmd(client, message):
@@ -65,8 +66,9 @@ async def broadcast_users_cmd(client, message):
             except Exception:
                 failed += 1
     await msg.delete()
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
     gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ᴜᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀ, ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ᴜsᴇʀ</b>")
+    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ᴜᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ᴜsᴇʀ</b>")
 
 
 async def send_msg_cmd(client, message):
