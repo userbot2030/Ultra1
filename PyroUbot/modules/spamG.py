@@ -75,7 +75,7 @@ async def _(client, message):
     try:
         count = int(count)
     except Exception as error:
-      jumlah += 1
+        jumlah += 1
         return await r.edit(error)
         
     if not msg:
