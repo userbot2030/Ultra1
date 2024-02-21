@@ -35,9 +35,7 @@ def extract_type_and_msg(message):
     return type, msg
 
 
-
 async def SpamGcast(client, message, send):
-    sent = 0
     blacklist = await get_chat(client.me.id)
 
     async def send_message(target_chat):
@@ -55,7 +53,6 @@ async def SpamGcast(client, message, send):
         if dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP} and dialog.chat.id not in blacklist:
             try:
                 await send_message(dialog.chat.id)
-                sent = 1
             except FloodWait as e:
                 await handle_flood_wait(e, dialog.chat.id)
             except Exception:
@@ -77,7 +74,7 @@ async def _(client, message):
     except Exception as error:
         jumlah += 1
         return await r.edit(error)
-        
+
     if not msg:
         return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
