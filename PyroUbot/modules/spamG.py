@@ -35,6 +35,7 @@ def extract_type_and_msg(message):
     return type, msg
 
 
+
 async def SpamGcast(client, message, send):
     sent = 0
     blacklist = await get_chat(client.me.id)
@@ -53,12 +54,12 @@ async def SpamGcast(client, message, send):
     async for dialog in client.get_dialogs():
         if dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP} and dialog.chat.id not in blacklist:
             try:
-              await send_message(dialog.chat.id)
-              sent = 1
-           except FloodWait as e:
-              await handle_flood_wait(e, dialog.chat.id)
-          except Exception:
-              pass
+                await send_message(dialog.chat.id)
+                sent = 1
+            except FloodWait as e:
+                await handle_flood_wait(e, dialog.chat.id)
+            except Exception:
+                pass
 
 
 @PY.UBOT("spamg")
