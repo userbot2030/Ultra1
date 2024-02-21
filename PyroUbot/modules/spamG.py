@@ -23,6 +23,8 @@ __HELP__ = """
   <b>NB:</b> ᴊᴀɴɢᴀɴ ᴛᴇʀʟᴀʟᴜ sᴇʀɪɴɢ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴍᴏᴅᴜʟᴇ ɪɴɪ
 """
 
+total_spam_gcast = {}
+
 
 def extract_type_and_msg(message):
     args = message.text.split(None, 2)
@@ -37,6 +39,7 @@ def extract_type_and_msg(message):
 
 async def SpamGcast(client, message, send):
     blacklist = await get_chat(client.me.id)
+    total_spam_gcast[client.me.id] = 0
 
     async def send_message(target_chat):
         await asyncio.sleep(0.8)
@@ -53,8 +56,10 @@ async def SpamGcast(client, message, send):
         if dialog.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP} and dialog.chat.id not in blacklist:
             try:
                 await send_message(dialog.chat.id)
+                total_spam_gcast[client.me.id] += 1
             except FloodWait as e:
                 await handle_flood_wait(e, dialog.chat.id)
+                total_spam_gcast[client.me.id] += 1
             except Exception:
                 pass
 
@@ -67,23 +72,22 @@ async def _(client, message):
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
     r = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ....</b>")
     count, msg = extract_type_and_msg(message)
-    jumlah = 0
+
+    if not msg:
+        return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
     try:
         count = int(count)
     except Exception as error:
-        jumlah += 1
         return await r.edit(error)
-
-    if not msg:
-        return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
     async def run_spam():
         spam_gcast = [SpamGcast(client, message, msg) for _ in range(int(count))]
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    return await r.edit(f"<b><emoji id={sukses}>✅</emoji> {sent} sɢᴄᴀsᴛ ᴛᴇʟᴀʜ sᴇʟᴇsᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ jumlah putaran {jumlah}</b>")
+    await r.edit(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {int(total_spam_gcast[client.me.id] / count)} ɢʀᴏᴜᴘ</b>")
+    del total_spam_gcast[client.me.id]
 
 
 @PY.UBOT("setdelay")
