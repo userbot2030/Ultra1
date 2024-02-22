@@ -10,7 +10,7 @@ async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
-    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ....")
+    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ɢɪᴋᴇꜱ....")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -35,15 +35,16 @@ async def broadcast_group_cmd(client, message):
                     failed += 1
     await msg.delete()
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ɢʀᴏᴜᴘ</b>")
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6114074516395134769"
+    await message.reply(f"ᴘᴇꜱᴀɴ ɢɪᴋᴇꜱ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪ ʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>⚠️</emoji>\n<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ɢʀᴏᴜᴘ</b>")
 
 
 async def broadcast_users_cmd(client, message):
     sent = 0
     failed = 0
     ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6111585093220830556"
-    msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ᴘʀᴏsᴇs ɢɪᴋᴇs ʙʀᴇ")
+    msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ᴜᴄᴀꜱᴛ...")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
@@ -67,8 +68,9 @@ async def broadcast_users_cmd(client, message):
                 failed += 1
     await msg.delete()
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6111585093220830556"
-    await message.reply(f"<b><emoji id={gcast_done}>✅</emoji> ᴘᴇsᴀɴ ᴜᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {failed} ᴜsᴇʀ</b>")
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6114074516395134769"
+    await message.reply(f"ᴘᴇꜱᴀɴ ᴜᴄᴀꜱᴛ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪ ʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>⚠️</emoji>\n<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀ\n<emoji id={gagal}>❌</emoji> ɢᴀɢᴀʟ ᴋᴇ {failed} ᴜsᴇʀ</b>")
 
 
 async def send_msg_cmd(client, message):
