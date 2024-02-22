@@ -70,6 +70,8 @@ async def _(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6114074516395134769"
+    send_done = await get_vars(client.me.id, "SEND_DONE") or "6113669303410625425"
     r = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ....</b>")
     count, msg = extract_type_and_msg(message)
 
@@ -86,7 +88,7 @@ async def _(client, message):
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    await r.edit(f"<b><emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ɢɪᴋᴇs ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {int(total_spam_gcast[client.me.id] / count)} ɢʀᴏᴜᴘ</b>")
+    await r.edit(f"ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <b><emoji id={gcast_done}>⚠️</emoji>\n<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀꜱɪʟ ᴛᴇʀᴋɪʀɪᴍ ᴅᴀʟᴀᴍ {int(total_spam_gcast[client.me.id] / count)} ɢʀᴏᴜᴘ\n<emoji id={send_done}>⛔️</emoji> ᴅᴀʟᴀᴍ ᴘᴜᴛᴀʀᴀɴ {count} ᴋᴀʟɪ</b>")
     del total_spam_gcast[client.me.id]
 
 
