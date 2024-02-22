@@ -88,7 +88,7 @@ async def _(client, message):
         await asyncio.gather(*spam_gcast)
 
     await run_spam()
-    await r.edit(f"ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <b><emoji id={gcast_done}>⚠️</emoji>\n<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀꜱɪʟ ᴛᴇʀᴋɪʀɪᴍ ᴅᴀʟᴀᴍ {int(total_spam_gcast[client.me.id] / count)} ɢʀᴏᴜᴘ\n<emoji id={send_done}>⛔️</emoji> ᴅᴀʟᴀᴍ ᴘᴜᴛᴀʀᴀɴ {count} ᴋᴀʟɪ</b>")
+    await r.edit(f"<b>ꜱᴘᴀᴍ ɢᴄᴀꜱᴛ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>⚠️</emoji>\n<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀꜱɪʟ ᴛᴇʀᴋɪʀɪᴍ ᴅᴀʟᴀᴍ <code>{int(total_spam_gcast[client.me.id] / count)}</code> ɢʀᴏᴜᴘ\n<emoji id={send_done}>⛔️</emoji> ᴅᴀʟᴀᴍ ᴘᴜᴛᴀʀᴀɴ <code>{count}</code> ᴋᴀʟɪ</b>")
     del total_spam_gcast[client.me.id]
 
 
