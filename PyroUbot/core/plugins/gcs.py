@@ -36,8 +36,8 @@ async def broadcast_group_cmd(client, message):
     await msg.delete()
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6221865220428532247"
-    await message.reply(f"<b>ɢɪᴋᴇꜱ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ <emoji id={gcast_done}>⚠👨‍🚀</emoji>\n\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ɢʀᴏᴜᴘ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{failed}</code> ɢʀᴏᴜᴘ</b>")
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
+    await message.reply(f"<b>ɢɪᴋᴇꜱ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ <emoji id={gcast_done}>❗️</emoji>\n\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ɢʀᴏᴜᴘ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{failed}</code> ɢʀᴏᴜᴘ</b>")
 
 
 async def broadcast_users_cmd(client, message):
@@ -69,8 +69,8 @@ async def broadcast_users_cmd(client, message):
     await msg.delete()
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6221865220428532247"
-    await message.reply(f"<b>ᴘᴇꜱᴀɴ ᴜᴄᴀꜱᴛ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>⚠👨‍🚀</emoji>\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ᴜsᴇʀ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴋᴇ <code>{failed}</code> ᴜsᴇʀ</b>")
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
+    await message.reply(f"<b>ᴘᴇꜱᴀɴ ᴜᴄᴀꜱᴛ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>❗️</emoji>\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ᴜsᴇʀ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴋᴇ <code>{failed}</code> ᴜsᴇʀ</b>")
 
 
 async def send_msg_cmd(client, message):
