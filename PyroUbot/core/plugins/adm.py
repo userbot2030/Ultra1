@@ -7,14 +7,14 @@ from PyroUbot import *
 
 
 async def admin_kick(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴘᴇɴɢɢᴜɴᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇɴᴇɴᴅᴀɴɢ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ.")
     try:
@@ -37,14 +37,14 @@ async def admin_kick(client, message):
 
 
 async def admin_ban(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴀɴɴᴇᴅ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     try:
@@ -65,14 +65,14 @@ async def admin_ban(client, message):
 
 
 async def admin_mute(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     user_id, reason = await extract_user_and_reason(message)
     if not user_id:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     if user_id == (await client.get_me()).id:
         return await message.reply_text("ᴀᴋᴜ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴅɪʀɪᴋᴜ sᴇɴᴅɪʀɪ, ᴀᴋᴜ ʙɪsᴀ ᴘᴇʀɢɪ ᴊɪᴋᴀ ᴋᴀᴍᴜ ᴍᴀᴜ.")
     if user_id == OWNER_ID:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪɴɪ")
     if user_id in (await list_admins(message)):
         return await message.reply_text("sᴀʏᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙɪsᴜᴋᴀɴ ᴀᴅᴍɪɴ, ᴀɴᴅᴀ ᴛᴀʜᴜ ᴀᴛᴜʀᴀɴɴʏᴀ, sᴀʏᴀ ᴊᴜɢᴀ.")
     try:
@@ -93,12 +93,12 @@ async def admin_mute(client, message):
 
 
 async def admin_unmute(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     user_id = await extract_user(message)
     if not user_id:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     try:
-        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
@@ -110,12 +110,12 @@ async def admin_unmute(client, message):
 
 
 async def admin_unban(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
     user_id = await extract_user(message)
     if not user_id:
-        return await message.reply_text(f"<emoji id={gagal}>❌</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
+        return await message.reply_text(f"<emoji id={gagal}>❎</emoji> sᴀʏᴀ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴀɴɢɢᴏᴛᴀ ɪᴛᴜ.")
     try:
-        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
         mention = (await client.get_users(user_id)).mention
     except Exception as error:
         await message.reply(error)
@@ -127,12 +127,12 @@ async def admin_unban(client, message):
 
 
 async def global_banned(client, message):
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
     user_id = await extract_user(message)
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
     if not user_id:
-        return await Tm.edit(f"<b><emoji id={gagal}>❌</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await Tm.edit(f"<b><emoji id={gagal}>❎</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
@@ -141,7 +141,7 @@ async def global_banned(client, message):
     failed = 0
     emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6111585093220830556"
     gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
-    sukses = await get_vars(client.me.id, "SUKSES") or "6246660083808210143"
+    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
     text = "<b>{} ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
@@ -162,16 +162,16 @@ async def global_banned(client, message):
                     failed += 1
                     await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❌</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
+    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
 
 
 async def global_unbanned(client, message):
     user_id = await extract_user(message)
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji></b> ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
     if not user_id:
-        return await Tm.edit(f"<b><emoji id={gagal}>❌</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
+        return await Tm.edit(f"<b><emoji id={gagal}>❎</emoji> ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
@@ -180,7 +180,7 @@ async def global_unbanned(client, message):
     failed = 0
     emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6111585093220830556"
     gban_user = await get_vars(client.me.id, "GBAN_USER") or "6172475875368373616"
-    sukses = await get_vars(client.me.id, "SUKSES") or "6114011655253790197"
+    sukses = await get_vars(client.me.id, "SUKSES") or "5895231943955451762"
     text = "<b>{} ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
@@ -198,4 +198,4 @@ async def global_unbanned(client, message):
                 failed += 1
                 await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❌</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
+    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
