@@ -35,9 +35,9 @@ async def alive_query(client, inline_query):
             if my.me.id == OWNER_ID:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴘʀᴇsɪᴅᴇɴ]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
+                status = "<b>ᴜʟᴛʀᴀ ᴘʀᴇᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
+                status = "<b>ᴜʟᴛʀᴀ ᴘʀᴇᴍ</b>"
             button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
@@ -47,12 +47,12 @@ async def alive_query(client, inline_query):
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
-        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
-        ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
-        ᴘɪɴɢ_ᴅᴄ: <code>{str(ping).replace('.', ',')} ᴍs</code>
-        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
-        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
-        sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
+        ᴇxᴘɪʀᴇᴅ ᴏɴ: <code>{exp}</code> 
+        ᴅᴄ ɪᴅ: <code>{my.me.dc_id}</code>
+        ᴘɪɴɢ: <code>{str(ping).replace('.', ',')} ᴍs</code>
+        ᴘᴇᴇʀ ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
+        ᴘᴇᴇʀ ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
+        ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
             await client.answer_inline_query(
                 inline_query.id,
