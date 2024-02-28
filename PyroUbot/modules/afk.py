@@ -25,8 +25,8 @@ async def _(client, message):
     db_afk = {"time": time(), "reason": reason}
     emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
     emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
-    emot_afk = emot_1 if emot_1 else "6111585093220830556"
-    emot_reason = emot_2 if emot_2 else "6114074516395134769"
+    emot_afk = emot_1 if emot_1 else "6192512550639241619"
+    emot_reason = emot_2 if emot_2 else "6289678459065077018"
     if client.me.is_premium:
         msg_afk = f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_reason}>📝</emoji> ᴀʟᴀsᴀɴ: {reason}</b>" if reason else f"<b><emoji id={emot_afk}>‼️</emoji> sᴇᴅᴀɴɢ ᴀғᴋ</b>"
     else:
@@ -46,9 +46,9 @@ async def _(client, message):
         emot_1 = await get_vars(client.me.id, "EMOJI_AFK")
         emot_2 = await get_vars(client.me.id, "EMOJI_REASON")
         emot_3 = await get_vars(client.me.id, "EMOJI_WAKTU")
-        emot_afk = emot_1 if emot_1 else "6111585093220830556"
-        emot_reason = emot_2 if emot_2 else "6114074516395134769"
-        emot_waktu = emot_3 if emot_3 else "6113669303410625425"
+        emot_afk = emot_1 if emot_1 else "6192512550639241619"
+        emot_reason = emot_2 if emot_2 else "6289678459065077018"
+        emot_waktu = emot_3 if emot_3 else "6186224886021622832"
         if client.me.is_premium:
             afk_text = f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}\n<emoji id={emot_reason}>🏓</emoji> ᴀʟᴀsᴀɴ: {afk_reason}</b>" if afk_reason else f"<b><emoji id={emot_afk}>🦇</emoji> sᴇᴅᴀɴɢ ᴀғᴋ\n<emoji id={emot_waktu}>⏰</emoji> ᴡᴀᴋᴛᴜ: {afk_runtime}</b>"
         else:
@@ -65,8 +65,8 @@ async def _(client, message):
         emot_3 = await get_vars(client.me.id, "EMOJI_WAKTU")
         afk_time = vars.get("time")
         afk_runtime = await get_time(time() - afk_time)
-        emot_afk = emot_1 if emot_1 else "6111585093220830556"
-        emot_waktu = emot_3 if emot_3 else "6113669303410625425"
+        emot_afk = emot_1 if emot_1 else "6192512550639241619"
+        emot_waktu = emot_3 if emot_3 else "6186224886021622832"
         afk_text = f"<b><emoji id={emot_afk}>🦇</emoji> ᴋᴇᴍʙᴀʟɪ ᴏɴʟɪɴᴇ\n<emoji id={emot_waktu}>⏰</emoji> ᴀғᴋ sᴇʟᴀᴍᴀ: {afk_runtime}</b>"
         await message.reply(afk_text)
         await message.delete()
