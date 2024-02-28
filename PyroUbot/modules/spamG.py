@@ -67,16 +67,16 @@ async def SpamGcast(client, message, send):
 @PY.UBOT("spamg")
 @PY.TOP_CMD
 async def _(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6113789201717660877"
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "6114011655253790197"
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6114074516395134769"
-    send_done = await get_vars(client.me.id, "SEND_DONE") or "6113669303410625425"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
+    send_done = await get_vars(client.me.id, "SEND_DONE") or "6296577138615125756"
     r = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ....</b>")
     count, msg = extract_type_and_msg(message)
 
     if not msg:
-        return await r.edit(f"<b><emoji id={gagal}>❌</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
+        return await r.edit(f"<b><emoji id={gagal}>❎</emoji> <code>{message.text.split()[0]}</code> ᴊᴜᴍʟᴀʜ - ᴛᴇxᴛ/ʀᴇᴘʟʏ_ᴍsɢ</b>")
 
     try:
         count = int(count)
