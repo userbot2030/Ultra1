@@ -15,7 +15,7 @@ async def deak_account(client, message):
     if len(message.command) < 2:
         return await message.reply(f"{message.text} user_id")
     try:
-        user_id = int(message.command)
+        user_id = int(message.command[1])
     except Exception as error:
         return await message.reply(error)
     user = [x for x in ubot._ubot if x.me.id == user_id]
