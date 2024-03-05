@@ -15,7 +15,7 @@ async def setprefix(client, message):
         try:
             ubot.set_prefix(message.from_user.id, ub_prefix)
             await set_pref(message.from_user.id, ub_prefix)
-            sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
+            sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
             parsed_prefix = " ".join(f"<code>{prefix}</code>" for prefix in ub_prefix)
             return await Tm.edit(f"<b><emoji id={sukses}>✅</emoji> ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
@@ -24,9 +24,9 @@ async def setprefix(client, message):
 
 async def change_emot(client, message):
     try:
-        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
-        proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
-        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+        proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
+        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
         msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ...", quote=True)
 
         if not client.me.is_premium:
