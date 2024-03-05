@@ -13,7 +13,7 @@ async def ping_cmd(client, message):
     await get_time(time() - ub_uptime)
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6127475690531982315"
     emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6114073270854619005"
-    emot_mention = await get_vars(client.me.id, "EMOJI_MENTION") or "6199625295654292769"
+    emot_mention = await get_vars(client.me.id, "EMOJI_MENTION") or "6114074516395134769"
     start_time = time()
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
