@@ -20,17 +20,19 @@ __HELP__ = """
 @PY.UBOT("thumb")
 @PY.TOP_CMD
 async def _(client, message):
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
     reply = message.reply_to_message
-    msg = await message.reply("<b>🔄 sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>")
+    msg = await message.reply(f"<b><emoji id={proses}>🔄</emoji> sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>")
 
     if len(message.command) < 2:
-        return await msg.edit(f"<b>❌ {message.text} ʟɪɴᴋ ᴛᴇʟᴇɢʀᴀᴘʜ</b>")
+        return await msg.edit(f"<b><emoji id={gagal}>❌</emoji> {message.text} ʟɪɴᴋ ᴛᴇʟᴇɢʀᴀᴘʜ</b>")
 
     elif not message.command[1].endswith((".jpg", ".png")):
-        return await msg.edit("<b>ʟɪɴᴋ ʏᴀɴɢ ᴅɪᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
+        return await msg.edit(f"<b><emoji id={gagal}>❌</emoji> ʟɪɴᴋ ʏᴀɴɢ ᴅɪᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
 
     elif reply.video:
-        await msg.edit("<b>📥 sᴇʙᴇɴᴛᴀʀ ᴅɪᴅᴏᴡɴʟᴏᴀᴅ ᴅᴜʟᴜ ᴠɪᴅᴇᴏ ɴʏᴀ</b>")
+        await msg.edit(f"<b><b><emoji id={proses}>📥</emoji> sᴇʙᴇɴᴛᴀʀ ᴅɪᴅᴏᴡɴʟᴏᴀᴅ ᴅᴜʟᴜ ᴠɪᴅᴇᴏ ɴʏᴀ</b>")
         media = await client.download_media(reply)
         thumbnail = wget.download(message.command[1])
 
@@ -50,4 +52,4 @@ async def _(client, message):
             return await msg.edit(str(error))
 
     else:
-        return await msg.edit("<b>ᴍᴀᴀғ, ʜᴀɴʏᴀ ᴠɪᴅᴇᴏ ʏᴀɴɢ ᴅɪᴅᴜᴋᴜɴɢ</b>")
+        return await msg.edit(f"<b><emoji id={gagal}>❌</emoji> ᴍᴀᴀғ, ʜᴀɴʏᴀ ᴠɪᴅᴇᴏ ʏᴀɴɢ ᴅɪᴅᴜᴋᴜɴɢ</b>")
