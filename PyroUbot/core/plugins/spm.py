@@ -5,7 +5,7 @@ from PyroUbot import *
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs", quote=False)
     if reply:
         try:
