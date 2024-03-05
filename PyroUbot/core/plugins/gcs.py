@@ -9,7 +9,7 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "6248838379551591559"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ɢɪᴋᴇꜱ....")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
@@ -34,8 +34,8 @@ async def broadcast_group_cmd(client, message):
                 except Exception:
                     failed += 1
     await msg.delete()
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
     gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
     await message.reply(f"<b>ɢɪᴋᴇꜱ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ <emoji id={gcast_done}>❗️</emoji>\n\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ɢʀᴏᴜᴘ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{failed}</code> ɢʀᴏᴜᴘ</b>")
 
@@ -43,8 +43,8 @@ async def broadcast_group_cmd(client, message):
 async def broadcast_users_cmd(client, message):
     sent = 0
     failed = 0
-    ucast_proses = await get_vars(client.me.id, "UCAST_PROSES") or "6248838379551591559"
-    msg = await message.reply(f"<emoji id={ucast_proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ᴜᴄᴀꜱᴛ...")
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
+    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ᴜᴄᴀꜱᴛ...")
     async for dialog in client.get_dialogs(limit=None):
         if dialog.chat.type == ChatType.PRIVATE:
             if message.reply_to_message:
@@ -52,7 +52,7 @@ async def broadcast_users_cmd(client, message):
             else:
                 if len(message.command) < 2:
                     await msg.delete()
-                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+                    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
                     return await message.reply(f"<emoji id={gagal}>❎</emoji> ᴇʀᴏʀʀ!! ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
                 else:
                     send = message.text.split(None, 1)[1]
@@ -67,8 +67,8 @@ async def broadcast_users_cmd(client, message):
             except Exception:
                 failed += 1
     await msg.delete()
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5895231943955451762"
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
     gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
     await message.reply(f"<b>ᴘᴇꜱᴀɴ ᴜᴄᴀꜱᴛ ʟᴜ ᴛᴇʟᴀʜ ꜱᴇʟᴇꜱᴀɪ ᴅɪʟᴀᴋᴜᴋᴀɴ <emoji id={gcast_done}>❗️</emoji>\n<emoji id={sukses}>✅</emoji> ᴘᴇsᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ <code>{sent}</code> ᴜsᴇʀ\n<emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ ᴋᴇ <code>{failed}</code> ᴜsᴇʀ</b>")
 
