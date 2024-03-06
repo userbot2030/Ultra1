@@ -3,6 +3,10 @@
 
 import wget
 
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
+                            InlineQueryResultArticle, InputTextMessageContent)
+
+
 from PyroUbot import *
 
 __MODULE__ = "logs"
@@ -14,12 +18,50 @@ __HELP__ = """
 """
 
 
-async def send_log(client, chat_id, message, message_text, msg):
+TEXT = {}
+
+
+async def send_log(client, chat_id, message, message_text, message_link, msg):
+    TEXT[int(client.me.id)] = {"user": message_link, "msg": message_text}
     try:
-        await client.send_message(chat_id, message_text, disable_web_page_preview=True)
-        await message.forward(chat_id)
-    except Exception as error:
-        print(f"{msg} - {error}")
+        x = await client.get_inline_bot_results(
+            bot.me.username, f"logs_inline {client.me.id}"
+        )
+        return await client.send_inline_bot_result(
+            chat_id,
+            x.query_id,
+            x.results[0].id,
+        )
+    except Exception:
+        del TEXT[int(client.me.id)]
+
+
+@PY.INLINE("^logs_inline")
+@INLINE.QUERYᴛ")
+async def _(client, inline_query):
+    await client.answer_inline_query(
+        inline_query.id,
+        cache_time=60,
+        results=[
+            InlineQueryResultArticle(
+                title="logs!",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "ɢᴏ ᴛᴏ ᴍᴇssᴀɢᴇ",
+                                url=TEXT[int(inline_query.query.split()[1])]["user"],
+                            )
+                        ]
+                    ]
+                ),
+                input_message_content=InputTextMessageContent(
+                    TEXT[int(inline_query.query.split()[1])]["msg"]
+                ),
+            )
+        ],
+    )
+    del TEXT[int(inline_query.query.split()[1])]
 
 
 @PY.LOGS_PRIVATE()
@@ -34,11 +76,9 @@ async def _(client, message):
         message_text = f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> [ᴋʟɪᴋ ᴅɪsɪɴɪ]({message_link})
-    
-<b>⤵️ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ᴀᴅᴀʟᴀʜ ᴘеsᴀɴ ᴛᴇʀᴜsᴀɴ ᴅᴀʀɪ: {user_link}</b>
+    <b>•> ᴅᴀʀɪ: {user_link}</b>
 """
-        await send_log(client, int(logs), message, message_text, "LOGS_PRIVATE")
+    await send_log(client, int(logs), message, message_text, message_link, "LOGS_PRIVATE")
 
 
 @PY.LOGS_GROUP()
@@ -53,11 +93,9 @@ async def _(client, message):
         message_text = f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> [ᴋʟɪᴋ ᴅɪsɪɴɪ]({message_link})
-    
-<b>⤵️ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ᴀᴅᴀʟᴀʜ ᴘеsᴀɴ ᴛᴇʀᴜsᴀɴ ᴅᴀʀɪ: {user_link}</b>
+    <b>•> ᴅᴀʀɪ: {user_link}</b>
 """
-        await send_log(client, int(logs), message, message_text, "LOGS_GROUP")
+    await send_log(client, int(logs), message, message_text, message_link, "LOGS_GROUP")
 
 
 @PY.UBOT("logs")
