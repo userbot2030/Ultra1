@@ -37,7 +37,7 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
 
 
 @PY.INLINE("^logs_inline")
-@INLINE.QUERYᴛ")
+@INLINE.QUERY
 async def _(client, inline_query):
     await client.answer_inline_query(
         inline_query.id,
