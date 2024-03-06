@@ -4,7 +4,7 @@ import wget
 
 from PyroUbot import *
 
-__MODULE__ = "thumbnai"
+__MODULE__ = "thumbnail"
 __HELP__ = """
 <b>◖ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴛʜᴜᴍʙɴᴀɪʟ ◗</b>
 
