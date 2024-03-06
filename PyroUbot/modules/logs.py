@@ -27,11 +27,12 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
         x = await client.get_inline_bot_results(
             bot.me.username, f"logs_inline {client.me.id}"
         )
-        return await client.send_inline_bot_result(
+        await client.send_inline_bot_result(
             chat_id,
             x.query_id,
             x.results[0].id,
         )
+        return await message.forward(logs)
     except Exception:
         del TEXT[int(client.me.id)]
 
