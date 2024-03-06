@@ -78,7 +78,7 @@ async def _(client, message):
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
     <b>•> ᴅᴀʀɪ: {user_link}</b>
 """
-    await send_log(client, int(logs), message, message_text, message_link, "LOGS_PRIVATE")
+        await send_log(client, int(logs), message, message_text, message_link, "LOGS_PRIVATE")
 
 
 @PY.LOGS_GROUP()
@@ -95,7 +95,7 @@ async def _(client, message):
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
     <b>•> ᴅᴀʀɪ: {user_link}</b>
 """
-    await send_log(client, int(logs), message, message_text, message_link, "LOGS_GROUP")
+        await send_log(client, int(logs), message, message_text, message_link, "LOGS_GROUP")
 
 
 @PY.UBOT("logs")
