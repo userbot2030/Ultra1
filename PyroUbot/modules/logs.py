@@ -32,7 +32,6 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
             x.query_id,
             x.results[0].id,
         )
-        return await message.forward(chat_id)
     except Exception:
         del TEXT[int(client.me.id)]
 
