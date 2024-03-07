@@ -24,7 +24,7 @@ async def ai_cmd(client, message):
     if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
-        response = await OpenAi.ChatGPT(args)
+        response = await OpenAi.google_ai(args)
         if int(len(str(response))) > 4096:
             with io.BytesIO(str.encode(str(response))) as out_file:
                 out_file.name = "openAi.txt"
