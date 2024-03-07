@@ -5,7 +5,7 @@ import openai
 
 from PyroUbot import AI_GOOGLE_API
 
-goggle.api_key = AI_GOOGLE_API
+api_key = AI_GOOGLE_API
 
 class OpenAi:
     @staticmethod
@@ -15,7 +15,7 @@ class OpenAi:
         request by: Dhilnihnge.t.me
         """
         try:
-            genai.configure(api_key=AI_GOOGLE_API)
+            genai.configure(api_key)
             model = genai.GenerativeModel(model_name="gemini-1.0-pro")
             convo = model.start_chat(history=[])
             convo.send_message(question)
