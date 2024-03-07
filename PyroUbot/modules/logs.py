@@ -25,7 +25,7 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
     TEXT[int(client.me.id)] = {"user": message_link, "msg": message_text}
     try:
         x = await client.get_inline_bot_results(
-            bot.me.username, f"logs_inline {client.me.id}"
+            bot.me.username, f"logs_inline {client.me.id}_{message.chat.id}_{message.id}"
         )
         await client.send_inline_bot_result(
             chat_id,
@@ -40,6 +40,7 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
 @PY.INLINE("^logs_inline")
 @INLINE.QUERY
 async def _(client, inline_query):
+    data = inline_query.query.split()[1].split("_")
     await client.answer_inline_query(
         inline_query.id,
         cache_time=60,
@@ -51,19 +52,43 @@ async def _(client, inline_query):
                         [
                             InlineKeyboardButton(
                                 "ɢᴏ ᴛᴏ ᴍᴇssᴀɢᴇ",
-                                url=TEXT[int(inline_query.query.split()[1])]["user"],
+                                url=TEXT[int(data[1])]["user"],
                             )
-                        ]
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                "ɢᴇᴛ ғᴏʀᴡᴀʀᴅ ᴍᴇssᴀɢᴇ",
+                                callback_data=f"forward_msg {int(data[0])}_{int(data[1])}_{int(data[2])}",
+                        )
                     ]
                 ),
                 input_message_content=InputTextMessageContent(
-                    TEXT[int(inline_query.query.split()[1])]["msg"]
+                    TEXT[int(data[1])]["msg"]
                 ),
             )
         ],
     )
     del TEXT[int(inline_query.query.split()[1])]
 
+
+@PY.CALLBACK("forward_msg")
+@INLINE.DATA
+async def _(client, callback_query):
+    data = callback_query.data.split()[1].split("_")
+    try:
+        user = [x for x in ubot._ubot if int(x.me.id) == int(data[0])]
+        if user:
+            logs = await get_vars(user[0].me.id, "ID_LOGS")
+            get = await user[0].get_messages(int(data[1]), int(data[2]))
+            msg = await get.forward(int(logs))
+            await asyncio.sleep(10)
+            return await msg.delete()
+    except Exception as error:
+        print(error)
+        return await callback_query.answer(
+            "❌ ᴘᴇsᴀɴ ᴛᴇʀsᴇʙᴜᴛ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪᴛᴇʀᴜsᴋᴀɴ ᴋᴇ ʟᴏɢs", True
+        )
+      
 
 @PY.LOGS_PRIVATE()
 async def _(client, message):
