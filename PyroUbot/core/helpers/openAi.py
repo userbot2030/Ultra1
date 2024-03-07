@@ -1,31 +1,25 @@
 import asyncio
 
-import g4f
+import google.generativeai as genai
 import openai
 
-from PyroUbot import OPENAI_KEY
+from PyroUbot import AI_GOOGLE_API
 
-openai.api_key = OPENAI_KEY
-
+goggle.api_key = AI_GOOGLE_API
 
 class OpenAi:
     @staticmethod
-    async def ChatGPT(question):
+    async def google_ai(question):
         """
         create by: NorSodikin.t.me
         request by: Dhilnihnge.t.me
         """
         try:
-            response = await g4f.ChatCompletion.create_async(
-                model=g4f.models.default,
-                provider=g4f.Provider.GeekGpt,
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": question},
-                ],
-                timeout=60,
-            )
-            return response if response else "lagi error coba lagi nanti"
+            genai.configure(api_key=AI_GOOGLE_API)
+            model = genai.GenerativeModel(model_name="gemini-1.0-pro")
+            convo = model.start_chat(history=[])
+            convo.send_message(question)
+            return convo.last.text if response else "lagi error coba lagi nanti"
         except Exception as error:
             return str(error)
 
