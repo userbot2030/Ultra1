@@ -58,7 +58,8 @@ async def _(client, inline_query):
                             InlineKeyboardButton(
                                 "ɢᴇᴛ ғᴏʀᴡᴀʀᴅ ᴍᴇssᴀɢᴇ",
                                 callback_data=f"forward_msg {int(data[0])}_{int(data[1])}_{int(data[2])}",
-                        )
+                            )
+                        ]
                     ]
                 ),
                 input_message_content=InputTextMessageContent(
