@@ -51,7 +51,7 @@ async def _(client, inline_query):
                         [
                             InlineKeyboardButton(
                                 "ɢᴏ ᴛᴏ ᴍᴇssᴀɢᴇ",
-                                url=TEXT[int(data[1])]["user"],
+                                url=TEXT[int(data[0])]["user"],
                             )
                         ],
                         [
