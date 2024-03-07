@@ -63,7 +63,7 @@ async def _(client, inline_query):
                     ]
                 ),
                 input_message_content=InputTextMessageContent(
-                    TEXT[int(data[1])]["msg"]
+                    TEXT[int(data[0])]["msg"]
                 ),
             )
         ],
