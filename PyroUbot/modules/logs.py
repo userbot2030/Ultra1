@@ -32,8 +32,8 @@ async def send_log(client, chat_id, message, message_text, message_link, msg):
             x.query_id,
             x.results[0].id,
         )
-    except Exception:
-        del TEXT[int(client.me.id)]
+    except Exception as error:
+        print(error)
 
 
 @PY.INLINE("^logs_inline")
@@ -68,7 +68,6 @@ async def _(client, inline_query):
             )
         ],
     )
-    del TEXT[int(inline_query.query.split()[1])]
 
 
 @PY.CALLBACK("forward_msg")
