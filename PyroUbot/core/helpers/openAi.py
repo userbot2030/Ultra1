@@ -1,5 +1,5 @@
-
 import asyncio
+
 import google.generativeai as genai
 import openai
 
@@ -15,7 +15,7 @@ class OpenAi:
         request by: Dhilnihnge.t.me
         """
         try:
-            genai.configure(api_key)
+            genai.configure()  # Menghapus argumen dari fungsi configure()
             model = genai.GenerativeModel(model_name="gemini-1.0-pro")
             convo = model.start_chat(history=[])
             convo.send_message(question)
