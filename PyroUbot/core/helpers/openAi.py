@@ -15,7 +15,7 @@ class OpenAi:
         request by: Dhilnihnge.t.me
         """
         try:
-            genai.configure(api_key)
+            genai.configure(api_key=AI_GOOGLE_API)
             model = genai.GenerativeModel(model_name="gemini-1.0-pro")
             convo = model.start_chat(history=[])
             convo.send_message(question)
