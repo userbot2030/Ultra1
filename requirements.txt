@@ -34,3 +34,4 @@ g4f==0.1.9.3
 openai
 pytgcalls==3.0.0.dev24
 uvloop
+google-generativeai
