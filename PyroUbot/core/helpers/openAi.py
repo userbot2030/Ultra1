@@ -5,8 +5,6 @@ import openai
 
 from PyroUbot import AI_GOOGLE_API
 
-api_key = AI_GOOGLE_API
-
 class OpenAi:
     @staticmethod
     async def google_ai(question):
@@ -14,14 +12,11 @@ class OpenAi:
         create by: NorSodikin.t.me
         request by: Dhilnihnge.t.me
         """
-        try:
-            genai.configure()  # Menghapus argumen dari fungsi configure()
-            model = genai.GenerativeModel(model_name="gemini-1.0-pro")
-            convo = model.start_chat(history=[])
-            convo.send_message(question)
-            return convo.last.text if response else "lagi error coba lagi nanti"
-        except Exception as error:
-            return str(error)
+        genai.configure(api_key=AI_GOOGLE_API)
+        model = genai.GenerativeModel(model_name="gemini-1.0-pro")
+        convo = model.start_chat(history=[])
+        convo.send_message(question)
+        return convo.last.text
 
     @staticmethod
     async def ImageDalle(question):
