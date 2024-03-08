@@ -117,8 +117,8 @@ async def _(client, message):
         message_link = message.link
         message_text = f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
-    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ᴅᴀʀɪ: {user_link}</b>
+    <b>➧ ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
+    <b>➧ ᴅᴀʀɪ: {user_link}</b>
 """
         await send_log(client, int(logs), message, message_text, message_link, "LOGS_GROUP")
 
@@ -155,7 +155,7 @@ async def _(client, message):
 
 
 async def create_logs(client):
-    logs = await client.create_channel(f"Logs Arab Ultra")
+    logs = await client.create_channel(f"ʟᴏɢs sɪ ᴀʀᴀʙ ᴜʙᴏᴛ")
     url = wget.download("https://telegra.ph//file/ea39b52686ec35ed9950a.jpg")
     photo_video = {"video": url} if url.endswith(".mp4") else {"photo": url}
     await client.set_chat_photo(
