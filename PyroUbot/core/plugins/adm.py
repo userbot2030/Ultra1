@@ -144,7 +144,7 @@ async def global_banned(client, message):
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
     text = "<b>{} ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     if reason:
-        text += "\n<b>ᴀʟᴀsᴀɴ:</b> {}"
+        text += f"\n<b><emoji id={emoji_global}>💬</emoji> ᴀʟᴀsᴀɴ:</b> {}"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
         if chat_type in [
@@ -164,7 +164,7 @@ async def global_banned(client, message):
                     failed += 1
                     await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or ""), reason))
+    return await message.reply(text.format(f"<emoji id={emoji_global}>💬</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>👤</emoji>", user.id, user.first_name, (user.last_name or ""), reason))
 
 
 async def global_unbanned(client, message):
@@ -200,4 +200,4 @@ async def global_unbanned(client, message):
                 failed += 1
                 await asyncio.sleep(0.1)
     await Tm.delete()
-    return await message.reply(text.format(f"<emoji id={emoji_global}>😎</emoji>", "ʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>😎</emoji>", user.id, user.first_name, (user.last_name or "")))
+    return await message.reply(text.format(f"<emoji id={emoji_global}>💬</emoji>", "ᴜɴʙᴀɴɴᴇᴅ", f"<emoji id={sukses}>✅</emoji>", done, f"<emoji id={gagal}>❎</emoji>", failed, f"<emoji id={gban_user}>👤</emoji>", user.id, user.first_name, (user.last_name or "")))
