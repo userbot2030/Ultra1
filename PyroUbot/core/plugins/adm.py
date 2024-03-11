@@ -144,8 +144,7 @@ async def global_banned(client, message):
     sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
     text = "<b>{} ɢʟᴏʙᴀʟ {}</b>\n\n<b>{} ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>{} ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
     if reason:
-        emoji_global = await get_vars(client.me.id, "EMOJI_GLOBAL") or "6111585093220830556"
-        text += f"\n<b><emoji id={emoji_global}>💬</emoji> ᴀʟᴀsᴀɴ:</b> {}"
+        text += "\n<b>💬 ᴀʟᴀsᴀɴ:</b> {}"
     async for dialog in client.get_dialogs():
         chat_type = dialog.chat.type
         if chat_type in [
