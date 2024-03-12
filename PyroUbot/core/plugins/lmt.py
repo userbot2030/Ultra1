@@ -23,5 +23,5 @@ async def limit_cmd(client, message):
     await msg.delete()
     status = await client.get_messages("SpamBot", response.updates[1].message.id + 1)
     emoji = "<emoji id=5787188704434982946>✅</emoji>" if status.text.startswith(("Kabar", "Good")) else "<emoji id=5438630285635757876>🔠</emoji>"
-    await message.reply(f"{emoji} {status.text}")
+    await message.reply(f"<b>{emoji} {status.text}\n<emoji id=6226723958016706245>👑</emoji> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>")
     return await client.invoke(DeleteHistory(peer=bot_info, max_id=0, revoke=True))
