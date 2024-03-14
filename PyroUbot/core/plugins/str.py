@@ -9,6 +9,8 @@ from PyroUbot import *
 
 
 async def ping_cmd(client, message):
+    get_exp = await get_expired_date(my.me.id)
+    exp = get_exp.strftime("%d-%m-%Y")
     ub_uptime = await get_uptime(client.me.id)
     await get_time(time() - ub_uptime)
     emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6127475690531982315"
@@ -21,13 +23,13 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴘʀᴇғɪxᴇs :</b> <code>{exp}</code>
 <b><emoji id={emot_mention}>👑</emoji> <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
         _ping = f"""
 <b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{format(next((p) for p in prefix))}</code>
+<b>├ ᴘʀᴇғɪxᴇs :</b> <code>{exp}</code>
 <b>╰ <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
