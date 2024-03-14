@@ -20,14 +20,14 @@ async def ping_cmd(client, message):
     prefix = await ubot.get_prefix(client.me.id)
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b><emoji id={emot_uptime}>⏰</emoji> [sɪ ᴧꝛᴧʙ ᴜsᴇʀʙᴏᴛ ⲇ](https://t.me/ArabUltraUserbot)</b>
+<b><emoji id={emot_pong}>🏓</emoji> ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
 <b><emoji id={emot_mention}>👑</emoji> <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
         _ping = f"""
-<b>❏ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b>├ [sɪ ᴧꝛᴧʙ ᴜsᴇʀʙᴏᴛ ⲇ](https://t.me/ArabUltraUserbot)</b>
+<b>❏ [sɪ ᴧꝛᴧʙ ᴜsᴇʀʙᴏᴛ ⲇ](https://t.me/ArabUltraUserbot) 
+<b>├ ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b>
 <b>╰ <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
