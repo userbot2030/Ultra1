@@ -27,8 +27,8 @@ async def ping_cmd(client, message):
 """
     else:
         _ping = f"""
-<b>❏ — ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b> 
-<b>├ ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
+<b>❏ —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b> 
+<b>├ —ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
 <b>╰ —ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
