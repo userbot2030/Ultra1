@@ -6,12 +6,12 @@ __HELP__ = """
 
 <b>❑ ᴄᴍᴅ:</b> <code>{0}setemoji - [ᴋᴀᴛᴀ ᴋᴜɴᴄɪ] [ᴇᴍᴏᴊɪ_ᴘʀᴇᴍ]</code> 
   <b>❑ ᴋᴀᴛᴀ ᴋᴜɴᴄɪ:</b>
-  <b>├•> PONG</b>
-  <b>├•> UPTIME</b>
-  <b>├•> MENTION</b>
-  <b>├•> PROSES</b>
-  <b>├•> GAGAL</b>
-  <b>╰•> SUKSES</b>
+  <b>├➧ PING1</b>
+  <b>├➧ PING2</b>
+  <b>├➧ PING3</b>
+  <b>├➧ PROSES</b>
+  <b>├➧ GAGAL</b>
+  <b>╰➧ SUKSES</b>
   <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴀᴍᴘɪʟᴀɴ ᴇᴍᴏᴊɪ ᴘᴀᴅᴀ ᴜꜱᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴊɪᴋᴀ ᴀᴋᴜɴ ᴀɴᴅᴀ ᴘʀᴇᴍɪᴜᴍ.
   
 """
