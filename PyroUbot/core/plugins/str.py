@@ -11,24 +11,25 @@ from PyroUbot import *
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
     await get_time(time() - ub_uptime)
-    emot_pong = await get_vars(client.me.id, "EMOJI_PING_PONG") or "6127475690531982315"
-    emot_uptime = await get_vars(client.me.id, "EMOJI_UPTIME") or "6114073270854619005"
-    emot_mention = await get_vars(client.me.id, "EMOJI_MENTION") or "6114074516395134769"
+    ping1 = await get_vars(client.me.id, "EMOJI_PING1") or "6127475690531982315"
+    ping2 = await get_vars(client.me.id, "EMOJI_PING2") or "6114073270854619005"
+    ping3 = await get_vars(client.me.id, "EMOJI_PING3") or "6114074516395134769"
     start_time = time()
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
     prefix = await ubot.get_prefix(client.me.id)
+    expired_date = await if get_expired_date(ubot._ubot[int(count)].me.id) else text= f"ɴᴏᴛ ᴀᴄᴛɪᴠᴀᴛᴇᴅ"
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_uptime}>⏰</emoji> [sɪ ᴧꝛᴧʙ ᴜsᴇʀʙᴏᴛ ⲇ](https://t.me/ArabUltraUserbot)</b>
-<b><emoji id={emot_mention}>👑</emoji> <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
-<b><emoji id={emot_pong}>🏓</emoji> —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
+<b><emoji id={ping1}>🏓</emoji> — ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
+<b><emoji id={ping2}>⏰</emoji> ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
+<b><emoji id={ping3}>👑</emoji> <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
         _ping = f"""
-<b>❏ [sɪ ᴧꝛᴧʙ ᴜsᴇʀʙᴏᴛ ⲇ](https://t.me/ArabUltraUserbot) 
-<b>├ <b>—ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
-<b>╰ —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b> 
+<b>❏ — ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b> 
+<b>├ ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
+<b>╰ —ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
 
