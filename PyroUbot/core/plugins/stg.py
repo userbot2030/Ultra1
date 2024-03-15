@@ -35,7 +35,7 @@ async def change_emot(client, message):
         if len(message.command) < 3:
             return await msg.edit(f"<b><emoji id={gagal}>⚠️</emoji> ᴛᴏʟᴏɴɢ ᴍᴀsᴜᴋᴋᴀɴ ǫᴜᴇʀʏ ᴅᴀɴ ᴠᴀʟᴇᴜ ɴʏᴀ</b>")
 
-        query_mapping = {"pong": "EMOJI_PING_PONG", "uptime": "EMOJI_UPTIME", "mention": "EMOJI_MENTION", "sukses": "EMOJI_SUKSES", "gagal": "EMOJI_GAGAL", "alasan": "EMOJI_ALASAN", "proses": "EMOJI_PROSES", "gban_user": "GBAN_USER", "kang_pack": "KANG_PACK", "emoji_global": "EMOJI_GLOBAL", "ucast_proses": "UCAST_PROSES", "gcast_proses": "GCAST_PROSES", "gcast_done": "GCAST_DONE", "send_done": "SEND_DONE"}
+        query_mapping = {"ping1": "EMOJI_PING1", "ping2": "EMOJI_PING2", "ping3": "EMOJI_PING3", "sukses": "EMOJI_SUKSES", "gagal": "EMOJI_GAGAL", "alasan": "EMOJI_ALASAN", "proses": "EMOJI_PROSES", "gban_user": "GBAN_USER", "kang_pack": "KANG_PACK", "emoji_global": "EMOJI_GLOBAL", "ucast_proses": "UCAST_PROSES", "gcast_proses": "GCAST_PROSES", "gcast_done": "GCAST_DONE", "send_done": "SEND_DONE"}
         command, mapping, value = message.command[:6]
 
         if mapping.lower() in query_mapping:
