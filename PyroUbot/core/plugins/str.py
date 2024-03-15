@@ -21,8 +21,8 @@ async def ping_cmd(client, message):
     expired_date = await get_expired_date(client.me.id)
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={ping1}>🏓</emoji> — ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b><emoji id={ping2}>⏰</emoji> ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
+<b><emoji id={ping1}>🏓</emoji> —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
+<b><emoji id={ping2}>⏰</emoji> —ᴇxᴘɪʀᴇᴅ :</b> <code>{expired_date.strftime('%d-%m-%Y')}</code></b>
 <b><emoji id={ping3}>👑</emoji> —ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
