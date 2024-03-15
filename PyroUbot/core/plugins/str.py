@@ -18,7 +18,10 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
     prefix = await ubot.get_prefix(client.me.id)
-    expired_date = await get_expired_date(ubot._ubot[int(count)].me.id) if await get_expired_date(ubot._ubot[int(count)].me.id) else "ɴᴏᴛ ᴀᴄᴛɪᴠᴀᴛᴇᴅ"
+    user = [x for x in ubot._ubot if x.me.id == int(id)]
+     if user:
+            for x in user:
+                expired_date = await get_expired_date(x.me.id)
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={ping1}>🏓</emoji> — ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
