@@ -3,10 +3,6 @@
 
 import wget
 
-from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
-                            InlineQueryResultArticle, InputTextMessageContent)
-
-
 from PyroUbot import *
 
 __MODULE__ = "logs"
@@ -18,76 +14,13 @@ __HELP__ = """
 """
 
 
-TEXT = {}
-
-
-async def send_log(client, chat_id, message, message_text, message_link, msg):
-    TEXT[int(client.me.id)] = {"user": message_link, "msg": message_text}
+async def send_log(client, chat_id, message, message_text, msg):
     try:
-        x = await client.get_inline_bot_results(
-            bot.me.username, f"logs_inline {client.me.id}_{message.chat.id}_{message.id}"
-        )
-        await client.send_inline_bot_result(
-            chat_id,
-            x.query_id,
-            x.results[0].id,
-        )
+        await client.send_message(chat_id, message_text, disable_web_page_preview=True)
+        await message.forward(chat_id)
     except Exception as error:
-        print(error)
+        print(f"{msg} - {error}")
 
-
-@PY.INLINE("^logs_inline")
-@INLINE.QUERY
-async def _(client, inline_query):
-    data = inline_query.query.split()[1].split("_")
-    await client.answer_inline_query(
-        inline_query.id,
-        cache_time=60,
-        results=[
-            InlineQueryResultArticle(
-                title="logs!",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "ɢᴏ ᴛᴏ ᴍᴇssᴀɢᴇ",
-                                url=TEXT[int(data[0])]["user"],
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "ɢᴇᴛ ғᴏʀᴡᴀʀᴅ ᴍᴇssᴀɢᴇ",
-                                callback_data=f"forward_msg {int(data[0])}_{int(data[1])}_{int(data[2])}",
-                            )
-                        ]
-                    ]
-                ),
-                input_message_content=InputTextMessageContent(
-                    TEXT[int(data[0])]["msg"]
-                ),
-            )
-        ],
-    )
-
-
-@PY.CALLBACK("forward_msg")
-@INLINE.DATA
-async def _(client, callback_query):
-    data = callback_query.data.split()[1].split("_")
-    try:
-        user = [x for x in ubot._ubot if int(x.me.id) == int(data[0])]
-        if user:
-            logs = await get_vars(user[0].me.id, "ID_LOGS")
-            get = await user[0].get_messages(int(data[1]), int(data[2]))
-            msg = await get.forward(int(logs))
-            await asyncio.sleep(10)
-            return await msg.delete()
-    except Exception as error:
-        print(error)
-        return await callback_query.answer(
-            "❌ ᴘᴇsᴀɴ ᴛᴇʀsᴇʙᴜᴛ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪᴛᴇʀᴜsᴋᴀɴ ᴋᴇ ʟᴏɢs", True
-        )
-      
 
 @PY.LOGS_PRIVATE()
 async def _(client, message):
@@ -99,11 +32,13 @@ async def _(client, message):
         user_link = f"[{message.from_user.first_name} {message.from_user.last_name or ''}](tg://user?id={message.from_user.id})"
         message_link = f"tg://openmessage?user_id={message.from_user.id}&message_id={message.id}"
         message_text = f"""
-<b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
-    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ᴅᴀʀɪ: {user_link}</b>
+<b>📩 Ada Pesan Masuk !!</b>
+    <b>➥ Tipe Pesan:</b> <code>{type}</code>
+    <b>➥ Link Pesan:</b> [KLIK DISINI BRE]({message_link})
+    
+<b>⤵️ Dibawah ini adalah pesan terusan dari user: {user_link}</b>
 """
-        await send_log(client, int(logs), message, message_text, message_link, "LOGS_PRIVATE")
+        await send_log(client, int(logs), message, message_text, "LOGS_PRIVATE")
 
 
 @PY.LOGS_GROUP()
@@ -116,11 +51,13 @@ async def _(client, message):
         user_link = f"[{message.from_user.first_name} {message.from_user.last_name or ''}](tg://user?id={message.from_user.id})"
         message_link = message.link
         message_text = f"""
-<b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
-    <b>➧ ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>➧ ᴅᴀʀɪ: {user_link}</b>
+<b>📩 Ada Pesan Masuk !!</b>
+    <b>➥ Type Pesan:</b> <code>{type}</code>
+    <b>➥ Link Pesan:</b> [KLIK DISINI BRE]({message_link})
+    
+<b>⤵️ Dibawah ini adalah pesan terusan dari user: {user_link}</b>
 """
-        await send_log(client, int(logs), message, message_text, message_link, "LOGS_GROUP")
+        await send_log(client, int(logs), message, message_text, "LOGS_GROUP")
 
 
 @PY.UBOT("logs")
@@ -155,7 +92,7 @@ async def _(client, message):
 
 
 async def create_logs(client):
-    logs = await client.create_channel(f"ʟᴏɢs sɪ ᴀʀᴀʙ ᴜʙᴏᴛ")
+    logs = await client.create_channel(f"• ʟᴏɢs ᴀʀᴀʙ ᴜʙᴏᴛ •")
     url = wget.download("https://telegra.ph//file/ea39b52686ec35ed9950a.jpg")
     photo_video = {"video": url} if url.endswith(".mp4") else {"photo": url}
     await client.set_chat_photo(
