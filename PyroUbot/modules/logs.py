@@ -37,7 +37,7 @@ async def _(client, message):
     <b>➥ Link Pesan:</b> [KLIK DISINI BRE]({message_link})
     
 <b>⤵️ Dibawah ini adalah pesan terusan dari user: {user_link}</b>
-                    <b>⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇</b>
+            <b>⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇</b>
 """
         await send_log(client, int(logs), message, message_text, "LOGS_PRIVATE")
 
