@@ -10,15 +10,16 @@ from PyroUbot import *
 
 async def ping_cmd(client, message):
     ub_uptime = await get_uptime(client.me.id)
-    await get_time(time() - ub_uptime)
+    uptime = await get_time(time() - ub_uptime)
+    
     ping1 = await get_vars(client.me.id, "EMOJI_PING1") or "6127475690531982315"
     ping2 = await get_vars(client.me.id, "EMOJI_PING2") or "6114073270854619005"
     ping3 = await get_vars(client.me.id, "EMOJI_PING3") or "6114074516395134769"
     start_time = time()
     await client.invoke(Ping(ping_id=0))
     delta_ping = round((time() - start_time) * 1000, 2)
+    
     prefix = await ubot.get_prefix(client.me.id)
-    expired_date = await get_expired_date(client.me.id)
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={ping1}>🏓</emoji> —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
