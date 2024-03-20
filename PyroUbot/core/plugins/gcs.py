@@ -1,5 +1,4 @@
 import asyncio
-import slowmode
 from gc import get_objects
 
 from pyrogram.enums import ChatType
@@ -7,7 +6,7 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def broadcast_group_cmd(client, message):
+async def broadcast_group_cmd(client, message, slowmode):
     sent = 0
     failed = 0
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
