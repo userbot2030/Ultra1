@@ -7,24 +7,6 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def set_chat_slow_mode(client: Client, message: Message, slow_mode_delay: int):
-    """
-    Set the slow mode for a chat.
-
-    Args:
-        client (Client): The Telegram client.
-        message (Message): The message that triggered the command.
-        slow_mode_delay (int): The slow mode delay in seconds.
-    """
-    slow_mode_delay = 3
-    chat_id = {
-        "group": [ChatType.GROUP, ChatType.SUPERGROUP],
-        "users": [ChatType.PRIVATE],
-    }
-    await client.set_chat_slow_mode(chat_id, slow_mode_delay)
-    await message.reply_text(f"Slow mode has been set to {slow_mode_delay} seconds.")
-
-
 async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
