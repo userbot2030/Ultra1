@@ -1,7 +1,6 @@
 import logging
 import os
 import re
-import uvloop
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
@@ -12,7 +11,6 @@ from pytgcalls import GroupCallFactory
 
 from PyroUbot.config import *
 
-uvloop.install()
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
