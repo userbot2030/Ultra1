@@ -6,7 +6,7 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def broadcast_group_cmd(client, message, slowmode):
+async def broadcast_group_cmd(client, message):
     sent = 0
     failed = 0
     slowmode = 2
