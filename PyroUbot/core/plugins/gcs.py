@@ -9,6 +9,7 @@ from PyroUbot import *
 async def broadcast_group_cmd(client, message, slowmode):
     sent = 0
     failed = 0
+    slowmode = 2
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     msg = await message.reply(f"<emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ ɢɪᴋᴇꜱ....")
     async for dialog in client.get_dialogs(limit=None):
