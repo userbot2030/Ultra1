@@ -9,28 +9,24 @@ from PyroUbot import *
 
 
 async def ping_cmd(client, message):
-    ub_uptime = await get_uptime(client.me.id)
-    uptime = await get_time(time() - ub_uptime)
-    
+    start = datetime.now()
+    await client.invoke(Ping(ping_id=0))
+    end = datetime.now()
+    delta_ping = (end - start).microseconds / 1000
     ping1 = await get_vars(client.me.id, "EMOJI_PING1") or "6127475690531982315"
     ping2 = await get_vars(client.me.id, "EMOJI_PING2") or "6114073270854619005"
     ping3 = await get_vars(client.me.id, "EMOJI_PING3") or "6114074516395134769"
-    start_time = time()
-    await client.invoke(Ping(ping_id=0))
-    delta_ping = round((time() - start_time) * 1000, 2)
-    
-    prefix = await ubot.get_prefix(client.me.id)
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={ping1}>🏓</emoji> —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code>
-<b><emoji id={ping2}>⏰</emoji> —ᴜʙöᴛ :</b> <code>ⲇ sɪ ᴧꝛᴧʙ</code></b>
-<b><emoji id={ping3}>👑</emoji> —ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
+<b><emoji id={ping}>🏓</emoji>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id={ping2}>⏰</emoji> —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
+<b><emoji id={ping3}>👑</emoji>—ɪ'ᴍ:</b> <code><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b></code></code>
 """
     else:
         _ping = f"""
-<b>❏ —ᴘɪᴡᴡ!! :</b> <code>{delta_ping} ms</code></b> 
-<b>├ —ᴜʙöᴛ :</b> <code>ⲇ sɪ ᴧꝛᴧʙ</code></b>
-<b>╰ —ɪ'ᴍ <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
+<b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b>—ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
+<b>—ɪ'ᴍ:</b> <code><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b></code>
 """
     await message.reply(_ping)
 
