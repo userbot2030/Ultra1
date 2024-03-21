@@ -19,7 +19,7 @@ async def ping_cmd(client, message):
     ping3 = await get_vars(client.me.id, "EMOJI_PING3") or "6114074516395134769"
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={ping}>🏓</emoji>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id={ping1}>🏓</emoji>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
 <b><emoji id={ping2}>⏰</emoji> —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
 <b><emoji id={ping3}>👑</emoji>—ɪ'ᴍ:</b> <code><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b></code></code>
 """
