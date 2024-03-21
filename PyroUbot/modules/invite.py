@@ -1,14 +1,5 @@
 from PyroUbot import *
 
-__MODULE__ = "invite"
-__HELP__ = """
-<b>◖ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɪɴᴠɪᴛᴇ◗</b>
-
-  <b>❑ ᴄᴍᴅ:</b> <code>{0}invite</code> [ᴜsᴇʀɴᴀᴍᴇ] 
-  <b>➠ ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴜɴᴅᴀɴɢ ᴀɴɢɢᴏᴛᴀ ᴋᴇ ɢʀᴜᴘ ᴀɴᴅᴀ
-
-"""
-
 
 @PY.UBOT("invite")
 @PY.TOP_CMD
