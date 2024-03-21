@@ -1,4 +1,4 @@
-git+https://github.com/fadhilarab47/pyrogram
+git+https://github.com/oasui/pyrogram
 tgcrypto
 pytz
 psutil
