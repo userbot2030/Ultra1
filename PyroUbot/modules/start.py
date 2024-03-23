@@ -73,7 +73,7 @@ async def _(client, callback_query):
 PING: {str(delta_ping_formatted).replace('.', ',')} ms
 UBOT: {len(ubot._ubot)} user
 UPTIME: {uptime}
-OWNER: None</b>
+OWNER:</b> @Arabnihnge
 
 <b>📊 [STATUS SERVER]
 CPU: {cpu}%
