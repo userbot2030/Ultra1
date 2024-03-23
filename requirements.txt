@@ -1,4 +1,4 @@
-git+https://github.com/oasui/pyrogram
+git+https://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@github.com/fadhilarab47/pyrogram
 tgcrypto
 pytz
 psutil
@@ -21,7 +21,7 @@ aiohttp
 gpytranslate
 gtts
 telegraph
-pyromod==1.1
+pyromod==1.0
 youtube-search-python
 pymongo
 yt-dlp
