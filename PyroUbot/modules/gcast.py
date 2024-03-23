@@ -29,7 +29,8 @@ __HELP__ = """
 @PY.UBOT("bc")
 @PY.TOP_CMD
 async def _(client, message):
-    _msg = f"<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>"
+    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
+    _msg = f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ...</b>"
     gcs = await message.reply(_msg)
 
     command, text = extract_type_and_msg(message)
@@ -58,10 +59,13 @@ async def _(client, message):
             pass
 
     await gcs.delete()
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
     _gcs = f"""
-<b>ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴇʀᴋɪʀɪᴍ</b>
-<b>ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
-<b>ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
+<b>ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴇʀᴋɪʀɪᴍ <emoji id={gcast_done}>❗️</emoji></b>
+<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
+<b><emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
 """
     return await message.reply(_gcs)
 
