@@ -11,6 +11,26 @@ from pymediainfo import MediaInfo
 from pyrogram.errors import FloodWait, MessageNotModified
 
 
+async def get_data_id(client, query):
+    chat_types = {
+        "global": [ChatType.CHANNEL, ChatType.GROUP, ChatType.SUPERGROUP],
+        "all": [ChatType.GROUP, ChatType.SUPERGROUP, ChatType.PRIVATE],
+        "group": [ChatType.GROUP, ChatType.SUPERGROUP],
+        "users": [ChatType.PRIVATE],
+    }
+    return [dialog.chat.id async for dialog in client.get_dialogs() if dialog.chat.type in chat_types.get(query, [])]
+
+
+def extract_type_and_msg(message):
+    args = message.text.split(None, 2)
+    if len(args) < 2:
+        return None, None
+    
+    type = args[1]
+    msg = message.reply_to_message if message.reply_to_message else args[2] if len(args) > 2 else None
+    return type, msg
+
+
 class Media_Info:
     def data(media):
         found = False
