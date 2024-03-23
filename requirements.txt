@@ -1,4 +1,4 @@
-git+https://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@github.com/fadhilarab47/pyrogram
+git+https://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@github.com/fadhilarab47/pyrogram
 tgcrypto
 pytz
 psutil
