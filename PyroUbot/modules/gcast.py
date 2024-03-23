@@ -39,7 +39,7 @@ async def _(client, message):
         return await gcs.edit(f"<code>{message.text.split()[0]}</code> <b>[ᴛʏᴘᴇ] [ᴛᴇxᴛ/ʀᴇᴘʟʏ]</b>")
 
     chats = await get_data_id(client, command)
-    blacklist = await get_list_from_vars(client.me.id, "BL_ID")
+    blacklist = await get_chat(client.me.id)
 
     done = 0
     failed = 0
