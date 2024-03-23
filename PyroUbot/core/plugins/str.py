@@ -1,4 +1,7 @@
 import asyncio
+import psutil
+
+
 from datetime import datetime
 from gc import get_objects
 from time import time
