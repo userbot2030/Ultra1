@@ -18,4 +18,6 @@ async def _(client, message):
     await stats_ubot(client, message)
 
 
-async def _(
+@PY.CALLBACK("kontol")
+async def _(client, callback_query):
+    await cb_stats(client, callback_query)
