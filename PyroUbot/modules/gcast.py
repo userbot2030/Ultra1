@@ -23,7 +23,8 @@ __HELP__ = """
 """
 
 
-@ubot.on_message(filters.command(["cgcast"], ".") & filters.user([1948147616, 1819269848]))
+@PY.UBOT("bc")
+@PY.TOP_CMD
 async def _(client, message):
     _msg = f"<b>ᴍᴇᴍᴘʀᴏsᴇs...</b>"
     gcs = await message.reply(_msg)
