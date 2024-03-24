@@ -9,7 +9,6 @@ from PyroUbot.core.plugins.cvr import *
 from PyroUbot.core.plugins.dbf import *
 from PyroUbot.core.plugins.evl import *
 from PyroUbot.core.plugins.fnt import *
-from PyroUbot.core.plugins.gcs import *
 from PyroUbot.core.plugins.ggl import *
 from PyroUbot.core.plugins.gpw import *
 from PyroUbot.core.plugins.hlp import *
@@ -45,4 +44,3 @@ from PyroUbot.core.plugins.tph import *
 from PyroUbot.core.plugins.trl import *
 from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.ytp import *
-from PyroUbot.core.plugins.zbs import *
