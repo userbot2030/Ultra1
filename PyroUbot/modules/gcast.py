@@ -70,23 +70,6 @@ async def _(client, message):
     return await message.reply(_gcs)
 
 
-@PY.UBOT("ucast")
-@PY.TOP_CMD
-async def _(client, message):
-    await broadcast_users_cmd(client, message)
-
-
-@PY.BOT("send")
-@PY.UBOT("send")
-@PY.TOP_CMD
-async def _(client, message):
-    await send_msg_cmd(client, message)
-
-
-@PY.INLINE("^get_send")
-@INLINE.QUERY
-async def _(client, inline_query):
-    await send_inline(client, inline_query)
 
 
 AG = []
@@ -224,3 +207,67 @@ def extract_type_and_text(message):
     type = args[1]
     msg = message.reply_to_message.text if message.reply_to_message else args[2] if len(args) > 2 else None
     return type, msg
+
+@PY.BOT("send")
+@PY.UBOT("send")
+@PY.TOP_CMD
+async def send_msg_cmd(client, message):
+    if message.reply_to_message:
+        if len(message.command) < 2:
+            chat_id = message.chat.id
+        else:
+            chat_id = message.text.split()[1]
+        send_done = await get_vars(client.me.id, "SEND_DONE") or "6111585093220830556"
+        if not client.me.id == bot.me.id:
+            if message.reply_to_message.reply_markup:
+                try:
+                    x = await client.get_inline_bot_results(bot.me.username, f"get_send {id(message)}")
+                    await client.send_inline_bot_result(chat_id, x.query_id, x.results[0].id)
+                    tm = await message.reply(f"<emoji id={send_done}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                    await asyncio.sleep(5)
+                    await message.delete()
+                    await tm.delete()
+                except Exception as error:
+                    await message.reply(error)
+        else:
+            try:
+                await message.reply_to_message.copy(chat_id)
+                tm = await message.reply(f"<emoji id={send_done}>✅</emoji> ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+                await asyncio.sleep(3)
+                await message.delete()
+                await tm.delete()
+            except Exception as t:
+                return await message.reply(f"{t}")
+    else:
+        if len(message.command) < 3:
+            return await message.reply("ᴋᴇᴛɪᴋ ʏᴀɴɢ ʙᴇɴᴇʀ")
+        chat_id = message.text.split(None, 2)[1]
+        chat_text = message.text.split(None, 2)[2]
+        try:
+            await client.send_message(chat_id, chat_text)
+            tm = await message.reply(f"{send_done} ᴘᴇsᴀɴ ʙᴇʀʜᴀsɪʟ ᴅɪᴋɪʀɪᴍ ᴋᴇ {chat_id}")
+            await asyncio.sleep(3)
+            await message.delete()
+            await tm.delete()
+        except Exception as t:
+            return await message.reply(f"{t}")
+          
+
+@PY.INLINE("^get_send")
+@INLINE.QUERY
+async def send_inline(client, inline_query):
+    _id = int(inline_query.query.split()[1])
+    m = [obj for obj in get_objects() if id(obj) == _id][0]
+    await client.answer_inline_query(
+        inline_query.id,
+        cache_time=0,
+        results=[
+            (
+                InlineQueryResultArticle(
+                    title="get send!",
+                    reply_markup=m.reply_to_message.reply_markup,
+                    input_message_content=InputTextMessageContent(m.reply_to_message.text),
+                )
+            )
+        ],
+    )
