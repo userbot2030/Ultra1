@@ -7,19 +7,19 @@ __MODULE__ = "joinleave"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴊᴏɪɴ-ʟᴇᴀᴠᴇ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}kickme</code>
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}kickme</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ɢʀᴜᴘ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}join</code> [ᴜꜱᴇʀɴᴀᴍᴇɢᴄ]
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}join</code> [ᴜꜱᴇʀɴᴀᴍᴇɢᴄ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴊᴏɪɴ ᴋᴇ ɢʀᴜᴘ ᴍᴇʟᴀʟᴜɪ ᴜꜱᴇʀɴᴀᴍᴇ 
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}leaveallgc</code>
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}leaveallgc</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ꜱᴇᴍᴜᴀ ɢʀᴜᴘ 
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}leaveallch</code>
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}leaveallch</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ꜱᴇᴍᴜᴀ ᴄʜᴀɴɴᴇʟ 
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}leave</code> [ᴜꜱᴇʀɴᴀᴍᴇɢᴄ]
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}leave</code> [ᴜꜱᴇʀɴᴀᴍᴇɢᴄ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ɢʀᴜᴘ ᴍᴇʟᴀʟᴜɪ ᴜꜱᴇʀɴᴀᴍᴇ
 """
 
