@@ -45,7 +45,7 @@ async def need_api(client, callback_query):
     if user_id in ubot._get_my_id:
         return await bot.send_message(
             user_id,
-            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
+            "<b>❌ ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
     elif user_id not in await get_prem():
         buttons = [
@@ -111,29 +111,7 @@ async def payment_userbot(client, callback_query):
 
 async def bikin_ubot(client, callback_query):
     user_id = callback_query.from_user.id
-    try:
-        await callback_query.message.delete()
-        api = await bot.ask(
-            user_id,
-            ("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, api.text):
-        return
-    api_id = api.text
-    try:
-        hash = await bot.ask(
-            user_id,
-            ("<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n" "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, hash.text):
-        return
-    api_hash = hash.text
+    await callback_query.message.delete()
     try:
         phone = await bot.ask(
             user_id,
@@ -147,8 +125,8 @@ async def bikin_ubot(client, callback_query):
     phone_number = phone.text
     new_client = Ubot(
         name=str(callback_query.id),
-        api_id=api_id,
-        api_hash=api_hash,
+        api_id=API_ID,
+        api_hash=API_HASH,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
