@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from PyroUbot import *
 
 __MODULE__ = "joinleave"
-__HELP__ = f"""
+__HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴊᴏɪɴ-ʟᴇᴀᴠᴇ 』</b>
 
   <b>❑ ᴄᴍᴅ:</b> <code>{0}kickme</code>
