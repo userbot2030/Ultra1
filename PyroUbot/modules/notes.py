@@ -24,6 +24,74 @@ __HELP__ = """
 """
 
 
+def detect_url_links(text):
+    link_pattern = (
+        r"(?:https?://)?(?:www\.)?[a-zA-Z0-9.-]+(?:\.[a-zA-Z]{2,})+(?:[/?]\S+)?"
+    )
+    link_found = re.findall(link_pattern, text)
+    return link_found
+
+
+def detect_button_and_text(text):
+    button_matches = re.findall(r"\| ([^|]+) - ([^|]+) \|", text)
+    text_matches = (
+        re.search(r"(.*?) \|", text, re.DOTALL).group(1) if "|" in text else text
+    )
+    return button_matches, text_matches
+
+
+def create_inline_keyboard(text, user_id=False, is_back=False):
+    keyboard = []
+    button_matches, text_matches = detect_button_and_text(text)
+
+    prev_button_data = None
+    for button_text, button_data in button_matches:
+        data = (
+            button_data.split(";same")[0]
+            if detect_url_links(button_data.split(";same")[0])
+            else f"_gtnote {int(user_id.split('_')[0])}_{user_id.split('_')[1]} {button_data.split(';same')[0]}"
+        )
+        cb_data = data if user_id else button_data.split(";same")[0]
+        if ";same" in button_data:
+            if prev_button_data:
+                if detect_url_links(cb_data):
+                    keyboard[-1].append(InlineKeyboardButton(button_text, url=cb_data))
+                else:
+                    keyboard[-1].append(
+                        InlineKeyboardButton(button_text, callback_data=cb_data)
+                    )
+            else:
+                if detect_url_links(cb_data):
+                    button_row = [InlineKeyboardButton(button_text, url=cb_data)]
+                else:
+                    button_row = [
+                        InlineKeyboardButton(button_text, callback_data=cb_data)
+                    ]
+                keyboard.append(button_row)
+        else:
+            if button_data.startswith("http"):
+                button_row = [InlineKeyboardButton(button_text, url=cb_data)]
+            else:
+                button_row = [InlineKeyboardButton(button_text, callback_data=cb_data)]
+            keyboard.append(button_row)
+
+        prev_button_data = button_data
+
+    markup = InlineKeyboardMarkup(inline_keyboard=keyboard)
+
+    if user_id and is_back:
+        markup.inline_keyboard.append(
+            [
+                InlineKeyboardButton(
+                    "ᴋᴇᴍʙᴀʟɪ",
+                    f"_gtnote {int(user_id.split('_')[0])}_{user_id.split('_')[1]}",
+                )
+            ]
+        )
+
+    return markup, text_matches
+
+
 @PY.UBOT("addnote|addcb")
 @PY.TOP_CMD
 async def _(client, message):
