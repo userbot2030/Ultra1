@@ -7,7 +7,6 @@ mongodb = mongo_client.pyro_ubot
 
 from PyroUbot.core.database.expired import *
 from PyroUbot.core.database.get_uptime import *
-from PyroUbot.core.database.notes import *
 from PyroUbot.core.database.prefix import *
 from PyroUbot.core.database.premium import *
 from PyroUbot.core.database.reseller import *
