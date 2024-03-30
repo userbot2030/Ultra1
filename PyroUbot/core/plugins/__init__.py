@@ -15,7 +15,6 @@ from PyroUbot.core.plugins.img import *
 from PyroUbot.core.plugins.ivt import *
 from PyroUbot.core.plugins.kng import *
 from PyroUbot.core.plugins.lgo import *
-from PyroUbot.core.plugins.lmt import *
 from PyroUbot.core.plugins.mmf import *
 from PyroUbot.core.plugins.mms import *
 from PyroUbot.core.plugins.ocr import *
