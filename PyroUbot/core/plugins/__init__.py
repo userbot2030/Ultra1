@@ -29,7 +29,6 @@ from PyroUbot.core.plugins.smt import *
 from PyroUbot.core.plugins.spm import *
 from PyroUbot.core.plugins.spt import *
 from PyroUbot.core.plugins.srh import *
-from PyroUbot.core.plugins.stf import *
 from PyroUbot.core.plugins.stg import *
 from PyroUbot.core.plugins.str import *
 from PyroUbot.core.plugins.tll import *
