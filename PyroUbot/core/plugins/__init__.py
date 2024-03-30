@@ -1,5 +1,4 @@
 from PyroUbot.core.plugins.adb import *
-from PyroUbot.core.plugins.adm import *
 from PyroUbot.core.plugins.alv import *
 from PyroUbot.core.plugins.asp import *
 from PyroUbot.core.plugins.btn import *
