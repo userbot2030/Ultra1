@@ -9,7 +9,7 @@ from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
 
 from PyroUbot import *
 
-@PY.UBOT("arab")
+@PY.UBOT("alive")
 @PY.TOP_CMD
 async def alive_cmd(client, message):
     msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>", quote=True)
