@@ -45,7 +45,8 @@ async def alive_query(client, inline_query):
             button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
-            ping = (datetime.now() - start).microseconds / 1000
+            delta_ping = (end - start).microseconds / 1000
+            delta_ping_formatted = round(delta_ping, 3
             ub_time = await get_uptime(my.me.id)
             uptime = await get_time((time() - ub_time))
             msg = f"""
@@ -53,7 +54,7 @@ async def alive_query(client, inline_query):
     sᴛᴀᴛᴜs: {status} 
         ᴇxᴘɪʀᴇᴅ ᴏɴ: <code>{exp}</code> 
         ᴅᴄ ɪᴅ: <code>{my.me.dc_id}</code>
-        ᴘɪɴɢ: <code>{str(ping).replace('.', ',')} ᴍs</code>
+        ᴘɪɴɢ: <code>{str(delta_ping_formatted).replace('.', ',')} ms</code>
         ᴘᴇᴇʀ ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
         ᴘᴇᴇʀ ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
         ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
