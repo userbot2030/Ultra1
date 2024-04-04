@@ -54,7 +54,6 @@ async def alive_query(client, inline_query):
     sᴛᴀᴛᴜs: {status} 
         ᴇxᴘɪʀᴇᴅ ᴏɴ: <code>{exp}</code> 
         ᴅᴄ ɪᴅ: <code>{my.me.dc_id}</code>
-        ᴘɪɴɢ: <code>{str(delta_ping_formatted).replace('.', ',')} ms</code>
         ᴘᴇᴇʀ ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
         ᴘᴇᴇʀ ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
         ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
