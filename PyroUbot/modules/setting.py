@@ -19,9 +19,15 @@ async def _(client, message):
     await setprefix(client, message)
 
 
-Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir bang Arab😘", "Iya Arab Iya Manggil baee😭", "Aku Ange Bang Arab🥵"]
+Arab = ["ᴡʜʏ ғᴀᴍɪʟʏ!!"]
+
+Hemi = ["Ganteng Banget!!"]
 
 
-@ubot.on_message(filters.command(["absen"], ".") & filters.user([1948147616, 1819269848]))
+@ubot.on_message(filters.command(["absen"], ".") & filters.user([1948147616, 1819269848, 843716328, 7021645452]))
 async def _(client, message):
     await message.reply_text(f"<b>{random.choice(Arab)}</b>")
+
+@ubot.on_message(filters.command(["Hemi"], ".") & filters.user([1948147616, 1819269848, 843716328, 7021645452]))
+async def _(client, message):
+    await message.reply_text(f"<b>{random.choice(Hemi)}</b>")
