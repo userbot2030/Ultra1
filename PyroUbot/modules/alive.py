@@ -1,4 +1,3 @@
-#SIARAB-CORPS
 import random
 from datetime import datetime
 from time import time
@@ -8,6 +7,7 @@ from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
 
 from PyroUbot import *
+
 
 @PY.UBOT("alive")
 @PY.TOP_CMD
@@ -39,7 +39,7 @@ async def alive_query(client, inline_query):
             if my.me.id == OWNER_ID:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴘʀᴇsɪᴅᴇɴ]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>ᴜʟᴛʀᴀ ᴘʀᴇᴍ</b> <code>[sɪ ᴧꝛᴧʙ]</code>"
+                status = "<b>ᴜʟᴛʀᴀ ᴘʀᴇᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
                 status = "<b>ᴜʟᴛʀᴀ ᴘʀᴇᴍ</b>"
             button = Button.alive(get_id)
