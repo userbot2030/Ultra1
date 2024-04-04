@@ -353,7 +353,6 @@ async def hapus_ubot(client, callback_query):
             await X.unblock_user(bot.me.username)
             for chat in await get_chat(X.me.id):
                 await remove_chat(X.me.id, chat)
-            await rm_all(X.me.id)
             await rem_pref(X.me.id)
             await remove_ubot(X.me.id)
             await rem_uptime(X.me.id)
