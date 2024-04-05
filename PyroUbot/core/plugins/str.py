@@ -9,6 +9,7 @@ from time import time
 from pyrogram.raw.functions import Ping
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+from PyroUbot.core.helpers import emojiprem
 from PyroUbot import *
 
 
