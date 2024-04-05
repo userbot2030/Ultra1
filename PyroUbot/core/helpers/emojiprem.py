@@ -29,3 +29,23 @@ class EMO:
         else:
             _pong3 = ""
         return _pong3
+        
+
+async def SUKSES(client):
+        emot_4 = await get_vars(client.me.id, "EMOJI_SUKSES")
+        sukses = emot_4 if emot_4 else "5289940334619406906"
+        if client.me.is_premium:
+            _berhasil = f"<emoji id={sukses}>👑</emoji>"
+        else:
+            _berhasil = ""
+        return _berhasil
+
+
+async def GAGAL(client):
+        emot_5 = await get_vars(client.me.id, "EMOJI_GAGAL")
+        gagal = emot_5 if emot_5 else "5289940334619406906"
+        if client.me.is_premium:
+            _ggl = f"<emoji id={gagal}>👑</emoji>"
+        else:
+            _ggl = ""
+        return _ggl
