@@ -1,6 +1,5 @@
 import asyncio
 import psutil
-import pyrogram.raw.functions as EMO
 
 from datetime import datetime
 from gc import get_objects
