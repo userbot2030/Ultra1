@@ -1,3 +1,13 @@
+
+async def get_vars(user_id: int, var_name: str):
+    # Kode untuk mengambil nilai variabel dari database atau sumber lainnya.
+    # Misalnya, mengambil dari database MongoDB.
+
+    db = pymongo.MongoClient()["pyro_database"]["users"]
+    user_vars = db.find_one({"_id": user_id}, {"variables": 1})
+    return user_vars.get("variables", {}).get(var_name, None)
+
+
 class EMO:
     async def PING1(client):
         emot_1 = await get_vars(client.me.id, "EMOJI_PING1")
