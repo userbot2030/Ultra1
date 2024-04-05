@@ -17,7 +17,7 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
-    png1 = await EMO.PING1(client)
+    ping1 = await EMO.PING1(client)
     ping2 = await EMO.PING2(client)
     ping3 = await EMO.PING3(client)
     if client.me.is_premium:
