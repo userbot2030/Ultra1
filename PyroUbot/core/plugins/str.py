@@ -10,7 +10,7 @@ from pyrogram.raw.functions import Ping
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import *
-from PyroUbot import emojiprem
+from PyroUbot.core.helpers import emojiprem
 
 async def ping_cmd(client, message):
     start = datetime.now()
