@@ -17,14 +17,14 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
-    ping1 = await get_vars(client.me.id, "EMOJI_PING1") or "6127475690531982315"
-    ping2 = await get_vars(client.me.id, "EMOJI_PING2") or "6114073270854619005"
-    ping3 = await get_vars(client.me.id, "EMOJI_PING3") or "6114074516395134769"
+    png1 = await EMO.PING1(client)
+    ping2 = await EMO.PING2(client)
+    ping3 = await EMO.PING3(client)
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={ping1}>🏓</emoji> —ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id={ping2}>⏰</emoji> —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
-<b><emoji id={ping3}>👑</emoji>—ɪ'ᴍ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
+<b>{ping1} —ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b>{ping2} —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
+<b>{ping3} —ɪ'ᴍ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
         _ping = f"""
