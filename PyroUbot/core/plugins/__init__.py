@@ -3,7 +3,6 @@ from PyroUbot.core.plugins.alv import *
 from PyroUbot.core.plugins.ctr import *
 from PyroUbot.core.plugins.dbf import *
 from PyroUbot.core.plugins.hlp import *
-from PyroUbot.core.plugins.img import *
 from PyroUbot.core.plugins.ivt import *
 from PyroUbot.core.plugins.kng import *
 from PyroUbot.core.plugins.lgo import *
