@@ -2,7 +2,6 @@ from PyroUbot.core.plugins.adb import *
 from PyroUbot.core.plugins.alv import *
 from PyroUbot.core.plugins.ctr import *
 from PyroUbot.core.plugins.dbf import *
-from PyroUbot.core.plugins.evl import *
 from PyroUbot.core.plugins.ggl import *
 from PyroUbot.core.plugins.gpw import *
 from PyroUbot.core.plugins.hlp import *
