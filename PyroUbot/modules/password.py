@@ -6,12 +6,6 @@ from pyrogram.enums import ParseMode
 
 @PY.UBOT("pw")
 @PY.TOP_CMD
-async def _(client, message):
-    await gen_password(client, message)
-
-
-
-
 async def gen_password(client, message):
     if len(message.command) < 2:
         return await message.delete()
