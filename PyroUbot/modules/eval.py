@@ -11,24 +11,6 @@ import psutil
 from PyroUbot import *
 
 
-async def _(client, message):
-    await shell_cmd(client, message)
-
-
-async def _(client, message):
-    await evalator_cmd(client, message)
-
-
-
-async def _(client, message):
-    await trash_cmd(client, message)
-
-
-
-async def _(client, message):
-    await get_my_otp(client, message)
-
-
 @PY.CALLBACK("host")
 async def _(client, callback_query):
     await vps(client, callback_query)
@@ -210,12 +192,12 @@ async def get_my_otp(client, message):
                 else:
                     return await TM.edit(X.me.phone_number)
 
-
+@PY.CALLBACK("restart")
 async def cb_restart(client, callback_query):
     await callback_query.message.delete()
     os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
 
-
+@PY.CALLBACK("gitpull")
 async def cb_gitpull(client, callback_query):
     await callback_query.message.delete()
     os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
