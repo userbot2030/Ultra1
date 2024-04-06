@@ -2,6 +2,7 @@ import random
 import string
 
 from pyrogram.enums import ParseMode
+from PyroUbot import *
 
 
 @PY.UBOT("pw")
