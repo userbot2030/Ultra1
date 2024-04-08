@@ -23,31 +23,8 @@ __HELP__ = """
   """
 
 
+
 @PY.BOT("copy")
-async def _(client, message):
-    await copy_bot_msg(client, message)
-
-
-@PY.UBOT("copy")
-@PY.TOP_CMD
-async def _(client, message):
-    await copy_ubot_msg(client, message)
-
-
-@PY.INLINE("^get_msg")
-@INLINE.QUERY
-async def _(client, inline_query):
-    await copy_inline_msg(client, inline_query)
-
-
-@PY.CALLBACK("^copymsg")
-@INLINE.DATA
-async def _(client, callback_query):
-    await copy_callback_msg(client, callback_query)
-
-
-
-
 async def copy_bot_msg(client, message):
     if message.from_user.id not in ubot._get_my_id:
         return
@@ -195,6 +172,9 @@ async def download_media_copy(get, client, infomsg, message):
         os.remove(thumbnail)
 
 
+
+@PY.UBOT("copy")
+@PY.TOP_CMD
 async def copy_ubot_msg(client, message):
     msg = message.reply_to_message or message
     infomsg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴄᴏᴘʏ ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ</b>")
@@ -236,8 +216,10 @@ async def copy_ubot_msg(client, message):
                     await infomsg.edit(f"{str(error)}")
     else:
         await infomsg.edit("ᴍᴀsᴜᴋᴋɪɴ ʟɪɴᴋ ʏᴀɴɢ ᴠᴀʟɪᴅ")
+      
 
-
+@PY.INLINE("^get_msg")
+@INLINE.QUERY
 async def copy_inline_msg(client, inline_query):
     await client.answer_inline_query(
         inline_query.id,
@@ -263,6 +245,9 @@ async def copy_inline_msg(client, inline_query):
     )
 
 
+
+@PY.CALLBACK("^copymsg")
+@INLINE.DATA
 async def copy_callback_msg(client, callback_query):
     try:
         q = int(callback_query.data.split("_", 1)[1])
