@@ -54,3 +54,11 @@ async def _(client, message):
 async def _(client, message):
     await un_expired(client, message)
 
+@PY.CALLBACK("restart")
+async def _(client, callback_query):
+    await cb_restart(client, callback_query)
+
+
+@PY.CALLBACK("gitpull")
+async def _(client, callback_query):
+    await cb_gitpull(client, callback_query)
