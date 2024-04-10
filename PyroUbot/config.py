@@ -2,7 +2,7 @@ import os
 
 API_ID = int(os.getenv("API_ID", "17896688"))
 API_HASH = os.getenv("API_HASH", "947327cf5ff0053a66bf7951f9db5658")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "6338148683:AAFtdODH3-I1UgoMS6Qkdx-btxm5nEaSeJE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6338148683:AAFkvSw1GKDy2mQgUUOabKB-UHoBs1_tjrM")
 OWNER_ID = int(os.getenv("OWNER_ID", "1948147616"))
 LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1002092876451"))
 BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1001969856888 -1001571197486").split()))
