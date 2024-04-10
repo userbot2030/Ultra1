@@ -32,11 +32,12 @@ async def tagall_cmd(client, message):
         if message.chat.id not in tagallgcid:
             break
         await asyncio.sleep(1.5)
-        await m.reply_text("🧸""\n ".join(output) + "\n ".join(output) + "\n\n" + text, quote=bool(message.reply_to_message))
+        await m.reply_text("\n ".join([f"{"<emoji id=5787188704434982946>✅</emoji>"} {output[i]}" for i in range(len(output))]) + "\n\n" + text, quote=bool(message.reply_to_message))
     try:
         tagallgcid.remove(message.chat.id)
     except Exception:
         pass
+
 
 
 
