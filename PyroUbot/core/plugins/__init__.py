@@ -29,3 +29,4 @@ from PyroUbot.core.plugins.ytp import *
 from PyroUbot.core.plugins.fnt import *
 from PyroUbot.core.plugins.evl import *
 from PyroUbot.core.plugins.cpy import *
+from PyroUbot.core.plugins.tll import *
