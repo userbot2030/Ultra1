@@ -39,8 +39,6 @@ async def tagall_cmd(client, message):
         pass
 
 
-
-
 @PY.UBOT("cancel")
 @PY.TOP_CMD
 async def batal_cmd(client, message):
