@@ -67,7 +67,7 @@ async def inviteall_cmd(client, message):
 
 async def cancel_cmd(client, message):
     if message.chat.id not in invite_id:
-        return await message.reply_text(f"sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>{PREFIX[0]}inviteall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ")
+        return await message.reply_text(f"sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>{0}inviteall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ")
     try:
         invite_id.remove(message.chat.id)
         await message.reply_text("ok inviteall berhasil dibatalkan")
