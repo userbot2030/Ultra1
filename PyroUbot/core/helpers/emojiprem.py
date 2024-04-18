@@ -30,8 +30,7 @@ class EMO:
             _pong3 = ""
         return _pong3
         
-
-async def SUKSES(client):
+    async def SUKSES(client):
         emot_4 = await get_vars(client.me.id, "EMOJI_SUKSES")
         sukses = emot_4 if emot_4 else "5206607081334906820"
         if client.me.is_premium:
@@ -40,8 +39,7 @@ async def SUKSES(client):
             _berhasil = ""
         return _berhasil
 
-
-async def GAGAL(client):
+    async def GAGAL(client):
         emot_5 = await get_vars(client.me.id, "EMOJI_GAGAL")
         gagal = emot_5 if emot_5 else "5210952531676504517"
         if client.me.is_premium:
@@ -50,7 +48,7 @@ async def GAGAL(client):
             _ggl = ""
         return _ggl
 
-async def PROSES(client):
+    async def PROSES(client):
         emot_6 = await get_vars(client.me.id, "EMOJI_PROSES")
         proses = emot_6 if emot_6 else "5814367691275767776"
         if client.me.is_premium:
@@ -59,7 +57,7 @@ async def PROSES(client):
             _proses = ""
         return _proses
 
-async def WARNING(client):
+    async def WARNING(client):
         emot_7 = await get_vars(client.me.id, "EMOJI_WARNING")
         warning = emot_7 if emot_7 else "6172475875368373616"
         if client.me.is_premium:
@@ -68,7 +66,7 @@ async def WARNING(client):
             _warn = ""
         return _warn
 
-async def ALASAN(client):
+    async def ALASAN(client):
         emot_8 = await get_vars(client.me.id, "EMOJI_ALASAN")
         alasan = emot_8 if emot_8 else "6208270338971669367"
         if client.me.is_premium:
