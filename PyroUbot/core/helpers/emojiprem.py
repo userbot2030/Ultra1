@@ -33,9 +33,9 @@ class EMO:
 
 async def SUKSES(client):
         emot_4 = await get_vars(client.me.id, "EMOJI_SUKSES")
-        sukses = emot_4 if emot_4 else "5289940334619406906"
+        sukses = emot_4 if emot_4 else "5206607081334906820"
         if client.me.is_premium:
-            _berhasil = f"<emoji id={sukses}>👑</emoji>"
+            _berhasil = f"<emoji id={sukses}>✅</emoji>"
         else:
             _berhasil = ""
         return _berhasil
@@ -43,9 +43,36 @@ async def SUKSES(client):
 
 async def GAGAL(client):
         emot_5 = await get_vars(client.me.id, "EMOJI_GAGAL")
-        gagal = emot_5 if emot_5 else "5289940334619406906"
+        gagal = emot_5 if emot_5 else "5210952531676504517"
         if client.me.is_premium:
-            _ggl = f"<emoji id={gagal}>👑</emoji>"
+            _ggl = f"<emoji id={gagal}>❌</emoji>"
         else:
             _ggl = ""
         return _ggl
+
+async def PROSES(client):
+        emot_6 = await get_vars(client.me.id, "EMOJI_PROSES")
+        proses = emot_6 if emot_6 else "5814367691275767776"
+        if client.me.is_premium:
+            _proses = f"<emoji id={proses}>⏳</emoji>"
+        else:
+            _proses = ""
+        return _proses
+
+async def WARNING(client):
+        emot_7 = await get_vars(client.me.id, "EMOJI_WARNING")
+        warning = emot_7 if emot_7 else "6172475875368373616"
+        if client.me.is_premium:
+            _warn = f"<emoji id={warning}>⚠️</emoji>"
+        else:
+            _warn = ""
+        return _warn
+
+async def ALASAN(client):
+        emot_8 = await get_vars(client.me.id, "EMOJI_ALASAN")
+        alasan = emot_8 if emot_8 else "6208270338971669367"
+        if client.me.is_premium:
+            _alsn = f"<emoji id={alasan}>🗒</emoji>"
+        else:
+            _alsn = ""
+        return _alsn
