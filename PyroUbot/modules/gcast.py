@@ -79,10 +79,6 @@ LT = []
 @PY.UBOT("auto_gcast")
 @PY.TOP_CMD
 async def _(client, message):
-    """
-    CREATE BY: NORSODIKIN.T.ME
-    REQUEST BY DHILNIHNGE.T.ME:
-    """
     proses = await EMO.PROSES(client)
     gagal = await EMO.GAGAL(client)
     sukses = await EMO.SUKSES(client)
