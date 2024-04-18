@@ -29,8 +29,8 @@ __HELP__ = """
 @PY.UBOT("bc")
 @PY.TOP_CMD
 async def _(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    _msg = f"<b><emoji id={proses}>⏳</emoji> ꜱᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏꜱᴇꜱ...</b>"
+    proses = await EMO.PROSES(client)
+    _msg = f"<b>{proses} ʟᴏᴀᴅɪɴɢ...</b>"
     gcs = await message.reply(_msg)
 
     command, text = extract_type_and_msg(message)
@@ -59,13 +59,13 @@ async def _(client, message):
             pass
 
     await gcs.delete()
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6247033234861853924"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
-    gcast_done = await get_vars(client.me.id, "GCAST_DONE") or "6289678459065077018"
+    sukses = await EMO.SUKSES(client)
+    gagal = await EMO.GAGAL(client)
+    warning = await EMO.WARNING(client)
     _gcs = f"""
-<b>ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴇʀᴋɪʀɪᴍ <emoji id={gcast_done}>❗️</emoji></b>
-<b><emoji id={sukses}>✅</emoji> ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
-<b><emoji id={gagal}>❎</emoji> ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
+<b>ʙʀᴏᴀᴅᴄᴀsᴛ ᴛᴇʟᴀʜ ʙᴇʀᴇꜱ {warning}</b>
+<b>{sukses} ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
+<b>{gagal} ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
 """
     return await message.reply(_gcs)
 
@@ -83,16 +83,19 @@ async def _(client, message):
     CREATE BY: NORSODIKIN.T.ME
     REQUEST BY DHILNIHNGE.T.ME:
     """
-    msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...</b>", quote=True)
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    msg = await message.reply("<b>{proses}ʟᴏᴀᴅɪɴɢ...</b>", quote=True)
     type, value = extract_type_and_text(message)
     auto_text_vars = await get_vars(client.me.id, "AUTO_TEXT")
 
     if type == "on":
         if not auto_text_vars:
-            return await msg.edit("<b>ʜᴀʀᴀᴘ sᴇᴛᴛɪɴɢ ᴛᴇxᴛ ɢᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>")
+            return await msg.edit("<b>{gagal} ʜᴀʀᴀᴘ sᴇᴛᴛɪɴɢ ᴛᴇxᴛ ɢᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>")
 
         if client.me.id not in AG:
-            await msg.edit("<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>")
+            await msg.edit("<b>{sukses} ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>")
 
             AG.append(client.me.id)
 
@@ -120,8 +123,10 @@ async def _(client, message):
                     return
 
                 done += 1
+                warning = await EMO.WARNING(client)
+                sukses = await EMO.SUKSES(client)
                 await msg.reply(
-                    f"<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴘᴜᴛᴀʀᴀɴ {done} ʙᴇʀʜᴀsɪʟ ᴅᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ: {group} ɢʀᴏᴜᴘ\n\nᴍᴇɴᴜɴɢɢᴜ {delay} ᴍᴇɴɪᴛ ʟᴀɢɪ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴜʟᴀɴɢ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ</b>",
+                    f"<b>{sukses} ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴘᴜᴛᴀʀᴀɴ {done} ʙᴇʀʜᴀsɪʟ ᴅᴀɴ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ: {group} ɢʀᴏᴜᴘ\n\n{warning} ᴍᴇɴᴜɴɢɢᴜ {delay} ᴍᴇɴɪᴛ ʟᴀɢɪ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴜʟᴀɴɢ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ</b>",
                     quote=True,
                 )
                 await asyncio.sleep(int(60 * int(delay)))
@@ -131,7 +136,7 @@ async def _(client, message):
     elif type == "off":
         if client.me.id in AG:
             AG.remove(client.me.id)
-            return await msg.edit("<b>ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴛᴇʟᴀʜ ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ</b>")
+            return await msg.edit("<b>{sukses} ᴀᴜᴛᴏ ɢᴄᴀsᴛ ᴛᴇʟᴀʜ ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ</b>")
         else:
             return await msg.delete()
 
