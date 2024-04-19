@@ -13,8 +13,7 @@ async def _(client, message):
 
 
 
-@PY.BOT("dor")
-@PY.OWNER
+@PY.BOT("dor", FILTERS.OWNER)
 async def _(client, message):
     msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...</b>")
     user_id = await extract_user(message)
@@ -52,8 +51,7 @@ async def _(client, message):
         return await msg.edit(error)
 
 
-@PY.BOT("undor")
-@PY.OWNER
+@PY.BOT("undor", FILTERS.OWNER)
 async def _(client, message):
     msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...</b>")
     user_id = await extract_user(message)
@@ -91,8 +89,7 @@ async def _(client, message):
         return await msg.edit(error)
 
 
-@PY.BOT("getdor")
-@PY.OWNER
+@PY.BOT("getdor", FILTERS.OWNER)
 async def _(client, message):
     Sh = await message.reply("<b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...</b>")
     admin_users = await get_list_from_vars(client.me.id, "BL_USERS")
