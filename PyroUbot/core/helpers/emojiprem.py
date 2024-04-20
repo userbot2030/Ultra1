@@ -70,7 +70,25 @@ class EMO:
         emot_8 = await get_vars(client.me.id, "EMOJI_ALASAN")
         alasan = emot_8 if emot_8 else "6208270338971669367"
         if client.me.is_premium:
-            _alsn = f"<emoji id={alasan}>🗒</emoji>"
+            _alsn = f"<emoji id={alasan}>💬</emoji>"
         else:
             _alsn = ""
         return _alsn
+
+    async def USER(client):
+        emot_9 = await get_vars(client.me.id, "EMOJI_USER")
+        user = emot_9 if emot_9 else "5316767533573884148"
+        if client.me.is_premium:
+            _usr = f"<emoji id={user}>👤</emoji>"
+        else:
+            _usr = ""
+        return _usr
+
+    async def ADMIN(client):
+        emot_10 = await get_vars(client.me.id, "EMOJI_USER")
+        admin = emot_10 if emot_10 else "6264622255515371358"
+        if client.me.is_premium:
+            _adm = f"<emoji id={admin}>👮🏻</emoji>"
+        else:
+            _adm = ""
+        return _adm
