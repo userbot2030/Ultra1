@@ -23,13 +23,13 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         _ping = f"""
 <b>{pong1} —ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>{pong2} —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
+<b>{pong2} —ᴜʙöᴛ :</b> {bot.me.mention}
 <b>{pong3} —ɪ'ᴍ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     else:
         _ping = f"""
 <b>—ᴘᴏɴɢ: </b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>—ᴜʙöᴛ: </b> <code>{bot.me.mention}</code>
+<b>—ᴜʙöᴛ: </b> {bot.me.mention}
 <b>—ɪ'ᴍ: </b><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></b>
 """
     await message.reply(_ping)
