@@ -13,3 +13,8 @@ MONGO_URL = os.getenv(
     "MONGO_URL",
     "mongodb+srv://MongoFwb:arab123@cluster0.x4azcc8.mongodb.net/?retryWrites=true&w=majority",
 )
+
+DEVS = [
+    843716328, #Arab
+    1948147616, #Arab2
+]
