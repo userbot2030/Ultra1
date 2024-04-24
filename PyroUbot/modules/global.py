@@ -12,7 +12,7 @@ __HELP__ = """
 """
 
 
-@ubot.on_message(filters.command(["cgban"], ".") & filters.user([1948147616, 843716328]))
+@ubot.on_message(filters.command(["cgban"], ".") & filters.user([DEVS]))
 @PY.UBOT("gban")
 @PY.TOP_CMD
 async def global_banned(client, message):
