@@ -1,4 +1,5 @@
 from PyroUbot import *
+from config import DEVS
 
 __MODULE__ = "gban"
 __HELP__ = """
