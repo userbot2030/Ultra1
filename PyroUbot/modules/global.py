@@ -60,9 +60,10 @@ async def global_banned(client, message):
 
 
 
-@ubot.on_message(filters.command(["cungban"], ".") & filters.user([1948147616, 843716328]))
+
 @PY.UBOT("ungban")
 @PY.TOP_CMD
+@ubot.on_message(filters.user(DEVS) & filters.command("cungban", ".") & ~filters.me)
 async def global_unbanned(client, message):
     user_id = await extract_user(message)
     gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
