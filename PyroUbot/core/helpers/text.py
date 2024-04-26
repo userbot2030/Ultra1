@@ -43,7 +43,7 @@ class MSG:
             msg = f"""
 <b>👋🏻 Halo <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!!
 
-💬Perkenalkan Saya {bot.me.mention} Bot Untuk Membuat Userbot Premium di Akun Anda
+💬 Perkenalkan Saya {bot.me.mention} Bot Untuk Membuat Userbot Premium di Akun Anda
 💬 Apa Ada Yang Bisa Saya Bantu ? Jika Kamu Sudah Melakukan Pembayaran Silakan Klik Tombol Buat Userbot.
 
 👉🏻 Dan Jika Kamu Belum Mendapatkan Akses Silakan Contact Admin/Seler</b>
