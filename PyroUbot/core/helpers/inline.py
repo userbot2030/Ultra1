@@ -47,7 +47,7 @@ class Button:
     def start(message):
         if not message.from_user.id == OWNER_ID:
             button = [
-                [InlineKeyboardButton("ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ 🔋", callback_data="bahan")],
+                [InlineKeyboardButton("🔋 ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ 🔋", callback_data="bahan")],
                 [InlineKeyboardButton("sᴛᴀᴛᴜs ᴀᴋᴜɴ 📡", callback_data="status_ubot")],
                 [
                     InlineKeyboardButton("ᴍᴏᴅᴜʟ ʜᴇʟᴘ 📝", callback_data="help_back"),
