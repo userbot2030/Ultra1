@@ -41,14 +41,13 @@ class MSG:
     def START(message):
         if not message.from_user.id == OWNER_ID:
             msg = f"""
-<b>👋🏻 ʜᴀʟᴏ <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!
+<b>👋🏻 Halo <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>, Perkenalkan Saya {bot.me.mention} !!
 
-💬 ᴘᴇʀᴋᴇɴᴀʟᴋᴀɴ sᴀʏᴀ ᴀᴅᴀʟᴀʜ {bot.me.mention} ʏᴀɴɢ ᴀᴋᴀɴ ᴍᴇᴍʙᴀɴᴛᴜ ᴀɴᴅᴀ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴜsᴇʀʙᴏᴛ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ.
+💬 Apa Ada Yang Bisa Saya Bantu ?
+Jika Kamu Sudah Melakukan Pembayaran Silakan Klik Tombol Buat Userbot.
 
-{bot.me.mention} ᴀᴅᴀʟᴀʜ ᴜsᴇʀʙᴏᴛ ᴅᴇɴɢᴀɴ ʙᴇʀʙᴀɢᴀɪ ᴍᴀᴄᴀᴍ ᴍᴏᴅᴜʟ ʏᴀɴɢ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ɢᴜʏs, ᴘᴍᴘᴇʀᴍɪᴛ, ᴘᴍ-ʟᴏɢs, ᴀғᴋ ᴅᴀɴ ᴊᴜɢᴀ ғᴜʟʟ ᴇᴍᴏᴊɪ ᴘʀᴇᴍɪᴜᴍ.
-ᴅɪ ʙᴇʀʙᴀɢᴀɪ ᴍᴏᴅᴜʟɴʏᴀ ᴡɪʜ ᴋᴇʀᴇɴ ʙᴀɴɢᴇᴛ ʙᴜᴋᴀɴ
-
-👉🏻 sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏʟ ᴅɪ sɪɴɪ</b>
+👉🏻 Dan Jika Kamu Belum Mendapatkan Akses Silakan Contact Admin atau Lakukan Pembayaran Via Bot.
+Untuk Mendapatkan Akses, Serta Kirimkan Bukti Tangkapan Layar Pembayaran</b>
 """
         else:
             msg = f"""
