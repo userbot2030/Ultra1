@@ -41,13 +41,12 @@ class MSG:
     def START(message):
         if not message.from_user.id == OWNER_ID:
             msg = f"""
-<b>👋🏻 Halo <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>, Perkenalkan Saya {bot.me.mention} !!
+<b>👋🏻 Halo <a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>!!
 
-💬 Apa Ada Yang Bisa Saya Bantu ?
-Jika Kamu Sudah Melakukan Pembayaran Silakan Klik Tombol Buat Userbot.
+💬Perkenalkan Saya {bot.me.mention} Bot Untuk Membuat Userbot Premium di Akun Anda
+💬 Apa Ada Yang Bisa Saya Bantu ? Jika Kamu Sudah Melakukan Pembayaran Silakan Klik Tombol Buat Userbot.
 
-👉🏻 Dan Jika Kamu Belum Mendapatkan Akses Silakan Contact Admin atau Lakukan Pembayaran Via Bot.
-Untuk Mendapatkan Akses, Serta Kirimkan Bukti Tangkapan Layar Pembayaran</b>
+👉🏻 Dan Jika Kamu Belum Mendapatkan Akses Silakan Contact Admin/Seler</b>
 """
         else:
             msg = f"""
