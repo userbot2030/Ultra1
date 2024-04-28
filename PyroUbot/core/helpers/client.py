@@ -43,30 +43,6 @@ class PY:
 
         return wrapper
 
-    
-    def NO_CMD_UBOT(result, ubot):
-        query_mapping = {
-            "ANTI_USERS": {
-                "query": (
-                    filters.text
-                    & ~filters.private
-                ),
-                "group": 1,
-            },
-        }
-        result_query = query_mapping.get(result)
-
-        def decorator(func):
-            if result_query:
-                async def wrapped_func(client, message):
-                    await func(client, message)
-
-                ubot.on_message(result_query["query"], group=int(result_query["group"]))(wrapped_func)
-                return wrapped_func
-            else:
-                return func
-
-        return decorator
 
     def INLINE(command):
         def wrapper(func):
