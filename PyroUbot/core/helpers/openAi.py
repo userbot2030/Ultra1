@@ -1,6 +1,6 @@
 import asyncio
 
-import google.generativeai as genai
+import requests 
 import openai
 
 from PyroUbot import AI_GOOGLE_API
@@ -12,11 +12,14 @@ class OpenAi:
         create by: NorSodikin.t.me
         request by: Dhilnihnge.t.me
         """
-        genai.configure(api_key=AI_GOOGLE_API)
-        model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest")
-        convo = model.start_chat(history=[])
-        convo.send_message(question)
-        return convo.last.text
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key={AI_GOOGLE_API}"
+        payload = {"contents": [{"role": "user", "parts": [{"text": question}]}], "generationConfig": {"temperature": 1, "topK": 0, "topP": 0.95, "maxOutputTokens": 8192, "stopSequences": []}}
+        headers = {"Content-Type": "application/json"}
+        response = requests.post(url, json=payload, headers=headers)
+        if response.status_code == 200:
+            return response.json()["candidates"][0]["content"]["parts"][0]["text"]
+        else:
+            return f"Failed to generate content. Status code: {response.status_code}"
 
     @staticmethod
     async def ImageDalle(question):
