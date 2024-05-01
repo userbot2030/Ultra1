@@ -13,7 +13,7 @@ class OpenAi:
         request by: Dhilnihnge.t.me
         """
         genai.configure(api_key=AI_GOOGLE_API)
-        model = genai.GenerativeModel(model_name="gemini-1.0-pro")
+        model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest")
         convo = model.start_chat(history=[])
         convo.send_message(question)
         return convo.last.text
