@@ -65,8 +65,8 @@ async def _(client, message):
     warning = await EMO.WARNING(client)
     _gcs = f"""
 <b>{warning} ɢɪᴋᴇꜱ ᴛᴇʟᴀʜ ʙᴇʀᴇꜱ.</b>
-<b>{sukses} ʙᴇʀʜᴀsɪʟ: {done} ɢʀᴏᴜᴘ</b>
-<b>{gagal} ɢᴀɢᴀʟ: {failed} ɢʀᴏᴜᴘ</b>
+<b>{sukses} —ᴅᴏɴᴇ  ɪɴ : <code>{done}</code> ɢʀᴏᴜᴘ</b>
+<b>{gagal} —ғᴀɪʟ ɪɴ : <code>{failed}</code> ɢʀᴏᴜᴘ</b>
 """
     return await message.reply(_gcs)
 
