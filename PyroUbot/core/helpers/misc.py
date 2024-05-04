@@ -135,7 +135,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
                 for x in module_dict.values()
             ]
         )
-    line = 4
+    line = 3
     pairs = list(zip(modules[::2], modules[1::2]))
     i = 0
     for m in pairs:
