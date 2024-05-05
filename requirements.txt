@@ -1,4 +1,4 @@
-git+https://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@github.com/fadhilarab47/pyrogram
+git+https://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@github.com/fadhilarab47/pyrogram
 tgcrypto
 pytz
 psutil
@@ -32,7 +32,11 @@ python-ffmpeg
 search_engine_parser
 g4f==0.1.9.3
 openai
-pytgcalls==3.0.0.dev24
+py-tgcalls==1.0.9
 uvloop
 google-generativeai
 pytimeparse
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+oauth2client
