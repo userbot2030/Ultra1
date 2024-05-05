@@ -28,7 +28,6 @@ async def _(client, message):
 
 
 @PY.UBOT("arab")
-sukses = await EMO.SUKSES(client)
 async def _(client, message):
     sukses = await EMO.SUKSES(client)
     await message.reply_text(f"<b>{sukses} ouh yang punya</b> <code>{bot.me.mention}</code> <b>kaciw kan</b>")
