@@ -25,3 +25,10 @@ Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir b
 @ubot.on_message(filters.user(DEVS) & filters.command("absen", ".") & ~filters.me)
 async def _(client, message):
     await message.reply_text(f"<b>{random.choice(Arab)}</b>")
+
+
+@PY.UBOT("arab")
+sukses = await EMO.SUKSES(client)
+async def _(client, message):
+    sukses = await EMO.SUKSES(client)
+    await message.reply_text(f"<b>{sukses} ouh yang punya</b> <code>{bot.me.mention}</code> <b>kaciw kan</b>")
