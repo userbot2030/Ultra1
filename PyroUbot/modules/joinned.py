@@ -1,5 +1,7 @@
-from pyrogram import Client, enums, filters
-from pyrogram.types import Message
+from pyrogram import *
+from pyrogram.enums import ChatType, ChatMemberStatus
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
+from pyrogram.errors.exceptions.not_acceptable_406 import ChannelPrivate
 
 from PyroUbot import *
 
@@ -21,6 +23,9 @@ __HELP__ = """
 
   <b>❑ ᴄᴍᴅ:</b> <code>{0}leave</code> [ᴜꜱᴇʀɴᴀᴍᴇɢᴄ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ɢʀᴜᴘ ᴍᴇʟᴀʟᴜɪ ᴜꜱᴇʀɴᴀᴍᴇ
+
+  <b>❑ ᴄᴍᴅ:</b> <code>{0}leaveallmute</code> 
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ ɢʀᴏᴜᴘ ɢʀᴏᴜᴘ ʏᴀɴɢ ᴅɪ ᴍᴜᴛᴇ
 """
 
 
@@ -83,3 +88,20 @@ async def kickmeallch(client: Client, message: Message):
     await Man.edit(
         f"ʙᴇʀʜᴀꜱɪʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {done} ᴄʜᴀɴɴᴇʟ, ɢᴀɢᴀʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {er} ᴄʜᴀɴɴᴇʟ"
     )
+
+
+@PY.UBOT("leaveallmute")
+async def _(client, message):
+    done = 0
+    Tk = await message.reply(f"<b>Processing...")
+    async for dialog in client.get_dialogs():
+        if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
+            chat = dialog.chat.id
+            try:
+                member = await client.get_chat_member(chat, "me")
+                if member.status == ChatMemberStatus.RESTRICTED:
+                    await client.leave_chat(chat)
+                    done += 1
+            except Exception:
+                pass
+    await Tk.edit(f"<b>Succes Leave {done} Group Muted!!</b>")
