@@ -34,6 +34,7 @@ def get_message(message):
     return msg
 
 
+
 async def get_broadcast_id(client, query):
     chats = []
     chat_types = {
@@ -42,9 +43,14 @@ async def get_broadcast_id(client, query):
     }
     async for dialog in client.get_dialogs():
         if dialog.chat.type in chat_types[query]:
-            chats.append(dialog.chat.id)
+            # Periksa apakah top_message ada sebelum mengakses id-nya
+            if dialog.top_message is not None: 
+                chats.append(dialog.chat.id)
+            else:
+                print(f"Melewati dialog tanpa top_message: {dialog.chat.id}")  # Log untuk debugging
 
-    return chats
+    return chats 
+
 
 """
 async def broadcast_groupcmd(client, message):
