@@ -6,7 +6,7 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-__MODULE__ = "gcast"
+__MODULE__ = "gcast2"
 __HELP__ = """
 <b>◖ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɢᴄᴀsᴛ◗</b>
 
