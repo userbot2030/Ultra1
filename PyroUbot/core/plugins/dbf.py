@@ -102,21 +102,22 @@ async def add_blaclist(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "6113891550788324241"
+        gagal = await EMO.GAGAL(client)
+        alasan = await EMO.ALASAN(client)
         chat_id = message.chat.id
         blacklist = await get_chat(client.me.id)
         if chat_id in blacklist:
-            return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ɢʀᴏᴜᴘ: {message.chat.title}\nᴋᴇᴛ: sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʙʟᴀᴄᴋʟɪꜱᴛ")
-        gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
-        sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+            return await Tm.edit(f"<pre>{gagal} ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
+        gagal = await EMO.GAGAL(client)
+        sukses = await EMO.SUKSES(client)
         alasan = await EMO.ALASAN(client)
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(f"<pre><emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: ʙᴇʀʜᴀꜱɪʟ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
+            return await Tm.edit(f"<pre>{sukses} ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: ʙᴇʀʜᴀꜱɪʟ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
         else:
-            return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+            return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i><b>")
     else:
-        return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
+        return await Tm.edit(f"<pre>{gagal} ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ</pre>")
 
 
 async def del_blacklist(client, message):
