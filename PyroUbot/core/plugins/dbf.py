@@ -109,9 +109,10 @@ async def add_blaclist(client, message):
             return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ɢʀᴏᴜᴘ: {message.chat.title}\nᴋᴇᴛ: sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʙʟᴀᴄᴋʟɪꜱᴛ")
         gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
         sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+        alasan = await EMO.ALASAN(client)
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(f"<emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ: {message.chat.title}\nᴋᴇᴛ: ʙᴇʀʜᴀꜱɪʟ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ")
+            return await Tm.edit(f"<pre><emoji id={sukses}>✅</emoji> ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: ʙᴇʀʜᴀꜱɪʟ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
         else:
             return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
     else:
