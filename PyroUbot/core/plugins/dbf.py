@@ -107,13 +107,13 @@ async def add_blaclist(client, message):
         chat_id = message.chat.id
         blacklist = await get_chat(client.me.id)
         if chat_id in blacklist:
-            return await Tm.edit(f"<pre>{gagal} ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
+            return await Tm.edit(f"<b>{gagal} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n{alasan} <b>ᴋᴇᴛ:</b> <pre>sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</pre>")
         gagal = await EMO.GAGAL(client)
         sukses = await EMO.SUKSES(client)
         alasan = await EMO.ALASAN(client)
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(f"<pre>{sukses} ɢʀᴏᴜᴘ: {message.chat.title}\n{alasan} ᴋᴇᴛ: ʙᴇʀʜᴀꜱɪʟ ᴅɪ ʙʟᴀᴄᴋʟɪꜱᴛ</pre>")
+            return await Tm.edit(f"<b>{sukses} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ/pre>")
         else:
             return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i><b>")
     else:
