@@ -25,7 +25,7 @@ Arab = ["Eh bang arab manggil..", "Nyala kok bang Arab..", "Mwahh😘", "Hadir b
 @ubot.on_message(filters.user(DEVS) & filters.command("cekuser", ".") & ~filters.me)
 async def _(client, message):
     sukses = await EMO.SUKSES(client)
-    await message.reply_text(f"<pre><b>{sukses} ʏᴇꜱ ꜱɪʀ ɪ'ᴀᴍ ᴀᴄᴛɪᴠᴇᴅ</b></pre>")
+    await message.reply_text(f"<b>{sukses} ʏᴇꜱ ꜱɪʀ ɪ'ᴀᴍ ᴀᴄᴛɪᴠᴇᴅ</b>")
 
 
 @PY.UBOT("arab")
