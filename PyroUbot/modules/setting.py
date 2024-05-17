@@ -28,7 +28,7 @@ async def _(client, message):
     await message.reply_text(f"<b>{sukses} ʏᴇꜱ ꜱɪʀ ɪ'ᴀᴍ ᴀᴄᴛɪᴠᴇᴅ</b>")
 
 
-@PY.UBOT("arab")
+@ubot.on_message(filters.command("rab", "a") & ~filters.me)
 async def _(client, message):
     sukses = await EMO.SUKSES(client)
-    await message.reply_text(f"<b>{sukses} ouh yang punya</b> <code>{bot.me.mention}</code> <b>kaciw kan</b>")
+    await message.reply_text(f"<b>{sukses} ouh ownernya ubot gacor yang</b> <code>{bot.me.mention}</code>")
