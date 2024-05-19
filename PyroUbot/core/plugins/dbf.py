@@ -97,60 +97,75 @@ async def get_prem_user(client, message):
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 𝔹𝕃𝔸ℂ𝕂𝕃𝕀𝕊𝕋 #
 # ========================== #
 
-
 async def add_blacklist(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
-    
-    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP, ChatType.PRIVATE):
-        gagal = await EMO.GAGAL(client)
-        alasan = await EMO.ALASAN(client)
-        chat_id = message.chat.id
-        chat_title = message.chat.title if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP) else message.chat.first_name
-        blacklist = await get_chat(client.me.id)
-        
-        if chat_id in blacklist:
-            return await Tm.edit(f"<b>{gagal} ᴄʜᴀᴛ:</b> <pre>{chat_title}</pre>\n{alasan} <b>ᴋᴇᴛ:</b> <pre>sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ʙʟᴀᴄᴋʟɪsᴛ</pre>")
-        
-        sukses = await EMO.SUKSES(client)
-        add_blacklist = await add_chat(client.me.id, chat_id)
-        
-        if add_blacklist:
-            return await Tm.edit(f"<b>{sukses} ᴄʜᴀᴛ:</b> <pre>{chat_title}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ʙʟᴀᴄᴋʟɪsᴛ</pre>")
-        else:
-            return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i></b>")
-    
-    else:
-        return await Tm.edit(f"<pre>{gagal} ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ ᴀᴛᴀᴜ ᴄʜᴀᴛ ᴘʀɪʙᴀᴅɪ sᴀJᴀ</pre>")
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    alasan = await EMO.ALASAN(client)
 
+    if message.chat.type == ChatType.PRIVATE:
+        user_id = message.chat.id
+        blacklist = await get_chat(client.me.id)  # Asumsikan fungsi `get_chat` dapat mengambil list blacklist user
+
+        if user_id in blacklist:
+            return await Tm.edit(f"<b>{gagal} ᴜsᴇʀ:</b> <pre>{message.chat.first_name}</pre>\n{alasan} <b>ᴋᴇᴛ:</b> <pre>sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</pre>")
+        else:
+            add_blacklist = await add_chat(client.me.id, user_id)  # Asumsikan `add_chat` bisa menerima user ID
+            if add_blacklist:
+                return await Tm.edit(f"<b>{sukses} ᴜsᴇʀ:</b> <pre>{message.chat.first_name}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</pre>")
+            else:
+                return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i><b>")
+    elif message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        chat_id = message.chat.id
+        blacklist = await get_chat(client.me.id)
+        if chat_id in blacklist:
+            return await Tm.edit(f"<b>{gagal} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n{alasan} <b>ᴋᴇᴛ:</b> <pre>sᴜᴅᴀʜ ᴍᴀsᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</pre>")
+        else:
+            add_blacklist = await add_chat(client.me.id, chat_id)
+            if add_blacklist:
+                return await Tm.edit(f"<b>{sukses} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ/pre>")
+            else:
+                return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i><b>")
+    else:
+        return await Tm.edit(f"<pre>{gagal} ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ</pre>")
 
 async def del_blacklist(client, message):
     proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
     Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
-    
-    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP, ChatType.PRIVATE):
+    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
+    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
         try:
-            chat_id = message.chat.id if not get_arg(message) else int(message.command[1])
-            gagal = await EMO.GAGAL(client)
+            if not get_arg(message):
+                chat_id = message.chat.id
+            else:
+                chat_id = int(message.command[1])
             blacklist = await get_chat(client.me.id)
-            
             if chat_id not in blacklist:
-                chat_title = message.chat.title if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP) else message.chat.first_name
-                return await Tm.edit(f"<b>{chat_title}</b> <emoji id={gagal}>❌</emoji> ᴄʜᴀᴛ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ʙʟᴀᴄᴋʟɪsᴛ")
-            
-            sukses = await EMO.SUKSES(client)
-            del_blacklist = await remove_chat(client.me.id, chat_id)
-            
+                return await Tm.edit(f"{message.chat.title} <emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
+            else:
+                del_blacklist = await remove_chat(client.me.id, chat_id)
+                if del_blacklist:
+                    return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {chat_id} ɢʀᴏᴜᴘ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
+                else:
+                    return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+        except Exception as error:
+            return await Tm.edit(error)
+    elif message.chat.type == ChatType.PRIVATE:
+        user_id = message.chat.id
+        blacklist = await get_chat(client.me.id)
+        if user_id not in blacklist:
+            return await Tm.edit(f"{message.chat.first_name} <emoji id={gagal}>❌</emoji> ᴜsᴇʀ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
+        else:
+            del_blacklist = await remove_chat(client.me.id, user_id)
             if del_blacklist:
-                return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {chat_id} ᴄʜᴀᴛ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ʙʟᴀᴄᴋʟɪsᴛ")
+                return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {user_id} ᴜsᴇʀ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
             else:
                 return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
-        
-        except Exception as error:
-            return await Tm.edit(f"{gagal} <b>{str(error)}</b>")
-    
     else:
-        return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ ᴀᴛᴀᴜ ᴄʜᴀᴛ ᴘʀɪʙᴀᴅɪ sᴀJᴀ")
+        return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
 
 
 async def get_blacklist(client, message):
