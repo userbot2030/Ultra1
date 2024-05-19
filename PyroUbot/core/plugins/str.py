@@ -16,7 +16,7 @@ async def ping_cmd(client, message):
     start = datetime.now()
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
-    delta_ping = (end - start).microseconds / 1
+    delta_ping = (end - start).microseconds / 100000
     pong1 = await EMO.PING1(client)
     pong2 = await EMO.PING2(client)
     pong3 = await EMO.PING3(client)
