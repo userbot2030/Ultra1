@@ -32,9 +32,9 @@ class PY:
     def NO_CMD_UBOT(results):
         def wrapper(func):
             query_mapping = {
-                "JASEB_MSG": {
-                    "query": filters.create(if_jaseb) & ~filters.me & ~filters.bot,
-                    "group": 23,
+                "FILTER_MSG": {
+                    "query": filters.create(if_filter) & ~filters.me & ~filters.bot,
+                    "group": 33,
                 },
             }
             results_query = query_mapping[results]
