@@ -24,7 +24,7 @@ __HELP__ = """
 @ubot.on_message(filters.user(DEVS) & filters.command("cbc", ".") & ~filters.me)
 async def _(client, message):
     proses = await EMO.PROSES(client)
-    _msg = f"<b>{proses} sᴀʙᴀʀ ʏᴀ ʙʀᴇᴇ ʟᴀɢɪ ɴɢɪʀɪᴍ...</b>"
+    _msg = f"<b>{proses} ʟᴏᴀᴅɪɴɢ ɢᴄᴀꜱᴛ..</b>"
     gcs = await message.reply(_msg)
 
     command, text = extract_type_and_msg(message)
