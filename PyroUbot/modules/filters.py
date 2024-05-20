@@ -36,17 +36,19 @@ def extract_type_and_msg(message):
 
 
 @PY.NO_CMD_UBOT("FILTER_MSG")
-async def _(client, message):
+async def filter_message(client, message):
     try:
         chat_logs = await get_vars(client.me.id, "ID_LOGS")
-        all = await all_vars(client.me.id, "FILTERS") or {}
-        for x in all.keys():
-            if x == message.text.split()[0]:
-                msg_id = await get_vars(client.me.id, str(x), "FILTERS")
-                msg = await client.get_messages(int(chat_logs), int(msg_id))
+        all_filters = await all_vars(client.me.id, "FILTERS") or {}
+        
+        for key, value in all_filters.items():
+            if key == message.text.split()[0]:
+                msg = await client.get_messages(int(chat_logs), int(value))
                 return await msg.copy(message.chat.id, reply_to_message_id=message.id)
     except Exception as error:
-        print(error)
+        print(f"An error occurred: {error}")
+
+
 
 
 @PY.UBOT("filter")
