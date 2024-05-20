@@ -39,7 +39,7 @@ def extract_type_and_msg(message):
     return type, msg
 
 
-@@ubot.on_message(filters.create(if_jaseb) & ~filters.me & ~filters.bot, group=126)
+@ubot.on_message(filters.create(if_jaseb) & ~filters.me & ~filters.bot, group=126)
 async def _(client, message):
     try:
         chat_logs = await get_vars(client.me.id, "ID_LOGS")
