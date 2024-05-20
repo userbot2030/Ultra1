@@ -6,6 +6,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import *
+from PyroUbot.helpers import EMO
 
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℙℝ𝔼𝕄𝕀𝕌𝕄 #
@@ -13,13 +14,14 @@ from PyroUbot import *
 
 
 async def prem_user(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
+    proses = await EMO.PROSES(client)
+    Tm = await message.reply(f"<b>{proses} ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if message.from_user.id not in await get_seles():
         return await Tm.edit("ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇɴᴊᴀᴅɪ ʀᴇsᴇʟʟᴇʀ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ")
     user_id, get_bulan = await extract_user_and_reason(message)
     if not user_id:
-        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʙᴜʟᴀɴ</b>")
+        gagal = await EMO.GAGAL(client)
+        return await Tm.edit(f"<b>{gagal} {message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʙᴜʟᴀɴ</b>")
     try:
         get_id = (await client.get_users(user_id)).id
     except Exception as error:
@@ -28,13 +30,16 @@ async def prem_user(client, message):
         get_bulan = 1
     premium = await get_prem()
     if get_id in premium:
-        return await Tm.edit("ᴅɪᴀ sᴜᴅᴀʜ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ")
+        gagal = await EMO.GAGAL(client)
+        return await Tm.edit(f"{gagal} ᴅɪᴀ sᴜᴅᴀʜ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ")
     added = await add_prem(get_id)
     if added:
         now = datetime.now(timezone("Asia/Jakarta"))
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(get_id, expired)
-        await Tm.edit(f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
+        sukses = await EMO.SUKSES(client)
+        alasan = await EMO.ALASAN(client)
+        await Tm.edit(f"{sukses} {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\n\n{alasan} sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}")
         await bot.send_message(
             OWNER_ID,
             f"• {message.from_user.id} ─> {get_id} •",
@@ -56,9 +61,9 @@ async def prem_user(client, message):
 
 
 async def unprem_user(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
+    proses = await EMO.SUKSES(client)
     user_id = await extract_user(message)
-    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
+    Tm = await message.reply(f"<b>{proses} ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     if not user_id:
         return await Tm.edit("<b>ʙᴀʟᴀs ᴘᴇsᴀɴ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴇʀɪᴋᴀɴ ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ</b>")
     try:
@@ -70,7 +75,8 @@ async def unprem_user(client, message):
         return await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     removed = await remove_prem(user.id)
     if removed:
-        await Tm.edit(f"<b> ✅ {user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
+        sukses = await EMO.SUKSES(client)
+        await Tm.edit(f"<b> {sukses} {user.mention} ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
@@ -99,8 +105,8 @@ async def get_prem_user(client, message):
 
 
 async def add_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    proses = await EMO.PROSES(client)
+    Tm = await message.reply(f"<b>{proses} ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP, ChatType.PRIVATE):
         gagal = await EMO.GAGAL(client)
         alasan = await EMO.ALASAN(client)
@@ -113,7 +119,7 @@ async def add_blacklist(client, message):
         alasan = await EMO.ALASAN(client)
         add_blacklist = await add_chat(client.me.id, chat_id)
         if add_blacklist:
-            return await Tm.edit(f"<b>{sukses} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ/pre>")
+            return await Tm.edit(f"<b>{sukses} ɢʀᴏᴜᴘ:</b> <pre>{message.chat.title}</pre>\n<b>{alasan} ᴋᴇᴛ:</b> <pre>ʙᴇʀʜᴀꜱɪʟ ᴍᴀꜱᴜᴋ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</pre>")
         else:
             return await Tm.edit(f"<b><i>{gagal} ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</i><b>")
     else:
@@ -121,34 +127,34 @@ async def add_blacklist(client, message):
 
 
 async def del_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    proses = await EMO.PROSES(client)
+    Tm = await message.reply(f"<b>{proses} ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
         try:
             if not get_arg(message):
                 chat_id = message.chat.id
             else:
                 chat_id = int(message.command[1])
-            gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
+            gagal = await EMO.GAGAL(client)
             blacklist = await get_chat(client.me.id)
             if chat_id not in blacklist:
-                return await Tm.edit(f"{message.chat.title} <emoji id={gagal}>❌</emoji> ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
-            gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
-            sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+                return await Tm.edit(f"{message.chat.title} {gagal} <b>ɢʀᴏᴜᴘ ɪɴɪ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</b>")
+            gagal = await EMO.GAGAL(client)
+            sukses = await EMO.SUKSES(client)
             del_blacklist = await remove_chat(client.me.id, chat_id)
             if del_blacklist:
-                return await Tm.edit(f"<emoji id={sukses}>✅</emoji> {chat_id} ɢʀᴏᴜᴘ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ɴᴇʀᴀᴋᴀ")
+                return await Tm.edit(f"{sukses} {chat_id} <b>ɢʀᴏᴜᴘ ɪɴɪ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ʟɪsᴛ ɴᴇʀᴀᴋᴀ</b>")
             else:
-                return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
+                return await Tm.edit(f"{gagal} <b>ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ</b>")
         except Exception as error:
             return await Tm.edit(error)
     else:
-        return await Tm.edit(f"<emoji id={gagal}>❎</emoji> ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ")
+        return await Tm.edit(f"{gagal} <b>ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴀJᴀ</b>")
 
 
 async def get_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    Tm = await message.reply(f"<b><emoji id={proses}>⏳</emoji> ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
+    proses = await EMO.PROSES(client)
+    Tm = await message.reply(f"<b>{proses} ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ . . .</b>")
     msg = f"<b>• ᴛᴏᴛᴀʟ ʙʟᴀᴄᴋʟɪsᴛ {len(await get_chat(client.me.id))}</b>\n\n"
     for X in await get_chat(client.me.id):
         try:
@@ -161,16 +167,16 @@ async def get_blacklist(client, message):
 
 
 async def rem_all_blacklist(client, message):
-    proses = await get_vars(client.me.id, "EMOJI_PROSES") or "5960640164114993927"
-    msg = await message.reply(f"<emoji id={proses}>⏳</emoji> <b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>", quote=True)
-    gagal = await get_vars(client.me.id, "EMOJI_GAGAL") or "5438630285635757876"
-    sukses = await get_vars(client.me.id, "EMOJI_SUKSES") or "5787188704434982946"
+    proses = await EMO.PROSES(client)
+    msg = await message.reply(f"{proses} <b>sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....</b>", quote=True)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
     get_bls = await get_chat(client.me.id)
     if len(get_bls) == 0:
-        return await msg.edit(f"<b><emoji id={gagal}>❎</emoji> ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
+        return await msg.edit(f"<b>{gagal} ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴀɴᴅᴀ ᴋᴏsᴏɴɢ</b>")
     for X in get_bls:
         await remove_chat(client.me.id, X)
-    await msg.edit(f"<b><emoji id={sukses}>✅</emoji> sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
+    await msg.edit(f"<b>{sukses} sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ɴᴇʀᴀᴋᴀ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs</b>")
 
 
 # ========================== #
