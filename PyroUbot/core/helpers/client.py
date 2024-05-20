@@ -12,8 +12,8 @@ async def if_sudo(_, client, message):
     return is_user.id in sudo_users or is_self
 
 
-async def if_jaseb(_, client, message):
-    on_off = await get_vars(client.me.id, "JASEB_ON_OFF")
+async def if_filter(_, client, message):
+    on_off = await get_vars(client.me.id, "FILTER_ON_OFF")
     return bool(on_off)
 
 
