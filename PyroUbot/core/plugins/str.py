@@ -16,19 +16,19 @@ async def ping_cmd(client, message):
     start = datetime.now()
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
-    delta_ping = (end - start).microseconds / 10000
+    delta_ping = (end - start).microseconds / 1000
     pong1 = await EMO.PING1(client)
     pong2 = await EMO.PING2(client)
     pong3 = await EMO.PING3(client)
     if client.me.is_premium:
         _ping = f"""
-<b>{pong1} —ᴘᴏɴɢ:</b> <code>{str(delta_ping)} ms</code>
+<b>{pong1} —ᴘᴏɴɢ:</b> <code>{int(delta_ping)} ms</code>
 <b>{pong2} —ᴜʙöᴛ :</b> <code>{bot.me.mention}</code>
 <b>{pong3} —ɪ'ᴍ:</b> <code><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></code>
 """
     else:
         _ping = f"""
-<b>—ᴘᴏɴɢ: </b> <code>{str(delta_ping)} ms</code>
+<b>—ᴘᴏɴɢ: </b> <code>{int(delta_ping)} ms</code>
 <b>—ᴜʙöᴛ: </b> <code>{bot.me.mention}</code>
 <b>—ɪ'ᴍ: </b><code><a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a></code>
 """
