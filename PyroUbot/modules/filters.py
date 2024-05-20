@@ -22,10 +22,6 @@ __HELP__ = """
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ sᴇᴍᴜᴀ ᴅᴀғᴛᴀʀ ғɪʟᴛᴇʀs
 """
 
-async def if_jaseb(_, client, message):
-    on_off = await get_vars(client.me.id, "JASEB_ON_OFF")
-    return bool(on_off)
-  
 
 def extract_type_and_msg(message):
     args = message.text.split(None, 2)
@@ -39,8 +35,8 @@ def extract_type_and_msg(message):
     return type, msg
 
 
-@ubot.on_message(filters.create(if_jaseb) & ~filters.me & ~filters.bot, group=62)
-async def filters_trg(client, message):
+@PY.NO_CMD_UBOT("FILTER_MSG")
+async def _(client, message):
     try:
         chat_logs = await get_vars(client.me.id, "ID_LOGS")
         all = await all_vars(client.me.id, "FILTERS") or {}
@@ -49,8 +45,8 @@ async def filters_trg(client, message):
                 msg_id = await get_vars(client.me.id, str(x), "FILTERS")
                 msg = await client.get_messages(int(chat_logs), int(msg_id))
                 return await msg.copy(message.chat.id, reply_to_message_id=message.id)
-    except Exception:
-        pass
+    except Exception as error:
+        print(error)
 
 
 @PY.UBOT("filter")
