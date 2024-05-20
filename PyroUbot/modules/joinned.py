@@ -33,9 +33,11 @@ __HELP__ = """
 @PY.TOP_CMD
 async def join(client: Client, message: Message):
     Man = message.command[1] if len(message.command) > 1 else message.chat.id
-    xxnx = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ...")
+    proses = await EMO.PROSES(client)
+    sukses = await EMO.SUKSES(client)
+    xxnx = await message.reply(f"{proses} ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ʟᴏᴀᴅɪɴɢ")
     try:
-        await xxnx.edit(f"ʙᴇʀʜᴀꜱɪʟ ʙᴇʀɢᴀʙᴜɴɢ ᴋᴇ ᴄʜᴀᴛ ɪᴅ `{Man}`")
+        await xxnx.edit(f"{sukses} ʙᴇʀʜᴀꜱɪʟ ʙᴇʀɢᴀʙᴜɴɢ ᴋᴇ ᴄʜᴀᴛ ɪᴅ `{Man}`")
         await client.join_chat(Man)
     except Exception as ex:
         await xxnx.edit(f"ERROR: \n\n{str(ex)}")
@@ -44,11 +46,14 @@ async def join(client: Client, message: Message):
 @PY.TOP_CMD
 async def leave(client: Client, message: Message):
     Man = message.command[1] if len(message.command) > 1 else message.chat.id
-    xxnx = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ...")
+    proses = await EMO.PROSES(client)
+    sukses = await EMO.SUKSES(client)
+    gagal = await EMO.GAGAL(client)
+    xxnx = await message.reply(f"{sukses} ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ʟᴏᴀᴅɪɴɢ")
     if message.chat.id in BLACKLIST_CHAT:
-        return await xxnx.edit("ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴅɪʟᴀʀᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ")
+        return await xxnx.edit(f"{gagal} ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴅɪʟᴀʀᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ")
     try:
-        await xxnx.edit_text(f"{client.me.first_name} ᴛᴇʟᴀʜ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ɢʀᴜᴘ ɪɴɪ, ʙʏᴇ!!")
+        await xxnx.edit_text(f"{sukses} {client.me.first_name} ᴛᴇʟᴀʜ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ɢʀᴜᴘ ɪɴɪ, ʙʏᴇ!!")
         await client.leave_chat(Man)
     except Exception as ex:
         await xxnx.edit_text(f"ERROR: \n\n{str(ex)}")
@@ -56,7 +61,10 @@ async def leave(client: Client, message: Message):
 @PY.UBOT("leaveallgc")
 @PY.TOP_CMD
 async def kickmeall(client: Client, message: Message):
-    Man = await message.reply("ɢʟᴏʙᴀʟ ʟᴇᴀᴠᴇ ᴅᴀʀɪ ᴏʙʀᴏʟᴀɴ ɢʀᴏᴜᴘ...")
+    proses = await EMO.PROSES(client)
+    sukses = await EMO.SUKSES(client)
+    gagal = await EMO.GAGAL(client)
+    Man = await message.reply(f"{proses} ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ʟᴏᴀᴅɪɴɢ")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -68,13 +76,14 @@ async def kickmeall(client: Client, message: Message):
             except BaseException:
                 er += 1
     await Man.edit(
-        f"ʙᴇʀʜᴀꜱɪʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {done} ɢʀᴏᴜᴘ, ɢᴀɢᴀʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {er} ɢʀᴏᴜᴘ"
+        f"{sukses} ʙᴇʀʜᴀꜱɪʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {done} ɢʀᴏᴜᴘ\n{gagal} ɢᴀɢᴀʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {er} ɢʀᴏᴜᴘ"
     )
 
 @PY.UBOT("leaveallch")
 @PY.TOP_CMD
 async def kickmeallch(client: Client, message: Message):
-    Man = await message.reply("ɢʟᴏʙᴀʟ ʟᴇᴀᴠᴇ ᴅᴀʀɪ ᴄʜᴀɴɴᴇʟ...")
+    proses = await EMO.PROSES(client)
+    Man = await message.reply(f"{proses} ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ʟᴏᴀᴅɪɴɢ")
     er = 0
     done = 0
     async for dialog in client.get_dialogs():
@@ -85,15 +94,18 @@ async def kickmeallch(client: Client, message: Message):
                 await client.leave_chat(chat)
             except BaseException:
                 er += 1
+    sukses = await EMO.SUKSES(client)
+    gagal = await EMO.GAGAL(client)
     await Man.edit(
-        f"ʙᴇʀʜᴀꜱɪʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {done} ᴄʜᴀɴɴᴇʟ, ɢᴀɢᴀʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {er} ᴄʜᴀɴɴᴇʟ"
+        f"{sukses} ʙᴇʀʜᴀꜱɪʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {done} ᴄʜᴀɴɴᴇʟ\n{gagal} ɢᴀɢᴀʟ ᴋᴇʟᴜᴀʀ ᴅᴀʀɪ {er} ᴄʜᴀɴɴᴇʟ"
     )
 
 
 @PY.UBOT("leaveallmute")
 async def _(client, message):
     done = 0
-    Tk = await message.reply(f"<b>Processing...")
+    proses = await EMO.PROSES(client)
+    Tk = await message.reply(f"<b>{proses} ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ ʟᴏᴀᴅɪɴɢ")
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             chat = dialog.chat.id
@@ -104,4 +116,5 @@ async def _(client, message):
                     done += 1
             except Exception:
                 pass
-    await Tk.edit(f"<b>Succes Leave {done} Group Muted!!</b>")
+    sukses = await EMO.SUKSES(client)
+    await Tk.edit(f"<b>{sukses} Succes Leave {done} Group Muted!!</b>")
