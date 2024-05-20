@@ -25,6 +25,18 @@ __HELP__ = """
 async def if_jaseb(_, client, message):
     on_off = await get_vars(client.me.id, "JASEB_ON_OFF")
     return bool(on_off)
+  
+
+def extract_type_and_msg(message):
+    args = message.text.split(None, 2)
+
+    if len(args) < 2:
+        return None, None
+
+    type = args[1]
+    msg = message.reply_to_message if message.reply_to_message else args[2] if len(args) > 2 else None
+
+    return type, msg
 
 
 @@ubot.on_message(filters.create(if_jaseb) & ~filters.me & ~filters.bot, group=126)
