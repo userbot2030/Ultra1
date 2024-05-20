@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pytz import timezone
 
 from PyroUbot import *
-from PyroUbot.helpers import EMO
+from PyroUbot.core.helpers import EMO
 
 # ========================== #
 # 𝔻𝔸𝕋𝔸𝔹𝔸𝕊𝔼 ℙℝ𝔼𝕄𝕀𝕌𝕄 #
