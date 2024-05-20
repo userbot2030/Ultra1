@@ -12,6 +12,12 @@ async def if_sudo(_, client, message):
     return is_user.id in sudo_users or is_self
 
 
+async def if_jaseb(_, client, message):
+    on_off = await get_vars(client.me.id, "JASEB_ON_OFF")
+    return bool(on_off)
+
+
+
 class FILTERS:
     ME = filters.me
     GROUP = filters.group
@@ -22,6 +28,25 @@ class FILTERS:
 
 
 class PY:
+    @staticmethod
+    def NO_CMD_UBOT(results):
+        def wrapper(func):
+            query_mapping = {
+                "JASEB_MSG": {
+                    "query": filters.create(if_jaseb) & ~filters.me & ~filters.bot,
+                    "group": 23,
+                },
+            }
+            results_query = query_mapping[results]
+
+            @ubot.on_message(results_query["query"], group=int(results_query["group"]))
+            async def wrapped_func(client, message):
+                await func(client, message)
+
+            return wrapped_func
+
+        return wrapper
+        
     def BOT(command, filter=False):
         def wrapper(func):
             message_filters = filters.command(command) & filter if filter else filters.command(command)
