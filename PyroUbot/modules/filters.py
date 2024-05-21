@@ -54,56 +54,65 @@ async def filter_message(client, message):
 @PY.UBOT("filter")
 @PY.TOP_CMD
 async def _(client, message):
-    txt = await message.reply("Sedang memproses")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    txt = await message.reply(f"{proses} Sedang memproses")
     arg = get_arg(message)
 
     if not arg or arg.lower() not in ["off", "on"]:
-        return await txt.edit("harap baca menu bantuan terlebih dahulu")
+        return await txt.edit(f"{gagal} harap baca menu bantuan terlebih dahulu")
 
     type = True if arg.lower() == "on" else False
     await set_vars(client.me.id, "FILTER_ON_OFF", type)
-    return await txt.edit(f"✅ filters berhasil di settings ke {type}")
+    return await txt.edit(f"{sukses} filters berhasil di settings ke {type}")
 
 
 @PY.UBOT("addfilter")
 @PY.TOP_CMD
 async def _(client, message):
-    txt = await message.reply("Sedang memproses")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    txt = await message.reply(f"{proses} Sedang memproses")
     type, reply = extract_type_and_msg(message)
 
     if not type and message.reply_to_message:
-        return await txt.edit("harap balas pesan dan kasih nama")
+        return await txt.edit(f"{gagal} harap balas pesan dan kasih nama")
 
     logs = await get_vars(client.me.id, "ID_LOGS")
     if bool(logs):
         try:
             msg = await reply.copy(int(logs))
             await set_vars(client.me.id, type, msg.id, "FILTERS")
-            await txt.edit(f"✅ filters {type} berhasil di simpan")
+            await txt.edit(f"{sukses} filters {type} berhasil di simpan")
         except Exception as error:
             await txt.edit(error)
     else:
-        return await txt.edit("Tidak bisa membuat filters baru")
+        return await txt.edit(f"{gagal} Tidak bisa membuat filters baru")
 
 
 @PY.UBOT("delfilter")
 @PY.TOP_CMD
 async def _(client, message):
-    txt = await message.reply("tunggu sebentar")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    txt = await message.reply(f"{proses} tunggu sebentar")
     arg = get_arg(message)
 
     if not arg:
-        return await txt.edit(f"{message.text.split()[0]} nama filter")
+        return await txt.edit(f"{gagal} {message.text.split()[0]} nama filter")
 
     logs = await get_vars(client.me.id, "ID_LOGS")
     all = await all_vars(client.me.id, "FILTERS")
 
     if arg not in all:
-        return await txt.edit(f"filter {arg} tidak ditemukan")
+        return await txt.edit(f"{gagal} filter {arg} tidak ditemukan")
 
     await remove_vars(client.me.id, arg, "FILTERS")
     await client.delete_messages(logs, all[arg])
-    return await txt.edit(f"filter {arg} berhasil dihapus")
+    return await txt.edit(f"{sukses} filter {arg} berhasil dihapus")
 
 
 @PY.UBOT("filters")
@@ -111,11 +120,13 @@ async def _(client, message):
 async def _(client, message):
     vars = await all_vars(client.me.id, "FILTERS")
     if vars:
-        msg = "<b>📝 ᴅᴀғᴛᴀʀ ғɪʟᴛᴇʀs</b>\n"
+        alasan = await EMO.ALASAN(client)
+        gagal = await EMO.GAGAL(client)
+        msg = f"<b>{alasan} ᴅᴀғᴛᴀʀ ғɪʟᴛᴇʀs</b>\n"
         for x in vars.keys():
             msg += f"<b> ├ <code>{x}</code></b>\n"
         msg += f"<b> ╰ ᴛᴏᴛᴀʟ ғɪʟᴛᴇʀs: {len(vars)}</b>"
     else:
-        msg = "<b>❌ ᴛɪᴅᴀᴋ ᴀᴅᴀ ғɪʟᴛᴇʀs ʏᴀɴɢ ᴛᴇʀsɪᴍᴘᴀɴ</b>"
+        msg = f"<b>{gagal} ᴛɪᴅᴀᴋ ᴀᴅᴀ ғɪʟᴛᴇʀs ʏᴀɴɢ ᴛᴇʀsɪᴍᴘᴀɴ</b>"
 
     return await message.reply(msg, quote=True)
