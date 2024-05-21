@@ -65,13 +65,14 @@ async def _(client, message):
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
-        return await message.reply("ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ.")
+        gagal = await EMO.GAGAL(client)
+        return await message.reply(f"{gagal} ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ.")
 
     query = {"on": True, "off": False, "none": False}
     command = message.command[1].lower()
 
     if command not in query:
-        return await message.reply("ᴏᴘsɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ. ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ 'on' ᴀᴛᴀᴜ 'off'.")
+        return await message.reply(f"{gagal} ᴏᴘsɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ. ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ 'on' ᴀᴛᴀᴜ 'off'.")
 
     value = query[command]
 
@@ -89,7 +90,8 @@ async def _(client, message):
         await set_vars(client.me.id, "ID_LOGS", value)
 
     await set_vars(client.me.id, "ON_LOGS", value)
-    return await message.reply(f"<b>✅ <code>LOGS</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ:</b> <code>{value}</code>")
+    sukses = await EMO.SUKSES(client)
+    return await message.reply(f"<b>{sukses} <code>LOGS</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ:</b> <code>{value}</code>")
 
 
 async def create_logs(client):
