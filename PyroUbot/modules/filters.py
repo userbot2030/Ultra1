@@ -45,8 +45,8 @@ async def filter_message(client, message):
             if key == message.text.split()[0]:
                 msg = await client.get_messages(int(chat_logs), int(value))
                 return await msg.copy(message.chat.id, reply_to_message_id=message.id)
-    except Exception as error:
-        print(f"An error occurred: {error}")
+    except Exception:
+        pass
 
 
 
