@@ -15,7 +15,10 @@ async def zombies_cmd(client, message):
     chat_id = message.chat.id
     deleted_users = []
     banned_users = 0
-    Tm = await message.reply("<code>sᴇᴅᴀɴɢ ᴍᴇᴍᴇʀɪᴋsᴀ</code>")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    Tm = await message.reply(f"{proses} <code>sᴇᴅᴀɴɢ ᴍᴇᴍᴇʀɪᴋsᴀ</code>")
     async for i in client.get_chat_members(chat_id):
         if i.user.is_deleted:
             deleted_users.append(i.user.id)
@@ -26,6 +29,6 @@ async def zombies_cmd(client, message):
                 await message.chat.ban_member(deleted_user)
             except Exception:
                 pass
-        await Tm.edit(f"<b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴇʟᴜᴀʀᴋᴀɴ {banned_users} ᴀᴋᴜɴ ʜᴀɴᴛᴜ</b>")
+        await Tm.edit(f"{sukses} <b>ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢᴇʟᴜᴀʀᴋᴀɴ {banned_users} ᴀᴋᴜɴ ʜᴀɴᴛᴜ</b>")
     else:
-        await Tm.edit("<b>ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴀᴋᴜɴ ʜᴀɴᴛᴜ ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ</b>")
+        await Tm.edit(f"{gagal} <b>ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴀᴋᴜɴ ʜᴀɴᴛᴜ ᴅɪ ɢʀᴏᴜᴘ ɪɴɪ</b>")
