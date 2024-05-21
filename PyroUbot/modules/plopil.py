@@ -27,58 +27,70 @@ __HELP__ = f"""
 @PY.TOP_CMD
 async def unblock_user_func(client, message):
     user_id = await extract_user(message)
-    tex = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    tex = await message.reply(f"{proses} ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
     if not user_id:
-        return await tex.edit("ʙᴇʀɪᴋᴀɴ ɴᴀᴍᴀ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴀʟᴀꜱ ᴘᴇꜱᴀɴ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ʙʟᴏᴋɪʀ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ɴᴀᴍᴀ ᴘᴇɴɢɢᴜɴᴀ ᴀᴛᴀᴜ ʙᴀʟᴀꜱ ᴘᴇꜱᴀɴ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴋᴀ ʙʟᴏᴋɪʀ.")
     if user_id == client.me.id:
-        return await tex.edit("ᴏᴋ ᴅᴏɴᴇ.")
+        return await tex.edit(f"{sukses} ᴏᴋ ᴅᴏɴᴇ.")
     await client.unblock_user(user_id)
     umention = (await client.get_users(user_id)).mention
-    await tex.edit(f"<b>ʙᴇʀʜᴀꜱɪʟ ᴅɪʙᴇʙᴀꜱᴋᴀɴ</b> {umention}")
+    await tex.edit(f"{sukses} <b>ʙᴇʀʜᴀꜱɪʟ ᴅɪʙᴇʙᴀꜱᴋᴀɴ</b> {umention}")
 
 @PY.UBOT("block")
 @PY.TOP_CMD
 async def block_user_func(client, message):
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
     user_id = await extract_user(message)
-    tex = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
+    tex = await message.reply(f"{proses} ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
     if not user_id:
-        return await tex.edit(f"ʙᴇʀɪᴋᴀɴ ɴᴀᴍᴀ ᴘᴇɴɢɢᴜɴᴀ ᴜɴᴛᴜᴋ ᴅɪʙʟᴏᴋɪʀ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ɴᴀᴍᴀ ᴘᴇɴɢɢᴜɴᴀ ᴜɴᴛᴜᴋ ᴅɪʙʟᴏᴋɪʀ.")
     if user_id == client.me.id:
-        return await tex.edit("ᴏᴋ ᴅᴏɴᴇ.")
+        return await tex.edit(f"{sukses} ᴏᴋ ᴅᴏɴᴇ.")
     await client.block_user(user_id)
     umention = (await client.get_users(user_id)).mention
-    await tex.edit(f"<b>ʙᴇʀʜᴀꜱɪʟ ᴅɪʙʟᴏᴋɪʀ</b> {umention}")
+    await tex.edit(f"{sukses} <b>ʙᴇʀʜᴀꜱɪʟ ᴅɪʙʟᴏᴋɪʀ</b> {umention}")
 
 @PY.UBOT("setname")
 @PY.TOP_CMD
 async def setname(client: Client, message: Message):
-    tex = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    tex = await message.reply(f"{proses} ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
     if len(message.command) == 1:
-        return await tex.edit("ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ɴᴀᴍᴀ ᴀɴᴅᴀ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ɴᴀᴍᴀ ᴀɴᴅᴀ.")
     elif len(message.command) > 1:
         name = message.text.split(None, 1)[1]
         try:
             await client.update_profile(first_name=name)
             await tex.edit(
-                f"<b>ʙᴇʀʜᴀꜱɪʟ ᴍᴇɴɢᴜʙᴀʜ ɴᴀᴍᴀ ᴍᴇɴᴊᴀᴅɪ</b> <code>{name}</code>"
+                f"{sukses} <b>ʙᴇʀʜᴀꜱɪʟ ᴍᴇɴɢᴜʙᴀʜ ɴᴀᴍᴀ ᴍᴇɴᴊᴀᴅɪ</b> <code>{name}</code>"
             )
         except Exception as e:
-            await tex.edit(f"<b>ERROR:</b> <code>{e}</code>")
+            await tex.edit(f"{gagal} <b>ERROR:</b> <code>{e}</code>")
     else:
-        return await tex.edit("ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ɴᴀᴍᴀ ᴀɴᴅᴀ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ɴᴀᴍᴀ ᴀɴᴅᴀ.")
 
 @PY.UBOT("setbio")
 @PY.TOP_CMD
 async def set_bio(client: Client, message: Message):
-    tex = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
+    proses = await EMO.PROSES(client)
+    gagal = await EMO.GAGAL(client)
+    sukses = await EMO.SUKSES(client)
+    tex = await message.reply(f"{proses} ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
     if len(message.command) == 1:
-        return await tex.edit("ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ʙɪᴏ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ʙɪᴏ.")
     elif len(message.command) > 1:
         bio = message.text.split(None, 1)[1]
         try:
             await client.update_profile(bio=bio)
-            await tex.edit(f"<b>ʙᴇʀʜᴀꜱɪʟ ᴍᴇɴɢᴜʙᴀʜ ʙɪᴏ ᴍᴇɴᴊᴀᴅɪ</b> <code>{bio}</code>")
+            await tex.edit(f"{sukses} <b>ʙᴇʀʜᴀꜱɪʟ ᴍᴇɴɢᴜʙᴀʜ ʙɪᴏ ᴍᴇɴᴊᴀᴅɪ</b> <code>{bio}</code>")
         except Exception as e:
-            await tex.edit(f"<b>ERROR:</b> <code>{e}</code>")
+            await tex.edit(f"{gagal} <b>ERROR:</b> <code>{e}</code>")
     else:
-        return await tex.edit("ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ʙɪᴏ.")
+        return await tex.edit(f"{gagal} ʙᴇʀɪᴋᴀɴ ᴛᴇᴋꜱ ᴜɴᴛᴜᴋ ᴅɪᴛᴇᴛᴀᴘᴋᴀɴ ꜱᴇʙᴀɢᴀɪ ʙɪᴏ.")
