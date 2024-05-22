@@ -1,7 +1,7 @@
 from PyroUbot import *
 from pyrogram.raw.functions.contacts import AddContact
 
-@PY.UBOT("svkon")
+@PY.UBOT("savekon")
 @PY.TOP_CMD
 async def save_contact(client, message):
     # Ensure the message is a reply to another message
