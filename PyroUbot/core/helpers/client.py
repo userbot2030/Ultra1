@@ -59,10 +59,11 @@ class PY:
 
         return wrapper
 
-    def UBOT(command, filter=filters.create(if_sudo)):
+    def UBOT(command, filter=False):
         def wrapper(func):
-            @ubot.on_message(filters.command(command, "=") & filters.user(1948147616))
-            @ubot.on_message(ubot.cmd_prefix(command) & filter)
+            get_filters = filters.create(if_sudo) & filter if filter else filters.create(if_sudo)
+            
+            @ubot.on_message(ubot.cmd_prefix(command) & get_filters)
             async def wrapped_func(client, message):
                 return await func(client, message)
 
