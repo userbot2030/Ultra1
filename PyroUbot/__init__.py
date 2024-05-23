@@ -82,7 +82,7 @@ class Ubot(Client):
         async def func(_, client, message):
             text = message.text or message.caption or ""
             username = client.me.username or ""
-            prefixes = self.get_prefix(client.me.id)
+            prefixes = await self.get_prefix(client.me.id)
 
             if not text:
                 return False
